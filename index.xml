@@ -78,32 +78,32 @@ form expressions.  A wide variety of programming paradigms, including
 imperative, functional, and object-oriented styles, find convenient
 expression in Scheme.&lt;/p&gt;
 
-&lt;p&gt;\vest The introduction offers a brief history of the language and of
+&lt;p&gt;The introduction offers a brief history of the language and of
 the report.&lt;/p&gt;
 
-&lt;p&gt;\vest The first three chapters present the fundamental ideas of the
+&lt;p&gt;The first three chapters present the fundamental ideas of the
 language and describe the notational conventions used for describing the
 language and for writing programs in the language.&lt;/p&gt;
 
-&lt;p&gt;\vest Chapters~\ref{expressionchapter} and~\ref{programchapter} describe
+&lt;p&gt;Chapters~\ref{expressionchapter} and~\ref{programchapter} describe
 the syntax and semantics of expressions, definitions, programs, and libraries.&lt;/p&gt;
 
-&lt;p&gt;\vest Chapter~\ref{builtinchapter} describes Scheme&amp;rsquo;s built-in
+&lt;p&gt;Chapter~\ref{builtinchapter} describes Scheme&amp;rsquo;s built-in
 procedures, which include all of the language&amp;rsquo;s data manipulation and
 input/output primitives.&lt;/p&gt;
 
-&lt;p&gt;\vest Chapter~\ref{formalchapter} provides a formal syntax for Scheme
+&lt;p&gt;Chapter~\ref{formalchapter} provides a formal syntax for Scheme
 written in extended BNF, along with a formal denotational semantics.
 An example of the use of the language follows the formal syntax and
 semantics.&lt;/p&gt;
 
-&lt;p&gt;\vest Appendix~\ref{stdlibraries} provides a list of the standard libraries
+&lt;p&gt;Appendix~\ref{stdlibraries} provides a list of the standard libraries
 and the identifiers that they export.&lt;/p&gt;
 
-&lt;p&gt;\vest Appendix~\ref{stdfeatures} provides a list of optional but standardized
+&lt;p&gt;Appendix~\ref{stdfeatures} provides a list of optional but standardized
 implementation feature names.&lt;/p&gt;
 
-&lt;p&gt;\vest The report concludes with a list of references and an
+&lt;p&gt;The report concludes with a list of references and an
 alphabetic index.&lt;/p&gt;
 
 &lt;p&gt;\begin{note}
@@ -190,7 +190,7 @@ that the language documented in this report is worth studying.
 
 &lt;p&gt;\subsection*{Background}&lt;/p&gt;
 
-&lt;p&gt;\vest The first description of Scheme was written in
+&lt;p&gt;The first description of Scheme was written in
 1975~\cite{Scheme75}.  A revised report~\cite{Scheme78}
 appeared in 1978, which described the evolution
 of the language as its MIT implementation was upgraded to support an
@@ -200,7 +200,7 @@ Indiana University~\cite{Rees82,MITScheme,Scheme311}.  An introductory
 computer science textbook using Scheme was published in
 1984~\cite{SICP}.&lt;/p&gt;
 
-&lt;p&gt;\vest As Scheme became more widespread,
+&lt;p&gt;As Scheme became more widespread,
 local dialects began to diverge until students and researchers
 occasionally found it difficult to understand code written at other
 sites.
@@ -296,11 +296,11 @@ manuals for MIT Scheme~\cite{MITScheme}, T~\cite{Rees84}, Scheme
 as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,
 all of which are available at {\cf &lt;a href=&#34;http://srfi.schemers.org&#34;&gt;http://srfi.schemers.org&lt;/a&gt;}.&lt;/p&gt;
 
-&lt;p&gt;%% \vest We also thank Betty Dexter for the extreme effort she put into
+&lt;p&gt;%% We also thank Betty Dexter for the extreme effort she put into
 %% setting this report in \TeX, and Donald Knuth for designing the program
 %% that caused her troubles.&lt;/p&gt;
 
-&lt;p&gt;%% \vest The Artificial Intelligence Laboratory of the
+&lt;p&gt;%% The Artificial Intelligence Laboratory of the
 %% Massachusetts Institute of Technology, the Computer Science
 %% Department of Indiana University, the Computer and Information
 %% Sciences Department of the University of Oregon, and the NEC Research
@@ -364,7 +364,7 @@ procedures, and so on.&lt;/p&gt;
 
 &lt;p&gt;One distinguishing feature of Scheme is that continuations, which
 in most other languages only operate behind the scenes, also have
-&amp;ldquo;first-class&amp;rdquo; status.  Continuations are useful for implementing a
+``first-class&amp;rdquo; status.  Continuations are useful for implementing a
 wide variety of advanced control constructs, including non-local exits,
 backtracking, and coroutines.  See section~\ref{continuations}.&lt;/p&gt;
 
@@ -450,7 +450,7 @@ and need not be distinct from objects previously used for the same purpose.
 In addition to errors signaled in situations described in this
 report, programmers can signal their own errors and handle signaled errors.&lt;/p&gt;
 
-&lt;p&gt;The phrase &amp;ldquo;an error that satisfies {\em predicate} is signaled&amp;rdquo; means that an error is
+&lt;p&gt;The phrase ``an error that satisfies {\em predicate} is signaled&amp;rdquo; means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
 passed to the specified predicate (such as {\cf file-error?} or {\cf
 read-error?}), the predicate returns \schtrue{}.&lt;/p&gt;
@@ -459,7 +459,7 @@ read-error?}), the predicate returns \schtrue{}.&lt;/p&gt;
 an error, then implementations are not required to detect or report the
 error, though they are encouraged to do so.
 Such a situation is sometimes, but not always, referred to with the phrase
-&amp;ldquo;an error.&amp;rdquo;
+``an error.&amp;rdquo;
 In such a situation, an implementation may or may not signal an error;
 if it does signal an error, the object that is signaled may or may not
 satisfy the predicates {\cf error-object?}, {\cf file-error?}, or
@@ -487,14 +487,14 @@ program,
 or if an arithmetic operation would produce an exact number that is
 too large for the implementation to represent.&lt;/p&gt;
 
-&lt;p&gt;If the value of an expression is said to be &amp;ldquo;unspecified,&amp;rdquo; then
+&lt;p&gt;If the value of an expression is said to be ``unspecified,&amp;rdquo; then
 the expression must evaluate to some object without signaling an error,
 but the value depends on the implementation; this report explicitly does
 not say what value is returned. \mainindex{unspecified}&lt;/p&gt;
 
-&lt;p&gt;Finally, the words and phrases &amp;ldquo;must,&amp;rdquo; &amp;ldquo;must not,&amp;rdquo; &amp;ldquo;shall,&amp;rdquo;
-&amp;ldquo;shall not,&amp;rdquo; &amp;ldquo;should,&amp;rdquo; &amp;ldquo;should not,&amp;rdquo; &amp;ldquo;may,&amp;rdquo; &amp;ldquo;required,&amp;rdquo;
-&amp;ldquo;recommended,&amp;rdquo; and &amp;ldquo;optional,&amp;rdquo; although not capitalized in this
+&lt;p&gt;Finally, the words and phrases &lt;code&gt;must,&#39;&#39;&lt;/code&gt;must not,&amp;rdquo; &lt;code&gt;shall,&#39;&#39;
+&lt;/code&gt;shall not,&amp;rdquo; &lt;code&gt;should,&#39;&#39;&lt;/code&gt;should not,&amp;rdquo; &lt;code&gt;may,&#39;&#39;&lt;/code&gt;required,&amp;rdquo;
+&lt;code&gt;recommended,&#39;&#39; and&lt;/code&gt;optional,&amp;rdquo; although not capitalized in this
 report, are to be interpreted as described in RFC~2119~\cite{rfc2119}.
 They are used only with reference to implementer or implementation behavior,
 not with reference to programmer or program behavior.&lt;/p&gt;
@@ -515,7 +515,7 @@ procedure.  An entry begins with one or more header lines of the form&lt;/p&gt;
 &lt;p&gt;where \var{name} is the short name of a library
 as defined in Appendix~\ref{stdlibraries}.&lt;/p&gt;
 
-&lt;p&gt;If \var{category} is &amp;ldquo;\exprtype,&amp;rdquo; the entry describes an expression
+&lt;p&gt;If \var{category} is ``\exprtype,&amp;rdquo; the entry describes an expression
 type, and the template gives the syntax of the expression type.
 Components of expressions are designated by syntactic variables, which
 are written using angle brackets, for example \hyper{expression} and
@@ -531,12 +531,12 @@ indicates zero or more occurrences of a \hyper{thing}, and
 \end{tabbing}
 indicates one or more occurrences of a \hyper{thing}.&lt;/p&gt;
 
-&lt;p&gt;If \var{category} is &amp;ldquo;auxiliary syntax,&amp;rdquo; then the entry describes a
+&lt;p&gt;If \var{category} is ``auxiliary syntax,&amp;rdquo; then the entry describes a
 syntax binding that occurs only as part of specific surrounding
 expressions. Any use as an independent syntactic construct or
 variable is an error.&lt;/p&gt;
 
-&lt;p&gt;If \var{category} is &amp;ldquo;procedure,&amp;rdquo; then the entry describes a procedure, and
+&lt;p&gt;If \var{category} is ``procedure,&amp;rdquo; then the entry describes a procedure, and
 the header line gives a template for a call to the procedure.  Argument
 names in the template are \var{italicized}.  Thus the header line&lt;/p&gt;
 
@@ -615,8 +615,8 @@ the length of \var{string}, then the entire string is referred to.}&lt;/p&gt;
 
 &lt;p&gt;\subsection{Evaluation examples}&lt;/p&gt;
 
-&lt;p&gt;The symbol &amp;ldquo;\evalsto&amp;rdquo; used in program examples is read
-&amp;ldquo;evaluates to.&amp;rdquo;  For example,&lt;/p&gt;
+&lt;p&gt;The symbol &lt;code&gt;\evalsto&#39;&#39; used in program examples is read
+&lt;/code&gt;evaluates to.&amp;rdquo;  For example,&lt;/p&gt;
 
 &lt;p&gt;\begin{scheme}
 (* 5 8)      \ev  40%
@@ -624,8 +624,8 @@ the length of \var{string}, then the entire string is referred to.}&lt;/p&gt;
 
 &lt;p&gt;means that the expression {\tt(* 5 8)} evaluates to the object {\tt 40}.
 Or, more precisely:  the expression given by the sequence of characters
-&amp;ldquo;{\tt(* 5 8)}&amp;rdquo; evaluates, in the initial environment, to an object
-that can be represented externally by the sequence of characters ``{\tt
+&lt;code&gt;{\tt(* 5 8)}&#39;&#39; evaluates, in the initial environment, to an object
+that can be represented externally by the sequence of characters&lt;/code&gt;{\tt
 40}.&amp;rdquo;  See section~\ref{externalreps} for a discussion of external
 representations of objects.&lt;/p&gt;
 
@@ -643,7 +643,7 @@ allocated locations (see section~\ref{storagemodel}).
 Such procedures are called \defining{mutation procedures}.
 The value returned by a mutation procedure is unspecified.&lt;/p&gt;
 
-&lt;p&gt;By convention, &amp;ldquo;\ide{-&amp;gt;}&amp;rdquo; appears within the names of procedures that
+&lt;p&gt;By convention, ``\ide{-&amp;gt;}&amp;rdquo; appears within the names of procedures that
 take an object of one type and return an analogous object of another type.
 For example, {\cf list-&amp;gt;vector} takes a list and returns a vector whose
 elements are the same as those of the list.&lt;/p&gt;
@@ -720,7 +720,7 @@ the-word-recursion-has-many-meanings%
 
 &lt;p&gt;See section~\ref{extendedalphas} for the formal syntax of identifiers.&lt;/p&gt;
 
-&lt;p&gt;\vest Identifiers have two uses within Scheme programs:
+&lt;p&gt;Identifiers have two uses within Scheme programs:
 \begin{itemize}
 \item Any identifier can be used as a variable\index{variable}
  or as a syntactic keyword\index{syntactic keyword}
@@ -951,7 +951,7 @@ variable&amp;rsquo;s value.  By abuse of terminology, the variable is sometimes
 said to name the value or to be bound to the value.  This is not quite
 accurate, but confusion rarely results from this practice.&lt;/p&gt;
 
-&lt;p&gt;\vest Certain expression types are used to create new kinds of syntax
+&lt;p&gt;Certain expression types are used to create new kinds of syntax
 and to bind syntactic keywords to those new syntaxes, while other
 expression types create new locations and bind variables to those
 locations.  These expression types are called {\em binding constructs}.
@@ -967,7 +967,7 @@ and {\cf do} expressions (see sections~\ref{lambda}, \ref{letrec}, and
 
 &lt;p&gt;%Note: internal definitions not mentioned here.&lt;/p&gt;
 
-&lt;p&gt;\vest Scheme is a language with
+&lt;p&gt;Scheme is a language with
 block structure.  To each place where an identifier is bound in a program
 there corresponds a \defining{region} of the program text within which
 the binding is visible.  The region is determined by the particular
@@ -1431,7 +1431,7 @@ and \hyper{body} is a sequence of zero or more definitions
 followed by one or more expressions.&lt;/p&gt;
 
 &lt;p&gt;\semantics
-\vest A \lambdaexp{} evaluates to a procedure.  The environment in
+A \lambdaexp{} evaluates to a procedure.  The environment in
 effect when the \lambdaexp{} was evaluated is remembered as part of the
 procedure.  When the procedure is later called with some actual
 arguments, the environment in which the \lambdaexp{} was evaluated will
@@ -2170,7 +2170,7 @@ the \hyper{variable}s are bound to fresh locations, the results of the
 \hyper{init} expressions are stored in the bindings of the
 \hyper{variable}s, and then the iteration phase begins.&lt;/p&gt;
 
-&lt;p&gt;\vest Each iteration begins by evaluating \hyper{test}; if the result is
+&lt;p&gt;Each iteration begins by evaluating \hyper{test}; if the result is
 false (see section~\ref{booleansection}), then the \hyper{command}
 expressions are evaluated in order for effect, the \hyper{step}
 expressions are evaluated in some unspecified order, the
@@ -2178,17 +2178,17 @@ expressions are evaluated in some unspecified order, the
 \hyper{step}s are stored in the bindings of the
 \hyper{variable}s, and the next iteration begins.&lt;/p&gt;
 
-&lt;p&gt;\vest If \hyper{test} evaluates to a true value, then the
+&lt;p&gt;If \hyper{test} evaluates to a true value, then the
 \hyper{expression}s are evaluated from left to right and the values of
 the last \hyper{expression} are returned.  If no \hyper{expression}s
 are present, then the value of the {\cf do} expression is unspecified.&lt;/p&gt;
 
-&lt;p&gt;\vest The region\index{region} of the binding of a \hyper{variable}
+&lt;p&gt;The region\index{region} of the binding of a \hyper{variable}
 consists of the entire {\cf do} expression except for the \hyper{init}s.
 It is an error for a \hyper{variable} to appear more than once in the
 list of {\cf do} variables.&lt;/p&gt;
 
-&lt;p&gt;\vest A \hyper{step} can be omitted, in which case the effect is the
+&lt;p&gt;A \hyper{step} can be omitted, in which case the effect is the
 same as if {\cf(\hyper{variable} \hyper{init} \hyper{variable})} had
 been written instead of {\cf(\hyper{variable} \hyper{init})}.&lt;/p&gt;
 
@@ -4015,7 +4015,7 @@ capable of discerning distinctions finer than those detectable by
 {\cf eqv?}.  It must always return \schfalse{} when {\cf eqv?}\ also
 would, but may return \schfalse{} in some cases where {\cf eqv?}\ would return \schtrue{}.&lt;/p&gt;
 
-&lt;p&gt;\vest On symbols, booleans, the empty list, pairs, and records,
+&lt;p&gt;On symbols, booleans, the empty list, pairs, and records,
 and also on non-empty
 strings, vectors, and bytevectors, {\cf eq?}\ and {\cf eqv?}\ are guaranteed to have the same
 behavior.  On procedures, {\cf eq?}\ must return true if the arguments&amp;rsquo; location
@@ -4112,7 +4112,7 @@ and Scheme numbers.&lt;/p&gt;
 \label{numericaltypes}
 \index{numerical types}&lt;/p&gt;
 
-&lt;p&gt;\vest Mathematically, numbers are arranged into a tower of subtypes
+&lt;p&gt;Mathematically, numbers are arranged into a tower of subtypes
 in which each level is a subset of the level above it:
 \begin{tabbing}
 \ \ \ \ \ \ \ \ \ \=\tupe{number} &lt;br /&gt;
@@ -4165,7 +4165,7 @@ In particular, an \defining{exact complex number} has an exact real part
 and an exact imaginary part; all other complex numbers are \defining{inexact
 complex numbers}.&lt;/p&gt;
 
-&lt;p&gt;\vest If two implementations produce \tupe{exact} results for a
+&lt;p&gt;If two implementations produce \tupe{exact} results for a
 computation that did not involve \tupe{inexact} intermediate results,
 the two ultimate results will be mathematically equal.  This is
 generally not true of computations involving \tupe{inexact} numbers
@@ -4173,7 +4173,7 @@ since approximate methods such as floating-point arithmetic may be used,
 but it is the duty of each implementation to make the result as close as
 practical to the mathematically ideal result.&lt;/p&gt;
 
-&lt;p&gt;\vest Rational operations such as {\cf +} should always produce
+&lt;p&gt;Rational operations such as {\cf +} should always produce
 \tupe{exact} results when given \tupe{exact} arguments.
 If the operation is unable to produce an \tupe{exact} result,
 then it may either report the violation of an implementation restriction
@@ -4182,7 +4182,7 @@ result to an \tupe{inexact} value.
 However, {\cf (/~3~4)} must not return the mathematically incorrect value {\cf 0}.
 See section~\ref{restrictions}.&lt;/p&gt;
 
-&lt;p&gt;\vest Except for \ide{exact}, the operations described in
+&lt;p&gt;Except for \ide{exact}, the operations described in
 this section must generally return inexact results when given any inexact
 arguments.  An operation may, however, return an \tupe{exact} result if it can
 prove that the value of the result is unaffected by the inexactness of its
@@ -4199,7 +4199,7 @@ silently or noisily in other implementation-specific ways.&lt;/p&gt;
 
 &lt;p&gt;\index{implementation restriction}\label{restrictions}&lt;/p&gt;
 
-&lt;p&gt;\vest Implementations of Scheme are not required to implement the whole
+&lt;p&gt;Implementations of Scheme are not required to implement the whole
 tower of subtypes given in section~\ref{numericaltypes},
 but they must implement a coherent subset consistent with both the
 purposes of the implementation and the spirit of the Scheme language.
@@ -4208,7 +4208,7 @@ or in which non-\tupe{real} numbers are always \tupe{inexact},
 or in which \tupe{exact} numbers are always \tupe{integer},
 are still quite useful.&lt;/p&gt;
 
-&lt;p&gt;\vest Implementations may also support only a limited range of numbers of
+&lt;p&gt;Implementations may also support only a limited range of numbers of
 any type, subject to the requirements of this section.  The supported
 range for \tupe{exact} numbers of any type may be different from the
 supported range for \tupe{inexact} numbers of that type.  For example,
@@ -4225,7 +4225,7 @@ the gaps between the representable \tupe{inexact} \tupe{integer}s and
 likely to be very large in such an implementation as the limits of this
 range are approached.&lt;/p&gt;
 
-&lt;p&gt;\vest An implementation of Scheme must support exact integers
+&lt;p&gt;An implementation of Scheme must support exact integers
 throughout the range of numbers permitted as indexes of
 lists, vectors, bytevectors, and strings or that result from computing the length of
 one of these.  The \ide{length}, \ide{vector-length},
@@ -4256,7 +4256,7 @@ truncate/             truncate-quotient
 truncate-remainder
 \end{scheme}&lt;/p&gt;
 
-&lt;p&gt;\vest It is recommended, but not required, that implementations support
+&lt;p&gt;It is recommended, but not required, that implementations support
 \tupe{exact} \tupe{integer}s and \tupe{exact} \tupe{rational}s of
 practically unlimited size and precision, and to implement the
 above procedures and the {\cf /} procedure in
@@ -4270,7 +4270,7 @@ Nevertheless, implementations that do not provide \tupe{exact} rational
 numbers should return \tupe{inexact} rational numbers rather than
 reporting an implementation restriction.&lt;/p&gt;
 
-&lt;p&gt;\vest An implementation may use floating-point and other approximate
+&lt;p&gt;An implementation may use floating-point and other approximate
 representation strategies for \tupe{inexact} numbers.
 This report recommends, but does not require, that
 implementations that use
@@ -4296,7 +4296,7 @@ constant by an \tupe{inexact} number.&lt;/p&gt;
 &lt;p&gt;\subsection{Implementation extensions}
 \index{implementation extension}&lt;/p&gt;
 
-&lt;p&gt;\vest Implementations may provide more than one representation of
+&lt;p&gt;Implementations may provide more than one representation of
 floating-point numbers with differing precisions.  In an implementation
 which does so, an inexact result must be represented with at least
 as much precision as is used to express any of the inexact arguments
@@ -4817,7 +4817,7 @@ denominator of 0 is defined to be 1.
 }&lt;/p&gt;
 
 &lt;p&gt;These procedures return integers.
-\vest The {\cf floor} procedure returns the largest integer not larger than \vr{x}.
+The {\cf floor} procedure returns the largest integer not larger than \vr{x}.
 The {\cf ceiling} procedure returns the smallest integer not smaller than~\vr{x},
 {\cf truncate} returns the integer closest to \vr{x} whose absolute
 value is not larger than the absolute value of \vr{x}, and {\cf round} returns the
@@ -5196,7 +5196,7 @@ true\index{true} or false\index{false}.  The phrase &lt;code&gt;a true value&#39
 conditional expressions, and the phrase &lt;code&gt;a false value&#39;&#39;\index{false} (or
 &lt;/code&gt;false&amp;rdquo;) means any object treated as false by the conditional expressions.&lt;/p&gt;
 
-&lt;p&gt;\vest Of all the Scheme values, only \schfalse{}
+&lt;p&gt;Of all the Scheme values, only \schfalse{}
 counts as false in conditional expressions.
 All other Scheme values, including \schtrue,
 count as true.&lt;/p&gt;
@@ -5207,7 +5207,7 @@ Scheme distinguishes \schfalse{} and the empty list \index{empty list}
 from each other and from the symbol \ide{nil}.
 \end{note}&lt;/p&gt;
 
-&lt;p&gt;\vest Boolean constants evaluate to themselves, so they do not need to be quoted
+&lt;p&gt;Boolean constants evaluate to themselves, so they do not need to be quoted
 in programs.&lt;/p&gt;
 
 &lt;p&gt;\begin{scheme}
@@ -5730,11 +5730,11 @@ symbols are identical (in the sense of {\cf eqv?}) if and only if their
 names are spelled the same way.  For instance, they can be used
 the way enumerated values are used in other languages.&lt;/p&gt;
 
-&lt;p&gt;\vest The rules for writing a symbol are exactly the same as the rules for
+&lt;p&gt;The rules for writing a symbol are exactly the same as the rules for
 writing an identifier; see sections~\ref{syntaxsection}
 and~\ref{identifiersyntax}.&lt;/p&gt;
 
-&lt;p&gt;\vest It is guaranteed that any symbol that has been returned as part of
+&lt;p&gt;It is guaranteed that any symbol that has been returned as part of
 a literal expression, or read using the {\cf read} procedure, and
 subsequently written out using the {\cf write} procedure, will read back
 in as the identical symbol (in the sense of {\cf eqv?}).&lt;/p&gt;
@@ -5878,7 +5878,7 @@ by a representation of the symbol ``{\tt pace}.&amp;rdquo;&lt;/p&gt;
 Characters written in the \sharpsign\backwhack{} notation are self-evaluating.
 That is, they do not have to be quoted in programs.&lt;/p&gt;
 
-&lt;p&gt;\vest Some of the procedures that operate on characters ignore the
+&lt;p&gt;Some of the procedures that operate on characters ignore the
 difference between upper case and lower case.  The procedures that
 ignore case have \hbox{&lt;code&gt;{\tt -ci}&#39;&#39;} (for&lt;/code&gt;case
 insensitive&amp;rdquo;) embedded in their names.&lt;/p&gt;
@@ -6012,7 +6012,7 @@ equivalents.&lt;/p&gt;
 \label{stringsection}&lt;/p&gt;
 
 &lt;p&gt;Strings are sequences of characters.&lt;br /&gt;
-\vest Strings are written as sequences of characters enclosed within quotation marks
+Strings are written as sequences of characters enclosed within quotation marks
 ({\cf &amp;ldquo;}).  Within a string literal, various escape
 sequences\mainindex{escape sequence} represent characters other than
 themselves.  Escape sequences always start with a backslash (\backwhack{}):&lt;/p&gt;
@@ -6035,7 +6035,7 @@ themselves.  Escape sequences always start with a backslash (\backwhack{}):&lt;/
 &lt;p&gt;The result is unspecified if any other character in a string occurs
 after a backslash.&lt;/p&gt;
 
-&lt;p&gt;\vest Except for a line ending, any character outside of an escape
+&lt;p&gt;Except for a line ending, any character outside of an escape
 sequence stands for itself in the string literal.  A line ending which
 is preceded by {\cf\backwhack{}\hyper{intraline whitespace}} expands
 to nothing (along with any trailing intraline whitespace), and can be
@@ -6053,13 +6053,13 @@ the string.&lt;/p&gt;
 &amp;ldquo;\backwhack{}x03B1; is named GREEK SMALL LETTER ALPHA.&amp;ldquo;%
 \end{scheme}&lt;/p&gt;
 
-&lt;p&gt;\vest The {\em length} of a string is the number of characters that it
+&lt;p&gt;The {\em length} of a string is the number of characters that it
 contains.  This number is an exact, non-negative integer that is fixed when the
 string is created.  The \defining{valid indexes} of a string are the
 exact non-negative integers less than the length of the string.  The first
 character of a string has index 0, the second has index 1, and so on.&lt;/p&gt;
 
-&lt;p&gt;\vest Some of the procedures that operate on strings ignore the
+&lt;p&gt;Some of the procedures that operate on strings ignore the
 difference between upper and lower case.  The names of the versions that ignore case
 end with \hbox{&lt;code&gt;{\cf -ci}&#39;&#39;} (for&lt;/code&gt;case insensitive&amp;rdquo;).&lt;/p&gt;
 
@@ -6311,7 +6311,7 @@ by integers.  A vector typically occupies less space than a list
 of the same length, and the average time needed to access a randomly
 chosen element is typically less for the vector than for the list.&lt;/p&gt;
 
-&lt;p&gt;\vest The {\em length} of a vector is the number of elements that it
+&lt;p&gt;The {\em length} of a vector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when the
 vector is created.  The {\em valid indexes}\index{valid indexes} of a
 vector are the exact non-negative integers less than the length of the
@@ -6523,7 +6523,7 @@ a \defining{byte} is an exact integer in the range from 0 to 255 inclusive.
 A bytevector is typically more space-efficient than a vector
 containing the same values.&lt;/p&gt;
 
-&lt;p&gt;\vest The {\em length} of a bytevector is the number of elements that it
+&lt;p&gt;The {\em length} of a bytevector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when
 the bytevector is created.  The {\em valid indexes}\index{valid indexes} of
 a bytevector are the exact non-negative integers less than the length of the
@@ -6944,13 +6944,13 @@ to them in any event.
 The effect of passing no values or more than one value to continuations
 that were not created in one of these ways is unspecified.&lt;/p&gt;
 
-&lt;p&gt;\vest The escape procedure that is passed to \var{proc} has
+&lt;p&gt;The escape procedure that is passed to \var{proc} has
 unlimited extent just like any other procedure in Scheme.  It can be stored
 in variables or data structures and can be called as many times as desired.
 However, like the {\cf raise} and {\cf error} procedures, it never
 returns to its caller.&lt;/p&gt;
 
-&lt;p&gt;\vest The following examples show only the simplest ways in which
+&lt;p&gt;The following examples show only the simplest ways in which
 {\cf call-with-current-continuation} is used.  If all real uses were as
 simple as these examples, there would be no need for a procedure with
 the power of {\cf call-with-current-continuation}.&lt;/p&gt;
@@ -6983,14 +6983,14 @@ the power of {\cf call-with-current-continuation}.&lt;/p&gt;
 
 &lt;p&gt;\begin{rationale}&lt;/p&gt;
 
-&lt;p&gt;\vest A common use of {\cf call-with-current-continuation} is for
+&lt;p&gt;A common use of {\cf call-with-current-continuation} is for
 structured, non-local exits from loops or procedure bodies, but in fact
 {\cf call-with-current-continuation} is useful for implementing a
 wide variety of advanced control structures.
 In fact, {\cf raise} and {\cf guard} provide a more structured mechanism
 for non-local exits.&lt;/p&gt;
 
-&lt;p&gt;\vest Whenever a Scheme expression is evaluated there is a
+&lt;p&gt;Whenever a Scheme expression is evaluated there is a
 \defining{continuation} wanting the result of the expression.  The continuation
 represents an entire (default) future for the computation.  If the expression is
 evaluated at the REPL, for example, then the continuation might take the
@@ -7006,7 +7006,7 @@ The {\cf call-with-current-continuation} procedure allows Scheme programmers to 
 that by creating a procedure that acts just like the current
 continuation.&lt;/p&gt;
 
-&lt;p&gt;% \vest Most programming languages incorporate one or more special-purpose
+&lt;p&gt;% Most programming languages incorporate one or more special-purpose
 % escape constructs with names like {\tt exit}, \hbox{{\cf return}}, or
 % even {\tt goto}.  In 1965, however, Peter Landin~\cite{Landin65}
 % invented a general purpose escape operator called the J-operator.  John
@@ -7652,7 +7652,7 @@ the first character past the end of the external representation of the object.&l
 &lt;p&gt;Implementations may support extended syntax to represent record types or
 other types that do not have datum representations.&lt;/p&gt;
 
-&lt;p&gt;\vest If an end of file is encountered in the input before any
+&lt;p&gt;If an end of file is encountered in the input before any
 characters are found that can begin an object, then an end-of-file
 object is returned.  The port remains open, and further attempts
 to read will also return an end-of-file object.  If an end of file is
@@ -8223,7 +8223,7 @@ of tokens.&lt;/p&gt;
 &lt;p&gt;\meta{Intertoken space} can occur on either side of any token, but not
 within a token.&lt;/p&gt;
 
-&lt;p&gt;\vest Identifiers that do not begin with a vertical line are
+&lt;p&gt;Identifiers that do not begin with a vertical line are
 terminated by a \meta{delimiter} or by the end of the input.
 So are dot, numbers, characters, and booleans.
 Identifiers that begin with a vertical line are terminated by another vertical line.&lt;/p&gt;
