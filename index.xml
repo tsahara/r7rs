@@ -332,17 +332,17 @@ chapters~\ref{basicchapter} through~\ref{builtinchapter}.  For reference
 purposes, section~\ref{formalsemanticssection} provides a formal
 semantics of Scheme.&lt;/p&gt;
 
-&lt;p&gt;\vest Scheme is a statically scoped programming
+&lt;p&gt;Scheme is a statically scoped programming
 language.  Each use of a variable is associated with a lexically
 apparent binding of that variable.&lt;/p&gt;
 
-&lt;p&gt;\vest Scheme is a dynamically typed language.  Types
+&lt;p&gt;Scheme is a dynamically typed language.  Types
 are associated with values (also called objects\mainindex{object}) rather than
 with variables.&lt;br /&gt;
 Statically typed languages, by contrast, associate types with
 variables and expressions as well as with values.&lt;/p&gt;
 
-&lt;p&gt;\vest All objects created in the course of a Scheme computation, including
+&lt;p&gt;All objects created in the course of a Scheme computation, including
 procedures and continuations, have unlimited extent.
 No Scheme object is ever destroyed.  The reason that
 implementations of Scheme do not (usually!)\ run out of storage is that
@@ -350,7 +350,7 @@ they are permitted to reclaim the storage occupied by an object if
 they can prove that the object cannot possibly matter to any future
 computation.&lt;/p&gt;
 
-&lt;p&gt;\vest Implementations of Scheme are required to be properly tail-recursive.
+&lt;p&gt;Implementations of Scheme are required to be properly tail-recursive.
 This allows the execution of an iterative computation in constant space,
 even if the iterative computation is described by a syntactically
 recursive procedure.  Thus with a properly tail-recursive implementation,
@@ -358,22 +358,22 @@ iteration can be expressed using the ordinary procedure-call
 mechanics, so that special iteration constructs are useful only as
 syntactic sugar.  See section~\ref{proper tail recursion}.&lt;/p&gt;
 
-&lt;p&gt;\vest Scheme procedures are objects in their own right.  Procedures can be
+&lt;p&gt;Scheme procedures are objects in their own right.  Procedures can be
 created dynamically, stored in data structures, returned as results of
 procedures, and so on.&lt;/p&gt;
 
-&lt;p&gt;\vest One distinguishing feature of Scheme is that continuations, which
+&lt;p&gt;One distinguishing feature of Scheme is that continuations, which
 in most other languages only operate behind the scenes, also have
-``first-class&amp;rdquo; status.  Continuations are useful for implementing a
+&amp;ldquo;first-class&amp;rdquo; status.  Continuations are useful for implementing a
 wide variety of advanced control constructs, including non-local exits,
 backtracking, and coroutines.  See section~\ref{continuations}.&lt;/p&gt;
 
-&lt;p&gt;\vest Arguments to Scheme procedures are always passed by value, which
+&lt;p&gt;Arguments to Scheme procedures are always passed by value, which
 means that the actual argument expressions are evaluated before the
 procedure gains control, regardless of whether the procedure needs the
 result of the evaluation.&lt;/p&gt;
 
-&lt;p&gt;\vest Scheme&amp;rsquo;s model of arithmetic is designed to remain as independent as
+&lt;p&gt;Scheme&amp;rsquo;s model of arithmetic is designed to remain as independent as
 possible of the particular ways in which numbers are represented within a
 computer. In Scheme, every integer is a rational number, every rational is a
 real, and every real is a complex number.  Thus the distinction between integer
@@ -450,16 +450,16 @@ and need not be distinct from objects previously used for the same purpose.
 In addition to errors signaled in situations described in this
 report, programmers can signal their own errors and handle signaled errors.&lt;/p&gt;
 
-&lt;p&gt;The phrase ``an error that satisfies {\em predicate} is signaled&amp;rdquo; means that an error is
+&lt;p&gt;The phrase &amp;ldquo;an error that satisfies {\em predicate} is signaled&amp;rdquo; means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
 passed to the specified predicate (such as {\cf file-error?} or {\cf
 read-error?}), the predicate returns \schtrue{}.&lt;/p&gt;
 
-&lt;p&gt;\vest If such wording does not appear in the discussion of
+&lt;p&gt;If such wording does not appear in the discussion of
 an error, then implementations are not required to detect or report the
 error, though they are encouraged to do so.
 Such a situation is sometimes, but not always, referred to with the phrase
-``an error.&amp;rdquo;
+&amp;ldquo;an error.&amp;rdquo;
 In such a situation, an implementation may or may not signal an error;
 if it does signal an error, the object that is signaled may or may not
 satisfy the predicates {\cf error-object?}, {\cf file-error?}, or
@@ -473,7 +473,7 @@ signal an error,
 extend a procedure&amp;rsquo;s domain of definition to include such arguments,
 or fail catastrophically.&lt;/p&gt;
 
-&lt;p&gt;\vest This report uses the phrase ``may report a violation of an
+&lt;p&gt;This report uses the phrase ``may report a violation of an
 implementation restriction&amp;rdquo; to indicate circumstances under which an
 implementation is permitted to report that it is unable to continue
 execution of a correct program because of some restriction imposed by the
@@ -481,20 +481,20 @@ implementation.  Implementation restrictions are discouraged,
 but implementations are encouraged to report violations of implementation
 restrictions.\mainindex{implementation restriction}&lt;/p&gt;
 
-&lt;p&gt;\vest For example, an implementation may report a violation of an
+&lt;p&gt;For example, an implementation may report a violation of an
 implementation restriction if it does not have enough storage to run a
 program,
 or if an arithmetic operation would produce an exact number that is
 too large for the implementation to represent.&lt;/p&gt;
 
-&lt;p&gt;\vest If the value of an expression is said to be ``unspecified,&amp;rdquo; then
+&lt;p&gt;If the value of an expression is said to be &amp;ldquo;unspecified,&amp;rdquo; then
 the expression must evaluate to some object without signaling an error,
 but the value depends on the implementation; this report explicitly does
 not say what value is returned. \mainindex{unspecified}&lt;/p&gt;
 
-&lt;p&gt;\vest Finally, the words and phrases &lt;code&gt;must,&#39;&#39;&lt;/code&gt;must not,&amp;rdquo; &lt;code&gt;shall,&#39;&#39;
-&lt;/code&gt;shall not,&amp;rdquo; &lt;code&gt;should,&#39;&#39;&lt;/code&gt;should not,&amp;rdquo; &lt;code&gt;may,&#39;&#39;&lt;/code&gt;required,&amp;rdquo;
-&lt;code&gt;recommended,&#39;&#39; and&lt;/code&gt;optional,&amp;rdquo; although not capitalized in this
+&lt;p&gt;Finally, the words and phrases &amp;ldquo;must,&amp;rdquo; &amp;ldquo;must not,&amp;rdquo; &amp;ldquo;shall,&amp;rdquo;
+&amp;ldquo;shall not,&amp;rdquo; &amp;ldquo;should,&amp;rdquo; &amp;ldquo;should not,&amp;rdquo; &amp;ldquo;may,&amp;rdquo; &amp;ldquo;required,&amp;rdquo;
+&amp;ldquo;recommended,&amp;rdquo; and &amp;ldquo;optional,&amp;rdquo; although not capitalized in this
 report, are to be interpreted as described in RFC~2119~\cite{rfc2119}.
 They are used only with reference to implementer or implementation behavior,
 not with reference to programmer or program behavior.&lt;/p&gt;
@@ -515,7 +515,7 @@ procedure.  An entry begins with one or more header lines of the form&lt;/p&gt;
 &lt;p&gt;where \var{name} is the short name of a library
 as defined in Appendix~\ref{stdlibraries}.&lt;/p&gt;
 
-&lt;p&gt;If \var{category} is ``\exprtype,&amp;rdquo; the entry describes an expression
+&lt;p&gt;If \var{category} is &amp;ldquo;\exprtype,&amp;rdquo; the entry describes an expression
 type, and the template gives the syntax of the expression type.
 Components of expressions are designated by syntactic variables, which
 are written using angle brackets, for example \hyper{expression} and
@@ -531,12 +531,12 @@ indicates zero or more occurrences of a \hyper{thing}, and
 \end{tabbing}
 indicates one or more occurrences of a \hyper{thing}.&lt;/p&gt;
 
-&lt;p&gt;If \var{category} is ``auxiliary syntax,&amp;rdquo; then the entry describes a
+&lt;p&gt;If \var{category} is &amp;ldquo;auxiliary syntax,&amp;rdquo; then the entry describes a
 syntax binding that occurs only as part of specific surrounding
 expressions. Any use as an independent syntactic construct or
 variable is an error.&lt;/p&gt;
 
-&lt;p&gt;If \var{category} is ``procedure,&amp;rdquo; then the entry describes a procedure, and
+&lt;p&gt;If \var{category} is &amp;ldquo;procedure,&amp;rdquo; then the entry describes a procedure, and
 the header line gives a template for a call to the procedure.  Argument
 names in the template are \var{italicized}.  Thus the header line&lt;/p&gt;
 
@@ -615,8 +615,8 @@ the length of \var{string}, then the entire string is referred to.}&lt;/p&gt;
 
 &lt;p&gt;\subsection{Evaluation examples}&lt;/p&gt;
 
-&lt;p&gt;The symbol &lt;code&gt;\evalsto&#39;&#39; used in program examples is read
-&lt;/code&gt;evaluates to.&amp;rdquo;  For example,&lt;/p&gt;
+&lt;p&gt;The symbol &amp;ldquo;\evalsto&amp;rdquo; used in program examples is read
+&amp;ldquo;evaluates to.&amp;rdquo;  For example,&lt;/p&gt;
 
 &lt;p&gt;\begin{scheme}
 (* 5 8)      \ev  40%
@@ -624,8 +624,8 @@ the length of \var{string}, then the entire string is referred to.}&lt;/p&gt;
 
 &lt;p&gt;means that the expression {\tt(* 5 8)} evaluates to the object {\tt 40}.
 Or, more precisely:  the expression given by the sequence of characters
-&lt;code&gt;{\tt(* 5 8)}&#39;&#39; evaluates, in the initial environment, to an object
-that can be represented externally by the sequence of characters&lt;/code&gt;{\tt
+&amp;ldquo;{\tt(* 5 8)}&amp;rdquo; evaluates, in the initial environment, to an object
+that can be represented externally by the sequence of characters ``{\tt
 40}.&amp;rdquo;  See section~\ref{externalreps} for a discussion of external
 representations of objects.&lt;/p&gt;
 
@@ -643,7 +643,7 @@ allocated locations (see section~\ref{storagemodel}).
 Such procedures are called \defining{mutation procedures}.
 The value returned by a mutation procedure is unspecified.&lt;/p&gt;
 
-&lt;p&gt;By convention, ``\ide{-&amp;gt;}&amp;rdquo; appears within the names of procedures that
+&lt;p&gt;By convention, &amp;ldquo;\ide{-&amp;gt;}&amp;rdquo; appears within the names of procedures that
 take an object of one type and return an analogous object of another type.
 For example, {\cf list-&amp;gt;vector} takes a list and returns a vector whose
 elements are the same as those of the list.&lt;/p&gt;
