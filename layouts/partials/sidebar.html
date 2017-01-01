@@ -1,0 +1,11 @@
+<div class="sidebar">
+  <div style="text-align:center; font-size: 300%;">
+    <a href="{{ .Site.BaseURL }}">R7RS</a>
+  </div>
+
+  {{ range .Site.Menus.main }}
+  <ul>
+    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+  </ul>
+  {{ end }}
+</div>

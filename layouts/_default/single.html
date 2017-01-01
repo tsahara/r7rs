@@ -1,0 +1,13 @@
+{{ partial "header" . }}
+
+<div>
+  <nav style="width: 220px; float: left; position: fixed;">
+    {{ partial "sidebar" . }}
+  </nav>
+
+  <article style="margin-left: 240px;">
+    {{ .Content }}
+  </article>
+</div>
+
+{{ partial "footer" . }}

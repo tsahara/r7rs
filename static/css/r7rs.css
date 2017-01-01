@@ -1,0 +1,21 @@
+a:hover {
+	background: #EEE;
+}
+
+ul {
+	margin: 0;
+}
+
+span.rnrs {
+	font-size: 75%;
+	vertical-align: super;
+}
+
+code {
+	font-family: 'menlo', sans-serif;
+	font-size: 85%;
+}
+
+span.tt {
+	font-family: 'menlo', sans-serif;
+}
