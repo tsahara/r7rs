@@ -56,7 +56,7 @@ that the language documented in this report is worth studying.
 
 \subsection*{Background}
 
-\vest The first description of Scheme was written in
+The first description of Scheme was written in
 1975~\cite{Scheme75}.  A revised report~\cite{Scheme78}
 appeared in 1978, which described the evolution
 of the language as its MIT implementation was upgraded to support an
@@ -66,7 +66,7 @@ Indiana University~\cite{Rees82,MITScheme,Scheme311}.  An introductory
 computer science textbook using Scheme was published in
 1984~\cite{SICP}.
 
-\vest As Scheme became more widespread,
+As Scheme became more widespread,
 local dialects began to diverge until students and researchers
 occasionally found it difficult to understand code written at other
 sites.
@@ -167,11 +167,11 @@ manuals for MIT Scheme~\cite{MITScheme}, T~\cite{Rees84}, Scheme
 as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,
 all of which are available at {\cf http://srfi.schemers.org}.
 
-%% \vest We also thank Betty Dexter for the extreme effort she put into
+%% We also thank Betty Dexter for the extreme effort she put into
 %% setting this report in \TeX, and Donald Knuth for designing the program
 %% that caused her troubles.
 
-%% \vest The Artificial Intelligence Laboratory of the
+%% The Artificial Intelligence Laboratory of the
 %% Massachusetts Institute of Technology, the Computer Science
 %% Department of Indiana University, the Computer and Information
 %% Sciences Department of the University of Oregon, and the NEC Research

@@ -68,33 +68,33 @@ form expressions.  A wide variety of programming paradigms, including
 imperative, functional, and object-oriented styles, find convenient
 expression in Scheme.
 
-\vest The introduction offers a brief history of the language and of
+The introduction offers a brief history of the language and of
 the report.
 
-\vest The first three chapters present the fundamental ideas of the
+The first three chapters present the fundamental ideas of the
 language and describe the notational conventions used for describing the
 language and for writing programs in the language.
 
-\vest Chapters~\ref{expressionchapter} and~\ref{programchapter} describe
+Chapters~\ref{expressionchapter} and~\ref{programchapter} describe
 the syntax and semantics of expressions, definitions, programs, and libraries.
 
-\vest Chapter~\ref{builtinchapter} describes Scheme's built-in
+Chapter~\ref{builtinchapter} describes Scheme's built-in
 procedures, which include all of the language's data manipulation and
 input/output primitives.
 
-\vest Chapter~\ref{formalchapter} provides a formal syntax for Scheme
+Chapter~\ref{formalchapter} provides a formal syntax for Scheme
 written in extended BNF, along with a formal denotational semantics.
 An example of the use of the language follows the formal syntax and
 semantics.
 
-\vest Appendix~\ref{stdlibraries} provides a list of the standard libraries
+Appendix~\ref{stdlibraries} provides a list of the standard libraries
 and the identifiers that they export.
 
-\vest Appendix~\ref{stdfeatures} provides a list of optional but standardized
+Appendix~\ref{stdfeatures} provides a list of optional but standardized
 implementation feature names.
 
 
-\vest The report concludes with a list of references and an
+The report concludes with a list of references and an
 alphabetic index.
 
 \begin{note}

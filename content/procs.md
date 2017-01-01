@@ -239,7 +239,7 @@ capable of discerning distinctions finer than those detectable by
 {\cf eqv?}.  It must always return \schfalse{} when {\cf eqv?}\ also
 would, but may return \schfalse{} in some cases where {\cf eqv?}\ would return \schtrue{}.
 
-\vest On symbols, booleans, the empty list, pairs, and records,
+On symbols, booleans, the empty list, pairs, and records,
 and also on non-empty
 strings, vectors, and bytevectors, {\cf eq?}\ and {\cf eqv?}\ are guaranteed to have the same
 behavior.  On procedures, {\cf eq?}\ must return true if the arguments' location
@@ -341,7 +341,7 @@ and Scheme numbers.
 \label{numericaltypes}
 \index{numerical types}
 
-\vest Mathematically, numbers are arranged into a tower of subtypes
+Mathematically, numbers are arranged into a tower of subtypes
 in which each level is a subset of the level above it:
 \begin{tabbing}
 \ \ \ \ \ \ \ \ \ \=\tupe{number} \\
@@ -394,7 +394,7 @@ In particular, an \defining{exact complex number} has an exact real part
 and an exact imaginary part; all other complex numbers are \defining{inexact
 complex numbers}.
 
-\vest If two implementations produce \tupe{exact} results for a
+If two implementations produce \tupe{exact} results for a
 computation that did not involve \tupe{inexact} intermediate results,
 the two ultimate results will be mathematically equal.  This is
 generally not true of computations involving \tupe{inexact} numbers
@@ -402,7 +402,7 @@ since approximate methods such as floating-point arithmetic may be used,
 but it is the duty of each implementation to make the result as close as
 practical to the mathematically ideal result.
 
-\vest Rational operations such as {\cf +} should always produce
+Rational operations such as {\cf +} should always produce
 \tupe{exact} results when given \tupe{exact} arguments.
 If the operation is unable to produce an \tupe{exact} result,
 then it may either report the violation of an implementation restriction
@@ -411,7 +411,7 @@ result to an \tupe{inexact} value.
 However, {\cf (/~3~4)} must not return the mathematically incorrect value {\cf 0}.
 See section~\ref{restrictions}.
 
-\vest Except for \ide{exact}, the operations described in
+Except for \ide{exact}, the operations described in
 this section must generally return inexact results when given any inexact
 arguments.  An operation may, however, return an \tupe{exact} result if it can
 prove that the value of the result is unaffected by the inexactness of its
@@ -428,7 +428,7 @@ silently or noisily in other implementation-specific ways.
 
 \index{implementation restriction}\label{restrictions}
 
-\vest Implementations of Scheme are not required to implement the whole
+Implementations of Scheme are not required to implement the whole
 tower of subtypes given in section~\ref{numericaltypes},
 but they must implement a coherent subset consistent with both the
 purposes of the implementation and the spirit of the Scheme language.
@@ -437,7 +437,7 @@ or in which non-\tupe{real} numbers are always \tupe{inexact},
 or in which \tupe{exact} numbers are always \tupe{integer},
 are still quite useful.
 
-\vest Implementations may also support only a limited range of numbers of
+Implementations may also support only a limited range of numbers of
 any type, subject to the requirements of this section.  The supported
 range for \tupe{exact} numbers of any type may be different from the
 supported range for \tupe{inexact} numbers of that type.  For example,
@@ -454,7 +454,7 @@ the gaps between the representable \tupe{inexact} \tupe{integer}s and
 likely to be very large in such an implementation as the limits of this
 range are approached.
 
-\vest An implementation of Scheme must support exact integers
+An implementation of Scheme must support exact integers
 throughout the range of numbers permitted as indexes of
 lists, vectors, bytevectors, and strings or that result from computing the length of
 one of these.  The \ide{length}, \ide{vector-length},
@@ -485,7 +485,7 @@ truncate/             truncate-quotient
 truncate-remainder
 \end{scheme}
 
-\vest It is recommended, but not required, that implementations support
+It is recommended, but not required, that implementations support
 \tupe{exact} \tupe{integer}s and \tupe{exact} \tupe{rational}s of
 practically unlimited size and precision, and to implement the
 above procedures and the {\cf /} procedure in
@@ -499,7 +499,7 @@ Nevertheless, implementations that do not provide \tupe{exact} rational
 numbers should return \tupe{inexact} rational numbers rather than
 reporting an implementation restriction.
 
-\vest An implementation may use floating-point and other approximate 
+An implementation may use floating-point and other approximate 
 representation strategies for \tupe{inexact} numbers.
 This report recommends, but does not require, that 
 implementations that use
@@ -525,7 +525,7 @@ constant by an \tupe{inexact} number.
 \subsection{Implementation extensions}
 \index{implementation extension}
 
-\vest Implementations may provide more than one representation of
+Implementations may provide more than one representation of
 floating-point numbers with differing precisions.  In an implementation
 which does so, an inexact result must be represented with at least
 as much precision as is used to express any of the inexact arguments
@@ -1057,7 +1057,7 @@ denominator of 0 is defined to be 1.
 }
 
 These procedures return integers.
-\vest The {\cf floor} procedure returns the largest integer not larger than \vr{x}.
+The {\cf floor} procedure returns the largest integer not larger than \vr{x}.
 The {\cf ceiling} procedure returns the smallest integer not smaller than~\vr{x},
 {\cf truncate} returns the integer closest to \vr{x} whose absolute
 value is not larger than the absolute value of \vr{x}, and {\cf round} returns the
@@ -1446,7 +1446,7 @@ true\index{true} or false\index{false}.  The phrase ``a true value''\index{true}
 conditional expressions, and the phrase ``a false value''\index{false} (or
 ``false'') means any object treated as false by the conditional expressions.
 
-\vest Of all the Scheme values, only \schfalse{}
+Of all the Scheme values, only \schfalse{}
 counts as false in conditional expressions.
 All other Scheme values, including \schtrue,
 count as true.
@@ -1457,7 +1457,7 @@ Scheme distinguishes \schfalse{} and the empty list \index{empty list}
 from each other and from the symbol \ide{nil}.
 \end{note}
 
-\vest Boolean constants evaluate to themselves, so they do not need to be quoted
+Boolean constants evaluate to themselves, so they do not need to be quoted
 in programs.
 
 \begin{scheme}
@@ -2006,11 +2006,11 @@ symbols are identical (in the sense of {\cf eqv?}) if and only if their
 names are spelled the same way.  For instance, they can be used
 the way enumerated values are used in other languages.
 
-\vest The rules for writing a symbol are exactly the same as the rules for
+The rules for writing a symbol are exactly the same as the rules for
 writing an identifier; see sections~\ref{syntaxsection}
 and~\ref{identifiersyntax}.
 
-\vest It is guaranteed that any symbol that has been returned as part of
+It is guaranteed that any symbol that has been returned as part of
 a literal expression, or read using the {\cf read} procedure, and
 subsequently written out using the {\cf write} procedure, will read back
 in as the identical symbol (in the sense of {\cf eqv?}).
@@ -2157,7 +2157,7 @@ by a representation of the symbol ``{\tt pace}.''
 Characters written in the \sharpsign\backwhack{} notation are self-evaluating.
 That is, they do not have to be quoted in programs.  
 
-\vest Some of the procedures that operate on characters ignore the
+Some of the procedures that operate on characters ignore the
 difference between upper case and lower case.  The procedures that
 ignore case have \hbox{``{\tt -ci}''} (for ``case
 insensitive'') embedded in their names.
@@ -2300,7 +2300,7 @@ equivalents.
 \label{stringsection}
 
 Strings are sequences of characters.  
-\vest Strings are written as sequences of characters enclosed within quotation marks
+Strings are written as sequences of characters enclosed within quotation marks
 ({\cf "}).  Within a string literal, various escape
 sequences\mainindex{escape sequence} represent characters other than
 themselves.  Escape sequences always start with a backslash (\backwhack{}):
@@ -2323,7 +2323,7 @@ themselves.  Escape sequences always start with a backslash (\backwhack{}):
 The result is unspecified if any other character in a string occurs
 after a backslash.
 
-\vest Except for a line ending, any character outside of an escape
+Except for a line ending, any character outside of an escape
 sequence stands for itself in the string literal.  A line ending which
 is preceded by {\cf\backwhack{}\hyper{intraline whitespace}} expands
 to nothing (along with any trailing intraline whitespace), and can be
@@ -2341,14 +2341,14 @@ Examples:
 "\backwhack{}x03B1; is named GREEK SMALL LETTER ALPHA."%
 \end{scheme}
 
-\vest The {\em length} of a string is the number of characters that it
+The {\em length} of a string is the number of characters that it
 contains.  This number is an exact, non-negative integer that is fixed when the
 string is created.  The \defining{valid indexes} of a string are the
 exact non-negative integers less than the length of the string.  The first
 character of a string has index 0, the second has index 1, and so on.
 
 
-\vest Some of the procedures that operate on strings ignore the
+Some of the procedures that operate on strings ignore the
 difference between upper and lower case.  The names of the versions that ignore case
 end with \hbox{``{\cf -ci}''} (for ``case insensitive'').
 
@@ -2614,7 +2614,7 @@ by integers.  A vector typically occupies less space than a list
 of the same length, and the average time needed to access a randomly
 chosen element is typically less for the vector than for the list.
 
-\vest The {\em length} of a vector is the number of elements that it
+The {\em length} of a vector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when the
 vector is created.  The {\em valid indexes}\index{valid indexes} of a
 vector are the exact non-negative integers less than the length of the
@@ -2835,7 +2835,7 @@ a \defining{byte} is an exact integer in the range from 0 to 255 inclusive.
 A bytevector is typically more space-efficient than a vector
 containing the same values.
 
-\vest The {\em length} of a bytevector is the number of elements that it
+The {\em length} of a bytevector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when
 the bytevector is created.  The {\em valid indexes}\index{valid indexes} of
 a bytevector are the exact non-negative integers less than the length of the
@@ -3262,13 +3262,13 @@ The effect of passing no values or more than one value to continuations
 that were not created in one of these ways is unspecified.
 
 
-\vest The escape procedure that is passed to \var{proc} has
+The escape procedure that is passed to \var{proc} has
 unlimited extent just like any other procedure in Scheme.  It can be stored
 in variables or data structures and can be called as many times as desired.
 However, like the {\cf raise} and {\cf error} procedures, it never
 returns to its caller.
 
-\vest The following examples show only the simplest ways in which
+The following examples show only the simplest ways in which
 {\cf call-with-current-continuation} is used.  If all real uses were as
 simple as these examples, there would be no need for a procedure with
 the power of {\cf call-with-current-continuation}.
@@ -3301,14 +3301,14 @@ the power of {\cf call-with-current-continuation}.
 
 \begin{rationale}
 
-\vest A common use of {\cf call-with-current-continuation} is for
+A common use of {\cf call-with-current-continuation} is for
 structured, non-local exits from loops or procedure bodies, but in fact
 {\cf call-with-current-continuation} is useful for implementing a
 wide variety of advanced control structures.
 In fact, {\cf raise} and {\cf guard} provide a more structured mechanism
 for non-local exits.
 
-\vest Whenever a Scheme expression is evaluated there is a
+Whenever a Scheme expression is evaluated there is a
 \defining{continuation} wanting the result of the expression.  The continuation
 represents an entire (default) future for the computation.  If the expression is
 evaluated at the REPL, for example, then the continuation might take the
@@ -3324,7 +3324,7 @@ The {\cf call-with-current-continuation} procedure allows Scheme programmers to 
 that by creating a procedure that acts just like the current
 continuation.
 
-% \vest Most programming languages incorporate one or more special-purpose
+% Most programming languages incorporate one or more special-purpose
 % escape constructs with names like {\tt exit}, \hbox{{\cf return}}, or
 % even {\tt goto}.  In 1965, however, Peter Landin~\cite{Landin65}
 % invented a general purpose escape operator called the J-operator.  John
@@ -3981,7 +3981,7 @@ the first character past the end of the external representation of the object.
 Implementations may support extended syntax to represent record types or
 other types that do not have datum representations.
 
-\vest If an end of file is encountered in the input before any
+If an end of file is encountered in the input before any
 characters are found that can begin an object, then an end-of-file
 object is returned.  The port remains open, and further attempts
 to read will also return an end-of-file object.  If an end of file is

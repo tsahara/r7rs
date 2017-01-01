@@ -16,17 +16,17 @@ chapters~\ref{basicchapter} through~\ref{builtinchapter}.  For reference
 purposes, section~\ref{formalsemanticssection} provides a formal
 semantics of Scheme.
 
-\vest Scheme is a statically scoped programming
+Scheme is a statically scoped programming
 language.  Each use of a variable is associated with a lexically
 apparent binding of that variable.
 
-\vest Scheme is a dynamically typed language.  Types
+Scheme is a dynamically typed language.  Types
 are associated with values (also called objects\mainindex{object}) rather than
 with variables.  
 Statically typed languages, by contrast, associate types with
 variables and expressions as well as with values.
 
-\vest All objects created in the course of a Scheme computation, including
+All objects created in the course of a Scheme computation, including
 procedures and continuations, have unlimited extent.
 No Scheme object is ever destroyed.  The reason that
 implementations of Scheme do not (usually!)\ run out of storage is that
@@ -34,7 +34,7 @@ they are permitted to reclaim the storage occupied by an object if
 they can prove that the object cannot possibly matter to any future
 computation.  
 
-\vest Implementations of Scheme are required to be properly tail-recursive.
+Implementations of Scheme are required to be properly tail-recursive.
 This allows the execution of an iterative computation in constant space,
 even if the iterative computation is described by a syntactically
 recursive procedure.  Thus with a properly tail-recursive implementation,
@@ -42,22 +42,22 @@ iteration can be expressed using the ordinary procedure-call
 mechanics, so that special iteration constructs are useful only as
 syntactic sugar.  See section~\ref{proper tail recursion}.
 
-\vest Scheme procedures are objects in their own right.  Procedures can be
+Scheme procedures are objects in their own right.  Procedures can be
 created dynamically, stored in data structures, returned as results of
 procedures, and so on.  
 
-\vest One distinguishing feature of Scheme is that continuations, which
+One distinguishing feature of Scheme is that continuations, which
 in most other languages only operate behind the scenes, also have
 ``first-class'' status.  Continuations are useful for implementing a
 wide variety of advanced control constructs, including non-local exits,
 backtracking, and coroutines.  See section~\ref{continuations}.
 
-\vest Arguments to Scheme procedures are always passed by value, which
+Arguments to Scheme procedures are always passed by value, which
 means that the actual argument expressions are evaluated before the
 procedure gains control, regardless of whether the procedure needs the
 result of the evaluation.  
 
-\vest Scheme's model of arithmetic is designed to remain as independent as
+Scheme's model of arithmetic is designed to remain as independent as
 possible of the particular ways in which numbers are represented within a
 computer. In Scheme, every integer is a rational number, every rational is a
 real, and every real is a complex number.  Thus the distinction between integer
@@ -141,7 +141,7 @@ signaled as above.  Furthermore, if the object that is signaled is
 passed to the specified predicate (such as {\cf file-error?} or {\cf
 read-error?}), the predicate returns \schtrue{}.
 
-\vest If such wording does not appear in the discussion of
+If such wording does not appear in the discussion of
 an error, then implementations are not required to detect or report the
 error, though they are encouraged to do so.
 Such a situation is sometimes, but not always, referred to with the phrase
@@ -159,7 +159,7 @@ signal an error,
 extend a procedure's domain of definition to include such arguments,
 or fail catastrophically.
 
-\vest This report uses the phrase ``may report a violation of an
+This report uses the phrase ``may report a violation of an
 implementation restriction'' to indicate circumstances under which an
 implementation is permitted to report that it is unable to continue
 execution of a correct program because of some restriction imposed by the
@@ -167,18 +167,18 @@ implementation.  Implementation restrictions are discouraged,
 but implementations are encouraged to report violations of implementation
 restrictions.\mainindex{implementation restriction}
 
-\vest For example, an implementation may report a violation of an
+For example, an implementation may report a violation of an
 implementation restriction if it does not have enough storage to run a
 program,
 or if an arithmetic operation would produce an exact number that is
 too large for the implementation to represent.
 
-\vest If the value of an expression is said to be ``unspecified,'' then
+If the value of an expression is said to be ``unspecified,'' then
 the expression must evaluate to some object without signaling an error,
 but the value depends on the implementation; this report explicitly does
 not say what value is returned. \mainindex{unspecified}
 
-\vest Finally, the words and phrases ``must,'' ``must not,'' ``shall,''
+Finally, the words and phrases ``must,'' ``must not,'' ``shall,''
 ``shall not,'' ``should,'' ``should not,'' ``may,'' ``required,''
 ``recommended,'' and ``optional,'' although not capitalized in this
 report, are to be interpreted as described in RFC~2119~\cite{rfc2119}.

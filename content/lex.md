@@ -62,7 +62,7 @@ the-word-recursion-has-many-meanings%
 
 See section~\ref{extendedalphas} for the formal syntax of identifiers.
 
-\vest Identifiers have two uses within Scheme programs:
+Identifiers have two uses within Scheme programs:
 \begin{itemize}
 \item Any identifier can be used as a variable\index{variable}
  or as a syntactic keyword\index{syntactic keyword}

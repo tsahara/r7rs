@@ -158,7 +158,7 @@ and \hyper{body} is a sequence of zero or more definitions
 followed by one or more expressions.
 
 \semantics
-\vest A \lambdaexp{} evaluates to a procedure.  The environment in
+A \lambdaexp{} evaluates to a procedure.  The environment in
 effect when the \lambdaexp{} was evaluated is remembered as part of the
 procedure.  When the procedure is later called with some actual
 arguments, the environment in which the \lambdaexp{} was evaluated will
@@ -909,7 +909,7 @@ the \hyper{variable}s are bound to fresh locations, the results of the
 \hyper{init} expressions are stored in the bindings of the
 \hyper{variable}s, and then the iteration phase begins.
 
-\vest Each iteration begins by evaluating \hyper{test}; if the result is
+Each iteration begins by evaluating \hyper{test}; if the result is
 false (see section~\ref{booleansection}), then the \hyper{command}
 expressions are evaluated in order for effect, the \hyper{step}
 expressions are evaluated in some unspecified order, the
@@ -917,17 +917,17 @@ expressions are evaluated in some unspecified order, the
 \hyper{step}s are stored in the bindings of the
 \hyper{variable}s, and the next iteration begins.
 
-\vest If \hyper{test} evaluates to a true value, then the
+If \hyper{test} evaluates to a true value, then the
 \hyper{expression}s are evaluated from left to right and the values of
 the last \hyper{expression} are returned.  If no \hyper{expression}s
 are present, then the value of the {\cf do} expression is unspecified.
 
-\vest The region\index{region} of the binding of a \hyper{variable}
+The region\index{region} of the binding of a \hyper{variable}
 consists of the entire {\cf do} expression except for the \hyper{init}s.
 It is an error for a \hyper{variable} to appear more than once in the
 list of {\cf do} variables.
 
-\vest A \hyper{step} can be omitted, in which case the effect is the
+A \hyper{step} can be omitted, in which case the effect is the
 same as if {\cf(\hyper{variable} \hyper{init} \hyper{variable})} had
 been written instead of {\cf(\hyper{variable} \hyper{init})}.
 

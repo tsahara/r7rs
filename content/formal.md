@@ -39,7 +39,7 @@ of tokens.
 \meta{Intertoken space} can occur on either side of any token, but not
 within a token.
 
-\vest Identifiers that do not begin with a vertical line are
+Identifiers that do not begin with a vertical line are
 terminated by a \meta{delimiter} or by the end of the input.
 So are dot, numbers, characters, and booleans.
 Identifiers that begin with a vertical line are terminated by another vertical line.

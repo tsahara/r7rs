@@ -24,7 +24,7 @@ variable's value.  By abuse of terminology, the variable is sometimes
 said to name the value or to be bound to the value.  This is not quite
 accurate, but confusion rarely results from this practice.
 
-\vest Certain expression types are used to create new kinds of syntax
+Certain expression types are used to create new kinds of syntax
 and to bind syntactic keywords to those new syntaxes, while other
 expression types create new locations and bind variables to those
 locations.  These expression types are called {\em binding constructs}.
@@ -40,7 +40,7 @@ and {\cf do} expressions (see sections~\ref{lambda}, \ref{letrec}, and
 
 %Note: internal definitions not mentioned here.
 
-\vest Scheme is a language with
+Scheme is a language with
 block structure.  To each place where an identifier is bound in a program
 there corresponds a \defining{region} of the program text within which
 the binding is visible.  The region is determined by the particular
