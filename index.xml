@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Revised^7 Report on the Algorithmic Language Scheme</title>
-    <link>https://tsahara.github.com/r7rs/index.xml</link>
+    <link>https://tsahara.github.io/r7rs/index.xml</link>
     <description>Recent content on Revised^7 Report on the Algorithmic Language Scheme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://tsahara.github.com/r7rs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tsahara.github.io/r7rs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Summary</title>
-      <link>https://tsahara.github.com/r7rs/summary/</link>
+      <link>https://tsahara.github.io/r7rs/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/summary/</guid>
+      <guid>https://tsahara.github.io/r7rs/summary/</guid>
       <description>&lt;p&gt;% First page&lt;/p&gt;
 
 &lt;p&gt;\thispagestyle{empty}&lt;/p&gt;
@@ -133,10 +133,10 @@ collectively, support or do not support this report.
     
     <item>
       <title>Introduction</title>
-      <link>https://tsahara.github.com/r7rs/intro/</link>
+      <link>https://tsahara.github.io/r7rs/intro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/intro/</guid>
+      <guid>https://tsahara.github.io/r7rs/intro/</guid>
       <description>&lt;p&gt;\clearextrapart{Introduction}&lt;/p&gt;
 
 &lt;p&gt;\label{historysection}&lt;/p&gt;
@@ -315,10 +315,10 @@ all of which are available at {\cf &lt;a href=&#34;http://srfi.schemers.org&#34;
     
     <item>
       <title>Overview of Scheme</title>
-      <link>https://tsahara.github.com/r7rs/overview/</link>
+      <link>https://tsahara.github.io/r7rs/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/overview/</guid>
+      <guid>https://tsahara.github.io/r7rs/overview/</guid>
       <description>&lt;p&gt;% 1. Structure of the language&lt;/p&gt;
 
 &lt;p&gt;\chapter{Overview of Scheme}&lt;/p&gt;
@@ -657,10 +657,10 @@ to its continuation.&lt;/p&gt;
     
     <item>
       <title>Lexical conventions</title>
-      <link>https://tsahara.github.com/r7rs/lex/</link>
+      <link>https://tsahara.github.io/r7rs/lex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/lex/</guid>
+      <guid>https://tsahara.github.io/r7rs/lex/</guid>
       <description>&lt;p&gt;% Lexical structure&lt;/p&gt;
 
 &lt;p&gt;%%\vfill\eject
@@ -926,10 +926,10 @@ it is an error for {\cf quasiquote} (section~\ref{quasiquote}) to contain them.&
     
     <item>
       <title>Basic concepts</title>
-      <link>https://tsahara.github.com/r7rs/basic/</link>
+      <link>https://tsahara.github.io/r7rs/basic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/basic/</guid>
+      <guid>https://tsahara.github.io/r7rs/basic/</guid>
       <description>&lt;p&gt;%\vfill\eject
 \chapter{Basic concepts}
 \label{basicchapter}&lt;/p&gt;
@@ -1274,10 +1274,10 @@ implementation-dependent.)
     
     <item>
       <title>Expressions</title>
-      <link>https://tsahara.github.com/r7rs/expr/</link>
+      <link>https://tsahara.github.io/r7rs/expr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/expr/</guid>
+      <guid>https://tsahara.github.io/r7rs/expr/</guid>
       <description>&lt;p&gt;\chapter{Expressions}
 \label{expressionchapter}&lt;/p&gt;
 
@@ -3113,10 +3113,10 @@ exception handlers or guards.&lt;/p&gt;
     
     <item>
       <title>Program structure</title>
-      <link>https://tsahara.github.com/r7rs/prog/</link>
+      <link>https://tsahara.github.io/r7rs/prog/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/prog/</guid>
+      <guid>https://tsahara.github.io/r7rs/prog/</guid>
       <description>&lt;p&gt;\chapter{Program structure}
 \label{programchapter}&lt;/p&gt;
 
@@ -3777,10 +3777,10 @@ the beginning.&lt;/p&gt;
     
     <item>
       <title>Standard procedures</title>
-      <link>https://tsahara.github.com/r7rs/procs/</link>
+      <link>https://tsahara.github.io/r7rs/procs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/procs/</guid>
+      <guid>https://tsahara.github.io/r7rs/procs/</guid>
       <description>&lt;p&gt;% Initial environment&lt;/p&gt;
 
 &lt;p&gt;%\vfill\eject
@@ -8186,10 +8186,10 @@ example of what {\cf features} might return:&lt;/p&gt;
     
     <item>
       <title>Formal syntax and semantics</title>
-      <link>https://tsahara.github.com/r7rs/formal/</link>
+      <link>https://tsahara.github.io/r7rs/formal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/formal/</guid>
+      <guid>https://tsahara.github.io/r7rs/formal/</guid>
       <description>&lt;p&gt;\chapter{Formal syntax and semantics}
 \label{formalchapter}&lt;/p&gt;
 
@@ -10056,10 +10056,10 @@ by the implementation be explicitly mentioned.&lt;/p&gt;
     
     <item>
       <title>Standard Libraries</title>
-      <link>https://tsahara.github.com/r7rs/stdlib/</link>
+      <link>https://tsahara.github.io/r7rs/stdlib/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/stdlib/</guid>
+      <guid>https://tsahara.github.io/r7rs/stdlib/</guid>
       <description>&lt;p&gt;\chapter{Standard Libraries}
 \label{stdlibraries}&lt;/p&gt;
 
@@ -10513,10 +10513,10 @@ library either.&lt;/p&gt;
     
     <item>
       <title>Standard Feature Identifiers</title>
-      <link>https://tsahara.github.com/r7rs/features/</link>
+      <link>https://tsahara.github.io/r7rs/features/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/features/</guid>
+      <guid>https://tsahara.github.io/r7rs/features/</guid>
       <description>&lt;p&gt;\chapter{Standard Feature Identifiers}
 \label{stdfeatures}&lt;/p&gt;
 
@@ -10552,10 +10552,10 @@ provide the corresponding feature.&lt;/p&gt;
     
     <item>
       <title>Language changes</title>
-      <link>https://tsahara.github.com/r7rs/changes/</link>
+      <link>https://tsahara.github.io/r7rs/changes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/changes/</guid>
+      <guid>https://tsahara.github.io/r7rs/changes/</guid>
       <description>&lt;p&gt;\extrapart{Language changes}&lt;/p&gt;
 
 &lt;p&gt;\subsection*{Incompatibilities with \rfivers}
@@ -10883,10 +10883,10 @@ left to future standardization efforts.&lt;/p&gt;
     
     <item>
       <title>Additional material</title>
-      <link>https://tsahara.github.com/r7rs/additional/</link>
+      <link>https://tsahara.github.io/r7rs/additional/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/additional/</guid>
+      <guid>https://tsahara.github.io/r7rs/additional/</guid>
       <description>&lt;p&gt;\extrapart{Additional material}&lt;/p&gt;
 
 &lt;p&gt;%%The Internet Scheme Repository at
@@ -10915,10 +10915,10 @@ and on the Usenet discussion group {\cf comp.lang.scheme}.&lt;/p&gt;
     
     <item>
       <title>Example</title>
-      <link>https://tsahara.github.com/r7rs/example/</link>
+      <link>https://tsahara.github.io/r7rs/example/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/example/</guid>
+      <guid>https://tsahara.github.io/r7rs/example/</guid>
       <description>&lt;p&gt;\extrapart{Example} % -&lt;em&gt;- Mode: Lisp; Package: SCHEME; Syntax: Common-lisp -&lt;/em&gt;-&lt;/p&gt;
 
 &lt;p&gt;\nobreak
@@ -11042,10 +11042,10 @@ which models a damped oscillator.&lt;/p&gt;
     
     <item>
       <title>References</title>
-      <link>https://tsahara.github.com/r7rs/ref/</link>
+      <link>https://tsahara.github.io/r7rs/ref/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tsahara.github.com/r7rs/ref/</guid>
+      <guid>https://tsahara.github.io/r7rs/ref/</guid>
       <description>&lt;p&gt;% My reference for proper reference format is:
 %    Mary-Claire van Leunen.
 %    {\em A Handbook for Scholars.}
