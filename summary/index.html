@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="https://tsahara.github.com/r7rs/css/r7rs.css">
+    <title>Summary</title>
+  </head>
+  <body>
+
+
+<div>
+  <nav style="width: 220px; float: left; position: fixed;">
+    <div class="sidebar">
+  <div style="text-align:center; font-size: 300%;">
+    <a href="https://tsahara.github.com/r7rs/">R7RS</a>
+  </div>
+
+  
+  <ul>
+    <li><a href="/r7rs/summary/">Summary</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/intro/">Introduction</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/overview/">Overview of Scheme</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/lex/">Lexical conventions</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/basic/">Basic concepts</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/expr/">Expressions</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/prog/">Program structure</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/procs/">Standard procedures</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/formal/">Formal syntax and semantics</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/stdlib/">Standard Libraries</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/features/">Standard Feature Identifiers</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/changes/">Language changes</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/additional/">Additional material</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/example/">Example</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/ref/">References</a></li>
+  </ul>
+  
+</div>
+
+  </nav>
+
+  <article style="margin-left: 240px;">
+    <p>% First page</p>
+
+<p>\thispagestyle{empty}</p>
+
+<p>\topnewpage[{
+\begin{center}   {\huge\bf
+    Revised{\Huge$^{\mathbf{7}}$} Report on the Algorithmic Language <br />
+                  \vskip 3pt
+                Scheme}</p>
+
+<p>\vskip 1ex
+$$
+\begin{tabular}{l@{\extracolsep{.5in}}l@{\extracolsep{.5in}}l}
+\multicolumn{3}{c}{A\authorsc{LEX} S\authorsc{HINN},
+J\authorsc{OHN} C\authorsc{OWAN}, \authorsc{AND}
+A\authorsc{RTHUR} A. G\authorsc{LECKLER} (\textit{Editors})} <br />
+<br />
+S\authorsc{TEVEN} G\authorsc{ANZ} &amp;
+A\authorsc{LEXEY} R\authorsc{ADUL} &amp;
+O\authorsc{LIN} S\authorsc{HIVERS} \</p>
+
+<p>A\authorsc{ARON} W. H\authorsc{SU} &amp;
+J\authorsc{EFFREY} T. R\authorsc{EAD} &amp;
+A\authorsc{LARIC} S\authorsc{NELL}-P\authorsc{YM} \</p>
+
+<p>B\authorsc{RADLEY} L\authorsc{UCIER} &amp;
+D\authorsc{AVID} R\authorsc{USH} &amp;
+G\authorsc{ERALD} J. S\authorsc{USSMAN} \</p>
+
+<p>E\authorsc{MMANUEL} M\authorsc{EDERNACH} &amp;
+B\authorsc{ENJAMIN} L. R\authorsc{USSEL} &amp;
+<br />
+<br />
+\multicolumn{3}{c}{R\authorsc{ICHARD} K\authorsc{ELSEY},
+W\authorsc{ILLIAM} C\authorsc{LINGER},
+\authorsc{AND} J\authorsc{ONATHAN} R\authorsc{EES}} <br />
+\multicolumn{3}{c}{\textit{(Editors, Revised$^{\mathit{5}}$ Report on the Algorithmic Language Scheme)}} <br />
+<br />
+\multicolumn{3}{c}{M\authorsc{ICHAEL} S\authorsc{PERBER},
+R. K\authorsc{ENT} D\authorsc{YBVIG}, M\authorsc{ATTHEW} F\authorsc{LATT},
+\authorsc{AND} A\authorsc{NTON} \authorsc{VAN} S\authorsc{TRAATEN}} <br />
+\multicolumn{3}{c}{\textit{(Editors, Revised$^{\mathit{6}}$ Report on the Algorithmic Language Scheme)}} <br />
+\end{tabular}
+$$
+\vskip 2ex
+{\it Dedicated to the memory of John McCarthy and Daniel Weinreb}
+\vskip 2.6ex
+{\large \bf \today}             % *** DRAFT ***
+\end{center}
+}]</p>
+
+<p>\clearpage</p>
+
+<p>\chapter*{Summary}</p>
+
+<p>The report gives a defining description of the programming language
+Scheme.  Scheme is a statically scoped and properly tail recursive
+dialect of the Lisp programming language~\cite{McCarthy} invented by Guy Lewis
+Steele~Jr.\ and Gerald Jay~Sussman.  It was designed to have
+exceptionally clear and simple semantics and few different ways to
+form expressions.  A wide variety of programming paradigms, including
+imperative, functional, and object-oriented styles, find convenient
+expression in Scheme.</p>
+
+<p>\vest The introduction offers a brief history of the language and of
+the report.</p>
+
+<p>\vest The first three chapters present the fundamental ideas of the
+language and describe the notational conventions used for describing the
+language and for writing programs in the language.</p>
+
+<p>\vest Chapters~\ref{expressionchapter} and~\ref{programchapter} describe
+the syntax and semantics of expressions, definitions, programs, and libraries.</p>
+
+<p>\vest Chapter~\ref{builtinchapter} describes Scheme&rsquo;s built-in
+procedures, which include all of the language&rsquo;s data manipulation and
+input/output primitives.</p>
+
+<p>\vest Chapter~\ref{formalchapter} provides a formal syntax for Scheme
+written in extended BNF, along with a formal denotational semantics.
+An example of the use of the language follows the formal syntax and
+semantics.</p>
+
+<p>\vest Appendix~\ref{stdlibraries} provides a list of the standard libraries
+and the identifiers that they export.</p>
+
+<p>\vest Appendix~\ref{stdfeatures} provides a list of optional but standardized
+implementation feature names.</p>
+
+<p>\vest The report concludes with a list of references and an
+alphabetic index.</p>
+
+<p>\begin{note}
+The editors of the \rfivers\ and \rsixrs\ reports are
+listed as authors of this report in recognition of the substantial
+portions of this report that are copied directly from \rfivers\ and \rsixrs.
+There is no intended implication that those editors, individually or
+collectively, support or do not support this report.
+\end{note}</p>
+
+<p>\todo{expand the summary so that it fills up the column.}</p>
+
+<p>\vfill
+\eject</p>
+
+<p>\chapter*{Contents}
+\addvspace{3.5pt}                  % don&rsquo;t shrink this gap
+\renewcommand{\tocshrink}{-3.5pt}  % value determined experimentally
+{\footnotesize
+\tableofcontents
+}</p>
+
+<p>\vfill
+\eject</p>
+
+  </article>
+</div>
+
+</body>
+</html>
+

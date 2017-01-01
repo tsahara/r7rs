@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="https://tsahara.github.com/r7rs/css/r7rs.css">
+    <title>Lexical conventions</title>
+  </head>
+  <body>
+
+
+<div>
+  <nav style="width: 220px; float: left; position: fixed;">
+    <div class="sidebar">
+  <div style="text-align:center; font-size: 300%;">
+    <a href="https://tsahara.github.com/r7rs/">R7RS</a>
+  </div>
+
+  
+  <ul>
+    <li><a href="/r7rs/summary/">Summary</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/intro/">Introduction</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/overview/">Overview of Scheme</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/lex/">Lexical conventions</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/basic/">Basic concepts</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/expr/">Expressions</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/prog/">Program structure</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/procs/">Standard procedures</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/formal/">Formal syntax and semantics</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/stdlib/">Standard Libraries</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/features/">Standard Feature Identifiers</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/changes/">Language changes</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/additional/">Additional material</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/example/">Example</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/ref/">References</a></li>
+  </ul>
+  
+</div>
+
+  </nav>
+
+  <article style="margin-left: 240px;">
+    <p>% Lexical structure</p>
+
+<p>%%\vfill\eject
+\chapter{Lexical conventions}</p>
+
+<p>This section gives an informal account of some of the lexical
+conventions used in writing Scheme programs.  For a formal syntax of
+Scheme, see section~\ref{BNF}.</p>
+
+<p>\section{Identifiers}
+\label{syntaxsection}</p>
+
+<p>An identifier\mainindex{identifier} is any sequence of letters, digits, and
+``extended identifier characters&rdquo; provided that it does not have a prefix
+which is a valid number.<br />
+However, the  \ide{.} token (a single period) used in the list syntax
+is not an identifier.</p>
+
+<p>All implementations of Scheme must support the following extended identifier
+characters:</p>
+
+<p>\begin{scheme}
+!\ \$ \% \verb&rdquo;&amp;&rdquo; * + - . / :\ &lt; = &gt; ? @ \verb&rdquo;^&rdquo; \verb&rdquo;_&rdquo; \verb&rdquo;~&rdquo; %
+\end{scheme}</p>
+
+<p>Alternatively, an identifier can be represented by a sequence of zero or more
+characters enclosed within vertical lines ({\cf $|$}), analogous to
+string literals.  Any character, including whitespace characters, but
+excluding the backslash and vertical line characters,
+can appear verbatim in such an identifier.
+In addition, characters can be
+specified using either an \meta{inline hex escape} or
+the same escapes
+available in strings.</p>
+
+<p>For example, the
+identifier \verb+|H\x65;llo|+ is the same identifier as
+\verb+Hello+, and in an implementation that supports the appropriate
+Unicode character the identifier \verb+|\x3BB;|+ is the same as the
+identifier $\lambda$.
+What is more, \verb+|\t\t|+ and \verb+|\x9;\x9;|+ are the
+same.
+Note that \verb+||+ is a valid identifier that is different from any other
+identifier.</p>
+
+<p>Here are some examples of identifiers:</p>
+
+<p>\begin{scheme}
+&hellip;                      {+}
++soup+                   &lt;=?
+-&gt;string                 a34kTMNs
+lambda                   list-&gt;vector
+q                        V17a
+|two words|              |two\backwhack{}x20;words|
+the-word-recursion-has-many-meanings%
+\end{scheme}</p>
+
+<p>See section~\ref{extendedalphas} for the formal syntax of identifiers.</p>
+
+<p>\vest Identifiers have two uses within Scheme programs:
+\begin{itemize}
+\item Any identifier can be used as a variable\index{variable}
+ or as a syntactic keyword\index{syntactic keyword}
+(see sections~\ref{variablesection} and~\ref{macrosection}).</p>
+
+<p>\item When an identifier appears as a literal or within a literal
+(see section~\ref{quote}), it is being used to denote a {\em symbol}
+(see section~\ref{symbolsection}).
+\end{itemize}</p>
+
+<p>In contrast with earlier revisions of the report~\cite{R5RS}, the
+syntax distinguishes between upper and lower case in
+identifiers and in characters specified using their names.  However, it
+does not distinguish between upper and lower case in numbers,
+nor in \meta{inline hex escapes} used
+in the syntax of identifiers, characters, or strings.
+None of the identifiers defined in this report contain upper-case
+characters, even when they appear to do so as a result
+of the English-language convention of capitalizing the first word of
+a sentence.</p>
+
+<p>The following directives give explicit control over case
+folding.</p>
+
+<p>\begin{entry}{%
+{\cf{}#!fold-case}\sharpbangindex{fold-case}<br />
+{\cf{}#!no-fold-case}\sharpbangindex{no-fold-case}}</p>
+
+<p>These directives can appear anywhere comments are permitted (see
+section~\ref{wscommentsection}) but must be followed by a delimiter.
+They are treated as comments, except that they affect the reading
+of subsequent data from the same port. The {\cf{}#!fold-case} directive causes
+subsequent identifiers and character names to be case-folded
+as if by {\cf string-foldcase} (see section~\ref{stringsection}).
+It has no effect on character
+literals.  The {\cf{}#!no-fold-case} directive
+causes a return to the default, non-folding behavior.
+\end{entry}</p>
+
+<p>\section{Whitespace and comments}
+\label{wscommentsection}</p>
+
+<p>\defining{Whitespace} characters include the space, tab, and newline characters.
+(Implementations may provide additional whitespace characters such
+as page break.)  Whitespace is used for improved readability and
+as necessary to separate tokens from each other, a token being an
+indivisible lexical unit such as an identifier or number, but is
+otherwise insignificant.  Whitespace can occur between any two tokens,
+but not within a token.  Whitespace occurring inside a string
+or inside a symbol delimited by vertical lines
+is significant.</p>
+
+<p>The lexical syntax includes several comment forms.<br />
+Comments are treated exactly like whitespace.</p>
+
+<p>A semicolon ({\tt;}) indicates the start of a line
+comment.\mainindex{comment}\mainschindex{;}  The comment continues to the
+end of the line on which the semicolon appears.</p>
+
+<p>Another way to indicate a comment is to prefix a \hyper{datum}
+(cf.\ section~\ref{datumsyntax}) with {\tt #;}\sharpindex{;} and optional
+\meta{whitespace}.  The comment consists of
+the comment prefix {\tt #;}, the space, and the \hyper{datum} together.  This
+notation is useful for ``commenting out&rdquo; sections of code.</p>
+
+<p>Block comments are indicated with properly nested {\tt
+  #|}\index{#&ldquo;|@\texttt{\sharpsign\verticalbar}}\index{&ldquo;|#@\texttt{\verticalbar\sharpsign}}
+and {\tt |#} pairs.</p>
+
+<p>\begin{scheme}
+#|
+   The FACT procedure computes the factorial
+   of a non-negative integer.
+|#
+(define fact
+  (lambda (n)
+    (if (= n 0)
+        #;(= n 1)
+        1        ;Base case: return 1
+        (* n (fact (- n 1))))))%
+\end{scheme}</p>
+
+<p>\section{Other notations}</p>
+
+<p>\todo{Rewrite?}</p>
+
+<p>For a description of the notations used for numbers, see
+section~\ref{numbersection}.</p>
+
+<p>\begin{description}{}{}</p>
+
+<p>\item[{\tt.\ + -}]
+These are used in numbers, and can also occur anywhere in an identifier.
+A delimited plus or minus sign by itself
+is also an identifier.
+A delimited period (not occurring within a number or identifier) is used
+in the notation for pairs (section~\ref{listsection}), and to indicate a
+rest-parameter in a  formal parameter list (section~\ref{lambda}).
+Note that a sequence of two or more periods {\em is} an identifier.</p>
+
+<p>\item[\tt( )]
+Parentheses are used for grouping and to notate lists
+(section~\ref{listsection}).</p>
+
+<p>\item[\singlequote]
+The apostrophe (single quote) character is used to indicate literal data (section~\ref{quote}).</p>
+
+<p>\item[\backquote]
+The grave accent (backquote) character is used to indicate partly constant
+data (section~\ref{quasiquote}).</p>
+
+<p>\item[\tt, ,@]
+The character comma and the sequence comma at-sign are used in conjunction
+with quasiquotation (section~\ref{quasiquote}).</p>
+
+<p>\item[\tt&rdquo;]
+The quotation mark character is used to delimit strings (section~\ref{stringsection}).</p>
+
+<p>\item[\backwhack]
+Backslash is used in the syntax for character constants
+(section~\ref{charactersection}) and as an escape character within string
+constants (section~\ref{stringsection}) and identifiers
+(section~\ref{extendedalphas}).</p>
+
+<p>% A box used because \verb is not allowed in command arguments.
+\setbox0\hbox{\tt \verb&rdquo;[&rdquo; \verb&rdquo;]&rdquo; \verb&rdquo;{&rdquo; \verb&rdquo;}&ldquo;}
+\item[\copy0]
+Left and right square and curly brackets (braces)
+are reserved for possible future extensions to the language.</p>
+
+<p>\item[\sharpsign] The number sign is used for a variety of purposes depending on
+the character that immediately follows it:</p>
+
+<p>\item[\schtrue{} \schfalse{}]
+These are the boolean constants (section~\ref{booleansection}),
+along with the alternatives \sharpfoo{true} and \sharpfoo{false}.</p>
+
+<p>\item[\sharpsign\backwhack]
+This introduces a character constant (section~\ref{charactersection}).</p>
+
+<p>\item[\sharpsign\tt(]
+This introduces a vector constant (section~\ref{vectorsection}).  Vector constants
+are terminated by~{\tt)}~.</p>
+
+<p>\item[\sharpsign\tt u8(]
+This introduces a bytevector constant (section~\ref{bytevectorsection}).  Bytevector constants
+are terminated by~{\tt)}~.</p>
+
+<p>\item[{\tt#e #i #b #o #d #x}]
+These are used in the notation for numbers (section~\ref{numbernotations}).</p>
+
+<p>\item[\tt{#\hyper{n}= #\hyper{n}#}]
+These are used for labeling and referencing other literal data (section~\ref{labelsection}).</p>
+
+<p>\end{description}</p>
+
+<p>\section{Datum labels}\unsection
+\label{labelsection}</p>
+
+<p>\begin{entry}{%
+\pproto{#\hyper{n}=\hyper{datum}}{lexical syntax}
+\pproto{#\hyper{n}#}{lexical syntax}}</p>
+
+<p>The lexical syntax
+\texttt{#\hyper{n}=\hyper{datum}} reads the same as \hyper{datum}, but also
+results in \hyper{datum} being labelled by \hyper{n}.
+It is an error if \hyper{n} is not a sequence of digits.</p>
+
+<p>The lexical syntax \texttt{#\hyper{n}#} serves as a reference to some
+object labelled by \texttt{#\hyper{n}=}; the result is the same
+object as the \texttt{#\hyper{n}}=
+(see section~\ref{equivalencesection}).</p>
+
+<p>Together, these syntaxes permit the notation of
+structures with shared or circular substructure.</p>
+
+<p>\begin{scheme}
+(let ((x (list &lsquo;a &lsquo;b &lsquo;c)))
+  (set-cdr! (cddr x) x)
+  x)                       \ev #0=(a b c . #0#)
+\end{scheme}</p>
+
+<p>The scope of a datum label is the portion of the outermost datum in which it appears
+that is to the right of the label.
+Consequently, a reference \texttt{#\hyper{n}#} can occur only after a label
+\texttt{#\hyper{n}=}; it is an error to attempt a forward reference.  In
+addition, it is an error if the reference appears as the labelled object itself
+(as in \texttt{#\hyper{n}= #\hyper{n}#}),
+because the object labelled by \texttt{#\hyper{n}=} is not well
+defined in this case.</p>
+
+<p>It is an error for a \hyper{program} or \hyper{library} to include
+circular references except in literals.  In particular,
+it is an error for {\cf quasiquote} (section~\ref{quasiquote}) to contain them.</p>
+
+<p>\begin{scheme}
+#1=(begin (display #\backwhack{}x) #1#)
+                       \ev \scherror%
+\end{scheme}
+\end{entry}</p>
+
+  </article>
+</div>
+
+</body>
+</html>
+

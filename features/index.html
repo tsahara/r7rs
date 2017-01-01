@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="https://tsahara.github.com/r7rs/css/r7rs.css">
+    <title>Standard Feature Identifiers</title>
+  </head>
+  <body>
+
+
+<div>
+  <nav style="width: 220px; float: left; position: fixed;">
+    <div class="sidebar">
+  <div style="text-align:center; font-size: 300%;">
+    <a href="https://tsahara.github.com/r7rs/">R7RS</a>
+  </div>
+
+  
+  <ul>
+    <li><a href="/r7rs/summary/">Summary</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/intro/">Introduction</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/overview/">Overview of Scheme</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/lex/">Lexical conventions</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/basic/">Basic concepts</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/expr/">Expressions</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/prog/">Program structure</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/procs/">Standard procedures</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/formal/">Formal syntax and semantics</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/stdlib/">Standard Libraries</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/features/">Standard Feature Identifiers</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/changes/">Language changes</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/additional/">Additional material</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/example/">Example</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/ref/">References</a></li>
+  </ul>
+  
+</div>
+
+  </nav>
+
+  <article style="margin-left: 240px;">
+    <p>\chapter{Standard Feature Identifiers}
+\label{stdfeatures}</p>
+
+<p>An implementation may provide any or all of the feature identifiers
+listed below for use by {\cf cond-expand} and {\cf features},
+but must not provide a feature identifier if it does not
+provide the corresponding feature.</p>
+
+<p>\label{standard_features}</p>
+
+<p>\feature{r7rs}{All \rsevenrs\ Scheme implementations have this feature.}
+\feature{exact-closed}{All algebraic operations except {\cf /} produce
+  exact values given exact inputs.}
+\feature{exact-complex}{Exact complex numbers are provided.}
+\feature{ieee-float}{Inexact numbers are IEEE 754 binary floating point
+  values.}
+\feature{full-unicode}{All Unicode characters present in Unicode version 6.0 are supported as Scheme characters.}
+\feature{ratios}{{\cf /} with exact arguments produces an exact result
+  when the divisor is nonzero.}
+\feature{posix}{This implementation is running on a POSIX
+  system.}
+\feature{windows}{This implementation is running on Windows.}
+\feature{unix, darwin, gnu-linux, bsd, freebsd, solaris, &hellip;}{Operating
+  system flags (perhaps more than one).}
+\feature{i386, x86-64, ppc, sparc, jvm, clr, llvm, &hellip;}{CPU architecture flags.}
+\feature{ilp32, lp64, ilp64, &hellip;}{C memory model flags.}
+\feature{big-endian, little-endian}{Byte order flags.}
+\feature{\hyper{name}}{The name of this implementation.}
+\feature{\hyper{name-version}}{The name and version of this
+  implementation.}</p>
+
+  </article>
+</div>
+
+</body>
+</html>
+

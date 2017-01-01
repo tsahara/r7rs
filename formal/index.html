@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="https://tsahara.github.com/r7rs/css/r7rs.css">
+    <title>Formal syntax and semantics</title>
+  </head>
+  <body>
+
+
+<div>
+  <nav style="width: 220px; float: left; position: fixed;">
+    <div class="sidebar">
+  <div style="text-align:center; font-size: 300%;">
+    <a href="https://tsahara.github.com/r7rs/">R7RS</a>
+  </div>
+
+  
+  <ul>
+    <li><a href="/r7rs/summary/">Summary</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/intro/">Introduction</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/overview/">Overview of Scheme</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/lex/">Lexical conventions</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/basic/">Basic concepts</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/expr/">Expressions</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/prog/">Program structure</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/procs/">Standard procedures</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/formal/">Formal syntax and semantics</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/stdlib/">Standard Libraries</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/features/">Standard Feature Identifiers</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/changes/">Language changes</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/additional/">Additional material</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/example/">Example</a></li>
+  </ul>
+  
+  <ul>
+    <li><a href="/r7rs/ref/">References</a></li>
+  </ul>
+  
+</div>
+
+  </nav>
+
+  <article style="margin-left: 240px;">
+    <p>\chapter{Formal syntax and semantics}
+\label{formalchapter}</p>
+
+<p>This chapter provides formal descriptions of what has already been
+described informally in previous chapters of this report.</p>
+
+<p>\section{Formal syntax}
+\label{BNF}</p>
+
+<p>This section provides a formal syntax for Scheme written in an extended
+BNF.</p>
+
+<p>All spaces in the grammar are for legibility.  Case is not significant
+except in the definitions of \meta{letter}, \meta{character name} and \meta{mnemonic escape}; for example, {\cf #x1A}
+and {\cf #X1a} are equivalent, but {\cf foo} and {\cf Foo}
+and {\cf #\backwhack{}space} and {\cf #\backwhack{}Space} are distinct.
+\meta{empty} stands for the empty string.</p>
+
+<p>The following extensions to BNF are used to make the description more
+concise:  \arbno{\meta{thing}} means zero or more occurrences of
+\meta{thing}; and \atleastone{\meta{thing}} means at least one
+\meta{thing}.</p>
+
+<p>\subsection{Lexical structure}</p>
+
+<p>This section describes how individual tokens\index{token} (identifiers,
+numbers, etc.) are formed from sequences of characters.  The following
+sections describe how expressions and programs are formed from sequences
+of tokens.</p>
+
+<p>\meta{Intertoken space} can occur on either side of any token, but not
+within a token.</p>
+
+<p>\vest Identifiers that do not begin with a vertical line are
+terminated by a \meta{delimiter} or by the end of the input.
+So are dot, numbers, characters, and booleans.
+Identifiers that begin with a vertical line are terminated by another vertical line.</p>
+
+<p>The following four characters from the ASCII repertoire
+are reserved for future extensions to the
+language: {\tt \verb&rdquo;[&rdquo; \verb&rdquo;]&rdquo; \verb&rdquo;{&rdquo; \verb&rdquo;}&ldquo;}</p>
+
+<p>In addition to the identifier characters of the ASCII repertoire specified
+below, Scheme implementations may permit any additional repertoire of
+Unicode characters to be employed in identifiers,
+provided that each such character has a Unicode general category of Lu,
+Ll, Lt, Lm, Lo, Mn, Mc, Me, Nd, Nl, No, Pd, Pc, Po, Sc, Sm, Sk, So,
+or Co, or is U+200C or U+200D (the zero-width non-joiner and joiner,
+respectively, which are needed for correct spelling in Persian, Hindi,
+and other languages).
+However, it is an error for the first character to have a general category
+of Nd, Mc, or Me.  It is also an error to use a non-Unicode character
+in symbols or identifiers.</p>
+
+<p>All Scheme implementations must permit the escape sequence
+{\tt \backwhack{}x<hexdigits>;}
+to appear in Scheme identifiers that are enclosed in vertical lines. If the character
+with the given Unicode scalar value is supported by the implementation,
+identifiers containing such a sequence are equivalent to identifiers
+containing the corresponding character.</p>
+
+<p>\begin{grammar}%
+\meta{token} : \meta{identifier} | \meta{boolean} | \meta{number}\index{identifier}
+&gt;  | \meta{character} | \meta{string}
+&gt;  | ( | ) | \sharpsign( | \sharpsign u8( | \singlequote{} | \backquote{} | , | ,@ | {\bf.}
+\meta{delimiter} : \meta{whitespace} | \meta{vertical line}
+&gt; | ( | ) | &ldquo; | ;
+\meta{intraline whitespace} : \meta{space or tab}
+\meta{whitespace} : \meta{intraline whitespace} | \meta{line ending}
+\meta{vertical line} : |
+\meta{line ending} : \meta{newline} | \meta{return} \meta{newline}
+&gt; | \meta{return}
+\meta{comment} : ; \= $\langle$\rm all subsequent characters up to a
+            &gt;\ \rm line ending$\rangle$\index{comment}
+&gt; | \meta{nested comment}
+&gt; | #; \meta{intertoken space} \meta{datum}
+\meta{nested comment} : #| \= \meta{comment text}
+&gt; \arbno{\meta{comment cont}} |#
+\meta{comment text} : \= $\langle$\rm character sequence not containing
+&gt;\ \rm {\tt #|} or {\tt |#}$\rangle$
+\meta{comment cont} : \meta{nested comment} \meta{comment text}
+\meta{directive} : #!fold-case | #!no-fold-case%
+\end{grammar}</p>
+
+<p>Note that it is ungrammatical to follow a \meta{directive} with anything
+but a \meta{delimiter} or the end of file.</p>
+
+<p>\begin{grammar}%
+\meta{atmosphere} : \meta{whitespace} | \meta{comment} | \meta{directive}
+\meta{intertoken space} : \arbno{\meta{atmosphere}}%
+\end{grammar}</p>
+
+<p>\label{extendedalphas}
+\label{identifiersyntax}</p>
+
+<p>% This is a kludge, but \multicolumn doesn&rsquo;t work in tabbing environments.
+\setbox0\hbox{\cf\meta{identifier} \goesto{} $\langle$}</p>
+
+<p>Note that {\cf +i}, {\cf -i} and \meta{infnan} below are exceptions to the
+\meta{peculiar identifier} rule; they are parsed as numbers, not
+identifiers.</p>
+
+<p>\begin{grammar}%
+\meta{identifier} : \meta{initial} \arbno{\meta{subsequent}}
+ &gt;  | \meta{vertical line} \arbno{\meta{symbol element}} \meta{vertical line}
+ &gt;  | \meta{peculiar identifier}
+\meta{initial} : \meta{letter} | \meta{special initial}
+\meta{letter} : a | b | c | &hellip; | z
+&gt; | A | B | C | &hellip; | Z
+\meta{special initial} : ! | \$ | \% | \verb&rdquo;&amp;&rdquo; | * | / | : | &lt; | =
+ &gt;  | &gt; | ? | \verb&rdquo;^&rdquo; | \verb&rdquo;_&rdquo; | \verb&rdquo;~&rdquo;
+\meta{subsequent} : \meta{initial} | \meta{digit}
+ &gt;  | \meta{special subsequent}
+\meta{digit} : 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+\meta{hex digit} : \meta{digit} | a | b | c | d | e | f
+\meta{explicit sign} : + | -
+\meta{special subsequent} : \meta{explicit sign} | . | @
+\meta{inline hex escape} : \backwhack{}x\meta{hex scalar value};
+\meta{hex scalar value} : \atleastone{\meta{hex digit}}
+\meta{mnemonic escape} : \backwhack{}a | \backwhack{}b | \backwhack{}t | \backwhack{}n | \backwhack{}r
+\meta{peculiar identifier} : \meta{explicit sign}
+ &gt; | \meta{explicit sign} \meta{sign subsequent} \arbno{\meta{subsequent}}
+ &gt; | \meta{explicit sign} . \meta{dot subsequent} \arbno{\meta{subsequent}}
+ &gt; | . \meta{dot subsequent} \arbno{\meta{subsequent}}
+ %| 1+ | -1+
+\meta{dot subsequent} : \meta{sign subsequent} | .
+\meta{sign subsequent} : \meta{initial} | \meta{explicit sign} | @
+\meta{symbol element} :
+ &gt; \meta{any character other than \meta{vertical line} or \backwhack}
+ &gt; | \meta{inline hex escape} | \meta{mnemonic escape} | \backwhack{}|</p>
+
+<p>\meta{boolean} : \schtrue{} | \schfalse{} | \sharptrue{} | \sharpfalse{}
+\label{charactersyntax}
+\meta{character} : #\backwhack{} \meta{any character}
+ &gt;  | #\backwhack{} \meta{character name}
+ &gt;  | #\backwhack{}x\meta{hex scalar value}
+\meta{character name} : alarm | backspace | delete
+&gt; | escape | newline | null | return | space | tab
+\todo{Explain what happens in the ambiguous case.}
+\meta{string} : &ldquo; \arbno{\meta{string element}} &ldquo;
+\meta{string element} : \meta{any character other than \doublequote{} or \backwhack}
+ &gt; | \meta{mnemonic escape} | \backwhack\doublequote{} | \backwhack\backwhack
+ &gt;  | \backwhack{}\arbno{\meta{intraline whitespace}}\meta{line ending}
+ &gt;  &gt; \arbno{\meta{intraline whitespace}}
+ &gt;  | \meta{inline hex escape}
+\meta{bytevector} : #u8(\arbno{\meta{byte}})
+\meta{byte} : \meta{any exact integer between 0 and 255}%
+\end{grammar}</p>
+
+<p>\label{numbersyntax}</p>
+
+<p>\begin{grammar}%
+\meta{number} : \meta{num $2$} | \meta{num $8$}
+   &gt;  | \meta{num $10$} | \meta{num $16$}
+\end{grammar}</p>
+
+<p>The following rules for \meta{num $R$}, \meta{complex $R$}, \meta{real
+$R$}, \meta{ureal $R$}, \meta{uinteger $R$}, and \meta{prefix $R$}
+are implicitly replicated for \hbox{$R = 2, 8, 10,$}
+and $16$.  There are no rules for \meta{decimal $2$}, \meta{decimal
+$8$}, and \meta{decimal $16$}, which means that numbers containing
+decimal points or exponents are always in decimal radix.
+Although not shown below, all alphabetic characters used in the grammar
+of numbers can appear in either upper or lower case.
+\begin{grammar}%
+\meta{num $R$} : \meta{prefix $R$} \meta{complex $R$}
+\meta{complex $R$} : %
+         \meta{real $R$} %
+      | \meta{real $R$} @ \meta{real $R$}
+   &gt; | \meta{real $R$} + \meta{ureal $R$} i %
+      | \meta{real $R$} - \meta{ureal $R$} i
+   &gt; | \meta{real $R$} + i %
+      | \meta{real $R$} - i %
+      | \meta{real $R$} \meta{infnan} i
+   &gt; | + \meta{ureal $R$} i %
+      | - \meta{ureal $R$} i
+   &gt; | \meta{infnan} i %
+      | + i %
+      | - i
+\meta{real $R$} : \meta{sign} \meta{ureal $R$}
+   &gt; | \meta{infnan}
+\meta{ureal $R$} : %
+         \meta{uinteger $R$}
+   &gt; | \meta{uinteger $R$} / \meta{uinteger $R$}
+   &gt; | \meta{decimal $R$}
+\meta{decimal $10$} : %
+         \meta{uinteger $10$} \meta{suffix}
+   &gt; | . \atleastone{\meta{digit $10$}} \meta{suffix}
+   &gt; | \atleastone{\meta{digit $10$}} . \arbno{\meta{digit $10$}} \meta{suffix}
+\meta{uinteger $R$} : \atleastone{\meta{digit $R$}}
+\meta{prefix $R$} : %
+         \meta{radix $R$} \meta{exactness}
+   &gt; | \meta{exactness} \meta{radix $R$}
+\meta{infnan} : +inf.0 | -inf.0 | +nan.0 | -nan.0
+\end{grammar}</p>
+
+<p>\begin{grammar}%
+\meta{suffix} : \meta{empty}
+   &gt; | \meta{exponent marker} \meta{sign} \atleastone{\meta{digit $10$}}
+\meta{exponent marker} : e
+\meta{sign} : \meta{empty}  | + |  -
+\meta{exactness} : \meta{empty} | #i\sharpindex{i} | #e\sharpindex{e}
+\meta{radix 2} : #b\sharpindex{b}
+\meta{radix 8} : #o\sharpindex{o}
+\meta{radix 10} : \meta{empty} | #d
+\meta{radix 16} : #x\sharpindex{x}
+\meta{digit 2} : 0 | 1
+\meta{digit 8} : 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
+\meta{digit 10} : \meta{digit}
+\meta{digit 16} : \meta{digit $10$} | a | b | c | d | e | f %
+\end{grammar}</p>
+
+<p>\subsection{External representations}
+\label{datumsyntax}</p>
+
+<p>\meta{Datum} is what the \ide{read} procedure (section~\ref{read})
+successfully parses.  Note that any string that parses as an
+\meta{ex-pres-sion} will also parse as a \meta{datum}.  \label{datum}</p>
+
+<p>\begin{grammar}%
+\meta{datum} : \meta{simple datum} | \meta{compound datum}
+&gt;  | \meta{label} = \meta{datum} | \meta{label} #
+\meta{simple datum} : \meta{boolean} | \meta{number}
+&gt;  | \meta{character} | \meta{string} |  \meta{symbol} | \meta{bytevector}
+\meta{symbol} : \meta{identifier}
+\meta{compound datum} : \meta{list} | \meta{vector} | \meta{abbreviation}
+\meta{list} : (\arbno{\meta{datum}}) | (\atleastone{\meta{datum}} .\ \meta{datum})
+\meta{abbreviation} : \meta{abbrev prefix} \meta{datum}
+\meta{abbrev prefix} : &lsquo; | ` | , | ,@
+\meta{vector} : #(\arbno{\meta{datum}})
+\meta{label} : # \meta{uinteger 10}%
+\end{grammar}</p>
+
+<p>\subsection{Expressions}</p>
+
+<p>The definitions in this and the following subsections assume that all
+the syntax keywords defined in this report have been properly imported
+from their libraries, and that none of them have been redefined or shadowed.</p>
+
+<p>\begin{grammar}%
+\meta{expression} : \meta{identifier}
+&gt;  | \meta{literal}
+&gt;  | \meta{procedure call}
+&gt;  | \meta{lambda expression}
+&gt;  | \meta{conditional}
+&gt;  | \meta{assignment}
+&gt;  | \meta{derived expression}
+&gt;  | \meta{macro use}
+&gt;  | \meta{macro block}
+&gt;  | \meta{includer}</p>
+
+<p>\meta{literal} : \meta{quotation} | \meta{self-evaluating}
+\meta{self-evaluating} : \meta{boolean} | \meta{number} | \meta{vector}
+&gt;  | \meta{character} | \meta{string} | \meta{bytevector}
+\meta{quotation} : &lsquo;\meta{datum} | (quote \meta{datum})
+\meta{procedure call} : (\meta{operator} \arbno{\meta{operand}})
+\meta{operator} : \meta{expression}
+\meta{operand} : \meta{expression}</p>
+
+<p>\meta{lambda expression} : (lambda \meta{formals} \meta{body})
+\meta{formals} : (\arbno{\meta{identifier}}) | \meta{identifier}
+&gt;  | (\atleastone{\meta{identifier}} .\ \meta{identifier})
+\meta{body} :  \arbno{\meta{definition}} \meta{sequence}
+\meta{sequence} : \arbno{\meta{command}} \meta{expression}
+\meta{command} : \meta{expression}</p>
+
+<p>\meta{conditional} : (if \meta{test} \meta{consequent} \meta{alternate})
+\meta{test} : \meta{expression}
+\meta{consequent} : \meta{expression}
+\meta{alternate} : \meta{expression} | \meta{empty}</p>
+
+<p>\meta{assignment} : (set! \meta{identifier} \meta{expression})</p>
+
+<p>\meta{derived expression} :
+&gt;  &gt; (cond \atleastone{\meta{cond clause}})
+&gt;  | (cond \arbno{\meta{cond clause}} (else \meta{sequence}))
+&gt;  | (c\=ase \meta{expression}
+&gt;       &gt;\atleastone{\meta{case clause}})
+&gt;  | (c\=ase \meta{expression}
+&gt;       &gt;\arbno{\meta{case clause}}
+&gt;       &gt;(else \meta{sequence}))
+&gt;  | (c\=ase \meta{expression}
+&gt;       &gt;\arbno{\meta{case clause}}
+&gt;       &gt;(else =&gt; \meta{recipient}))
+&gt;  | (and \arbno{\meta{test}})
+&gt;  | (or \arbno{\meta{test}})
+&gt;  | (when \meta{test} \meta{sequence})
+&gt;  | (unless \meta{test} \meta{sequence})
+&gt;  | (let (\arbno{\meta{binding spec}}) \meta{body})
+&gt;  | (let \meta{identifier} (\arbno{\meta{binding spec}}) \meta{body})
+&gt;  | (let* (\arbno{\meta{binding spec}}) \meta{body})
+&gt;  | (letrec (\arbno{\meta{binding spec}}) \meta{body})
+&gt;  | (letrec* (\arbno{\meta{binding spec}}) \meta{body})
+&gt;  | (let-values (\arbno{\meta{mv binding spec}}) \meta{body})
+&gt;  | (let*-values (\arbno{\meta{mv binding spec}}) \meta{body})
+&gt;  | (begin \meta{sequence})
+&gt;  | (d\=o \=(\arbno{\meta{iteration spec}})
+&gt;       &gt;  &gt;(\meta{test} \meta{do result})
+&gt;       &gt;\arbno{\meta{command}})
+&gt;  | (delay \meta{expression})
+&gt;  | (delay-force \meta{expression})
+&gt;  | (p\=arameterize (\arbno{(\meta{expression} \meta{expression})})
+&gt;       &gt; \meta{body})
+&gt;  | (guard (\meta{identifier} \arbno{\meta{cond clause}}) \meta{body})
+&gt;  | \meta{quasiquotation}
+&gt;  | (c\=ase-lambda \arbno{\meta{case-lambda clause}})</p>
+
+<p>\meta{cond clause} : (\meta{test} \meta{sequence})
+&gt;   | (\meta{test})
+&gt;   | (\meta{test} =&gt; \meta{recipient})
+\meta{recipient} : \meta{expression}
+\meta{case clause} : ((\arbno{\meta{datum}}) \meta{sequence})
+&gt;   | ((\arbno{\meta{datum}}) =&gt; \meta{recipient})
+\meta{binding spec} : (\meta{identifier} \meta{expression})
+\meta{mv binding spec} : (\meta{formals} \meta{expression})
+\meta{iteration spec} : (\meta{identifier} \meta{init} \meta{step})
+&gt; | (\meta{identifier} \meta{init})
+\meta{case-lambda clause} : (\meta{formals} \meta{body})
+\meta{init} : \meta{expression}
+\meta{step} : \meta{expression}
+\meta{do result} : \meta{sequence} | \meta{empty}</p>
+
+<p>\meta{macro use} : (\meta{keyword} \arbno{\meta{datum}})
+\meta{keyword} : \meta{identifier}</p>
+
+<p>\meta{macro block} :
+&gt;  (let-syntax (\arbno{\meta{syntax spec}}) \meta{body})
+&gt;  | (letrec-syntax (\arbno{\meta{syntax spec}}) \meta{body})
+\meta{syntax spec} : (\meta{keyword} \meta{transformer spec})</p>
+
+<p>\meta{includer} :
+&gt; | (include \atleastone{\meta{string}})
+&gt; | (include-ci \atleastone{\meta{string}})
+\end{grammar}</p>
+
+<p>\subsection{Quasiquotations}</p>
+
+<p>The following grammar for quasiquote expressions is not context-free.
+It is presented as a recipe for generating an infinite number of
+production rules.  Imagine a copy of the following rules for $D = 1, 2,
+3, \ldots$, where $D$ is the nesting depth.</p>
+
+<p>\begin{grammar}%
+\meta{quasiquotation} : \meta{quasiquotation 1}
+\meta{qq template 0} : \meta{expression}
+\meta{quasiquotation $D$} : `\meta{qq template $D$}
+&gt;    | (quasiquote \meta{qq template $D$})
+\meta{qq template $D$} : \meta{simple datum}
+&gt;    | \meta{list qq template $D$}
+&gt;    | \meta{vector qq template $D$}
+&gt;    | \meta{unquotation $D$}
+\meta{list qq template $D$} : (\arbno{\meta{qq template or splice $D$}})
+&gt;    | (\atleastone{\meta{qq template or splice $D$}} .\ \meta{qq template $D$})
+&gt;    | &lsquo;\meta{qq template $D$}
+&gt;    | \meta{quasiquotation $D+1$}
+\meta{vector qq template $D$} : #(\arbno{\meta{qq template or splice $D$}})
+\meta{unquotation $D$} : ,\meta{qq template $D-1$}
+&gt;    | (unquote \meta{qq template $D-1$})
+\meta{qq template or splice $D$} : \meta{qq template $D$}
+&gt;    | \meta{splicing unquotation $D$}
+\meta{splicing unquotation $D$} : ,@\meta{qq template $D-1$}
+&gt;    | (unquote-splicing \meta{qq template $D-1$}) %
+\end{grammar}</p>
+
+<p>In \meta{quasiquotation}s, a \meta{list qq template $D$} can sometimes
+be confused with either an \meta{un-quota-tion $D$} or a \meta{splicing
+un-quo-ta-tion $D$}.  The interpretation as an
+\meta{un-quo-ta-tion} or \meta{splicing
+un-quo-ta-tion $D$} takes precedence.</p>
+
+<p>\subsection{Transformers}</p>
+
+<p>\begin{grammar}%
+\meta{transformer spec} :
+&gt; (syntax-rules (\arbno{\meta{identifier}}) \arbno{\meta{syntax rule}})
+&gt; | (syntax-rules \meta{identifier} (\arbno{\meta{identifier}})
+&gt; &gt; \ \ \arbno{\meta{syntax rule}})
+\meta{syntax rule} : (\meta{pattern} \meta{template})
+\meta{pattern} : \meta{pattern identifier}
+&gt;  | \meta{underscore}
+&gt;  | (\arbno{\meta{pattern}})
+&gt;  | (\atleastone{\meta{pattern}} . \meta{pattern})
+&gt;  | (\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}})
+&gt;  | (\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}}
+&gt; &gt; \ \ . \meta{pattern})
+&gt;  | #(\arbno{\meta{pattern}})
+&gt;  | #(\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}})
+&gt;  | \meta{pattern datum}
+\meta{pattern datum} : \meta{string}
+&gt;  | \meta{character}
+&gt;  | \meta{boolean}
+&gt;  | \meta{number}
+\meta{template} : \meta{pattern identifier}
+&gt;  | (\arbno{\meta{template element}})
+&gt;  | (\atleastone{\meta{template element}} .\ \meta{template})
+&gt;  | #(\arbno{\meta{template element}})
+&gt;  | \meta{template datum}
+\meta{template element} : \meta{template}
+&gt;  | \meta{template} \meta{ellipsis}
+\meta{template datum} : \meta{pattern datum}
+\meta{pattern identifier} : \meta{any identifier except {\cf &hellip;}}
+\meta{ellipsis} : \meta{an identifier defaulting to {\cf &hellip;}}
+\meta{underscore} : \meta{the identifier {\cf _}}
+\end{grammar}</p>
+
+<p>\subsection{Programs and definitions}</p>
+
+<p>\begin{grammar}%
+\meta{program} :
+&gt; \atleastone{\meta{import declaration}}
+&gt; \atleastone{\meta{command or definition}}
+\meta{command or definition} : \meta{command}
+&gt; | \meta{definition}
+&gt; | (begin \atleastone{\meta{command or definition}})
+\meta{definition} : (define \meta{identifier} \meta{expression})
+&gt;   | (define (\meta{identifier} \meta{def formals}) \meta{body})
+&gt;   | \meta{syntax definition}
+&gt;   | (define-values \meta{formals} \meta{body})
+&gt;   | (define-record-type \meta{identifier}
+&gt; &gt; \ \ \meta{constructor} \meta{identifier} \arbno{\meta{field spec}})
+&gt;   | (begin \arbno{\meta{definition}})
+\meta{def formals} : \arbno{\meta{identifier}}
+&gt;   | \arbno{\meta{identifier}} .\ \meta{identifier}
+\meta{constructor} : (\meta{identifier} \arbno{\meta{field name}})
+\meta{field spec} : (\meta{field name} \meta{accessor})
+&gt;   | (\meta{field name} \meta{accessor} \meta{mutator})
+\meta{field name} : \meta{identifier}
+\meta{accessor} : \meta{identifier}
+\meta{mutator} : \meta{identifier}
+\meta{syntax definition} :
+&gt;  (define-syntax \meta{keyword} \meta{transformer spec})
+\end{grammar}</p>
+
+<p>\subsection{Libraries}</p>
+
+<p>\begin{grammar}%
+\meta{library} :
+&gt; (d\=efine-library \meta{library name}
+&gt;   &gt; \arbno{\meta{library declaration}})
+\meta{library name} : (\atleastone{\meta{library name part}})
+\meta{library name part} : \meta{identifier} | \meta{uinteger 10}
+\meta{library declaration} : (export \arbno{\meta{export spec}})
+&gt; | \meta{import declaration}
+&gt; | (begin \arbno{\meta{command or definition}})
+&gt; | \meta{includer}
+&gt; | (include-library-declarations \atleastone{\meta{string}})
+&gt; | (cond-expand \atleastone{\meta{cond-expand clause}})
+&gt; | (cond-expand \atleastone{\meta{cond-expand clause}}
+\hbox to 1\wd0{\hfill}\ (else \arbno{\meta{library declaration}}))
+\meta{import declaration} : (import \atleastone{\meta{import set}})
+\meta{export spec} : \meta{identifier}
+&gt; | (rename \meta{identifier} \meta{identifier})
+\meta{import set} : \meta{library name}
+&gt; | (only \meta{import set} \atleastone{\meta{identifier}})
+&gt; | (except \meta{import set} \atleastone{\meta{identifier}})
+&gt; | (prefix \meta{import set} \meta{identifier})
+&gt; | (rename \meta{import set} \atleastone{(\meta{identifier} \meta{identifier})})
+\meta{cond-expand clause} :
+&gt; (\meta{feature requirement} \arbno{\meta{library declaration}})
+\meta{feature requirement} : \meta{identifier}
+&gt; | \meta{library name}
+&gt; | (and \arbno{\meta{feature requirement}})
+&gt; | (or \arbno{\meta{feature requirement}})
+&gt; | (not \meta{feature requirement})
+\end{grammar}
+%\vfill\eject
+\section{Formal semantics}
+\label{formalsemanticssection}</p>
+
+<p>\bgroup</p>
+
+<p>\newcommand{\sembrack}[1]{[![#1]!]}
+\newcommand{\fun}[1]{\hbox{\it #1}}
+\newenvironment{semfun}{\begin{tabbing}$}{$\end{tabbing}}
+\newcommand\LOC{{\tt{}L}}
+\newcommand\NAT{{\tt{}N}}
+\newcommand\TRU{{\tt{}T}}
+\newcommand\SYM{{\tt{}Q}}
+\newcommand\CHR{{\tt{}H}}
+\newcommand\NUM{{\tt{}R}}
+\newcommand\FUN{{\tt{}F}}
+\newcommand\EXP{{\tt{}E}}
+\newcommand\STV{{\tt{}E}}
+\newcommand\STO{{\tt{}S}}
+\newcommand\ENV{{\tt{}U}}
+\newcommand\ANS{{\tt{}A}}
+\newcommand\ERR{{\tt{}X}}
+\newcommand\DP{\tt{P}}
+\newcommand\EC{{\tt{}K}}
+\newcommand\CC{{\tt{}C}}
+\newcommand\MSC{{\tt{}M}}
+\newcommand\PAI{\hbox{\EXP$<em>{\rm p}$}}
+\newcommand\VEC{\hbox{\EXP$</em>{\rm v}$}}
+\newcommand\STR{\hbox{\EXP$_{\rm s}$}}</p>
+
+<p>\newcommand\elt{\downarrow}
+\newcommand\drop{\dagger}</p>
+
+<p>\newcommand{\wrong}[1]{\fun{wrong }\hbox{\rm``#1&rdquo;}}
+\newcommand{\go}[1]{\hbox{\hspace*{#1em}}}</p>
+
+<p>This section provides a formal denotational semantics for the primitive
+expressions of Scheme and selected built-in procedures.  The concepts
+and notation used here are described in~\cite{Stoy77}; the definition of
+{\cf dynamic-wind} is taken from~\cite{GasbichlerKnauelSperberKelsey2003}.
+The notation is summarized below:</p>
+
+<p>\begin{tabular}{ll}
+$\langle\,\ldots\,\rangle$ &amp; sequence formation <br />
+$s \elt k$                 &amp; $k$th member of the sequence $s$ (1-based) <br />
+$#s$                      &amp; length of sequence $s$ <br />
+$s :\S: t$               &amp; concatenation of sequences $s$ and $t$ <br />
+$s \drop k$                &amp; drop the first $k$ members of sequence $s$ <br />
+$t \rightarrow a, b$       &amp; McCarthy conditional <code>if $t$ then $a$ else $b$'' \\
+$\rho[x/i]$                &amp; substitution</code>$\rho$ with $x$ for $i$&rdquo; <br />
+$x\hbox{ \rm in }{\texttt{D}}$         &amp; injection of $x$ into domain $\texttt{D}$ <br />
+$x\,\vert\,\texttt{D}$       &amp; projection of $x$ to domain $\texttt{D}$
+\end{tabular}</p>
+
+<p>The reason that expression continuations take sequences of values instead
+of single values is to simplify the formal treatment of procedure calls
+and multiple return values.</p>
+
+<p>The boolean flag associated with pairs, vectors, and strings will be true
+for mutable objects and false for immutable objects.</p>
+
+<p>The order of evaluation within a call is unspecified.  We mimic that
+here by applying arbitrary permutations {\it permute} and {\it
+unpermute}, which must be inverses, to the arguments in a call before
+and after they are evaluated.  This is not quite right since it suggests,
+incorrectly, that the order of evaluation is constant throughout a program (for
+any given number of arguments), but it is a closer approximation to the intended
+semantics than a left-to-right evaluation would be.</p>
+
+<p>The storage allocator {\it new} is implementation-dependent, but it must
+obey the following axiom:  if \hbox{$\fun{new}:\sigma:\elem:\LOC$}, then
+$\sigma:(\fun{new}:\sigma:\vert:\LOC)\elt 2 = {\it false}$.</p>
+
+<p>\def\P{\hbox{\rm P}}
+\def\I{\hbox{\rm I}}
+\def\Ksem{\hbox{$\cal K$}}
+\def\Esem{\hbox{$\cal E$}}</p>
+
+<p>The definition of $\Ksem$ is omitted because an accurate definition of
+$\Ksem$ would complicate the semantics without being very interesting.</p>
+
+<p>If \P{} is a program in which all variables are defined before being
+referenced or assigned, then the meaning of \P{} is
+$$\Esem\sembrack{\hbox{\texttt{((lambda (\arbno{\I}) \P&rsquo;)
+\hyper{undefined} \dotsfoo)}}}$$
+where \arbno{\I} is the sequence of variables defined in \P, $\P&rsquo;$
+is the sequence of expressions obtained by replacing every definition
+in \P{} by an assignment, \hyper{undefined} is an expression that evaluates
+to \fun{undefined}, and
+$\Esem$ is the semantic function that assigns meaning to expressions.</p>
+
+<p>%The semantics in this section was translated by machine from an
+%executable version of the semantics written in Scheme itself.
+%[This was once true, but then I modified the semantics without
+%going back to the executable version.  &ndash; Will]</p>
+
+<p>\subsection{Abstract syntax}</p>
+
+<p>\def\K{\hbox{\rm K}}
+\def\I{\hbox{\rm I}}
+\def\E{\hbox{\rm E}}
+\def\C{\hbox{$\Gamma$}}
+\def\Con{\hbox{\rm Con}}
+\def\Ide{\hbox{\rm Ide}}
+\def\Exp{\hbox{\rm Exp}}
+\def\Com{\hbox{\rm Com}}
+\def|{$\vert$}</p>
+
+<p>\begin{tabular}{r@{ }c@{ }l@{\qquad}l}
+\K &amp; \elem &amp; \Con &amp; constants, including quotations <br />
+\I &amp; \elem &amp; \Ide &amp; identifiers (variables) <br />
+\E &amp; \elem &amp; \Exp &amp; expressions<br />
+\C &amp; \elem &amp; \Com{} $=$ \Exp &amp; commands
+\end{tabular}</p>
+
+<p>\setbox0=\hbox{\texttt{\Exp \goesto{}}}  %\tt for spacing
+\setbox1=\hbox to 1\wd0{\hfil |}
+\begin{grammar}
+\Exp{} \goesto{} \K{} | \I{} | (\E$_0$ \arbno{\E})
+ \copy1{} (lambda (\arbno{\I}) \arbno{\C} \E$_0$)
+ \copy1{} (lambda (\arbno{\I} {\bf.}\ \I) \arbno{\C} \E$_0$)
+ \copy1{} (lambda \I{} \arbno{\C} \E$_0$)
+ \copy1{} (if \E$_0$ \E$_1$ \E$_2$) | (if \E$_0$ \E$_1$)
+ \copy1{} (set! \I{} \E)
+\end{grammar}</p>
+
+<p>\subsection{Domain equations}</p>
+
+<p>\begin{tabular}{@{}r@{ }c@{ }l@{ }l@{ }ll}
+$\alpha$   &amp; \elem &amp; \LOC &amp; &amp;          &amp; locations <br />
+$\nu$      &amp; \elem &amp; \NAT &amp; &amp;          &amp; natural numbers <br />
+           &amp;       &amp; \TRU &amp;=&amp; ${$\it false, true$}$ &amp; booleans <br />
+           &amp;       &amp; \SYM &amp; &amp;          &amp; symbols <br />
+           &amp;       &amp; \CHR &amp; &amp;          &amp; characters <br />
+           &amp;       &amp; \NUM &amp; &amp;          &amp; numbers <br />
+           &amp;       &amp; \PAI &amp;=&amp; $\LOC \times \LOC \times \TRU$  &amp; pairs <br />
+           &amp;       &amp; \VEC &amp;=&amp; $\arbno{\LOC} \times \TRU$ &amp; vectors <br />
+           &amp;       &amp; \STR &amp;=&amp; $\arbno{\LOC} \times \TRU$ &amp; strings <br />
+           &amp;       &amp; \MSC &amp;=&amp; \makebox[0pt][l]{${$\it false, true,
+                                null, undefined, unspecified$}$} <br />
+           &amp;       &amp;      &amp; &amp;          &amp; miscellaneous <br />
+$\phi$     &amp; \elem &amp; \FUN &amp;=&amp; $\LOC\times(\arbno{\EXP} \to \DP \to \EC \to \CC)$
+                                       &amp; procedure values <br />
+$\epsilon$ &amp; \elem &amp; \EXP &amp;=&amp; \makebox[0pt][l]{$\SYM+\CHR+\NUM+\PAI+\VEC+\STR+\MSC+\FUN$}<br />
+           &amp;       &amp;      &amp; &amp;          &amp; expressed values <br />
+%          &amp;       &amp; \STV &amp;=&amp; \EXP     &amp; stored values <br />
+$\sigma$   &amp; \elem &amp; \STO &amp;=&amp; $\LOC\to(\STV\times\TRU)$ &amp; stores <br />
+$\rho$     &amp; \elem &amp; \ENV &amp;=&amp; $\Ide\to\LOC$  &amp; environments <br />
+$\theta$   &amp; \elem &amp; \CC  &amp;=&amp; $\STO\to\ANS$  &amp; command conts <br />
+$\kappa$   &amp; \elem &amp; \EC  &amp;=&amp; $\arbno{\EXP}\to\CC$ &amp; expression conts <br />
+           &amp;       &amp; \ANS &amp; &amp;                &amp; answers <br />
+           &amp;       &amp; \ERR &amp; &amp;                &amp; errors <br />
+$\omega$   &amp; \elem &amp; \DP  &amp;=&amp; $(\FUN \times \FUN \times \DP) + {\textit{root}}$ &amp; dynamic points<br />
+\end{tabular}</p>
+
+<p>\subsection{Semantic functions}</p>
+
+<p>\def\Ksem{\hbox{$\cal K$}}
+\def\Esem{\hbox{$\cal E$}}
+\def\Csem{\hbox{$\cal C$}}</p>
+
+<p>\begin{tabular}{@{}r@{ }l}
+  $\Ksem:$ &amp; $\Con\to\EXP$  <br />
+  $\Esem:$ &amp; $\Exp\to\ENV\to\DP\to\EC\to\CC$ <br />
+$\arbno{\Esem}:$ &amp; $\arbno{\Exp}\to\ENV\to\DP\to\EC\to\CC$ <br />
+  $\Csem:$ &amp; $\arbno{\Com}\to\ENV\to\DP\to\CC\to\CC$
+\end{tabular}</p>
+
+<p>\bgroup\small</p>
+
+<p>\vspace{1ex}</p>
+
+<p>Definition of \Ksem{} deliberately omitted.</p>
+
+<p>\begin{semfun}
+\Esem\sembrack{\K} =
+  \lambda\rho\omega\kappa:.:\fun{send}\,(\Ksem\sembrack{\K})\,\kappa
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\Esem\sembrack{\I} =
+  \lambda\rho\omega\kappa:.:\fun{hold}:
+    $\=$(\fun{lookup}:\rho:\I)$<br />
+     &gt;$(\fun{single}(\lambda\epsilon:.:
+        $\=$\epsilon = \fun{undefined}\rightarrow$<br />
+     &gt;  &gt; \go{2}$\wrong{undefined variable},$<br />
+     &gt;  &gt;\go{1}$\fun{send}:\epsilon:\kappa))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\Esem\sembrack{\hbox{\texttt{($\E_0$ \arbno{\E})}}} =$<br />
+ \go{1}$\lambda\rho\omega\kappa:.:\arbno{\Esem}
+    $\=$(\fun{permute}(\langle\E_0\rangle:\S:\arbno{\E}))$<br />
+     &gt;$\rho:$<br />
+     &gt;$\omega:$<br />
+     &gt;$(\lambda\arbno{\epsilon}:.:
+        ($\=$(\lambda\arbno{\epsilon}:.:
+                 \fun{applicate}:(\arbno{\epsilon}\elt 1)
+                                :(\arbno{\epsilon}\drop 1)
+                                :\omega\kappa)$<br />
+     &gt;   &gt;$(\fun{unpermute}:\arbno{\epsilon})))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\Esem\sembrack{\hbox{\texttt{(\ide{lambda} (\arbno{\I}) \arbno{\C} $\E_0$)}}} =$<br />
+ \go{1}$\lambda\rho\omega\kappa:.:\lambda\sigma:.:$<br />
+  \go{2}$\fun{new}:\sigma:\elem:\LOC\rightarrow$<br />
+   \go{3}$\fun{send}:
+     $\=$(\langle
+         $\=$\fun{new}:\sigma\,\vert\,\LOC,$<br />
+      &gt;  &gt;$\lambda\arbno{\epsilon}\omega^\prime\kappa^\prime:.:
+               $\=$#\arbno{\epsilon} = #{\arbno{\I}}\rightarrow$<br />
+      &gt;  &gt;    $\go{1}\fun{tievals}
+                   $\=$(\lambda\arbno{\alpha}:.:
+                         $\=$(\lambda\rho^\prime:.:\Csem\sembrack{\arbno{\C}}\rho^\prime\omega^\prime
+                              (\Esem\sembrack{\E_0}\rho^\prime\omega^\prime\kappa^\prime))$<br />
+      &gt;  &gt;      &gt;    &gt;$(\fun{extends}:\rho:{\arbno{\I}}:\arbno{\alpha}))$<br />
+      &gt;  &gt;      &gt;$\arbno{\epsilon},$<br />
+      &gt;  &gt;    \go{1}$\wrong{wrong number of arguments}\rangle$<br />
+      &gt;  &gt;$\hbox{ \rm in }\EXP)$<br />
+      &gt;$\kappa$<br />
+      &gt;$(\fun{update}:(\fun{new}:\sigma\,\vert\,\LOC)
+                           :\fun{unspecified}
+                           :\sigma),$<br />
+  \go{3}$\wrong{out of memory}:\sigma
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\Esem\sembrack{\hbox{\texttt{(lambda (\arbno{\I} {\bf.}\ \I) \arbno{\C} $\E_0$)}}} =$<br />
+ \go{1}$\lambda\rho\omega\kappa:.:\lambda\sigma:.:$<br />
+  \go{2}$\fun{new}:\sigma:\elem:\LOC\rightarrow$<br />
+   \go{3}$\fun{send}:
+     $\=$(\langle
+         $\=$\fun{new}:\sigma\,\vert\,\LOC,$<br />
+      &gt;  &gt;$\lambda\arbno{\epsilon}\omega^\prime\kappa^\prime:.:
+               $\=$#\arbno{\epsilon} \geq #\arbno{\I}\rightarrow$<br />
+      &gt;  &gt;    &gt;\go{1}$\fun{tievalsrest}$<br />
+      &gt;  &gt;    &gt;\go{2}\=$(\lambda\arbno{\alpha}:.:
+                           $\=$(\lambda\rho^\prime:.:\Csem\sembrack{\arbno{\C}}\rho^\prime\omega^\prime
+                               (\Esem\sembrack{\E_0}\rho^\prime\omega^\prime\kappa^\prime))$<br />
+      &gt;  &gt;    &gt;       &gt; &gt;$(\fun{extends}:\rho
+                               :(\arbno{\I}:\S:\langle\I\rangle)
+                               :\arbno{\alpha}))$<br />
+      &gt;  &gt;    &gt;       &gt;$\arbno{\epsilon}$<br />
+      &gt;  &gt;    &gt;       &gt;$(#\arbno{\I}),$<br />
+      &gt;  &gt;    &gt;\go{1}$\wrong{too few arguments}\rangle\hbox{ \rm in }\EXP)$<br />
+      &gt;$\kappa$<br />
+      &gt;$(\fun{update}:(\fun{new}:\sigma\,\vert\,\LOC)
+                           :\fun{unspecified}
+                           :\sigma),$<br />
+  \go{3}$\wrong{out of memory}:\sigma
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\Esem\sembrack{\hbox{\texttt{(lambda \I{} \arbno{\C} $\E_0$)}}} =
+ \Esem\sembrack{\hbox{\texttt{(lambda ({\bf.}\ \I) \arbno{\C} $\E_0$)}}}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\Esem\sembrack{\hbox{\texttt{(\ide{if} $\E_0$ $\E_1$ $\E_2$)}}} =$<br />
+ \go{1}$\lambda\rho\omega\kappa:.:
+   \Esem\sembrack{\E_0}:\rho\omega:(\fun{single}:(\lambda\epsilon:.:
+    $\=$\fun{truish}:\epsilon\rightarrow\Esem\sembrack{\E_1}\rho\omega\kappa,$<br />
+     &gt;\go{1}$\Esem\sembrack{\E_2}\rho\omega\kappa))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\Esem\sembrack{\hbox{\texttt{(if $\E_0$ $\E_1$)}}} =$<br />
+ \go{1}$\lambda\rho\omega\kappa:.:
+   \Esem\sembrack{\E_0}:\rho\omega:(\fun{single}:(\lambda\epsilon:.:
+    $\=$\fun{truish}:\epsilon\rightarrow\Esem\sembrack{\E_1}\rho\omega\kappa,$<br />
+     &gt;\go{1}$\fun{send}:\fun{unspecified}:\kappa))
+\end{semfun}</p>
+
+<p>Here and elsewhere, any expressed value other than {\it undefined} may
+be used in place of {\it unspecified}.</p>
+
+<p>\begin{semfun}
+\Esem\sembrack{\hbox{\texttt{(\ide{set!} \I{} \E)}}} =$<br />
+ \go{1}$\lambda\rho\omega\kappa:.:\Esem\sembrack{\E}:\rho:\omega:
+     (\fun{single}(\lambda\epsilon:.:\fun{assign}:
+       $\=$(\fun{lookup}:\rho:\I)$<br />
+        &gt;$\epsilon$<br />
+        &gt;$(\fun{send}:\fun{unspecified}:\kappa)))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\arbno{\Esem}\sembrack{:} =
+  \lambda\rho\omega\kappa:.:\kappa\langle:\rangle
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\arbno{\Esem}\sembrack{\E_0:\arbno{\E}} =$<br />
+ \go{1}$\lambda\rho\omega\kappa:.:
+      \Esem\sembrack{\E_0}:\rho\omega:
+         (\fun{single}
+            (\lambda\epsilon_0:.:\arbno{\Esem}\sembrack{\arbno{\E}}
+                :\rho\omega:(\lambda\arbno{\epsilon}:.:
+                           \kappa:(\langle\epsilon_0\rangle:\S:\arbno{\epsilon}))))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\Csem\sembrack{:} = \lambda\rho\omega\theta\,.:\theta
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\Csem\sembrack{\C_0:\arbno{\C}} =
+  \lambda\rho\omega\theta:.:\Esem\sembrack{\C_0}:\rho\omega:(\lambda\arbno{\epsilon}:.:
+   \Csem\sembrack{\arbno{\C}}\rho\omega\theta)
+\end{semfun}</p>
+
+<p>\egroup  % end smallish</p>
+
+<p>\subsection{Auxiliary functions}</p>
+
+<p>\bgroup\small</p>
+
+<p>\begin{semfun}
+\fun{lookup}        :  \ENV \to \Ide \to \LOC$\$
+\fun{lookup} =
+ \lambda\rho\I:.:\rho\I
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{extends}       :  \ENV \to \arbno{\Ide} \to \arbno{\LOC} \to \ENV$\$
+\fun{extends} =$<br />
+ \go{1}$\lambda\rho\arbno{\I}\arbno{\alpha}:.:
+   $\=$#\arbno{\I}=0\rightarrow\rho,$<br />
+    &gt;$\go{1}\fun{extends}:(\rho[(\arbno{\alpha}\elt 1)/(\arbno{\I}\elt 1)])
+                               :(\arbno{\I}\drop 1)
+                               :(\arbno{\alpha}\drop 1)
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{wrong}  :  \ERR \to \CC    \hbox{\qquad [implementation-dependent]}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{send}          :  \EXP \to \EC \to \CC$\$
+\fun{send} =
+ \lambda\epsilon\kappa:.:\kappa\langle\epsilon\rangle
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{single}        :  (\EXP \to \CC) \to \EC$\$
+\fun{single} =$<br />
+ \go{1}$\lambda\psi\arbno{\epsilon}:.:
+   $\=$#\arbno{\epsilon}=1\rightarrow\psi(\arbno{\epsilon}\elt 1),$<br />
+    &gt;$\go{1}\wrong{wrong number of return values}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{new}           :  \STO \to (\LOC + { \fun{error} })
+    \hbox{\qquad [implementation-dependent]}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{hold}          :  \LOC \to \EC \to \CC$\$
+\fun{hold} =
+ \lambda\alpha\kappa\sigma:.:\fun{send}\,(\sigma\alpha\elt 1)\kappa\sigma
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{assign}        :  \LOC \to \EXP \to \CC \to \CC$\$
+\fun{assign} =
+ \lambda\alpha\epsilon\theta\sigma:.:\theta(\fun{update}:\alpha\epsilon\sigma)
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{update}        :  \LOC \to \EXP \to \STO \to \STO$\$
+\fun{update} =
+ \lambda\alpha\epsilon\sigma:.:\sigma[\langle\epsilon,\fun{true}\rangle/\alpha]
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{tievals}       :  (\arbno{\LOC} \to \CC) \to \arbno{\EXP} \to \CC$\$
+\fun{tievals} =$<br />
+ \go{1}$\lambda\psi\arbno{\epsilon}\sigma:.:
+   $\=$#\arbno{\epsilon}=0\rightarrow\psi\langle:\rangle\sigma,$<br />
+    &gt;$\fun{new}:\sigma:\elem:\LOC\rightarrow\fun{tievals}\,
+       $\=$(\lambda\arbno{\alpha}:.:\psi(\langle\fun{new}:\sigma:\vert:\LOC\rangle
+                                     :\S:\arbno{\alpha}))$<br />
+    &gt;  &gt;$(\arbno{\epsilon}\drop 1)$<br />
+    &gt;  &gt;$(\fun{update}(\fun{new}:\sigma:\vert:\LOC)
+                                 (\arbno{\epsilon}\elt 1)
+                                 \sigma),$<br />
+    &gt;$\go{1}\wrong{out of memory}\sigma
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{tievalsrest}   :  (\arbno{\LOC} \to \CC) \to \arbno{\EXP} \to \NAT \to \CC$\$
+\fun{tievalsrest} =$<br />
+ \go{1}$\lambda\psi\arbno{\epsilon}\nu:.:\fun{list}:
+   $\=$(\fun{dropfirst}:\arbno{\epsilon}\nu)$<br />
+    &gt;$(\fun{single}(\lambda\epsilon:.:\fun{tievals}:\psi:
+           ((\fun{takefirst}:\arbno{\epsilon}\nu):\S:\langle\epsilon\rangle)))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{dropfirst} =
+ \lambda l n :.:  n=0 \rightarrow l, \fun{dropfirst}\,(l \drop 1)(n - 1)
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{takefirst} =
+ \lambda l n :.: n=0 \rightarrow \langle:\rangle,
+     \langle l \elt 1\rangle:\S:(\fun{takefirst}\,(l \drop 1)(n - 1))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{truish}        :  \EXP \to \TRU$\$
+\fun{truish} =
+  \lambda\epsilon:.:
+%    (\epsilon = \fun{false}\vee\epsilon = \fun{null})\rightarrow
+     \epsilon = \fun{false}\rightarrow
+          \fun{false},
+          \fun{true}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{permute}       :  \arbno{\Exp} \to \arbno{\Exp}
+    \hbox{\qquad [implementation-dependent]}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{unpermute}     :  \arbno{\EXP} \to \arbno{\EXP}
+    \hbox{\qquad [inverse of \fun{permute}]}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{applicate}     :  \EXP \to \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{applicate} =$<br />
+ \go{1}$\lambda\epsilon\arbno{\epsilon}\omega\kappa:.:
+   $\=$\epsilon:\elem:\FUN\rightarrow(\epsilon:\vert:\FUN\elt 2)\arbno{\epsilon}\omega\kappa,
+          \wrong{bad procedure}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{onearg}      :  (\EXP \to \DP \to \EC \to \CC) \to (\arbno{\EXP} \to \DP \to \EC \to \CC)$\$
+\fun{onearg} =$<br />
+ \go{1}$\lambda\zeta\arbno{\epsilon}\omega\kappa:.:
+   $\=$#\arbno{\epsilon}=1\rightarrow\zeta(\arbno{\epsilon}\elt 1)\omega\kappa,$<br />
+    &gt;$\go{1}\wrong{wrong number of arguments}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{twoarg}      :  (\EXP \to \EXP \to \DP \to \EC \to \CC) \to (\arbno{\EXP} \to \DP \to \EC \to \CC)$\$
+\fun{twoarg} =$<br />
+ \go{1}$\lambda\zeta\arbno{\epsilon}\omega\kappa:.:
+   $\=$#\arbno{\epsilon}=2\rightarrow\zeta(\arbno{\epsilon}\elt 1)(\arbno{\epsilon}\elt 2)\omega\kappa,$<br />
+    &gt;$\go{1}\wrong{wrong number of arguments}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{threearg}      :  (\EXP \to \EXP \to \EXP \to \DP \to \EC \to \CC) \to (\arbno{\EXP} \to \DP \to \EC \to \CC)$\$
+\fun{threearg} =$<br />
+ \go{1}$\lambda\zeta\arbno{\epsilon}\omega\kappa:.:
+   $\=$#\arbno{\epsilon}=3\rightarrow\zeta(\arbno{\epsilon}\elt 1)(\arbno{\epsilon}\elt 2)(\arbno{\epsilon}\elt 3)\omega\kappa,$<br />
+    &gt;$\go{1}\wrong{wrong number of arguments}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{list}          :  \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{list} =$<br />
+ \go{1}$\lambda\arbno{\epsilon}\omega\kappa:.:
+   $\=$#\arbno{\epsilon}=0\rightarrow\fun{send}:\fun{null}:\kappa,$<br />
+    &gt;$\go{1}\fun{list}\,(\arbno{\epsilon}\drop 1)
+             (\fun{single}(\lambda\epsilon:.:
+                   \fun{cons}\langle\arbno{\epsilon}\elt 1,\epsilon\rangle\kappa))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{cons}          :  \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{cons} =$<br />
+ \go{1}$\fun{twoarg}\,(\lambda\epsilon_1\epsilon_2\kappa\omega\sigma:.:
+   $\=$\fun{new}:\sigma:\elem:\LOC\rightarrow$<br />
+    &gt;
+        \=$(\lambda\sigma^\prime:.:
+           $\=$\fun{new}:\sigma^\prime:\elem:\LOC\rightarrow$<br />
+    &gt;  &gt;$\go{1}\fun{send}\,
+               $\=$($\=$\langle\fun{new}:\sigma:\vert:\LOC,
+                                            \fun{new}:\sigma^\prime:\vert:\LOC,
+         \fun{true}\rangle$<br />
+                                &gt;  &gt;  &gt;  &gt;$\hbox{ \rm in }\EXP)$<br />
+    &gt;  &gt;  &gt;$\kappa$<br />
+    &gt;  &gt;  &gt;$(\fun{update}(\fun{new}:\sigma^\prime:\vert:\LOC)
+                                     \epsilon_2
+                                     \sigma^\prime),$<br />
+    &gt;  &gt;$\go{1}\wrong{out of memory}\sigma^\prime)$<br />
+    &gt;  $(\fun{update}(\fun{new}:\sigma:\vert:\LOC)\epsilon_1\sigma),$<br />
+    &gt;$\wrong{out of memory}\sigma)
+\end{semfun}</p>
+
+<p>\schindex{&lt;}
+\begin{semfun}
+\fun{less}          :  \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{less} =$<br />
+ \go{1}$\fun{twoarg}\,(\lambda\epsilon_1\epsilon_2\omega\kappa:.:
+   $\=$(\epsilon_1:\elem:\NUM\wedge\epsilon_2:\elem:\NUM)\rightarrow$<br />
+    &gt;$\go{1}\fun{send}\,
+               (\epsilon_1:\vert:\NUM&lt;\epsilon_2:\vert:\NUM\rightarrow
+                   \fun{true},
+                   \fun{false})
+               \kappa,$<br />
+    &gt;$\go{1}\wrong{non-numeric argument to {\cf &lt;}})
+\end{semfun}</p>
+
+<p>\schindex{+}
+\begin{semfun}
+\fun{add}          :  \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{add} =$<br />
+ \go{1}$\fun{twoarg}\,(\lambda\epsilon_1\epsilon_2\omega\kappa:.:
+   $\=$(\epsilon_1:\elem:\NUM\wedge\epsilon_2:\elem:\NUM)\rightarrow$<br />
+    &gt;$\go{1}\fun{send}\,
+       $\=$((\epsilon_1:\vert:\NUM+\epsilon_2:\vert:\NUM)\hbox{ \rm in }\EXP)
+           \kappa,$<br />
+    &gt;$\go{1}\wrong{non-numeric argument to {\cf +}})
+\end{semfun}</p>
+
+<p>\schindex{car}
+\begin{semfun}
+\fun{car}          :  \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{car} =$<br />
+ \go{1}$\fun{onearg}\,(\lambda\epsilon\omega\kappa:.:
+   $\=$\epsilon:\elem:\PAI\rightarrow
+          \fun{car-internal}:\epsilon\kappa,$<br />
+    &gt;$\go{1}\wrong{non-pair argument to {\cf car}})
+\end{semfun}</p>
+
+<p>\schindex{car-internal}
+\begin{semfun}
+\fun{car-internal}          :  \EXP \to \EC \to \CC$\$
+\fun{car-internal} =
+ $\go{1}$\lambda\epsilon\omega\kappa:.:
+   $\=$\fun{hold}\, (\epsilon:\vert:\PAI\elt 1) \kappa
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{cdr}          :  \arbno{\EXP} \to \DP \to \EC \to \CC %$\$
+\hbox{\qquad [similar to \fun{car}]}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{cdr-internal} :  \EXP \to \EC \to \CC %$\$
+\hbox{\qquad [similar to \fun{car-internal}]}
+\end{semfun}</p>
+
+<p>\schindex{setcar}
+\begin{semfun}
+\fun{setcar}          :  \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{setcar} =$<br />
+ \go{1}$\fun{twoarg}\,(\lambda\epsilon_1\epsilon_2\omega\kappa:.:
+   $\=$\epsilon_1:\elem:\PAI\rightarrow$<br />
+    &gt;$(\epsilon_1:\vert:\PAI\elt 3)\rightarrow
+          \fun{assign}\,$\=$(\epsilon_1:\vert:\PAI\elt 1)$<br />
+    &gt;                           &gt;$\epsilon_2$<br />
+    &gt;                                  &gt;$(\fun{send}:\fun{unspecified}:\kappa),$<br />
+    &gt;$\wrong{immutable argument to {\cf set-car!}},$<br />
+    &gt;$\wrong{non-pair argument to {\cf set-car!}})
+\end{semfun}</p>
+
+<p>\schindex{eqv?}
+\begin{semfun}
+\fun{eqv}          :  \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{eqv} =$<br />
+ \go{1}$\fun{twoarg}\,(\lambda\epsilon_1\epsilon_2\omega\kappa:.:
+   $\=$(\epsilon_1:\elem:\MSC\wedge\epsilon_2:\elem:\MSC)\rightarrow$<br />
+    &gt;$\go{1}\fun{send}\,
+       $\=$(\epsilon_1:\vert:\MSC = \epsilon_2:\vert:\MSC\rightarrow\fun{true},
+            \fun{false})\kappa,$<br />
+    &gt;$(\epsilon_1:\elem:\SYM\wedge\epsilon_2:\elem:\SYM)\rightarrow$<br />
+    &gt;$\go{1}\fun{send}\,
+       $\=$(\epsilon_1:\vert:\SYM = \epsilon_2:\vert:\SYM\rightarrow\fun{true},
+            \fun{false})\kappa,$<br />
+    &gt;$(\epsilon_1:\elem:\CHR\wedge\epsilon_2:\elem:\CHR)\rightarrow$<br />
+    &gt;$\go{1}\fun{send}\,
+       $\=$(\epsilon_1:\vert:\CHR = \epsilon_2:\vert:\CHR \rightarrow\fun{true},
+            \fun{false})\kappa,$<br />
+    &gt;$(\epsilon_1:\elem:\NUM\wedge\epsilon_2:\elem:\NUM)\rightarrow$<br />
+    &gt;$\go{1}\fun{send}\,
+       $\=$(\epsilon_1:\vert:\NUM=\epsilon_2:\vert:\NUM\rightarrow\fun{true},
+            \fun{false})\kappa,$<br />
+    &gt;$(\epsilon_1:\elem:\PAI\wedge\epsilon_2:\elem:\PAI)\rightarrow$<br />
+    &gt;$\go{1}\fun{send}\,
+       $\=$($\=$(\lambda{p_1}{p_2}:.:
+                ($\=$({p_1}\elt 1) = ({p_2}\elt 1)\wedge$<br />
+    &gt;  &gt;   &gt;   &gt;$({p_1}\elt 2) = ({p_2}\elt 2))
+                     \rightarrow\fun{true},$<br />
+    &gt;  &gt;   &gt;   &gt;$\go{1}\fun{false})$<br />
+    &gt;  &gt;   &gt;$(\epsilon_1:\vert:\PAI)$<br />
+    &gt;  &gt;   &gt;$(\epsilon_2:\vert:\PAI))$<br />
+    &gt;  &gt;$\kappa,$<br />
+    &gt;$(\epsilon_1:\elem:\VEC\wedge\epsilon_2:\elem:\VEC)\rightarrow
+%\fun{send}\,
+%       $\=$((#(\epsilon_1:\vert:\VEC)=#(\epsilon_2:\vert:\VEC)
+%         \wedge\hbox{\rm Y}(\lambda\fun{loop}:.:\lambda\fun{v1}\fun{v2}:.:
+%       $\=$#\fun{v1}=0\rightarrow\fun{true},$<br />
+%    &gt;  &gt;  &gt;$(\fun{v1}\elt 1) = (\fun{v2}\elt 1)\rightarrow
+%       \fun{loop}(\fun{v1}\drop 1)(\fun{v2}\drop 1),$<br />
+%    &gt;  &gt;  &gt;$\go{1}\fun{false})(\epsilon_1:\vert:\VEC)(\epsilon_2:\vert:\VEC))
+%          \rightarrow\fun{true},$<br />
+%    &gt;  &gt;$\go{1}\fun{false})\kappa
+\ldots,$<br />
+    &gt;$(\epsilon_1:\elem:\STR\wedge\epsilon_2:\elem:\STR)\rightarrow
+%\fun{send}\,
+%       $\=$((#(\epsilon_1:\vert:\STR)=#(\epsilon_2:\vert:\STR)\wedge
+%    \hbox{\rm Y}(\lambda\fun{loop}:.:\lambda\fun{v1}\fun{v2}:.:
+%       $\=$#\fun{v1}=0\rightarrow\fun{true},$<br />
+%    &gt;  &gt;  &gt;$(\fun{v1}\elt 1) = (\fun{v2}\elt 1)\rightarrow
+%     \fun{loop}(\fun{v1}\drop 1)(\fun{v2}\drop 1),$<br />
+%    &gt;  &gt;  &gt;$\go{1}\fun{false})(\epsilon_1:\vert:\STR)(\epsilon_2:\vert:\STR))
+%      \rightarrow\fun{true},$<br />
+%    &gt;  &gt;$\go{1}\fun{false})\kappa
+\ldots,$<br />
+    &gt;$(\epsilon_1:\elem:\FUN\wedge\epsilon_2:\elem:\FUN)\rightarrow$<br />
+    &gt;$\go{1}\fun{send}\,
+       $\=$((\epsilon_1:\vert:\FUN\elt 1) = (\epsilon_2:\vert:\FUN\elt 1)
+               \rightarrow\fun{true},
+                          \fun{false})$<br />
+    &gt;  &gt;$\kappa,$<br />
+    &gt;$\go{1}\fun{send}\,:\fun{false}:\kappa)
+\end{semfun}</p>
+
+<p>\schindex{apply}
+\begin{semfun}
+\fun{apply}          :  \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{apply} =$<br />
+ \go{1}$\fun{twoarg}\,(\lambda\epsilon_1\epsilon_2\omega\kappa:.:
+   $\=$\epsilon_1:\elem:\FUN\rightarrow
+         \fun{valueslist}:\epsilon_2
+            (\lambda\arbno{\epsilon}:.:\fun{applicate}:\epsilon_1\arbno{\epsilon}\omega\kappa),$<br />
+    &gt;$\go{1}\wrong{bad procedure argument to {\cf apply}})
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{valueslist}          :  \EXP \to \EC \to \CC$\$
+\fun{valueslist} =$<br />
+ \go{1}$\lambda\epsilon\kappa:.:
+   $\=$\epsilon:\elem:\PAI\rightarrow$<br />
+    &gt;$\go{1}\fun{cdr-internal}:
+         $\=$\epsilon$<br />
+    &gt;    &gt;$(\lambda\arbno{\epsilon}:.:
+                  $\=$\fun{valueslist}:$<br />
+    &gt;    &gt;       &gt;$\arbno{\epsilon}$<br />
+    &gt;    &gt;       &gt;$(\lambda\arbno{\epsilon}:.:$\=$\fun{car-internal}$<br />
+    &gt;    &gt;       &gt;                               &gt;$:\epsilon$<br />
+    &gt;    &gt;       &gt;                               &gt;$ (\fun{single}(\lambda\epsilon:.:
+              \kappa(\langle\epsilon\rangle:\S:\arbno{\epsilon}))))),$<br />
+    &gt;$\epsilon = \fun{null}\rightarrow\kappa\langle:\rangle,$<br />
+    &gt;$\go{1}\wrong{non-list argument to {\cf values-list}}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{cwcc}          $\=$:  \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+    $&gt;$ \hbox{\qquad [\ide{call-with-current-continuation}]}$\$
+\fun{cwcc} =$<br />
+ \go{1}$\fun{onearg}\,(\lambda\epsilon\omega\kappa:.:
+   $\=$\epsilon:\elem:\FUN\rightarrow$<br />
+    &gt;$(\lambda\sigma:.:
+       $\=$\fun{new}:\sigma:\elem:\LOC\rightarrow$<br />
+    &gt;  &gt;$\go{1}\fun{applicate}:
+           $\=$\epsilon$<br />
+    &gt;  &gt;  &gt;$\langle\langle$\=$\fun{new}:\sigma:\vert:\LOC,$<br />
+    &gt;  &gt;  &gt;  &gt;$          \lambda\arbno{\epsilon}\omega^\prime\kappa^\prime:.:
+                             \fun{travel}:\omega^\prime\omega(\kappa\arbno{\epsilon})\rangle$<br />
+    &gt;  &gt;  &gt;$                      \hbox{ \rm in }\EXP\rangle$<br />
+    &gt;  &gt;  &gt;$\omega$<br />
+    &gt;  &gt;  &gt;$\kappa$<br />
+    &gt;  &gt;  &gt;$(\fun{update}\,
+                $\=$(\fun{new}:\sigma:\vert:\LOC)$<br />
+    &gt;  &gt;  &gt;   &gt;$\fun{unspecified}$<br />
+    &gt;  &gt;  &gt;   &gt;$\sigma),$<br />
+    &gt;  &gt;$\go{1}\wrong{out of memory}\,\sigma),$<br />
+    &gt;$\wrong{bad procedure argument})
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{travel} : \DP \to \DP \to \CC \to \CC$\$
+\fun{travel} = $<br />
+  \go{1}$\lambda\omega_1\omega_2:.:
+  \fun{travelpath}:($\=$(\fun{pathup}:\omega_1(\fun{commonancest}:\omega_1\omega_2)) :\S:$<br />
+  &gt;$ (\fun{pathdown}:(\fun{commonancest}:\omega_1\omega_2)\omega_2))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{pointdepth} : \DP \to \NAT$\$
+\fun{pointdepth} = $<br />
+  \go{1}$\lambda\omega:.: \omega = \textit{root} \rightarrow 0,
+  1 + (\fun{pointdepth}:(\omega:\vert:(\FUN \times \FUN \times
+  \DP)\elt 3))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{ancestors} : \DP \to \mathcal{P}\DP$\$
+\fun{ancestors} = $<br />
+  \go{1}$\lambda\omega:.: \omega = \textit{root} \rightarrow {\omega},
+  {\omega}:\cup:(\fun{ancestors}:(\omega:\vert:(\FUN \times \FUN \times
+  \DP)\elt 3))
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{commonancest} : \DP \to \DP \to \DP$\$
+\fun{commonancest} = $<br />
+  \go{1}$\lambda\omega_1\omega_2:.:$\=$
+  \textrm{the only element of }$<br />
+  &gt;${ \omega^\prime :\mid:$\=$
+  \omega^\prime\in(\fun{ancestors}:\omega_1):\cap:(\fun{ancestors}:\omega_2),$<br />
+  &gt;&gt;$\fun{pointdepth}:\omega^\prime\geq \fun{pointdepth}:\omega^{\prime\prime}$<br />
+  &gt;&gt;$\forall
+  \omega^{\prime\prime}\in(\fun{ancestors}:\omega_1):\cap:(\fun{ancestors}:\omega_2)}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{pathup} : \DP \to \DP \to \arbno{(\DP \times \FUN)}$\$
+\fun{pathup} = $<br />
+  \go{1}$\lambda\omega_1\omega_2:.:
+  $\=$\omega_1=\omega_2\rightarrow\langle\rangle,$<br />
+  &gt;$\langle(\omega_1, \omega_1:\vert:(\FUN \times \FUN \times \DP)\elt 2)\rangle
+  :\S:$<br />
+  &gt;$(\fun{pathup}:(\omega_1:\vert:(\FUN \times \FUN \times \DP)\elt 3)\omega_2)
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{pathdown} : \DP \to \DP \to \arbno{(\DP \times \FUN)}$\$
+\fun{pathdown} = $<br />
+  \go{1}$\lambda\omega_1\omega_2:.:
+  $\=$\omega_1=\omega_2\rightarrow\langle\rangle,$<br />
+  &gt;$(\fun{pathdown}:\omega_1(\omega_2:\vert:(\FUN \times \FUN \times \DP)\elt 3))
+  :\S:$<br />
+  &gt;$\langle(\omega_2, \omega_2:\vert:(\FUN \times \FUN \times \DP)\elt 1)\rangle
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{travelpath} : \arbno{(\DP \times \FUN)} \to \CC \to \CC$\$
+\fun{travelpath} = $<br />
+  \go{1}$\lambda\arbno{\pi}\theta:.:
+  $\=$#\arbno{\pi}=0\rightarrow\theta,$<br />
+  &gt;$((\arbno{\pi}\elt 1)\elt 2)$\=$\langle\rangle((\arbno{\pi}\elt 1)\elt 1)$<br />
+  &gt;&gt;$(\lambda\arbno{\epsilon}:.:\fun{travelpath}:(\arbno{\pi} \drop 1)\theta)
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{dynamicwind} : \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{dynamicwind} = $<br />
+\go{1}$\fun{threearg}\,(\lambda$\=$\epsilon_1\epsilon_2\epsilon_3\omega\kappa:.:
+  (\epsilon_1:\elem:\FUN\wedge\epsilon_2:\elem:\FUN\wedge\epsilon_3:\elem:\FUN)\rightarrow$<br />
+  &gt;$\fun{applicate}:
+  $\=$\epsilon_1\langle\rangle\omega(\lambda\arbno{\zeta}$\=$:.:$<br />
+  &gt;&gt;$\fun{applicate}:$\=$\epsilon_2\langle\rangle
+  ((\epsilon_1:\vert:\FUN,\epsilon_3:\vert:\FUN,\omega)\textrm{ in }\DP)$<br />
+  &gt;&gt;&gt;$(\lambda\arbno{\epsilon}:.:\fun{applicate}:\epsilon_3\langle\rangle\omega(\lambda\arbno{\zeta}:.:\kappa\arbno{\epsilon}))),$<br />
+  &gt;$\wrong{bad procedure argument})
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{values}          :  \arbno{\EXP} \to \DP \to \EC \to \CC$\$
+\fun{values} =
+ \lambda\arbno{\epsilon}\omega\kappa:.:\kappa\arbno{\epsilon}
+\end{semfun}</p>
+
+<p>\begin{semfun}
+\fun{cwv}          :  \arbno{\EXP} \to \DP \to \EC \to \CC
+    \hbox{\qquad [\ide{call-with-values}]}$\$
+\fun{cwv} =$<br />
+ \go{1}$\fun{twoarg}\,(\lambda\epsilon_1\epsilon_2\omega\kappa:.:
+   $\=$\fun{applicate}:\epsilon_1\langle:\rangle\omega
+(\lambda\arbno{\epsilon}:.:\fun{applicate}:\epsilon_2:\arbno{\epsilon}\omega))
+\end{semfun}</p>
+
+<p>\egroup  % end smallish</p>
+
+<p>\egroup
+\section{Derived expression types}
+\label{derivedsection}</p>
+
+<p>This section gives syntax definitions for the derived expression types in
+terms of the primitive expression types (literal, variable, call, {\cf lambda},
+{\cf if}, and {\cf set!}), except for {\cf quasiquote}.</p>
+
+<p>Conditional derived syntax types:</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{cond}
+  (syntax-rules (else =&gt;)
+    ((cond (else result1 result2 &hellip;))
+     (begin result1 result2 &hellip;))
+    ((cond (test =&gt; result))
+     (let ((temp test))
+       (if temp (result temp))))
+    ((cond (test =&gt; result) clause1 clause2 &hellip;)
+     (let ((temp test))
+       (if temp
+           (result temp)
+           (cond clause1 clause2 &hellip;))))
+    ((cond (test)) test)
+    ((cond (test) clause1 clause2 &hellip;)
+     (let ((temp test))
+       (if temp
+           temp
+           (cond clause1 clause2 &hellip;))))
+    ((cond (test result1 result2 &hellip;))
+     (if test (begin result1 result2 &hellip;)))
+    ((cond (test result1 result2 &hellip;)
+           clause1 clause2 &hellip;)
+     (if test
+         (begin result1 result2 &hellip;)
+         (cond clause1 clause2 &hellip;)))))
+\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{case}
+  (syntax-rules (else =&gt;)
+    ((case (key &hellip;)
+       clauses &hellip;)
+     (let ((atom-key (key &hellip;)))
+       (case atom-key clauses &hellip;)))
+    ((case key
+       (else =&gt; result))
+     (result key))
+    ((case key
+       (else result1 result2 &hellip;))
+     (begin result1 result2 &hellip;))
+    ((case key
+       ((atoms &hellip;) result1 result2 &hellip;))
+     (if (memv key &lsquo;(atoms &hellip;))
+         (begin result1 result2 &hellip;)))
+    ((case key
+       ((atoms &hellip;) =&gt; result))
+     (if (memv key &lsquo;(atoms &hellip;))
+         (result key)))
+    ((case key
+       ((atoms &hellip;) =&gt; result)
+       clause clauses &hellip;)
+     (if (memv key &lsquo;(atoms &hellip;))
+         (result key)
+         (case key clause clauses &hellip;)))
+    ((case key
+       ((atoms &hellip;) result1 result2 &hellip;)
+       clause clauses &hellip;)
+     (if (memv key &lsquo;(atoms &hellip;))
+         (begin result1 result2 &hellip;)
+         (case key clause clauses &hellip;)))))
+\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{and}
+  (syntax-rules ()
+    ((and) \sharpfoo{t})
+    ((and test) test)
+    ((and test1 test2 &hellip;)
+     (if test1 (and test2 &hellip;) \sharpfoo{f}))))
+\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{or}
+  (syntax-rules ()
+    ((or) \sharpfoo{f})
+    ((or test) test)
+    ((or test1 test2 &hellip;)
+     (let ((x test1))
+       (if x x (or test2 &hellip;))))))
+\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{when}
+  (syntax-rules ()
+    ((when test result1 result2 &hellip;)
+     (if test
+         (begin result1 result2 &hellip;)))))
+\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{unless}
+  (syntax-rules ()
+    ((unless test result1 result2 &hellip;)
+     (if (not test)
+         (begin result1 result2 &hellip;)))))
+\end{scheme}</p>
+
+<p>Binding constructs:</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{let}
+  (syntax-rules ()
+    ((let ((name val) &hellip;) body1 body2 &hellip;)
+     ((lambda (name &hellip;) body1 body2 &hellip;)
+      val &hellip;))
+    ((let tag ((name val) &hellip;) body1 body2 &hellip;)
+     ((letrec ((tag (lambda (name &hellip;)
+                      body1 body2 &hellip;)))
+        tag)
+      val &hellip;))))
+\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{let<em>}
+  (syntax-rules ()
+    ((let</em> () body1 body2 &hellip;)
+     (let () body1 body2 &hellip;))
+    ((let* ((name1 val1) (name2 val2) &hellip;)
+       body1 body2 &hellip;)
+     (let ((name1 val1))
+       (let* ((name2 val2) &hellip;)
+         body1 body2 &hellip;)))))
+\end{scheme}</p>
+
+<p>The following {\cf letrec} macro uses the symbol {\cf <undefined>}
+in place of an expression which returns something that when stored in
+a location makes it an error to try to obtain the value stored in the
+location.  (No such expression is defined in Scheme.)
+A trick is used to generate the temporary names needed to avoid
+specifying the order in which the values are evaluated.
+This could also be accomplished by using an auxiliary macro.</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{letrec}
+  (syntax-rules ()
+    ((letrec ((var1 init1) &hellip;) body &hellip;)
+     (letrec &ldquo;generate_temp_names&rdquo;
+       (var1 &hellip;)
+       ()
+       ((var1 init1) &hellip;)
+       body &hellip;))
+    ((letrec &ldquo;generate_temp_names&rdquo;
+       ()
+       (temp1 &hellip;)
+       ((var1 init1) &hellip;)
+       body &hellip;)
+     (let ((var1 <undefined>) &hellip;)
+       (let ((temp1 init1) &hellip;)
+         (set! var1 temp1)
+         &hellip;
+         body &hellip;)))
+    ((letrec &ldquo;generate_temp_names&rdquo;
+       (x y &hellip;)
+       (temp &hellip;)
+       ((var1 init1) &hellip;)
+       body &hellip;)
+     (letrec &ldquo;generate_temp_names&rdquo;
+       (y &hellip;)
+       (newtemp temp &hellip;)
+       ((var1 init1) &hellip;)
+       body &hellip;))))
+\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{letrec<em>}
+  (syntax-rules ()
+    ((letrec</em> ((var1 init1) &hellip;) body1 body2 &hellip;)
+     (let ((var1 <undefined>) &hellip;)
+       (set! var1 init1)
+       &hellip;
+       (let () body1 body2 &hellip;)))))%
+\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{let-values}
+  (syntax-rules ()
+    ((let-values (binding &hellip;) body0 body1 &hellip;)
+     (let-values &ldquo;bind&rdquo;
+         (binding &hellip;) () (begin body0 body1 &hellip;)))</p>
+
+<pre><code>((let-values &quot;bind&quot; () tmps body)
+ (let tmps body))
+
+((let-values &quot;bind&quot; ((b0 e0)
+     binding ...) tmps body)
+ (let-values &quot;mktmp&quot; b0 e0 ()
+     (binding ...) tmps body))
+
+((let-values &quot;mktmp&quot; () e0 args
+     bindings tmps body)
+ (call-with-values 
+   (lambda () e0)
+   (lambda args
+     (let-values &quot;bind&quot;
+         bindings tmps body))))
+
+((let-values &quot;mktmp&quot; (a . b) e0 (arg ...)
+     bindings (tmp ...) body)
+ (let-values &quot;mktmp&quot; b e0 (arg ... x)
+     bindings (tmp ... (a x)) body))
+
+((let-values &quot;mktmp&quot; a e0 (arg ...)
+    bindings (tmp ...) body)
+ (call-with-values
+   (lambda () e0)
+   (lambda (arg ... . x)
+     (let-values &quot;bind&quot;
+         bindings (tmp ... (a x)) body))))))
+</code></pre>
+
+<p>\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{let<em>-values}
+  (syntax-rules ()
+    ((let</em>-values () body0 body1 &hellip;)
+     (let () body0 body1 &hellip;))</p>
+
+<pre><code>((let*-values (binding0 binding1 ...)
+     body0 body1 ...)
+ (let-values (binding0)
+   (let*-values (binding1 ...)
+     body0 body1 ...)))))
+</code></pre>
+
+<p>\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{define-values}
+  (syntax-rules ()
+    ((define-values () expr)
+     (define dummy
+       (call-with-values (lambda () expr)
+                         (lambda args \schfalse))))
+    ((define-values (var) expr)
+     (define var expr))
+    ((define-values (var0 var1 &hellip; varn) expr)
+     (begin
+       (define var0
+         (call-with-values (lambda () expr)
+                           list))
+       (define var1
+         (let ((v (cadr var0)))
+           (set-cdr! var0 (cddr var0))
+           v)) &hellip;
+       (define varn
+         (let ((v (cadr var0)))
+           (set! var0 (car var0))
+           v))))
+    ((define-values (var0 var1 &hellip; . varn) expr)
+     (begin
+       (define var0
+         (call-with-values (lambda () expr)
+                           list))
+       (define var1
+         (let ((v (cadr var0)))
+           (set-cdr! var0 (cddr var0))
+           v)) &hellip;
+       (define varn
+         (let ((v (cdr var0)))
+           (set! var0 (car var0))
+           v))))
+    ((define-values var expr)
+     (define var
+       (call-with-values (lambda () expr)
+                         list)))))
+\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{begin}
+  (syntax-rules ()
+    ((begin exp &hellip;)
+     ((lambda () exp &hellip;)))))
+\end{scheme}</p>
+
+<p>The following alternative expansion for {\cf begin} does not make use of
+the ability to write more than one expression in the body of a lambda
+expression.  In any case, note that these rules apply only if the body
+of the {\cf begin} contains no definitions.</p>
+
+<p>\begin{scheme}
+(define-syntax begin
+  (syntax-rules ()
+    ((begin exp)
+     exp)
+    ((begin exp1 exp2 &hellip;)
+     (call-with-values
+         (lambda () exp1)
+       (lambda args
+         (begin exp2 &hellip;))))))
+\end{scheme}</p>
+
+<p>The following syntax definition
+of {\cf do} uses a trick to expand the variable clauses.
+As with {\cf letrec} above, an auxiliary macro would also work.
+The expression {\cf (if #f #f)} is used to obtain an unspecific
+value.</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{do}
+  (syntax-rules ()
+    ((do ((var init step &hellip;) &hellip;)
+         (test expr &hellip;)
+         command &hellip;)
+     (letrec
+       ((loop
+         (lambda (var &hellip;)
+           (if test
+               (begin
+                 (if #f #f)
+                 expr &hellip;)
+               (begin
+                 command
+                 &hellip;
+                 (loop (do &ldquo;step&rdquo; var step &hellip;)
+                       &hellip;))))))
+       (loop init &hellip;)))
+    ((do &ldquo;step&rdquo; x)
+     x)
+    ((do &ldquo;step&rdquo; x y)
+     y)))
+\end{scheme}</p>
+
+<p>Here is a possible implementation of {\cf delay}, {\cf force} and {\cf
+  delay-force}.  We define the expression</p>
+
+<p>\begin{scheme}
+(delay-force \hyper{expression})%
+\end{scheme}</p>
+
+<p>to have the same meaning as the procedure call</p>
+
+<p>\begin{scheme}
+(make-promise \schfalse{} (lambda () \hyper{expression}))%
+\end{scheme}</p>
+
+<p>as follows</p>
+
+<p>\begin{scheme}
+(define-syntax delay-force
+  (syntax-rules ()
+    ((delay-force expression)
+     (make-promise \schfalse{} (lambda () expression)))))%
+\end{scheme}</p>
+
+<p>and we define the expression</p>
+
+<p>\begin{scheme}
+(delay \hyper{expression})%
+\end{scheme}</p>
+
+<p>to have the same meaning as:</p>
+
+<p>\begin{scheme}
+(delay-force (make-promise \schtrue{} \hyper{expression}))%
+\end{scheme}</p>
+
+<p>as follows</p>
+
+<p>\begin{scheme}
+(define-syntax delay
+  (syntax-rules ()
+    ((delay expression)
+     (delay-force (make-promise \schtrue{} expression)))))%
+\end{scheme}</p>
+
+<p>where {\cf make-promise} is defined as follows:</p>
+
+<p>\begin{scheme}
+(define make-promise
+  (lambda (done? proc)
+    (list (cons done? proc))))%
+\end{scheme}</p>
+
+<p>Finally, we define {\cf force} to call the procedure expressions in
+promises iteratively using a trampoline technique following
+\cite{srfi45} until a non-lazy result (i.e. a value created by {\cf
+  delay} instead of {\cf delay-force}) is returned, as follows:</p>
+
+<p>\begin{scheme}
+(define (force promise)
+  (if (promise-done? promise)
+      (promise-value promise)
+      (let ((promise* ((promise-value promise))))
+        (unless (promise-done? promise)
+          (promise-update! promise* promise))
+        (force promise))))%
+\end{scheme}</p>
+
+<p>with the following promise accessors:</p>
+
+<p>\begin{scheme}
+(define promise-done?
+  (lambda (x) (car (car x))))
+(define promise-value
+  (lambda (x) (cdr (car x))))
+(define promise-update!
+  (lambda (new old)
+    (set-car! (car old) (promise-done? new))
+    (set-cdr! (car old) (promise-value new))
+    (set-car! new (car old))))%
+\end{scheme}</p>
+
+<p>The following implementation of {\cf make-parameter} and {\cf
+parameterize} is suitable for an implementation with no threads.
+Parameter objects are implemented here as procedures, using two
+arbitrary unique objects \texttt{<param-set!>} and
+\texttt{<param-convert>}:</p>
+
+<p>\begin{scheme}
+(define (make-parameter init . o)
+  (let* ((converter
+          (if (pair? o) (car o) (lambda (x) x)))
+         (value (converter init)))
+    (lambda args
+      (cond
+       ((null? args)
+        value)
+       ((eq? (car args) <param-set!>)
+        (set! value (cadr args)))
+       ((eq? (car args) <param-convert>)
+        converter)
+       (else
+        (error &ldquo;bad parameter syntax&rdquo;))))))%
+\end{scheme}</p>
+
+<p>Then {\cf parameterize} uses {\cf dynamic-wind} to dynamically rebind
+the associated value:</p>
+
+<p>\begin{scheme}
+(define-syntax parameterize
+  (syntax-rules ()
+    ((parameterize (&ldquo;step&rdquo;)
+                   ((param value p old new) &hellip;)
+                   ()
+                   body)
+     (let ((p param) &hellip;)
+       (let ((old (p)) &hellip;
+             (new ((p <param-convert>) value)) &hellip;)
+         (dynamic-wind
+          (lambda () (p <param-set!> new) &hellip;)
+          (lambda () . body)
+          (lambda () (p <param-set!> old) &hellip;)))))
+    ((parameterize (&ldquo;step&rdquo;)
+                   args
+                   ((param value) . rest)
+                   body)
+     (parameterize (&ldquo;step&rdquo;)
+                   ((param value p old new) . args)
+                   rest
+                   body))
+    ((parameterize ((param value) &hellip;) . body)
+     (parameterize (&ldquo;step&rdquo;)
+                   ()
+                   ((param value) &hellip;)
+                   body))))
+\end{scheme}</p>
+
+<p>The following implementation of {\cf guard} depends on an auxiliary
+macro, here called {\cf guard-aux}.</p>
+
+<p>\begin{scheme}
+(define-syntax guard
+  (syntax-rules ()
+    ((guard (var clause &hellip;) e1 e2 &hellip;)
+     ((call/cc
+       (lambda (guard-k)
+         (with-exception-handler
+          (lambda (condition)
+            ((call/cc
+               (lambda (handler-k)
+                 (guard-k
+                  (lambda ()
+                    (let ((var condition))
+                      (guard-aux
+                        (handler-k
+                          (lambda ()
+                            (raise-continuable condition)))
+                        clause &hellip;))))))))
+          (lambda ()
+            (call-with-values
+             (lambda () e1 e2 &hellip;)
+             (lambda args
+               (guard-k
+                 (lambda ()
+                   (apply values args)))))))))))))</p>
+
+<p>(define-syntax guard-aux
+  (syntax-rules (else =&gt;)
+    ((guard-aux reraise (else result1 result2 &hellip;))
+     (begin result1 result2 &hellip;))
+    ((guard-aux reraise (test =&gt; result))
+     (let ((temp test))
+       (if temp
+           (result temp)
+           reraise)))
+    ((guard-aux reraise (test =&gt; result)
+                clause1 clause2 &hellip;)
+     (let ((temp test))
+       (if temp
+           (result temp)
+           (guard-aux reraise clause1 clause2 &hellip;))))
+    ((guard-aux reraise (test))
+     (or test reraise))
+    ((guard-aux reraise (test) clause1 clause2 &hellip;)
+     (let ((temp test))
+       (if temp
+           temp
+           (guard-aux reraise clause1 clause2 &hellip;))))
+    ((guard-aux reraise (test result1 result2 &hellip;))
+     (if test
+         (begin result1 result2 &hellip;)
+         reraise))
+    ((guard-aux reraise
+                (test result1 result2 &hellip;)
+                clause1 clause2 &hellip;)
+     (if test
+         (begin result1 result2 &hellip;)
+         (guard-aux reraise clause1 clause2 &hellip;)))))
+\end{scheme}</p>
+
+<p>\begin{scheme}
+(define-syntax \ide{case-lambda}
+  (syntax-rules ()
+    ((case-lambda (params body0 &hellip;) &hellip;)
+     (lambda args
+       (let ((len (length args)))
+         (let-syntax
+             ((cl (syntax-rules ::: ()
+                    ((cl)
+                     (error &ldquo;no matching clause&rdquo;))
+                    ((cl ((p :::) . body) . rest)
+                     (if (= len (length &lsquo;(p :::)))
+                         (apply (lambda (p :::)
+                                  . body)
+                                args)
+                         (cl . rest)))
+                    ((cl ((p ::: . tail) . body)
+                         . rest)
+                     (if (&gt;= len (length &lsquo;(p :::)))
+                         (apply
+                          (lambda (p ::: . tail)
+                            . body)
+                          args)
+                         (cl . rest))))))
+           (cl (params body0 &hellip;) &hellip;)))))))</p>
+
+<p>\end{scheme}</p>
+
+<p>This definition of {\cf cond-expand} does not interact with the
+{\cf features} procedure.  It requires that each feature identifier provided
+by the implementation be explicitly mentioned.</p>
+
+<p>\begin{scheme}
+(define-syntax cond-expand
+  ;; Extend this to mention all feature ids and libraries
+  (syntax-rules (and or not else r7rs library scheme base)
+    ((cond-expand)
+     (syntax-error &ldquo;Unfulfilled cond-expand&rdquo;))
+    ((cond-expand (else body &hellip;))
+     (begin body &hellip;))
+    ((cond-expand ((and) body &hellip;) more-clauses &hellip;)
+     (begin body &hellip;))
+    ((cond-expand ((and req1 req2 &hellip;) body &hellip;)
+                  more-clauses &hellip;)
+     (cond-expand
+       (req1
+         (cond-expand
+           ((and req2 &hellip;) body &hellip;)
+           more-clauses &hellip;))
+       more-clauses &hellip;))
+    ((cond-expand ((or) body &hellip;) more-clauses &hellip;)
+     (cond-expand more-clauses &hellip;))
+    ((cond-expand ((or req1 req2 &hellip;) body &hellip;)
+                  more-clauses &hellip;)
+     (cond-expand
+       (req1
+        (begin body &hellip;))
+       (else
+        (cond-expand
+           ((or req2 &hellip;) body &hellip;)
+           more-clauses &hellip;))))
+    ((cond-expand ((not req) body &hellip;)
+                  more-clauses &hellip;)
+     (cond-expand
+       (req
+         (cond-expand more-clauses &hellip;))
+       (else body &hellip;)))
+    ((cond-expand (r7rs body &hellip;)
+                  more-clauses &hellip;)
+       (begin body &hellip;))
+    ;; Add clauses here for each
+    ;; supported feature identifier.
+    ;; Samples:
+    ;; ((cond-expand (exact-closed body &hellip;)
+    ;;               more-clauses &hellip;)
+    ;;   (begin body &hellip;))
+    ;; ((cond-expand (ieee-float body &hellip;)
+    ;;               more-clauses &hellip;)
+    ;;   (begin body &hellip;))
+    ((cond-expand ((library (scheme base))
+                   body &hellip;)
+                  more-clauses &hellip;)
+      (begin body &hellip;))
+    ;; Add clauses here for each library
+    ((cond-expand (feature-id body &hellip;)
+                  more-clauses &hellip;)
+       (cond-expand more-clauses &hellip;))
+    ((cond-expand ((library (name &hellip;))
+                   body &hellip;)
+                  more-clauses &hellip;)
+       (cond-expand more-clauses &hellip;))))</p>
+
+<p>\end{scheme}</p>
+
+  </article>
+</div>
+
+</body>
+</html>
+
