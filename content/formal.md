@@ -572,7 +572,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.
 %going back to the executable version.  -- Will]
 
 
-### 7.2.8. Abstract syntax
+### 7.2.1. Abstract syntax
 
 \def\K{\hbox{\rm K}}
 \def\I{\hbox{\rm I}}
@@ -602,7 +602,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.
  \copy1{} (set! \I{} \E)
 \end{grammar}
 
-### 7.2.9. Domain equations
+### 7.2.2. Domain equations
 
 \begin{tabular}{@{}r@{ }c@{ }l@{ }l@{ }ll}
 $\alpha$   & \elem & \LOC & &          & locations \\
@@ -631,7 +631,7 @@ $\kappa$   & \elem & \EC  &=& $\arbno{\EXP}\to\CC$ & expression conts \\
 $\omega$   & \elem & \DP  &=& $(\FUN \times \FUN \times \DP) + \{\textit{root}\}$ & dynamic points\\
 \end{tabular}
 
-### 7.2.10. Semantic functions
+### 7.2.3. Semantic functions
 
 \def\Ksem{\hbox{$\cal K$}}
 \def\Esem{\hbox{$\cal E$}}
@@ -789,7 +789,7 @@ be used in place of {\it unspecified}.
 
 \egroup  % end smallish
 
-### 7.2.11. Auxiliary functions
+### 7.2.4. Auxiliary functions
 
 \bgroup\small
 

@@ -9,6 +9,11 @@
 (define-record-type context #t #t
   (chapter) (section) (subsection))
 
+(define-syntax zero!
+  (syntax-rules ()
+    ((_ loc)
+     (set! loc 0))))
+
 (define (convert-text text)
   (regexp-replace-all* text
 		       #/\\chapter{(.*?)}/ "# \\1"
@@ -40,14 +45,17 @@
 		   #/^# ([0-9]+\. )?([^ ].*)/
 		   (lambda (m)
 		     (if (context-chapter c)
-			 (format #f "# ~a. ~a" (context-chapter c) (m 2))
+			 (begin
+			   (zero! (context-section c))
+			   (format #f "# ~a. ~a" (context-chapter c) (m 2)))
 			 (m 0)))
 
 		   #/^## ([0-9]+\.[0-9]+\. )?([^ ].*)/
 		   (lambda (m)
 		     (if (context-chapter c)
 			 (begin
-			   (inc! (context-section c))
+			   (inc!  (context-section c))
+			   (zero! (context-subsection c))
 			   (format #f "## ~a.~a. ~a"
 				   (context-chapter c)
 				   (context-section c)

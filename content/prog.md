@@ -421,7 +421,7 @@ with explicitly defined interfaces to the rest of the program.  This
 section defines the notation and semantics for libraries.
 
 
-### 5.6.4. Library Syntax
+### 5.6.1. Library Syntax
 
 A library definition takes the following form:
 \mainschindex{define-library}
@@ -536,7 +536,7 @@ declarations in which it appears.
 That is, {\cf (import (only (foo) a))} followed by {\cf (import (only (foo) b))}
 has the same effect as {\cf (import (only (foo) a b))}.
 
-### 5.6.5. Library example
+### 5.6.2. Library example
 The following example shows
 how a program can be divided into libraries plus a relatively small
 main program~\cite{life}.

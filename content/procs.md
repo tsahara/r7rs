@@ -3722,7 +3722,7 @@ Implementations may extend {\cf eval} to allow other objects.
 
 ## 6.13. Input and output
 
-### 6.13.8. Ports
+### 6.13.1. Ports
 \label{portsection}
 
 Ports represent input and output devices.  To Scheme, an input port is
@@ -3959,7 +3959,7 @@ order they were output.
 \end{entry}
 
 
-### 6.13.9. Input
+### 6.13.2. Input
 \label{inputsection}
 
 If \var{port} is omitted from any input procedure, it defaults to the
@@ -4167,7 +4167,7 @@ If no bytes are available, an end-of-file object is returned.
 \end{entry}
 
 
-### 6.13.10. Output
+### 6.13.3. Output
 \label{outputsection}
 
 If \var{port} is omitted from any output procedure, it defaults to the

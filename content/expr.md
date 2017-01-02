@@ -323,7 +323,7 @@ that will convert most of the constructs described in this section
 into the primitive constructs described in the previous section.
 
 
-### 4.2.8. Conditionals\unsection
+### 4.2.1. Conditionals\unsection
 
 \begin{entry}{
 \proto{cond}{ \hyperi{clause} \hyperii{clause} \dotsfoo}{\exprtype}
@@ -582,7 +582,7 @@ appendix~\ref{stdfeatures}.
 
 \end{entry}
 
-### 4.2.9. Binding constructs
+### 4.2.2. Binding constructs
 \label{bindingsection}
 
 The binding constructs {\cf let}, {\cf let*}, {\cf letrec}, {\cf letrec*},
@@ -836,7 +836,7 @@ set of bindings is visible and initialized, and so on.
 \end{entry}
 
 
-### 4.2.10. Sequencing\unsection
+### 4.2.3. Sequencing\unsection
 \label{sequencing}
 
 Both of Scheme's sequencing constructs are named {\cf begin}, but the two
@@ -886,7 +886,7 @@ or input and output.
 Note that there is a third form of {\cf begin} used as a library declaration:
 see section~\ref{librarydeclarations}.
 
-### 4.2.11. Iteration%\unsection
+### 4.2.4. Iteration%\unsection
 
 \noindent
 \pproto{(do ((\hyperi{variable} \hyperi{init} \hyperi{step})}{\exprtype}
@@ -980,7 +980,7 @@ invoking the procedure named by \hyper{variable}.
 \end{entry}
 
 
-### 4.2.12. Delayed evaluation\unsection
+### 4.2.5. Delayed evaluation\unsection
 
 \begin{entry}{
 \proto{delay}{ \hyper{expression}}{lazy library syntax}}
@@ -1151,7 +1151,7 @@ If \var{obj} is already a promise, it is returned.
 
 \end{entry}
 
-### 4.2.13. Dynamic bindings\unsection
+### 4.2.6. Dynamic bindings\unsection
 
 The \defining{dynamic extent} of a procedure call is the time between
 when it is initiated and when it returns.  In Scheme, {\cf
@@ -1247,7 +1247,7 @@ procedure in the call chain explicitly.
 \end{entry}
 
 
-### 4.2.14. Exception handling\unsection
+### 4.2.7. Exception handling\unsection
 
 \begin{entry}{
 \pproto{(guard (\hyper{variable}}{\exprtype}
@@ -1294,7 +1294,7 @@ exceptions.
 \end{entry}
 
 
-### 4.2.15. Quasiquotation\unsection
+### 4.2.8. Quasiquotation\unsection
 \label{quasiquotesection}
 
 \begin{entry}{
@@ -1406,7 +1406,7 @@ otherwise than as described above.
 
 \end{entry}
 
-### 4.2.16. Case-lambda\unsection
+### 4.2.9. Case-lambda\unsection
 \label{caselambdasection}
 \begin{entry}{
 \proto{case-lambda}{ \hyper{clause} \dotsfoo}{case-lambda library syntax}}
@@ -1506,7 +1506,7 @@ hygienic,Bawden88,macrosthatwork,syntacticabstraction}
 
 Implementations may provide macro facilities of other types.
 
-### 4.3.17. Binding constructs for syntactic keywords
+### 4.3.1. Binding constructs for syntactic keywords
 \label{bindsyntax}
 
 The {\cf let-syntax} and {\cf letrec-syntax} binding constructs are
@@ -1596,7 +1596,7 @@ introduced by the {\cf letrec-syntax} expression.
 
 \end{entry}
 
-### 4.3.18. Pattern language
+### 4.3.2. Pattern language
 \label{patternlanguage}
 
 A \hyper{transformer spec} has one of the following forms:
@@ -1823,7 +1823,7 @@ which would result in an invalid procedure call.
 
 \end{entry}
 
-### 4.3.19. Signaling errors in macro transformers
+### 4.3.3. Signaling errors in macro transformers
 
 
 \begin{entry}{
