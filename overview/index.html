@@ -80,12 +80,15 @@
   </nav>
 
   <article style="margin-left: 240px;">
-    <p>% 1. Structure of the language</p>
+    
 
-<p>\chapter{Overview of Scheme}</p>
+<p>% 1. Structure of the language</p>
 
-<p>\section{Semantics}
-\label{semanticsection}</p>
+<h1 id="1-overview-of-scheme">1. Overview of Scheme</h1>
+
+<h2 id="1-1-semantics">1.1. Semantics</h2>
+
+<p>\label{semanticsection}</p>
 
 <p>This section gives an overview of Scheme&rsquo;s semantics.  A
 detailed informal semantics is the subject of
@@ -143,7 +146,7 @@ appear in Scheme.  In its place is a distinction between exact arithmetic,
 which corresponds to the mathematical ideal, and inexact arithmetic on
 approximations.  Exact arithmetic is not limited to integers.</p>
 
-<p>\section{Syntax}</p>
+<h2 id="1-2-syntax">1.2. Syntax</h2>
 
 <p>Scheme, like most dialects of Lisp, employs a fully parenthesized prefix
 notation for programs and other data; the grammar of Scheme generates a
@@ -159,10 +162,11 @@ the data it reads.  The {\cf read} procedure parses its input as data
 
 <p>The formal syntax of Scheme is described in section~\ref{BNF}.</p>
 
-<p>\section{Notation and terminology}</p>
+<h2 id="1-3-notation-and-terminology">1.3. Notation and terminology</h2>
 
-<p>\subsection{Base and optional features}
-\label{qualifiers}</p>
+<h3 id="1-3-1-base-and-optional-features">1.3.1. Base and optional features</h3>
+
+<p>\label{qualifiers}</p>
 
 <p>Every identifier defined in this report appears in one or more of several
 \defining{libraries}.  Identifiers defined in the \defining{base library}
@@ -198,8 +202,9 @@ code by providing a mode of operation in which the lexical syntax does
 not conflict with the lexical syntax described in this report.
 \end{itemize}</p>
 
-<p>\subsection{Error situations and unspecified behavior}
-\label{errorsituations}</p>
+<h3 id="1-3-2-error-situations-and-unspecified-behavior">1.3.2. Error situations and unspecified behavior</h3>
+
+<p>\label{errorsituations}</p>
 
 <p>\mainindex{error}
 When speaking of an error situation, this report uses the phrase ``an
@@ -260,7 +265,7 @@ report, are to be interpreted as described in RFC~2119~\cite{rfc2119}.
 They are used only with reference to implementer or implementation behavior,
 not with reference to programmer or program behavior.</p>
 
-<p>\subsection{Entry format}</p>
+<h3 id="1-3-3-entry-format">1.3.3. Entry format</h3>
 
 <p>Chapters~\ref{expressionchapter} and~\ref{builtinchapter} are organized
 into entries.  Each entry describes one language feature or a group of
@@ -374,7 +379,7 @@ the length of \var{string}, then the entire string is referred to.}</p>
 
 <p>\end{itemize}</p>
 
-<p>\subsection{Evaluation examples}</p>
+<h3 id="1-3-4-evaluation-examples">1.3.4. Evaluation examples</h3>
 
 <p>The symbol <code>\evalsto'' used in program examples is read
 </code>evaluates to.&rdquo;  For example,</p>
@@ -390,7 +395,7 @@ that can be represented externally by the sequence of characters</code>{\tt
 40}.&rdquo;  See section~\ref{externalreps} for a discussion of external
 representations of objects.</p>
 
-<p>\subsection{Naming conventions}</p>
+<h3 id="1-3-5-naming-conventions">1.3.5. Naming conventions</h3>
 
 <p>By convention, \ide{?} is the final character of the names
 of procedures that always return a boolean value.

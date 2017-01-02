@@ -80,12 +80,15 @@
   </nav>
 
   <article style="margin-left: 240px;">
-    <p>\chapter{Program structure}
-\label{programchapter}</p>
+    
 
-<p>\section{Programs}</p>
+<h1 id="5-program-structure">5. Program structure</h1>
 
-<p>A Scheme program consists of<br />
+<p>\label{programchapter}</p>
+
+<h2 id="5-1-programs">5.1. Programs</h2>
+
+<p>A Scheme program consists of
 one or more import declarations followed by a sequence of
 expressions and definitions.
 Import declarations specify the libraries on which a program or library depends;
@@ -101,7 +104,7 @@ and at the beginning of a \hyper{body}.
 
 <p>At the outermost level of a program, {\tt(begin \hyperi{expression or definition} \dotsfoo)} is
 equivalent to the sequence of expressions and definitions
-in the \ide{begin}.<br />
+in the \ide{begin}.
 Similarly, in a \hyper{body}, {\tt(begin \hyperi{definition} \dotsfoo)} is equivalent
 to the sequence \hyperi{definition} \dotsfoo.
 Macros can expand into such {\cf begin} forms.
@@ -124,8 +127,9 @@ Scheme system.  Other paradigms are possible.
 Implementations which store libraries in files should document the
 mapping from the name of a library to its location in the file system.</p>
 
-<p>\section{Import declarations}
-\mainschindex{import}</p>
+<h2 id="5-2-import-declarations">5.2. Import declarations</h2>
+
+<p>\mainschindex{import}</p>
 
 <p>An import declaration takes the following form:
 \begin{scheme}
@@ -181,8 +185,9 @@ mutate an imported binding with a definition
 or with {\cf set!}, or to refer to an identifier before it is imported.
 However, a REPL should permit these actions.</p>
 
-<p>\section{Variable definitions}
-\label{defines}
+<h2 id="5-3-variable-definitions">5.3. Variable definitions</h2>
+
+<p>\label{defines}
 \mainindex{variable definition}</p>
 
 <p>A variable definition binds one or more identifiers and specifies an initial
@@ -216,7 +221,7 @@ variable.  This form is equivalent to
 
 <p>\end{itemize}</p>
 
-<p>\subsection{Top level definitions}</p>
+<h3 id="5-3-1-top-level-definitions">5.3.1. Top level definitions</h3>
 
 <p>At the outermost level of a program, a definition
 \begin{scheme}
@@ -242,8 +247,9 @@ unbound\index{unbound} variable.</p>
 (first &lsquo;(1 2))                      \ev  1%
 \end{scheme}</p>
 
-<p>\subsection{Internal definitions}
-\label{internaldefines}</p>
+<h3 id="5-3-2-internal-definitions">5.3.2. Internal definitions</h3>
+
+<p>\label{internaldefines}</p>
 
 <p>Definitions can occur at the
 beginning of a \hyper{body} (that is, the body of a \ide{lambda},
@@ -291,7 +297,7 @@ same \hyper{body}.</p>
 is equivalent to the sequence of definitions
 that form the body of the \ide{begin}.</p>
 
-<p>\subsection{Multiple-value definitions}</p>
+<h3 id="5-3-3-multiple-value-definitions">5.3.3. Multiple-value definitions</h3>
 
 <p>Another kind of definition is provided by {\cf define-values},
 which creates multiple definitions from a single
@@ -320,7 +326,7 @@ call.</p>
 
 <p>\end{entry}</p>
 
-<p>\section{Syntax definitions}</p>
+<h2 id="5-4-syntax-definitions">5.4. Syntax definitions</h2>
 
 <p>\mainindex{syntax definition}
 Syntax definitions have this form:\mainschindex{define-syntax}</p>
@@ -385,8 +391,9 @@ errors:</p>
     (plus foo x)))%
 \end{scheme}</p>
 
-<p>\section{Record-type definitions}
-\label{usertypes}</p>
+<h2 id="5-5-record-type-definitions">5.5. Record-type definitions</h2>
+
+<p>\label{usertypes}</p>
 
 <p>\defining{Record-type definitions} are used to introduce new data types, called
 \defining{record types}.
@@ -488,14 +495,15 @@ to be a predicate for instances of {\cf <pare>}.</p>
 
 <p>\end{entry}</p>
 
-<p>\section{Libraries}
-\label{libraries}</p>
+<h2 id="5-6-libraries">5.6. Libraries</h2>
+
+<p>\label{libraries}</p>
 
 <p>Libraries provide a way to organize Scheme programs into reusable parts
 with explicitly defined interfaces to the rest of the program.  This
 section defines the notation and semantics for libraries.</p>
 
-<p>\subsection{Library Syntax}</p>
+<h3 id="5-6-4-library-syntax">5.6.4. Library Syntax</h3>
 
 <p>A library definition takes the following form:
 \mainschindex{define-library}</p>
@@ -611,8 +619,9 @@ declarations in which it appears.
 That is, {\cf (import (only (foo) a))} followed by {\cf (import (only (foo) b))}
 has the same effect as {\cf (import (only (foo) a b))}.</p>
 
-<p>\subsection{Library example}
-The following example shows
+<h3 id="5-6-5-library-example">5.6.5. Library example</h3>
+
+<p>The following example shows
 how a program can be divided into libraries plus a relatively small
 main program~\cite{life}.
 If the main program is entered into a REPL, it is not necessary to import
@@ -709,7 +718,7 @@ the base library.</p>
 
 <p>\end{scheme}</p>
 
-<p>\section{The REPL}</p>
+<h2 id="5-7-the-repl">5.7. The REPL</h2>
 
 <p>Implementations may provide an interactive session called a
 \defining{REPL} (Read-Eval-Print Loop), where import declarations,

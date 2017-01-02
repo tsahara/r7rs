@@ -80,8 +80,11 @@
   </nav>
 
   <article style="margin-left: 240px;">
-    <p>\chapter{Expressions}
-\label{expressionchapter}</p>
+    
+
+<h1 id="4-expressions">4. Expressions</h1>
+
+<p>\label{expressionchapter}</p>
 
 <p>\newcommand{\syntax}{{\em Syntax: }}
 \newcommand{\semantics}{{\em Semantics: }}</p>
@@ -97,10 +100,11 @@ given in section~\ref{derivedsection}.</p>
 are also described in this chapter because they are intimately associated
 with the {\cf delay}, {\cf delay-force}, and {\cf parameterize} expression types.</p>
 
-<p>\section{Primitive expression types}
-\label{primitivexps}</p>
+<h2 id="4-1-primitive-expression-types">4.1. Primitive expression types</h2>
 
-<p>\subsection{Variable references}\unsection</p>
+<p>\label{primitivexps}</p>
+
+<h3 id="4-1-1-variable-references-unsection">4.1.1. Variable references\unsection</h3>
 
 <p>\begin{entry}{%
 \pproto{\hyper{variable}}{\exprtype}}</p>
@@ -117,8 +121,9 @@ x   \ev  28%
 \end{scheme}
 \end{entry}</p>
 
-<p>\subsection{Literal expressions}\unsection
-\label{literalsection}</p>
+<h3 id="4-1-2-literal-expressions-unsection">4.1.2. Literal expressions\unsection</h3>
+
+<p>\label{literalsection}</p>
 
 <p>\begin{entry}{%
 \proto{quote}{ \hyper{datum}}{\exprtype}
@@ -175,7 +180,7 @@ themselves; they need not be quoted.</p>
 
 <p>\end{entry}</p>
 
-<p>\subsection{Procedure calls}\unsection</p>
+<h3 id="4-1-3-procedure-calls-unsection">4.1.3. Procedure calls\unsection</h3>
 
 <p>\begin{entry}{%
 \pproto{(\hyper{operator} \hyperi{operand} \dotsfoo)}{\exprtype}}</p>
@@ -221,8 +226,9 @@ The order of evaluation may be chosen differently for each procedure call.
 
 <p>\end{entry}</p>
 
-<p>\subsection{Procedures}\unsection
-\label{lamba}</p>
+<h3 id="4-1-4-procedures-unsection">4.1.4. Procedures\unsection</h3>
+
+<p>\label{lamba}</p>
 
 <p>\begin{entry}{%
 \proto{lambda}{ \hyper{formals} \hyper{body}}{\exprtype}}</p>
@@ -306,7 +312,7 @@ arguments have been matched up against the other formal arguments.
 with a storage location, in order to make \ide{eqv?} and
 \ide{eq?} work on procedures (see section~\ref{equivalencesection}).</p>
 
-<p>\subsection{Conditionals}\unsection</p>
+<h3 id="4-1-5-conditionals-unsection">4.1.5. Conditionals\unsection</h3>
 
 <p>\begin{entry}{%
 \proto{if}{ \hyper{test} \hyper{consequent} \hyper{alternate}}{\exprtype}
@@ -335,8 +341,9 @@ unspecified.</p>
 
 <p>\end{entry}</p>
 
-<p>\subsection{Assignments}\unsection
-\label{assignment}</p>
+<h3 id="4-1-6-assignments-unsection">4.1.6. Assignments\unsection</h3>
+
+<p>\label{assignment}</p>
 
 <p>\begin{entry}{%
 \proto{set!}{ \hyper{variable} \hyper{expression}}{\exprtype}}</p>
@@ -358,8 +365,9 @@ unspecified.</p>
 
 <p>\end{entry}</p>
 
-<p>\subsection{Inclusion}\unsection
-\label{inclusion}
+<h3 id="4-1-7-inclusion-unsection">4.1.7. Inclusion\unsection</h3>
+
+<p>\label{inclusion}
 \begin{entry}{%
 \proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}
 \rproto{include-ci}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}}</p>
@@ -384,8 +392,9 @@ specify other directories to search.
 
 <p>\end{entry}</p>
 
-<p>\section{Derived expression types}
-\label{derivedexps}</p>
+<h2 id="4-2-derived-expression-types">4.2. Derived expression types</h2>
+
+<p>\label{derivedexps}</p>
 
 <p>The constructs in this section are hygienic, as discussed in
 section~\ref{macrosection}.
@@ -393,7 +402,7 @@ For reference purposes, section~\ref{derivedsection} gives syntax definitions
 that will convert most of the constructs described in this section
 into the primitive constructs described in the previous section.</p>
 
-<p>\subsection{Conditionals}\unsection</p>
+<h3 id="4-2-8-conditionals-unsection">4.2.8. Conditionals\unsection</h3>
 
 <p>\begin{entry}{%
 \proto{cond}{ \hyperi{clause} \hyperii{clause} \dotsfoo}{\exprtype}
@@ -648,8 +657,9 @@ appendix~\ref{stdfeatures}.</p>
 
 <p>\end{entry}</p>
 
-<p>\subsection{Binding constructs}
-\label{bindingsection}</p>
+<h3 id="4-2-9-binding-constructs">4.2.9. Binding constructs</h3>
+
+<p>\label{bindingsection}</p>
 
 <p>The binding constructs {\cf let}, {\cf let<em>}, {\cf letrec}, {\cf letrec</em>},
 {\cf let-values}, and {\cf let<em>-values}
@@ -897,8 +907,9 @@ set of bindings is visible and initialized, and so on.</p>
 
 <p>\end{entry}</p>
 
-<p>\subsection{Sequencing}\unsection
-\label{sequencing}</p>
+<h3 id="4-2-10-sequencing-unsection">4.2.10. Sequencing\unsection</h3>
+
+<p>\label{sequencing}</p>
 
 <p>Both of Scheme&rsquo;s sequencing constructs are named {\cf begin}, but the two
 have slightly different forms and uses:</p>
@@ -947,7 +958,7 @@ or input and output.</p>
 <p>Note that there is a third form of {\cf begin} used as a library declaration:
 see section~\ref{librarydeclarations}.</p>
 
-<p>\subsection{Iteration}%\unsection</p>
+<h3 id="4-2-11-iteration-unsection">4.2.11. Iteration%\unsection</h3>
 
 <p>\noindent%
 \pproto{(do ((\hyperi{variable} \hyperi{init} \hyperi{step})}{\exprtype}
@@ -1039,7 +1050,7 @@ invoking the procedure named by \hyper{variable}.</p>
 
 <p>\end{entry}</p>
 
-<p>\subsection{Delayed evaluation}\unsection</p>
+<h3 id="4-2-12-delayed-evaluation-unsection">4.2.12. Delayed evaluation\unsection</h3>
 
 <p>\begin{entry}{%
 \proto{delay}{ \hyper{expression}}{lazy library syntax}}</p>
@@ -1097,7 +1108,7 @@ If \var{promise} is not a promise, it may be returned unchanged.</p>
 <p>\begin{scheme}
 (force (delay (+ 1 2)))   \ev  3
 (let ((p (delay (+ 1 2))))
-  (list (force p) (force p)))<br />
+  (list (force p) (force p)))
                                \ev  (3 3)</p>
 
 <p>(define integers
@@ -1110,7 +1121,7 @@ If \var{promise} is not a promise, it may be returned unchanged.</p>
 (define tail
   (lambda (stream) (cdr (force stream))))</p>
 
-<p>(head (tail (tail integers)))<br />
+<p>(head (tail (tail integers)))
                                \ev  2%
 \end{scheme}</p>
 
@@ -1210,7 +1221,7 @@ If \var{obj} is already a promise, it is returned.</p>
 
 <p>\end{entry}</p>
 
-<p>\subsection{Dynamic bindings}\unsection</p>
+<h3 id="4-2-13-dynamic-bindings-unsection">4.2.13. Dynamic bindings\unsection</h3>
 
 <p>The \defining{dynamic extent} of a procedure call is the time between
 when it is initiated and when it returns.  In Scheme, {\cf
@@ -1305,7 +1316,7 @@ procedure in the call chain explicitly.</p>
 \end{scheme}
 \end{entry}</p>
 
-<p>\subsection{Exception handling}\unsection</p>
+<h3 id="4-2-14-exception-handling-unsection">4.2.14. Exception handling\unsection</h3>
 
 <p>\begin{entry}{%
 \pproto{(guard (\hyper{variable}}{\exprtype}
@@ -1350,8 +1361,9 @@ exceptions.</p>
 \end{scheme}
 \end{entry}</p>
 
-<p>\subsection{Quasiquotation}\unsection
-\label{quasiquotesection}</p>
+<h3 id="4-2-15-quasiquotation-unsection">4.2.15. Quasiquotation\unsection</h3>
+
+<p>\label{quasiquotesection}</p>
 
 <p>\begin{entry}{%
 \proto{quasiquote}{ \hyper{qq template}}{\exprtype} \nopagebreak
@@ -1461,8 +1473,9 @@ otherwise than as described above.</p>
 
 <p>\end{entry}</p>
 
-<p>\subsection{Case-lambda}\unsection
-\label{caselambdasection}
+<h3 id="4-2-16-case-lambda-unsection">4.2.16. Case-lambda\unsection</h3>
+
+<p>\label{caselambdasection}
 \begin{entry}{%
 \proto{case-lambda}{ \hyper{clause} \dotsfoo}{case-lambda library syntax}}</p>
 
@@ -1501,8 +1514,9 @@ the \hyper{formals} of any \hyper{clause}.</p>
 
 <p>\end{entry}</p>
 
-<p>\section{Macros}
-\label{macrosection}</p>
+<h2 id="4-3-macros">4.3. Macros</h2>
+
+<p>\label{macrosection}</p>
 
 <p>Scheme programs can define and use new derived expression types,
  called {\em macros}.\mainindex{macro}
@@ -1535,7 +1549,7 @@ the scope within which a macro is defined, and</p>
 \end{itemize}</p>
 
 <p>The syntactic keyword of a macro can shadow variable bindings, and local
-variable bindings can shadow syntactic bindings.  \index{keyword}<br />
+variable bindings can shadow syntactic bindings.  \index{keyword}
 Two mechanisms are provided to prevent unintended conflicts:</p>
 
 <p>\begin{itemize}</p>
@@ -1561,8 +1575,9 @@ hygienic,Bawden88,macrosthatwork,syntacticabstraction}
 
 <p>Implementations may provide macro facilities of other types.</p>
 
-<p>\subsection{Binding constructs for syntactic keywords}
-\label{bindsyntax}</p>
+<h3 id="4-3-17-binding-constructs-for-syntactic-keywords">4.3.17. Binding constructs for syntactic keywords</h3>
+
+<p>\label{bindsyntax}</p>
 
 <p>The {\cf let-syntax} and {\cf letrec-syntax} binding constructs are
 analogous to {\cf let} and {\cf letrec}, but they bind
@@ -1651,8 +1666,9 @@ introduced by the {\cf letrec-syntax} expression.</p>
 
 <p>\end{entry}</p>
 
-<p>\subsection{Pattern language}
-\label{patternlanguage}</p>
+<h3 id="4-3-18-pattern-language">4.3.18. Pattern language</h3>
+
+<p>\label{patternlanguage}</p>
 
 <p>A \hyper{transformer spec} has one of the following forms:</p>
 
@@ -1878,7 +1894,7 @@ as a syntactic keyword.  Thus the example expands into</p>
 
 <p>\end{entry}</p>
 
-<p>\subsection{Signaling errors in macro transformers}</p>
+<h3 id="4-3-19-signaling-errors-in-macro-transformers">4.3.19. Signaling errors in macro transformers</h3>
 
 <p>\begin{entry}{%
 \pproto{(syntax-error \hyper{message} \hyper{args} \dotsfoo)}{\exprtype}}

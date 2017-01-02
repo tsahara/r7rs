@@ -80,14 +80,18 @@
   </nav>
 
   <article style="margin-left: 240px;">
-    <p>\chapter{Formal syntax and semantics}
-\label{formalchapter}</p>
+    
+
+<h1 id="7-formal-syntax-and-semantics">7. Formal syntax and semantics</h1>
+
+<p>\label{formalchapter}</p>
 
 <p>This chapter provides formal descriptions of what has already been
 described informally in previous chapters of this report.</p>
 
-<p>\section{Formal syntax}
-\label{BNF}</p>
+<h2 id="7-1-formal-syntax">7.1. Formal syntax</h2>
+
+<p>\label{BNF}</p>
 
 <p>This section provides a formal syntax for Scheme written in an extended
 BNF.</p>
@@ -103,7 +107,7 @@ concise:  \arbno{\meta{thing}} means zero or more occurrences of
 \meta{thing}; and \atleastone{\meta{thing}} means at least one
 \meta{thing}.</p>
 
-<p>\subsection{Lexical structure}</p>
+<h3 id="7-1-1-lexical-structure">7.1.1. Lexical structure</h3>
 
 <p>This section describes how individual tokens\index{token} (identifiers,
 numbers, etc.) are formed from sequences of characters.  The following
@@ -292,8 +296,9 @@ of numbers can appear in either upper or lower case.
 \meta{digit 16} : \meta{digit $10$} | a | b | c | d | e | f %
 \end{grammar}</p>
 
-<p>\subsection{External representations}
-\label{datumsyntax}</p>
+<h3 id="7-1-2-external-representations">7.1.2. External representations</h3>
+
+<p>\label{datumsyntax}</p>
 
 <p>\meta{Datum} is what the \ide{read} procedure (section~\ref{read})
 successfully parses.  Note that any string that parses as an
@@ -313,7 +318,7 @@ successfully parses.  Note that any string that parses as an
 \meta{label} : # \meta{uinteger 10}%
 \end{grammar}</p>
 
-<p>\subsection{Expressions}</p>
+<h3 id="7-1-3-expressions">7.1.3. Expressions</h3>
 
 <p>The definitions in this and the following subsections assume that all
 the syntax keywords defined in this report have been properly imported
@@ -415,7 +420,7 @@ from their libraries, and that none of them have been redefined or shadowed.</p>
 &gt; | (include-ci \atleastone{\meta{string}})
 \end{grammar}</p>
 
-<p>\subsection{Quasiquotations}</p>
+<h3 id="7-1-4-quasiquotations">7.1.4. Quasiquotations</h3>
 
 <p>The following grammar for quasiquote expressions is not context-free.
 It is presented as a recipe for generating an infinite number of
@@ -450,7 +455,7 @@ un-quo-ta-tion $D$}.  The interpretation as an
 \meta{un-quo-ta-tion} or \meta{splicing
 un-quo-ta-tion $D$} takes precedence.</p>
 
-<p>\subsection{Transformers}</p>
+<h3 id="7-1-5-transformers">7.1.5. Transformers</h3>
 
 <p>\begin{grammar}%
 \meta{transformer spec} :
@@ -485,7 +490,7 @@ un-quo-ta-tion $D$} takes precedence.</p>
 \meta{underscore} : \meta{the identifier {\cf _}}
 \end{grammar}</p>
 
-<p>\subsection{Programs and definitions}</p>
+<h3 id="7-1-6-programs-and-definitions">7.1.6. Programs and definitions</h3>
 
 <p>\begin{grammar}%
 \meta{program} :
@@ -513,7 +518,7 @@ un-quo-ta-tion $D$} takes precedence.</p>
 &gt;  (define-syntax \meta{keyword} \meta{transformer spec})
 \end{grammar}</p>
 
-<p>\subsection{Libraries}</p>
+<h3 id="7-1-7-libraries">7.1.7. Libraries</h3>
 
 <p>\begin{grammar}%
 \meta{library} :
@@ -545,9 +550,11 @@ un-quo-ta-tion $D$} takes precedence.</p>
 &gt; | (or \arbno{\meta{feature requirement}})
 &gt; | (not \meta{feature requirement})
 \end{grammar}
-%\vfill\eject
-\section{Formal semantics}
-\label{formalsemanticssection}</p>
+%\vfill\eject</p>
+
+<h2 id="7-2-formal-semantics">7.2. Formal semantics</h2>
+
+<p>\label{formalsemanticssection}</p>
 
 <p>\bgroup</p>
 
@@ -641,7 +648,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.</p>
 %[This was once true, but then I modified the semantics without
 %going back to the executable version.  &ndash; Will]</p>
 
-<p>\subsection{Abstract syntax}</p>
+<h3 id="7-2-8-abstract-syntax">7.2.8. Abstract syntax</h3>
 
 <p>\def\K{\hbox{\rm K}}
 \def\I{\hbox{\rm I}}
@@ -671,7 +678,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.</p>
  \copy1{} (set! \I{} \E)
 \end{grammar}</p>
 
-<p>\subsection{Domain equations}</p>
+<h3 id="7-2-9-domain-equations">7.2.9. Domain equations</h3>
 
 <p>\begin{tabular}{@{}r@{ }c@{ }l@{ }l@{ }ll}
 $\alpha$   &amp; \elem &amp; \LOC &amp; &amp;          &amp; locations <br />
@@ -700,7 +707,7 @@ $\kappa$   &amp; \elem &amp; \EC  &amp;=&amp; $\arbno{\EXP}\to\CC$ &amp; express
 $\omega$   &amp; \elem &amp; \DP  &amp;=&amp; $(\FUN \times \FUN \times \DP) + {\textit{root}}$ &amp; dynamic points<br />
 \end{tabular}</p>
 
-<p>\subsection{Semantic functions}</p>
+<h3 id="7-2-10-semantic-functions">7.2.10. Semantic functions</h3>
 
 <p>\def\Ksem{\hbox{$\cal K$}}
 \def\Esem{\hbox{$\cal E$}}
@@ -858,7 +865,7 @@ be used in place of {\it unspecified}.</p>
 
 <p>\egroup  % end smallish</p>
 
-<p>\subsection{Auxiliary functions}</p>
+<h3 id="7-2-11-auxiliary-functions">7.2.11. Auxiliary functions</h3>
 
 <p>\bgroup\small</p>
 
@@ -1316,9 +1323,11 @@ be used in place of {\it unspecified}.</p>
 
 <p>\egroup  % end smallish</p>
 
-<p>\egroup
-\section{Derived expression types}
-\label{derivedsection}</p>
+<p>\egroup</p>
+
+<h2 id="7-3-derived-expression-types">7.3. Derived expression types</h2>
+
+<p>\label{derivedsection}</p>
 
 <p>This section gives syntax definitions for the derived expression types in
 terms of the primitive expression types (literal, variable, call, {\cf lambda},
@@ -1517,7 +1526,7 @@ This could also be accomplished by using an auxiliary macro.</p>
 
 ((let-values &quot;mktmp&quot; () e0 args
      bindings tmps body)
- (call-with-values 
+ (call-with-values
    (lambda () e0)
    (lambda args
      (let-values &quot;bind&quot;

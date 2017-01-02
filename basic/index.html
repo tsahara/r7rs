@@ -80,12 +80,17 @@
   </nav>
 
   <article style="margin-left: 240px;">
-    <p>%\vfill\eject
-\chapter{Basic concepts}
-\label{basicchapter}</p>
+    
 
-<p>\section{Variables, syntactic keywords, and regions}
-\label{specialformsection}
+<p>%\vfill\eject</p>
+
+<h1 id="3-basic-concepts">3. Basic concepts</h1>
+
+<p>\label{basicchapter}</p>
+
+<h2 id="3-1-variables-syntactic-keywords-and-regions">3.1. Variables, syntactic keywords, and regions</h2>
+
+<p>\label{specialformsection}
 \label{variablesection}</p>
 
 <p>An identifier\index{identifier} can name either a type of syntax or
@@ -133,8 +138,9 @@ binding for the identifier,
 it is said to be \defining{unbound}.\mainindex{bound}\index{global
 environment}</p>
 
-<p>\section{Disjointness of types}
-\label{disjointness}</p>
+<h2 id="3-2-disjointness-of-types">3.2. Disjointness of types</h2>
+
+<p>\label{disjointness}</p>
 
 <p>No object satisfies more than one of the following predicates:</p>
 
@@ -166,8 +172,9 @@ This report uses the word <code>true'' to refer to any
 Scheme value except \schfalse{}, and the word</code>false&rdquo; to refer to
 \schfalse{}. \mainindex{true} \mainindex{false}</p>
 
-<p>\section{External representations}
-\label{externalreps}</p>
+<h2 id="3-3-external-representations">3.3. External representations</h2>
+
+<p>\label{externalreps}</p>
 
 <p>An important concept in Scheme (and Lisp) is that of the {\em external
 representation} of an object as a sequence of characters.  For example,
@@ -209,8 +216,9 @@ compilers that treat programs as data (or vice versa).</p>
 accompanies the description of the primitives for manipulating the
 objects in the appropriate sections of chapter~\ref{initialenv}.</p>
 
-<p>\section{Storage model}
-\label{storagemodel}</p>
+<h2 id="3-4-storage-model">3.4. Storage model</h2>
+
+<p>\label{storagemodel}</p>
 
 <p>Variables and objects such as pairs, strings, vectors, and bytevectors implicitly
 denote locations\mainindex{location} or sequences of locations.  A string, for
@@ -270,8 +278,9 @@ while not requiring other systems to distinguish between
 mutable and immutable objects.
 \end{rationale}</p>
 
-<p>\section{Proper tail recursion}
-\label{proper tail recursion}</p>
+<h2 id="3-5-proper-tail-recursion">3.5. Proper tail recursion</h2>
+
+<p>\label{proper tail recursion}</p>
 
 <p>Implementations of Scheme are required to be
 {\em properly tail-recursive}\mainindex{proper tail recursion}.

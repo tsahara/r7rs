@@ -80,17 +80,21 @@
   </nav>
 
   <article style="margin-left: 240px;">
-    <p>% Lexical structure</p>
+    
 
-<p>%%\vfill\eject
-\chapter{Lexical conventions}</p>
+<p>% Lexical structure</p>
+
+<p>%%\vfill\eject</p>
+
+<h1 id="2-lexical-conventions">2. Lexical conventions</h1>
 
 <p>This section gives an informal account of some of the lexical
 conventions used in writing Scheme programs.  For a formal syntax of
 Scheme, see section~\ref{BNF}.</p>
 
-<p>\section{Identifiers}
-\label{syntaxsection}</p>
+<h2 id="2-1-identifiers">2.1. Identifiers</h2>
+
+<p>\label{syntaxsection}</p>
 
 <p>An identifier\mainindex{identifier} is any sequence of letters, digits, and
 ``extended identifier characters&rdquo; provided that it does not have a prefix
@@ -179,8 +183,9 @@ literals.  The {\cf{}#!no-fold-case} directive
 causes a return to the default, non-folding behavior.
 \end{entry}</p>
 
-<p>\section{Whitespace and comments}
-\label{wscommentsection}</p>
+<h2 id="2-2-whitespace-and-comments">2.2. Whitespace and comments</h2>
+
+<p>\label{wscommentsection}</p>
 
 <p>\defining{Whitespace} characters include the space, tab, and newline characters.
 (Implementations may provide additional whitespace characters such
@@ -222,7 +227,7 @@ and {\tt |#} pairs.</p>
         (* n (fact (- n 1))))))%
 \end{scheme}</p>
 
-<p>\section{Other notations}</p>
+<h2 id="2-3-other-notations">2.3. Other notations</h2>
 
 <p>\todo{Rewrite?}</p>
 
@@ -296,8 +301,9 @@ These are used for labeling and referencing other literal data (section~\ref{lab
 
 <p>\end{description}</p>
 
-<p>\section{Datum labels}\unsection
-\label{labelsection}</p>
+<h2 id="2-4-datum-labels-unsection">2.4. Datum labels\unsection</h2>
+
+<p>\label{labelsection}</p>
 
 <p>\begin{entry}{%
 \pproto{#\hyper{n}=\hyper{datum}}{lexical syntax}
