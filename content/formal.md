@@ -2,8 +2,9 @@
 weight = 61
 title = "Formal syntax and semantics"
 menu = "main"
+chapter = 7
 +++
-\chapter{Formal syntax and semantics}
+# 7. Formal syntax and semantics
 \label{formalchapter}
 
 This chapter provides formal descriptions of what has already been
@@ -11,7 +12,7 @@ described informally in previous chapters of this report.
 
 
 
-\section{Formal syntax}
+## 7.1. Formal syntax
 \label{BNF}
 
 This section provides a formal syntax for Scheme written in an extended
@@ -29,7 +30,7 @@ concise:  \arbno{\meta{thing}} means zero or more occurrences of
 \meta{thing}.
 
 
-\subsection{Lexical structure}
+### 7.1.1. Lexical structure
 
 This section describes how individual tokens\index{token} (identifiers,
 numbers, etc.) are formed from sequences of characters.  The following
@@ -65,7 +66,7 @@ All Scheme implementations must permit the escape sequence
 to appear in Scheme identifiers that are enclosed in vertical lines. If the character
 with the given Unicode scalar value is supported by the implementation,
 identifiers containing such a sequence are equivalent to identifiers
-containing the corresponding character. 
+containing the corresponding character.
 
 \begin{grammar}%
 \meta{token} \: \meta{identifier} \| \meta{boolean} \| \meta{number}\index{identifier}
@@ -142,12 +143,12 @@ identifiers.
 \meta{character} \: \#\backwhack{} \meta{any character}
  \>  \| \#\backwhack{} \meta{character name}
  \>  \| \#\backwhack{}x\meta{hex scalar value}
-\meta{character name} \: alarm \| backspace \| delete 
+\meta{character name} \: alarm \| backspace \| delete
 \> \| escape \| newline \| null \| return \| space \| tab
 \todo{Explain what happens in the ambiguous case.}
 \meta{string} \: " \arbno{\meta{string element}} "
 \meta{string element} \: \meta{any character other than \doublequote{} or \backwhack}
- \> \| \meta{mnemonic escape} \| \backwhack\doublequote{} \| \backwhack\backwhack 
+ \> \| \meta{mnemonic escape} \| \backwhack\doublequote{} \| \backwhack\backwhack
  \>  \| \backwhack{}\arbno{\meta{intraline whitespace}}\meta{line ending}
  \>  \> \arbno{\meta{intraline whitespace}}
  \>  \| \meta{inline hex escape}
@@ -180,7 +181,7 @@ of numbers can appear in either upper or lower case.
       \| \meta{real $R$} - \meta{ureal $R$} i
    \> \| \meta{real $R$} + i %
       \| \meta{real $R$} - i %
-      \| \meta{real $R$} \meta{infnan} i 
+      \| \meta{real $R$} \meta{infnan} i
    \> \| + \meta{ureal $R$} i %
       \| - \meta{ureal $R$} i
    \> \| \meta{infnan} i %
@@ -204,7 +205,7 @@ of numbers can appear in either upper or lower case.
 \end{grammar}
 
 \begin{grammar}%
-\meta{suffix} \: \meta{empty} 
+\meta{suffix} \: \meta{empty}
    \> \| \meta{exponent marker} \meta{sign} \atleastone{\meta{digit $10$}}
 \meta{exponent marker} \: e
 \meta{sign} \: \meta{empty}  \| + \|  -
@@ -220,7 +221,7 @@ of numbers can appear in either upper or lower case.
 \end{grammar}
 
 
-\subsection{External representations}
+### 7.1.2. External representations
 \label{datumsyntax}
 
 \meta{Datum} is what the \ide{read} procedure (section~\ref{read})
@@ -242,7 +243,7 @@ successfully parses.  Note that any string that parses as an
 \end{grammar}
 
 
-\subsection{Expressions}
+### 7.1.3. Expressions
 
 The definitions in this and the following subsections assume that all
 the syntax keywords defined in this report have been properly imported
@@ -344,7 +345,7 @@ from their libraries, and that none of them have been redefined or shadowed.
 \> \| (include-ci \atleastone{\meta{string}})
 \end{grammar}
 
-\subsection{Quasiquotations}
+### 7.1.4. Quasiquotations
 
 The following grammar for quasiquote expressions is not context-free.
 It is presented as a recipe for generating an infinite number of
@@ -379,7 +380,7 @@ un\-quo\-ta\-tion $D$}.  The interpretation as an
 \meta{un\-quo\-ta\-tion} or \meta{splicing
 un\-quo\-ta\-tion $D$} takes precedence.
 
-\subsection{Transformers}
+### 7.1.5. Transformers
 
 \begin{grammar}%
 \meta{transformer spec} \:
@@ -414,7 +415,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \meta{underscore} \: \meta{the identifier {\cf \_}}
 \end{grammar}
 
-\subsection{Programs and definitions}
+### 7.1.6. Programs and definitions
 
 \begin{grammar}%
 \meta{program} \:
@@ -442,7 +443,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \>  (define-syntax \meta{keyword} \meta{transformer spec})
 \end{grammar}
 
-\subsection{Libraries}
+### 7.1.7. Libraries
 
 \begin{grammar}%
 \meta{library} \:
@@ -475,7 +476,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \> \| (not \meta{feature requirement})
 \end{grammar}
 %\vfill\eject
-\section{Formal semantics}
+## 7.2. Formal semantics
 \label{formalsemanticssection}
 
 \bgroup
@@ -571,7 +572,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.
 %going back to the executable version.  -- Will]
 
 
-\subsection{Abstract syntax}
+### 7.2.8. Abstract syntax
 
 \def\K{\hbox{\rm K}}
 \def\I{\hbox{\rm I}}
@@ -601,7 +602,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.
  \copy1{} (set! \I{} \E)
 \end{grammar}
 
-\subsection{Domain equations}
+### 7.2.9. Domain equations
 
 \begin{tabular}{@{}r@{ }c@{ }l@{ }l@{ }ll}
 $\alpha$   & \elem & \LOC & &          & locations \\
@@ -613,7 +614,7 @@ $\nu$      & \elem & \NAT & &          & natural numbers \\
            &       & \PAI &=& $\LOC \times \LOC \times \TRU$  & pairs \\
            &       & \VEC &=& $\arbno{\LOC} \times \TRU$ & vectors \\
            &       & \STR &=& $\arbno{\LOC} \times \TRU$ & strings \\
-           &       & \MSC &=& \makebox[0pt][l]{$\{$\it false, true, 
+           &       & \MSC &=& \makebox[0pt][l]{$\{$\it false, true,
                                 null, undefined, unspecified$\}$} \\
            &       &      & &          & miscellaneous \\
 $\phi$     & \elem & \FUN &=& $\LOC\times(\arbno{\EXP} \to \DP \to \EC \to \CC)$
@@ -630,7 +631,7 @@ $\kappa$   & \elem & \EC  &=& $\arbno{\EXP}\to\CC$ & expression conts \\
 $\omega$   & \elem & \DP  &=& $(\FUN \times \FUN \times \DP) + \{\textit{root}\}$ & dynamic points\\
 \end{tabular}
 
-\subsection{Semantic functions}
+### 7.2.10. Semantic functions
 
 \def\Ksem{\hbox{$\cal K$}}
 \def\Esem{\hbox{$\cal E$}}
@@ -655,7 +656,7 @@ Definition of \Ksem{} deliberately omitted.
 \end{semfun}
 
 \begin{semfun}
-\Esem\sembrack{\I} = 
+\Esem\sembrack{\I} =
   \lambda\rho\omega\kappa\:.\:\fun{hold}\:
     $\=$(\fun{lookup}\:\rho\:\I)$\\
      \>$(\fun{single}(\lambda\epsilon\:.\:
@@ -788,7 +789,7 @@ be used in place of {\it unspecified}.
 
 \egroup  % end smallish
 
-\subsection{Auxiliary functions}
+### 7.2.11. Auxiliary functions
 
 \bgroup\small
 
@@ -951,7 +952,7 @@ be used in place of {\it unspecified}.
 \fun{cons} =$\\
  \go{1}$\fun{twoarg}\,(\lambda\epsilon_1\epsilon_2\kappa\omega\sigma\:.\:
    $\=$\fun{new}\:\sigma\:\elem\:\LOC\rightarrow$\\
-    \> 
+    \>
         \=$(\lambda\sigma^\prime\:.\:
            $\=$\fun{new}\:\sigma^\prime\:\elem\:\LOC\rightarrow$\\
     \>  \>$\go{1}\fun{send}\,
@@ -1247,7 +1248,7 @@ be used in place of {\it unspecified}.
 \egroup  % end smallish
 
 \egroup
-\section{Derived expression types}
+## 7.3. Derived expression types
 \label{derivedsection}
 
 This section gives syntax definitions for the derived expression types in
@@ -1436,28 +1437,28 @@ This could also be accomplished by using an auxiliary macro.
     ((let-values (binding ...) body0 body1 ...)
      (let-values "bind"
          (binding ...) () (begin body0 body1 ...)))
-    
+
     ((let-values "bind" () tmps body)
      (let tmps body))
-    
+
     ((let-values "bind" ((b0 e0)
          binding ...) tmps body)
      (let-values "mktmp" b0 e0 ()
          (binding ...) tmps body))
-    
+
     ((let-values "mktmp" () e0 args
          bindings tmps body)
-     (call-with-values 
+     (call-with-values
        (lambda () e0)
        (lambda args
          (let-values "bind"
              bindings tmps body))))
-    
+
     ((let-values "mktmp" (a . b) e0 (arg ...)
          bindings (tmp ...) body)
      (let-values "mktmp" b e0 (arg ... x)
          bindings (tmp ... (a x)) body))
-    
+
     ((let-values "mktmp" a e0 (arg ...)
         bindings (tmp ...) body)
      (call-with-values
@@ -1594,7 +1595,7 @@ as follows
 \begin{scheme}
 (define-syntax delay-force
   (syntax-rules ()
-    ((delay-force expression) 
+    ((delay-force expression)
      (make-promise \schfalse{} (lambda () expression)))))%
 \end{scheme}
 
@@ -1746,7 +1747,7 @@ macro, here called {\cf guard-aux}.
      (begin result1 result2 ...))
     ((guard-aux reraise (test => result))
      (let ((temp test))
-       (if temp 
+       (if temp
            (result temp)
            reraise)))
     ((guard-aux reraise (test => result)
@@ -1802,7 +1803,7 @@ macro, here called {\cf guard-aux}.
 
 \end{scheme}
 
-This definition of {\cf cond-expand} does not interact with the 
+This definition of {\cf cond-expand} does not interact with the
 {\cf features} procedure.  It requires that each feature identifier provided
 by the implementation be explicitly mentioned.
 

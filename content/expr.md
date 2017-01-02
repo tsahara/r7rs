@@ -2,8 +2,9 @@
 weight = 12
 title = "Expressions"
 menu = "main"
+chapter = 4
 +++
-\chapter{Expressions}
+# 4. Expressions
 \label{expressionchapter}
 
 \newcommand{\syntax}{{\em Syntax: }}
@@ -20,10 +21,10 @@ The procedures {\cf force}, {\cf promise?}, {\cf make-promise}, and {\cf make-pa
 are also described in this chapter because they are intimately associated
 with the {\cf delay}, {\cf delay-force}, and {\cf parameterize} expression types.
 
-\section{Primitive expression types}
+## 4.1. Primitive expression types
 \label{primitivexps}
 
-\subsection{Variable references}\unsection
+### 4.1.1. Variable references\unsection
 
 \begin{entry}{%
 \pproto{\hyper{variable}}{\exprtype}}
@@ -40,7 +41,7 @@ x   \ev  28%
 \end{scheme}
 \end{entry}
 
-\subsection{Literal expressions}\unsection
+### 4.1.2. Literal expressions\unsection
 \label{literalsection}
 
 \begin{entry}{%
@@ -98,7 +99,7 @@ As noted in section~\ref{storagemodel}, it is an error to attempt to alter a con
 
 \end{entry}
 
-\subsection{Procedure calls}\unsection
+### 4.1.3. Procedure calls\unsection
 
 \begin{entry}{%
 \pproto{(\hyper{operator} \hyperi{operand} \dotsfoo)}{\exprtype}}
@@ -146,7 +147,7 @@ The order of evaluation may be chosen differently for each procedure call.
 \end{entry}
 
 
-\subsection{Procedures}\unsection
+### 4.1.4. Procedures\unsection
 \label{lamba}
 
 \begin{entry}{%
@@ -232,7 +233,7 @@ with a storage location, in order to make \ide{eqv?} and
 \ide{eq?} work on procedures (see section~\ref{equivalencesection}).
 
 
-\subsection{Conditionals}\unsection
+### 4.1.5. Conditionals\unsection
 
 \begin{entry}{%
 \proto{if}{ \hyper{test} \hyper{consequent} \hyper{alternate}}{\exprtype}
@@ -262,7 +263,7 @@ unspecified.
 \end{entry}
 
 
-\subsection{Assignments}\unsection
+### 4.1.6. Assignments\unsection
 \label{assignment}
 
 \begin{entry}{%
@@ -285,7 +286,7 @@ unspecified.
 
 \end{entry}
 
-\subsection{Inclusion}\unsection
+### 4.1.7. Inclusion\unsection
 \label{inclusion}
 \begin{entry}{%
 \proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}
@@ -311,7 +312,7 @@ specify other directories to search.
 
 \end{entry}
 
-\section{Derived expression types}
+## 4.2. Derived expression types
 \label{derivedexps}
 
 The constructs in this section are hygienic, as discussed in
@@ -321,7 +322,7 @@ that will convert most of the constructs described in this section
 into the primitive constructs described in the previous section.
 
 
-\subsection{Conditionals}\unsection
+### 4.2.8. Conditionals\unsection
 
 \begin{entry}{%
 \proto{cond}{ \hyperi{clause} \hyperii{clause} \dotsfoo}{\exprtype}
@@ -580,7 +581,7 @@ appendix~\ref{stdfeatures}.
 
 \end{entry}
 
-\subsection{Binding constructs}
+### 4.2.9. Binding constructs
 \label{bindingsection}
 
 The binding constructs {\cf let}, {\cf let*}, {\cf letrec}, {\cf letrec*},
@@ -707,7 +708,7 @@ define mutually recursive procedures.
 One restriction on {\cf letrec} is very important: if it is not possible
 to evaluate each \hyper{init} without assigning or referring to the value of any
 \hyper{variable}, it is an error.  The
-restriction is necessary because 
+restriction is necessary because
 {\cf letrec} is defined in terms of a procedure
 call where a {\cf lambda} expression binds the \hyper{variable}s to the values
 of the \hyper{init}s.
@@ -834,7 +835,7 @@ set of bindings is visible and initialized, and so on.
 \end{entry}
 
 
-\subsection{Sequencing}\unsection
+### 4.2.10. Sequencing\unsection
 \label{sequencing}
 
 Both of Scheme's sequencing constructs are named {\cf begin}, but the two
@@ -884,7 +885,7 @@ or input and output.
 Note that there is a third form of {\cf begin} used as a library declaration:
 see section~\ref{librarydeclarations}.
 
-\subsection{Iteration}%\unsection
+### 4.2.11. Iteration%\unsection
 
 \noindent%
 \pproto{(do ((\hyperi{variable} \hyperi{init} \hyperi{step})}{\exprtype}
@@ -979,7 +980,7 @@ invoking the procedure named by \hyper{variable}.
 \end{entry}
 
 
-\subsection{Delayed evaluation}\unsection
+### 4.2.12. Delayed evaluation\unsection
 
 \begin{entry}{%
 \proto{delay}{ \hyper{expression}}{lazy library syntax}}
@@ -1005,10 +1006,10 @@ is unspecified.
 \todo{Fix.}
 
 \semantics
-The expression {\cf (delay-force \var{expression})} is conceptually similar to 
+The expression {\cf (delay-force \var{expression})} is conceptually similar to
 {\cf (delay (force \var{expression}))},
 with the difference that forcing the result
-of {\cf delay-force} will in effect result in a tail call to 
+of {\cf delay-force} will in effect result in a tail call to
 {\cf (force \var{expression})},
 while forcing the result of
 {\cf (delay (force \var{expression}))}
@@ -1037,7 +1038,7 @@ If \var{promise} is not a promise, it may be returned unchanged.
 \begin{scheme}
 (force (delay (+ 1 2)))   \ev  3
 (let ((p (delay (+ 1 2))))
-  (list (force p) (force p)))  
+  (list (force p) (force p)))
                                \ev  (3 3)
 
 (define integers
@@ -1050,7 +1051,7 @@ If \var{promise} is not a promise, it may be returned unchanged.
 (define tail
   (lambda (stream) (cdr (force stream))))
 
-(head (tail (tail integers)))  
+(head (tail (tail integers)))
                                \ev  2%
 \end{scheme}
 
@@ -1059,14 +1060,14 @@ stream-filtering algorithm into Scheme.  Each call to a constructor is
 wrapped in {\cf delay}, and each argument passed to a deconstructor is
 wrapped in {\cf force}.  The use of {\cf (delay-force ...)} instead of {\cf
 (delay (force ...))} around the body of the procedure ensures that an
-ever-growing sequence of pending promises does not 
+ever-growing sequence of pending promises does not
 exhaust available storage,
 because {\cf force} will in effect force such sequences iteratively.
 
 \begin{scheme}
 (define (stream-filter p? s)
   (delay-force
-   (if (null? (force s)) 
+   (if (null? (force s))
        (delay '())
        (let ((h (car (force s)))
              (t (cdr (force s))))
@@ -1133,7 +1134,7 @@ arguments, like {\cf list}, must not force them.
 \begin{entry}{%
 \proto{promise?} { \var{obj}}{lazy library procedure}}
 
-The {\cf promise?} procedure returns 
+The {\cf promise?} procedure returns
 \schtrue{} if its argument is a promise, and \schfalse{} otherwise.  Note
 that promises are not necessarily disjoint from other Scheme types such
 as procedures.
@@ -1150,7 +1151,7 @@ If \var{obj} is already a promise, it is returned.
 
 \end{entry}
 
-\subsection{Dynamic bindings}\unsection
+### 4.2.13. Dynamic bindings\unsection
 
 The \defining{dynamic extent} of a procedure call is the time between
 when it is initiated and when it returns.  In Scheme, {\cf
@@ -1246,7 +1247,7 @@ procedure in the call chain explicitly.
 \end{entry}
 
 
-\subsection{Exception handling}\unsection
+### 4.2.14. Exception handling\unsection
 
 \begin{entry}{%
 \pproto{(guard (\hyper{variable}}{\exprtype}
@@ -1293,7 +1294,7 @@ exceptions.
 \end{entry}
 
 
-\subsection{Quasiquotation}\unsection
+### 4.2.15. Quasiquotation\unsection
 \label{quasiquotesection}
 
 \begin{entry}{%
@@ -1405,7 +1406,7 @@ otherwise than as described above.
 
 \end{entry}
 
-\subsection{Case-lambda}\unsection
+### 4.2.16. Case-lambda\unsection
 \label{caselambdasection}
 \begin{entry}{%
 \proto{case-lambda}{ \hyper{clause} \dotsfoo}{case-lambda library syntax}}
@@ -1445,7 +1446,7 @@ the \hyper{formals} of any \hyper{clause}.
 
 \end{entry}
 
-\section{Macros}
+## 4.3. Macros
 \label{macrosection}
 
 Scheme programs can define and use new derived expression types,
@@ -1479,7 +1480,7 @@ the scope within which a macro is defined, and
 \end{itemize}
 
 The syntactic keyword of a macro can shadow variable bindings, and local
-variable bindings can shadow syntactic bindings.  \index{keyword}  
+variable bindings can shadow syntactic bindings.  \index{keyword}
 Two mechanisms are provided to prevent unintended conflicts:
 
 \begin{itemize}
@@ -1505,7 +1506,7 @@ hygienic,Bawden88,macrosthatwork,syntacticabstraction}
 
 Implementations may provide macro facilities of other types.
 
-\subsection{Binding constructs for syntactic keywords}
+### 4.3.17. Binding constructs for syntactic keywords
 \label{bindsyntax}
 
 The {\cf let-syntax} and {\cf letrec-syntax} binding constructs are
@@ -1595,7 +1596,7 @@ introduced by the {\cf letrec-syntax} expression.
 
 \end{entry}
 
-\subsection{Pattern language}
+### 4.3.18. Pattern language
 \label{patternlanguage}
 
 A \hyper{transformer spec} has one of the following forms:
@@ -1822,7 +1823,7 @@ which would result in an invalid procedure call.
 
 \end{entry}
 
-\subsection{Signaling errors in macro transformers}
+### 4.3.19. Signaling errors in macro transformers
 
 
 \begin{entry}{%
@@ -1855,4 +1856,3 @@ exception handlers or guards.
 \end{scheme}
 
 \end{entry}
-

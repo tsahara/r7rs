@@ -3,7 +3,7 @@ weight = 73
 title = "Standard Libraries"
 menu = "main"
 +++
-\chapter{Standard Libraries}
+# Standard Libraries
 \label{stdlibraries}
 
 %% Note, this is used to generate stdmod.tex.  The bindings could be

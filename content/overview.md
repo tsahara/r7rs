@@ -2,12 +2,13 @@
 weight = 5
 title = "Overview of Scheme"
 menu = "main"
+chapter = 1
 +++
 % 1. Structure of the language
 
-\chapter{Overview of Scheme}
+# 1. Overview of Scheme
 
-\section{Semantics}
+## 1.1. Semantics
 \label{semanticsection}
 
 This section gives an overview of Scheme's semantics.  A
@@ -66,7 +67,7 @@ appear in Scheme.  In its place is a distinction between exact arithmetic,
 which corresponds to the mathematical ideal, and inexact arithmetic on
 approximations.  Exact arithmetic is not limited to integers.
 
-\section{Syntax}
+## 1.2. Syntax
 
 Scheme, like most dialects of Lisp, employs a fully parenthesized prefix
 notation for programs and other data; the grammar of Scheme generates a
@@ -83,10 +84,10 @@ the data it reads.  The {\cf read} procedure parses its input as data
 The formal syntax of Scheme is described in section~\ref{BNF}.
 
 
-\section{Notation and terminology}
+## 1.3. Notation and terminology
 
 
-\subsection{Base and optional features}
+### 1.3.1. Base and optional features
 \label{qualifiers}
 
 Every identifier defined in this report appears in one or more of several
@@ -123,7 +124,7 @@ code by providing a mode of operation in which the lexical syntax does
 not conflict with the lexical syntax described in this report.
 \end{itemize}
 
-\subsection{Error situations and unspecified behavior}
+### 1.3.2. Error situations and unspecified behavior
 \label{errorsituations}
 
 \mainindex{error}
@@ -187,7 +188,7 @@ not with reference to programmer or program behavior.
 
 
 
-\subsection{Entry format}
+### 1.3.3. Entry format
 
 Chapters~\ref{expressionchapter} and~\ref{builtinchapter} are organized
 into entries.  Each entry describes one language feature or a group of
@@ -301,7 +302,7 @@ the length of \var{string}, then the entire string is referred to.}
 
 \end{itemize}
 
-\subsection{Evaluation examples}
+### 1.3.4. Evaluation examples
 
 The symbol ``\evalsto'' used in program examples is read
 ``evaluates to.''  For example,
@@ -317,7 +318,7 @@ that can be represented externally by the sequence of characters ``{\tt
 40}.''  See section~\ref{externalreps} for a discussion of external
 representations of objects.
 
-\subsection{Naming conventions}
+### 1.3.5. Naming conventions
 
 By convention, \ide{?} is the final character of the names
 of procedures that always return a boolean value.

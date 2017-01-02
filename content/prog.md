@@ -2,13 +2,14 @@
 weight = 25
 title = "Program structure"
 menu = "main"
+chapter = 5
 +++
-\chapter{Program structure}
+# 5. Program structure
 \label{programchapter}
 
-\section{Programs}
+## 5.1. Programs
 
-A Scheme program consists of  
+A Scheme program consists of
 one or more import declarations followed by a sequence of
 expressions and definitions.
 Import declarations specify the libraries on which a program or library depends;
@@ -24,7 +25,7 @@ and at the beginning of a \hyper{body}.
 
 At the outermost level of a program, {\tt(begin \hyperi{expression or definition} \dotsfoo)} is
 equivalent to the sequence of expressions and definitions
-in the \ide{begin}.   
+in the \ide{begin}.
 Similarly, in a \hyper{body}, {\tt(begin \hyperi{definition} \dotsfoo)} is equivalent
 to the sequence \hyperi{definition} \dotsfoo.
 Macros can expand into such {\cf begin} forms.
@@ -48,7 +49,7 @@ Scheme system.  Other paradigms are possible.
 Implementations which store libraries in files should document the
 mapping from the name of a library to its location in the file system.
 
-\section{Import declarations}
+## 5.2. Import declarations
 \mainschindex{import}
 
 An import declaration takes the following form:
@@ -105,7 +106,7 @@ mutate an imported binding with a definition
 or with {\cf set!}, or to refer to an identifier before it is imported.
 However, a REPL should permit these actions.
 
-\section{Variable definitions}
+## 5.3. Variable definitions
 \label{defines}
 \mainindex{variable definition}
 
@@ -140,7 +141,7 @@ variable.  This form is equivalent to
 
 \end{itemize}
 
-\subsection{Top level definitions}
+### 5.3.1. Top level definitions
 
 At the outermost level of a program, a definition
 \begin{scheme}
@@ -151,7 +152,7 @@ has essentially the same effect as the assignment expression
 (\ide{set!}\ \hyper{variable} \hyper{expression})%
 \end{scheme}
 if \hyper{variable} is bound to a non-syntax value.  However, if
-\hyper{variable} is not bound, 
+\hyper{variable} is not bound,
 or is a syntactic keyword,
 then the definition will bind
 \hyper{variable} to a new location before performing the assignment,
@@ -166,7 +167,7 @@ unbound\index{unbound} variable.
 (first '(1 2))                      \ev  1%
 \end{scheme}
 
-\subsection{Internal definitions}
+### 5.3.2. Internal definitions
 \label{internaldefines}
 
 Definitions can occur at the
@@ -215,9 +216,9 @@ Wherever an internal definition can occur,
 is equivalent to the sequence of definitions
 that form the body of the \ide{begin}.
 
-\subsection{Multiple-value definitions}
+### 5.3.3. Multiple-value definitions
 
-Another kind of definition is provided by {\cf define-values}, 
+Another kind of definition is provided by {\cf define-values},
 which creates multiple definitions from a single
 expression returning multiple values.
 It is allowed wherever {\cf define} is allowed.
@@ -244,7 +245,7 @@ call.
 
 \end{entry}
 
-\section{Syntax definitions}
+## 5.4. Syntax definitions
 
 \mainindex{syntax definition}
 Syntax definitions have this form:\mainschindex{define-syntax}
@@ -309,7 +310,7 @@ errors:
     (plus foo x)))%
 \end{scheme}
 
-\section{Record-type definitions}
+## 5.5. Record-type definitions
 \label{usertypes}
 
 \defining{Record-type definitions} are used to introduce new data types, called
@@ -413,7 +414,7 @@ to be a predicate for instances of {\cf <pare>}.
 \end{entry}
 
 
-\section{Libraries}
+## 5.6. Libraries
 \label{libraries}
 
 Libraries provide a way to organize Scheme programs into reusable parts
@@ -421,7 +422,7 @@ with explicitly defined interfaces to the rest of the program.  This
 section defines the notation and semantics for libraries.
 
 
-\subsection{Library Syntax}
+### 5.6.4. Library Syntax
 
 A library definition takes the following form:
 \mainschindex{define-library}
@@ -475,7 +476,7 @@ An \hyper{export spec} takes one of the following forms:
 In an \hyper{export spec}, an \hyper{identifier} names a single
 binding defined within or imported into the library, where the
 external name for the export is the same as the name of the binding
-within the library. A \ide{rename} spec exports the binding 
+within the library. A \ide{rename} spec exports the binding
 defined within or imported into the library and named by
 \hyperi{identifier} in each
 {\tt(\hyperi{identifier} \hyperii{identifier})} pairing,
@@ -537,7 +538,7 @@ declarations in which it appears.
 That is, {\cf (import (only (foo) a))} followed by {\cf (import (only (foo) b))}
 has the same effect as {\cf (import (only (foo) a b))}.
 
-\subsection{Library example}
+### 5.6.5. Library example
 The following example shows
 how a program can be divided into libraries plus a relatively small
 main program~\cite{life}.
@@ -635,7 +636,7 @@ the base library.
 
 \end{scheme}
 
-\section{The REPL}
+## 5.7. The REPL
 
 Implementations may provide an interactive session called a
 \defining{REPL} (Read-Eval-Print Loop), where import declarations,
@@ -651,7 +652,7 @@ number, and the variable {\cf +} is bound to a procedure that computes
 sums.  The full list of {\cf(scheme base)} bindings can be found in
 Appendix~\ref{stdlibraries}.
 
-Implementations may provide an initial REPL environment 
+Implementations may provide an initial REPL environment
 which behaves as if all possible variables are bound to locations, most of
 which contain unspecified values.  Top level REPL definitions in
 such an implementation are truly equivalent to assignments,
@@ -661,4 +662,3 @@ An implementation may provide a mode of operation in which the REPL
 reads its input from a file.  Such a file is not, in general, the same
 as a program, because it can contain import declarations in places other than
 the beginning.
-

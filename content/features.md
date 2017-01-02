@@ -3,7 +3,7 @@ weight = 77
 title = "Standard Feature Identifiers"
 menu = "main"
 +++
-\chapter{Standard Feature Identifiers}
+# Standard Feature Identifiers
 \label{stdfeatures}
 
 An implementation may provide any or all of the feature identifiers

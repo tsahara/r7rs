@@ -2,12 +2,13 @@
 weight = 9
 title = "Basic concepts"
 menu = "main"
+chapter = 3
 +++
 %\vfill\eject
-\chapter{Basic concepts}
+# 3. Basic concepts
 \label{basicchapter}
 
-\section{Variables, syntactic keywords, and regions}
+## 3.1. Variables, syntactic keywords, and regions
 \label{specialformsection}
 \label{variablesection}
 
@@ -56,7 +57,7 @@ binding for the identifier,
 it is said to be \defining{unbound}.\mainindex{bound}\index{global
 environment}
 
-\section{Disjointness of types}
+## 3.2. Disjointness of types
 \label{disjointness}
 
 No object satisfies more than one of the following predicates:
@@ -72,7 +73,7 @@ symbol?           vector?
 
 and all predicates created by {\cf define-record-type}.
 
-These predicates define the types 
+These predicates define the types
 {\em boolean, bytevector, character}, the empty list object,
 {\em eof-object, number, pair, port, procedure, string, symbol, vector},
 and all record types.
@@ -89,7 +90,7 @@ This report uses the word ``true'' to refer to any
 Scheme value except \schfalse{}, and the word ``false'' to refer to
 \schfalse{}. \mainindex{true} \mainindex{false}
 
-\section{External representations}
+## 3.3. External representations
 \label{externalreps}
 
 An important concept in Scheme (and Lisp) is that of the {\em external
@@ -132,12 +133,12 @@ The syntax of external representations of various kinds of objects
 accompanies the description of the primitives for manipulating the
 objects in the appropriate sections of chapter~\ref{initialenv}.
 
-\section{Storage model}
+## 3.4. Storage model
 \label{storagemodel}
 
 Variables and objects such as pairs, strings, vectors, and bytevectors implicitly
 denote locations\mainindex{location} or sequences of locations.  A string, for
-example, denotes as many locations as there are characters in the string. 
+example, denotes as many locations as there are characters in the string.
 A new value can be
 stored into one of these locations using the {\tt string-set!} procedure, but
 the string continues to denote the same locations as before.
@@ -162,7 +163,7 @@ it is a unique object.  It is also understood that empty strings, empty
 vectors, and empty bytevectors, which contain no locations, may or may
 not be newly allocated.
 
-Every object that denotes locations is 
+Every object that denotes locations is
 either mutable\index{mutable} or
 immutable\index{immutable}.  Literal constants, the strings
 returned by \ide{symbol->string},
@@ -193,7 +194,7 @@ while not requiring other systems to distinguish between
 mutable and immutable objects.
 \end{rationale}
 
-\section{Proper tail recursion}
+## 3.5. Proper tail recursion
 \label{proper tail recursion}
 
 Implementations of Scheme are required to be
@@ -343,4 +344,3 @@ an unexpected number of values can be ignored, because in that
 case the effect of the {\cf let} is explicitly unspecified and
 implementation-dependent.)
 \end{note}
-

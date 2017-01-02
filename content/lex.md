@@ -2,17 +2,18 @@
 weight = 7
 title = "Lexical conventions"
 menu = "main"
+chapter = 2
 +++
 % Lexical structure
 
 %%\vfill\eject
-\chapter{Lexical conventions}
+# 2. Lexical conventions
 
 This section gives an informal account of some of the lexical
 conventions used in writing Scheme programs.  For a formal syntax of
 Scheme, see section~\ref{BNF}.
 
-\section{Identifiers}
+## 2.1. Identifiers
 \label{syntaxsection}
 
 An identifier\mainindex{identifier} is any sequence of letters, digits, and
@@ -104,7 +105,7 @@ causes a return to the default, non-folding behavior.
 
 
 
-\section{Whitespace and comments}
+## 2.2. Whitespace and comments
 \label{wscommentsection}
 
 \defining{Whitespace} characters include the space, tab, and newline characters.
@@ -148,7 +149,7 @@ and {\tt |\#} pairs.
 \end{scheme}
 
 
-\section{Other notations}
+## 2.3. Other notations
 
 \todo{Rewrite?}
 
@@ -222,7 +223,7 @@ These are used for labeling and referencing other literal data (section~\ref{lab
 
 \end{description}
 
-\section{Datum labels}\unsection
+## 2.4. Datum labels\unsection
 \label{labelsection}
 
 \begin{entry}{%
