@@ -21,8 +21,10 @@
 		       #/\\subsection\*?{(.*?)}/ "### \\1"
 		       #/\\begin{scheme}/   "```"
 		       #/\\end{scheme}/     "```"
-		       #/\\vest / ""
 		       #/(?<!`)``(?!`)(.*?)''/ "\"\\1\""
+
+		       #/\\unsection/ ""
+		       #/\\vest / ""
 
 		       #/\\medskip/ "{{< medskip >}}"
 

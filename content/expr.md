@@ -24,7 +24,7 @@ with the {\cf delay}, {\cf delay-force}, and {\cf parameterize} expression types
 ## 4.1. Primitive expression types
 \label{primitivexps}
 
-### 4.1.1. Variable references\unsection
+### 4.1.1. Variable references
 
 \begin{entry}{
 \pproto{\hyper{variable}}{\exprtype}}
@@ -41,7 +41,7 @@ x   \ev  28
 ```
 \end{entry}
 
-### 4.1.2. Literal expressions\unsection
+### 4.1.2. Literal expressions
 \label{literalsection}
 
 \begin{entry}{
@@ -99,7 +99,7 @@ As noted in section~\ref{storagemodel}, it is an error to attempt to alter a con
 
 \end{entry}
 
-### 4.1.3. Procedure calls\unsection
+### 4.1.3. Procedure calls
 
 \begin{entry}{
 \pproto{(\hyper{operator} \hyperi{operand} \dotsfoo)}{\exprtype}}
@@ -148,7 +148,7 @@ The order of evaluation may be chosen differently for each procedure call.
 \end{entry}
 
 
-### 4.1.4. Procedures\unsection
+### 4.1.4. Procedures
 \label{lamba}
 
 \begin{entry}{
@@ -234,7 +234,7 @@ with a storage location, in order to make \ide{eqv?} and
 \ide{eq?} work on procedures (see section~\ref{equivalencesection}).
 
 
-### 4.1.5. Conditionals\unsection
+### 4.1.5. Conditionals
 
 \begin{entry}{
 \proto{if}{ \hyper{test} \hyper{consequent} \hyper{alternate}}{\exprtype}
@@ -264,7 +264,7 @@ unspecified.
 \end{entry}
 
 
-### 4.1.6. Assignments\unsection
+### 4.1.6. Assignments
 \label{assignment}
 
 \begin{entry}{
@@ -287,7 +287,7 @@ unspecified.
 
 \end{entry}
 
-### 4.1.7. Inclusion\unsection
+### 4.1.7. Inclusion
 \label{inclusion}
 \begin{entry}{
 \proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}
@@ -323,7 +323,7 @@ that will convert most of the constructs described in this section
 into the primitive constructs described in the previous section.
 
 
-### 4.2.1. Conditionals\unsection
+### 4.2.1. Conditionals
 
 \begin{entry}{
 \proto{cond}{ \hyperi{clause} \hyperii{clause} \dotsfoo}{\exprtype}
@@ -836,7 +836,7 @@ set of bindings is visible and initialized, and so on.
 \end{entry}
 
 
-### 4.2.3. Sequencing\unsection
+### 4.2.3. Sequencing
 \label{sequencing}
 
 Both of Scheme's sequencing constructs are named {\cf begin}, but the two
@@ -886,7 +886,7 @@ or input and output.
 Note that there is a third form of {\cf begin} used as a library declaration:
 see section~\ref{librarydeclarations}.
 
-### 4.2.4. Iteration%\unsection
+### 4.2.4. Iteration
 
 \noindent
 \pproto{(do ((\hyperi{variable} \hyperi{init} \hyperi{step})}{\exprtype}
@@ -980,7 +980,7 @@ invoking the procedure named by \hyper{variable}.
 \end{entry}
 
 
-### 4.2.5. Delayed evaluation\unsection
+### 4.2.5. Delayed evaluation
 
 \begin{entry}{
 \proto{delay}{ \hyper{expression}}{lazy library syntax}}
@@ -1151,7 +1151,7 @@ If \var{obj} is already a promise, it is returned.
 
 \end{entry}
 
-### 4.2.6. Dynamic bindings\unsection
+### 4.2.6. Dynamic bindings
 
 The \defining{dynamic extent} of a procedure call is the time between
 when it is initiated and when it returns.  In Scheme, {\cf
@@ -1247,7 +1247,7 @@ procedure in the call chain explicitly.
 \end{entry}
 
 
-### 4.2.7. Exception handling\unsection
+### 4.2.7. Exception handling
 
 \begin{entry}{
 \pproto{(guard (\hyper{variable}}{\exprtype}
@@ -1294,7 +1294,7 @@ exceptions.
 \end{entry}
 
 
-### 4.2.8. Quasiquotation\unsection
+### 4.2.8. Quasiquotation
 \label{quasiquotesection}
 
 \begin{entry}{
@@ -1406,7 +1406,7 @@ otherwise than as described above.
 
 \end{entry}
 
-### 4.2.9. Case-lambda\unsection
+### 4.2.9. Case-lambda
 \label{caselambdasection}
 \begin{entry}{
 \proto{case-lambda}{ \hyper{clause} \dotsfoo}{case-lambda library syntax}}

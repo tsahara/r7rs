@@ -221,7 +221,7 @@ These are used for labeling and referencing other literal data (section~\ref{lab
 
 \end{description}
 
-## 2.4. Datum labels\unsection
+## 2.4. Datum labels
 \label{labelsection}
 
 \begin{entry}{
