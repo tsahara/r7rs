@@ -17,6 +17,8 @@
 		       #/\\vest / ""
 		       #/``(.*?)''/ "\"\\1\""
 
+		       #/\\medskip/ "{{< medskip >}}"
+
 		       #/\\rthreers/ "{{< rnrs 3 >}}"
 		       #/\\rfourrs/  "{{< rnrs 4 >}}"
 		       #/\\rfivers/  "{{< rnrs 5 >}}"

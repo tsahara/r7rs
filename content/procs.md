@@ -1335,7 +1335,7 @@ as well as being compatible with {{< rnrs 6 >}}.
 
 \end{entry}
 
-\medskip
+{{< medskip >}}
 
 ### 6.2.7. Numerical input and output
 

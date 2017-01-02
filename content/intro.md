@@ -72,7 +72,7 @@ In the fall of 2006, work began on a more ambitious standard,
 including many new improvements and stricter requirements made in the
 interest of improved portability.  The resulting standard, the
 {{< rnrs 6 >}}, was completed in August 2007~\cite{R6RS}, and was organized
-as a core language and set of mandatory standard libraries.  
+as a core language and set of mandatory standard libraries.
 Several new implementations of Scheme conforming to it were created.
 However, most existing {{< rnrs 5 >}}{} implementations (even excluding those
 which are essentially unmaintained) did not adopt {{< rnrs 6 >}}, or adopted
@@ -88,9 +88,7 @@ The present report describes the "small" language of that effort:
 therefore it cannot be considered in isolation as the successor
 to {{< rnrs 6 >}}.
 
-
-
-\medskip
+{{< medskip >}}
 
 We intend this report to belong to the entire Scheme community, and so
 we grant permission to copy it in whole or in part without fee.  In
