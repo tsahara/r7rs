@@ -585,7 +585,7 @@ un-quo-ta-tion $D$} takes precedence.</p>
 <p>\newcommand\elt{\downarrow}
 \newcommand\drop{\dagger}</p>
 
-<p>\newcommand{\wrong}[1]{\fun{wrong }\hbox{\rm``#1&rdquo;}}
+<p>\newcommand{\wrong}[1]{\fun{wrong }\hbox{\rm&rdquo;#1&rdquo;}}
 \newcommand{\go}[1]{\hbox{\hspace*{#1em}}}</p>
 
 <p>This section provides a formal denotational semantics for the primitive
@@ -600,8 +600,8 @@ $s \elt k$                 &amp; $k$th member of the sequence $s$ (1-based) <br 
 $#s$                      &amp; length of sequence $s$ <br />
 $s :\S: t$               &amp; concatenation of sequences $s$ and $t$ <br />
 $s \drop k$                &amp; drop the first $k$ members of sequence $s$ <br />
-$t \rightarrow a, b$       &amp; McCarthy conditional <code>if $t$ then $a$ else $b$'' \\
-$\rho[x/i]$                &amp; substitution</code>$\rho$ with $x$ for $i$&rdquo; <br />
+$t \rightarrow a, b$       &amp; McCarthy conditional &ldquo;if $t$ then $a$ else $b$&rdquo; <br />
+$\rho[x/i]$                &amp; substitution &ldquo;$\rho$ with $x$ for $i$&rdquo; <br />
 $x\hbox{ \rm in }{\texttt{D}}$         &amp; injection of $x$ into domain $\texttt{D}$ <br />
 $x\,\vert\,\texttt{D}$       &amp; projection of $x$ to domain $\texttt{D}$
 \end{tabular}</p>

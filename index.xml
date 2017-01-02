@@ -232,12 +232,12 @@ which are essentially unmaintained) did not adopt \rsixrs, or adopted
 only selected parts of it.&lt;/p&gt;
 
 &lt;p&gt;In consequence, the Scheme Steering Committee decided in August 2009 to divide the
-standard into two separate but compatible languages &amp;mdash; a &lt;code&gt;small&#39;&#39;
+standard into two separate but compatible languages &amp;mdash; a &amp;ldquo;small&amp;rdquo;
 language, suitable for educators, researchers, and users of embedded languages,
-focused on \rfivers~compatibility, and a&lt;/code&gt;large&amp;rdquo; language focused
+focused on \rfivers~compatibility, and a &amp;ldquo;large&amp;rdquo; language focused
 on the practical needs of mainstream software development,
 intended to become a replacement for \rsixrs.
-The present report describes the ``small&amp;rdquo; language of that effort:
+The present report describes the &amp;ldquo;small&amp;rdquo; language of that effort:
 therefore it cannot be considered in isolation as the successor
 to \rsixrs.&lt;/p&gt;
 
@@ -367,7 +367,7 @@ procedures, and so on.&lt;/p&gt;
 
 &lt;p&gt;One distinguishing feature of Scheme is that continuations, which
 in most other languages only operate behind the scenes, also have
-``first-class&amp;rdquo; status.  Continuations are useful for implementing a
+&amp;ldquo;first-class&amp;rdquo; status.  Continuations are useful for implementing a
 wide variety of advanced control constructs, including non-local exits,
 backtracking, and coroutines.  See section~\ref{continuations}.&lt;/p&gt;
 
@@ -446,7 +446,7 @@ not conflict with the lexical syntax described in this report.
 &lt;p&gt;\label{errorsituations}&lt;/p&gt;
 
 &lt;p&gt;\mainindex{error}
-When speaking of an error situation, this report uses the phrase ``an
+When speaking of an error situation, this report uses the phrase &amp;ldquo;an
 error is signaled&amp;rdquo; to indicate that implementations must detect and
 report the error.
 An error is signaled by raising a non-continuable exception, as if by
@@ -455,7 +455,7 @@ and need not be distinct from objects previously used for the same purpose.
 In addition to errors signaled in situations described in this
 report, programmers can signal their own errors and handle signaled errors.&lt;/p&gt;
 
-&lt;p&gt;The phrase ``an error that satisfies {\em predicate} is signaled&amp;rdquo; means that an error is
+&lt;p&gt;The phrase &amp;ldquo;an error that satisfies {\em predicate} is signaled&amp;rdquo; means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
 passed to the specified predicate (such as {\cf file-error?} or {\cf
 read-error?}), the predicate returns \schtrue{}.&lt;/p&gt;
@@ -464,7 +464,7 @@ read-error?}), the predicate returns \schtrue{}.&lt;/p&gt;
 an error, then implementations are not required to detect or report the
 error, though they are encouraged to do so.
 Such a situation is sometimes, but not always, referred to with the phrase
-``an error.&amp;rdquo;
+&amp;ldquo;an error.&amp;rdquo;
 In such a situation, an implementation may or may not signal an error;
 if it does signal an error, the object that is signaled may or may not
 satisfy the predicates {\cf error-object?}, {\cf file-error?}, or
@@ -478,7 +478,7 @@ signal an error,
 extend a procedure&amp;rsquo;s domain of definition to include such arguments,
 or fail catastrophically.&lt;/p&gt;
 
-&lt;p&gt;This report uses the phrase ``may report a violation of an
+&lt;p&gt;This report uses the phrase &amp;ldquo;may report a violation of an
 implementation restriction&amp;rdquo; to indicate circumstances under which an
 implementation is permitted to report that it is unable to continue
 execution of a correct program because of some restriction imposed by the
@@ -492,14 +492,14 @@ program,
 or if an arithmetic operation would produce an exact number that is
 too large for the implementation to represent.&lt;/p&gt;
 
-&lt;p&gt;If the value of an expression is said to be ``unspecified,&amp;rdquo; then
+&lt;p&gt;If the value of an expression is said to be &amp;ldquo;unspecified,&amp;rdquo; then
 the expression must evaluate to some object without signaling an error,
 but the value depends on the implementation; this report explicitly does
 not say what value is returned. \mainindex{unspecified}&lt;/p&gt;
 
-&lt;p&gt;Finally, the words and phrases &lt;code&gt;must,&#39;&#39;&lt;/code&gt;must not,&amp;rdquo; &lt;code&gt;shall,&#39;&#39;
-&lt;/code&gt;shall not,&amp;rdquo; &lt;code&gt;should,&#39;&#39;&lt;/code&gt;should not,&amp;rdquo; &lt;code&gt;may,&#39;&#39;&lt;/code&gt;required,&amp;rdquo;
-&lt;code&gt;recommended,&#39;&#39; and&lt;/code&gt;optional,&amp;rdquo; although not capitalized in this
+&lt;p&gt;Finally, the words and phrases &amp;ldquo;must,&amp;rdquo; &amp;ldquo;must not,&amp;rdquo; &amp;ldquo;shall,&amp;rdquo;
+&amp;ldquo;shall not,&amp;rdquo; &amp;ldquo;should,&amp;rdquo; &amp;ldquo;should not,&amp;rdquo; &amp;ldquo;may,&amp;rdquo; &amp;ldquo;required,&amp;rdquo;
+&amp;ldquo;recommended,&amp;rdquo; and &amp;ldquo;optional,&amp;rdquo; although not capitalized in this
 report, are to be interpreted as described in RFC~2119~\cite{rfc2119}.
 They are used only with reference to implementer or implementation behavior,
 not with reference to programmer or program behavior.&lt;/p&gt;
@@ -520,7 +520,7 @@ procedure.  An entry begins with one or more header lines of the form&lt;/p&gt;
 &lt;p&gt;where \var{name} is the short name of a library
 as defined in Appendix~\ref{stdlibraries}.&lt;/p&gt;
 
-&lt;p&gt;If \var{category} is ``\exprtype,&amp;rdquo; the entry describes an expression
+&lt;p&gt;If \var{category} is &amp;ldquo;\exprtype,&amp;rdquo; the entry describes an expression
 type, and the template gives the syntax of the expression type.
 Components of expressions are designated by syntactic variables, which
 are written using angle brackets, for example \hyper{expression} and
@@ -536,12 +536,12 @@ indicates zero or more occurrences of a \hyper{thing}, and
 \end{tabbing}
 indicates one or more occurrences of a \hyper{thing}.&lt;/p&gt;
 
-&lt;p&gt;If \var{category} is ``auxiliary syntax,&amp;rdquo; then the entry describes a
+&lt;p&gt;If \var{category} is &amp;ldquo;auxiliary syntax,&amp;rdquo; then the entry describes a
 syntax binding that occurs only as part of specific surrounding
 expressions. Any use as an independent syntactic construct or
 variable is an error.&lt;/p&gt;
 
-&lt;p&gt;If \var{category} is ``procedure,&amp;rdquo; then the entry describes a procedure, and
+&lt;p&gt;If \var{category} is &amp;ldquo;procedure,&amp;rdquo; then the entry describes a procedure, and
 the header line gives a template for a call to the procedure.  Argument
 names in the template are \var{italicized}.  Thus the header line&lt;/p&gt;
 
@@ -620,8 +620,8 @@ the length of \var{string}, then the entire string is referred to.}&lt;/p&gt;
 
 &lt;h3 id=&#34;1-3-4-evaluation-examples&#34;&gt;1.3.4. Evaluation examples&lt;/h3&gt;
 
-&lt;p&gt;The symbol &lt;code&gt;\evalsto&#39;&#39; used in program examples is read
-&lt;/code&gt;evaluates to.&amp;rdquo;  For example,&lt;/p&gt;
+&lt;p&gt;The symbol &amp;ldquo;\evalsto&amp;rdquo; used in program examples is read
+&amp;ldquo;evaluates to.&amp;rdquo;  For example,&lt;/p&gt;
 
 &lt;p&gt;\begin{scheme}
 (* 5 8)      \ev  40%
@@ -629,8 +629,8 @@ the length of \var{string}, then the entire string is referred to.}&lt;/p&gt;
 
 &lt;p&gt;means that the expression {\tt(* 5 8)} evaluates to the object {\tt 40}.
 Or, more precisely:  the expression given by the sequence of characters
-&lt;code&gt;{\tt(* 5 8)}&#39;&#39; evaluates, in the initial environment, to an object
-that can be represented externally by the sequence of characters&lt;/code&gt;{\tt
+&amp;ldquo;{\tt(* 5 8)}&amp;rdquo; evaluates, in the initial environment, to an object
+that can be represented externally by the sequence of characters &amp;ldquo;{\tt
 40}.&amp;rdquo;  See section~\ref{externalreps} for a discussion of external
 representations of objects.&lt;/p&gt;
 
@@ -648,7 +648,7 @@ allocated locations (see section~\ref{storagemodel}).
 Such procedures are called \defining{mutation procedures}.
 The value returned by a mutation procedure is unspecified.&lt;/p&gt;
 
-&lt;p&gt;By convention, ``\ide{-&amp;gt;}&amp;rdquo; appears within the names of procedures that
+&lt;p&gt;By convention, &amp;ldquo;\ide{-&amp;gt;}&amp;rdquo; appears within the names of procedures that
 take an object of one type and return an analogous object of another type.
 For example, {\cf list-&amp;gt;vector} takes a list and returns a vector whose
 elements are the same as those of the list.&lt;/p&gt;
@@ -683,7 +683,7 @@ Scheme, see section~\ref{BNF}.&lt;/p&gt;
 &lt;p&gt;\label{syntaxsection}&lt;/p&gt;
 
 &lt;p&gt;An identifier\mainindex{identifier} is any sequence of letters, digits, and
-``extended identifier characters&amp;rdquo; provided that it does not have a prefix
+&amp;ldquo;extended identifier characters&amp;rdquo; provided that it does not have a prefix
 which is a valid number.&lt;br /&gt;
 However, the  \ide{.} token (a single period) used in the list syntax
 is not an identifier.&lt;/p&gt;
@@ -794,7 +794,7 @@ end of the line on which the semicolon appears.&lt;/p&gt;
 (cf.\ section~\ref{datumsyntax}) with {\tt #;}\sharpindex{;} and optional
 \meta{whitespace}.  The comment consists of
 the comment prefix {\tt #;}, the space, and the \hyper{datum} together.  This
-notation is useful for ``commenting out&amp;rdquo; sections of code.&lt;/p&gt;
+notation is useful for &amp;ldquo;commenting out&amp;rdquo; sections of code.&lt;/p&gt;
 
 &lt;p&gt;Block comments are indicated with properly nested {\tt
   #|}\index{#&amp;ldquo;|@\texttt{\sharpsign\verticalbar}}\index{&amp;ldquo;|#@\texttt{\verticalbar\sharpsign}}
@@ -1029,8 +1029,8 @@ and all record types.
 any Scheme value can be used as a boolean value for the purpose of a
 conditional test.  As explained in section~\ref{booleansection}, all
 values count as true in such a test except for \schfalse{}.
-This report uses the word &lt;code&gt;true&#39;&#39; to refer to any
-Scheme value except \schfalse{}, and the word&lt;/code&gt;false&amp;rdquo; to refer to
+This report uses the word &amp;ldquo;true&amp;rdquo; to refer to any
+Scheme value except \schfalse{}, and the word &amp;ldquo;false&amp;rdquo; to refer to
 \schfalse{}. \mainindex{true} \mainindex{false}&lt;/p&gt;
 
 &lt;h2 id=&#34;3-3-external-representations&#34;&gt;3.3. External representations&lt;/h2&gt;
@@ -1040,13 +1040,13 @@ Scheme value except \schfalse{}, and the word&lt;/code&gt;false&amp;rdquo; to re
 &lt;p&gt;An important concept in Scheme (and Lisp) is that of the {\em external
 representation} of an object as a sequence of characters.  For example,
 an external representation of the integer 28 is the sequence of
-characters &lt;code&gt;{\tt 28}&#39;&#39;, and an external representation of a list consisting
-of the integers 8 and 13 is the sequence of characters&lt;/code&gt;{\tt(8 13)}&amp;ldquo;.&lt;/p&gt;
+characters &amp;ldquo;{\tt 28}&amp;ldquo;, and an external representation of a list consisting
+of the integers 8 and 13 is the sequence of characters &amp;ldquo;{\tt(8 13)}&amp;ldquo;.&lt;/p&gt;
 
 &lt;p&gt;The external representation of an object is not necessarily unique.  The
-integer 28 also has representations &lt;code&gt;{\tt \#e28.000}&#39;&#39; and&lt;/code&gt;{\tt#x1c}&amp;ldquo;, and the
-list in the previous paragraph also has the representations &lt;code&gt;{\tt( 08 13
-)}&#39;&#39; and&lt;/code&gt;{\tt(8 .\ (13 .\ ()))}&amp;rdquo; (see section~\ref{listsection}).&lt;/p&gt;
+integer 28 also has representations &amp;ldquo;{\tt #e28.000}&amp;rdquo; and &amp;ldquo;{\tt#x1c}&amp;ldquo;, and the
+list in the previous paragraph also has the representations &amp;ldquo;{\tt( 08 13
+)}&amp;rdquo; and &amp;ldquo;{\tt(8 .\ (13 .\ ()))}&amp;rdquo; (see section~\ref{listsection}).&lt;/p&gt;
 
 &lt;p&gt;Many objects have standard external representations, but some, such as
 procedures, do not have standard representations (although particular
@@ -1061,7 +1061,7 @@ representations, and the procedure {\cf write} (section~\ref{write})
 generates them.  Together, they provide an elegant and powerful
 input/output facility.&lt;/p&gt;
 
-&lt;p&gt;Note that the sequence of characters ``{\tt(+ 2 6)}&amp;rdquo; is {\em not} an
+&lt;p&gt;Note that the sequence of characters &amp;ldquo;{\tt(+ 2 6)}&amp;rdquo; is {\em not} an
 external representation of the integer 8, even though it {\em is} an
 expression evaluating to the integer 8; rather, it is an external
 representation of a three-element list, the elements of which are the symbol
@@ -1357,7 +1357,7 @@ constants in Scheme code.&lt;/p&gt;
 &lt;p&gt;\begin{scheme}%
 (quote a)                     \ev  a
 (quote \sharpsign(a b c))     \ev  #(a b c)
-(quote (+ 1 2))               \ev  (+ 1 2)%
+(quote (+ 1 2))               \ev  (+ 1 2)
 \end{scheme}&lt;/p&gt;
 
 &lt;p&gt;{\cf (quote \hyper{datum})} can be abbreviated as
@@ -1370,7 +1370,7 @@ respects.&lt;/p&gt;
 &amp;lsquo;()                  \ev  ()
 &amp;lsquo;(+ 1 2)             \ev  (+ 1 2)
 &amp;lsquo;(quote a)           \ev  (quote a)
-&amp;ldquo;a                  \ev  (quote a)%
+&amp;ldquo;a                  \ev  (quote a)
 \end{scheme}&lt;/p&gt;
 
 &lt;p&gt;Numerical constants, string constants, character constants, vector
@@ -1637,7 +1637,7 @@ where \hyper{test} is any expression, or
 (\hyper{test} =&amp;gt; \hyper{expression})%
 \end{scheme}
 The last \hyper{clause} can be
-an ``else clause,&amp;rdquo; which has the form
+an &amp;ldquo;else clause,&amp;rdquo; which has the form
 \begin{scheme}
 (else \hyperi{expression} \hyperii{expression} \dotsfoo)\rm.%
 \end{scheme}
@@ -1697,7 +1697,7 @@ Alternatively, a \hyper{clause} can be of the form
 \begin{scheme}
 ((\hyperi{datum} \dotsfoo) =&amp;gt; \hyper{expression})%
 \end{scheme}
-The last \hyper{clause} can be an ``else clause,&amp;rdquo; which has one of the forms
+The last \hyper{clause} can be an &amp;ldquo;else clause,&amp;rdquo; which has one of the forms
 \begin{scheme}
 (else \hyperi{expression} \hyperii{expression} \dotsfoo)
 \end{scheme}
@@ -1834,7 +1834,7 @@ implementation.  A
 
 &lt;p&gt;{\tt(\hyper{feature requirement} \hyper{expression} \dotsfoo)}&lt;/p&gt;
 
-&lt;p&gt;The last clause can be an ``else clause,&amp;rdquo; which has the form&lt;/p&gt;
+&lt;p&gt;The last clause can be an &amp;ldquo;else clause,&amp;rdquo; which has the form&lt;/p&gt;
 
 &lt;p&gt;{\tt(else \hyper{expression} \dotsfoo)}&lt;/p&gt;
 
@@ -1926,7 +1926,7 @@ region.\index{region}&lt;/p&gt;
     (* z x)))                   \ev  35%
 \end{scheme}&lt;/p&gt;
 
-&lt;p&gt;See also ``named {\cf let},&amp;rdquo; section \ref{namedlet}.&lt;/p&gt;
+&lt;p&gt;See also &amp;ldquo;named {\cf let},&amp;rdquo; section \ref{namedlet}.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
 
@@ -2240,7 +2240,7 @@ been written instead of {\cf(\hyper{variable} \hyper{init})}.&lt;/p&gt;
 
 &lt;p&gt;\label{namedlet}
 \semantics
-``Named {\cf let}&amp;rdquo; is a variant on the syntax of \ide{let} which provides
+&amp;ldquo;Named {\cf let}&amp;rdquo; is a variant on the syntax of \ide{let} which provides
 a more general looping construct than {\cf do} and can also be used to express
 recursion.
 It has the same syntax and semantics as ordinary {\cf let}
@@ -2316,7 +2316,7 @@ unbounded space during evaluation.&lt;/p&gt;
 by \ide{delay}, \ide{delay-force}, or \ide{make-promise}.\index{promise}
 If no value has been computed for the promise, then a value is
 computed and returned.  The value of the promise must be cached (or
-``memoized&amp;rdquo;) so that if it is forced a second time, the previously
+&amp;ldquo;memoized&amp;rdquo;) so that if it is forced a second time, the previously
 computed value is returned.
 Consequently, a delayed expression is evaluated using the parameter
 values and exception handler of the call to {\cf force} which first
@@ -2405,7 +2405,7 @@ depending on the implementation:&lt;/p&gt;
 (pair? (delay (cons 1 2)))  \ev  \unspecified%
 \end{scheme}&lt;/p&gt;
 
-&lt;p&gt;\item Implementations may implement ``implicit forcing,&amp;rdquo; where
+&lt;p&gt;\item Implementations may implement &amp;ldquo;implicit forcing,&amp;rdquo; where
 the value of a promise is forced by procedures
 that operate only on arguments of a certain type, like {\cf cdr}
 and {\cf *}.  However, procedures that operate uniformly on their
@@ -2591,7 +2591,7 @@ exceptions.&lt;/p&gt;
 \pproto{unquote-splicing}{\auxiliarytype}
 \pproto{\commaatsign}{\auxiliarytype}}&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;Quasiquote&#39;&#39;\index{backquote} expressions are useful
+&lt;p&gt;&amp;ldquo;Quasiquote&amp;rdquo;\index{backquote} expressions are useful
 for constructing a list or vector structure when some but not all of the
 desired structure is known in advance.  If no
 commas\index{comma} appear within the \hyper{qq template}, the result of
@@ -2599,11 +2599,11 @@ evaluating
 \backquote\hyper{qq template} is equivalent to the result of evaluating
 \singlequote\hyper{qq template}.  If a comma\mainschindex{,} appears within the
 \hyper{qq template}, however, the expression following the comma is
-evaluated (&lt;/code&gt;unquoted&amp;rdquo;) and its result is inserted into the structure
+evaluated (&amp;ldquo;unquoted&amp;rdquo;) and its result is inserted into the structure
 instead of the comma and the expression.  If a comma appears followed
 without intervening whitespace by a commercial at-sign (\atsign),\mainschindex{,@} then it is an error if the following
 expression does not evaluate to a list; the opening and closing parentheses
-of the list are then ``stripped away&amp;rdquo; and the elements of the list are
+of the list are then &amp;ldquo;stripped away&amp;rdquo; and the elements of the list are
 inserted in place of the comma at-sign expression sequence.  A comma
 at-sign normally appears only within a list or vector \hyper{qq template}.&lt;/p&gt;
 
@@ -2786,7 +2786,7 @@ bindings that surround the use of the macro.&lt;/p&gt;
 &lt;p&gt;\end{itemize}&lt;/p&gt;
 
 &lt;p&gt;In consequence, all macros
-defined using the pattern language  are &lt;code&gt;hygienic&#39;&#39; and&lt;/code&gt;referentially
+defined using the pattern language  are &amp;ldquo;hygienic&amp;rdquo; and &amp;ldquo;referentially
 transparent&amp;rdquo; and thus preserve Scheme&amp;rsquo;s lexical scoping.~\cite{Kohlbecker86,
 hygienic,Bawden88,macrosthatwork,syntacticabstraction}
 \mainindex{hygienic}\mainindex{referentially transparent}&lt;/p&gt;
@@ -3658,7 +3658,7 @@ the \ide{cond-expand} expression type, except that it expands to
 spliced-in library declarations rather than expressions enclosed in {\cf begin}.&lt;/p&gt;
 
 &lt;p&gt;\todo{Shinn: Perhaps make this a separate subsection describing a
-  library ``resolution&amp;rdquo; phase which runs prior to library expansion.}&lt;/p&gt;
+  library &amp;ldquo;resolution&amp;rdquo; phase which runs prior to library expansion.}&lt;/p&gt;
 
 &lt;p&gt;One possible implementation of libraries is as follows:
 After all \ide{cond-expand} library declarations are expanded, a new
@@ -5246,10 +5246,10 @@ Alternatively, they can be written \sharptrue~and \sharpfalse,
 respectively.  What really
 matters, though, are the objects that the Scheme conditional expressions
 ({\cf if}, {\cf cond}, {\cf and}, {\cf or}, {\cf when}, {\cf unless}, {\cf do}) treat as
-true\index{true} or false\index{false}.  The phrase &lt;code&gt;a true value&#39;&#39;\index{true}
-(or sometimes just&lt;/code&gt;true&amp;rdquo;) means any object treated as true by the
-conditional expressions, and the phrase &lt;code&gt;a false value&#39;&#39;\index{false} (or
-&lt;/code&gt;false&amp;rdquo;) means any object treated as false by the conditional expressions.&lt;/p&gt;
+true\index{true} or false\index{false}.  The phrase &amp;ldquo;a true value&amp;rdquo;\index{true}
+(or sometimes just &amp;ldquo;true&amp;rdquo;) means any object treated as true by the
+conditional expressions, and the phrase &amp;ldquo;a false value&amp;rdquo;\index{false} (or
+&amp;ldquo;false&amp;rdquo;) means any object treated as false by the conditional expressions.&lt;/p&gt;
 
 &lt;p&gt;Of all the Scheme values, only \schfalse{}
 counts as false in conditional expressions.
@@ -5348,7 +5348,7 @@ terminated by the empty list.
 \end{note}&lt;/p&gt;
 
 &lt;p&gt;The most general notation (external representation) for Scheme pairs is
-the ``dotted&amp;rdquo; notation \hbox{\cf (\vari{c} .\ \varii{c})} where
+the &amp;ldquo;dotted&amp;rdquo; notation \hbox{\cf (\vari{c} .\ \varii{c})} where
 \vari{c} is the value of the car field and \varii{c} is the value of the
 cdr field.  For example {\cf (4 .\ 5)} is a pair whose car is 4 and whose
 cdr is 5.  Note that {\cf (4 .\ 5)} is the external representation of a
@@ -5723,7 +5723,7 @@ returned.  The {\cf memq} procedure uses {\cf eq?}\ to compare \var{obj} with th
 \proto{assoc}{ obj alist}{procedure}
 \rproto{assoc}{ obj alist compare}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;\domain{It is an error if \var{alist} (for ``association list&amp;rdquo;) is not a list of
+&lt;p&gt;\domain{It is an error if \var{alist} (for &amp;ldquo;association list&amp;rdquo;) is not a list of
 pairs.}
 These procedures find the first pair in \var{alist} whose car field is \var{obj},
 and returns that pair.  If no pair in \var{alist} has \var{obj} as its
@@ -5797,7 +5797,7 @@ subsequently written out using the {\cf write} procedure, will read back
 in as the identical symbol (in the sense of {\cf eqv?}).&lt;/p&gt;
 
 &lt;p&gt;\begin{note}
-Some implementations have values known as ``uninterned symbols,&amp;rdquo;
+Some implementations have values known as &amp;ldquo;uninterned symbols,&amp;rdquo;
 which defeat write/read invariance, and also violate the rule that two
 symbols are the same if and only if their names are spelled the same.
 This report does not specify the behavior of
@@ -5927,10 +5927,10 @@ If \hyper{character} in
 \sharpsign\backwhack\hyper{character} is alphabetic, then any character
 immediately following \hyper{character} cannot be one that can appear in an identifier.
 This rule resolves the ambiguous case where, for
-example, the sequence of characters &lt;code&gt;{\tt\sharpsign\backwhack space}&#39;&#39;
+example, the sequence of characters &amp;ldquo;{\tt\sharpsign\backwhack space}&amp;rdquo;
 could be taken to be either a representation of the space character or a
-representation of the character&lt;/code&gt;{\tt\sharpsign\backwhack s}&amp;rdquo; followed
-by a representation of the symbol ``{\tt pace}.&amp;rdquo;&lt;/p&gt;
+representation of the character &amp;ldquo;{\tt\sharpsign\backwhack s}&amp;rdquo; followed
+by a representation of the symbol &amp;ldquo;{\tt pace}.&amp;rdquo;&lt;/p&gt;
 
 &lt;p&gt;\todo{Fix}
 Characters written in the \sharpsign\backwhack{} notation are self-evaluating.
@@ -5938,7 +5938,7 @@ That is, they do not have to be quoted in programs.&lt;/p&gt;
 
 &lt;p&gt;Some of the procedures that operate on characters ignore the
 difference between upper case and lower case.  The procedures that
-ignore case have \hbox{&lt;code&gt;{\tt -ci}&#39;&#39;} (for&lt;/code&gt;case
+ignore case have \hbox{&amp;ldquo;{\tt -ci}&amp;ldquo;} (for &amp;ldquo;case
 insensitive&amp;rdquo;) embedded in their names.&lt;/p&gt;
 
 &lt;p&gt;\begin{entry}{%
@@ -6120,7 +6120,7 @@ character of a string has index 0, the second has index 1, and so on.&lt;/p&gt;
 
 &lt;p&gt;Some of the procedures that operate on strings ignore the
 difference between upper and lower case.  The names of the versions that ignore case
-end with \hbox{&lt;code&gt;{\cf -ci}&#39;&#39;} (for&lt;/code&gt;case insensitive&amp;rdquo;).&lt;/p&gt;
+end with \hbox{&amp;ldquo;{\cf -ci}&amp;ldquo;} (for &amp;ldquo;case insensitive&amp;rdquo;).&lt;/p&gt;
 
 &lt;p&gt;Implementations may forbid certain characters from appearing in strings.
 However, with the exception of {\tt #\backwhack{}null}, ASCII characters must
@@ -6250,9 +6250,9 @@ ordering.&lt;/p&gt;
 {\cf string&amp;lt;=?} if and only if they do not satisfy {\cf string&amp;gt;?} and
 {\cf string&amp;gt;=?} if and only if they do not satisfy {\cf string&amp;lt;?}.&lt;/p&gt;
 
-&lt;p&gt;The \hbox{&lt;code&gt;{\tt -ci}&#39;&#39;} procedures behave as if they applied
+&lt;p&gt;The \hbox{&amp;ldquo;{\tt -ci}&amp;ldquo;} procedures behave as if they applied
 {\cf string-foldcase} to their arguments before invoking the corresponding
-procedures without  \hbox{&lt;/code&gt;{\tt -ci}&amp;ldquo;}.&lt;/p&gt;
+procedures without  \hbox{&amp;ldquo;{\tt -ci}&amp;ldquo;}.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
 
@@ -6979,7 +6979,7 @@ It is an error for \var{proc} to mutate any of the vectors.&lt;/p&gt;
 argument.}
 The procedure {\cf call-with-current-continuation} (or its
 equivalent abbreviation {\cf call/cc}) packages
-the current continuation (see the rationale below) as an ``escape
+the current continuation (see the rationale below) as an &amp;ldquo;escape
 procedure&amp;rdquo;\mainindex{escape procedure} and passes it as an argument to
 \var{proc}.
 The escape procedure is a Scheme procedure that, if it is
@@ -8761,7 +8761,7 @@ un-quo-ta-tion $D$} takes precedence.&lt;/p&gt;
 &lt;p&gt;\newcommand\elt{\downarrow}
 \newcommand\drop{\dagger}&lt;/p&gt;
 
-&lt;p&gt;\newcommand{\wrong}[1]{\fun{wrong }\hbox{\rm``#1&amp;rdquo;}}
+&lt;p&gt;\newcommand{\wrong}[1]{\fun{wrong }\hbox{\rm&amp;rdquo;#1&amp;rdquo;}}
 \newcommand{\go}[1]{\hbox{\hspace*{#1em}}}&lt;/p&gt;
 
 &lt;p&gt;This section provides a formal denotational semantics for the primitive
@@ -8776,8 +8776,8 @@ $s \elt k$                 &amp;amp; $k$th member of the sequence $s$ (1-based) 
 $#s$                      &amp;amp; length of sequence $s$ &lt;br /&gt;
 $s :\S: t$               &amp;amp; concatenation of sequences $s$ and $t$ &lt;br /&gt;
 $s \drop k$                &amp;amp; drop the first $k$ members of sequence $s$ &lt;br /&gt;
-$t \rightarrow a, b$       &amp;amp; McCarthy conditional &lt;code&gt;if $t$ then $a$ else $b$&#39;&#39; \\
-$\rho[x/i]$                &amp;amp; substitution&lt;/code&gt;$\rho$ with $x$ for $i$&amp;rdquo; &lt;br /&gt;
+$t \rightarrow a, b$       &amp;amp; McCarthy conditional &amp;ldquo;if $t$ then $a$ else $b$&amp;rdquo; &lt;br /&gt;
+$\rho[x/i]$                &amp;amp; substitution &amp;ldquo;$\rho$ with $x$ for $i$&amp;rdquo; &lt;br /&gt;
 $x\hbox{ \rm in }{\texttt{D}}$         &amp;amp; injection of $x$ into domain $\texttt{D}$ &lt;br /&gt;
 $x\,\vert\,\texttt{D}$       &amp;amp; projection of $x$ to domain $\texttt{D}$
 \end{tabular}&lt;/p&gt;
@@ -10643,7 +10643,7 @@ provide the corresponding feature.&lt;/p&gt;
 \label{incompatibilities}&lt;/p&gt;
 
 &lt;p&gt;This section enumerates the incompatibilities between this report and
-the ``Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
+the &amp;ldquo;Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
 
 &lt;p&gt;{\em This list is not authoritative, but is believed to be correct and complete.}&lt;/p&gt;
 
@@ -10685,7 +10685,7 @@ and must be compatible with {\cf read} and the syntax of numbers in programs.&lt
 &lt;p&gt;\subsection*{Other language changes since \rfivers}
 \label{differences}
 This section enumerates the additional differences between this report and
-the ``Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
+the &amp;ldquo;Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
 
 &lt;p&gt;{\em This list is not authoritative, but is believed to be correct and complete.}&lt;/p&gt;
 
@@ -10883,7 +10883,7 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 
 &lt;p&gt;\subsection*{Incompatibilities with \rsixrs}
 This section enumerates the incompatibilities between \rsevenrs~and
-the ``Revised$^6$ report&amp;rdquo;~\cite{R6RS} and its accompanying Standard Libraries document.&lt;/p&gt;
+the &amp;ldquo;Revised$^6$ report&amp;rdquo;~\cite{R6RS} and its accompanying Standard Libraries document.&lt;/p&gt;
 
 &lt;p&gt;{\em This list is not authoritative, and is possibly incomplete.}&lt;/p&gt;
 
@@ -10915,7 +10915,7 @@ cannot appear before its definition; the {\cf even}/{\cf odd} example given in
 &lt;p&gt;\item The \rsixrs\ exception system was incorporated as-is, but the condition
 types have been left unspecified.  In particular, where \rsixrs\ requires
 a condition of a specified type to be signaled, \rsevenrs\ says only
-``it is an error&amp;rdquo;, leaving the question of signaling open.&lt;/p&gt;
+&amp;ldquo;it is an error&amp;rdquo;, leaving the question of signaling open.&lt;/p&gt;
 
 &lt;p&gt;\item Full Unicode support is not required.
 Normalization is not provided.
@@ -11131,7 +11131,7 @@ which models a damped oscillator.&lt;/p&gt;
 %    Mary-Claire van Leunen.
 %    {\em A Handbook for Scholars.}
 %    Knopf, 1978.
-% I think the references list would look better in ``open&amp;rdquo; format,
+% I think the references list would look better in &amp;ldquo;open&amp;rdquo; format,
 % i.e. with the three blocks for each entry appearing on separate
 % lines.  I used the compressed format for SIGPLAN in the interest of
 % space.  In open format, when a block runs over one line,
@@ -11255,7 +11255,7 @@ Indiana University Computer Science Technical Report 153, January 1985.&lt;/p&gt
 
 &lt;p&gt;\bibitem{life}
 Martin Gardner.
-Mathematical Games: The fantastic combinations of John Conway&amp;rsquo;s new solitaire game ``Life.&amp;rdquo;
+Mathematical Games: The fantastic combinations of John Conway&amp;rsquo;s new solitaire game &amp;ldquo;Life.&amp;rdquo;
 In {\em Scientific American}, 223:120&amp;ndash;123, October 1970.&lt;/p&gt;
 
 &lt;p&gt;\bibitem{IEEE}

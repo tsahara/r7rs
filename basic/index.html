@@ -168,8 +168,8 @@ and all record types.
 any Scheme value can be used as a boolean value for the purpose of a
 conditional test.  As explained in section~\ref{booleansection}, all
 values count as true in such a test except for \schfalse{}.
-This report uses the word <code>true'' to refer to any
-Scheme value except \schfalse{}, and the word</code>false&rdquo; to refer to
+This report uses the word &ldquo;true&rdquo; to refer to any
+Scheme value except \schfalse{}, and the word &ldquo;false&rdquo; to refer to
 \schfalse{}. \mainindex{true} \mainindex{false}</p>
 
 <h2 id="3-3-external-representations">3.3. External representations</h2>
@@ -179,13 +179,13 @@ Scheme value except \schfalse{}, and the word</code>false&rdquo; to refer to
 <p>An important concept in Scheme (and Lisp) is that of the {\em external
 representation} of an object as a sequence of characters.  For example,
 an external representation of the integer 28 is the sequence of
-characters <code>{\tt 28}'', and an external representation of a list consisting
-of the integers 8 and 13 is the sequence of characters</code>{\tt(8 13)}&ldquo;.</p>
+characters &ldquo;{\tt 28}&ldquo;, and an external representation of a list consisting
+of the integers 8 and 13 is the sequence of characters &ldquo;{\tt(8 13)}&ldquo;.</p>
 
 <p>The external representation of an object is not necessarily unique.  The
-integer 28 also has representations <code>{\tt \#e28.000}'' and</code>{\tt#x1c}&ldquo;, and the
-list in the previous paragraph also has the representations <code>{\tt( 08 13
-)}'' and</code>{\tt(8 .\ (13 .\ ()))}&rdquo; (see section~\ref{listsection}).</p>
+integer 28 also has representations &ldquo;{\tt #e28.000}&rdquo; and &ldquo;{\tt#x1c}&ldquo;, and the
+list in the previous paragraph also has the representations &ldquo;{\tt( 08 13
+)}&rdquo; and &ldquo;{\tt(8 .\ (13 .\ ()))}&rdquo; (see section~\ref{listsection}).</p>
 
 <p>Many objects have standard external representations, but some, such as
 procedures, do not have standard representations (although particular
@@ -200,7 +200,7 @@ representations, and the procedure {\cf write} (section~\ref{write})
 generates them.  Together, they provide an elegant and powerful
 input/output facility.</p>
 
-<p>Note that the sequence of characters ``{\tt(+ 2 6)}&rdquo; is {\em not} an
+<p>Note that the sequence of characters &ldquo;{\tt(+ 2 6)}&rdquo; is {\em not} an
 external representation of the integer 8, even though it {\em is} an
 expression evaluating to the integer 8; rather, it is an external
 representation of a three-element list, the elements of which are the symbol
