@@ -327,4 +327,3 @@ their result is left unspecified.
 left to future standardization efforts.
 
 \end{itemize}
-

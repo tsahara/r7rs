@@ -105,7 +105,7 @@ There is no intended implication that those editors, individually or
 collectively, support or do not support this report.
 \end{note}
 
-\todo{expand the summary so that it fills up the column.}
+
 
 \vfill
 \eject

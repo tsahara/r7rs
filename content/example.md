@@ -122,4 +122,3 @@ which models a damped oscillator.
      '\#(1 0)
      .01))%
 \end{schemenoindent}
-

@@ -1,6 +1,7 @@
 #!/usr/bin/env gosh
 
 (use gauche.record)
+(use srfi-13)
 
 (define (usage)
   (print "usage: tex2hugo <filename>..."))
@@ -8,8 +9,8 @@
 (define-record-type context #t #t
   (chapter) (section) (subsection))
 
-(define (convert-line line)
-  (regexp-replace-all* line
+(define (convert-text text)
+  (regexp-replace-all* text
 		       #/\\chapter{(.*?)}/ "# \\1"
 		       #/\\section{(.*?)}/ "## \\1"
 		       #/\\subsection\*?{(.*?)}/ "### \\1"
@@ -21,6 +22,8 @@
 		       #/\\rfivers/  "{{< rnrs 5 >}}"
 		       #/\\rsixrs/   "{{< rnrs 6 >}}"
 		       #/\\rsevenrs/ "{{< rnrs 7 >}}"
+
+		       #/\\todo{(.*?)}/ ""
 		       ))
 
 (define (format-line line c)
@@ -64,12 +67,12 @@
 	 (in      (open-input-file filename))
 	 (out     (open-output-file tmpfile :if-does-not-exist :create))
 	 (c       (make-context #f 0 0)))
-    (let loop ((line (read-line in)))
-      (unless (eof-object? line)
-	(display (format-line (convert-line line) c)
-		 out)
-	(newline out)
-	(loop (read-line in))))
+    (for-each (lambda (line)
+		(display (format-line line c) out)
+		(newline out))
+	      (string-split (convert-text (string-trim-right
+					   (port->string in)))
+			    #\newline))
     (close-port in)
     (close-port out)
     (sys-rename tmpfile filename)))

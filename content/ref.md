@@ -213,7 +213,7 @@ In {\em ACM SIGPLAN Notices} 21(12), pages~37--79, December 1986.
 %% John Reynolds.
 %% Definitional interpreters for higher order programming languages.
 %% In {\em ACM Conference Proceedings}, pages 717--740.
-%% ACM, \todo{month?}~1972.
+%% ACM, ~1972.
 %% 
 \bibitem{srfi1}
 Olin Shivers.

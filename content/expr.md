@@ -985,7 +985,7 @@ invoking the procedure named by \hyper{variable}.
 \begin{entry}{%
 \proto{delay}{ \hyper{expression}}{lazy library syntax}}
 
-\todo{Fix.}
+
 
 \semantics
 The {\cf delay} construct is used together with the procedure \ide{force} to
@@ -994,7 +994,7 @@ implement \defining{lazy evaluation} or \defining{call by need}.
 \defining{promise} which at some point in the future can be asked (by
 the {\cf force} procedure) to evaluate
 \hyper{expression}, and deliver the resulting value.
-\todo{consider removing unspecified effect}
+
 The effect of \hyper{expression} returning multiple values
 is unspecified.
 
@@ -1003,7 +1003,7 @@ is unspecified.
 \begin{entry}{%
 \proto{delay-force}{ \hyper{expression}}{lazy library syntax}}
 
-\todo{Fix.}
+
 
 \semantics
 The expression {\cf (delay-force \var{expression})} is conceptually similar to
@@ -1840,7 +1840,7 @@ arbitrary expressions providing additional information.
 Applications cannot count on being able to catch syntax errors with
 exception handlers or guards.
 
-\todo{Shinn: This doesn't check all non-identifier cases, think of a better example.}
+
 
 \begin{scheme}
 (define-syntax simple-let

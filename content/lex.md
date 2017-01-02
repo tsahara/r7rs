@@ -151,7 +151,7 @@ and {\tt |\#} pairs.
 
 ## 2.3. Other notations
 
-\todo{Rewrite?}
+
 
 For a description of the notations used for numbers, see
 section~\ref{numbersection}.
@@ -267,4 +267,3 @@ it is an error for {\cf quasiquote} (section~\ref{quasiquote}) to contain them.
                        \ev \scherror%
 \end{scheme}
 \end{entry}
-

@@ -23,7 +23,7 @@ with them in section~\ref{force}.  In the same way, the procedure
 {\cf make-parameter} is intimately associated with the expression type
 {\cf parameterize}, and is described with it in section~\ref{make-parameter}.
 
-\todo{consider removing unspecified effect}
+
 A program can use a global variable definition to bind any variable.  It may
 subsequently alter any such binding by an assignment (see
 section~\ref{assignment}).  These operations do not modify the behavior of
@@ -678,8 +678,7 @@ accuracy; the \tupe{inexact} constants were chosen so that this is
 likely to be true in implementations that use IEEE binary doubles to represent
 inexact numbers.
 
-\todo{Scheme provides the usual set of operations for manipulating
-numbers, etc.}
+
 
 \begin{entry}{%
 \proto{number?}{ obj}{procedure}
@@ -1039,7 +1038,7 @@ These procedures return the numerator or denominator of their
 argument; the result is computed as if the argument was represented as
 a fraction in lowest terms.  The denominator is always positive.  The
 denominator of 0 is defined to be 1.
-\todo{More description and examples needed.}
+
 \begin{scheme}
 (numerator (/ 6 4))  \ev  3
 (denominator (/ 6 4))  \ev  2
@@ -2154,7 +2153,7 @@ could be taken to be either a representation of the space character or a
 representation of the character "{\tt\sharpsign\backwhack s}" followed
 by a representation of the symbol "{\tt pace}."
 
-\todo{Fix}
+
 Characters written in the \sharpsign\backwhack{} notation are self-evaluating.
 That is, they do not have to be quoted in programs.
 
@@ -3339,7 +3338,7 @@ continuation.
 % {\cf call-with-current-continuation} was coined in 1982.  This name is
 % descriptive, but opinions differ on the merits of such a long name, and
 % some people prefer the name \ide{call/cc} instead.
-\todo{Shinn: Expand this history before restoring, possibly relegating to an appendix.}
+
 \end{rationale}
 
 %% \begin{note}
@@ -3348,7 +3347,7 @@ continuation.
 %% language. It is not always practical or even meaningful to restore
 %% these continuations.
 %% \end{note}
-\todo{Shinn: I'm not sure we want to say anything about this.}
+
 
 %% \begin{note}
 %% The interactions of \callcc{} with {\cf dynamic-wind} are defined by
@@ -3438,7 +3437,7 @@ If invoking a continuation requires calling the \var{before} from one call
 to {\cf dynamic-wind} and the \var{after} from another, then the \var{after}
 is called first.
 
-\todo{consider removing unspecified effect}
+
 The effect of using a captured continuation to enter or exit the dynamic
 extent of a call to \var{before} or \var{after} is unspecified.
 
@@ -3650,7 +3649,7 @@ If \var{version}
 is neither {\cf 5} nor another value supported by
 the implementation, an error is signaled.
 
-\todo{consider removing unspecified effect}
+
 The effect of defining or assigning (through the use of {\cf eval})
 an identifier bound in a {\cf scheme-report-environment} (for example
 {\cf car}) is unspecified.  Thus both the environment and the bindings
@@ -3860,7 +3859,7 @@ file.  If the file does not exist or cannot be opened, an error that satisfies {
 Takes a \var{string} naming an output file to be created and returns a
 textual output port or binary output port that is capable of writing
 data to a new file by that name.
-\todo{consider removing unspecified effect}
+
 If a file with the given name already exists,
 the effect is unspecified.
 If the file cannot be opened,
@@ -4418,7 +4417,7 @@ in Windows and Posix.
 \end{entry}
 
 
-\todo{Shinn: Do we need any description of what an environment variable is?}
+
 
 \begin{entry}{%
 \proto{get-environment-variable}{ name}{process-context library procedure}}
