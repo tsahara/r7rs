@@ -49,7 +49,7 @@ procedures, and so on.
 
 One distinguishing feature of Scheme is that continuations, which
 in most other languages only operate behind the scenes, also have
-``first-class'' status.  Continuations are useful for implementing a
+"first-class" status.  Continuations are useful for implementing a
 wide variety of advanced control constructs, including non-local exits,
 backtracking, and coroutines.  See section~\ref{continuations}.
 
@@ -128,8 +128,8 @@ not conflict with the lexical syntax described in this report.
 \label{errorsituations}
 
 \mainindex{error}
-When speaking of an error situation, this report uses the phrase ``an
-error is signaled'' to indicate that implementations must detect and
+When speaking of an error situation, this report uses the phrase "an
+error is signaled" to indicate that implementations must detect and
 report the error.
 An error is signaled by raising a non-continuable exception, as if by
 the procedure {\cf raise} as described in section~\ref{exceptionsection}.  The object raised is implementation-dependent
@@ -137,7 +137,7 @@ and need not be distinct from objects previously used for the same purpose.
 In addition to errors signaled in situations described in this
 report, programmers can signal their own errors and handle signaled errors.
 
-The phrase ``an error that satisfies {\em predicate} is signaled'' means that an error is
+The phrase "an error that satisfies {\em predicate} is signaled" means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
 passed to the specified predicate (such as {\cf file-error?} or {\cf
 read-error?}), the predicate returns \schtrue{}.
@@ -146,7 +146,7 @@ If such wording does not appear in the discussion of
 an error, then implementations are not required to detect or report the
 error, though they are encouraged to do so.
 Such a situation is sometimes, but not always, referred to with the phrase
-``an error.''
+"an error."
 In such a situation, an implementation may or may not signal an error;
 if it does signal an error, the object that is signaled may or may not
 satisfy the predicates {\cf error-object?}, {\cf file-error?}, or
@@ -160,8 +160,8 @@ signal an error,
 extend a procedure's domain of definition to include such arguments,
 or fail catastrophically.
 
-This report uses the phrase ``may report a violation of an
-implementation restriction'' to indicate circumstances under which an
+This report uses the phrase "may report a violation of an
+implementation restriction" to indicate circumstances under which an
 implementation is permitted to report that it is unable to continue
 execution of a correct program because of some restriction imposed by the
 implementation.  Implementation restrictions are discouraged,
@@ -174,14 +174,14 @@ program,
 or if an arithmetic operation would produce an exact number that is
 too large for the implementation to represent.
 
-If the value of an expression is said to be ``unspecified,'' then
+If the value of an expression is said to be "unspecified," then
 the expression must evaluate to some object without signaling an error,
 but the value depends on the implementation; this report explicitly does
 not say what value is returned. \mainindex{unspecified}
 
-Finally, the words and phrases ``must,'' ``must not,'' ``shall,''
-``shall not,'' ``should,'' ``should not,'' ``may,'' ``required,''
-``recommended,'' and ``optional,'' although not capitalized in this
+Finally, the words and phrases "must," "must not," "shall,"
+"shall not," "should," "should not," "may," "required,"
+"recommended," and "optional," although not capitalized in this
 report, are to be interpreted as described in RFC~2119~\cite{rfc2119}.
 They are used only with reference to implementer or implementation behavior,
 not with reference to programmer or program behavior.
@@ -204,7 +204,7 @@ for identifiers in the base library, or
 where \var{name} is the short name of a library
 as defined in Appendix~\ref{stdlibraries}.
 
-If \var{category} is ``\exprtype,'' the entry describes an expression
+If \var{category} is "\exprtype," the entry describes an expression
 type, and the template gives the syntax of the expression type.
 Components of expressions are designated by syntactic variables, which
 are written using angle brackets, for example \hyper{expression} and
@@ -220,12 +220,12 @@ indicates zero or more occurrences of a \hyper{thing}, and
 \end{tabbing}
 indicates one or more occurrences of a \hyper{thing}.
 
-If \var{category} is ``auxiliary syntax,'' then the entry describes a
+If \var{category} is "auxiliary syntax," then the entry describes a
 syntax binding that occurs only as part of specific surrounding
 expressions. Any use as an independent syntactic construct or
 variable is an error.
 
-If \var{category} is ``procedure,'' then the entry describes a procedure, and
+If \var{category} is "procedure," then the entry describes a procedure, and
 the header line gives a template for a call to the procedure.  Argument
 names in the template are \var{italicized}.  Thus the header line
 
@@ -304,8 +304,8 @@ the length of \var{string}, then the entire string is referred to.}
 
 ### 1.3.4. Evaluation examples
 
-The symbol ``\evalsto'' used in program examples is read
-``evaluates to.''  For example,
+The symbol "\evalsto" used in program examples is read
+"evaluates to."  For example,
 
 \begin{scheme}
 (* 5 8)      \ev  40%
@@ -313,9 +313,9 @@ The symbol ``\evalsto'' used in program examples is read
 
 means that the expression {\tt(* 5 8)} evaluates to the object {\tt 40}.
 Or, more precisely:  the expression given by the sequence of characters
-``{\tt(* 5 8)}'' evaluates, in the initial environment, to an object
-that can be represented externally by the sequence of characters ``{\tt
-40}.''  See section~\ref{externalreps} for a discussion of external
+"{\tt(* 5 8)}" evaluates, in the initial environment, to an object
+that can be represented externally by the sequence of characters "{\tt
+40}."  See section~\ref{externalreps} for a discussion of external
 representations of objects.
 
 ### 1.3.5. Naming conventions
@@ -332,7 +332,7 @@ allocated locations (see section~\ref{storagemodel}).
 Such procedures are called \defining{mutation procedures}.
 The value returned by a mutation procedure is unspecified.
 
-By convention, ``\ide{->}'' appears within the names of procedures that
+By convention, "\ide{->}" appears within the names of procedures that
 take an object of one type and return an analogous object of another type.
 For example, {\cf list->vector} takes a list and returns a vector whose
 elements are the same as those of the list.

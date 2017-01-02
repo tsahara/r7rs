@@ -8,7 +8,7 @@ menu = "main"
 %    Mary-Claire van Leunen.
 %    {\em A Handbook for Scholars.}
 %    Knopf, 1978.
-% I think the references list would look better in ``open'' format,
+% I think the references list would look better in "open" format,
 % i.e. with the three blocks for each entry appearing on separate
 % lines.  I used the compressed format for SIGPLAN in the interest of
 % space.  In open format, when a block runs over one line,
@@ -132,7 +132,7 @@ Indiana University Computer Science Technical Report 153, January 1985.
 
 \bibitem{life}
 Martin Gardner.
-Mathematical Games: The fantastic combinations of John Conway's new solitaire game ``Life.''
+Mathematical Games: The fantastic combinations of John Conway's new solitaire game "Life."
 In {\em Scientific American}, 223:120--123, October 1970.
 
 \bibitem{IEEE}

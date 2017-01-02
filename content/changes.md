@@ -10,7 +10,7 @@ menu = "main"
 \label{incompatibilities}
 
 This section enumerates the incompatibilities between this report and
-the ``Revised$^5$ report''~\cite{R5RS}.
+the "Revised$^5$ report"~\cite{R5RS}.
 
 {\em This list is not authoritative, but is believed to be correct and complete.}
 
@@ -53,7 +53,7 @@ and must be compatible with {\cf read} and the syntax of numbers in programs.
 \subsection*{Other language changes since \rfivers}
 \label{differences}
 This section enumerates the additional differences between this report and
-the ``Revised$^5$ report''~\cite{R5RS}.
+the "Revised$^5$ report"~\cite{R5RS}.
 
 {\em This list is not authoritative, but is believed to be correct and complete.}
 
@@ -251,7 +251,7 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 
 \subsection*{Incompatibilities with \rsixrs}
 This section enumerates the incompatibilities between \rsevenrs~and
-the ``Revised$^6$ report''~\cite{R6RS} and its accompanying Standard Libraries document.
+the "Revised$^6$ report"~\cite{R6RS} and its accompanying Standard Libraries document.
 
 {\em This list is not authoritative, and is possibly incomplete.}
 
@@ -283,7 +283,7 @@ cannot appear before its definition; the {\cf even}/{\cf odd} example given in
 \item The \rsixrs\ exception system was incorporated as-is, but the condition
 types have been left unspecified.  In particular, where \rsixrs\ requires
 a condition of a specified type to be signaled, \rsevenrs\ says only
-``it is an error'', leaving the question of signaling open.
+"it is an error", leaving the question of signaling open.
 
 \item Full Unicode support is not required.
 Normalization is not provided.

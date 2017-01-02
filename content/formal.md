@@ -508,7 +508,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \newcommand\elt{\downarrow}
 \newcommand\drop{\dagger}
 
-\newcommand{\wrong}[1]{\fun{wrong }\hbox{\rm``#1''}}
+\newcommand{\wrong}[1]{\fun{wrong }\hbox{\rm"#1"}}
 \newcommand{\go}[1]{\hbox{\hspace*{#1em}}}
 
 This section provides a formal denotational semantics for the primitive
@@ -523,8 +523,8 @@ $s \elt k$                 & $k$th member of the sequence $s$ (1-based) \\
 $\#s$                      & length of sequence $s$ \\
 $s \:\S\: t$               & concatenation of sequences $s$ and $t$ \\
 $s \drop k$                & drop the first $k$ members of sequence $s$ \\
-$t \rightarrow a, b$       & McCarthy conditional ``if $t$ then $a$ else $b$'' \\
-$\rho[x/i]$                & substitution ``$\rho$ with $x$ for $i$'' \\
+$t \rightarrow a, b$       & McCarthy conditional "if $t$ then $a$ else $b$" \\
+$\rho[x/i]$                & substitution "$\rho$ with $x$ for $i$" \\
 $x\hbox{ \rm in }{\texttt{D}}$         & injection of $x$ into domain $\texttt{D}$ \\
 $x\,\vert\,\texttt{D}$       & projection of $x$ to domain $\texttt{D}$
 \end{tabular}

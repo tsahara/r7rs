@@ -86,8 +86,8 @@ Although there is a separate boolean type,
 any Scheme value can be used as a boolean value for the purpose of a
 conditional test.  As explained in section~\ref{booleansection}, all
 values count as true in such a test except for \schfalse{}.
-This report uses the word ``true'' to refer to any
-Scheme value except \schfalse{}, and the word ``false'' to refer to
+This report uses the word "true" to refer to any
+Scheme value except \schfalse{}, and the word "false" to refer to
 \schfalse{}. \mainindex{true} \mainindex{false}
 
 ## 3.3. External representations
@@ -96,13 +96,13 @@ Scheme value except \schfalse{}, and the word ``false'' to refer to
 An important concept in Scheme (and Lisp) is that of the {\em external
 representation} of an object as a sequence of characters.  For example,
 an external representation of the integer 28 is the sequence of
-characters ``{\tt 28}'', and an external representation of a list consisting
-of the integers 8 and 13 is the sequence of characters ``{\tt(8 13)}''.
+characters "{\tt 28}", and an external representation of a list consisting
+of the integers 8 and 13 is the sequence of characters "{\tt(8 13)}".
 
 The external representation of an object is not necessarily unique.  The
-integer 28 also has representations ``{\tt \#e28.000}'' and ``{\tt\#x1c}'', and the
-list in the previous paragraph also has the representations ``{\tt( 08 13
-)}'' and ``{\tt(8 .\ (13 .\ ()))}'' (see section~\ref{listsection}).
+integer 28 also has representations "{\tt \#e28.000}" and "{\tt\#x1c}", and the
+list in the previous paragraph also has the representations "{\tt( 08 13
+)}" and "{\tt(8 .\ (13 .\ ()))}" (see section~\ref{listsection}).
 
 Many objects have standard external representations, but some, such as
 procedures, do not have standard representations (although particular
@@ -117,7 +117,7 @@ representations, and the procedure {\cf write} (section~\ref{write})
 generates them.  Together, they provide an elegant and powerful
 input/output facility.
 
-Note that the sequence of characters ``{\tt(+ 2 6)}'' is {\em not} an
+Note that the sequence of characters "{\tt(+ 2 6)}" is {\em not} an
 external representation of the integer 8, even though it {\em is} an
 expression evaluating to the integer 8; rather, it is an external
 representation of a three-element list, the elements of which are the symbol

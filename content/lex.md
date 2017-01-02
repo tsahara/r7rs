@@ -17,7 +17,7 @@ Scheme, see section~\ref{BNF}.
 \label{syntaxsection}
 
 An identifier\mainindex{identifier} is any sequence of letters, digits, and
-``extended identifier characters'' provided that it does not have a prefix
+"extended identifier characters" provided that it does not have a prefix
 which is a valid number.  
 However, the  \ide{.} token (a single period) used in the list syntax
 is not an identifier.
@@ -129,7 +129,7 @@ Another way to indicate a comment is to prefix a \hyper{datum}
 (cf.\ section~\ref{datumsyntax}) with {\tt \#;}\sharpindex{;} and optional
 \meta{whitespace}.  The comment consists of
 the comment prefix {\tt \#;}, the space, and the \hyper{datum} together.  This
-notation is useful for ``commenting out'' sections of code.
+notation is useful for "commenting out" sections of code.
 
 Block comments are indicated with properly nested {\tt
   \#|}\index{#"|@\texttt{\sharpsign\verticalbar}}\index{"|#@\texttt{\verticalbar\sharpsign}}

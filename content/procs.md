@@ -1442,10 +1442,10 @@ Alternatively, they can be written \sharptrue~and \sharpfalse,
 respectively.  What really
 matters, though, are the objects that the Scheme conditional expressions
 ({\cf if}, {\cf cond}, {\cf and}, {\cf or}, {\cf when}, {\cf unless}, {\cf do}) treat as
-true\index{true} or false\index{false}.  The phrase ``a true value''\index{true}
-(or sometimes just ``true'') means any object treated as true by the
-conditional expressions, and the phrase ``a false value''\index{false} (or
-``false'') means any object treated as false by the conditional expressions.
+true\index{true} or false\index{false}.  The phrase "a true value"\index{true}
+(or sometimes just "true") means any object treated as true by the
+conditional expressions, and the phrase "a false value"\index{false} (or
+"false") means any object treated as false by the conditional expressions.
 
 Of all the Scheme values, only \schfalse{}
 counts as false in conditional expressions.
@@ -1545,7 +1545,7 @@ terminated by the empty list.
 \end{note}
 
 The most general notation (external representation) for Scheme pairs is
-the ``dotted'' notation \hbox{\cf (\vari{c} .\ \varii{c})} where
+the "dotted" notation \hbox{\cf (\vari{c} .\ \varii{c})} where
 \vari{c} is the value of the car field and \varii{c} is the value of the
 cdr field.  For example {\cf (4 .\ 5)} is a pair whose car is 4 and whose
 cdr is 5.  Note that {\cf (4 .\ 5)} is the external representation of a
@@ -1942,7 +1942,7 @@ returned.  The {\cf memq} procedure uses {\cf eq?}\ to compare \var{obj} with th
 \proto{assoc}{ obj alist}{procedure}
 \rproto{assoc}{ obj alist compare}{procedure}}
 
-\domain{It is an error if \var{alist} (for ``association list'') is not a list of
+\domain{It is an error if \var{alist} (for "association list") is not a list of
 pairs.}
 These procedures find the first pair in \var{alist} whose car field is \var{obj},
 and returns that pair.  If no pair in \var{alist} has \var{obj} as its
@@ -2017,7 +2017,7 @@ subsequently written out using the {\cf write} procedure, will read back
 in as the identical symbol (in the sense of {\cf eqv?}).
 
 \begin{note}
-Some implementations have values known as ``uninterned symbols,''
+Some implementations have values known as "uninterned symbols,"
 which defeat write/read invariance, and also violate the rule that two
 symbols are the same if and only if their names are spelled the same.
 This report does not specify the behavior of
@@ -2149,10 +2149,10 @@ If \hyper{character} in
 \sharpsign\backwhack\hyper{character} is alphabetic, then any character
 immediately following \hyper{character} cannot be one that can appear in an identifier.
 This rule resolves the ambiguous case where, for
-example, the sequence of characters ``{\tt\sharpsign\backwhack space}''
+example, the sequence of characters "{\tt\sharpsign\backwhack space}"
 could be taken to be either a representation of the space character or a
-representation of the character ``{\tt\sharpsign\backwhack s}'' followed
-by a representation of the symbol ``{\tt pace}.''
+representation of the character "{\tt\sharpsign\backwhack s}" followed
+by a representation of the symbol "{\tt pace}."
 
 \todo{Fix}
 Characters written in the \sharpsign\backwhack{} notation are self-evaluating.
@@ -2160,8 +2160,8 @@ That is, they do not have to be quoted in programs.
 
 Some of the procedures that operate on characters ignore the
 difference between upper case and lower case.  The procedures that
-ignore case have \hbox{``{\tt -ci}''} (for ``case
-insensitive'') embedded in their names.
+ignore case have \hbox{"{\tt -ci}"} (for "case
+insensitive") embedded in their names.
 
 
 \begin{entry}{%
@@ -2351,7 +2351,7 @@ character of a string has index 0, the second has index 1, and so on.
 
 Some of the procedures that operate on strings ignore the
 difference between upper and lower case.  The names of the versions that ignore case
-end with \hbox{``{\cf -ci}''} (for ``case insensitive'').
+end with \hbox{"{\cf -ci}"} (for "case insensitive").
 
 Implementations may forbid certain characters from appearing in strings.
 However, with the exception of {\tt \#\backwhack{}null}, ASCII characters must
@@ -2486,9 +2486,9 @@ In all cases, a pair of strings must satisfy exactly one of
 {\cf string<=?} if and only if they do not satisfy {\cf string>?} and
 {\cf string>=?} if and only if they do not satisfy {\cf string<?}.
 
-The \hbox{``{\tt -ci}''} procedures behave as if they applied
+The \hbox{"{\tt -ci}"} procedures behave as if they applied
 {\cf string-foldcase} to their arguments before invoking the corresponding
-procedures without  \hbox{``{\tt -ci}''}.
+procedures without  \hbox{"{\tt -ci}"}.
 
 
 \end{entry}
@@ -3235,8 +3235,8 @@ It is an error for \var{proc} to mutate any of the vectors.
 argument.}
 The procedure {\cf call-with-current-continuation} (or its
 equivalent abbreviation {\cf call/cc}) packages
-the current continuation (see the rationale below) as an ``escape
-procedure''\mainindex{escape procedure} and passes it as an argument to
+the current continuation (see the rationale below) as an "escape
+procedure"\mainindex{escape procedure} and passes it as an argument to
 \var{proc}.
 The escape procedure is a Scheme procedure that, if it is
 later called, will abandon whatever continuation is in effect at that later

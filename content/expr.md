@@ -58,7 +58,7 @@ constants in Scheme code.
 \begin{scheme}%
 (quote a)                     \ev  a
 (quote \sharpsign(a b c))     \ev  \#(a b c)
-(quote (+ 1 2))               \ev  (+ 1 2)%
+(quote (+ 1 2))               \ev  (+ 1 2)
 \end{scheme}
 
 {\cf (quote \hyper{datum})} can be abbreviated as
@@ -71,7 +71,7 @@ respects.
 '()                  \ev  ()
 '(+ 1 2)             \ev  (+ 1 2)
 '(quote a)           \ev  (quote a)
-''a                  \ev  (quote a)%
+''a                  \ev  (quote a)
 \end{scheme}
 
 Numerical constants, string constants, character constants, vector
@@ -339,7 +339,7 @@ where \hyper{test} is any expression, or
 (\hyper{test} => \hyper{expression})%
 \end{scheme}
 The last \hyper{clause} can be
-an ``else clause,'' which has the form
+an "else clause," which has the form
 \begin{scheme}
 (else \hyperi{expression} \hyperii{expression} \dotsfoo)\rm.%
 \end{scheme}
@@ -401,7 +401,7 @@ Alternatively, a \hyper{clause} can be of the form
 \begin{scheme}
 ((\hyperi{datum} \dotsfoo) => \hyper{expression})%
 \end{scheme}
-The last \hyper{clause} can be an ``else clause,'' which has one of the forms
+The last \hyper{clause} can be an "else clause," which has one of the forms
 \begin{scheme}
 (else \hyperi{expression} \hyperii{expression} \dotsfoo)
 \end{scheme}
@@ -540,7 +540,7 @@ implementation.  A
 
 {\tt(\hyper{feature requirement} \hyper{expression} \dotsfoo)}
 
-The last clause can be an ``else clause,'' which has the form
+The last clause can be an "else clause," which has the form
 
 {\tt(else \hyper{expression} \dotsfoo)}
 
@@ -631,7 +631,7 @@ region.\index{region}
     (* z x)))                   \ev  35%
 \end{scheme}
 
-See also ``named {\cf let},'' section \ref{namedlet}.
+See also "named {\cf let}," section \ref{namedlet}.
 
 \end{entry}
 
@@ -951,7 +951,7 @@ been written instead of {\cf(\hyper{variable} \hyper{init})}.
 
 \label{namedlet}
 \semantics
-``Named {\cf let}'' is a variant on the syntax of \ide{let} which provides
+"Named {\cf let}" is a variant on the syntax of \ide{let} which provides
 a more general looping construct than {\cf do} and can also be used to express
 recursion.
 It has the same syntax and semantics as ordinary {\cf let}
@@ -1028,7 +1028,7 @@ The {\cf force} procedure forces the value of a \var{promise} created
 by \ide{delay}, \ide{delay-force}, or \ide{make-promise}.\index{promise}
 If no value has been computed for the promise, then a value is
 computed and returned.  The value of the promise must be cached (or
-``memoized'') so that if it is forced a second time, the previously
+"memoized") so that if it is forced a second time, the previously
 computed value is returned.
 Consequently, a delayed expression is evaluated using the parameter
 values and exception handler of the call to {\cf force} which first
@@ -1117,7 +1117,7 @@ depending on the implementation:
 (pair? (delay (cons 1 2)))  \ev  \unspecified%
 \end{scheme}
 
-\item Implementations may implement ``implicit forcing,'' where
+\item Implementations may implement "implicit forcing," where
 the value of a promise is forced by procedures
 that operate only on arguments of a certain type, like {\cf cdr}
 and {\cf *}.  However, procedures that operate uniformly on their
@@ -1305,7 +1305,7 @@ exceptions.
 \pproto{unquote-splicing}{\auxiliarytype}
 \pproto{\commaatsign}{\auxiliarytype}}
 
-``Quasiquote''\index{backquote} expressions are useful
+"Quasiquote"\index{backquote} expressions are useful
 for constructing a list or vector structure when some but not all of the
 desired structure is known in advance.  If no
 commas\index{comma} appear within the \hyper{qq template}, the result of
@@ -1313,11 +1313,11 @@ evaluating
 \backquote\hyper{qq template} is equivalent to the result of evaluating
 \singlequote\hyper{qq template}.  If a comma\mainschindex{,} appears within the
 \hyper{qq template}, however, the expression following the comma is
-evaluated (``unquoted'') and its result is inserted into the structure
+evaluated ("unquoted") and its result is inserted into the structure
 instead of the comma and the expression.  If a comma appears followed
 without intervening whitespace by a commercial at-sign (\atsign),\mainschindex{,@} then it is an error if the following
 expression does not evaluate to a list; the opening and closing parentheses
-of the list are then ``stripped away'' and the elements of the list are
+of the list are then "stripped away" and the elements of the list are
 inserted in place of the comma at-sign expression sequence.  A comma
 at-sign normally appears only within a list or vector \hyper{qq template}.
 
@@ -1499,8 +1499,8 @@ bindings that surround the use of the macro.
 \end{itemize}
 
 In consequence, all macros
-defined using the pattern language  are ``hygienic'' and ``referentially
-transparent'' and thus preserve Scheme's lexical scoping.~\cite{Kohlbecker86,
+defined using the pattern language  are "hygienic" and "referentially
+transparent" and thus preserve Scheme's lexical scoping.~\cite{Kohlbecker86,
 hygienic,Bawden88,macrosthatwork,syntacticabstraction}
 \mainindex{hygienic}\mainindex{referentially transparent}
 

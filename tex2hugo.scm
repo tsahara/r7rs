@@ -14,6 +14,7 @@
 		       #/\\section{(.*?)}/ "## \\1"
 		       #/\\subsection{(.*?)}/ "### \\1"
 		       #/\\vest / ""
+		       #/``(.*?)''/ "\"\\1\""
 		       ))
 
 (define (format-line line c)

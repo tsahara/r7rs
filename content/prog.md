@@ -504,7 +504,7 @@ the \ide{cond-expand} expression type, except that it expands to
 spliced-in library declarations rather than expressions enclosed in {\cf begin}.
 
 \todo{Shinn: Perhaps make this a separate subsection describing a
-  library ``resolution'' phase which runs prior to library expansion.}
+  library "resolution" phase which runs prior to library expansion.}
 
 One possible implementation of libraries is as follows:
 After all \ide{cond-expand} library declarations are expanded, a new

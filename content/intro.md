@@ -98,12 +98,12 @@ which are essentially unmaintained) did not adopt \rsixrs, or adopted
 only selected parts of it.
 
 In consequence, the Scheme Steering Committee decided in August 2009 to divide the
-standard into two separate but compatible languages --- a ``small''
+standard into two separate but compatible languages --- a "small"
 language, suitable for educators, researchers, and users of embedded languages,
-focused on \rfivers~compatibility, and a ``large'' language focused
+focused on \rfivers~compatibility, and a "large" language focused
 on the practical needs of mainstream software development,
 intended to become a replacement for \rsixrs.
-The present report describes the ``small'' language of that effort:
+The present report describes the "small" language of that effort:
 therefore it cannot be considered in isolation as the successor
 to \rsixrs.
 
