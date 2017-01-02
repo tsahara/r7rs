@@ -12,7 +12,7 @@
   (regexp-replace-all* line
 		       #/\\chapter{(.*?)}/ "# \\1"
 		       #/\\section{(.*?)}/ "## \\1"
-		       #/\\subsection{(.*?)}/ "### \\1"
+		       #/\\subsection\*?{(.*?)}/ "### \\1"
 		       #/\\vest / ""
 		       #/``(.*?)''/ "\"\\1\""
 		       ))

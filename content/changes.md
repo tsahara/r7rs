@@ -6,7 +6,7 @@ menu = "main"
 \extrapart{Language changes}
 
 
-\subsection*{Incompatibilities with \rfivers}
+### Incompatibilities with \rfivers
 \label{incompatibilities}
 
 This section enumerates the incompatibilities between this report and
@@ -50,7 +50,7 @@ and must be compatible with {\cf read} and the syntax of numbers in programs.
 
 \end{itemize}
 
-\subsection*{Other language changes since \rfivers}
+### Other language changes since \rfivers
 \label{differences}
 This section enumerates the additional differences between this report and
 the "Revised$^5$ report"~\cite{R5RS}.
@@ -249,7 +249,7 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 \item The formal semantics now handles {\cf dynamic-wind}.
 \end{itemize}
 
-\subsection*{Incompatibilities with \rsixrs}
+### Incompatibilities with \rsixrs
 This section enumerates the incompatibilities between \rsevenrs~and
 the "Revised$^6$ report"~\cite{R6RS} and its accompanying Standard Libraries document.
 

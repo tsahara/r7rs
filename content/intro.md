@@ -54,7 +54,7 @@ the report, and use the first couple of pages to convince the reader
 that the language documented in this report is worth studying.
 }
 
-\subsection*{Background}
+### Background
 
 The first description of Scheme was written in
 1975~\cite{Scheme75}.  A revised report~\cite{Scheme78}
@@ -120,7 +120,7 @@ necessary.
 
 
 
-\subsection*{Acknowledgments}
+### Acknowledgments
 
 We would like to thank the members of the Steering Committee, William
 Clinger, Marc Feeley, Chris Hanson, Jonathan Rees, and Olin Shivers, for
