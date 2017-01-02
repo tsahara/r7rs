@@ -62,14 +62,14 @@ environment}
 
 No object satisfies more than one of the following predicates:
 
-\begin{scheme}
+```
 boolean?          bytevector?
 char?             eof-object?
 null?             number?
 pair?             port?
 procedure?        string?
 symbol?           vector?
-\end{scheme}
+```
 
 and all predicates created by {\cf define-record-type}.
 
@@ -324,13 +324,14 @@ In the following example the only tail call is the call to {\cf f}.
 None of the calls to {\cf g} or {\cf h} are tail calls.  The reference to
 {\cf x} is in a tail context, but it is not a call and thus is not a
 tail call.
-\begin{scheme}%
+
+```
 (lambda ()
   (if (g)
       (let ((x (h)))
         x)
       (and (g) (f))))
-\end{scheme}%
+```
 
 \begin{note}
 Implementations may

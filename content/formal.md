@@ -1257,7 +1257,7 @@ terms of the primitive expression types (literal, variable, call, {\cf lambda},
 
 Conditional derived syntax types:
 
-\begin{scheme}
+```
 (define-syntax \ide{cond}
   (syntax-rules (else =>)
     ((cond (else result1 result2 ...))
@@ -1283,9 +1283,9 @@ Conditional derived syntax types:
      (if test
          (begin result1 result2 ...)
          (cond clause1 clause2 ...)))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{case}
   (syntax-rules (else =>)
     ((case (key ...)
@@ -1318,18 +1318,18 @@ Conditional derived syntax types:
      (if (memv key '(atoms ...))
          (begin result1 result2 ...)
          (case key clause clauses ...)))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{and}
   (syntax-rules ()
     ((and) \sharpfoo{t})
     ((and test) test)
     ((and test1 test2 ...)
      (if test1 (and test2 ...) \sharpfoo{f}))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{or}
   (syntax-rules ()
     ((or) \sharpfoo{f})
@@ -1337,27 +1337,27 @@ Conditional derived syntax types:
     ((or test1 test2 ...)
      (let ((x test1))
        (if x x (or test2 ...))))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{when}
   (syntax-rules ()
     ((when test result1 result2 ...)
      (if test
          (begin result1 result2 ...)))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{unless}
   (syntax-rules ()
     ((unless test result1 result2 ...)
      (if (not test)
          (begin result1 result2 ...)))))
-\end{scheme}
+```
 
 Binding constructs:
 
-\begin{scheme}
+```
 (define-syntax \ide{let}
   (syntax-rules ()
     ((let ((name val) ...) body1 body2 ...)
@@ -1368,9 +1368,9 @@ Binding constructs:
                       body1 body2 ...)))
         tag)
       val ...))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{let*}
   (syntax-rules ()
     ((let* () body1 body2 ...)
@@ -1380,7 +1380,7 @@ Binding constructs:
      (let ((name1 val1))
        (let* ((name2 val2) ...)
          body1 body2 ...)))))
-\end{scheme}
+```
 
 The following {\cf letrec} macro uses the symbol {\cf <undefined>}
 in place of an expression which returns something that when stored in
@@ -1390,7 +1390,7 @@ A trick is used to generate the temporary names needed to avoid
 specifying the order in which the values are evaluated.
 This could also be accomplished by using an auxiliary macro.
 
-\begin{scheme}
+```
 (define-syntax \ide{letrec}
   (syntax-rules ()
     ((letrec ((var1 init1) ...) body ...)
@@ -1419,9 +1419,9 @@ This could also be accomplished by using an auxiliary macro.
        (newtemp temp ...)
        ((var1 init1) ...)
        body ...))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{letrec*}
   (syntax-rules ()
     ((letrec* ((var1 init1) ...) body1 body2 ...)
@@ -1429,9 +1429,9 @@ This could also be accomplished by using an auxiliary macro.
        (set! var1 init1)
        ...
        (let () body1 body2 ...)))))%
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{let-values}
   (syntax-rules ()
     ((let-values (binding ...) body0 body1 ...)
@@ -1466,9 +1466,9 @@ This could also be accomplished by using an auxiliary macro.
        (lambda (arg ... . x)
          (let-values "bind"
              bindings (tmp ... (a x)) body))))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{let*-values}
   (syntax-rules ()
     ((let*-values () body0 body1 ...)
@@ -1479,9 +1479,9 @@ This could also be accomplished by using an auxiliary macro.
      (let-values (binding0)
        (let*-values (binding1 ...)
          body0 body1 ...)))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{define-values}
   (syntax-rules ()
     ((define-values () expr)
@@ -1520,21 +1520,21 @@ This could also be accomplished by using an auxiliary macro.
      (define var
        (call-with-values (lambda () expr)
                          list)))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{begin}
   (syntax-rules ()
     ((begin exp ...)
      ((lambda () exp ...)))))
-\end{scheme}
+```
 
 The following alternative expansion for {\cf begin} does not make use of
 the ability to write more than one expression in the body of a lambda
 expression.  In any case, note that these rules apply only if the body
 of the {\cf begin} contains no definitions.
 
-\begin{scheme}
+```
 (define-syntax begin
   (syntax-rules ()
     ((begin exp)
@@ -1544,7 +1544,7 @@ of the {\cf begin} contains no definitions.
          (lambda () exp1)
        (lambda args
          (begin exp2 ...))))))
-\end{scheme}
+```
 
 The following syntax definition
 of {\cf do} uses a trick to expand the variable clauses.
@@ -1552,7 +1552,7 @@ As with {\cf letrec} above, an auxiliary macro would also work.
 The expression {\cf (if \#f \#f)} is used to obtain an unspecific
 value.
 
-\begin{scheme}
+```
 (define-syntax \ide{do}
   (syntax-rules ()
     ((do ((var init step ...) ...)
@@ -1575,77 +1575,77 @@ value.
      x)
     ((do "step" x y)
      y)))
-\end{scheme}
+```
 
 Here is a possible implementation of {\cf delay}, {\cf force} and {\cf
   delay-force}.  We define the expression
 
-\begin{scheme}
-(delay-force \hyper{expression})%
-\end{scheme}
+```
+(delay-force \hyper{expression})
+```
 
 to have the same meaning as the procedure call
 
-\begin{scheme}
-(make-promise \schfalse{} (lambda () \hyper{expression}))%
-\end{scheme}
+```
+(make-promise \schfalse{} (lambda () \hyper{expression}))
+```
 
 as follows
 
-\begin{scheme}
+```
 (define-syntax delay-force
   (syntax-rules ()
     ((delay-force expression)
-     (make-promise \schfalse{} (lambda () expression)))))%
-\end{scheme}
+     (make-promise \schfalse{} (lambda () expression)))))
+```
 
 and we define the expression
 
-\begin{scheme}
-(delay \hyper{expression})%
-\end{scheme}
+```
+(delay \hyper{expression})
+```
 
 to have the same meaning as:
 
-\begin{scheme}
-(delay-force (make-promise \schtrue{} \hyper{expression}))%
-\end{scheme}
+```
+(delay-force (make-promise \schtrue{} \hyper{expression}))
+```
 
 as follows
 
-\begin{scheme}
+```
 (define-syntax delay
   (syntax-rules ()
     ((delay expression)
-     (delay-force (make-promise \schtrue{} expression)))))%
-\end{scheme}
+     (delay-force (make-promise \schtrue{} expression)))))
+```
 
 where {\cf make-promise} is defined as follows:
 
-\begin{scheme}
+```
 (define make-promise
   (lambda (done? proc)
-    (list (cons done? proc))))%
-\end{scheme}
+    (list (cons done? proc))))
+```
 
 Finally, we define {\cf force} to call the procedure expressions in
 promises iteratively using a trampoline technique following
 \cite{srfi45} until a non-lazy result (i.e. a value created by {\cf
   delay} instead of {\cf delay-force}) is returned, as follows:
 
-\begin{scheme}
+```
 (define (force promise)
   (if (promise-done? promise)
       (promise-value promise)
       (let ((promise* ((promise-value promise))))
         (unless (promise-done? promise)
           (promise-update! promise* promise))
-        (force promise))))%
-\end{scheme}
+        (force promise))))
+```
 
 with the following promise accessors:
 
-\begin{scheme}
+```
 (define promise-done?
   (lambda (x) (car (car x))))
 (define promise-value
@@ -1654,8 +1654,8 @@ with the following promise accessors:
   (lambda (new old)
     (set-car! (car old) (promise-done? new))
     (set-cdr! (car old) (promise-value new))
-    (set-car! new (car old))))%
-\end{scheme}
+    (set-car! new (car old))))
+```
 
 The following implementation of {\cf make-parameter} and {\cf
 parameterize} is suitable for an implementation with no threads.
@@ -1663,7 +1663,7 @@ Parameter objects are implemented here as procedures, using two
 arbitrary unique objects \texttt{<param-set!>} and
 \texttt{<param-convert>}:
 
-\begin{scheme}
+```
 (define (make-parameter init . o)
   (let* ((converter
           (if (pair? o) (car o) (lambda (x) x)))
@@ -1677,13 +1677,13 @@ arbitrary unique objects \texttt{<param-set!>} and
        ((eq? (car args) <param-convert>)
         converter)
        (else
-        (error "bad parameter syntax"))))))%
-\end{scheme}
+        (error "bad parameter syntax"))))))
+```
 
 Then {\cf parameterize} uses {\cf dynamic-wind} to dynamically rebind
 the associated value:
 
-\begin{scheme}
+```
 (define-syntax parameterize
   (syntax-rules ()
     ((parameterize ("step")
@@ -1710,12 +1710,12 @@ the associated value:
                    ()
                    ((param value) ...)
                    body))))
-\end{scheme}
+```
 
 The following implementation of {\cf guard} depends on an auxiliary
 macro, here called {\cf guard-aux}.
 
-\begin{scheme}
+```
 (define-syntax guard
   (syntax-rules ()
     ((guard (var clause ...) e1 e2 ...)
@@ -1773,9 +1773,9 @@ macro, here called {\cf guard-aux}.
      (if test
          (begin result1 result2 ...)
          (guard-aux reraise clause1 clause2 ...)))))
-\end{scheme}
+```
 
-\begin{scheme}
+```
 (define-syntax \ide{case-lambda}
   (syntax-rules ()
     ((case-lambda (params body0 ...) ...)
@@ -1801,13 +1801,13 @@ macro, here called {\cf guard-aux}.
                          (cl . rest))))))
            (cl (params body0 ...) ...)))))))
 
-\end{scheme}
+```
 
 This definition of {\cf cond-expand} does not interact with the
 {\cf features} procedure.  It requires that each feature identifier provided
 by the implementation be explicitly mentioned.
 
-\begin{scheme}
+```
 (define-syntax cond-expand
   ;; Extend this to mention all feature ids and libraries
   (syntax-rules (and or not else r7rs library scheme base)
@@ -1867,4 +1867,4 @@ by the implementation be explicitly mentioned.
                   more-clauses ...)
        (cond-expand more-clauses ...))))
 
-\end{scheme}
+```

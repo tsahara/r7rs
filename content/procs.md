@@ -131,7 +131,7 @@ or strings that denote distinct locations.
 
 \end{itemize}
 
-\begin{scheme}
+```
 (eqv? 'a 'a)                     \ev  \schtrue
 (eqv? 'a 'b)                     \ev  \schfalse
 (eqv? 2 2)                       \ev  \schtrue
@@ -144,24 +144,24 @@ or strings that denote distinct locations.
       (lambda () 2))             \ev  \schfalse
 (let ((p (lambda (x) x)))
   (eqv? p p))                    \ev  \schtrue
-(eqv? \#f 'nil)                  \ev  \schfalse%
-\end{scheme}
+(eqv? #f 'nil)                   \ev  \schfalse
+```
 
 The following examples illustrate cases in which the above rules do
 not fully specify the behavior of {\cf eqv?}.  All that can be said
 about such cases is that the value returned by {\cf eqv?} must be a
 boolean.
 
-\begin{scheme}
+```
 (eqv? "" "")             \ev  \unspecified
-(eqv? '\#() '\#())         \ev  \unspecified
+(eqv? '#() '#())         \ev  \unspecified
 (eqv? (lambda (x) x)
       (lambda (x) x))    \ev  \unspecified
 (eqv? (lambda (x) x)
       (lambda (y) y))    \ev  \unspecified
 (eqv? 1.0e0 1.0f0)       \ev  \unspecified
-(eqv? +nan.0 +nan.0)     \ev  \unspecified%
-\end{scheme}
+(eqv? +nan.0 +nan.0)     \ev  \unspecified
+```
 
 Note that {\cf (eqv? 0.0 -0.0)} will return \schfalse{} if negative zero
 is distinguished, and \schtrue{} if negative zero is not distinguished.
@@ -173,7 +173,7 @@ The {\cf gen-loser} procedure, however, returns operationally equivalent procedu
 the local state does not affect the value or side effects of the
 procedures.  However, {\cf eqv?} may or may not detect this equivalence.
 
-\begin{scheme}
+```
 (define gen-counter
   (lambda ()
     (let ((n 0))
@@ -199,8 +199,8 @@ procedures.  However, {\cf eqv?} may or may not detect this equivalence.
 (letrec ((f (lambda () (if (eqv? f g) 'f 'both)))
          (g (lambda () (if (eqv? f g) 'g 'both))))
   (eqv? f g))
-                        \ev  \schfalse%
-\end{scheme}
+                        \ev  \schfalse
+```
 
 Since it is an error to modify constant objects (those returned by
 literal expressions), implementations may
@@ -208,13 +208,13 @@ share structure between constants where appropriate.  Thus
 the value of {\cf eqv?} on constants is sometimes
 implementation-dependent.
 
-\begin{scheme}
+```
 (eqv? '(a) '(a))                 \ev  \unspecified
 (eqv? "a" "a")                   \ev  \unspecified
-(eqv? '(b) (cdr '(a b)))	 \ev  \unspecified
+(eqv? '(b) (cdr '(a b)))	     \ev  \unspecified
 (let ((x '(a)))
-  (eqv? x x))                    \ev  \schtrue%
-\end{scheme}
+  (eqv? x x))                    \ev  \schtrue
+```
 
 The above definition of {\cf eqv?} allows implementations latitude in
 their treatment of procedures and literals:  implementations may
@@ -249,7 +249,7 @@ implementation-dependent, but it will always return either true or
 false.  On empty strings, empty vectors, and empty bytevectors, {\cf eq?} may also behave
 differently from {\cf eqv?}.
 
-\begin{scheme}
+```
 (eq? 'a 'a)                     \ev  \schtrue
 (eq? '(a) '(a))                 \ev  \unspecified
 (eq? (list 'a) (list 'a))       \ev  \schfalse
@@ -257,17 +257,17 @@ differently from {\cf eqv?}.
 (eq? "" "")                     \ev  \unspecified
 (eq? '() '())                   \ev  \schtrue
 (eq? 2 2)                       \ev  \unspecified
-(eq? \#\backwhack{}A \#\backwhack{}A) \ev  \unspecified
+(eq? #\A #\A)                   \ev  \unspecified
 (eq? car car)                   \ev  \schtrue
 (let ((n (+ 2 3)))
   (eq? n n))      \ev  \unspecified
 (let ((x '(a)))
   (eq? x x))      \ev  \schtrue
-(let ((x '\#()))
+(let ((x '#()))
   (eq? x x))      \ev  \schtrue
 (let ((p (lambda (x) x)))
-  (eq? p p))      \ev  \schtrue%
-\end{scheme}
+  (eq? p p))      \ev  \schtrue
+```
 
 
 \begin{rationale} It will usually be possible to implement {\cf eq?}\ much
@@ -299,7 +299,7 @@ may return either \schtrue{} or \schfalse{}.
 Even if its arguments are
 circular data structures, {\cf equal?}\ must always terminate.
 
-\begin{scheme}
+```
 (equal? 'a 'a)                  \ev  \schtrue
 (equal? '(a) '(a))              \ev  \schtrue
 (equal? '(a (b) c)
@@ -308,11 +308,11 @@ circular data structures, {\cf equal?}\ must always terminate.
 (equal? 2 2)                    \ev  \schtrue
 (equal? (make-vector 5 'a)
         (make-vector 5 'a))     \ev  \schtrue
-(equal? '\#1=(a b . \#1\#)
-        '\#2=(a b a b . \#2\#))    \ev  \schtrue
+(equal? '#1=(a b . #1#)
+        '#2=(a b a b . #2#))    \ev  \schtrue
 (equal? (lambda (x) x)
-        (lambda (y) y))  \ev  \unspecified%
-\end{scheme}
+        (lambda (y) y))  \ev  \unspecified
+```
 
 \begin{note}
 A rule of thumb is that objects are generally {\cf equal?} if they print
@@ -469,7 +469,7 @@ return exact integer results provided all their arguments are exact integers
 and the mathematically expected results are representable as exact integers
 within the implementation:
 
-\begin{scheme}
+```
 -                     *
 +                     abs
 ceiling               denominator
@@ -484,7 +484,7 @@ remainder             round
 square                truncate
 truncate/             truncate-quotient
 truncate-remainder
-\end{scheme}
+```
 
 It is recommended, but not required, that implementations support
 \tupe{exact} \tupe{integer}s and \tupe{exact} \tupe{rational}s of
@@ -636,12 +636,12 @@ The default precision has at least as much precision
 as \var{double}, but
 implementations may allow this default to be set by the user.
 
-\begin{scheme}
+```
 3.14159265358979F0
        {\rm Round to single ---} 3.141593
 0.6L0
        {\rm Extend to long ---} .600000000000000%
-\end{scheme}
+```
 
 The numbers positive infinity, negative infinity, and NaN are written
 {\cf +inf.0}, {\cf -inf.0} and {\cf +nan.0} respectively.
@@ -703,23 +703,23 @@ If \vr{x} is an inexact real number, then {\cf
 The numbers {\cf +inf.0}, {\cf -inf.0}, and {\cf +nan.0} are real but
 not rational.
 
-\begin{scheme}
+```
 (complex? 3+4i)         \ev  \schtrue
 (complex? 3)            \ev  \schtrue
 (real? 3)               \ev  \schtrue
 (real? -2.5+0i)         \ev  \schtrue
 (real? -2.5+0.0i)       \ev  \schfalse
-(real? \#e1e10)          \ev  \schtrue
-(real? +inf.0)           \ev  \schtrue
-(real? +nan.0)           \ev  \schtrue
-(rational? -inf.0)       \ev  \schfalse
-(rational? 3.5)          \ev  \schtrue
+(real? #e1e10)          \ev  \schtrue
+(real? +inf.0)          \ev  \schtrue
+(real? +nan.0)          \ev  \schtrue
+(rational? -inf.0)      \ev  \schfalse
+(rational? 3.5)         \ev  \schtrue
 (rational? 6/10)        \ev  \schtrue
 (rational? 6/3)         \ev  \schtrue
 (integer? 3+0i)         \ev  \schtrue
 (integer? 3.0)          \ev  \schtrue
-(integer? 8/4)          \ev  \schtrue%
-\end{scheme}
+(integer? 8/4)          \ev  \schtrue
+```
 
 \begin{note}
 The behavior of these type predicates on \tupe{inexact} numbers
@@ -743,11 +743,11 @@ These numerical predicates provide tests for the exactness of a
 quantity.  For any Scheme number, precisely one of these predicates
 is true.
 
-\begin{scheme}
+```
 (exact? 3.0)           \ev  \schfalse
-(exact? \#e3.0)         \ev  \schtrue
+(exact? #e3.0)         \ev  \schtrue
 (inexact? 3.)          \ev  \schtrue%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -758,11 +758,11 @@ is true.
 Returns \schtrue{} if \vr{z} is both \tupe{exact} and an \tupe{integer};
 otherwise returns \schfalse{}.
 
-\begin{scheme}
+```
 (exact-integer? 32) \ev \schtrue{}
 (exact-integer? 32.0) \ev \schfalse{}
-(exact-integer? 32/5) \ev \schfalse{}%
-\end{scheme}
+(exact-integer? 32/5) \ev \schfalse{}
+```
 \end{entry}
 
 
@@ -774,11 +774,11 @@ The {\cf finite?} procedure returns \schtrue{} on all real numbers except
 numbers if their real and imaginary parts are both finite.
 Otherwise it returns \schfalse{}.
 
-\begin{scheme}
-(finite? 3)         \ev  \schtrue
+```
+(finite? 3)            \ev  \schtrue
 (finite? +inf.0)       \ev  \schfalse
-(finite? 3.0+inf.0i)   \ev  \schfalse%
-\end{scheme}
+(finite? 3.0+inf.0i)   \ev  \schfalse
+```
 \end{entry}
 
 \begin{entry}{%
@@ -789,12 +789,12 @@ The {\cf infinite?} procedure returns \schtrue{} on the real numbers
 numbers if their real or imaginary parts or both are infinite.
 Otherwise it returns \schfalse{}.
 
-\begin{scheme}
-(infinite? 3)         \ev  \schfalse
+```
+(infinite? 3)            \ev  \schfalse
 (infinite? +inf.0)       \ev  \schtrue
 (infinite? +nan.0)       \ev  \schfalse
-(infinite? 3.0+inf.0i)   \ev  \schtrue%
-\end{scheme}
+(infinite? 3.0+inf.0i)   \ev  \schtrue
+```
 \end{entry}
 
 \begin{entry}{%
@@ -804,12 +804,12 @@ The {\cf nan?} procedure returns \schtrue{} on {\cf +nan.0}, and on complex
 numbers if their real or imaginary parts or both are {\cf +nan.0}.
 Otherwise it returns \schfalse{}.
 
-\begin{scheme}
+```
 (nan? +nan.0)          \ev  \schtrue
 (nan? 32)              \ev  \schfalse
 (nan? +nan.0+5.0i)     \ev  \schtrue
-(nan? 1+2i)            \ev  \schfalse%
-\end{scheme}
+(nan? 1+2i)            \ev  \schfalse
+```
 \end{entry}
 
 
@@ -870,10 +870,10 @@ returning \schtrue{} or \schfalse.  See note above.
 
 These procedures return the maximum or minimum of their arguments.
 
-\begin{scheme}
+```
 (max 3 4)              \ev  4    ; exact
-(max 3.9 4)            \ev  4.0  ; inexact%
-\end{scheme}
+(max 3.9 4)            \ev  4.0  ; inexact
+```
 
 \begin{note}
 If any argument is inexact, then the result will also be inexact (unless
@@ -894,13 +894,13 @@ restriction.
 
 These procedures return the sum or product of their arguments.
 
-\begin{scheme}
+```
 (+ 3 4)                 \ev  7
 (+ 3)                   \ev  3
 (+)                     \ev  0
 (* 4)                   \ev  4
-(*)                     \ev  1%
-\end{scheme}
+(*)                     \ev  1
+```
 
 \end{entry}
 
@@ -919,13 +919,13 @@ It is an error if any argument of {\cf /} other than the first is an exact zero.
 If the first argument is an exact zero, an implementation may return an
 exact zero unless one of the other arguments is a NaN.
 
-\begin{scheme}
+```
 (- 3 4)                 \ev  -1
 (- 3 4 5)               \ev  -6
 (- 3)                   \ev  -3
 (/ 3 4 5)               \ev  3/20
-(/ 3)                   \ev  1/3%
-\end{scheme}
+(/ 3)                   \ev  1/3
+```
 
 \end{entry}
 
@@ -934,9 +934,9 @@ exact zero unless one of the other arguments is a NaN.
 \proto{abs}{ x}{procedure}}
 
 The {\cf abs} procedure returns the absolute value of its argument.
-\begin{scheme}
-(abs -7)                \ev  7%
-\end{scheme}
+```
+(abs -7)                \ev  7
+```
 \end{entry}
 
 
@@ -956,11 +956,11 @@ quotient \vr{n_q} and remainder \vr{n_r} such that
 $\vri{n} = \vrii{n} \vr{n_q} + \vr{n_r}$.  For each of the
 division operators, there are three procedures defined as follows:
 
-\begin{scheme}
+```
 (\hyper{operator}/ \vri{n} \vrii{n})             \ev \vr{n_q} \vr{n_r}
 (\hyper{operator}-quotient \vri{n} \vrii{n})     \ev \vr{n_q}
-(\hyper{operator}-remainder \vri{n} \vrii{n})    \ev \vr{n_r}%
-\end{scheme}
+(\hyper{operator}-remainder \vri{n} \vrii{n})    \ev \vr{n_r}
+```
 
 The remainder \vr{n_r} is determined by the choice of integer
 \vr{n_q}: $\vr{n_r} = \vri{n} - \vrii{n} \vr{n_q}$.  Each set of
@@ -973,16 +973,16 @@ operators uses a different choice of \vr{n_q}:
 
 For any of the operators, and for integers \vri{n} and \vrii{n}
 with \vrii{n} not equal to 0,
-\begin{scheme}
+```
      (= \vri{n} (+ (* \vrii{n} (\hyper{operator}-quotient \vri{n} \vrii{n}))
            (\hyper{operator}-remainder \vri{n} \vrii{n})))
                                  \ev  \schtrue%
-\end{scheme}
+```
 provided all numbers involved in that computation are exact.
 
 Examples:
 
-\begin{scheme}
+```
 (floor/ 5 2)         \ev 2 1
 (floor/ -5 2)        \ev -3 1
 (floor/ 5 -2)        \ev -3 -1
@@ -991,8 +991,8 @@ Examples:
 (truncate/ -5 2)     \ev -2 -1
 (truncate/ 5 -2)     \ev -2 1
 (truncate/ -5 -2)    \ev 2 -1
-(truncate/ -5.0 -2)  \ev 2.0 -1.0%
-\end{scheme}
+(truncate/ -5.0 -2)  \ev 2.0 -1.0
+```
 
 \end{entry}
 
@@ -1019,13 +1019,13 @@ versions of this report.
 These procedures return the greatest common divisor or least common
 multiple of their arguments.  The result is always non-negative.
 
-\begin{scheme}
+```
 (gcd 32 -36)            \ev  4
 (gcd)                   \ev  0
 (lcm 32 -36)            \ev  288
 (lcm 32.0 -36)          \ev  288.0  ; inexact
-(lcm)                   \ev  1%
-\end{scheme}
+(lcm)                   \ev  1
+```
 
 \end{entry}
 
@@ -1039,12 +1039,12 @@ argument; the result is computed as if the argument was represented as
 a fraction in lowest terms.  The denominator is always positive.  The
 denominator of 0 is defined to be 1.
 
-\begin{scheme}
+```
 (numerator (/ 6 4))  \ev  3
 (denominator (/ 6 4))  \ev  2
 (denominator
-  (inexact (/ 6 4))) \ev 2.0%
-\end{scheme}
+  (inexact (/ 6 4))) \ev 2.0
+```
 
 \end{entry}
 
@@ -1076,7 +1076,7 @@ result can be passed to the {\cf exact} procedure.
 If the argument is infinite or a NaN, then it is returned.
 \end{note}
 
-\begin{scheme}
+```
 (floor -4.3)          \ev  -5.0
 (ceiling -4.3)        \ev  -4.0
 (truncate -4.3)       \ev  -4.0
@@ -1088,8 +1088,8 @@ If the argument is infinite or a NaN, then it is returned.
 (round 3.5)           \ev  4.0  ; inexact
 
 (round 7/2)           \ev  4    ; exact
-(round 7)             \ev  7%
-\end{scheme}
+(round 7)             \ev  7
+```
 
 \end{entry}
 
@@ -1108,11 +1108,11 @@ every other rational number in that interval (the simpler $2/5$ lies
 between $2/7$ and $3/5$).  Note that $0 = 0/1$ is the simplest rational of
 all.
 
-\begin{scheme}
+```
 (rationalize
   (exact .3) 1/10)  \ev 1/3    ; exact
-(rationalize .3 1/10)        \ev \#i1/3  ; inexact%
-\end{scheme}
+(rationalize .3 1/10)        \ev #i1/3  ; inexact
+```
 
 \end{entry}
 
@@ -1198,10 +1198,10 @@ result from a real argument.
 
 Returns the square of \vr{z}.
 This is equivalent to \texttt{({\cf *} \var{z} \var{z})}.
-\begin{scheme}
-(square 42)       \ev 1764
-(square 2.0)     \ev 4.0%
-\end{scheme}
+```
+(square 42)      \ev 1764
+(square 2.0)     \ev 4.0
+```
 
 %% Removing this since it's inaccurate and not reflective of the
 %% real rationale most members listed.  We need a proper rationale
@@ -1221,10 +1221,10 @@ Returns the principal square root of \vr{z}.  The result will have
 either a positive real part, or a zero real part and a non-negative imaginary
 part.
 
-\begin{scheme}
+```
 (sqrt 9)  \ev 3
-(sqrt -1) \ev +i%
-\end{scheme}
+(sqrt -1) \ev +i
+```
 \end{entry}
 
 
@@ -1234,10 +1234,10 @@ part.
 Returns two non-negative exact integers $s$ and $r$ where
 $\var{k} = s^2 + r$ and $\var{k} < (s+1)^2$.
 
-\begin{scheme}
+```
 (exact-integer-sqrt 4) \ev 2 0
-(exact-integer-sqrt 5) \ev 2 1%
-\end{scheme}
+(exact-integer-sqrt 5) \ev 2 1
+```
 \end{entry}
 
 
@@ -1267,14 +1267,16 @@ real numbers and \vr{z} be a complex number such that
  $$ \vr{z} = \vri{x} + \vrii{x}\hbox{$i$}
  = \vriii{x} \cdot e^{i x_4}$$
 Then all of
-\begin{scheme}
+
+```
 (make-rectangular \vri{x} \vrii{x}) \ev \vr{z}
 (make-polar \vriii{x} \vriv{x})     \ev \vr{z}
 (real-part \vr{z})                  \ev \vri{x}
 (imag-part \vr{z})                  \ev \vrii{x}
 (magnitude \vr{z})                  \ev $|\vriii{x}|$
-(angle \vr{z})                      \ev $x_{angle}$%
-\end{scheme}
+(angle \vr{z})                      \ev $x_{angle}$
+```
+
 are true, where $-\pi \le x_{angle} \le \pi$ with $x_{angle} = \vriv{x} + 2\pi n$
 for some integer $n$.
 
@@ -1347,14 +1349,14 @@ as well as being compatible with {{< rnrs 6 >}}.
 The procedure {\cf number\coerce{}string} takes a
 number and a radix and returns as a string an external representation of
 the given number in the given radix such that
-\begin{scheme}
+```
 (let ((number \vr{number})
       (radix \vr{radix}))
   (eqv? number
         (string->number (number->string number
                                         radix)
-                        radix)))%
-\end{scheme}
+                        radix)))
+```
 is true.  It is an error if no possible result makes this expression true.
 If omitted, \vr{radix} defaults to 10.
 
@@ -1400,11 +1402,11 @@ number that the implementation cannot represent, then {\cf string->number}
 returns \schfalse{}.
 An error is never signaled due to the content of \vr{string}.
 
-\begin{scheme}
+```
 (string->number "100")        \ev  100
 (string->number "100" 16)     \ev  256
-(string->number "1e2")        \ev  100.0%
-\end{scheme}
+(string->number "1e2")        \ev  100.0
+```
 
 \begin{note}
 The domain of {\cf string->number} may be restricted by implementations
@@ -1460,11 +1462,11 @@ from each other and from the symbol \ide{nil}.
 Boolean constants evaluate to themselves, so they do not need to be quoted
 in programs.
 
-\begin{scheme}
+```
 \schtrue         \ev  \schtrue
 \schfalse        \ev  \schfalse
-'\schfalse       \ev  \schfalse%
-\end{scheme}
+'\schfalse       \ev  \schfalse
+```
 
 
 \begin{entry}{%
@@ -1473,15 +1475,15 @@ in programs.
 The {\cf not} procedure returns \schtrue{} if \var{obj} is false, and returns
 \schfalse{} otherwise.
 
-\begin{scheme}
+```
 (not \schtrue)   \ev  \schfalse
 (not 3)          \ev  \schfalse
 (not (list 3))   \ev  \schfalse
 (not \schfalse)  \ev  \schtrue
 (not '())        \ev  \schfalse
 (not (list))     \ev  \schfalse
-(not 'nil)       \ev  \schfalse%
-\end{scheme}
+(not 'nil)       \ev  \schfalse
+```
 
 \end{entry}
 
@@ -1492,11 +1494,11 @@ The {\cf not} procedure returns \schtrue{} if \var{obj} is false, and returns
 The {\cf boolean?} predicate returns \schtrue{} if \var{obj} is either \schtrue{} or
 \schfalse{} and returns \schfalse{} otherwise.
 
-\begin{scheme}
+```
 (boolean? \schfalse)  \ev  \schtrue
 (boolean? 0)          \ev  \schfalse
-(boolean? '())        \ev  \schfalse%
-\end{scheme}
+(boolean? '())        \ev  \schfalse
+```
 
 \end{entry}
 
@@ -1554,15 +1556,15 @@ A more streamlined notation can be used for lists: the elements of the
 list are simply enclosed in parentheses and separated by spaces.  The
 empty list\index{empty list} is written {\tt()}.  For example,
 
-\begin{scheme}
-(a b c d e)%
-\end{scheme}
+```
+(a b c d e)
+```
 
 and
 
-\begin{scheme}
-(a . (b . (c . (d . (e . ())))))%
-\end{scheme}
+```
+(a . (b . (c . (d . (e . ())))))
+```
 
 are equivalent notations for a list of symbols.
 
@@ -1571,21 +1573,21 @@ A chain of pairs not ending in the empty list is called an
 The list and dotted notations can be combined to represent
 improper lists:
 
-\begin{scheme}
-(a b c . d)%
-\end{scheme}
+```
+(a b c . d)
+```
 
 is equivalent to
 
-\begin{scheme}
-(a . (b . (c . d)))%
-\end{scheme}
+```
+(a . (b . (c . d)))
+```
 
 Whether a given pair is a list depends upon what is stored in the cdr
 field.  When the \ide{set-cdr!} procedure is used, an object can be a
 list one moment and not the next:
 
-\begin{scheme}
+```
 (define x (list 'a 'b 'c))
 (define y x)
 y                       \ev  (a b c)
@@ -1596,8 +1598,8 @@ x                       \ev  (a . 4)
 y                       \ev  (a . 4)
 (list? y)               \ev  \schfalse
 (set-cdr! x x)          \ev  \unspecified
-(list? x)               \ev  \schfalse%
-\end{scheme}
+(list? x)               \ev  \schfalse
+```
 
 Within literal expressions and representations of objects read by the
 \ide{read} procedure, the forms \singlequote\hyper{datum}\schindex{'},
@@ -1619,12 +1621,12 @@ parse Scheme programs.  See section~\ref{externalreps}.
 The {\cf pair?} predicate returns \schtrue{} if \var{obj} is a pair, and otherwise
 returns \schfalse.
 
-\begin{scheme}
+```
 (pair? '(a . b))        \ev  \schtrue
 (pair? '(a b c))        \ev  \schtrue
 (pair? '())             \ev  \schfalse
-(pair? '\#(a b))         \ev  \schfalse%
-\end{scheme}
+(pair? '#(a b))         \ev  \schfalse
+```
 \end{entry}
 
 
@@ -1635,13 +1637,13 @@ Returns a newly allocated pair whose car is \vari{obj} and whose cdr is
 \varii{obj}.  The pair is guaranteed to be different (in the sense of
 {\cf eqv?}) from every existing object.
 
-\begin{scheme}
+```
 (cons 'a '())           \ev  (a)
 (cons '(a) '(b c d))    \ev  ((a) b c d)
 (cons "a" '(b c))       \ev  ("a" b c)
 (cons 'a 3)             \ev  (a . 3)
-(cons '(a b) 'c)        \ev  ((a b) . c)%
-\end{scheme}
+(cons '(a b) 'c)        \ev  ((a b) . c)
+```
 \end{entry}
 
 
@@ -1651,12 +1653,12 @@ Returns a newly allocated pair whose car is \vari{obj} and whose cdr is
 Returns the contents of the car field of \var{pair}.  Note that it is an
 error to take the car of the empty list\index{empty list}.
 
-\begin{scheme}
+```
 (car '(a b c))          \ev  a
 (car '((a) b c d))      \ev  (a)
 (car '(1 . 2))          \ev  1
-(car '())               \ev  \scherror%
-\end{scheme}
+(car '())               \ev  \scherror
+```
 
 \end{entry}
 
@@ -1667,11 +1669,11 @@ error to take the car of the empty list\index{empty list}.
 Returns the contents of the cdr field of \var{pair}.
 Note that it is an error to take the cdr of the empty list.
 
-\begin{scheme}
+```
 (cdr '((a) b c d))      \ev  (b c d)
 (cdr '(1 . 2))          \ev  2
-(cdr '())               \ev  \scherror%
-\end{scheme}
+(cdr '())               \ev  \scherror
+```
 
 \end{entry}
 
@@ -1680,12 +1682,12 @@ Note that it is an error to take the cdr of the empty list.
 \proto{set-car!}{ pair obj}{procedure}}
 
 Stores \var{obj} in the car field of \var{pair}.
-\begin{scheme}
+```
 (define (f) (list 'not-a-constant-list))
 (define (g) '(constant-list))
 (set-car! (f) 3)             \ev  \unspecified
-(set-car! (g) 3)             \ev  \scherror%
-\end{scheme}
+(set-car! (g) 3)             \ev  \scherror
+```
 
 \end{entry}
 
@@ -1708,12 +1710,12 @@ Stores \var{obj} in the cdr field of \var{pair}.
 
 These procedures are compositions of {\cf car} and {\cf cdr} as follows:
 
-\begin{scheme}
+```
 (define (caar x) (car (car x)))
 (define (cadr x) (car (cdr x)))
 (define (cdar x) (cdr (car x)))
-(define (cddr x) (cdr (cdr x)))%
-\end{scheme}
+(define (cddr x) (cdr (cdr x)))
+```
 
 \end{entry}
 
@@ -1734,9 +1736,9 @@ These twenty-four procedures are further compositions of {\cf car} and {\cf cdr}
 on the same principles.
 For example, {\cf caddr} could be defined by
 
-\begin{scheme}
-(define caddr (lambda (x) (car (cdr (cdr x))))){\rm.}%
-\end{scheme}
+```
+(define caddr (lambda (x) (car (cdr (cdr x))))){\rm.}
+```
 
 Arbitrary compositions up to four deep are provided.
 
@@ -1758,14 +1760,14 @@ Returns \schtrue{} if \var{obj} is a list.  Otherwise, it returns \schfalse{}.
 By definition, all lists have finite length and are terminated by
 the empty list.
 
-\begin{scheme}
+```
         (list? '(a b c))     \ev  \schtrue
         (list? '())          \ev  \schtrue
         (list? '(a . b))     \ev  \schfalse
         (let ((x (list 'a)))
           (set-cdr! x x)
-          (list? x))         \ev  \schfalse%
-\end{scheme}
+          (list? x))         \ev  \schfalse
+```
 
 
 \end{entry}
@@ -1778,9 +1780,9 @@ Returns a newly allocated list of \var{k} elements.  If a second
 argument is given, then each element is initialized to \var{fill}.
 Otherwise the initial contents of each element is unspecified.
 
-\begin{scheme}
-(make-list 2 3)   \ev   (3 3)%
-\end{scheme}
+```
+(make-list 2 3)   \ev   (3 3)
+```
 
 \end{entry}
 
@@ -1791,10 +1793,10 @@ Otherwise the initial contents of each element is unspecified.
 
 Returns a newly allocated list of its arguments.
 
-\begin{scheme}
+```
 (list 'a (+ 3 4) 'c)            \ev  (a 7 c)
-(list)                          \ev  ()%
-\end{scheme}
+(list)                          \ev  ()
+```
 \end{entry}
 
 
@@ -1803,11 +1805,11 @@ Returns a newly allocated list of its arguments.
 
 Returns the length of \var{list}.
 
-\begin{scheme}
+```
 (length '(a b c))               \ev  3
 (length '(a (b) (c d e)))       \ev  3
-(length '())                    \ev  0%
-\end{scheme}
+(length '())                    \ev  0
+```
 
 
 \end{entry}
@@ -1826,17 +1828,17 @@ structure with the last argument.
 An improper list results if the last argument is not a
 proper list.
 
-\begin{scheme}
+```
 (append '(x) '(y))              \ev  (x y)
 (append '(a) '(b c d))          \ev  (a b c d)
-(append '(a (b)) '((c)))        \ev  (a (b) (c))%
-\end{scheme}
+(append '(a (b)) '((c)))        \ev  (a (b) (c))
+```
 
 
-\begin{scheme}
+```
 (append '(a b) '(c . d))        \ev  (a b c . d)
-(append '() 'a)                 \ev  a%
-\end{scheme}
+(append '() 'a)                 \ev  a
+```
 \end{entry}
 
 
@@ -1846,10 +1848,10 @@ proper list.
 Returns a newly allocated list consisting of the elements of \var{list}
 in reverse order.
 
-\begin{scheme}
+```
 (reverse '(a b c))              \ev  (c b a)
-(reverse '(a (b c) d (e (f))))  \lev  ((e (f)) d (b c) a)%
-\end{scheme}
+(reverse '(a (b c) d (e (f))))  \lev  ((e (f)) d (b c) a)
+```
 \end{entry}
 
 
@@ -1861,13 +1863,13 @@ Returns the sublist of \var{list} obtained by omitting the first \vr{k}
 elements.
 The {\cf list-tail} procedure could be defined by
 
-\begin{scheme}
+```
 (define list-tail
   (lambda (x k)
     (if (zero? k)
         x
-        (list-tail (cdr x) (- k 1)))))%
-\end{scheme}
+        (list-tail (cdr x) (- k 1)))))
+```
 \end{entry}
 
 
@@ -1879,11 +1881,11 @@ it is an error if \var{list} has fewer than \vr{k} elements.}
 Returns the \vr{k}th element of \var{list}.  (This is the same
 as the car of {\tt(list-tail \var{list} \vr{k})}.)
 
-\begin{scheme}
+```
 (list-ref '(a b c d) 2)                 \ev  c
 (list-ref '(a b c d)
-          (exact (round 1.8))) \lev  c%
-\end{scheme}
+          (exact (round 1.8))) \lev  c
+```
 \end{entry}
 
 \begin{entry}{%
@@ -1891,13 +1893,13 @@ as the car of {\tt(list-tail \var{list} \vr{k})}.)
 
 \domain{It is an error if \vr{k} is not a valid index of \var{list}.}
 The {\cf list-set!} procedure stores \var{obj} in element \vr{k} of \var{list}.
-\begin{scheme}
+```
 (let ((ls (list 'one 'two 'five!)))
   (list-set! ls 2 'three)
   ls)      \lev  (one two three)
 
-(list-set! '(0 1 2) 1 "oops")  \lev  \scherror  ; constant list%
-\end{scheme}
+(list-set! '(0 1 2) 1 "oops")  \lev  \scherror  ; constant list
+```
 \end{entry}
 
 
@@ -1918,7 +1920,7 @@ returned.  The {\cf memq} procedure uses {\cf eq?}\ to compare \var{obj} with th
 \var{list}, while {\cf memv} uses {\cf eqv?} and
 {\cf member} uses \var{compare}, if given, and {\cf equal?} otherwise.
 
-\begin{scheme}
+```
 (memq 'a '(a b c))              \ev  (a b c)
 (memq 'b '(a b c))              \ev  (b c)
 (memq 'a '(b c d))              \ev  \schfalse
@@ -1929,8 +1931,8 @@ returned.  The {\cf memq} procedure uses {\cf eq?}\ to compare \var{obj} with th
         '("a" "b" "c")
         string-ci=?)            \ev  ("b" "c")
 (memq 101 '(100 101 102))       \ev  \unspecified
-(memv 101 '(100 101 102))       \ev  (101 102)%
-\end{scheme}
+(memv 101 '(100 101 102))       \ev  (101 102)
+```
 
 \end{entry}
 
@@ -1950,7 +1952,7 @@ car, then \schfalse{} (not the empty list) is returned.  The {\cf assq} procedur
 while {\cf assv} uses {\cf eqv?}\ and {\cf assoc} uses \var{compare} if given
 and {\cf equal?} otherwise.
 
-\begin{scheme}
+```
 (define e '((a 1) (b 2) (c 3)))
 (assq 'a e)     \ev  (a 1)
 (assq 'b e)     \ev  (b 2)
@@ -1964,8 +1966,8 @@ and {\cf equal?} otherwise.
 (assq 5 '((2 3) (5 7) (11 13)))
                            \ev  \unspecified
 (assv 5 '((2 3) (5 7) (11 13)))
-                           \ev  (5 7)%
-\end{scheme}
+                           \ev  (5 7)
+```
 
 
 \begin{rationale}
@@ -1987,13 +1989,13 @@ cdrs are the same in the sense of {\cf eqv?}.
 An \var{obj} which is not a list is returned unchanged.
 It is an error if \var{obj} is a circular list.
 
-\begin{scheme}
+```
 (define a '(1 8 2 8)) ; a may be immutable
 (define b (list-copy a))
 (set-car! b 3)        ; b is mutable
 b \ev (3 8 2 8)
-a \ev (1 8 2 8)%
-\end{scheme}
+a \ev (1 8 2 8)
+```
 
 \end{entry}
 
@@ -2029,14 +2031,14 @@ implementation-dependent extensions.
 
 Returns \schtrue{} if \var{obj} is a symbol, otherwise returns \schfalse.
 
-\begin{scheme}
+```
 (symbol? 'foo)          \ev  \schtrue
 (symbol? (car '(a b)))  \ev  \schtrue
 (symbol? "bar")         \ev  \schfalse
 (symbol? 'nil)          \ev  \schtrue
 (symbol? '())           \ev  \schfalse
-(symbol? \schfalse)     \ev  \schfalse%
-\end{scheme}
+(symbol? \schfalse)     \ev  \schfalse
+```
 \end{entry}
 
 \begin{entry}{%
@@ -2060,14 +2062,14 @@ It is an error
 to apply mutation procedures like \ide{string-set!} to strings returned
 by this procedure.
 
-\begin{scheme}
+```
 (symbol->string 'flying-fish)
                                   \ev  "flying-fish"
 (symbol->string 'Martin)          \ev  "Martin"
 (symbol->string
    (string->symbol "Malvina"))
-                                  \ev  "Malvina"%
-\end{scheme}
+                                  \ev  "Malvina"
+```
 \end{entry}
 
 
@@ -2078,8 +2080,8 @@ Returns the symbol whose name is \var{string}.  This procedure can
 create symbols with names containing special characters that would
 require escaping when written, but does not interpret escapes in its input.
 
-\begin{scheme}
-(string->symbol "mISSISSIppi")  \lev%
+```
+(string->symbol "mISSISSIppi")  \lev
   mISSISSIppi
 (eqv? 'bitBlt (string->symbol "bitBlt"))     \lev  \schtrue
 (eqv? 'LollyPop
@@ -2087,8 +2089,8 @@ require escaping when written, but does not interpret escapes in its input.
        (symbol->string 'LollyPop)))  \lev  \schtrue
 (string=? "K. Harper, M.D."
           (symbol->string
-            (string->symbol "K. Harper, M.D.")))  \lev  \schtrue%
-\end{scheme}
+            (string->symbol "K. Harper, M.D.")))  \lev  \schtrue
+```
 
 \end{entry}
 
@@ -2163,7 +2165,7 @@ ignore case have \hbox{"{\tt -ci}"} (for "case
 insensitive") embedded in their names.
 
 
-\begin{entry}{%
+\begin{entry}{
 \proto{char?}{ obj}{procedure}}
 
 Returns \schtrue{} if \var{obj} is a character, otherwise returns \schfalse.
@@ -2171,7 +2173,7 @@ Returns \schtrue{} if \var{obj} is a character, otherwise returns \schfalse.
 \end{entry}
 
 
-\begin{entry}{%
+\begin{entry}{
 \proto{char=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}
 \proto{char<?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}
 \proto{char>?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}
@@ -2208,7 +2210,7 @@ applied to their arguments before they were compared.
 \end{entry}
 
 
-\begin{entry}{%
+\begin{entry}{
 \proto{char-alphabetic?}{ char}{char library procedure}
 \proto{char-numeric?}{ char}{char library procedure}
 \proto{char-whitespace?}{ char}{char library procedure}
@@ -2235,12 +2237,12 @@ This procedure returns the numeric value (0 to 9) of its argument
 if it is a numeric digit (that is, if {\cf char-numeric?} returns \schtrue{}),
 or \schfalse{} on any other character.
 
-\begin{scheme}
-(digit-value \#\backwhack{}3) \ev 3
-(digit-value \#\backwhack{}x0664) \ev 4
-(digit-value \#\backwhack{}x0AE6) \ev 0
-(digit-value \#\backwhack{}x0EA6) \ev \schfalse%
-\end{scheme}
+```
+(digit-value #\3) \ev 3
+(digit-value #\x0664) \ev 4
+(digit-value #\x0AE6) \ev 0
+(digit-value #\x0EA6) \ev \schfalse
+```
 \end{entry}
 
 
@@ -2333,13 +2335,13 @@ the string.
 
 Examples:
 
-\begin{scheme}
-"The word \backwhack{}"recursion\backwhack{}" has many meanings."
-"Another example:\backwhack{}ntwo lines of text"
-"Here's text \backwhack{}
+```
+"The word \"recursion\" has many meanings."
+"Another example:\ntwo lines of text"
+"Here's text \
    containing just one line"
-"\backwhack{}x03B1; is named GREEK SMALL LETTER ALPHA."%
-\end{scheme}
+"\x03B1; is named GREEK SMALL LETTER ALPHA."
+```
 
 The {\em length} of a string is the number of characters that it
 contains.  This number is an exact, non-negative integer that is fixed when the
@@ -2420,15 +2422,15 @@ There is no requirement for this procedure to execute in constant time.
 The {\cf string-set!} procedure stores \var{char} in element \vr{k} of \var{string}.
 There is no requirement for this procedure to execute in constant time.
 
-\begin{scheme}
-(define (f) (make-string 3 \sharpsign\backwhack{}*))
+```
+(define (f) (make-string 3 #\*))
 (define (g) "***")
-(string-set! (f) 0 \sharpsign\backwhack{}?)  \ev  \unspecified
-(string-set! (g) 0 \sharpsign\backwhack{}?)  \ev  \scherror
+(string-set! (f) 0 #\?)  \ev  \unspecified
+(string-set! (g) 0 #\?)  \ev  \scherror
 (string-set! (symbol->string 'immutable)
              0
-             \sharpsign\backwhack{}?)  \ev  \scherror%
-\end{scheme}
+             #\?)  \ev  \scherror
+```
 
 \end{entry}
 
@@ -2582,12 +2584,12 @@ string and then into the destination.  This can be achieved without
 allocating storage by making sure to copy in the correct direction in
 such circumstances.
 
-\begin{scheme}
+```
 (define a "12345")
 (define b (string-copy "abcde"))
 (string-copy! b 1 a 0 2)
-b \ev "a12de"%
-\end{scheme}
+b \ev "a12de"
+```
 
 \end{entry}
 
@@ -2626,9 +2628,9 @@ For example, a vector of length 3 containing the number zero in element
 0, the list {\cf(2 2 2 2)} in element 1, and the string {\cf "Anna"} in
 element 2 can be written as follows:
 
-\begin{scheme}
-\#(0 (2 2 2 2) "Anna")%
-\end{scheme}
+```
+#(0 (2 2 2 2) "Anna")
+```
 
 Vector constants are self-evaluating, so they do not need to be quoted in programs.
 
@@ -2656,9 +2658,9 @@ Otherwise the initial contents of each element is unspecified.
 Returns a newly allocated vector whose elements contain the given
 arguments.  It is analogous to {\cf list}.
 
-\begin{scheme}
-(vector 'a 'b 'c)               \ev  \#(a b c)%
-\end{scheme}
+```
+(vector 'a 'b 'c)               \ev  #(a b c)
+```
 \end{entry}
 
 
@@ -2676,13 +2678,13 @@ Returns the number of elements in \var{vector} as an exact integer.
 The {\cf vector-ref} procedure returns the contents of element \vr{k} of
 \var{vector}.
 
-\begin{scheme}
-(vector-ref '\#(1 1 2 3 5 8 13 21)
+```
+(vector-ref '#(1 1 2 3 5 8 13 21)
             5)  \lev  8
-(vector-ref '\#(1 1 2 3 5 8 13 21)
+(vector-ref '#(1 1 2 3 5 8 13 21)
             (exact
-             (round (* 2 (acos -1))))) \lev 13%
-\end{scheme}
+             (round (* 2 (acos -1))))) \lev 13
+```
 \end{entry}
 
 
@@ -2691,13 +2693,14 @@ The {\cf vector-ref} procedure returns the contents of element \vr{k} of
 
 \domain{It is an error if \vr{k} is not a valid index of \var{vector}.}
 The {\cf vector-set!} procedure stores \var{obj} in element \vr{k} of \var{vector}.
-\begin{scheme}
+
+```
 (let ((vec (vector 0 '(2 2 2 2) "Anna")))
   (vector-set! vec 1 '("Sue" "Sue"))
-  vec)      \lev  \#(0 ("Sue" "Sue") "Anna")
+  vec)      \lev  #(0 ("Sue" "Sue") "Anna")
 
-(vector-set! '\#(0 1 2) 1 "doe")  \lev  \scherror  ; constant vector%
-\end{scheme}
+(vector-set! '#(0 1 2) 1 "doe")  \lev  \scherror  ; constant vector
+```
 \end{entry}
 
 
@@ -2714,11 +2717,11 @@ created vector initialized to the elements of the list \var{list}.
 
 In both procedures, order is preserved.
 
-\begin{scheme}
-(vector->list '\#(dah dah didah))  \lev  (dah dah didah)
-(vector->list '\#(dah dah didah) 1 2) \lev (dah)
-(list->vector '(dididit dah))   \lev  \#(dididit dah)%
-\end{scheme}
+```
+(vector->list '#(dah dah didah))  \lev  (dah dah didah)
+(vector->list '#(dah dah didah) 1 2) \lev (dah)
+(list->vector '(dididit dah))   \lev  #(dididit dah)
+```
 \end{entry}
 
 \begin{entry}{%
@@ -2742,11 +2745,11 @@ between \var{start} and \var{end}.
 In both procedures, order is preserved.
 
 
-\begin{scheme}
-(string->vector "ABC")  \ev   \#(\#\backwhack{}A \#\backwhack{}B \#\backwhack{}C)
+```
+(string->vector "ABC")  \ev   #(#\A #\B #\C)
 (vector->string
-  \#(\#\backwhack{}1 \#\backwhack{}2 \#\backwhack{}3) \ev "123"
-\end{scheme}
+  #(#\1 #\2 #\3) \ev "123"
+```
 \end{entry}
 
 \begin{entry}{%
@@ -2760,14 +2763,14 @@ The elements of the new vector are the same (in the sense of
 {\cf eqv?}) as the elements of the old.
 
 
-\begin{scheme}
-(define a \#(1 8 2 8)) ; a may be immutable
+```
+(define a #(1 8 2 8)) ; a may be immutable
 (define b (vector-copy a))
 (vector-set! b 0 3)   ; b is mutable
-b \ev \#(3 8 2 8)
+b \ev #(3 8 2 8)
 (define c (vector-copy b 1 3))
-c \ev \#(8 2)%
-\end{scheme}
+c \ev #(8 2)
+```
 
 \end{entry}
 
@@ -2787,12 +2790,12 @@ vector and then into the destination.  This can be achieved without
 allocating storage by making sure to copy in the correct direction in
 such circumstances.
 
-\begin{scheme}
+```
 (define a (vector 1 2 3 4 5))
 (define b (vector 10 20 30 40 50))
 (vector-copy! b 1 a 0 2)
-b \ev \#(10 1 2 40 50)%
-\end{scheme}
+b \ev #(10 1 2 40 50)
+```
 
 \end{entry}
 
@@ -2802,9 +2805,9 @@ b \ev \#(10 1 2 40 50)%
 Returns a newly allocated vector whose elements are the concatenation
 of the elements of the given vectors.
 
-\begin{scheme}
-(vector-append \#(a b c) \#(d e f)) \lev \#(a b c d e f)%
-\end{scheme}
+```
+(vector-append #(a b c) #(d e f)) \lev #(a b c d e f)
+```
 
 \end{entry}
 
@@ -2817,11 +2820,11 @@ The {\cf vector-fill!} procedure stores \var{fill}
 in the elements of \var{vector}
 between \var{start} and \var{end}.
 
-\begin{scheme}
+```
 (define a (vector 1 2 3 4 5))
 (vector-fill! a 'smash 2 4)
-a \lev \#(1 2 smash smash 5)%
-\end{scheme}
+a \lev #(1 2 smash smash 5)
+```
 
 \end{entry}
 
@@ -2846,9 +2849,9 @@ For example, a bytevector of length 3 containing the byte 0 in element
 0, the byte 10 in element 1, and the byte 5 in
 element 2 can be written as follows:
 
-\begin{scheme}
+```
 \#u8(0 10 5)%
-\end{scheme}
+```
 
 Bytevector constants are self-evaluating, so they do not need to be quoted in programs.
 
@@ -2869,9 +2872,9 @@ length \vr{k}.  If \var{byte} is given, then all elements of the bytevector
 are initialized to \var{byte}, otherwise the contents of each
 element are unspecified.
 
-\begin{scheme}
-(make-bytevector 2 12) \ev \#u8(12 12)%
-\end{scheme}
+```
+(make-bytevector 2 12) \ev \#u8(12 12)
+```
 
 \end{entry}
 
@@ -2880,10 +2883,10 @@ element are unspecified.
 
 Returns a newly allocated bytevector containing its arguments.
 
-\begin{scheme}
+```
 (bytevector 1 3 5 1 3 5)        \ev  \#u8(1 3 5 1 3 5)
-(bytevector)                          \ev  \#u8()%
-\end{scheme}
+(bytevector)                          \ev  \#u8()
+```
 \end{entry}
 
 \begin{entry}{%
@@ -2898,10 +2901,10 @@ Returns the length of \var{bytevector} in bytes as an exact integer.
 \domain{It is an error if \vr{k} is not a valid index of \var{bytevector}.}
 Returns the \var{k}th byte of \var{bytevector}.
 
-\begin{scheme}
+```
 (bytevector-u8-ref '\#u8(1 1 2 3 5 8 13 21)
-            5)  \lev  8%
-\end{scheme}
+            5)  \lev  8
+```
 \end{entry}
 
 \begin{entry}{%
@@ -2909,11 +2912,12 @@ Returns the \var{k}th byte of \var{bytevector}.
 
 \domain{It is an error if \vr{k} is not a valid index of \var{bytevector}.}
 Stores \var{byte} as the \var{k}th byte of \var{bytevector}.
-\begin{scheme}
+
+```
 (let ((bv (bytevector 1 2 3 4)))
   (bytevector-u8-set! bv 1 3)
-  bv) \lev \#u8(1 3 3 4)%
-\end{scheme}
+  bv) \lev \#u8(1 3 3 4)
+```
 \end{entry}
 
 \begin{entry}{%
@@ -2924,10 +2928,10 @@ Stores \var{byte} as the \var{k}th byte of \var{bytevector}.
 Returns a newly allocated bytevector containing the bytes in \var{bytevector}
 between \var{start} and \var{end}.
 
-\begin{scheme}
+```
 (define a \#u8(1 2 3 4 5))
-(bytevector-copy a 2 4)) \ev \#u8(3 4)%
-\end{scheme}
+(bytevector-copy a 2 4)) \ev \#u8(3 4)
+```
 
 \end{entry}
 
@@ -2947,12 +2951,12 @@ bytevector and then into the destination.  This can be achieved without
 allocating storage by making sure to copy in the correct direction in
 such circumstances.
 
-\begin{scheme}
+```
 (define a (bytevector 1 2 3 4 5))
 (define b (bytevector 10 20 30 40 50))
 (bytevector-copy! b 1 a 0 2)
-b \ev \#u8(10 1 2 40 50)%
-\end{scheme}
+b \ev \#u8(10 1 2 40 50)
+```
 
 \begin{note}
 This procedure appears in {{< rnrs 6 >}}, but places the source before the destination,
@@ -2967,9 +2971,9 @@ contrary to other such procedures in Scheme.
 Returns a newly allocated bytevector whose elements are the concatenation
 of the elements in the given bytevectors.
 
-\begin{scheme}
+```
 (bytevector-append \#u8(0 1 2) \#u8(3 4 5)) \lev \#u8(0 1 2 3 4 5)%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -2992,10 +2996,10 @@ the {\cf string\coerce{}utf8} procedure encodes the characters of a
 string between \var{start} and \var{end}
 and returns the corresponding bytevector.
 
-\begin{scheme}
+```
 (utf8->string \#u8(\#x41)) \ev "A"
-(string->utf8 "$\lambda$") \ev \#u8(\#xCE \#xBB)%
-\end{scheme}
+(string->utf8 "$\lambda$") \ev \#u8(\#xCE \#xBB)
+```
 
 \end{entry}
 
@@ -3014,7 +3018,7 @@ The {\cf procedure?}\ predicate is also described here.
 
 Returns \schtrue{} if \var{obj} is a procedure, otherwise returns \schfalse.
 
-\begin{scheme}
+```
 (procedure? car)            \ev  \schtrue
 (procedure? 'car)           \ev  \schfalse
 (procedure? (lambda (x) (* x x)))
@@ -3023,7 +3027,7 @@ Returns \schtrue{} if \var{obj} is a procedure, otherwise returns \schfalse.
                             \ev  \schfalse
 (call-with-current-continuation procedure?)
                             \ev  \schtrue%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3035,7 +3039,7 @@ The {\cf apply} procedure calls \var{proc} with the elements of the list
 {\cf(append (list \vari{arg} \dotsfoo) \var{args})} as the actual
 arguments.
 
-\begin{scheme}
+```
 (apply + (list 3 4))              \ev  7
 
 (define compose
@@ -3044,7 +3048,7 @@ arguments.
       (f (apply g args)))))
 
 ((compose sqrt *) 12 75)              \ev  30%
-\end{scheme}
+```
 \end{entry}
 
 
@@ -3064,7 +3068,7 @@ The dynamic order in which \var{proc} is applied to the elements of the
 \var{list}s is unspecified.  If multiple returns occur from {\cf map},
 the values returned by earlier returns are not mutated.
 
-\begin{scheme}
+```
 (map cadr '((a b) (d e) (g h)))   \lev  (b e h)
 
 (map (lambda (n) (expt n n))
@@ -3077,7 +3081,7 @@ the values returned by earlier returns are not mutated.
          (set! count (+ count 1))
          count)
        '(a b)))                 \ev  (1 2) \var{or} (2 1)%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3097,7 +3101,7 @@ The dynamic order in which \var{proc} is applied to the elements of the
 If multiple returns occur from {\cf string-map},
 the values returned by earlier returns are not mutated.
 
-\begin{scheme}
+```
 (string-map char-foldcase "AbdEgH") \lev  "abdegh"
 
 (string-map
@@ -3111,7 +3115,7 @@ the values returned by earlier returns are not mutated.
     c))
  "studlycaps xxx"
  "ululululul")   \lev   "StUdLyCaPs"%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3130,7 +3134,7 @@ The dynamic order in which \var{proc} is applied to the elements of the
 If multiple returns occur from {\cf vector-map},
 the values returned by earlier returns are not mutated.
 
-\begin{scheme}
+```
 (vector-map cadr '\#((a b) (d e) (g h)))   \lev  \#(b e h)
 
 (vector-map (lambda (n) (expt n n))
@@ -3144,7 +3148,7 @@ the values returned by earlier returns are not mutated.
      (set! count (+ count 1))
      count)
    '\#(a b)))                     \ev  \#(1 2) \var{or} \#(2 1)%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3165,13 +3169,13 @@ The \var{list}s can be circular, but it is an error if all of them are circular.
 
 It is an error for \var{proc} to mutate any of the lists.
 
-\begin{scheme}
+```
 (let ((v (make-vector 5)))
   (for-each (lambda (i)
               (vector-set! v i (* i i)))
             '(0 1 2 3 4))
   v)                                \ev  \#(0 1 4 9 16)%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3190,13 +3194,13 @@ If more than one \var{string} is given and not all strings have the same length,
 {\cf string-for-each} terminates when the shortest string runs out.
 It is an error for \var{proc} to mutate any of the strings.
 
-\begin{scheme}
+```
 (let ((v '()))
   (string-for-each
    (lambda (c) (set! v (cons (char->integer c) v)))
    "abcde")
   v)                         \ev  (101 100 99 98 97)%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3215,13 +3219,13 @@ If more than one \var{vector} is given and not all vectors have the same length,
 {\cf vector-for-each} terminates when the shortest vector runs out.
 It is an error for \var{proc} to mutate any of the vectors.
 
-\begin{scheme}
+```
 (let ((v (make-list 5)))
   (vector-for-each
    (lambda (i) (list-set! v i (* i i)))
    '\#(0 1 2 3 4))
   v)                                \ev  (0 1 4 9 16)%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3273,7 +3277,7 @@ The following examples show only the simplest ways in which
 simple as these examples, there would be no need for a procedure with
 the power of {\cf call-with-current-continuation}.
 
-\begin{scheme}
+```
 (call-with-current-continuation
   (lambda (exit)
     (for-each (lambda (x)
@@ -3297,7 +3301,7 @@ the power of {\cf call-with-current-continuation}.
 (list-length '(1 2 3 4))            \ev  4
 
 (list-length '(a b . c))            \ev  \schfalse%
-\end{scheme}
+```
 
 \begin{rationale}
 
@@ -3362,11 +3366,11 @@ continuation.
 
 Delivers all of its arguments to its continuation.
 The {\tt values} procedure might be defined as follows:
-\begin{scheme}
+```
 (define (values . things)
   (call-with-current-continuation
     (lambda (cont) (apply cont things))))%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3379,13 +3383,13 @@ a continuation that, when passed some values, calls the
 The continuation for the call to \var{consumer} is the
 continuation of the call to {\tt call-with-values}.
 
-\begin{scheme}
+```
 (call-with-values (lambda () (values 4 5))
                   (lambda (a b) b))
                                                    \ev  5
 
 (call-with-values * -)                             \ev  -1%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3441,7 +3445,7 @@ is called first.
 The effect of using a captured continuation to enter or exit the dynamic
 extent of a call to \var{before} or \var{after} is unspecified.
 
-\begin{scheme}
+```
 (let ((path '())
       (c \#f))
   (let ((add (lambda (s)
@@ -3459,7 +3463,7 @@ extent of a call to \var{before} or \var{after} is unspecified.
         (reverse path))))
     \lev (connect talk1 disconnect
                connect talk2 disconnect)%
-\end{scheme}
+```
 \end{entry}
 
 ## 6.11. Exceptions
@@ -3491,7 +3495,7 @@ The {\cf with-exception-handler} procedure returns the results of invoking
 exception handler
 in the dynamic environment used for the invocation of \var{thunk}.
 
-\begin{scheme}
+```
 (call-with-current-continuation
  (lambda (k)
   (with-exception-handler
@@ -3511,7 +3515,7 @@ in the dynamic environment used for the invocation of \var{thunk}.
  (lambda ()
   (+ 1 (raise 'an-error))))
  \>{\em prints}  something went wrong%
-\end{scheme}
+```
 
 After printing, the second example then raises another exception.
 \end{entry}
@@ -3543,7 +3547,7 @@ handler returns, the values it returns become the values returned by
 the call to {\cf raise-continuable}.
 \end{entry}
 
-\begin{scheme}
+```
 (with-exception-handler
   (lambda (con)
     (cond
@@ -3557,7 +3561,7 @@ the call to {\cf raise-continuable}.
        23)))
    {\it prints:} should be a number
    \ev 65%
-\end{scheme}
+```
 
 \begin{entry}{%
 \proto{error}{ \var{message} \var{obj} $\ldots$}{procedure}}
@@ -3569,7 +3573,7 @@ the information provided by \var{message},
 as well as any \var{obj}s, known as the \defining{irritants}.
 The procedure {\cf error-object?} must return \schtrue{} on such objects.
 
-\begin{scheme}
+```
 (define (null-list? l)
   (cond ((pair? l) \#f)
         ((null? l) \#t)
@@ -3577,7 +3581,7 @@ The procedure {\cf error-object?} must return \schtrue{} on such objects.
           (error
             "null-list?: argument out of domain"
             l))))%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3701,7 +3705,7 @@ If it is a definition, the specified identifier(s) are defined in the specified
 environment, provided the environment is not immutable.
 Implementations may extend {\cf eval} to allow other objects.
 
-\begin{scheme}
+```
 (eval '(* 7 3) (environment '(scheme base)))
                                                    \ev  21
 
@@ -3712,7 +3716,7 @@ Implementations may extend {\cf eval} to allow other objects.
 (eval '(define foo 32)
       (environment '(scheme base)))
                                                    \ev {\it{} error is signaled}%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -3915,7 +3919,7 @@ characters that have been output to the port so far in the order they
 were output.
 If the result string is modified, the effect is unspecified.
 
-\begin{scheme}
+```
 (parameterize
     ((current-output-port
       (open-output-string)))
@@ -3925,7 +3929,7 @@ If the result string is modified, the effect is unspecified.
     (newline)
     (get-output-string (current-output-port)))
 \lev "piece by piece by piece.\backwhack{}n"%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -4436,9 +4440,9 @@ of the environment variable.  It is an error if \\
 {\cf get-environment-variable} can't decode the value.
 It is also an error to mutate the resulting string.
 
-\begin{scheme}
+```
 (get-environment-variable "PATH") \lev "/usr/local/bin:/usr/bin:/bin"%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -4450,9 +4454,9 @@ alist, where the car of each entry is the name of an environment
 variable and the cdr is its value, both as strings.  The order of the list is unspecified.
 It is an error to mutate any of these strings or the alist itself.
 
-\begin{scheme}
+```
 (get-environment-variables) \lev (("USER" . "root") ("HOME" . "/"))%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -4496,14 +4500,14 @@ return integers which have to be allocated for most calls, rendering
 Returns an exact integer representing the number of jiffies per SI
 second. This value is an implementation-specified constant.
 
-\begin{scheme}
+```
 (define (time-length)
   (let ((list (make-list 100000))
         (start (current-jiffy)))
     (length list)
     (/ (- (current-jiffy) start)
        (jiffies-per-second))))%
-\end{scheme}
+```
 \end{entry}
 
 \begin{entry}{%
@@ -4513,12 +4517,12 @@ Returns a list of the feature identifiers which {\cf cond-expand}
 treats as true.  It is an error to modify this list.  Here is an
 example of what {\cf features} might return:
 
-\begin{scheme}
+```
 (features) \ev
   (r7rs ratios exact-complex full-unicode
    gnu-linux little-endian
    fantastic-scheme
    fantastic-scheme-1.0
    space-ship-control-system)%
-\end{scheme}
+```
 \end{entry}

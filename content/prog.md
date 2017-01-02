@@ -53,9 +53,9 @@ mapping from the name of a library to its location in the file system.
 \mainschindex{import}
 
 An import declaration takes the following form:
-\begin{scheme}
+```
 (import \hyper{import-set} \dotsfoo)
-\end{scheme}
+```
 
 An import declaration provides a way to import identifiers
 exported by a library.  Each \hyper{import set} names a set of bindings
@@ -125,32 +125,32 @@ takes one of the following forms:\mainschindex{define}
 sequence of zero or more variables, or a sequence of one or more
 variables followed by a space-delimited period and another variable (as
 in a lambda expression).  This form is equivalent to
-\begin{scheme}
+```
 (define \hyper{variable}
   (lambda (\hyper{formals}) \hyper{body}))\rm.%
-\end{scheme}
+```
 
 \item{\tt(define (\hyper{variable} .\ \hyper{formal}) \hyper{body})}
 
 \hyper{Formal} is a single
 variable.  This form is equivalent to
-\begin{scheme}
+```
 (define \hyper{variable}
   (lambda \hyper{formal} \hyper{body}))\rm.%
-\end{scheme}
+```
 
 \end{itemize}
 
 ### 5.3.1. Top level definitions
 
 At the outermost level of a program, a definition
-\begin{scheme}
+```
 (define \hyper{variable} \hyper{expression})%
-\end{scheme}
+```
 has essentially the same effect as the assignment expression
-\begin{scheme}
+```
 (\ide{set!}\ \hyper{variable} \hyper{expression})%
-\end{scheme}
+```
 if \hyper{variable} is bound to a non-syntax value.  However, if
 \hyper{variable} is not bound,
 or is a syntactic keyword,
@@ -159,13 +159,13 @@ then the definition will bind
 whereas it would be an error to perform a {\cf set!}\ on an
 unbound\index{unbound} variable.
 
-\begin{scheme}
+```
 (define add3
   (lambda (x) (+ x 3)))
 (add3 3)                            \ev  6
 (define first car)
 (first '(1 2))                      \ev  1%
-\end{scheme}
+```
 
 ### 5.3.2. Internal definitions
 \label{internaldefines}
@@ -182,12 +182,12 @@ The variables defined by internal definitions are local to the
 \hyper{body}.  That is, \hyper{variable} is bound rather than assigned,
 and the region of the binding is the entire \hyper{body}.  For example,
 
-\begin{scheme}
+```
 (let ((x 5))
   (define foo (lambda (y) (bar x y)))
   (define bar (lambda (a b) (+ (* a b) a)))
   (foo (+ x 3)))                \ev  45%
-\end{scheme}
+```
 
 An expanded \hyper{body} containing internal definitions
 can always be
@@ -195,12 +195,12 @@ converted into a completely equivalent {\cf letrec*} expression.  For
 example, the {\cf let} expression in the above example is equivalent
 to
 
-\begin{scheme}
+```
 (let ((x 5))
   (letrec* ((foo (lambda (y) (bar x y)))
             (bar (lambda (a b) (+ (* a b) a))))
     (foo (+ x 3))))%
-\end{scheme}
+```
 
 Just as for the equivalent {\cf letrec*} expression, it is an error if it is not
 possible to evaluate each \hyper{expression} of every internal
@@ -234,14 +234,14 @@ to the return values in the same way that the \hyper{formals} in a
 {\cf lambda} expression are matched to the arguments in a procedure
 call.
 
-\begin{scheme}
+```
 (define-values (x y) (integer-sqrt 17))
 (list x y) \ev (4 1)
 
 (let ()
   (define-values (x y) (values 1 2))
   (+ x y))     \ev 3%
-\end{scheme}
+```
 
 \end{entry}
 
@@ -267,7 +267,7 @@ Any use of a syntax keyword before its corresponding definition is an error.
 In particular, a use that precedes an inner definition will not apply an outer
 definition.
 
-\begin{scheme}
+```
 (let ((x 1) (y 2))
   (define-syntax swap!
     (syntax-rules ()
@@ -277,7 +277,7 @@ definition.
          (set! b tmp)))))
   (swap! x y)
   (list x y))                \ev (2 1)%
-\end{scheme}
+```
 
 
 
@@ -292,7 +292,7 @@ to determine the boundary between the internal definitions and the
 expressions of the body it belongs to. For example, the following are
 errors:
 
-\begin{scheme}
+```
 (define define 3)
 
 (begin (define begin list))
@@ -307,7 +307,7 @@ errors:
     (foo (plus x y) (+ x y))
     (define foo x)
     (plus foo x)))%
-\end{scheme}
+```
 
 ## 5.5. Record-type definitions
 \label{usertypes}
@@ -328,17 +328,17 @@ mutators are defined for each record type.
 \syntax
 \hyper{name} and \hyper{pred} are identifiers.
 The \hyper{constructor} is of the form
-\begin{scheme}
+```
 (\hyper{constructor name} \hyper{field name} \dotsfoo)%
-\end{scheme}
+```
 and each \hyper{field} is either of the form
-\begin{scheme}
+```
 (\hyper{field name} \hyper{accessor name})%
-\end{scheme}
+```
 or of the form
-\begin{scheme}
+```
 (\hyper{field name} \hyper{accessor name} \hyper{modifier name})%
-\end{scheme}
+```
 
 It is an error for the same identifier to occur more than once as a
 field name.
@@ -388,19 +388,19 @@ means to identify the record type for use by further language extensions.
 
 For instance, the following record-type definition
 
-\begin{scheme}
+```
 (define-record-type <pare>
   (kons x y)
   pare?
   (x kar set-kar!)
   (y kdr))
-\end{scheme}
+```
 
 defines {\cf kons} to be a constructor, {\cf kar} and {\cf kdr}
 to be accessors, {\cf set-kar!} to be a modifier, and {\cf pare?}
 to be a predicate for instances of {\cf <pare>}.
 
-\begin{scheme}
+```
   (pare? (kons 1 2))        \ev \schtrue
   (pare? (cons 1 2))        \ev \schfalse
   (kar (kons 1 2))          \ev 1
@@ -408,7 +408,7 @@ to be a predicate for instances of {\cf <pare>}.
   (let ((k (kons 1 2)))
     (set-kar! k 3)
     (kar k))                \ev 3
-\end{scheme}
+```
 
 \end{entry}
 
@@ -426,10 +426,10 @@ section defines the notation and semantics for libraries.
 A library definition takes the following form:
 \mainschindex{define-library}
 
-\begin{scheme}
+```
 (define-library \hyper{library name}
   \hyper{library declaration} \dotsfoo)
-\end{scheme}
+```
 
 \hyper{library name} is a list whose members are identifiers and exact non-negative integers.  It is used to
 identify the library uniquely when importing from other programs or
@@ -543,7 +543,7 @@ main program~\cite{life}.
 If the main program is entered into a REPL, it is not necessary to import
 the base library.
 
-\begin{scheme}
+```
 (define-library (example grid)
   (export make rows cols ref each
           (rename put! set!))
@@ -632,7 +632,7 @@ the base library.
 ;; Run for 80 iterations.
 (life grid 80)
 
-\end{scheme}
+```
 
 ## 5.7. The REPL
 

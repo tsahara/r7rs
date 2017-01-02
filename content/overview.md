@@ -23,7 +23,7 @@ apparent binding of that variable.
 
 Scheme is a dynamically typed language.  Types
 are associated with values (also called objects\mainindex{object}) rather than
-with variables.  
+with variables.
 Statically typed languages, by contrast, associate types with
 variables and expressions as well as with values.
 
@@ -33,7 +33,7 @@ No Scheme object is ever destroyed.  The reason that
 implementations of Scheme do not (usually!)\ run out of storage is that
 they are permitted to reclaim the storage occupied by an object if
 they can prove that the object cannot possibly matter to any future
-computation.  
+computation.
 
 Implementations of Scheme are required to be properly tail-recursive.
 This allows the execution of an iterative computation in constant space,
@@ -45,7 +45,7 @@ syntactic sugar.  See section~\ref{proper tail recursion}.
 
 Scheme procedures are objects in their own right.  Procedures can be
 created dynamically, stored in data structures, returned as results of
-procedures, and so on.  
+procedures, and so on.
 
 One distinguishing feature of Scheme is that continuations, which
 in most other languages only operate behind the scenes, also have
@@ -56,7 +56,7 @@ backtracking, and coroutines.  See section~\ref{continuations}.
 Arguments to Scheme procedures are always passed by value, which
 means that the actual argument expressions are evaluated before the
 procedure gains control, regardless of whether the procedure needs the
-result of the evaluation.  
+result of the evaluation.
 
 Scheme's model of arithmetic is designed to remain as independent as
 possible of the particular ways in which numbers are represented within a
@@ -92,13 +92,13 @@ The formal syntax of Scheme is described in section~\ref{BNF}.
 
 Every identifier defined in this report appears in one or more of several
 \defining{libraries}.  Identifiers defined in the \defining{base library}
-are not marked specially in the body of the report.  
+are not marked specially in the body of the report.
 This library includes the core syntax of Scheme
 and generally useful procedures that manipulate data.  For example, the
 variable {\cf abs} is bound to a
 procedure of one argument that computes the absolute value of a
 number, and the variable {\cf +} is bound to a procedure that computes
-sums.  The full list 
+sums.  The full list
 all the standard libraries and the identifiers they export is given in
 Appendix~\ref{stdlibraries}.
 
@@ -307,9 +307,9 @@ the length of \var{string}, then the entire string is referred to.}
 The symbol "\evalsto" used in program examples is read
 "evaluates to."  For example,
 
-\begin{scheme}
-(* 5 8)      \ev  40%
-\end{scheme}
+```
+(* 5 8)      \ev  40
+```
 
 means that the expression {\tt(* 5 8)} evaluates to the object {\tt 40}.
 Or, more precisely:  the expression given by the sequence of characters
@@ -339,5 +339,5 @@ elements are the same as those of the list.
 
 A \defining{command} is a procedure that does not return useful values
 to its continuation.
-	
+
 A \defining{thunk} is a procedure that does not accept arguments.

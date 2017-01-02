@@ -31,7 +31,7 @@ in terms of other exports.  They are redundant in the strict sense of
 the word, but they capture common patterns of usage, and are therefore
 provided as convenient abbreviations.
 
-\begin{scheme}
+```
 {\cf *}                       {\cf +}
 {\cf -}                       {\cf ...}
 {\cf /}                       {\cf <}
@@ -152,23 +152,23 @@ provided as convenient abbreviations.
 {\cf with-exception-handler}  {\cf write-bytevector}
 {\cf write-char}              {\cf write-string}
 {\cf write-u8}                {\cf zero?}
-\end{scheme}
+```
 
 \textbf{Case-Lambda Library}
 
 The \texttt{(scheme case-lambda)} library exports the {\cf case-lambda}
 syntax.
 
-\begin{scheme}
+```
 {\cf case-lambda}
-\end{scheme}
+```
 
 \textbf{Char Library}
 
 The \texttt{(scheme char)} library provides the procedures for dealing with
 characters that involve potentially large tables when supporting all of Unicode.
 
-\begin{scheme}
+```
 {\cf char-alphabetic?\ }       {\cf char-ci<=?}
 {\cf char-ci<?\ }              {\cf char-ci=?}
 {\cf char-ci>=?\ }             {\cf char-ci>?}
@@ -180,18 +180,18 @@ characters that involve potentially large tables when supporting all of Unicode.
 {\cf string-ci=?\ }            {\cf string-ci>=?}
 {\cf string-ci>?\ }            {\cf string-downcase}
 {\cf string-foldcase}         {\cf string-upcase}
-\end{scheme}
+```
 
 \textbf{Complex Library}
 
 The \texttt{(scheme complex)} library exports procedures which are
 typically only useful with non-real numbers.
 
-\begin{scheme}
+```
 {\cf angle}                   {\cf imag-part}
 {\cf magnitude}               {\cf make-polar}
 {\cf make-rectangular}        {\cf real-part}
-\end{scheme}
+```
 
 \textbf{CxR Library}
 
@@ -199,16 +199,16 @@ The \texttt{(scheme cxr)} library exports twenty-four procedures which
 are the compositions of from three to four {\cf car} and {\cf cdr}
 operations.  For example {\cf caddar} could be defined by
 
-\begin{scheme}
+```
 (define caddar
   (lambda (x) (car (cdr (cdr (car x)))))){\rm.}%
-\end{scheme}
+```
 
 The procedures {\cf car} and {\cf cdr} themselves and the four
 two-level compositions are included in the base library.  See
 section~\ref{listsection}.
 
-\begin{scheme}
+```
 {\cf caaaar}                  {\cf caaadr}
 {\cf caaar}                   {\cf caadar}
 {\cf caaddr}                  {\cf caadr}
@@ -221,111 +221,111 @@ section~\ref{listsection}.
 {\cf cddaar}                  {\cf cddadr}
 {\cf cddar}                   {\cf cdddar}
 {\cf cddddr}                  {\cf cdddr}
-\end{scheme}
+```
 
 \textbf{Eval Library}
 
 The \texttt{(scheme eval)} library exports procedures for evaluating Scheme
 data as programs.
 
-\begin{scheme}
+```
 {\cf environment}             {\cf eval}
-\end{scheme}
+```
 
 \textbf{File Library}
 
 The \texttt{(scheme file)} library provides procedures for accessing
 files.
 
-\begin{scheme}
+```
 {\cf call-with-input-file}    {\cf call-with-output-file}
 {\cf delete-file}             {\cf file-exists?}
 {\cf open-binary-input-file}  {\cf open-binary-output-file}
 {\cf open-input-file}         {\cf open-output-file}
 {\cf with-input-from-file}    {\cf with-output-to-file}
-\end{scheme}
+```
 
 \textbf{Inexact Library}
 
 The \texttt{(scheme inexact)} library exports procedures which are
 typically only useful with inexact values.
 
-\begin{scheme}
+```
 {\cf acos}                    {\cf asin}
 {\cf atan}                    {\cf cos}
 {\cf exp}                     {\cf finite?}
 {\cf infinite?\ }              {\cf log}
 {\cf nan?\ }                   {\cf sin}
 {\cf sqrt}                    {\cf tan}
-\end{scheme}
+```
 
 \textbf{Lazy Library}
 
 The \texttt{(scheme lazy)} library exports procedures and syntax keywords for lazy evaluation.
 
-\begin{scheme}
+```
 {\cf delay}                   {\cf delay-force}
 {\cf force}                   {\cf make-promise}
 {\cf promise?}
-\end{scheme}
+```
 
 \textbf{Load Library}
 
 The \texttt{(scheme load)} library exports procedures for loading
 Scheme expressions from files.
 
-\begin{scheme}
+```
 {\cf load}
-\end{scheme}
+```
 
 \textbf{Process-Context Library}
 
 The \texttt{(scheme process-context)} library exports procedures for
 accessing with the program's calling context.
 
-\begin{scheme}
+```
 {\cf command-line}            {\cf emergency-exit}
 {\cf exit}
 {\cf get-environment-variable}
 {\cf get-environment-variables}
-\end{scheme}
+```
 
 \textbf{Read Library}
 
 The \texttt{(scheme read)} library provides procedures for reading
 Scheme objects.
 
-\begin{scheme}
+```
 {\cf read}
-\end{scheme}
+```
 
 \textbf{Repl Library}
 
 The \texttt{(scheme repl)} library exports the {\cf
   interaction-environment} procedure.
 
-\begin{scheme}
+```
 {\cf interaction-environment}
-\end{scheme}
+```
 
 \textbf{Time Library}
 
 The \texttt{(scheme time)} library provides access to time-related values.
 
-\begin{scheme}
+```
 {\cf current-jiffy}           {\cf current-second}
 {\cf jiffies-per-second}
-\end{scheme}
+```
 
 \textbf{Write Library}
 
 The \texttt{(scheme write)} library provides procedures for writing
 Scheme objects.
 
-\begin{scheme}
+```
 {\cf display}                 {\cf write}
 {\cf write-shared}            {\cf write-simple}
-\end{scheme}
+```
 
 \textbf{R5RS Library}
 
@@ -339,7 +339,7 @@ However, if an implementation does not provide a particular library such as the
 complex library, the corresponding identifiers will not appear in this
 library either.
 
-\begin{scheme}
+```
 {\cf *}                       {\cf +}
 {\cf -}                       {\cf /}
 {\cf <}                       {\cf <=}
@@ -450,4 +450,4 @@ library either.
 {\cf vector?\ }                {\cf with-input-from-file}
 {\cf with-output-to-file}     {\cf write}
 {\cf write-char}              {\cf zero?}
-\end{scheme}
+```
