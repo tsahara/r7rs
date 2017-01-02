@@ -1387,10 +1387,12 @@ then a violation of an implementation restriction may be reported.</p>
 implementation-dependent range.  See section~\ref{restrictions}.</p>
 
 <p>\begin{note}
-These procedures were known in \rfivers\ as {\cf exact-&gt;inexact} and
+These procedures were known in R<span class="rnrs">5</span>RS
+\ as {\cf exact-&gt;inexact} and
 {\cf inexact-&gt;exact}, respectively, but they have always accepted
 arguments of any exactness.  The new names are clearer and shorter,
-as well as being compatible with \rsixrs.
+as well as being compatible with R<span class="rnrs">6</span>RS
+.
 \end{note}</p>
 
 <p>\end{entry}</p>
@@ -1484,7 +1486,8 @@ a decimal point is used.</p>
 also be applied to {\cf read} and to the routine that reads programs, in
 order to maintain consistency between internal numeric processing, I/O,
 and the processing of programs.
-As a consequence, the \rfivers\ permission to return \schfalse{} when
+As a consequence, the R<span class="rnrs">5</span>RS
+\ permission to return \schfalse{} when
 \var{string} has an explicit radix prefix has been withdrawn.
 \end{note}</p>
 
@@ -2957,7 +2960,8 @@ b \ev #u8(10 1 2 40 50)%
 \end{scheme}</p>
 
 <p>\begin{note}
-This procedure appears in \rsixrs, but places the source before the destination,
+This procedure appears in R<span class="rnrs">6</span>RS
+, but places the source before the destination,
 contrary to other such procedures in Scheme.
 \end{note}</p>
 
@@ -3636,10 +3640,12 @@ represented by the specifier are immutable, as is the environment itself.</p>
 \proto{scheme-report-environment}{ version}{r5rs library procedure}}</p>
 
 <p>If \var{version} is equal to {\cf 5},
-corresponding to \rfivers,
+corresponding to R<span class="rnrs">5</span>RS
+,
 {\cf scheme-report-environment} returns a specifier for an
 environment that contains only the bindings
-defined in the \rfivers\ library.
+defined in the R<span class="rnrs">5</span>RS
+\ library.
 Implementations must support this value of \var{version}.</p>
 
 <p>Implementations may also support other values of \var{version}, in which
@@ -3660,11 +3666,13 @@ it contains may be immutable.</p>
 \proto{null-environment}{ version}{r5rs library procedure}}</p>
 
 <p>If \var{version} is equal to {\cf 5},
-corresponding to \rfivers,
+corresponding to R<span class="rnrs">5</span>RS
+,
 the {\cf null-environment} procedure returns
 a specifier for an environment that contains only the
 bindings for all syntactic keywords
-defined in the \rfivers\ library.
+defined in the R<span class="rnrs">5</span>RS
+\ library.
 Implementations must support this value of \var{version}.</p>
 
 <p>Implementations may also support other values of \var{version}, in which

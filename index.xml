@@ -107,9 +107,13 @@ implementation feature names.&lt;/p&gt;
 alphabetic index.&lt;/p&gt;
 
 &lt;p&gt;\begin{note}
-The editors of the \rfivers\ and \rsixrs\ reports are
+The editors of the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ and R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ reports are
 listed as authors of this report in recognition of the substantial
-portions of this report that are copied directly from \rfivers\ and \rsixrs.
+portions of this report that are copied directly from R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ and R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+.
 There is no intended implication that those editors, individually or
 collectively, support or do not support this report.
 \end{note}&lt;/p&gt;
@@ -137,7 +141,9 @@ collectively, support or do not support this report.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tsahara.github.io/r7rs/intro/</guid>
-      <description>&lt;p&gt;\clearextrapart{Introduction}&lt;/p&gt;
+      <description>
+
+&lt;p&gt;\clearextrapart{Introduction}&lt;/p&gt;
 
 &lt;p&gt;\label{historysection}&lt;/p&gt;
 
@@ -188,7 +194,7 @@ the report, and use the first couple of pages to convince the reader
 that the language documented in this report is worth studying.
 }&lt;/p&gt;
 
-&lt;p&gt;\subsection*{Background}&lt;/p&gt;
+&lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
 
 &lt;p&gt;The first description of Scheme was written in
 1975~\cite{Scheme75}.  A revised report~\cite{Scheme78}
@@ -210,13 +216,16 @@ standard for Scheme.
 Their report, the RRRS~\cite{RRRS},
 was published at MIT and Indiana University in the summer of 1985.
 Further revision took place in the spring of 1986, resulting in the
-\rthreers~\cite{R3RS}.
-Work in the spring of 1988 resulted in \rfourrs~\cite{R4RS},
+R&lt;span class=&#34;rnrs&#34;&gt;3&lt;/span&gt;RS
+~\cite{R3RS}.
+Work in the spring of 1988 resulted in R&lt;span class=&#34;rnrs&#34;&gt;4&lt;/span&gt;RS
+~\cite{R4RS},
 which became the basis for the
 IEEE Standard for the Scheme Programming Language in 1991~\cite{IEEEScheme}.
 In 1998, several additions to the IEEE standard, including high-level
 hygienic macros, multiple return values, and {\cf eval}, were finalized
-as the \rfivers~\cite{R5RS}.&lt;/p&gt;
+as the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+~\cite{R5RS}.&lt;/p&gt;
 
 &lt;p&gt;\todo{Perhaps flesh out a little and mention the forming of the
  Steering Committee.}&lt;/p&gt;
@@ -224,22 +233,28 @@ as the \rfivers~\cite{R5RS}.&lt;/p&gt;
 &lt;p&gt;In the fall of 2006, work began on a more ambitious standard,
 including many new improvements and stricter requirements made in the
 interest of improved portability.  The resulting standard, the
-\rsixrs, was completed in August 2007~\cite{R6RS}, and was organized
+R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+, was completed in August 2007~\cite{R6RS}, and was organized
 as a core language and set of mandatory standard libraries.&lt;br /&gt;
 Several new implementations of Scheme conforming to it were created.
-However, most existing \rfivers{} implementations (even excluding those
-which are essentially unmaintained) did not adopt \rsixrs, or adopted
+However, most existing R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+{} implementations (even excluding those
+which are essentially unmaintained) did not adopt R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+, or adopted
 only selected parts of it.&lt;/p&gt;
 
 &lt;p&gt;In consequence, the Scheme Steering Committee decided in August 2009 to divide the
 standard into two separate but compatible languages &amp;mdash; a &amp;ldquo;small&amp;rdquo;
 language, suitable for educators, researchers, and users of embedded languages,
-focused on \rfivers~compatibility, and a &amp;ldquo;large&amp;rdquo; language focused
+focused on R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+~compatibility, and a &amp;ldquo;large&amp;rdquo; language focused
 on the practical needs of mainstream software development,
-intended to become a replacement for \rsixrs.
+intended to become a replacement for R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+.
 The present report describes the &amp;ldquo;small&amp;rdquo; language of that effort:
 therefore it cannot be considered in isolation as the successor
-to \rsixrs.&lt;/p&gt;
+to R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+.&lt;/p&gt;
 
 &lt;p&gt;\medskip&lt;/p&gt;
 
@@ -249,7 +264,7 @@ particular, we encourage implementers of Scheme to use this report as
 a starting point for manuals and other documentation, modifying it as
 necessary.&lt;/p&gt;
 
-&lt;p&gt;\subsection*{Acknowledgments}&lt;/p&gt;
+&lt;h3 id=&#34;acknowledgments&#34;&gt;Acknowledgments&lt;/h3&gt;
 
 &lt;p&gt;We would like to thank the members of the Steering Committee, William
 Clinger, Marc Feeley, Chris Hanson, Jonathan Rees, and Olin Shivers, for
@@ -5133,10 +5148,12 @@ then a violation of an implementation restriction may be reported.&lt;/p&gt;
 implementation-dependent range.  See section~\ref{restrictions}.&lt;/p&gt;
 
 &lt;p&gt;\begin{note}
-These procedures were known in \rfivers\ as {\cf exact-&amp;gt;inexact} and
+These procedures were known in R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ as {\cf exact-&amp;gt;inexact} and
 {\cf inexact-&amp;gt;exact}, respectively, but they have always accepted
 arguments of any exactness.  The new names are clearer and shorter,
-as well as being compatible with \rsixrs.
+as well as being compatible with R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+.
 \end{note}&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
@@ -5230,7 +5247,8 @@ a decimal point is used.&lt;/p&gt;
 also be applied to {\cf read} and to the routine that reads programs, in
 order to maintain consistency between internal numeric processing, I/O,
 and the processing of programs.
-As a consequence, the \rfivers\ permission to return \schfalse{} when
+As a consequence, the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ permission to return \schfalse{} when
 \var{string} has an explicit radix prefix has been withdrawn.
 \end{note}&lt;/p&gt;
 
@@ -6703,7 +6721,8 @@ b \ev #u8(10 1 2 40 50)%
 \end{scheme}&lt;/p&gt;
 
 &lt;p&gt;\begin{note}
-This procedure appears in \rsixrs, but places the source before the destination,
+This procedure appears in R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+, but places the source before the destination,
 contrary to other such procedures in Scheme.
 \end{note}&lt;/p&gt;
 
@@ -7382,10 +7401,12 @@ represented by the specifier are immutable, as is the environment itself.&lt;/p&
 \proto{scheme-report-environment}{ version}{r5rs library procedure}}&lt;/p&gt;
 
 &lt;p&gt;If \var{version} is equal to {\cf 5},
-corresponding to \rfivers,
+corresponding to R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+,
 {\cf scheme-report-environment} returns a specifier for an
 environment that contains only the bindings
-defined in the \rfivers\ library.
+defined in the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ library.
 Implementations must support this value of \var{version}.&lt;/p&gt;
 
 &lt;p&gt;Implementations may also support other values of \var{version}, in which
@@ -7406,11 +7427,13 @@ it contains may be immutable.&lt;/p&gt;
 \proto{null-environment}{ version}{r5rs library procedure}}&lt;/p&gt;
 
 &lt;p&gt;If \var{version} is equal to {\cf 5},
-corresponding to \rfivers,
+corresponding to R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+,
 the {\cf null-environment} procedure returns
 a specifier for an environment that contains only the
 bindings for all syntactic keywords
-defined in the \rfivers\ library.
+defined in the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ library.
 Implementations must support this value of \var{version}.&lt;/p&gt;
 
 &lt;p&gt;Implementations may also support other values of \var{version}, in which
@@ -10465,10 +10488,12 @@ Scheme objects.&lt;/p&gt;
 &lt;p&gt;\textbf{R5RS Library}&lt;/p&gt;
 
 &lt;p&gt;The \texttt{(scheme r5rs)} library provides the identifiers defined by
-\rfivers, except that
+R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+, except that
 {\cf transcript-on} and {\cf transcript-off} are not present.
 Note that
-the {\cf exact} and {\cf inexact} procedures appear under their \rfivers\ names
+the {\cf exact} and {\cf inexact} procedures appear under their R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ names
 {\cf inexact-&amp;gt;exact} and {\cf exact-&amp;gt;inexact} respectively.
 However, if an implementation does not provide a particular library such as the
 complex library, the corresponding identifiers will not appear in this
@@ -10608,7 +10633,8 @@ provide the corresponding feature.&lt;/p&gt;
 
 &lt;p&gt;\label{standard_features}&lt;/p&gt;
 
-&lt;p&gt;\feature{r7rs}{All \rsevenrs\ Scheme implementations have this feature.}
+&lt;p&gt;\feature{r7rs}{All R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS
+\ Scheme implementations have this feature.}
 \feature{exact-closed}{All algebraic operations except {\cf /} produce
   exact values given exact inputs.}
 \feature{exact-complex}{Exact complex numbers are provided.}
@@ -10637,10 +10663,14 @@ provide the corresponding feature.&lt;/p&gt;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tsahara.github.io/r7rs/changes/</guid>
-      <description>&lt;p&gt;\extrapart{Language changes}&lt;/p&gt;
+      <description>
 
-&lt;p&gt;\subsection*{Incompatibilities with \rfivers}
-\label{incompatibilities}&lt;/p&gt;
+&lt;p&gt;\extrapart{Language changes}&lt;/p&gt;
+
+&lt;h3 id=&#34;incompatibilities-with-hahahugoshortcode-1hbhb&#34;&gt;Incompatibilities with R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+&lt;/h3&gt;
+
+&lt;p&gt;\label{incompatibilities}&lt;/p&gt;
 
 &lt;p&gt;This section enumerates the incompatibilities between this report and
 the &amp;ldquo;Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
@@ -10660,10 +10690,13 @@ All standard identifiers are entirely in lower case.&lt;/p&gt;
 as a wildcard, which means it cannot be used as a syntax variable.
 It can still be used as a literal.&lt;/p&gt;
 
-&lt;p&gt;\item The \rfivers\ procedures {\cf exact-&amp;gt;inexact} and {\cf inexact-&amp;gt;exact}
-have been renamed to their \rsixrs\ names, {\cf inexact} and {\cf exact},
+&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ procedures {\cf exact-&amp;gt;inexact} and {\cf inexact-&amp;gt;exact}
+have been renamed to their R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ names, {\cf inexact} and {\cf exact},
 respectively, as these names are shorter and more correct.
-The former names are still available in the \rfivers\ library.&lt;/p&gt;
+The former names are still available in the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ library.&lt;/p&gt;
 
 &lt;p&gt;\item The guarantee that string comparison (with {\cf string&amp;lt;?} and the
 related predicates) is a lexicographical extension of character comparison
@@ -10682,8 +10715,10 @@ and must be compatible with {\cf read} and the syntax of numbers in programs.&lt
 
 &lt;p&gt;\end{itemize}&lt;/p&gt;
 
-&lt;p&gt;\subsection*{Other language changes since \rfivers}
-\label{differences}
+&lt;h3 id=&#34;other-language-changes-since-hahahugoshortcode-5hbhb&#34;&gt;Other language changes since R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+&lt;/h3&gt;
+
+&lt;p&gt;\label{differences}
 This section enumerates the additional differences between this report and
 the &amp;ldquo;Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
 
@@ -10691,7 +10726,8 @@ the &amp;ldquo;Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
 
 &lt;p&gt;\begin{itemize}&lt;/p&gt;
 
-&lt;p&gt;\item Various minor ambiguities and unclarities in \rfivers\ have been cleaned up.&lt;/p&gt;
+&lt;p&gt;\item Various minor ambiguities and unclarities in R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ have been cleaned up.&lt;/p&gt;
 
 &lt;p&gt;\item Libraries have been added as a new program structure to improve
 encapsulation and sharing of code.  Some existing and new identifiers
@@ -10700,7 +10736,8 @@ Libraries can be imported into other libraries or main programs, with
 controlled exposure and renaming of identifiers.
 The contents of a library can be made conditional on the features of
 the implementation on which it is to be used.
-There is an \rfivers\ compatibility library.&lt;/p&gt;
+There is an R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\ compatibility library.&lt;/p&gt;
 
 &lt;p&gt;\item The expressions types {\cf include}, {\cf include-ci}, and {\cf cond-expand}
 have been added to the base library; they have the same semantics as the
@@ -10758,7 +10795,8 @@ labels; {\cf write-shared} generates labels for all shared and circular
 structure.
 The {\cf display} procedure must not loop on circular objects.&lt;/p&gt;
 
-&lt;p&gt;\item The \rsixrs\ procedure {\cf eof-object} has been added.
+&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ procedure {\cf eof-object} has been added.
 Eof-objects are now required to be a disjoint type.&lt;/p&gt;
 
 &lt;p&gt;\item Syntax definitions are now allowed wherever variable definitions are.&lt;/p&gt;
@@ -10790,12 +10828,14 @@ procedure, {\cf case-lambda} has been added in its own library.&lt;/p&gt;
 &lt;p&gt;\item The convenience conditionals {\cf when} and {\cf unless} have been added.&lt;/p&gt;
 
 &lt;p&gt;\item The behavior of {\cf eqv?} on inexact numbers now conforms to the
-\rsixrs\ definition.&lt;/p&gt;
+R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ definition.&lt;/p&gt;
 
 &lt;p&gt;\item When applied to procedures, {\cf eq?} and {\cf eqv?} are permitted to
 return different answers.&lt;/p&gt;
 
-&lt;p&gt;\item The \rsixrs\ procedures {\cf boolean=?} and {\cf symbol=?} have been added.&lt;/p&gt;
+&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ procedures {\cf boolean=?} and {\cf symbol=?} have been added.&lt;/p&gt;
 
 &lt;p&gt;\item Positive infinity, negative infinity, NaN, and negative inexact zero have been added
 to the numeric tower as inexact values with the written
@@ -10881,28 +10921,40 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 &lt;p&gt;\item The formal semantics now handles {\cf dynamic-wind}.
 \end{itemize}&lt;/p&gt;
 
-&lt;p&gt;\subsection*{Incompatibilities with \rsixrs}
-This section enumerates the incompatibilities between \rsevenrs~and
+&lt;h3 id=&#34;incompatibilities-with-hahahugoshortcode-11hbhb&#34;&gt;Incompatibilities with R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+&lt;/h3&gt;
+
+&lt;p&gt;This section enumerates the incompatibilities between R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS
+~and
 the &amp;ldquo;Revised$^6$ report&amp;rdquo;~\cite{R6RS} and its accompanying Standard Libraries document.&lt;/p&gt;
 
 &lt;p&gt;{\em This list is not authoritative, and is possibly incomplete.}&lt;/p&gt;
 
 &lt;p&gt;\begin{itemize}
-\item \rsevenrs\ libraries begin with the keyword {\cf define-library}
+\item R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS
+\ libraries begin with the keyword {\cf define-library}
 rather than {\cf library} in order to make them syntactically
-distinguishable from \rsixrs\ libraries.
-In \rsevenrs\ terms, the body of an \rsixrs\ library consists
+distinguishable from R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ libraries.
+In R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS
+\ terms, the body of an R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ library consists
 of a single export declaration followed by a single import declaration,
-followed by commands and definitions.  In \rsevenrs, commands and
+followed by commands and definitions.  In R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS
+, commands and
 definitions are not permitted directly within the body: they have to be be wrapped in a {\cf begin}
 library declaration.&lt;/p&gt;
 
-&lt;p&gt;\item There is no direct \rsixrs\ equivalent of the {\cf include}, {\cf include-ci},
+&lt;p&gt;\item There is no direct R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ equivalent of the {\cf include}, {\cf include-ci},
 {\cf include-library-declarations}, or {\cf cond-expand} library declarations.
-On the other hand, the \rsevenrs\ library syntax does not support phase or version specifications.&lt;/p&gt;
+On the other hand, the R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS
+\ library syntax does not support phase or version specifications.&lt;/p&gt;
 
-&lt;p&gt;\item The grouping of standardized identifiers into libraries is different from the \rsixrs&lt;br /&gt;
-approach. In particular, procedures which are optional in \rfivers\, either expressly
+&lt;p&gt;\item The grouping of standardized identifiers into libraries is different from the R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+&lt;br /&gt;
+approach. In particular, procedures which are optional in R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+\, either expressly
 or by implication, have been removed from the base library.
 Only the base library itself is an absolute requirement.&lt;/p&gt;
 
@@ -10910,11 +10962,15 @@ Only the base library itself is an absolute requirement.&lt;/p&gt;
 
 &lt;p&gt;\item Internal syntax definitions are allowed, but uses of a syntax form
 cannot appear before its definition; the {\cf even}/{\cf odd} example given in
-\rsixrs\ is not allowed.&lt;/p&gt;
+R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ is not allowed.&lt;/p&gt;
 
-&lt;p&gt;\item The \rsixrs\ exception system was incorporated as-is, but the condition
-types have been left unspecified.  In particular, where \rsixrs\ requires
-a condition of a specified type to be signaled, \rsevenrs\ says only
+&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ exception system was incorporated as-is, but the condition
+types have been left unspecified.  In particular, where R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ requires
+a condition of a specified type to be signaled, R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS
+\ says only
 &amp;ldquo;it is an error&amp;rdquo;, leaving the question of signaling open.&lt;/p&gt;
 
 &lt;p&gt;\item Full Unicode support is not required.
@@ -10923,11 +10979,15 @@ Character comparisons are
 defined by Unicode, but string comparisons are implementation-dependent.
 Non-Unicode characters are permitted.&lt;/p&gt;
 
-&lt;p&gt;\item The full numeric tower is optional as in \rfivers, but optional support for IEEE
-infinities, NaN, and {\mbox -0.0} was adopted from \rsixrs. Most clarifications on
-numeric results were also adopted, but the \rsixrs\ procedures {\cf real-valued?},
+&lt;p&gt;\item The full numeric tower is optional as in R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+, but optional support for IEEE
+infinities, NaN, and {\mbox -0.0} was adopted from R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+. Most clarifications on
+numeric results were also adopted, but the R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ procedures {\cf real-valued?},
 {\cf rational-valued?}, and {\cf integer-valued}? were not.
-The \rsixrs\ division operators {\cf div}, {\cf mod}, {\cf div-and-mod}, {\cf
+The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+\ division operators {\cf div}, {\cf mod}, {\cf div-and-mod}, {\cf
 div0}, {\cf mod0} and {\cf div0-and-mod0} are not provided.&lt;/p&gt;
 
 &lt;p&gt;\item When a result is unspecified, it is still required to be a single value.
@@ -10937,20 +10997,26 @@ in a body can return any number of values.&lt;/p&gt;
 &lt;p&gt;\item The semantics of {\cf map} and {\cf for-each} have been changed to use
 the SRFI 1~\cite{srfi1} early termination behavior. Likewise,
 {\cf assoc} and {\cf member} take an optional {\cf equal?} argument as in SRFI 1,
-instead of the separate {\cf assp} and {\cf memp} procedures of \rsixrs.&lt;/p&gt;
+instead of the separate {\cf assp} and {\cf memp} procedures of R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+.&lt;/p&gt;
 
-&lt;p&gt;\item The \rsixrs~{\cf quasiquote} clarifications have been adopted, with the
+&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+~{\cf quasiquote} clarifications have been adopted, with the
 exception of multiple-argument {\cf unquote} and
 {\cf unquote-splicing}.&lt;/p&gt;
 
-&lt;p&gt;\item The \rsixrs~method of specifying mantissa widths was not adopted.&lt;/p&gt;
+&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+~method of specifying mantissa widths was not adopted.&lt;/p&gt;
 
-&lt;p&gt;\item String ports are compatible with SRFI 6~\cite{srfi6} rather than \rsixrs.&lt;/p&gt;
+&lt;p&gt;\item String ports are compatible with SRFI 6~\cite{srfi6} rather than R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+.&lt;/p&gt;
 
-&lt;p&gt;\item \rsixrs{}-style bytevectors are included, but
+&lt;p&gt;\item R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+{}-style bytevectors are included, but
 only the unsigned byte ({\cf u8}) procedures have been provided.
 The lexical syntax uses {\cf #u8} for compatibility
-with SRFI 4~\cite{srfi4}, rather than the \rsixrs~{\cf #vu8} style.&lt;/p&gt;
+with SRFI 4~\cite{srfi4}, rather than the R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+~{\cf #vu8} style.&lt;/p&gt;
 
 &lt;p&gt;\item The utility macros {\cf when} and {\cf unless} are provided, but
 their result is left unspecified.&lt;/p&gt;

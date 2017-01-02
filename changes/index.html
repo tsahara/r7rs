@@ -80,10 +80,14 @@
   </nav>
 
   <article style="margin-left: 240px;">
-    <p>\extrapart{Language changes}</p>
+    
 
-<p>\subsection*{Incompatibilities with \rfivers}
-\label{incompatibilities}</p>
+<p>\extrapart{Language changes}</p>
+
+<h3 id="incompatibilities-with-hahahugoshortcode-1hbhb">Incompatibilities with R<span class="rnrs">5</span>RS
+</h3>
+
+<p>\label{incompatibilities}</p>
 
 <p>This section enumerates the incompatibilities between this report and
 the &ldquo;Revised$^5$ report&rdquo;~\cite{R5RS}.</p>
@@ -103,10 +107,13 @@ All standard identifiers are entirely in lower case.</p>
 as a wildcard, which means it cannot be used as a syntax variable.
 It can still be used as a literal.</p>
 
-<p>\item The \rfivers\ procedures {\cf exact-&gt;inexact} and {\cf inexact-&gt;exact}
-have been renamed to their \rsixrs\ names, {\cf inexact} and {\cf exact},
+<p>\item The R<span class="rnrs">5</span>RS
+\ procedures {\cf exact-&gt;inexact} and {\cf inexact-&gt;exact}
+have been renamed to their R<span class="rnrs">6</span>RS
+\ names, {\cf inexact} and {\cf exact},
 respectively, as these names are shorter and more correct.
-The former names are still available in the \rfivers\ library.</p>
+The former names are still available in the R<span class="rnrs">5</span>RS
+\ library.</p>
 
 <p>\item The guarantee that string comparison (with {\cf string&lt;?} and the
 related predicates) is a lexicographical extension of character comparison
@@ -125,8 +132,10 @@ and must be compatible with {\cf read} and the syntax of numbers in programs.</p
 
 <p>\end{itemize}</p>
 
-<p>\subsection*{Other language changes since \rfivers}
-\label{differences}
+<h3 id="other-language-changes-since-hahahugoshortcode-5hbhb">Other language changes since R<span class="rnrs">5</span>RS
+</h3>
+
+<p>\label{differences}
 This section enumerates the additional differences between this report and
 the &ldquo;Revised$^5$ report&rdquo;~\cite{R5RS}.</p>
 
@@ -134,7 +143,8 @@ the &ldquo;Revised$^5$ report&rdquo;~\cite{R5RS}.</p>
 
 <p>\begin{itemize}</p>
 
-<p>\item Various minor ambiguities and unclarities in \rfivers\ have been cleaned up.</p>
+<p>\item Various minor ambiguities and unclarities in R<span class="rnrs">5</span>RS
+\ have been cleaned up.</p>
 
 <p>\item Libraries have been added as a new program structure to improve
 encapsulation and sharing of code.  Some existing and new identifiers
@@ -143,7 +153,8 @@ Libraries can be imported into other libraries or main programs, with
 controlled exposure and renaming of identifiers.
 The contents of a library can be made conditional on the features of
 the implementation on which it is to be used.
-There is an \rfivers\ compatibility library.</p>
+There is an R<span class="rnrs">5</span>RS
+\ compatibility library.</p>
 
 <p>\item The expressions types {\cf include}, {\cf include-ci}, and {\cf cond-expand}
 have been added to the base library; they have the same semantics as the
@@ -201,7 +212,8 @@ labels; {\cf write-shared} generates labels for all shared and circular
 structure.
 The {\cf display} procedure must not loop on circular objects.</p>
 
-<p>\item The \rsixrs\ procedure {\cf eof-object} has been added.
+<p>\item The R<span class="rnrs">6</span>RS
+\ procedure {\cf eof-object} has been added.
 Eof-objects are now required to be a disjoint type.</p>
 
 <p>\item Syntax definitions are now allowed wherever variable definitions are.</p>
@@ -233,12 +245,14 @@ procedure, {\cf case-lambda} has been added in its own library.</p>
 <p>\item The convenience conditionals {\cf when} and {\cf unless} have been added.</p>
 
 <p>\item The behavior of {\cf eqv?} on inexact numbers now conforms to the
-\rsixrs\ definition.</p>
+R<span class="rnrs">6</span>RS
+\ definition.</p>
 
 <p>\item When applied to procedures, {\cf eq?} and {\cf eqv?} are permitted to
 return different answers.</p>
 
-<p>\item The \rsixrs\ procedures {\cf boolean=?} and {\cf symbol=?} have been added.</p>
+<p>\item The R<span class="rnrs">6</span>RS
+\ procedures {\cf boolean=?} and {\cf symbol=?} have been added.</p>
 
 <p>\item Positive infinity, negative infinity, NaN, and negative inexact zero have been added
 to the numeric tower as inexact values with the written
@@ -324,28 +338,40 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 <p>\item The formal semantics now handles {\cf dynamic-wind}.
 \end{itemize}</p>
 
-<p>\subsection*{Incompatibilities with \rsixrs}
-This section enumerates the incompatibilities between \rsevenrs~and
+<h3 id="incompatibilities-with-hahahugoshortcode-11hbhb">Incompatibilities with R<span class="rnrs">6</span>RS
+</h3>
+
+<p>This section enumerates the incompatibilities between R<span class="rnrs">7</span>RS
+~and
 the &ldquo;Revised$^6$ report&rdquo;~\cite{R6RS} and its accompanying Standard Libraries document.</p>
 
 <p>{\em This list is not authoritative, and is possibly incomplete.}</p>
 
 <p>\begin{itemize}
-\item \rsevenrs\ libraries begin with the keyword {\cf define-library}
+\item R<span class="rnrs">7</span>RS
+\ libraries begin with the keyword {\cf define-library}
 rather than {\cf library} in order to make them syntactically
-distinguishable from \rsixrs\ libraries.
-In \rsevenrs\ terms, the body of an \rsixrs\ library consists
+distinguishable from R<span class="rnrs">6</span>RS
+\ libraries.
+In R<span class="rnrs">7</span>RS
+\ terms, the body of an R<span class="rnrs">6</span>RS
+\ library consists
 of a single export declaration followed by a single import declaration,
-followed by commands and definitions.  In \rsevenrs, commands and
+followed by commands and definitions.  In R<span class="rnrs">7</span>RS
+, commands and
 definitions are not permitted directly within the body: they have to be be wrapped in a {\cf begin}
 library declaration.</p>
 
-<p>\item There is no direct \rsixrs\ equivalent of the {\cf include}, {\cf include-ci},
+<p>\item There is no direct R<span class="rnrs">6</span>RS
+\ equivalent of the {\cf include}, {\cf include-ci},
 {\cf include-library-declarations}, or {\cf cond-expand} library declarations.
-On the other hand, the \rsevenrs\ library syntax does not support phase or version specifications.</p>
+On the other hand, the R<span class="rnrs">7</span>RS
+\ library syntax does not support phase or version specifications.</p>
 
-<p>\item The grouping of standardized identifiers into libraries is different from the \rsixrs<br />
-approach. In particular, procedures which are optional in \rfivers\, either expressly
+<p>\item The grouping of standardized identifiers into libraries is different from the R<span class="rnrs">6</span>RS
+<br />
+approach. In particular, procedures which are optional in R<span class="rnrs">5</span>RS
+\, either expressly
 or by implication, have been removed from the base library.
 Only the base library itself is an absolute requirement.</p>
 
@@ -353,11 +379,15 @@ Only the base library itself is an absolute requirement.</p>
 
 <p>\item Internal syntax definitions are allowed, but uses of a syntax form
 cannot appear before its definition; the {\cf even}/{\cf odd} example given in
-\rsixrs\ is not allowed.</p>
+R<span class="rnrs">6</span>RS
+\ is not allowed.</p>
 
-<p>\item The \rsixrs\ exception system was incorporated as-is, but the condition
-types have been left unspecified.  In particular, where \rsixrs\ requires
-a condition of a specified type to be signaled, \rsevenrs\ says only
+<p>\item The R<span class="rnrs">6</span>RS
+\ exception system was incorporated as-is, but the condition
+types have been left unspecified.  In particular, where R<span class="rnrs">6</span>RS
+\ requires
+a condition of a specified type to be signaled, R<span class="rnrs">7</span>RS
+\ says only
 &ldquo;it is an error&rdquo;, leaving the question of signaling open.</p>
 
 <p>\item Full Unicode support is not required.
@@ -366,11 +396,15 @@ Character comparisons are
 defined by Unicode, but string comparisons are implementation-dependent.
 Non-Unicode characters are permitted.</p>
 
-<p>\item The full numeric tower is optional as in \rfivers, but optional support for IEEE
-infinities, NaN, and {\mbox -0.0} was adopted from \rsixrs. Most clarifications on
-numeric results were also adopted, but the \rsixrs\ procedures {\cf real-valued?},
+<p>\item The full numeric tower is optional as in R<span class="rnrs">5</span>RS
+, but optional support for IEEE
+infinities, NaN, and {\mbox -0.0} was adopted from R<span class="rnrs">6</span>RS
+. Most clarifications on
+numeric results were also adopted, but the R<span class="rnrs">6</span>RS
+\ procedures {\cf real-valued?},
 {\cf rational-valued?}, and {\cf integer-valued}? were not.
-The \rsixrs\ division operators {\cf div}, {\cf mod}, {\cf div-and-mod}, {\cf
+The R<span class="rnrs">6</span>RS
+\ division operators {\cf div}, {\cf mod}, {\cf div-and-mod}, {\cf
 div0}, {\cf mod0} and {\cf div0-and-mod0} are not provided.</p>
 
 <p>\item When a result is unspecified, it is still required to be a single value.
@@ -380,20 +414,26 @@ in a body can return any number of values.</p>
 <p>\item The semantics of {\cf map} and {\cf for-each} have been changed to use
 the SRFI 1~\cite{srfi1} early termination behavior. Likewise,
 {\cf assoc} and {\cf member} take an optional {\cf equal?} argument as in SRFI 1,
-instead of the separate {\cf assp} and {\cf memp} procedures of \rsixrs.</p>
+instead of the separate {\cf assp} and {\cf memp} procedures of R<span class="rnrs">6</span>RS
+.</p>
 
-<p>\item The \rsixrs~{\cf quasiquote} clarifications have been adopted, with the
+<p>\item The R<span class="rnrs">6</span>RS
+~{\cf quasiquote} clarifications have been adopted, with the
 exception of multiple-argument {\cf unquote} and
 {\cf unquote-splicing}.</p>
 
-<p>\item The \rsixrs~method of specifying mantissa widths was not adopted.</p>
+<p>\item The R<span class="rnrs">6</span>RS
+~method of specifying mantissa widths was not adopted.</p>
 
-<p>\item String ports are compatible with SRFI 6~\cite{srfi6} rather than \rsixrs.</p>
+<p>\item String ports are compatible with SRFI 6~\cite{srfi6} rather than R<span class="rnrs">6</span>RS
+.</p>
 
-<p>\item \rsixrs{}-style bytevectors are included, but
+<p>\item R<span class="rnrs">6</span>RS
+{}-style bytevectors are included, but
 only the unsigned byte ({\cf u8}) procedures have been provided.
 The lexical syntax uses {\cf #u8} for compatibility
-with SRFI 4~\cite{srfi4}, rather than the \rsixrs~{\cf #vu8} style.</p>
+with SRFI 4~\cite{srfi4}, rather than the R<span class="rnrs">6</span>RS
+~{\cf #vu8} style.</p>
 
 <p>\item The utility macros {\cf when} and {\cf unless} are provided, but
 their result is left unspecified.</p>
