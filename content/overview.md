@@ -235,7 +235,7 @@ indicates that the procedure bound to the {\tt vector-ref} variable takes
 two arguments, a vector \var{vector} and an exact non-negative integer
 \var{k} (see below).  The header lines
 
-\noindent%
+\noindent
 \pproto{(make-vector \var{k})}{procedure}
 \pproto{(make-vector \var{k} \var{fill})}{procedure}\unpenalty
 

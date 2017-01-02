@@ -68,7 +68,7 @@ imported bindings. It takes one of the following forms:
 \item {\tt(except \hyper{import set} \hyper{identifier} \dotsfoo)}
 \item {\tt(prefix \hyper{import set} \hyper{identifier})}
 \item {\tt(rename \hyper{import set}\\
-{\obeyspaces%
+{\obeyspaces
 \hspace*{4em}(\hyperi{identifier} \hyperii{identifier}) \dotsfoo)}}
 \end{itemize}
 
@@ -127,7 +127,7 @@ variables followed by a space-delimited period and another variable (as
 in a lambda expression).  This form is equivalent to
 ```
 (define \hyper{variable}
-  (lambda (\hyper{formals}) \hyper{body}))\rm.%
+  (lambda (\hyper{formals}) \hyper{body}))\rm.
 ```
 
 \item{\tt(define (\hyper{variable} .\ \hyper{formal}) \hyper{body})}
@@ -136,7 +136,7 @@ in a lambda expression).  This form is equivalent to
 variable.  This form is equivalent to
 ```
 (define \hyper{variable}
-  (lambda \hyper{formal} \hyper{body}))\rm.%
+  (lambda \hyper{formal} \hyper{body}))\rm.
 ```
 
 \end{itemize}
@@ -145,11 +145,11 @@ variable.  This form is equivalent to
 
 At the outermost level of a program, a definition
 ```
-(define \hyper{variable} \hyper{expression})%
+(define \hyper{variable} \hyper{expression})
 ```
 has essentially the same effect as the assignment expression
 ```
-(\ide{set!}\ \hyper{variable} \hyper{expression})%
+(\ide{set!}\ \hyper{variable} \hyper{expression})
 ```
 if \hyper{variable} is bound to a non-syntax value.  However, if
 \hyper{variable} is not bound,
@@ -164,7 +164,7 @@ unbound\index{unbound} variable.
   (lambda (x) (+ x 3)))
 (add3 3)                            \ev  6
 (define first car)
-(first '(1 2))                      \ev  1%
+(first '(1 2))                      \ev  1
 ```
 
 ### 5.3.2. Internal definitions
@@ -186,7 +186,7 @@ and the region of the binding is the entire \hyper{body}.  For example,
 (let ((x 5))
   (define foo (lambda (y) (bar x y)))
   (define bar (lambda (a b) (+ (* a b) a)))
-  (foo (+ x 3)))                \ev  45%
+  (foo (+ x 3)))                \ev  45
 ```
 
 An expanded \hyper{body} containing internal definitions
@@ -199,7 +199,7 @@ to
 (let ((x 5))
   (letrec* ((foo (lambda (y) (bar x y)))
             (bar (lambda (a b) (+ (* a b) a))))
-    (foo (+ x 3))))%
+    (foo (+ x 3))))
 ```
 
 Just as for the equivalent {\cf letrec*} expression, it is an error if it is not
@@ -223,7 +223,7 @@ which creates multiple definitions from a single
 expression returning multiple values.
 It is allowed wherever {\cf define} is allowed.
 
-\begin{entry}{%
+\begin{entry}{
 \proto{define-values}{ \hyper{formals} \hyper{expression}}{\exprtype}}\nobreak
 
 It is an error if a variable appears more than once in the set of \hyper{formals}.
@@ -240,7 +240,7 @@ call.
 
 (let ()
   (define-values (x y) (values 1 2))
-  (+ x y))     \ev 3%
+  (+ x y))     \ev 3
 ```
 
 \end{entry}
@@ -276,7 +276,7 @@ definition.
          (set! a b)
          (set! b tmp)))))
   (swap! x y)
-  (list x y))                \ev (2 1)%
+  (list x y))                \ev (2 1)
 ```
 
 
@@ -306,7 +306,7 @@ errors:
   (let ((x 3))
     (foo (plus x y) (+ x y))
     (define foo x)
-    (plus foo x)))%
+    (plus foo x)))
 ```
 
 ## 5.5. Record-type definitions
@@ -320,7 +320,7 @@ aggregations of zero or more \defining{fields}, each of which holds a single loc
 A predicate, a constructor, and field accessors and
 mutators are defined for each record type.
 
-\begin{entry}{%
+\begin{entry}{
 \mainschindex{define-record-type}
 \pproto{(define-record-type \hyper{name}}{syntax}
 \hspace*{4em}{\tt \hyper{constructor} \hyper{pred} \hyper{field} \dotsfoo})}
@@ -329,15 +329,15 @@ mutators are defined for each record type.
 \hyper{name} and \hyper{pred} are identifiers.
 The \hyper{constructor} is of the form
 ```
-(\hyper{constructor name} \hyper{field name} \dotsfoo)%
+(\hyper{constructor name} \hyper{field name} \dotsfoo)
 ```
 and each \hyper{field} is either of the form
 ```
-(\hyper{field name} \hyper{accessor name})%
+(\hyper{field name} \hyper{accessor name})
 ```
 or of the form
 ```
-(\hyper{field name} \hyper{accessor name} \hyper{modifier name})%
+(\hyper{field name} \hyper{accessor name} \hyper{modifier name})
 ```
 
 It is an error for the same identifier to occur more than once as a

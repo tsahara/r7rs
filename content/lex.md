@@ -88,7 +88,7 @@ a sentence.
 The following directives give explicit control over case
 folding.
 
-\begin{entry}{%
+\begin{entry}{
 {\cf{}\#!fold-case}\sharpbangindex{fold-case}\\
 {\cf{}\#!no-fold-case}\sharpbangindex{no-fold-case}}
 
@@ -224,7 +224,7 @@ These are used for labeling and referencing other literal data (section~\ref{lab
 ## 2.4. Datum labels\unsection
 \label{labelsection}
 
-\begin{entry}{%
+\begin{entry}{
 \pproto{\#\hyper{n}=\hyper{datum}}{lexical syntax}
 \pproto{\#\hyper{n}\#}{lexical syntax}}
 

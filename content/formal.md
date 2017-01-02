@@ -68,7 +68,7 @@ with the given Unicode scalar value is supported by the implementation,
 identifiers containing such a sequence are equivalent to identifiers
 containing the corresponding character.
 
-\begin{grammar}%
+\begin{grammar}
 \meta{token} \: \meta{identifier} \| \meta{boolean} \| \meta{number}\index{identifier}
 \>  \| \meta{character} \| \meta{string}
 \>  \| ( \| ) \| \sharpsign( \| \sharpsign u8( \| \singlequote{} \| \backquote{} \| , \| ,@ \| {\bf.}
@@ -88,15 +88,15 @@ containing the corresponding character.
 \meta{comment text} \: \= $\langle$\rm character sequence not containing
 \>\ \rm {\tt \#|} or {\tt |\#}$\rangle$
 \meta{comment cont} \: \meta{nested comment} \meta{comment text}
-\meta{directive} \: \#!fold-case \| \#!no-fold-case%
+\meta{directive} \: \#!fold-case \| \#!no-fold-case
 \end{grammar}
 
 Note that it is ungrammatical to follow a \meta{directive} with anything
 but a \meta{delimiter} or the end of file.
 
-\begin{grammar}%
+\begin{grammar}
 \meta{atmosphere} \: \meta{whitespace} \| \meta{comment} \| \meta{directive}
-\meta{intertoken space} \: \arbno{\meta{atmosphere}}%
+\meta{intertoken space} \: \arbno{\meta{atmosphere}}
 \end{grammar}
 
 \label{extendedalphas}
@@ -109,7 +109,7 @@ Note that {\cf +i}, {\cf -i} and \meta{infnan} below are exceptions to the
 \meta{peculiar identifier} rule; they are parsed as numbers, not
 identifiers.
 
-\begin{grammar}%
+\begin{grammar}
 \meta{identifier} \: \meta{initial} \arbno{\meta{subsequent}}
  \>  \| \meta{vertical line} \arbno{\meta{symbol element}} \meta{vertical line}
  \>  \| \meta{peculiar identifier}
@@ -153,13 +153,13 @@ identifiers.
  \>  \> \arbno{\meta{intraline whitespace}}
  \>  \| \meta{inline hex escape}
 \meta{bytevector} \: \#u8(\arbno{\meta{byte}})
-\meta{byte} \: \meta{any exact integer between 0 and 255}%
+\meta{byte} \: \meta{any exact integer between 0 and 255}
 \end{grammar}
 
 
 \label{numbersyntax}
 
-\begin{grammar}%
+\begin{grammar}
 \meta{number} \: \meta{num $2$} \| \meta{num $8$}
    \>  \| \meta{num $10$} \| \meta{num $16$}
 \end{grammar}
@@ -172,39 +172,39 @@ $8$}, and \meta{decimal $16$}, which means that numbers containing
 decimal points or exponents are always in decimal radix.
 Although not shown below, all alphabetic characters used in the grammar
 of numbers can appear in either upper or lower case.
-\begin{grammar}%
+\begin{grammar}
 \meta{num $R$} \: \meta{prefix $R$} \meta{complex $R$}
-\meta{complex $R$} \: %
-         \meta{real $R$} %
+\meta{complex $R$} \:
+         \meta{real $R$}
       \| \meta{real $R$} @ \meta{real $R$}
-   \> \| \meta{real $R$} + \meta{ureal $R$} i %
+   \> \| \meta{real $R$} + \meta{ureal $R$} i
       \| \meta{real $R$} - \meta{ureal $R$} i
-   \> \| \meta{real $R$} + i %
-      \| \meta{real $R$} - i %
+   \> \| \meta{real $R$} + i
+      \| \meta{real $R$} - i
       \| \meta{real $R$} \meta{infnan} i
-   \> \| + \meta{ureal $R$} i %
+   \> \| + \meta{ureal $R$} i
       \| - \meta{ureal $R$} i
-   \> \| \meta{infnan} i %
-      \| + i %
+   \> \| \meta{infnan} i
+      \| + i
       \| - i
 \meta{real $R$} \: \meta{sign} \meta{ureal $R$}
    \> \| \meta{infnan}
-\meta{ureal $R$} \: %
+\meta{ureal $R$} \:
          \meta{uinteger $R$}
    \> \| \meta{uinteger $R$} / \meta{uinteger $R$}
    \> \| \meta{decimal $R$}
-\meta{decimal $10$} \: %
+\meta{decimal $10$} \:
          \meta{uinteger $10$} \meta{suffix}
    \> \| . \atleastone{\meta{digit $10$}} \meta{suffix}
    \> \| \atleastone{\meta{digit $10$}} . \arbno{\meta{digit $10$}} \meta{suffix}
 \meta{uinteger $R$} \: \atleastone{\meta{digit $R$}}
-\meta{prefix $R$} \: %
+\meta{prefix $R$} \:
          \meta{radix $R$} \meta{exactness}
    \> \| \meta{exactness} \meta{radix $R$}
 \meta{infnan} \: +inf.0 \| -inf.0 \| +nan.0 \| -nan.0
 \end{grammar}
 
-\begin{grammar}%
+\begin{grammar}
 \meta{suffix} \: \meta{empty}
    \> \| \meta{exponent marker} \meta{sign} \atleastone{\meta{digit $10$}}
 \meta{exponent marker} \: e
@@ -217,7 +217,7 @@ of numbers can appear in either upper or lower case.
 \meta{digit 2} \: 0 \| 1
 \meta{digit 8} \: 0 \| 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7
 \meta{digit 10} \: \meta{digit}
-\meta{digit 16} \: \meta{digit $10$} \| a \| b \| c \| d \| e \| f %
+\meta{digit 16} \: \meta{digit $10$} \| a \| b \| c \| d \| e \| f
 \end{grammar}
 
 
@@ -228,7 +228,7 @@ of numbers can appear in either upper or lower case.
 successfully parses.  Note that any string that parses as an
 \meta{ex\-pres\-sion} will also parse as a \meta{datum}.  \label{datum}
 
-\begin{grammar}%
+\begin{grammar}
 \meta{datum} \: \meta{simple datum} \| \meta{compound datum}
 \>  \| \meta{label} = \meta{datum} \| \meta{label} \#
 \meta{simple datum} \: \meta{boolean} \| \meta{number}
@@ -239,7 +239,7 @@ successfully parses.  Note that any string that parses as an
 \meta{abbreviation} \: \meta{abbrev prefix} \meta{datum}
 \meta{abbrev prefix} \: ' \| ` \| , \| ,@
 \meta{vector} \: \#(\arbno{\meta{datum}})
-\meta{label} \: \# \meta{uinteger 10}%
+\meta{label} \: \# \meta{uinteger 10}
 \end{grammar}
 
 
@@ -249,7 +249,7 @@ The definitions in this and the following subsections assume that all
 the syntax keywords defined in this report have been properly imported
 from their libraries, and that none of them have been redefined or shadowed.
 
-\begin{grammar}%
+\begin{grammar}
 \meta{expression} \: \meta{identifier}
 \>  \| \meta{literal}
 \>  \| \meta{procedure call}
@@ -352,7 +352,7 @@ It is presented as a recipe for generating an infinite number of
 production rules.  Imagine a copy of the following rules for $D = 1, 2,
 3, \ldots$, where $D$ is the nesting depth.
 
-\begin{grammar}%
+\begin{grammar}
 \meta{quasiquotation} \: \meta{quasiquotation 1}
 \meta{qq template 0} \: \meta{expression}
 \meta{quasiquotation $D$} \: `\meta{qq template $D$}
@@ -371,7 +371,7 @@ production rules.  Imagine a copy of the following rules for $D = 1, 2,
 \meta{qq template or splice $D$} \: \meta{qq template $D$}
 \>    \| \meta{splicing unquotation $D$}
 \meta{splicing unquotation $D$} \: ,@\meta{qq template $D-1$}
-\>    \| (unquote-splicing \meta{qq template $D-1$}) %
+\>    \| (unquote-splicing \meta{qq template $D-1$})
 \end{grammar}
 
 In \meta{quasiquotation}s, a \meta{list qq template $D$} can sometimes
@@ -382,7 +382,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 
 ### 7.1.5. Transformers
 
-\begin{grammar}%
+\begin{grammar}
 \meta{transformer spec} \:
 \> (syntax-rules (\arbno{\meta{identifier}}) \arbno{\meta{syntax rule}})
 \> \| (syntax-rules \meta{identifier} (\arbno{\meta{identifier}})
@@ -417,7 +417,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 
 ### 7.1.6. Programs and definitions
 
-\begin{grammar}%
+\begin{grammar}
 \meta{program} \:
 \> \atleastone{\meta{import declaration}}
 \> \atleastone{\meta{command or definition}}
@@ -445,7 +445,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 
 ### 7.1.7. Libraries
 
-\begin{grammar}%
+\begin{grammar}
 \meta{library} \:
 \> (d\=efine-library \meta{library name}
 \>   \> \arbno{\meta{library declaration}})
@@ -1428,7 +1428,7 @@ This could also be accomplished by using an auxiliary macro.
      (let ((var1 <undefined>) ...)
        (set! var1 init1)
        ...
-       (let () body1 body2 ...)))))%
+       (let () body1 body2 ...)))))
 ```
 
 ```

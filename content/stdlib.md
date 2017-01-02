@@ -201,7 +201,7 @@ operations.  For example {\cf caddar} could be defined by
 
 ```
 (define caddar
-  (lambda (x) (car (cdr (cdr (car x)))))){\rm.}%
+  (lambda (x) (car (cdr (cdr (car x)))))){\rm.}
 ```
 
 The procedures {\cf car} and {\cf cdr} themselves and the four

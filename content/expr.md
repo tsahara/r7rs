@@ -26,7 +26,7 @@ with the {\cf delay}, {\cf delay-force}, and {\cf parameterize} expression types
 
 ### 4.1.1. Variable references\unsection
 
-\begin{entry}{%
+\begin{entry}{
 \pproto{\hyper{variable}}{\exprtype}}
 
 An expression consisting of a variable\index{variable}
@@ -37,14 +37,14 @@ unbound\index{unbound} variable.
 
 ```
 (define x 28)
-x   \ev  28%
+x   \ev  28
 ```
 \end{entry}
 
 ### 4.1.2. Literal expressions\unsection
 \label{literalsection}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{quote}{ \hyper{datum}}{\exprtype}
 \pproto{\singlequote\hyper{datum}}{\exprtype}
 \pproto{\hyper{constant}}{\exprtype}}
@@ -101,7 +101,7 @@ As noted in section~\ref{storagemodel}, it is an error to attempt to alter a con
 
 ### 4.1.3. Procedure calls\unsection
 
-\begin{entry}{%
+\begin{entry}{
 \pproto{(\hyper{operator} \hyperi{operand} \dotsfoo)}{\exprtype}}
 
 A procedure call is written by enclosing in parentheses an
@@ -112,7 +112,7 @@ arguments.\mainindex{call}\mainindex{procedure call}
 
 ```
 (+ 3 4)                   \ev  7
-((if #f + *) 3 4)         \ev  12%
+((if #f + *) 3 4)         \ev  12
 ```
 
 The procedures in this document are available as the values of variables exported by the
@@ -151,7 +151,7 @@ The order of evaluation may be chosen differently for each procedure call.
 ### 4.1.4. Procedures\unsection
 \label{lamba}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{lambda}{ \hyper{formals} \hyper{body}}{\exprtype}}
 
 \syntax
@@ -236,7 +236,7 @@ with a storage location, in order to make \ide{eqv?} and
 
 ### 4.1.5. Conditionals\unsection
 
-\begin{entry}{%
+\begin{entry}{
 \proto{if}{ \hyper{test} \hyper{consequent} \hyper{alternate}}{\exprtype}
 \rproto{if}{ \hyper{test} \hyper{consequent}}{\exprtype}}  %\/ if hyper = italic
 
@@ -267,7 +267,7 @@ unspecified.
 ### 4.1.6. Assignments\unsection
 \label{assignment}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{set!}{ \hyper{variable} \hyper{expression}}{\exprtype}}
 
 \semantics
@@ -289,7 +289,7 @@ unspecified.
 
 ### 4.1.7. Inclusion\unsection
 \label{inclusion}
-\begin{entry}{%
+\begin{entry}{
 \proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}
 \rproto{include-ci}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}}
 
@@ -387,7 +387,7 @@ the last one are returned.
 \end{entry}
 
 
-\begin{entry}{%
+\begin{entry}{
 \proto{case}{ \hyper{key} \hyperi{clause} \hyperii{clause} \dotsfoo}{\exprtype}}
 
 \syntax
@@ -450,7 +450,7 @@ procedure are returned by the {\cf case} expression.
 \end{entry}
 
 
-\begin{entry}{%
+\begin{entry}{
 \proto{and}{ \hyperi{test} \dotsfoo}{\exprtype}}
 
 \semantics
@@ -465,13 +465,13 @@ are no expressions, then \schtrue{} is returned.
 (and (= 2 2) (> 2 1))           \ev  \schtrue
 (and (= 2 2) (< 2 1))           \ev  \schfalse
 (and 1 2 'c '(f g))             \ev  (f g)
-(and)                           \ev  \schtrue%
+(and)                           \ev  \schtrue
 ```
 
 \end{entry}
 
 
-\begin{entry}{%
+\begin{entry}{
 \proto{or}{ \hyperi{test} \dotsfoo}{\exprtype}}
 
 \semantics
@@ -491,7 +491,7 @@ or if there are no expressions, then \schfalse{} is returned.
 
 \end{entry}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{when}{ \hyper{test} \hyperi{expression} \hyperii{expression} \dotsfoo}{\exprtype}}
 
 \syntax
@@ -506,11 +506,11 @@ expression is unspecified.
 (when (= 1 1.0)
   (display "1")
   (display "2"))  \ev  \unspecified
- \>{\em and prints}  12%
+ \>{\em and prints}  12
 ```
 \end{entry}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{unless}{ \hyper{test} \hyperi{expression} \hyperii{expression} \dotsfoo}{\exprtype}}
 
 \syntax
@@ -529,7 +529,7 @@ expression is unspecified.
 ```
 \end{entry}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{cond-expand}{ \hyperi{ce-clause} \hyperii{ce-clause} \dotsfoo}{\exprtype}}
 
 \syntax
@@ -600,7 +600,7 @@ The {\cf let-values} and {\cf let*-values} constructs are analogous to {\cf let}
 respectively, but are designed to handle multiple-valued expressions, binding
 different identifiers to the returned values.
 
-\begin{entry}{%
+\begin{entry}{
 \proto{let}{ \hyper{bindings} \hyper{body}}{\exprtype}}
 
 \syntax
@@ -637,7 +637,7 @@ See also "named {\cf let}," section \ref{namedlet}.
 \end{entry}
 
 
-\begin{entry}{%
+\begin{entry}{
 \proto{let*}{ \hyper{bindings} \hyper{body}}{\exprtype}}\nobreak
 
 \nobreak
@@ -668,7 +668,7 @@ The \hyper{variable}s need not be distinct.
 \end{entry}
 
 
-\begin{entry}{%
+\begin{entry}{
 \proto{letrec}{ \hyper{bindings} \hyper{body}}{\exprtype}}
 
 \syntax
@@ -719,7 +719,7 @@ In the most common uses of {\cf letrec}, all the \hyper{init}s are
 \end{entry}
 
 
-\begin{entry}{%
+\begin{entry}{
 \proto{letrec*}{ \hyper{bindings} \hyper{body}}{\exprtype}}
 \label{letrecstar}
 
@@ -766,7 +766,7 @@ of an \hyper{init} more than once.
                 \ev  5
 ```
 
-\begin{entry}{%
+\begin{entry}{
 \proto{let-values}{ \hyper{mv binding spec} \hyper{body}}{\exprtype}}
 
 \syntax
@@ -803,7 +803,7 @@ values returned by the corresponding \hyper{init}.
 \end{entry}
 
 
-\begin{entry}{%
+\begin{entry}{
 \proto{let*-values}{ \hyper{mv binding spec} \hyper{body}}{\exprtype}}\nobreak
 
 \nobreak
@@ -842,7 +842,7 @@ set of bindings is visible and initialized, and so on.
 Both of Scheme's sequencing constructs are named {\cf begin}, but the two
 have slightly different forms and uses:
 
-\begin{entry}{%
+\begin{entry}{
 \proto{begin}{ \hyper{expression or definition} \dotsfoo}{\exprtype}}
 
 This form of {\cf begin} can appear as part of a \hyper{body}, or at the
@@ -860,7 +860,7 @@ splice them into the context in which they are expanded.
 
 \end{entry}
 
-\begin{entry}{%
+\begin{entry}{
 \rproto{begin}{ \hyperi{expression} \hyperii{expression} \dotsfoo}{\exprtype}}
 
 This form of {\cf begin} can be used as an ordinary expression.
@@ -888,9 +888,9 @@ see section~\ref{librarydeclarations}.
 
 ### 4.2.11. Iteration%\unsection
 
-\noindent%
+\noindent
 \pproto{(do ((\hyperi{variable} \hyperi{init} \hyperi{step})}{\exprtype}
-\mainschindex{do}{\tt\obeyspaces%
+\mainschindex{do}{\tt\obeyspaces
      \dotsfoo)\\
     (\hyper{test} \hyper{expression} \dotsfoo)\\
   \hyper{command} \dotsfoo)}
@@ -947,7 +947,7 @@ been written instead of {\cf(\hyper{variable} \hyper{init})}.
 
 
 
-\begin{entry}{%
+\begin{entry}{
 \rproto{let}{ \hyper{variable} \hyper{bindings} \hyper{body}}{\exprtype}}
 
 \label{namedlet}
@@ -982,7 +982,7 @@ invoking the procedure named by \hyper{variable}.
 
 ### 4.2.12. Delayed evaluation\unsection
 
-\begin{entry}{%
+\begin{entry}{
 \proto{delay}{ \hyper{expression}}{lazy library syntax}}
 
 
@@ -1000,7 +1000,7 @@ is unspecified.
 
 \end{entry}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{delay-force}{ \hyper{expression}}{lazy library syntax}}
 
 
@@ -1021,7 +1021,7 @@ unbounded space during evaluation.
 
 \end{entry}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{force}{ promise}{lazy library procedure}}
 
 The {\cf force} procedure forces the value of a \var{promise} created
@@ -1131,7 +1131,7 @@ arguments, like {\cf list}, must not force them.
 \end{itemize}
 \end{entry}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{promise?} { \var{obj}}{lazy library procedure}}
 
 The {\cf promise?} procedure returns
@@ -1141,7 +1141,7 @@ as procedures.
 
 \end{entry}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{make-promise} { \var{obj}}{lazy library procedure}}
 
 The {\cf make-promise} procedure returns a promise which, when forced, will return
@@ -1165,7 +1165,7 @@ bound to new values for the duration of a dynamic extent.  The set of
 all parameter bindings at a given time is called the \defining{dynamic
   environment}.
 
-\begin{entry}{%
+\begin{entry}{
 \proto{make-parameter}{ init}{procedure}
 \rproto{make-parameter}{ init converter}{procedure}}
 
@@ -1182,9 +1182,9 @@ The effect of passing arguments to a parameter object is
 implementation-dependent.
 \end{entry}
 
-\begin{entry}{%
+\begin{entry}{
 \pproto{(parameterize ((\hyperi{param} \hyperi{value}) \dotsfoo)}{syntax}
-{\tt\obeyspaces%
+{\tt\obeyspaces
 \hspace*{1em}\hyper{body})}}
 \mainschindex{parameterize}
 
@@ -1249,9 +1249,9 @@ procedure in the call chain explicitly.
 
 ### 4.2.14. Exception handling\unsection
 
-\begin{entry}{%
+\begin{entry}{
 \pproto{(guard (\hyper{variable}}{\exprtype}
-{\tt\obeyspaces%
+{\tt\obeyspaces
 \hspace*{4em}\hyperi{cond clause} \hyperii{cond clause} \dotsfoo)\\
 \hspace*{2em}\hyper{body})}\\
 }
@@ -1297,7 +1297,7 @@ exceptions.
 ### 4.2.15. Quasiquotation\unsection
 \label{quasiquotesection}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{quasiquote}{ \hyper{qq template}}{\exprtype} \nopagebreak
 \pproto{\backquote\hyper{qq template}}{\exprtype}
 \pproto{unquote}{\auxiliarytype}
@@ -1338,7 +1338,7 @@ to avoid colliding with the comma at-sign sequence.
 `\#(10 5 ,(sqrt 4) ,@(map sqrt '(16 9)) 8)
           \lev  \#(10 5 2 4 3 8)
 (let ((foo '(foo bar)) (@baz 'baz))
-  `(list ,@foo , @baz))%
+  `(list ,@foo , @baz))
           \lev  (list foo bar baz)
 ```
 
@@ -1408,7 +1408,7 @@ otherwise than as described above.
 
 ### 4.2.16. Case-lambda\unsection
 \label{caselambdasection}
-\begin{entry}{%
+\begin{entry}{
 \proto{case-lambda}{ \hyper{clause} \dotsfoo}{case-lambda library syntax}}
 
 \syntax
@@ -1516,7 +1516,7 @@ to locations that contain values.  Syntactic keywords can also be
 bound globally or locally with {\cf define-syntax};
 see section~\ref{define-syntax}.
 
-\begin{entry}{%
+\begin{entry}{
 \proto{let-syntax}{ \hyper{bindings} \hyper{body}}{\exprtype}}
 
 \syntax
@@ -1556,7 +1556,7 @@ Each binding of a \hyper{keyword} has \hyper{body} as its region.
 
 \end{entry}
 
-\begin{entry}{%
+\begin{entry}{
 \proto{letrec-syntax}{ \hyper{bindings} \hyper{body}}{\exprtype}}
 
 \syntax
@@ -1601,13 +1601,13 @@ introduced by the {\cf letrec-syntax} expression.
 
 A \hyper{transformer spec} has one of the following forms:
 
-\begin{entry}{%
+\begin{entry}{
 \pproto{(syntax-rules (\hyper{literal} \dotsfoo)}{\exprtype}
-{\tt\obeyspaces%
+{\tt\obeyspaces
 \hspace*{1em}\hyper{syntax rule} \dotsfoo)\\
 }
 \pproto{(syntax-rules \hyper{ellipsis} (\hyper{literal} \dotsfoo)}{\exprtype}
-{\tt\obeyspaces%
+{\tt\obeyspaces
 \hspace*{1em}\hyper{syntax rule} \dotsfoo)}\\
 \pproto{\_}{\auxiliarytype}
 \pproto{\dotsfoo}{\auxiliarytype}}
@@ -1826,7 +1826,7 @@ which would result in an invalid procedure call.
 ### 4.3.19. Signaling errors in macro transformers
 
 
-\begin{entry}{%
+\begin{entry}{
 \pproto{(syntax-error \hyper{message} \hyper{args} \dotsfoo)}{\exprtype}}
 \mainschindex{syntax-error}
 
@@ -1850,7 +1850,7 @@ exception handlers or guards.
       (x . y)))
     ((\_ ((name val) ...) body1 body2 ...)
      ((lambda (name ...) body1 body2 ...)
-       val ...))))%
+       val ...))))
 ```
 
 \end{entry}

@@ -242,12 +242,12 @@ expression.
 \item The last expression within the body of a lambda expression,
   shown as \hyper{tail expression} below, occurs in a tail context.
   The same is true of all the bodies of {\cf case-lambda} expressions.
-\begin{grammar}%
+\begin{grammar}
 (l\=ambda \meta{formals}
   \>\arbno{\meta{definition}} \arbno{\meta{expression}} \meta{tail expression})
 
 (case-lambda \arbno{(\meta{formals} \meta{tail body})})
-\end{grammar}%
+\end{grammar}
 
 \item If one of the following expressions is in a tail context,
 then the subexpressions shown as \meta{tail expression} are in a tail context.
@@ -258,7 +258,7 @@ with \meta{tail expression},  and some occurrences of \meta{sequence}
 with \meta{tail sequence}.  Only those rules that contain tail contexts
 are shown here.
 
-\begin{grammar}%
+\begin{grammar}
 (if \meta{expression} \meta{tail expression} \meta{tail expression})
 (if \meta{expression} \meta{tail expression})
 
@@ -301,7 +301,7 @@ are shown here.
 
 \meta{tail body} \: \arbno{\meta{definition}} \meta{tail sequence}
 \meta{tail sequence} \: \arbno{\meta{expression}} \meta{tail expression}
-\end{grammar}%
+\end{grammar}
 
 \item
 If a {\cf cond} or {\cf case} expression is in a tail context, and has
