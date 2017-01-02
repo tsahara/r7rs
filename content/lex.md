@@ -89,17 +89,17 @@ The following directives give explicit control over case
 folding.
 
 \begin{entry}{
-{\cf{}\#!fold-case}\sharpbangindex{fold-case}\\
-{\cf{}\#!no-fold-case}\sharpbangindex{no-fold-case}}
+{\cf{}#!fold-case}\sharpbangindex{fold-case}\\
+{\cf{}#!no-fold-case}\sharpbangindex{no-fold-case}}
 
 These directives can appear anywhere comments are permitted (see
 section~\ref{wscommentsection}) but must be followed by a delimiter.
 They are treated as comments, except that they affect the reading
-of subsequent data from the same port. The {\cf{}\#!fold-case} directive causes
+of subsequent data from the same port. The {\cf{}#!fold-case} directive causes
 subsequent identifiers and character names to be case-folded
 as if by {\cf string-foldcase} (see section~\ref{stringsection}).
 It has no effect on character
-literals.  The {\cf{}\#!no-fold-case} directive
+literals.  The {\cf{}#!no-fold-case} directive
 causes a return to the default, non-folding behavior.
 \end{entry}
 
@@ -126,14 +126,14 @@ comment.\mainindex{comment}\mainschindex{;}  The comment continues to the
 end of the line on which the semicolon appears.
 
 Another way to indicate a comment is to prefix a \hyper{datum}
-(cf.\ section~\ref{datumsyntax}) with {\tt \#;}\sharpindex{;} and optional
+(cf.\ section~\ref{datumsyntax}) with {\tt #;}\sharpindex{;} and optional
 \meta{whitespace}.  The comment consists of
-the comment prefix {\tt \#;}, the space, and the \hyper{datum} together.  This
+the comment prefix {\tt #;}, the space, and the \hyper{datum} together.  This
 notation is useful for "commenting out" sections of code.
 
 Block comments are indicated with properly nested {\tt
-  \#|}\index{#"|@\texttt{\sharpsign\verticalbar}}\index{"|#@\texttt{\verticalbar\sharpsign}}
-and {\tt |\#} pairs.
+  #|}\index{#"|@\texttt{\sharpsign\verticalbar}}\index{"|#@\texttt{\verticalbar\sharpsign}}
+and {\tt |#} pairs.
 
 ```
 #|
@@ -213,10 +213,10 @@ are terminated by~{\tt)}~.
 This introduces a bytevector constant (section~\ref{bytevectorsection}).  Bytevector constants
 are terminated by~{\tt)}~.
 
-\item[{\tt\#e \#i \#b \#o \#d \#x}]
+\item[{\tt#e #i #b #o #d #x}]
 These are used in the notation for numbers (section~\ref{numbernotations}).
 
-\item[\tt{\#\hyper{n}= \#\hyper{n}\#}]
+\item[\tt{#\hyper{n}= #\hyper{n}#}]
 These are used for labeling and referencing other literal data (section~\ref{labelsection}).
 
 \end{description}
@@ -225,17 +225,17 @@ These are used for labeling and referencing other literal data (section~\ref{lab
 \label{labelsection}
 
 \begin{entry}{
-\pproto{\#\hyper{n}=\hyper{datum}}{lexical syntax}
-\pproto{\#\hyper{n}\#}{lexical syntax}}
+\pproto{#\hyper{n}=\hyper{datum}}{lexical syntax}
+\pproto{#\hyper{n}#}{lexical syntax}}
 
 The lexical syntax
-\texttt{\#\hyper{n}=\hyper{datum}} reads the same as \hyper{datum}, but also
+\texttt{#\hyper{n}=\hyper{datum}} reads the same as \hyper{datum}, but also
 results in \hyper{datum} being labelled by \hyper{n}.
 It is an error if \hyper{n} is not a sequence of digits.
 
-The lexical syntax \texttt{\#\hyper{n}\#} serves as a reference to some
-object labelled by \texttt{\#\hyper{n}=}; the result is the same
-object as the \texttt{\#\hyper{n}}=
+The lexical syntax \texttt{#\hyper{n}#} serves as a reference to some
+object labelled by \texttt{#\hyper{n}=}; the result is the same
+object as the \texttt{#\hyper{n}}=
 (see section~\ref{equivalencesection}).
 
 Together, these syntaxes permit the notation of
@@ -249,11 +249,11 @@ structures with shared or circular substructure.
 
 The scope of a datum label is the portion of the outermost datum in which it appears
 that is to the right of the label.
-Consequently, a reference \texttt{\#\hyper{n}\#} can occur only after a label
-\texttt{\#\hyper{n}=}; it is an error to attempt a forward reference.  In
+Consequently, a reference \texttt{#\hyper{n}#} can occur only after a label
+\texttt{#\hyper{n}=}; it is an error to attempt a forward reference.  In
 addition, it is an error if the reference appears as the labelled object itself
-(as in \texttt{\#\hyper{n}= \#\hyper{n}\#}),
-because the object labelled by \texttt{\#\hyper{n}=} is not well
+(as in \texttt{#\hyper{n}= #\hyper{n}#}),
+because the object labelled by \texttt{#\hyper{n}=} is not well
 defined in this case.
 
 It is an error for a \hyper{program} or \hyper{library} to include

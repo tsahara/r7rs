@@ -19,9 +19,9 @@ This section provides a formal syntax for Scheme written in an extended
 BNF.
 
 All spaces in the grammar are for legibility.  Case is not significant
-except in the definitions of \meta{letter}, \meta{character name} and \meta{mnemonic escape}; for example, {\cf \#x1A}
-and {\cf \#X1a} are equivalent, but {\cf foo} and {\cf Foo}
-and {\cf \#\backwhack{}space} and {\cf \#\backwhack{}Space} are distinct.
+except in the definitions of \meta{letter}, \meta{character name} and \meta{mnemonic escape}; for example, {\cf #x1A}
+and {\cf #X1a} are equivalent, but {\cf foo} and {\cf Foo}
+and {\cf #\backwhack{}space} and {\cf #\backwhack{}Space} are distinct.
 \meta{empty} stands for the empty string.
 
 The following extensions to BNF are used to make the description more
@@ -82,13 +82,13 @@ containing the corresponding character.
 \meta{comment} \: ; \= $\langle$\rm all subsequent characters up to a
 		    \>\ \rm line ending$\rangle$\index{comment}
 \> \| \meta{nested comment}
-\> \| \#; \meta{intertoken space} \meta{datum}
-\meta{nested comment} \: \#| \= \meta{comment text}
-\> \arbno{\meta{comment cont}} |\#
+\> \| #; \meta{intertoken space} \meta{datum}
+\meta{nested comment} \: #| \= \meta{comment text}
+\> \arbno{\meta{comment cont}} |#
 \meta{comment text} \: \= $\langle$\rm character sequence not containing
-\>\ \rm {\tt \#|} or {\tt |\#}$\rangle$
+\>\ \rm {\tt #|} or {\tt |#}$\rangle$
 \meta{comment cont} \: \meta{nested comment} \meta{comment text}
-\meta{directive} \: \#!fold-case \| \#!no-fold-case
+\meta{directive} \: #!fold-case \| #!no-fold-case
 \end{grammar}
 
 Note that it is ungrammatical to follow a \meta{directive} with anything
@@ -140,9 +140,9 @@ identifiers.
 
 \meta{boolean} \: \schtrue{} \| \schfalse{} \| \sharptrue{} \| \sharpfalse{}
 \label{charactersyntax}
-\meta{character} \: \#\backwhack{} \meta{any character}
- \>  \| \#\backwhack{} \meta{character name}
- \>  \| \#\backwhack{}x\meta{hex scalar value}
+\meta{character} \: #\backwhack{} \meta{any character}
+ \>  \| #\backwhack{} \meta{character name}
+ \>  \| #\backwhack{}x\meta{hex scalar value}
 \meta{character name} \: alarm \| backspace \| delete
 \> \| escape \| newline \| null \| return \| space \| tab
 
@@ -152,7 +152,7 @@ identifiers.
  \>  \| \backwhack{}\arbno{\meta{intraline whitespace}}\meta{line ending}
  \>  \> \arbno{\meta{intraline whitespace}}
  \>  \| \meta{inline hex escape}
-\meta{bytevector} \: \#u8(\arbno{\meta{byte}})
+\meta{bytevector} \: #u8(\arbno{\meta{byte}})
 \meta{byte} \: \meta{any exact integer between 0 and 255}
 \end{grammar}
 
@@ -209,11 +209,11 @@ of numbers can appear in either upper or lower case.
    \> \| \meta{exponent marker} \meta{sign} \atleastone{\meta{digit $10$}}
 \meta{exponent marker} \: e
 \meta{sign} \: \meta{empty}  \| + \|  -
-\meta{exactness} \: \meta{empty} \| \#i\sharpindex{i} \| \#e\sharpindex{e}
-\meta{radix 2} \: \#b\sharpindex{b}
-\meta{radix 8} \: \#o\sharpindex{o}
-\meta{radix 10} \: \meta{empty} \| \#d
-\meta{radix 16} \: \#x\sharpindex{x}
+\meta{exactness} \: \meta{empty} \| #i\sharpindex{i} \| #e\sharpindex{e}
+\meta{radix 2} \: #b\sharpindex{b}
+\meta{radix 8} \: #o\sharpindex{o}
+\meta{radix 10} \: \meta{empty} \| #d
+\meta{radix 16} \: #x\sharpindex{x}
 \meta{digit 2} \: 0 \| 1
 \meta{digit 8} \: 0 \| 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7
 \meta{digit 10} \: \meta{digit}
@@ -230,7 +230,7 @@ successfully parses.  Note that any string that parses as an
 
 \begin{grammar}
 \meta{datum} \: \meta{simple datum} \| \meta{compound datum}
-\>  \| \meta{label} = \meta{datum} \| \meta{label} \#
+\>  \| \meta{label} = \meta{datum} \| \meta{label} #
 \meta{simple datum} \: \meta{boolean} \| \meta{number}
 \>  \| \meta{character} \| \meta{string} \|  \meta{symbol} \| \meta{bytevector}
 \meta{symbol} \: \meta{identifier}
@@ -238,8 +238,8 @@ successfully parses.  Note that any string that parses as an
 \meta{list} \: (\arbno{\meta{datum}}) \| (\atleastone{\meta{datum}} .\ \meta{datum})
 \meta{abbreviation} \: \meta{abbrev prefix} \meta{datum}
 \meta{abbrev prefix} \: ' \| ` \| , \| ,@
-\meta{vector} \: \#(\arbno{\meta{datum}})
-\meta{label} \: \# \meta{uinteger 10}
+\meta{vector} \: #(\arbno{\meta{datum}})
+\meta{label} \: # \meta{uinteger 10}
 \end{grammar}
 
 
@@ -365,7 +365,7 @@ production rules.  Imagine a copy of the following rules for $D = 1, 2,
 \>    \| (\atleastone{\meta{qq template or splice $D$}} .\ \meta{qq template $D$})
 \>    \| '\meta{qq template $D$}
 \>    \| \meta{quasiquotation $D+1$}
-\meta{vector qq template $D$} \: \#(\arbno{\meta{qq template or splice $D$}})
+\meta{vector qq template $D$} \: #(\arbno{\meta{qq template or splice $D$}})
 \meta{unquotation $D$} \: ,\meta{qq template $D-1$}
 \>    \| (unquote \meta{qq template $D-1$})
 \meta{qq template or splice $D$} \: \meta{qq template $D$}
@@ -395,8 +395,8 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \>  \| (\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}})
 \>  \| (\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}}
 \> \> \ \ . \meta{pattern})
-\>  \| \#(\arbno{\meta{pattern}})
-\>  \| \#(\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}})
+\>  \| #(\arbno{\meta{pattern}})
+\>  \| #(\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}})
 \>  \| \meta{pattern datum}
 \meta{pattern datum} \: \meta{string}
 \>  \| \meta{character}
@@ -405,7 +405,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \meta{template} \: \meta{pattern identifier}
 \>  \| (\arbno{\meta{template element}})
 \>  \| (\atleastone{\meta{template element}} .\ \meta{template})
-\>  \| \#(\arbno{\meta{template element}})
+\>  \| #(\arbno{\meta{template element}})
 \>  \| \meta{template datum}
 \meta{template element} \: \meta{template}
 \>  \| \meta{template} \meta{ellipsis}
@@ -520,7 +520,7 @@ The notation is summarized below:
 \begin{tabular}{ll}
 $\langle\,\ldots\,\rangle$ & sequence formation \\
 $s \elt k$                 & $k$th member of the sequence $s$ (1-based) \\
-$\#s$                      & length of sequence $s$ \\
+$#s$                      & length of sequence $s$ \\
 $s \:\S\: t$               & concatenation of sequences $s$ and $t$ \\
 $s \drop k$                & drop the first $k$ members of sequence $s$ \\
 $t \rightarrow a, b$       & McCarthy conditional "if $t$ then $a$ else $b$" \\
@@ -687,7 +687,7 @@ Definition of \Ksem{} deliberately omitted.
      $\=$(\langle
          $\=$\fun{new}\:\sigma\,\vert\,\LOC,$\\
       \>  \>$\lambda\arbno{\epsilon}\omega^\prime\kappa^\prime\:.\:
-               $\=$\#\arbno{\epsilon} = \#{\arbno{\I}}\rightarrow$\\
+               $\=$#\arbno{\epsilon} = #{\arbno{\I}}\rightarrow$\\
       \>  \>    $\go{1}\fun{tievals}
                    $\=$(\lambda\arbno{\alpha}\:.\:
                          $\=$(\lambda\rho^\prime\:.\:\Csem\sembrack{\arbno{\C}}\rho^\prime\omega^\prime
@@ -711,7 +711,7 @@ Definition of \Ksem{} deliberately omitted.
      $\=$(\langle
          $\=$\fun{new}\:\sigma\,\vert\,\LOC,$\\
       \>  \>$\lambda\arbno{\epsilon}\omega^\prime\kappa^\prime\:.\:
-               $\=$\#\arbno{\epsilon} \geq \#\arbno{\I}\rightarrow$\\
+               $\=$#\arbno{\epsilon} \geq #\arbno{\I}\rightarrow$\\
       \>  \>    \>\go{1}$\fun{tievalsrest}$\\
       \>  \>    \>\go{2}\=$(\lambda\arbno{\alpha}\:.\:
                            $\=$(\lambda\rho^\prime\:.\:\Csem\sembrack{\arbno{\C}}\rho^\prime\omega^\prime
@@ -720,7 +720,7 @@ Definition of \Ksem{} deliberately omitted.
                                \:(\arbno{\I}\:\S\:\langle\I\rangle)
                                \:\arbno{\alpha}))$\\
       \>  \>    \>       \>$\arbno{\epsilon}$\\
-      \>  \>    \>       \>$(\#\arbno{\I}),$\\
+      \>  \>    \>       \>$(#\arbno{\I}),$\\
       \>  \>    \>\go{1}$\wrong{too few arguments}\rangle\hbox{ \rm in }\EXP)$\\
       \>$\kappa$\\
       \>$(\fun{update}\:(\fun{new}\:\sigma\,\vert\,\LOC)
@@ -803,7 +803,7 @@ be used in place of {\it unspecified}.
 \fun{extends}       :  \ENV \to \arbno{\Ide} \to \arbno{\LOC} \to \ENV$\\$
 \fun{extends} =$\\
  \go{1}$\lambda\rho\arbno{\I}\arbno{\alpha}\:.\:
-   $\=$\#\arbno{\I}=0\rightarrow\rho,$\\
+   $\=$#\arbno{\I}=0\rightarrow\rho,$\\
     \>$\go{1}\fun{extends}\:(\rho[(\arbno{\alpha}\elt 1)/(\arbno{\I}\elt 1)])
                                \:(\arbno{\I}\drop 1)
                                \:(\arbno{\alpha}\drop 1)
@@ -823,7 +823,7 @@ be used in place of {\it unspecified}.
 \fun{single}        :  (\EXP \to \CC) \to \EC$\\$
 \fun{single} =$\\
  \go{1}$\lambda\psi\arbno{\epsilon}\:.\:
-   $\=$\#\arbno{\epsilon}=1\rightarrow\psi(\arbno{\epsilon}\elt 1),$\\
+   $\=$#\arbno{\epsilon}=1\rightarrow\psi(\arbno{\epsilon}\elt 1),$\\
     \>$\go{1}\wrong{wrong number of return values}
 \end{semfun}
 
@@ -854,7 +854,7 @@ be used in place of {\it unspecified}.
 \fun{tievals}       :  (\arbno{\LOC} \to \CC) \to \arbno{\EXP} \to \CC$\\$
 \fun{tievals} =$\\
  \go{1}$\lambda\psi\arbno{\epsilon}\sigma\:.\:
-   $\=$\#\arbno{\epsilon}=0\rightarrow\psi\langle\:\rangle\sigma,$\\
+   $\=$#\arbno{\epsilon}=0\rightarrow\psi\langle\:\rangle\sigma,$\\
     \>$\fun{new}\:\sigma\:\elem\:\LOC\rightarrow\fun{tievals}\,
        $\=$(\lambda\arbno{\alpha}\:.\:\psi(\langle\fun{new}\:\sigma\:\vert\:\LOC\rangle
                                      \:\S\:\arbno{\alpha}))$\\
@@ -917,7 +917,7 @@ be used in place of {\it unspecified}.
 \fun{onearg}      :  (\EXP \to \DP \to \EC \to \CC) \to (\arbno{\EXP} \to \DP \to \EC \to \CC)$\\$
 \fun{onearg} =$\\
  \go{1}$\lambda\zeta\arbno{\epsilon}\omega\kappa\:.\:
-   $\=$\#\arbno{\epsilon}=1\rightarrow\zeta(\arbno{\epsilon}\elt 1)\omega\kappa,$\\
+   $\=$#\arbno{\epsilon}=1\rightarrow\zeta(\arbno{\epsilon}\elt 1)\omega\kappa,$\\
     \>$\go{1}\wrong{wrong number of arguments}
 \end{semfun}
 
@@ -925,7 +925,7 @@ be used in place of {\it unspecified}.
 \fun{twoarg}      :  (\EXP \to \EXP \to \DP \to \EC \to \CC) \to (\arbno{\EXP} \to \DP \to \EC \to \CC)$\\$
 \fun{twoarg} =$\\
  \go{1}$\lambda\zeta\arbno{\epsilon}\omega\kappa\:.\:
-   $\=$\#\arbno{\epsilon}=2\rightarrow\zeta(\arbno{\epsilon}\elt 1)(\arbno{\epsilon}\elt 2)\omega\kappa,$\\
+   $\=$#\arbno{\epsilon}=2\rightarrow\zeta(\arbno{\epsilon}\elt 1)(\arbno{\epsilon}\elt 2)\omega\kappa,$\\
     \>$\go{1}\wrong{wrong number of arguments}
 \end{semfun}
 
@@ -933,7 +933,7 @@ be used in place of {\it unspecified}.
 \fun{threearg}      :  (\EXP \to \EXP \to \EXP \to \DP \to \EC \to \CC) \to (\arbno{\EXP} \to \DP \to \EC \to \CC)$\\$
 \fun{threearg} =$\\
  \go{1}$\lambda\zeta\arbno{\epsilon}\omega\kappa\:.\:
-   $\=$\#\arbno{\epsilon}=3\rightarrow\zeta(\arbno{\epsilon}\elt 1)(\arbno{\epsilon}\elt 2)(\arbno{\epsilon}\elt 3)\omega\kappa,$\\
+   $\=$#\arbno{\epsilon}=3\rightarrow\zeta(\arbno{\epsilon}\elt 1)(\arbno{\epsilon}\elt 2)(\arbno{\epsilon}\elt 3)\omega\kappa,$\\
     \>$\go{1}\wrong{wrong number of arguments}
 \end{semfun}
 
@@ -941,7 +941,7 @@ be used in place of {\it unspecified}.
 \fun{list}          :  \arbno{\EXP} \to \DP \to \EC \to \CC$\\$
 \fun{list} =$\\
  \go{1}$\lambda\arbno{\epsilon}\omega\kappa\:.\:
-   $\=$\#\arbno{\epsilon}=0\rightarrow\fun{send}\:\fun{null}\:\kappa,$\\
+   $\=$#\arbno{\epsilon}=0\rightarrow\fun{send}\:\fun{null}\:\kappa,$\\
     \>$\go{1}\fun{list}\,(\arbno{\epsilon}\drop 1)
              (\fun{single}(\lambda\epsilon\:.\:
                    \fun{cons}\langle\arbno{\epsilon}\elt 1,\epsilon\rangle\kappa))
@@ -1070,9 +1070,9 @@ be used in place of {\it unspecified}.
     \>  \>$\kappa,$\\
     \>$(\epsilon_1\:\elem\:\VEC\wedge\epsilon_2\:\elem\:\VEC)\rightarrow
 %\fun{send}\,
-%       $\=$((\#(\epsilon_1\:\vert\:\VEC)=\#(\epsilon_2\:\vert\:\VEC)
+%       $\=$((#(\epsilon_1\:\vert\:\VEC)=#(\epsilon_2\:\vert\:\VEC)
 %         \wedge\hbox{\rm Y}(\lambda\fun{loop}\:.\:\lambda\fun{v1}\fun{v2}\:.\:
-%       $\=$\#\fun{v1}=0\rightarrow\fun{true},$\\
+%       $\=$#\fun{v1}=0\rightarrow\fun{true},$\\
 %    \>  \>  \>$(\fun{v1}\elt 1) = (\fun{v2}\elt 1)\rightarrow
 %       \fun{loop}(\fun{v1}\drop 1)(\fun{v2}\drop 1),$\\
 %    \>  \>  \>$\go{1}\fun{false})(\epsilon_1\:\vert\:\VEC)(\epsilon_2\:\vert\:\VEC))
@@ -1081,9 +1081,9 @@ be used in place of {\it unspecified}.
 \ldots,$\\
     \>$(\epsilon_1\:\elem\:\STR\wedge\epsilon_2\:\elem\:\STR)\rightarrow
 %\fun{send}\,
-%       $\=$((\#(\epsilon_1\:\vert\:\STR)=\#(\epsilon_2\:\vert\:\STR)\wedge
+%       $\=$((#(\epsilon_1\:\vert\:\STR)=#(\epsilon_2\:\vert\:\STR)\wedge
 %    \hbox{\rm Y}(\lambda\fun{loop}\:.\:\lambda\fun{v1}\fun{v2}\:.\:
-%       $\=$\#\fun{v1}=0\rightarrow\fun{true},$\\
+%       $\=$#\fun{v1}=0\rightarrow\fun{true},$\\
 %    \>  \>  \>$(\fun{v1}\elt 1) = (\fun{v2}\elt 1)\rightarrow
 %     \fun{loop}(\fun{v1}\drop 1)(\fun{v2}\drop 1),$\\
 %    \>  \>  \>$\go{1}\fun{false})(\epsilon_1\:\vert\:\STR)(\epsilon_2\:\vert\:\STR))
@@ -1212,7 +1212,7 @@ be used in place of {\it unspecified}.
 \fun{travelpath} : \arbno{(\DP \times \FUN)} \to \CC \to \CC$\\$
 \fun{travelpath} = $\\
   \go{1}$\lambda\arbno{\pi}\theta\:.\:
-  $\=$\#\arbno{\pi}=0\rightarrow\theta,$\\
+  $\=$#\arbno{\pi}=0\rightarrow\theta,$\\
   \>$((\arbno{\pi}\elt 1)\elt 2)$\=$\langle\rangle((\arbno{\pi}\elt 1)\elt 1)$\\
   \>\>$(\lambda\arbno{\epsilon}\:.\:\fun{travelpath}\:(\arbno{\pi} \drop 1)\theta)
 \end{semfun}
@@ -1549,7 +1549,7 @@ of the {\cf begin} contains no definitions.
 The following syntax definition
 of {\cf do} uses a trick to expand the variable clauses.
 As with {\cf letrec} above, an auxiliary macro would also work.
-The expression {\cf (if \#f \#f)} is used to obtain an unspecific
+The expression {\cf (if #f #f)} is used to obtain an unspecific
 value.
 
 ```
@@ -1563,7 +1563,7 @@ value.
          (lambda (var ...)
            (if test
                (begin
-                 (if \#f \#f)
+                 (if #f #f)
                  expr ...)
                (begin
                  command

@@ -119,6 +119,6 @@ which models a damped oscillator.
 (define the-states
   (integrate-system
      (damped-oscillator 10000 1000 .001)
-     '\#(1 0)
+     '#(1 0)
      .01))
 \end{schemenoindent}

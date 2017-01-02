@@ -106,7 +106,7 @@ In {\em ACM Lisp Pointers} 4(3), pages~1--55, 1991.
 
 \bibitem{uax29}
 Mark Davis.
-Unicode Standard Annex \#29, Unicode Text Segmentation.
+Unicode Standard Annex #29, Unicode Text Segmentation.
 \url{http://unicode.org/reports/tr29/}, 2010.
 
 \bibitem{syntacticabstraction}

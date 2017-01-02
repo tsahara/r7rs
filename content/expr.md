@@ -57,7 +57,7 @@ constants in Scheme code.
 
 ```
 (quote a)                     \ev  a
-(quote \sharpsign(a b c))     \ev  \#(a b c)
+(quote \sharpsign(a b c))     \ev  #(a b c)
 (quote (+ 1 2))               \ev  (+ 1 2)
 ```
 
@@ -67,7 +67,7 @@ respects.
 
 ```
 'a                   \ev  a
-'\#(a b c)           \ev  \#(a b c)
+'#(a b c)           \ev  #(a b c)
 '()                  \ev  ()
 '(+ 1 2)             \ev  (+ 1 2)
 '(quote a)           \ev  (quote a)
@@ -302,7 +302,7 @@ of {\cf read},
 and effectively replace the {\cf include} or {\cf include-ci} expression
 with a {\cf begin} expression containing what was read from the files.
 The difference between the two is that \ide{include-ci} reads each file
-as if it began with the {\cf{}\#!fold-case} directive, while \ide{include}
+as if it began with the {\cf{}#!fold-case} directive, while \ide{include}
 does not.
 
 \begin{note}
@@ -937,7 +937,7 @@ been written instead of {\cf(\hyper{variable} \hyper{init})}.
 (do ((vec (make-vector 5))
      (i 0 (+ i 1)))
     ((= i 5) vec)
-  (vector-set! vec i i))          \ev  \#(0 1 2 3 4)
+  (vector-set! vec i i))          \ev  #(0 1 2 3 4)
 
 (let ((x '(1 3 5 7 9)))
   (do ((x x (cdr x))
@@ -1335,8 +1335,8 @@ to avoid colliding with the comma at-sign sequence.
           \lev  (a 3 4 5 6 b)
 `(({\cf foo} ,(- 10 3)) ,@(cdr '(c)) . ,(car '(cons)))
           \lev  ((foo 7) . cons)
-`\#(10 5 ,(sqrt 4) ,@(map sqrt '(16 9)) 8)
-          \lev  \#(10 5 2 4 3 8)
+`#(10 5 ,(sqrt 4) ,@(map sqrt '(16 9)) 8)
+          \lev  #(10 5 2 4 3 8)
 (let ((foo '(foo bar)) (@baz 'baz))
   `(list ,@foo , @baz))
           \lev  (list foo bar baz)
@@ -1632,15 +1632,15 @@ following
 (\hyper{pattern} \ldots \hyper{pattern} \hyper{ellipsis} \hyper{pattern} \ldots)
 (\hyper{pattern} \ldots \hyper{pattern} \hyper{ellipsis} \hyper{pattern} \ldots
   . \hyper{pattern})
-\#(\hyper{pattern} \ldots)
-\#(\hyper{pattern} \ldots \hyper{pattern} \hyper{ellipsis} \hyper{pattern} \ldots)
+#(\hyper{pattern} \ldots)
+#(\hyper{pattern} \ldots \hyper{pattern} \hyper{ellipsis} \hyper{pattern} \ldots)
 ```
 and a \hyper{template} is either an identifier, a constant, or one of the following
 ```
 (\hyper{element} \ldots)
 (\hyper{element} \hyper{element} \ldots . \hyper{template})
 (\hyper{ellipsis} \hyper{template})
-\#(\hyper{element} \ldots)
+#(\hyper{element} \ldots)
 ```
 where an \hyper{element} is a \hyper{template} optionally
 followed by an \hyper{ellipsis}.
@@ -1726,12 +1726,12 @@ More formally, an input expression $E$ matches a pattern $P$ if and only if:
       whose remaining $n-m$ elements match $P_{m+1}$ through $P_n$,
       and whose $n$th and final cdr matches $P_x$; or
 
-\item $P$ is a vector of the form {\cf \#($P_1$ $\dots$ $P_n$)}
+\item $P$ is a vector of the form {\cf #($P_1$ $\dots$ $P_n$)}
       and $E$ is a vector
       of $n$ elements that match $P_1$ through $P_n$; or
 
 \item $P$ is of the form
-      {\cf \#($P_1$ $\dots$ $P_k$ $P_{e}$ \meta{ellipsis} $P_{m+1}$ \dotsfoo $P_n$)}
+      {\cf #($P_1$ $\dots$ $P_k$ $P_{e}$ \meta{ellipsis} $P_{m+1}$ \dotsfoo $P_n$)}
       where $E$ is a vector of $n$
       elements the first $k$ of which match $P_1$ through $P_k$,
       whose next $m-k$ elements each match $P_e$,

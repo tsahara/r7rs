@@ -20,7 +20,7 @@ the "Revised$^5$ report"~\cite{R5RS}.
 \item Case sensitivity is now the default in symbols and character names.
 This means that code written under the assumption that symbols could be
 written {\cf FOO} or {\cf Foo} in some contexts and {\cf foo} in other contexts
-can either be changed, be marked with the new {\cf \#!fold-case} directive,
+can either be changed, be marked with the new {\cf #!fold-case} directive,
 or be included in a library using the {\cf include-ci} library declaration.
 All standard identifiers are entirely in lower case.
 
@@ -37,7 +37,7 @@ The former names are still available in the {{< rnrs 5 >}}\ library.
 related predicates) is a lexicographical extension of character comparison
 (with {\cf char<?} and the related predicates) has been removed.  
 
-\item Support for the \# character in numeric literals is no longer required.
+\item Support for the # character in numeric literals is no longer required.
 
 \item Support for the letters {\cf s}, {\cf f}, {\cf d}, and {\cf l}
 as exponent markers is no longer required.
@@ -214,12 +214,12 @@ solely on Unicode scalar values.
 The new {\cf digit-value} procedure has been added to obtain the numerical
 value of a numeric character.
 
-\item There are now two additional comment syntaxes: {\tt \#;} to
-skip the next datum, and {\tt \#| ... |\#}
+\item There are now two additional comment syntaxes: {\tt #;} to
+skip the next datum, and {\tt #| ... |#}
 for nestable block comments.
 
-\item Data prefixed with datum labels {\tt \#<n>=} can be referenced
-with {\tt \#<n>\#}, allowing for reading and writing of data with
+\item Data prefixed with datum labels {\tt #<n>=} can be referenced
+with {\tt #<n>#}, allowing for reading and writing of data with
 shared structure.
 
 \item Strings and symbols now allow mnemonic and numeric escape
@@ -317,8 +317,8 @@ exception of multiple-argument {\cf unquote} and
 
 \item {{< rnrs 6 >}}{}-style bytevectors are included, but 
 only the unsigned byte ({\cf u8}) procedures have been provided.
-The lexical syntax uses {\cf \#u8} for compatibility
-with SRFI 4~\cite{srfi4}, rather than the {{< rnrs 6 >}}~{\cf \#vu8} style.
+The lexical syntax uses {\cf #u8} for compatibility
+with SRFI 4~\cite{srfi4}, rather than the {{< rnrs 6 >}}~{\cf #vu8} style.
 
 \item The utility macros {\cf when} and {\cf unless} are provided, but 
 their result is left unspecified.

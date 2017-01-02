@@ -607,14 +607,14 @@ constants.
 
 A number can be written in binary, octal, decimal, or
 hexa\-decimal by the use of a radix prefix.  The radix prefixes are {\cf
-\#b}\sharpindex{b} (binary), {\cf \#o}\sharpindex{o} (octal), {\cf
-\#d}\sharpindex{d} (decimal), and {\cf \#x}\sharpindex{x} (hexa\-decimal).  With
+#b}\sharpindex{b} (binary), {\cf #o}\sharpindex{o} (octal), {\cf
+#d}\sharpindex{d} (decimal), and {\cf #x}\sharpindex{x} (hexa\-decimal).  With
 no radix prefix, a number is assumed to be expressed in decimal.
 
 A
 numerical constant can be specified to be either \tupe{exact} or
-\tupe{inexact} by a prefix.  The prefixes are {\cf \#e}\sharpindex{e}
-for \tupe{exact}, and {\cf \#i}\sharpindex{i} for \tupe{inexact}.  An exactness
+\tupe{inexact} by a prefix.  The prefixes are {\cf #e}\sharpindex{e}
+for \tupe{exact}, and {\cf #i}\sharpindex{i} for \tupe{inexact}.  An exactness
 prefix can appear before or after any radix prefix that is used.  If
 the written representation of a number has no exactness prefix, the
 constant is
@@ -1395,7 +1395,7 @@ Returns a number of the maximally precise representation expressed by the
 given \vr{string}.
 \domain{It is an error if \vr{radix} is not 2, 8, 10, or 16.}
 If supplied, \vr{radix} is a default radix that will be overridden
-if an explicit radix prefix is present in \vr{string} (e.g. {\tt "\#o177"}).  If \vr{radix}
+if an explicit radix prefix is present in \vr{string} (e.g. {\tt "#o177"}).  If \vr{radix}
 is not supplied, then the default radix is 10.  If \vr{string} is not
 a syntactically valid notation for a number, or would result in a
 number that the implementation cannot represent, then {\cf string->number}
@@ -2118,15 +2118,15 @@ provided they cannot be interpreted as hex scalar values preceded by {\cf x}.
 
 $$
 \begin{tabular}{ll}
-{\tt \#\backwhack{}alarm}&; \textrm{U+0007}\\
-{\tt \#\backwhack{}backspace}&; \textrm{U+0008}\\
-{\tt \#\backwhack{}delete}&; \textrm{U+007F}\\
-{\tt \#\backwhack{}escape}&; \textrm{U+001B}\\
-{\tt \#\backwhack{}newline}&; the linefeed character, \textrm{U+000A}\\
-{\tt \#\backwhack{}null}&; the null character, \textrm{U+0000}\\
-{\tt \#\backwhack{}return}&; the return character, \textrm{U+000D}\\
-{\tt \#\backwhack{}space}&; the preferred way to write a space\\
-{\tt \#\backwhack{}tab}&; the tab character, \textrm{U+0009}\\
+{\tt #\backwhack{}alarm}&; \textrm{U+0007}\\
+{\tt #\backwhack{}backspace}&; \textrm{U+0008}\\
+{\tt #\backwhack{}delete}&; \textrm{U+007F}\\
+{\tt #\backwhack{}escape}&; \textrm{U+001B}\\
+{\tt #\backwhack{}newline}&; the linefeed character, \textrm{U+000A}\\
+{\tt #\backwhack{}null}&; the null character, \textrm{U+0000}\\
+{\tt #\backwhack{}return}&; the return character, \textrm{U+000D}\\
+{\tt #\backwhack{}space}&; the preferred way to write a space\\
+{\tt #\backwhack{}tab}&; the tab character, \textrm{U+0009}\\
 \end{tabular}
 $$
 
@@ -2134,12 +2134,12 @@ Here are some additional examples:
 
 $$
 \begin{tabular}{ll}
-{\tt \#\backwhack{}a}&; lower case letter\\
-{\tt \#\backwhack{}A}&; upper case letter\\
-{\tt \#\backwhack{}(}&; left parenthesis\\
-{\tt \#\backwhack{} }&; the space character\\
-{\tt \#\backwhack{}x03BB}&; $\lambda$ (if character is supported)\\
-{\tt \#\backwhack{}iota}&; $\iota$ (if character and name are supported)\\
+{\tt #\backwhack{}a}&; lower case letter\\
+{\tt #\backwhack{}A}&; upper case letter\\
+{\tt #\backwhack{}(}&; left parenthesis\\
+{\tt #\backwhack{} }&; the space character\\
+{\tt #\backwhack{}x03BB}&; $\lambda$ (if character is supported)\\
+{\tt #\backwhack{}iota}&; $\iota$ (if character and name are supported)\\
 \end{tabular}
 $$
 
@@ -2202,7 +2202,7 @@ These predicates are required to be transitive.
 
 These procedures are similar to {\cf char=?}\ et cetera, but they treat
 upper case and lower case letters as the same.  For example, {\cf
-(char-ci=?\ \#\backwhack{}A \#\backwhack{}a)} returns \schtrue.
+(char-ci=?\ #\backwhack{}A #\backwhack{}a)} returns \schtrue.
 
 Specifically, these procedures behave as if {\cf char-foldcase} were
 applied to their arguments before they were compared.
@@ -2252,11 +2252,11 @@ or \schfalse{} on any other character.
 
 Given a Unicode character,
 {\cf char\coerce{}integer} returns an exact integer
-between 0 and {\tt \#xD7FF} or
-between {\tt \#xE000} and {\tt \#x10FFFF}
+between 0 and {\tt #xD7FF} or
+between {\tt #xE000} and {\tt #x10FFFF}
 which is equal to the Unicode scalar value of that character.
 Given a non-Unicode character,
-it returns an exact integer greater than {\tt \#x10FFFF}.
+it returns an exact integer greater than {\tt #x10FFFF}.
 This is true independent of whether the implementation uses
 the Unicode representation internally.
 
@@ -2290,7 +2290,7 @@ language-sensitive folding is not used.  If the argument is an uppercase
 letter, the result will be either a lowercase letter
 or the same as the argument if the lowercase letter does not exist or
 is not supported by the implementation.
-See UAX \#29~\cite{uax29} (part of the Unicode Standard) for details.
+See UAX #29~\cite{uax29} (part of the Unicode Standard) for details.
 
 Note that many Unicode lowercase characters do not have uppercase
 equivalents.
@@ -2355,11 +2355,11 @@ difference between upper and lower case.  The names of the versions that ignore 
 end with \hbox{"{\cf -ci}"} (for "case insensitive").
 
 Implementations may forbid certain characters from appearing in strings.
-However, with the exception of {\tt \#\backwhack{}null}, ASCII characters must
+However, with the exception of {\tt #\backwhack{}null}, ASCII characters must
 not be forbidden.
 For example, an implementation might support the entire Unicode repertoire,
 but only allow characters U+0001 to U+00FF (the Latin-1 repertoire
-without {\tt \#\backwhack{}null}) in strings.
+without {\tt #\backwhack{}null}) in strings.
 
 It is an error to pass such a forbidden character to
 {\cf make-string}, {\cf string}, {\cf string-set!}, or {\cf string-fill!},
@@ -2508,7 +2508,7 @@ Note that language-sensitive mappings and foldings are not used.
 
 The Unicode Standard prescribes special treatment of the Greek letter
 $\Sigma$, whose normal lower-case form is $\sigma$ but which becomes
-$\varsigma$ at the end of a word.  See UAX \#29~\cite{uax29} (part of
+$\varsigma$ at the end of a word.  See UAX #29~\cite{uax29} (part of
 the Unicode Standard) for details.  However, implementations of {\cf
 string-downcase} are not required to provide this behavior, and may
 choose to change $\Sigma$ to $\sigma$ in all cases.
@@ -2623,7 +2623,7 @@ vector are the exact non-negative integers less than the length of the
 vector.  The first element in a vector is indexed by zero, and the last
 element is indexed by one less than the length of the vector.
 
-Vectors are written using the notation {\tt\#(\var{obj} \dotsfoo)}.
+Vectors are written using the notation {\tt#(\var{obj} \dotsfoo)}.
 For example, a vector of length 3 containing the number zero in element
 0, the list {\cf(2 2 2 2)} in element 1, and the string {\cf "Anna"} in
 element 2 can be written as follows:
@@ -2844,13 +2844,13 @@ the bytevector is created.  The {\em valid indexes}\index{valid indexes} of
 a bytevector are the exact non-negative integers less than the length of the
 bytevector, starting at index zero as with vectors.
 
-Bytevectors are written using the notation {\tt\#u8(\var{byte} \dotsfoo)}.
+Bytevectors are written using the notation {\tt#u8(\var{byte} \dotsfoo)}.
 For example, a bytevector of length 3 containing the byte 0 in element
 0, the byte 10 in element 1, and the byte 5 in
 element 2 can be written as follows:
 
 ```
-\#u8(0 10 5)
+#u8(0 10 5)
 ```
 
 Bytevector constants are self-evaluating, so they do not need to be quoted in programs.
@@ -2873,7 +2873,7 @@ are initialized to \var{byte}, otherwise the contents of each
 element are unspecified.
 
 ```
-(make-bytevector 2 12) \ev \#u8(12 12)
+(make-bytevector 2 12) \ev #u8(12 12)
 ```
 
 \end{entry}
@@ -2884,8 +2884,8 @@ element are unspecified.
 Returns a newly allocated bytevector containing its arguments.
 
 ```
-(bytevector 1 3 5 1 3 5)        \ev  \#u8(1 3 5 1 3 5)
-(bytevector)                          \ev  \#u8()
+(bytevector 1 3 5 1 3 5)        \ev  #u8(1 3 5 1 3 5)
+(bytevector)                          \ev  #u8()
 ```
 \end{entry}
 
@@ -2902,7 +2902,7 @@ Returns the length of \var{bytevector} in bytes as an exact integer.
 Returns the \var{k}th byte of \var{bytevector}.
 
 ```
-(bytevector-u8-ref '\#u8(1 1 2 3 5 8 13 21)
+(bytevector-u8-ref '#u8(1 1 2 3 5 8 13 21)
             5)  \lev  8
 ```
 \end{entry}
@@ -2916,7 +2916,7 @@ Stores \var{byte} as the \var{k}th byte of \var{bytevector}.
 ```
 (let ((bv (bytevector 1 2 3 4)))
   (bytevector-u8-set! bv 1 3)
-  bv) \lev \#u8(1 3 3 4)
+  bv) \lev #u8(1 3 3 4)
 ```
 \end{entry}
 
@@ -2929,8 +2929,8 @@ Returns a newly allocated bytevector containing the bytes in \var{bytevector}
 between \var{start} and \var{end}.
 
 ```
-(define a \#u8(1 2 3 4 5))
-(bytevector-copy a 2 4)) \ev \#u8(3 4)
+(define a #u8(1 2 3 4 5))
+(bytevector-copy a 2 4)) \ev #u8(3 4)
 ```
 
 \end{entry}
@@ -2955,7 +2955,7 @@ such circumstances.
 (define a (bytevector 1 2 3 4 5))
 (define b (bytevector 10 20 30 40 50))
 (bytevector-copy! b 1 a 0 2)
-b \ev \#u8(10 1 2 40 50)
+b \ev #u8(10 1 2 40 50)
 ```
 
 \begin{note}
@@ -2972,7 +2972,7 @@ Returns a newly allocated bytevector whose elements are the concatenation
 of the elements in the given bytevectors.
 
 ```
-(bytevector-append \#u8(0 1 2) \#u8(3 4 5)) \lev \#u8(0 1 2 3 4 5)
+(bytevector-append #u8(0 1 2) #u8(3 4 5)) \lev #u8(0 1 2 3 4 5)
 ```
 
 \end{entry}
@@ -2997,8 +2997,8 @@ string between \var{start} and \var{end}
 and returns the corresponding bytevector.
 
 ```
-(utf8->string \#u8(\#x41)) \ev "A"
-(string->utf8 "$\lambda$") \ev \#u8(\#xCE \#xBB)
+(utf8->string #u8(#x41)) \ev "A"
+(string->utf8 "$\lambda$") \ev #u8(#xCE #xBB)
 ```
 
 \end{entry}
@@ -3135,19 +3135,19 @@ If multiple returns occur from {\cf vector-map},
 the values returned by earlier returns are not mutated.
 
 ```
-(vector-map cadr '\#((a b) (d e) (g h)))   \lev  \#(b e h)
+(vector-map cadr '#((a b) (d e) (g h)))   \lev  #(b e h)
 
 (vector-map (lambda (n) (expt n n))
-            '\#(1 2 3 4 5))                \lev  \#(1 4 27 256 3125)
+            '#(1 2 3 4 5))                \lev  #(1 4 27 256 3125)
 
-(vector-map + '\#(1 2 3) '\#(4 5 6 7))       \lev  \#(5 7 9)
+(vector-map + '#(1 2 3) '#(4 5 6 7))       \lev  #(5 7 9)
 
 (let ((count 0))
   (vector-map
    (lambda (ignored)
      (set! count (+ count 1))
      count)
-   '\#(a b)))                     \ev  \#(1 2) \var{or} \#(2 1)
+   '#(a b)))                     \ev  #(1 2) \var{or} #(2 1)
 ```
 
 \end{entry}
@@ -3174,7 +3174,7 @@ It is an error for \var{proc} to mutate any of the lists.
   (for-each (lambda (i)
               (vector-set! v i (* i i)))
             '(0 1 2 3 4))
-  v)                                \ev  \#(0 1 4 9 16)
+  v)                                \ev  #(0 1 4 9 16)
 ```
 
 \end{entry}
@@ -3223,7 +3223,7 @@ It is an error for \var{proc} to mutate any of the vectors.
 (let ((v (make-list 5)))
   (vector-for-each
    (lambda (i) (list-set! v i (* i i)))
-   '\#(0 1 2 3 4))
+   '#(0 1 2 3 4))
   v)                                \ev  (0 1 4 9 16)
 ```
 
@@ -3447,7 +3447,7 @@ extent of a call to \var{before} or \var{after} is unspecified.
 
 ```
 (let ((path '())
-      (c \#f))
+      (c #f))
   (let ((add (lambda (s)
                (set! path (cons s path)))))
     (dynamic-wind
@@ -3575,8 +3575,8 @@ The procedure {\cf error-object?} must return \schtrue{} on such objects.
 
 ```
 (define (null-list? l)
-  (cond ((pair? l) \#f)
-        ((null? l) \#t)
+  (cond ((pair? l) #f)
+        ((null? l) #t)
         (else
           (error
             "null-list?: argument out of domain"
@@ -4187,7 +4187,7 @@ that appear in the written representation are enclosed in quotation marks, and
 within those strings backslash and quotation mark characters are
 escaped by backslashes.  Symbols that contain non-ASCII characters
 are escaped with vertical lines.
-Character objects are written using the {\cf \#\backwhack} notation.
+Character objects are written using the {\cf #\backwhack} notation.
 
 If \var{obj} contains cycles which would cause an infinite loop using
 the normal written representation, then at least the objects that form
