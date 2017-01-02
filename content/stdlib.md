@@ -330,10 +330,10 @@ Scheme objects.
 \textbf{R5RS Library}
 
 The \texttt{(scheme r5rs)} library provides the identifiers defined by
-\rfivers, except that
+{{< rnrs 5 >}}, except that
 {\cf transcript-on} and {\cf transcript-off} are not present.
 Note that
-the {\cf exact} and {\cf inexact} procedures appear under their \rfivers\ names
+the {\cf exact} and {\cf inexact} procedures appear under their {{< rnrs 5 >}}\ names
 {\cf inexact->exact} and {\cf exact->inexact} respectively.
 However, if an implementation does not provide a particular library such as the
 complex library, the corresponding identifiers will not appear in this

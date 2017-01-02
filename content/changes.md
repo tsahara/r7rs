@@ -6,7 +6,7 @@ menu = "main"
 \extrapart{Language changes}
 
 
-### Incompatibilities with \rfivers
+### Incompatibilities with {{< rnrs 5 >}}
 \label{incompatibilities}
 
 This section enumerates the incompatibilities between this report and
@@ -28,10 +28,10 @@ All standard identifiers are entirely in lower case.
 as a wildcard, which means it cannot be used as a syntax variable.
 It can still be used as a literal.
 
-\item The \rfivers\ procedures {\cf exact->inexact} and {\cf inexact->exact}
-have been renamed to their \rsixrs\ names, {\cf inexact} and {\cf exact},
+\item The {{< rnrs 5 >}}\ procedures {\cf exact->inexact} and {\cf inexact->exact}
+have been renamed to their {{< rnrs 6 >}}\ names, {\cf inexact} and {\cf exact},
 respectively, as these names are shorter and more correct.
-The former names are still available in the \rfivers\ library.
+The former names are still available in the {{< rnrs 5 >}}\ library.
 
 \item The guarantee that string comparison (with {\cf string<?} and the
 related predicates) is a lexicographical extension of character comparison
@@ -50,7 +50,7 @@ and must be compatible with {\cf read} and the syntax of numbers in programs.
 
 \end{itemize}
 
-### Other language changes since \rfivers
+### Other language changes since {{< rnrs 5 >}}
 \label{differences}
 This section enumerates the additional differences between this report and
 the "Revised$^5$ report"~\cite{R5RS}.
@@ -59,7 +59,7 @@ the "Revised$^5$ report"~\cite{R5RS}.
 
 \begin{itemize}
 
-\item Various minor ambiguities and unclarities in \rfivers\ have been cleaned up.
+\item Various minor ambiguities and unclarities in {{< rnrs 5 >}}\ have been cleaned up.
 
 \item Libraries have been added as a new program structure to improve
 encapsulation and sharing of code.  Some existing and new identifiers
@@ -68,7 +68,7 @@ Libraries can be imported into other libraries or main programs, with
 controlled exposure and renaming of identifiers.
 The contents of a library can be made conditional on the features of
 the implementation on which it is to be used.
-There is an \rfivers\ compatibility library.
+There is an {{< rnrs 5 >}}\ compatibility library.
 
 \item The expressions types {\cf include}, {\cf include-ci}, and {\cf cond-expand}
 have been added to the base library; they have the same semantics as the
@@ -126,7 +126,7 @@ labels; {\cf write-shared} generates labels for all shared and circular
 structure.
 The {\cf display} procedure must not loop on circular objects.
 
-\item The \rsixrs\ procedure {\cf eof-object} has been added.
+\item The {{< rnrs 6 >}}\ procedure {\cf eof-object} has been added.
 Eof-objects are now required to be a disjoint type.
 
 \item Syntax definitions are now allowed wherever variable definitions are.
@@ -158,12 +158,12 @@ procedure, {\cf case-lambda} has been added in its own library.
 \item The convenience conditionals {\cf when} and {\cf unless} have been added.
 
 \item The behavior of {\cf eqv?} on inexact numbers now conforms to the
-\rsixrs\ definition.
+{{< rnrs 6 >}}\ definition.
 
 \item When applied to procedures, {\cf eq?} and {\cf eqv?} are permitted to
 return different answers.
 
-\item The \rsixrs\ procedures {\cf boolean=?} and {\cf symbol=?} have been added.
+\item The {{< rnrs 6 >}}\ procedures {\cf boolean=?} and {\cf symbol=?} have been added.
 
 \item Positive infinity, negative infinity, NaN, and negative inexact zero have been added
 to the numeric tower as inexact values with the written
@@ -249,28 +249,28 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 \item The formal semantics now handles {\cf dynamic-wind}.
 \end{itemize}
 
-### Incompatibilities with \rsixrs
-This section enumerates the incompatibilities between \rsevenrs~and
+### Incompatibilities with {{< rnrs 6 >}}
+This section enumerates the incompatibilities between {{< rnrs 7 >}}~and
 the "Revised$^6$ report"~\cite{R6RS} and its accompanying Standard Libraries document.
 
 {\em This list is not authoritative, and is possibly incomplete.}
 
 \begin{itemize}
-\item \rsevenrs\ libraries begin with the keyword {\cf define-library}
+\item {{< rnrs 7 >}}\ libraries begin with the keyword {\cf define-library}
 rather than {\cf library} in order to make them syntactically
-distinguishable from \rsixrs\ libraries.
-In \rsevenrs\ terms, the body of an \rsixrs\ library consists
+distinguishable from {{< rnrs 6 >}}\ libraries.
+In {{< rnrs 7 >}}\ terms, the body of an {{< rnrs 6 >}}\ library consists
 of a single export declaration followed by a single import declaration,
-followed by commands and definitions.  In \rsevenrs, commands and
+followed by commands and definitions.  In {{< rnrs 7 >}}, commands and
 definitions are not permitted directly within the body: they have to be be wrapped in a {\cf begin}
 library declaration.
 
-\item There is no direct \rsixrs\ equivalent of the {\cf include}, {\cf include-ci},
+\item There is no direct {{< rnrs 6 >}}\ equivalent of the {\cf include}, {\cf include-ci},
 {\cf include-library-declarations}, or {\cf cond-expand} library declarations.
-On the other hand, the \rsevenrs\ library syntax does not support phase or version specifications.
+On the other hand, the {{< rnrs 7 >}}\ library syntax does not support phase or version specifications.
 
-\item The grouping of standardized identifiers into libraries is different from the \rsixrs\
-approach. In particular, procedures which are optional in \rfivers\, either expressly
+\item The grouping of standardized identifiers into libraries is different from the {{< rnrs 6 >}}\
+approach. In particular, procedures which are optional in {{< rnrs 5 >}}\, either expressly
 or by implication, have been removed from the base library.
 Only the base library itself is an absolute requirement.
 
@@ -278,11 +278,11 @@ Only the base library itself is an absolute requirement.
 
 \item Internal syntax definitions are allowed, but uses of a syntax form
 cannot appear before its definition; the {\cf even}/{\cf odd} example given in
-\rsixrs\ is not allowed.
+{{< rnrs 6 >}}\ is not allowed.
 
-\item The \rsixrs\ exception system was incorporated as-is, but the condition
-types have been left unspecified.  In particular, where \rsixrs\ requires
-a condition of a specified type to be signaled, \rsevenrs\ says only
+\item The {{< rnrs 6 >}}\ exception system was incorporated as-is, but the condition
+types have been left unspecified.  In particular, where {{< rnrs 6 >}}\ requires
+a condition of a specified type to be signaled, {{< rnrs 7 >}}\ says only
 "it is an error", leaving the question of signaling open.
 
 \item Full Unicode support is not required.
@@ -291,11 +291,11 @@ Character comparisons are
 defined by Unicode, but string comparisons are implementation-dependent.
 Non-Unicode characters are permitted.
 
-\item The full numeric tower is optional as in \rfivers, but optional support for IEEE
-infinities, NaN, and {\mbox -0.0} was adopted from \rsixrs. Most clarifications on
-numeric results were also adopted, but the \rsixrs\ procedures {\cf real-valued?},
+\item The full numeric tower is optional as in {{< rnrs 5 >}}, but optional support for IEEE
+infinities, NaN, and {\mbox -0.0} was adopted from {{< rnrs 6 >}}. Most clarifications on
+numeric results were also adopted, but the {{< rnrs 6 >}}\ procedures {\cf real-valued?},
 {\cf rational-valued?}, and {\cf integer-valued}? were not. 
-The \rsixrs\ division operators {\cf div}, {\cf mod}, {\cf div-and-mod}, {\cf
+The {{< rnrs 6 >}}\ division operators {\cf div}, {\cf mod}, {\cf div-and-mod}, {\cf
 div0}, {\cf mod0} and {\cf div0-and-mod0} are not provided.
 
 \item When a result is unspecified, it is still required to be a single value.
@@ -305,20 +305,20 @@ in a body can return any number of values.
 \item The semantics of {\cf map} and {\cf for-each} have been changed to use
 the SRFI 1~\cite{srfi1} early termination behavior. Likewise,
 {\cf assoc} and {\cf member} take an optional {\cf equal?} argument as in SRFI 1,
-instead of the separate {\cf assp} and {\cf memp} procedures of \rsixrs.
+instead of the separate {\cf assp} and {\cf memp} procedures of {{< rnrs 6 >}}.
 
-\item The \rsixrs~{\cf quasiquote} clarifications have been adopted, with the
+\item The {{< rnrs 6 >}}~{\cf quasiquote} clarifications have been adopted, with the
 exception of multiple-argument {\cf unquote} and
 {\cf unquote-splicing}.
 
-\item The \rsixrs~method of specifying mantissa widths was not adopted.
+\item The {{< rnrs 6 >}}~method of specifying mantissa widths was not adopted.
 
-\item String ports are compatible with SRFI 6~\cite{srfi6} rather than \rsixrs.
+\item String ports are compatible with SRFI 6~\cite{srfi6} rather than {{< rnrs 6 >}}.
 
-\item \rsixrs{}-style bytevectors are included, but 
+\item {{< rnrs 6 >}}{}-style bytevectors are included, but 
 only the unsigned byte ({\cf u8}) procedures have been provided.
 The lexical syntax uses {\cf \#u8} for compatibility
-with SRFI 4~\cite{srfi4}, rather than the \rsixrs~{\cf \#vu8} style.
+with SRFI 4~\cite{srfi4}, rather than the {{< rnrs 6 >}}~{\cf \#vu8} style.
 
 \item The utility macros {\cf when} and {\cf unless} are provided, but 
 their result is left unspecified.

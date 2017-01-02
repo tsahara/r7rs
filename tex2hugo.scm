@@ -15,6 +15,12 @@
 		       #/\\subsection\*?{(.*?)}/ "### \\1"
 		       #/\\vest / ""
 		       #/``(.*?)''/ "\"\\1\""
+
+		       #/\\rthreers/ "{{< rnrs 3 >}}"
+		       #/\\rfourrs/  "{{< rnrs 4 >}}"
+		       #/\\rfivers/  "{{< rnrs 5 >}}"
+		       #/\\rsixrs/   "{{< rnrs 6 >}}"
+		       #/\\rsevenrs/ "{{< rnrs 7 >}}"
 		       ))
 
 (define (format-line line c)

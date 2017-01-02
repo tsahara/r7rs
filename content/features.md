@@ -13,7 +13,7 @@ provide the corresponding feature.
 
 \label{standard_features}
 
-\feature{r7rs}{All \rsevenrs\ Scheme implementations have this feature.}
+\feature{r7rs}{All {{< rnrs 7 >}}\ Scheme implementations have this feature.}
 \feature{exact-closed}{All algebraic operations except {\cf /} produce
   exact values given exact inputs.}
 \feature{exact-complex}{Exact complex numbers are provided.}

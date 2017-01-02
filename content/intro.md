@@ -76,13 +76,13 @@ standard for Scheme.
 Their report, the RRRS~\cite{RRRS},
 was published at MIT and Indiana University in the summer of 1985.
 Further revision took place in the spring of 1986, resulting in the
-\rthreers~\cite{R3RS}.
-Work in the spring of 1988 resulted in \rfourrs~\cite{R4RS},
+{{< rnrs 3 >}}~\cite{R3RS}.
+Work in the spring of 1988 resulted in {{< rnrs 4 >}}~\cite{R4RS},
 which became the basis for the
 IEEE Standard for the Scheme Programming Language in 1991~\cite{IEEEScheme}.
 In 1998, several additions to the IEEE standard, including high-level
 hygienic macros, multiple return values, and {\cf eval}, were finalized
-as the \rfivers~\cite{R5RS}.
+as the {{< rnrs 5 >}}~\cite{R5RS}.
 
 \todo{Perhaps flesh out a little and mention the forming of the
  Steering Committee.}
@@ -90,22 +90,22 @@ as the \rfivers~\cite{R5RS}.
 In the fall of 2006, work began on a more ambitious standard,
 including many new improvements and stricter requirements made in the
 interest of improved portability.  The resulting standard, the
-\rsixrs, was completed in August 2007~\cite{R6RS}, and was organized
+{{< rnrs 6 >}}, was completed in August 2007~\cite{R6RS}, and was organized
 as a core language and set of mandatory standard libraries.  
 Several new implementations of Scheme conforming to it were created.
-However, most existing \rfivers{} implementations (even excluding those
-which are essentially unmaintained) did not adopt \rsixrs, or adopted
+However, most existing {{< rnrs 5 >}}{} implementations (even excluding those
+which are essentially unmaintained) did not adopt {{< rnrs 6 >}}, or adopted
 only selected parts of it.
 
 In consequence, the Scheme Steering Committee decided in August 2009 to divide the
 standard into two separate but compatible languages --- a "small"
 language, suitable for educators, researchers, and users of embedded languages,
-focused on \rfivers~compatibility, and a "large" language focused
+focused on {{< rnrs 5 >}}~compatibility, and a "large" language focused
 on the practical needs of mainstream software development,
-intended to become a replacement for \rsixrs.
+intended to become a replacement for {{< rnrs 6 >}}.
 The present report describes the "small" language of that effort:
 therefore it cannot be considered in isolation as the successor
-to \rsixrs.
+to {{< rnrs 6 >}}.
 
 
 
