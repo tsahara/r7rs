@@ -24,7 +24,7 @@
 
 		   #/^# +([0-9]+\. +)?(.*)/
 		   (lambda (m)
-		     (if #?=(context-chapter c)
+		     (if (context-chapter c)
 			 (format #f "# ~a. ~a" (context-chapter c) (m 2))
 			 (m 0)))
 
