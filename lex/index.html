@@ -98,16 +98,15 @@ Scheme, see section~\ref{BNF}.</p>
 
 <p>An identifier\mainindex{identifier} is any sequence of letters, digits, and
 &ldquo;extended identifier characters&rdquo; provided that it does not have a prefix
-which is a valid number.<br />
+which is a valid number.
 However, the  \ide{.} token (a single period) used in the list syntax
 is not an identifier.</p>
 
 <p>All implementations of Scheme must support the following extended identifier
 characters:</p>
 
-<p>\begin{scheme}
-!\ \$ \% \verb&rdquo;&amp;&rdquo; * + - . / :\ &lt; = &gt; ? @ \verb&rdquo;^&rdquo; \verb&rdquo;_&rdquo; \verb&rdquo;~&rdquo; %
-\end{scheme}</p>
+<pre><code>! $ % &amp; * + - . / : &lt; = &gt; ? @ ^ _ ~
+</code></pre>
 
 <p>Alternatively, an identifier can be represented by a sequence of zero or more
 characters enclosed within vertical lines ({\cf $|$}), analogous to
@@ -131,15 +130,14 @@ identifier.</p>
 
 <p>Here are some examples of identifiers:</p>
 
-<p>\begin{scheme}
-&hellip;                      {+}
+<pre><code>...                      +
 +soup+                   &lt;=?
 -&gt;string                 a34kTMNs
 lambda                   list-&gt;vector
 q                        V17a
-|two words|              |two\backwhack{}x20;words|
-the-word-recursion-has-many-meanings%
-\end{scheme}</p>
+|two words|              |two\x20;words|
+the-word-recursion-has-many-meanings
+</code></pre>
 
 <p>See section~\ref{extendedalphas} for the formal syntax of identifiers.</p>
 
@@ -168,7 +166,7 @@ a sentence.</p>
 <p>The following directives give explicit control over case
 folding.</p>
 
-<p>\begin{entry}{%
+<p>\begin{entry}{
 {\cf{}#!fold-case}\sharpbangindex{fold-case}<br />
 {\cf{}#!no-fold-case}\sharpbangindex{no-fold-case}}</p>
 
@@ -197,7 +195,7 @@ but not within a token.  Whitespace occurring inside a string
 or inside a symbol delimited by vertical lines
 is significant.</p>
 
-<p>The lexical syntax includes several comment forms.<br />
+<p>The lexical syntax includes several comment forms.
 Comments are treated exactly like whitespace.</p>
 
 <p>A semicolon ({\tt;}) indicates the start of a line
@@ -214,8 +212,7 @@ notation is useful for &ldquo;commenting out&rdquo; sections of code.</p>
   #|}\index{#&ldquo;|@\texttt{\sharpsign\verticalbar}}\index{&ldquo;|#@\texttt{\verticalbar\sharpsign}}
 and {\tt |#} pairs.</p>
 
-<p>\begin{scheme}
-#|
+<pre><code>#|
    The FACT procedure computes the factorial
    of a non-negative integer.
 |#
@@ -224,12 +221,10 @@ and {\tt |#} pairs.</p>
     (if (= n 0)
         #;(= n 1)
         1        ;Base case: return 1
-        (* n (fact (- n 1))))))%
-\end{scheme}</p>
+        (* n (fact (- n 1))))))
+</code></pre>
 
 <h2 id="2-3-other-notations">2.3. Other notations</h2>
-
-<p>\todo{Rewrite?}</p>
 
 <p>For a description of the notations used for numbers, see
 section~\ref{numbersection}.</p>
@@ -305,7 +300,7 @@ These are used for labeling and referencing other literal data (section~\ref{lab
 
 <p>\label{labelsection}</p>
 
-<p>\begin{entry}{%
+<p>\begin{entry}{
 \pproto{#\hyper{n}=\hyper{datum}}{lexical syntax}
 \pproto{#\hyper{n}#}{lexical syntax}}</p>
 
@@ -322,11 +317,10 @@ object as the \texttt{#\hyper{n}}=
 <p>Together, these syntaxes permit the notation of
 structures with shared or circular substructure.</p>
 
-<p>\begin{scheme}
-(let ((x (list &lsquo;a &lsquo;b &lsquo;c)))
+<pre><code>(let ((x (list 'a 'b 'c)))
   (set-cdr! (cddr x) x)
   x)                       \ev #0=(a b c . #0#)
-\end{scheme}</p>
+</code></pre>
 
 <p>The scope of a datum label is the portion of the outermost datum in which it appears
 that is to the right of the label.
@@ -341,11 +335,11 @@ defined in this case.</p>
 circular references except in literals.  In particular,
 it is an error for {\cf quasiquote} (section~\ref{quasiquote}) to contain them.</p>
 
-<p>\begin{scheme}
-#1=(begin (display #\backwhack{}x) #1#)
-                       \ev \scherror%
-\end{scheme}
-\end{entry}</p>
+<pre><code>#1=(begin (display #\x) #1#)
+                       \ev \scherror
+</code></pre>
+
+<p>\end{entry}</p>
 
   </article>
 </div>

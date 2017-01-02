@@ -111,13 +111,12 @@ in terms of other exports.  They are redundant in the strict sense of
 the word, but they capture common patterns of usage, and are therefore
 provided as convenient abbreviations.</p>
 
-<p>\begin{scheme}
-{\cf <em>}                       {\cf +}
-{\cf -}                       {\cf &hellip;}
+<pre><code>{\cf *}                       {\cf +}
+{\cf -}                       {\cf ...}
 {\cf /}                       {\cf &lt;}
 {\cf &lt;=}                      {\cf =}
 {\cf =&gt;}                      {\cf &gt;}
-{\cf &gt;=}                      {\cf _}
+{\cf &gt;=}                      {\cf \_}
 {\cf abs}                     {\cf and}
 {\cf append}                  {\cf apply}
 {\cf assoc}                   {\cf assq}
@@ -167,10 +166,10 @@ provided as convenient abbreviations.</p>
 {\cf input-port?\ }            {\cf integer-&gt;char}
 {\cf integer?\ }               {\cf lambda}
 {\cf lcm}                     {\cf length}
-{\cf let}                     {\cf let</em>}
-{\cf let<em>-values}             {\cf let-syntax}
+{\cf let}                     {\cf let*}
+{\cf let*-values}             {\cf let-syntax}
 {\cf let-values}              {\cf letrec}
-{\cf letrec</em>}                 {\cf letrec-syntax}
+{\cf letrec*}                 {\cf letrec-syntax}
 {\cf list}                    {\cf list-&gt;string}
 {\cf list-&gt;vector}            {\cf list-copy}
 {\cf list-ref}                {\cf list-set!}
@@ -232,24 +231,22 @@ provided as convenient abbreviations.</p>
 {\cf with-exception-handler}  {\cf write-bytevector}
 {\cf write-char}              {\cf write-string}
 {\cf write-u8}                {\cf zero?}
-\end{scheme}</p>
+</code></pre>
 
 <p>\textbf{Case-Lambda Library}</p>
 
 <p>The \texttt{(scheme case-lambda)} library exports the {\cf case-lambda}
 syntax.</p>
 
-<p>\begin{scheme}
-{\cf case-lambda}
-\end{scheme}</p>
+<pre><code>{\cf case-lambda}
+</code></pre>
 
 <p>\textbf{Char Library}</p>
 
 <p>The \texttt{(scheme char)} library provides the procedures for dealing with
 characters that involve potentially large tables when supporting all of Unicode.</p>
 
-<p>\begin{scheme}
-{\cf char-alphabetic?\ }       {\cf char-ci&lt;=?}
+<pre><code>{\cf char-alphabetic?\ }       {\cf char-ci&lt;=?}
 {\cf char-ci&lt;?\ }              {\cf char-ci=?}
 {\cf char-ci&gt;=?\ }             {\cf char-ci&gt;?}
 {\cf char-downcase}           {\cf char-foldcase}
@@ -260,18 +257,17 @@ characters that involve potentially large tables when supporting all of Unicode.
 {\cf string-ci=?\ }            {\cf string-ci&gt;=?}
 {\cf string-ci&gt;?\ }            {\cf string-downcase}
 {\cf string-foldcase}         {\cf string-upcase}
-\end{scheme}</p>
+</code></pre>
 
 <p>\textbf{Complex Library}</p>
 
 <p>The \texttt{(scheme complex)} library exports procedures which are
 typically only useful with non-real numbers.</p>
 
-<p>\begin{scheme}
-{\cf angle}                   {\cf imag-part}
+<pre><code>{\cf angle}                   {\cf imag-part}
 {\cf magnitude}               {\cf make-polar}
 {\cf make-rectangular}        {\cf real-part}
-\end{scheme}</p>
+</code></pre>
 
 <p>\textbf{CxR Library}</p>
 
@@ -279,17 +275,15 @@ typically only useful with non-real numbers.</p>
 are the compositions of from three to four {\cf car} and {\cf cdr}
 operations.  For example {\cf caddar} could be defined by</p>
 
-<p>\begin{scheme}
-(define caddar
-  (lambda (x) (car (cdr (cdr (car x)))))){\rm.}%
-\end{scheme}</p>
+<pre><code>(define caddar
+  (lambda (x) (car (cdr (cdr (car x)))))){\rm.}
+</code></pre>
 
 <p>The procedures {\cf car} and {\cf cdr} themselves and the four
 two-level compositions are included in the base library.  See
 section~\ref{listsection}.</p>
 
-<p>\begin{scheme}
-{\cf caaaar}                  {\cf caaadr}
+<pre><code>{\cf caaaar}                  {\cf caaadr}
 {\cf caaar}                   {\cf caadar}
 {\cf caaddr}                  {\cf caadr}
 {\cf cadaar}                  {\cf cadadr}
@@ -301,111 +295,101 @@ section~\ref{listsection}.</p>
 {\cf cddaar}                  {\cf cddadr}
 {\cf cddar}                   {\cf cdddar}
 {\cf cddddr}                  {\cf cdddr}
-\end{scheme}</p>
+</code></pre>
 
 <p>\textbf{Eval Library}</p>
 
 <p>The \texttt{(scheme eval)} library exports procedures for evaluating Scheme
 data as programs.</p>
 
-<p>\begin{scheme}
-{\cf environment}             {\cf eval}
-\end{scheme}</p>
+<pre><code>{\cf environment}             {\cf eval}
+</code></pre>
 
 <p>\textbf{File Library}</p>
 
 <p>The \texttt{(scheme file)} library provides procedures for accessing
 files.</p>
 
-<p>\begin{scheme}
-{\cf call-with-input-file}    {\cf call-with-output-file}
+<pre><code>{\cf call-with-input-file}    {\cf call-with-output-file}
 {\cf delete-file}             {\cf file-exists?}
 {\cf open-binary-input-file}  {\cf open-binary-output-file}
 {\cf open-input-file}         {\cf open-output-file}
 {\cf with-input-from-file}    {\cf with-output-to-file}
-\end{scheme}</p>
+</code></pre>
 
 <p>\textbf{Inexact Library}</p>
 
 <p>The \texttt{(scheme inexact)} library exports procedures which are
 typically only useful with inexact values.</p>
 
-<p>\begin{scheme}
-{\cf acos}                    {\cf asin}
+<pre><code>{\cf acos}                    {\cf asin}
 {\cf atan}                    {\cf cos}
 {\cf exp}                     {\cf finite?}
 {\cf infinite?\ }              {\cf log}
 {\cf nan?\ }                   {\cf sin}
 {\cf sqrt}                    {\cf tan}
-\end{scheme}</p>
+</code></pre>
 
 <p>\textbf{Lazy Library}</p>
 
 <p>The \texttt{(scheme lazy)} library exports procedures and syntax keywords for lazy evaluation.</p>
 
-<p>\begin{scheme}
-{\cf delay}                   {\cf delay-force}
+<pre><code>{\cf delay}                   {\cf delay-force}
 {\cf force}                   {\cf make-promise}
 {\cf promise?}
-\end{scheme}</p>
+</code></pre>
 
 <p>\textbf{Load Library}</p>
 
 <p>The \texttt{(scheme load)} library exports procedures for loading
 Scheme expressions from files.</p>
 
-<p>\begin{scheme}
-{\cf load}
-\end{scheme}</p>
+<pre><code>{\cf load}
+</code></pre>
 
 <p>\textbf{Process-Context Library}</p>
 
 <p>The \texttt{(scheme process-context)} library exports procedures for
 accessing with the program&rsquo;s calling context.</p>
 
-<p>\begin{scheme}
-{\cf command-line}            {\cf emergency-exit}
+<pre><code>{\cf command-line}            {\cf emergency-exit}
 {\cf exit}
 {\cf get-environment-variable}
 {\cf get-environment-variables}
-\end{scheme}</p>
+</code></pre>
 
 <p>\textbf{Read Library}</p>
 
 <p>The \texttt{(scheme read)} library provides procedures for reading
 Scheme objects.</p>
 
-<p>\begin{scheme}
-{\cf read}
-\end{scheme}</p>
+<pre><code>{\cf read}
+</code></pre>
 
 <p>\textbf{Repl Library}</p>
 
 <p>The \texttt{(scheme repl)} library exports the {\cf
   interaction-environment} procedure.</p>
 
-<p>\begin{scheme}
-{\cf interaction-environment}
-\end{scheme}</p>
+<pre><code>{\cf interaction-environment}
+</code></pre>
 
 <p>\textbf{Time Library}</p>
 
 <p>The \texttt{(scheme time)} library provides access to time-related values.</p>
 
-<p>\begin{scheme}
-{\cf current-jiffy}           {\cf current-second}
+<pre><code>{\cf current-jiffy}           {\cf current-second}
 {\cf jiffies-per-second}
-\end{scheme}</p>
+</code></pre>
 
 <p>\textbf{Write Library}</p>
 
 <p>The \texttt{(scheme write)} library provides procedures for writing
 Scheme objects.</p>
 
-<p>\begin{scheme}
-{\cf display}                 {\cf write}
+<pre><code>{\cf display}                 {\cf write}
 {\cf write-shared}            {\cf write-simple}
-\end{scheme}</p>
+</code></pre>
 
 <p>\textbf{R5RS Library}</p>
 
@@ -421,8 +405,7 @@ However, if an implementation does not provide a particular library such as the
 complex library, the corresponding identifiers will not appear in this
 library either.</p>
 
-<p>\begin{scheme}
-{\cf <em>}                       {\cf +}
+<pre><code>{\cf *}                       {\cf +}
 {\cf -}                       {\cf /}
 {\cf &lt;}                       {\cf &lt;=}
 {\cf =}                       {\cf &gt;}
@@ -482,7 +465,7 @@ library either.</p>
 {\cf integer?\ }               {\cf interaction-environment}
 {\cf lambda}                  {\cf lcm}
 {\cf length}                  {\cf let}
-{\cf let</em>}                    {\cf let-syntax}
+{\cf let*}                    {\cf let-syntax}
 {\cf letrec}                  {\cf letrec-syntax}
 {\cf list}                    {\cf list-&gt;string}
 {\cf list-&gt;vector}            {\cf list-ref}
@@ -532,7 +515,7 @@ library either.</p>
 {\cf vector?\ }                {\cf with-input-from-file}
 {\cf with-output-to-file}     {\cf write}
 {\cf write-char}              {\cf zero?}
-\end{scheme}</p>
+</code></pre>
 
   </article>
 </div>

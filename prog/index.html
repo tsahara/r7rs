@@ -131,10 +131,10 @@ mapping from the name of a library to its location in the file system.</p>
 
 <p>\mainschindex{import}</p>
 
-<p>An import declaration takes the following form:
-\begin{scheme}
-(import \hyper{import-set} \dotsfoo)
-\end{scheme}</p>
+<p>An import declaration takes the following form:</p>
+
+<pre><code>(import \hyper{import-set} \dotsfoo)
+</code></pre>
 
 <p>An import declaration provides a way to import identifiers
 exported by a library.  Each \hyper{import set} names a set of bindings
@@ -147,7 +147,7 @@ imported bindings. It takes one of the following forms:</p>
 \item {\tt(except \hyper{import set} \hyper{identifier} \dotsfoo)}
 \item {\tt(prefix \hyper{import set} \hyper{identifier})}
 \item {\tt(rename \hyper{import set}<br />
-{\obeyspaces%
+{\obeyspaces
 \hspace*{4em}(\hyperi{identifier} \hyperii{identifier}) \dotsfoo)}}
 \end{itemize}</p>
 
@@ -204,34 +204,36 @@ takes one of the following forms:\mainschindex{define}</p>
 <p>\hyper{Formals} are either a
 sequence of zero or more variables, or a sequence of one or more
 variables followed by a space-delimited period and another variable (as
-in a lambda expression).  This form is equivalent to
-\begin{scheme}
-(define \hyper{variable}
-  (lambda (\hyper{formals}) \hyper{body}))\rm.%
-\end{scheme}</p>
+in a lambda expression).  This form is equivalent to</p>
+
+<pre><code>(define \hyper{variable}
+  (lambda (\hyper{formals}) \hyper{body}))\rm.
+</code></pre>
 
 <p>\item{\tt(define (\hyper{variable} .\ \hyper{formal}) \hyper{body})}</p>
 
 <p>\hyper{Formal} is a single
-variable.  This form is equivalent to
-\begin{scheme}
-(define \hyper{variable}
-  (lambda \hyper{formal} \hyper{body}))\rm.%
-\end{scheme}</p>
+variable.  This form is equivalent to</p>
+
+<pre><code>(define \hyper{variable}
+  (lambda \hyper{formal} \hyper{body}))\rm.
+</code></pre>
 
 <p>\end{itemize}</p>
 
 <h3 id="5-3-1-top-level-definitions">5.3.1. Top level definitions</h3>
 
-<p>At the outermost level of a program, a definition
-\begin{scheme}
-(define \hyper{variable} \hyper{expression})%
-\end{scheme}
-has essentially the same effect as the assignment expression
-\begin{scheme}
-(\ide{set!}\ \hyper{variable} \hyper{expression})%
-\end{scheme}
-if \hyper{variable} is bound to a non-syntax value.  However, if
+<p>At the outermost level of a program, a definition</p>
+
+<pre><code>(define \hyper{variable} \hyper{expression})
+</code></pre>
+
+<p>has essentially the same effect as the assignment expression</p>
+
+<pre><code>(\ide{set!}\ \hyper{variable} \hyper{expression})
+</code></pre>
+
+<p>if \hyper{variable} is bound to a non-syntax value.  However, if
 \hyper{variable} is not bound,
 or is a syntactic keyword,
 then the definition will bind
@@ -239,13 +241,12 @@ then the definition will bind
 whereas it would be an error to perform a {\cf set!}\ on an
 unbound\index{unbound} variable.</p>
 
-<p>\begin{scheme}
-(define add3
+<pre><code>(define add3
   (lambda (x) (+ x 3)))
 (add3 3)                            \ev  6
 (define first car)
-(first &lsquo;(1 2))                      \ev  1%
-\end{scheme}</p>
+(first '(1 2))                      \ev  1
+</code></pre>
 
 <h3 id="5-3-2-internal-definitions">5.3.2. Internal definitions</h3>
 
@@ -263,12 +264,11 @@ The variables defined by internal definitions are local to the
 \hyper{body}.  That is, \hyper{variable} is bound rather than assigned,
 and the region of the binding is the entire \hyper{body}.  For example,</p>
 
-<p>\begin{scheme}
-(let ((x 5))
+<pre><code>(let ((x 5))
   (define foo (lambda (y) (bar x y)))
   (define bar (lambda (a b) (+ (* a b) a)))
-  (foo (+ x 3)))                \ev  45%
-\end{scheme}</p>
+  (foo (+ x 3)))                \ev  45
+</code></pre>
 
 <p>An expanded \hyper{body} containing internal definitions
 can always be
@@ -276,12 +276,11 @@ converted into a completely equivalent {\cf letrec*} expression.  For
 example, the {\cf let} expression in the above example is equivalent
 to</p>
 
-<p>\begin{scheme}
-(let ((x 5))
+<pre><code>(let ((x 5))
   (letrec* ((foo (lambda (y) (bar x y)))
             (bar (lambda (a b) (+ (* a b) a))))
-    (foo (+ x 3))))%
-\end{scheme}</p>
+    (foo (+ x 3))))
+</code></pre>
 
 <p>Just as for the equivalent {\cf letrec*} expression, it is an error if it is not
 possible to evaluate each \hyper{expression} of every internal
@@ -304,7 +303,7 @@ which creates multiple definitions from a single
 expression returning multiple values.
 It is allowed wherever {\cf define} is allowed.</p>
 
-<p>\begin{entry}{%
+<p>\begin{entry}{
 \proto{define-values}{ \hyper{formals} \hyper{expression}}{\exprtype}}\nobreak</p>
 
 <p>It is an error if a variable appears more than once in the set of \hyper{formals}.</p>
@@ -315,14 +314,13 @@ to the return values in the same way that the \hyper{formals} in a
 {\cf lambda} expression are matched to the arguments in a procedure
 call.</p>
 
-<p>\begin{scheme}
-(define-values (x y) (integer-sqrt 17))
-(list x y) \ev (4 1)</p>
+<pre><code>(define-values (x y) (integer-sqrt 17))
+(list x y) \ev (4 1)
 
-<p>(let ()
+(let ()
   (define-values (x y) (values 1 2))
-  (+ x y))     \ev 3%
-\end{scheme}</p>
+  (+ x y))     \ev 3
+</code></pre>
 
 <p>\end{entry}</p>
 
@@ -348,8 +346,7 @@ Any use of a syntax keyword before its corresponding definition is an error.
 In particular, a use that precedes an inner definition will not apply an outer
 definition.</p>
 
-<p>\begin{scheme}
-(let ((x 1) (y 2))
+<pre><code>(let ((x 1) (y 2))
   (define-syntax swap!
     (syntax-rules ()
       ((swap! a b)
@@ -357,11 +354,8 @@ definition.</p>
          (set! a b)
          (set! b tmp)))))
   (swap! x y)
-  (list x y))                \ev (2 1)%
-\end{scheme}</p>
-
-<p>\todo{Shinn: This description is hideous.
-Cowan: But now less hideous than before.}</p>
+  (list x y))                \ev (2 1)
+</code></pre>
 
 <p>Macros can expand into definitions in any context that permits
 them. However, it is an error for a definition to define an
@@ -374,22 +368,21 @@ to determine the boundary between the internal definitions and the
 expressions of the body it belongs to. For example, the following are
 errors:</p>
 
-<p>\begin{scheme}
-(define define 3)</p>
+<pre><code>(define define 3)
 
-<p>(begin (define begin list))</p>
+(begin (define begin list))
 
-<p>(let-syntax
+(let-syntax
     ((foo (syntax-rules ()
-            ((foo (proc args &hellip;) body &hellip;)
+            ((foo (proc args ...) body ...)
              (define proc
-               (lambda (args &hellip;)
-                 body &hellip;))))))
+               (lambda (args ...)
+                 body ...))))))
   (let ((x 3))
     (foo (plus x y) (+ x y))
     (define foo x)
-    (plus foo x)))%
-\end{scheme}</p>
+    (plus foo x)))
+</code></pre>
 
 <h2 id="5-5-record-type-definitions">5.5. Record-type definitions</h2>
 
@@ -403,25 +396,27 @@ aggregations of zero or more \defining{fields}, each of which holds a single loc
 A predicate, a constructor, and field accessors and
 mutators are defined for each record type.</p>
 
-<p>\begin{entry}{%
+<p>\begin{entry}{
 \mainschindex{define-record-type}
 \pproto{(define-record-type \hyper{name}}{syntax}
 \hspace*{4em}{\tt \hyper{constructor} \hyper{pred} \hyper{field} \dotsfoo})}</p>
 
 <p>\syntax
 \hyper{name} and \hyper{pred} are identifiers.
-The \hyper{constructor} is of the form
-\begin{scheme}
-(\hyper{constructor name} \hyper{field name} \dotsfoo)%
-\end{scheme}
-and each \hyper{field} is either of the form
-\begin{scheme}
-(\hyper{field name} \hyper{accessor name})%
-\end{scheme}
-or of the form
-\begin{scheme}
-(\hyper{field name} \hyper{accessor name} \hyper{modifier name})%
-\end{scheme}</p>
+The \hyper{constructor} is of the form</p>
+
+<pre><code>(\hyper{constructor name} \hyper{field name} \dotsfoo)
+</code></pre>
+
+<p>and each \hyper{field} is either of the form</p>
+
+<pre><code>(\hyper{field name} \hyper{accessor name})
+</code></pre>
+
+<p>or of the form</p>
+
+<pre><code>(\hyper{field name} \hyper{accessor name} \hyper{modifier name})
+</code></pre>
 
 <p>It is an error for the same identifier to occur more than once as a
 field name.
@@ -471,27 +466,25 @@ means to identify the record type for use by further language extensions.</p>
 
 <p>For instance, the following record-type definition</p>
 
-<p>\begin{scheme}
-(define-record-type <pare>
+<pre><code>(define-record-type &lt;pare&gt;
   (kons x y)
   pare?
   (x kar set-kar!)
   (y kdr))
-\end{scheme}</p>
+</code></pre>
 
 <p>defines {\cf kons} to be a constructor, {\cf kar} and {\cf kdr}
 to be accessors, {\cf set-kar!} to be a modifier, and {\cf pare?}
 to be a predicate for instances of {\cf <pare>}.</p>
 
-<p>\begin{scheme}
-  (pare? (kons 1 2))        \ev \schtrue
+<pre><code>  (pare? (kons 1 2))        \ev \schtrue
   (pare? (cons 1 2))        \ev \schfalse
   (kar (kons 1 2))          \ev 1
   (kdr (kons 1 2))          \ev 2
   (let ((k (kons 1 2)))
     (set-kar! k 3)
     (kar k))                \ev 3
-\end{scheme}</p>
+</code></pre>
 
 <p>\end{entry}</p>
 
@@ -503,15 +496,14 @@ to be a predicate for instances of {\cf <pare>}.</p>
 with explicitly defined interfaces to the rest of the program.  This
 section defines the notation and semantics for libraries.</p>
 
-<h3 id="5-6-4-library-syntax">5.6.4. Library Syntax</h3>
+<h3 id="5-6-1-library-syntax">5.6.1. Library Syntax</h3>
 
 <p>A library definition takes the following form:
 \mainschindex{define-library}</p>
 
-<p>\begin{scheme}
-(define-library \hyper{library name}
+<pre><code>(define-library \hyper{library name}
   \hyper{library declaration} \dotsfoo)
-\end{scheme}</p>
+</code></pre>
 
 <p>\hyper{library name} is a list whose members are identifiers and exact non-negative integers.  It is used to
 identify the library uniquely when importing from other programs or
@@ -584,9 +576,6 @@ form of library interface.</p>
 the \ide{cond-expand} expression type, except that it expands to
 spliced-in library declarations rather than expressions enclosed in {\cf begin}.</p>
 
-<p>\todo{Shinn: Perhaps make this a separate subsection describing a
-  library &ldquo;resolution&rdquo; phase which runs prior to library expansion.}</p>
-
 <p>One possible implementation of libraries is as follows:
 After all \ide{cond-expand} library declarations are expanded, a new
 environment is constructed for the library consisting of all
@@ -619,7 +608,7 @@ declarations in which it appears.
 That is, {\cf (import (only (foo) a))} followed by {\cf (import (only (foo) b))}
 has the same effect as {\cf (import (only (foo) a b))}.</p>
 
-<h3 id="5-6-5-library-example">5.6.5. Library example</h3>
+<h3 id="5-6-2-library-example">5.6.2. Library example</h3>
 
 <p>The following example shows
 how a program can be divided into libraries plus a relatively small
@@ -627,8 +616,7 @@ main program~\cite{life}.
 If the main program is entered into a REPL, it is not necessary to import
 the base library.</p>
 
-<p>\begin{scheme}
-(define-library (example grid)
+<pre><code>(define-library (example grid)
   (export make rows cols ref each
           (rename put! set!))
   (import (scheme base))
@@ -656,9 +644,9 @@ the base library.</p>
           ((= j (rows grid)))
         (do ((k 0 (+ k 1)))
             ((= k (cols grid)))
-          (proc j k (ref grid j k)))))))</p>
+          (proc j k (ref grid j k)))))))
 
-<p>(define-library (example life)
+(define-library (example life)
   (export life)
   (import (except (scheme base) set!)
           (scheme write)
@@ -681,10 +669,10 @@ the base library.</p>
         ((2) (ref grid i j))
         (else \sharpfalse{})))
     (define (life-print grid)
-      (display &ldquo;\backwhack{}x1B;[1H\backwhack{}x1B;[J&rdquo;)  ; clear vt100
+      (display &quot;\backwhack{}x1B;[1H\backwhack{}x1B;[J&quot;)  ; clear vt100
       (each grid
        (lambda (i j v)
-         (display (if v &ldquo;*&rdquo; &ldquo; &ldquo;))
+         (display (if v &quot;*&quot; &quot; &quot;))
          (when (= j (- (cols grid) 1))
            (newline)))))
     (define (life grid iterations)
@@ -697,26 +685,26 @@ the base library.</p>
          (lambda (j k v)
            (let ((a (life-alive? grid0 j k)))
              (set! grid1 j k a))))
-        (life-print grid1)))))</p>
+        (life-print grid1)))))
 
-<p>;; Main program.
+;; Main program.
 (import (scheme base)
         (only (example life) life)
         (rename (prefix (example grid) grid-)
-                (grid-make make-grid)))</p>
+                (grid-make make-grid)))
 
-<p>;; Initialize a grid with a glider.
+;; Initialize a grid with a glider.
 (define grid (make-grid 24 24))
 (grid-set! grid 1 1 \sharptrue{})
 (grid-set! grid 2 2 \sharptrue{})
 (grid-set! grid 3 0 \sharptrue{})
 (grid-set! grid 3 1 \sharptrue{})
-(grid-set! grid 3 2 \sharptrue{})</p>
+(grid-set! grid 3 2 \sharptrue{})
 
-<p>;; Run for 80 iterations.
-(life grid 80)</p>
+;; Run for 80 iterations.
+(life grid 80)
 
-<p>\end{scheme}</p>
+</code></pre>
 
 <h2 id="5-7-the-repl">5.7. The REPL</h2>
 

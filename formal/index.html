@@ -145,7 +145,7 @@ with the given Unicode scalar value is supported by the implementation,
 identifiers containing such a sequence are equivalent to identifiers
 containing the corresponding character.</p>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{token} : \meta{identifier} | \meta{boolean} | \meta{number}\index{identifier}
 &gt;  | \meta{character} | \meta{string}
 &gt;  | ( | ) | \sharpsign( | \sharpsign u8( | \singlequote{} | \backquote{} | , | ,@ | {\bf.}
@@ -165,15 +165,15 @@ containing the corresponding character.</p>
 \meta{comment text} : \= $\langle$\rm character sequence not containing
 &gt;\ \rm {\tt #|} or {\tt |#}$\rangle$
 \meta{comment cont} : \meta{nested comment} \meta{comment text}
-\meta{directive} : #!fold-case | #!no-fold-case%
+\meta{directive} : #!fold-case | #!no-fold-case
 \end{grammar}</p>
 
 <p>Note that it is ungrammatical to follow a \meta{directive} with anything
 but a \meta{delimiter} or the end of file.</p>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{atmosphere} : \meta{whitespace} | \meta{comment} | \meta{directive}
-\meta{intertoken space} : \arbno{\meta{atmosphere}}%
+\meta{intertoken space} : \arbno{\meta{atmosphere}}
 \end{grammar}</p>
 
 <p>\label{extendedalphas}
@@ -186,7 +186,7 @@ but a \meta{delimiter} or the end of file.</p>
 \meta{peculiar identifier} rule; they are parsed as numbers, not
 identifiers.</p>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{identifier} : \meta{initial} \arbno{\meta{subsequent}}
  &gt;  | \meta{vertical line} \arbno{\meta{symbol element}} \meta{vertical line}
  &gt;  | \meta{peculiar identifier}
@@ -221,21 +221,21 @@ identifiers.</p>
  &gt;  | #\backwhack{} \meta{character name}
  &gt;  | #\backwhack{}x\meta{hex scalar value}
 \meta{character name} : alarm | backspace | delete
-&gt; | escape | newline | null | return | space | tab
-\todo{Explain what happens in the ambiguous case.}
-\meta{string} : &ldquo; \arbno{\meta{string element}} &ldquo;
+&gt; | escape | newline | null | return | space | tab</p>
+
+<p>\meta{string} : &ldquo; \arbno{\meta{string element}} &ldquo;
 \meta{string element} : \meta{any character other than \doublequote{} or \backwhack}
  &gt; | \meta{mnemonic escape} | \backwhack\doublequote{} | \backwhack\backwhack
  &gt;  | \backwhack{}\arbno{\meta{intraline whitespace}}\meta{line ending}
  &gt;  &gt; \arbno{\meta{intraline whitespace}}
  &gt;  | \meta{inline hex escape}
 \meta{bytevector} : #u8(\arbno{\meta{byte}})
-\meta{byte} : \meta{any exact integer between 0 and 255}%
+\meta{byte} : \meta{any exact integer between 0 and 255}
 \end{grammar}</p>
 
 <p>\label{numbersyntax}</p>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{number} : \meta{num $2$} | \meta{num $8$}
    &gt;  | \meta{num $10$} | \meta{num $16$}
 \end{grammar}</p>
@@ -248,39 +248,39 @@ $8$}, and \meta{decimal $16$}, which means that numbers containing
 decimal points or exponents are always in decimal radix.
 Although not shown below, all alphabetic characters used in the grammar
 of numbers can appear in either upper or lower case.
-\begin{grammar}%
+\begin{grammar}
 \meta{num $R$} : \meta{prefix $R$} \meta{complex $R$}
-\meta{complex $R$} : %
-         \meta{real $R$} %
+\meta{complex $R$} :
+         \meta{real $R$}
       | \meta{real $R$} @ \meta{real $R$}
-   &gt; | \meta{real $R$} + \meta{ureal $R$} i %
+   &gt; | \meta{real $R$} + \meta{ureal $R$} i
       | \meta{real $R$} - \meta{ureal $R$} i
-   &gt; | \meta{real $R$} + i %
-      | \meta{real $R$} - i %
+   &gt; | \meta{real $R$} + i
+      | \meta{real $R$} - i
       | \meta{real $R$} \meta{infnan} i
-   &gt; | + \meta{ureal $R$} i %
+   &gt; | + \meta{ureal $R$} i
       | - \meta{ureal $R$} i
-   &gt; | \meta{infnan} i %
-      | + i %
+   &gt; | \meta{infnan} i
+      | + i
       | - i
 \meta{real $R$} : \meta{sign} \meta{ureal $R$}
    &gt; | \meta{infnan}
-\meta{ureal $R$} : %
+\meta{ureal $R$} :
          \meta{uinteger $R$}
    &gt; | \meta{uinteger $R$} / \meta{uinteger $R$}
    &gt; | \meta{decimal $R$}
-\meta{decimal $10$} : %
+\meta{decimal $10$} :
          \meta{uinteger $10$} \meta{suffix}
    &gt; | . \atleastone{\meta{digit $10$}} \meta{suffix}
    &gt; | \atleastone{\meta{digit $10$}} . \arbno{\meta{digit $10$}} \meta{suffix}
 \meta{uinteger $R$} : \atleastone{\meta{digit $R$}}
-\meta{prefix $R$} : %
+\meta{prefix $R$} :
          \meta{radix $R$} \meta{exactness}
    &gt; | \meta{exactness} \meta{radix $R$}
 \meta{infnan} : +inf.0 | -inf.0 | +nan.0 | -nan.0
 \end{grammar}</p>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{suffix} : \meta{empty}
    &gt; | \meta{exponent marker} \meta{sign} \atleastone{\meta{digit $10$}}
 \meta{exponent marker} : e
@@ -293,7 +293,7 @@ of numbers can appear in either upper or lower case.
 \meta{digit 2} : 0 | 1
 \meta{digit 8} : 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
 \meta{digit 10} : \meta{digit}
-\meta{digit 16} : \meta{digit $10$} | a | b | c | d | e | f %
+\meta{digit 16} : \meta{digit $10$} | a | b | c | d | e | f
 \end{grammar}</p>
 
 <h3 id="7-1-2-external-representations">7.1.2. External representations</h3>
@@ -304,7 +304,7 @@ of numbers can appear in either upper or lower case.
 successfully parses.  Note that any string that parses as an
 \meta{ex-pres-sion} will also parse as a \meta{datum}.  \label{datum}</p>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{datum} : \meta{simple datum} | \meta{compound datum}
 &gt;  | \meta{label} = \meta{datum} | \meta{label} #
 \meta{simple datum} : \meta{boolean} | \meta{number}
@@ -315,7 +315,7 @@ successfully parses.  Note that any string that parses as an
 \meta{abbreviation} : \meta{abbrev prefix} \meta{datum}
 \meta{abbrev prefix} : &lsquo; | ` | , | ,@
 \meta{vector} : #(\arbno{\meta{datum}})
-\meta{label} : # \meta{uinteger 10}%
+\meta{label} : # \meta{uinteger 10}
 \end{grammar}</p>
 
 <h3 id="7-1-3-expressions">7.1.3. Expressions</h3>
@@ -324,7 +324,7 @@ successfully parses.  Note that any string that parses as an
 the syntax keywords defined in this report have been properly imported
 from their libraries, and that none of them have been redefined or shadowed.</p>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{expression} : \meta{identifier}
 &gt;  | \meta{literal}
 &gt;  | \meta{procedure call}
@@ -427,7 +427,7 @@ It is presented as a recipe for generating an infinite number of
 production rules.  Imagine a copy of the following rules for $D = 1, 2,
 3, \ldots$, where $D$ is the nesting depth.</p>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{quasiquotation} : \meta{quasiquotation 1}
 \meta{qq template 0} : \meta{expression}
 \meta{quasiquotation $D$} : `\meta{qq template $D$}
@@ -446,7 +446,7 @@ production rules.  Imagine a copy of the following rules for $D = 1, 2,
 \meta{qq template or splice $D$} : \meta{qq template $D$}
 &gt;    | \meta{splicing unquotation $D$}
 \meta{splicing unquotation $D$} : ,@\meta{qq template $D-1$}
-&gt;    | (unquote-splicing \meta{qq template $D-1$}) %
+&gt;    | (unquote-splicing \meta{qq template $D-1$})
 \end{grammar}</p>
 
 <p>In \meta{quasiquotation}s, a \meta{list qq template $D$} can sometimes
@@ -457,7 +457,7 @@ un-quo-ta-tion $D$} takes precedence.</p>
 
 <h3 id="7-1-5-transformers">7.1.5. Transformers</h3>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{transformer spec} :
 &gt; (syntax-rules (\arbno{\meta{identifier}}) \arbno{\meta{syntax rule}})
 &gt; | (syntax-rules \meta{identifier} (\arbno{\meta{identifier}})
@@ -492,7 +492,7 @@ un-quo-ta-tion $D$} takes precedence.</p>
 
 <h3 id="7-1-6-programs-and-definitions">7.1.6. Programs and definitions</h3>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{program} :
 &gt; \atleastone{\meta{import declaration}}
 &gt; \atleastone{\meta{command or definition}}
@@ -520,7 +520,7 @@ un-quo-ta-tion $D$} takes precedence.</p>
 
 <h3 id="7-1-7-libraries">7.1.7. Libraries</h3>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 \meta{library} :
 &gt; (d\=efine-library \meta{library name}
 &gt;   &gt; \arbno{\meta{library declaration}})
@@ -648,7 +648,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.</p>
 %[This was once true, but then I modified the semantics without
 %going back to the executable version.  &ndash; Will]</p>
 
-<h3 id="7-2-8-abstract-syntax">7.2.8. Abstract syntax</h3>
+<h3 id="7-2-1-abstract-syntax">7.2.1. Abstract syntax</h3>
 
 <p>\def\K{\hbox{\rm K}}
 \def\I{\hbox{\rm I}}
@@ -678,7 +678,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.</p>
  \copy1{} (set! \I{} \E)
 \end{grammar}</p>
 
-<h3 id="7-2-9-domain-equations">7.2.9. Domain equations</h3>
+<h3 id="7-2-2-domain-equations">7.2.2. Domain equations</h3>
 
 <p>\begin{tabular}{@{}r@{ }c@{ }l@{ }l@{ }ll}
 $\alpha$   &amp; \elem &amp; \LOC &amp; &amp;          &amp; locations <br />
@@ -707,7 +707,7 @@ $\kappa$   &amp; \elem &amp; \EC  &amp;=&amp; $\arbno{\EXP}\to\CC$ &amp; express
 $\omega$   &amp; \elem &amp; \DP  &amp;=&amp; $(\FUN \times \FUN \times \DP) + {\textit{root}}$ &amp; dynamic points<br />
 \end{tabular}</p>
 
-<h3 id="7-2-10-semantic-functions">7.2.10. Semantic functions</h3>
+<h3 id="7-2-3-semantic-functions">7.2.3. Semantic functions</h3>
 
 <p>\def\Ksem{\hbox{$\cal K$}}
 \def\Esem{\hbox{$\cal E$}}
@@ -865,7 +865,7 @@ be used in place of {\it unspecified}.</p>
 
 <p>\egroup  % end smallish</p>
 
-<h3 id="7-2-11-auxiliary-functions">7.2.11. Auxiliary functions</h3>
+<h3 id="7-2-4-auxiliary-functions">7.2.4. Auxiliary functions</h3>
 
 <p>\bgroup\small</p>
 
@@ -1335,130 +1335,122 @@ terms of the primitive expression types (literal, variable, call, {\cf lambda},
 
 <p>Conditional derived syntax types:</p>
 
-<p>\begin{scheme}
-(define-syntax \ide{cond}
+<pre><code>(define-syntax \ide{cond}
   (syntax-rules (else =&gt;)
-    ((cond (else result1 result2 &hellip;))
-     (begin result1 result2 &hellip;))
+    ((cond (else result1 result2 ...))
+     (begin result1 result2 ...))
     ((cond (test =&gt; result))
      (let ((temp test))
        (if temp (result temp))))
-    ((cond (test =&gt; result) clause1 clause2 &hellip;)
+    ((cond (test =&gt; result) clause1 clause2 ...)
      (let ((temp test))
        (if temp
            (result temp)
-           (cond clause1 clause2 &hellip;))))
+           (cond clause1 clause2 ...))))
     ((cond (test)) test)
-    ((cond (test) clause1 clause2 &hellip;)
+    ((cond (test) clause1 clause2 ...)
      (let ((temp test))
        (if temp
            temp
-           (cond clause1 clause2 &hellip;))))
-    ((cond (test result1 result2 &hellip;))
-     (if test (begin result1 result2 &hellip;)))
-    ((cond (test result1 result2 &hellip;)
-           clause1 clause2 &hellip;)
+           (cond clause1 clause2 ...))))
+    ((cond (test result1 result2 ...))
+     (if test (begin result1 result2 ...)))
+    ((cond (test result1 result2 ...)
+           clause1 clause2 ...)
      (if test
-         (begin result1 result2 &hellip;)
-         (cond clause1 clause2 &hellip;)))))
-\end{scheme}</p>
+         (begin result1 result2 ...)
+         (cond clause1 clause2 ...)))))
+</code></pre>
 
-<p>\begin{scheme}
-(define-syntax \ide{case}
+<pre><code>(define-syntax \ide{case}
   (syntax-rules (else =&gt;)
-    ((case (key &hellip;)
-       clauses &hellip;)
-     (let ((atom-key (key &hellip;)))
-       (case atom-key clauses &hellip;)))
+    ((case (key ...)
+       clauses ...)
+     (let ((atom-key (key ...)))
+       (case atom-key clauses ...)))
     ((case key
        (else =&gt; result))
      (result key))
     ((case key
-       (else result1 result2 &hellip;))
-     (begin result1 result2 &hellip;))
+       (else result1 result2 ...))
+     (begin result1 result2 ...))
     ((case key
-       ((atoms &hellip;) result1 result2 &hellip;))
-     (if (memv key &lsquo;(atoms &hellip;))
-         (begin result1 result2 &hellip;)))
+       ((atoms ...) result1 result2 ...))
+     (if (memv key '(atoms ...))
+         (begin result1 result2 ...)))
     ((case key
-       ((atoms &hellip;) =&gt; result))
-     (if (memv key &lsquo;(atoms &hellip;))
+       ((atoms ...) =&gt; result))
+     (if (memv key '(atoms ...))
          (result key)))
     ((case key
-       ((atoms &hellip;) =&gt; result)
-       clause clauses &hellip;)
-     (if (memv key &lsquo;(atoms &hellip;))
+       ((atoms ...) =&gt; result)
+       clause clauses ...)
+     (if (memv key '(atoms ...))
          (result key)
-         (case key clause clauses &hellip;)))
+         (case key clause clauses ...)))
     ((case key
-       ((atoms &hellip;) result1 result2 &hellip;)
-       clause clauses &hellip;)
-     (if (memv key &lsquo;(atoms &hellip;))
-         (begin result1 result2 &hellip;)
-         (case key clause clauses &hellip;)))))
-\end{scheme}</p>
+       ((atoms ...) result1 result2 ...)
+       clause clauses ...)
+     (if (memv key '(atoms ...))
+         (begin result1 result2 ...)
+         (case key clause clauses ...)))))
+</code></pre>
 
-<p>\begin{scheme}
-(define-syntax \ide{and}
+<pre><code>(define-syntax \ide{and}
   (syntax-rules ()
     ((and) \sharpfoo{t})
     ((and test) test)
-    ((and test1 test2 &hellip;)
-     (if test1 (and test2 &hellip;) \sharpfoo{f}))))
-\end{scheme}</p>
+    ((and test1 test2 ...)
+     (if test1 (and test2 ...) \sharpfoo{f}))))
+</code></pre>
 
-<p>\begin{scheme}
-(define-syntax \ide{or}
+<pre><code>(define-syntax \ide{or}
   (syntax-rules ()
     ((or) \sharpfoo{f})
     ((or test) test)
-    ((or test1 test2 &hellip;)
+    ((or test1 test2 ...)
      (let ((x test1))
-       (if x x (or test2 &hellip;))))))
-\end{scheme}</p>
+       (if x x (or test2 ...))))))
+</code></pre>
 
-<p>\begin{scheme}
-(define-syntax \ide{when}
+<pre><code>(define-syntax \ide{when}
   (syntax-rules ()
-    ((when test result1 result2 &hellip;)
+    ((when test result1 result2 ...)
      (if test
-         (begin result1 result2 &hellip;)))))
-\end{scheme}</p>
+         (begin result1 result2 ...)))))
+</code></pre>
 
-<p>\begin{scheme}
-(define-syntax \ide{unless}
+<pre><code>(define-syntax \ide{unless}
   (syntax-rules ()
-    ((unless test result1 result2 &hellip;)
+    ((unless test result1 result2 ...)
      (if (not test)
-         (begin result1 result2 &hellip;)))))
-\end{scheme}</p>
+         (begin result1 result2 ...)))))
+</code></pre>
 
 <p>Binding constructs:</p>
 
-<p>\begin{scheme}
-(define-syntax \ide{let}
+<pre><code>(define-syntax \ide{let}
   (syntax-rules ()
-    ((let ((name val) &hellip;) body1 body2 &hellip;)
-     ((lambda (name &hellip;) body1 body2 &hellip;)
-      val &hellip;))
-    ((let tag ((name val) &hellip;) body1 body2 &hellip;)
-     ((letrec ((tag (lambda (name &hellip;)
-                      body1 body2 &hellip;)))
+    ((let ((name val) ...) body1 body2 ...)
+     ((lambda (name ...) body1 body2 ...)
+      val ...))
+    ((let tag ((name val) ...) body1 body2 ...)
+     ((letrec ((tag (lambda (name ...)
+                      body1 body2 ...)))
         tag)
-      val &hellip;))))
-\end{scheme}</p>
+      val ...))))
+</code></pre>
 
-<p>\begin{scheme}
-(define-syntax \ide{let<em>}
+<pre><code>(define-syntax \ide{let*}
   (syntax-rules ()
-    ((let</em> () body1 body2 &hellip;)
-     (let () body1 body2 &hellip;))
-    ((let* ((name1 val1) (name2 val2) &hellip;)
-       body1 body2 &hellip;)
+    ((let* () body1 body2 ...)
+     (let () body1 body2 ...))
+    ((let* ((name1 val1) (name2 val2) ...)
+       body1 body2 ...)
      (let ((name1 val1))
-       (let* ((name2 val2) &hellip;)
-         body1 body2 &hellip;)))))
-\end{scheme}</p>
+       (let* ((name2 val2) ...)
+         body1 body2 ...)))))
+</code></pre>
 
 <p>The following {\cf letrec} macro uses the symbol {\cf <undefined>}
 in place of an expression which returns something that when stored in
@@ -1468,103 +1460,94 @@ A trick is used to generate the temporary names needed to avoid
 specifying the order in which the values are evaluated.
 This could also be accomplished by using an auxiliary macro.</p>
 
-<p>\begin{scheme}
-(define-syntax \ide{letrec}
+<pre><code>(define-syntax \ide{letrec}
   (syntax-rules ()
-    ((letrec ((var1 init1) &hellip;) body &hellip;)
-     (letrec &ldquo;generate_temp_names&rdquo;
-       (var1 &hellip;)
+    ((letrec ((var1 init1) ...) body ...)
+     (letrec &quot;generate\_temp\_names&quot;
+       (var1 ...)
        ()
-       ((var1 init1) &hellip;)
-       body &hellip;))
-    ((letrec &ldquo;generate_temp_names&rdquo;
+       ((var1 init1) ...)
+       body ...))
+    ((letrec &quot;generate\_temp\_names&quot;
        ()
-       (temp1 &hellip;)
-       ((var1 init1) &hellip;)
-       body &hellip;)
-     (let ((var1 <undefined>) &hellip;)
-       (let ((temp1 init1) &hellip;)
+       (temp1 ...)
+       ((var1 init1) ...)
+       body ...)
+     (let ((var1 &lt;undefined&gt;) ...)
+       (let ((temp1 init1) ...)
          (set! var1 temp1)
-         &hellip;
-         body &hellip;)))
-    ((letrec &ldquo;generate_temp_names&rdquo;
-       (x y &hellip;)
-       (temp &hellip;)
-       ((var1 init1) &hellip;)
-       body &hellip;)
-     (letrec &ldquo;generate_temp_names&rdquo;
-       (y &hellip;)
-       (newtemp temp &hellip;)
-       ((var1 init1) &hellip;)
-       body &hellip;))))
-\end{scheme}</p>
+         ...
+         body ...)))
+    ((letrec &quot;generate\_temp\_names&quot;
+       (x y ...)
+       (temp ...)
+       ((var1 init1) ...)
+       body ...)
+     (letrec &quot;generate\_temp\_names&quot;
+       (y ...)
+       (newtemp temp ...)
+       ((var1 init1) ...)
+       body ...))))
+</code></pre>
 
-<p>\begin{scheme}
-(define-syntax \ide{letrec<em>}
+<pre><code>(define-syntax \ide{letrec*}
   (syntax-rules ()
-    ((letrec</em> ((var1 init1) &hellip;) body1 body2 &hellip;)
-     (let ((var1 <undefined>) &hellip;)
+    ((letrec* ((var1 init1) ...) body1 body2 ...)
+     (let ((var1 &lt;undefined&gt;) ...)
        (set! var1 init1)
-       &hellip;
-       (let () body1 body2 &hellip;)))))%
-\end{scheme}</p>
-
-<p>\begin{scheme}
-(define-syntax \ide{let-values}
-  (syntax-rules ()
-    ((let-values (binding &hellip;) body0 body1 &hellip;)
-     (let-values &ldquo;bind&rdquo;
-         (binding &hellip;) () (begin body0 body1 &hellip;)))</p>
-
-<pre><code>((let-values &quot;bind&quot; () tmps body)
- (let tmps body))
-
-((let-values &quot;bind&quot; ((b0 e0)
-     binding ...) tmps body)
- (let-values &quot;mktmp&quot; b0 e0 ()
-     (binding ...) tmps body))
-
-((let-values &quot;mktmp&quot; () e0 args
-     bindings tmps body)
- (call-with-values
-   (lambda () e0)
-   (lambda args
-     (let-values &quot;bind&quot;
-         bindings tmps body))))
-
-((let-values &quot;mktmp&quot; (a . b) e0 (arg ...)
-     bindings (tmp ...) body)
- (let-values &quot;mktmp&quot; b e0 (arg ... x)
-     bindings (tmp ... (a x)) body))
-
-((let-values &quot;mktmp&quot; a e0 (arg ...)
-    bindings (tmp ...) body)
- (call-with-values
-   (lambda () e0)
-   (lambda (arg ... . x)
-     (let-values &quot;bind&quot;
-         bindings (tmp ... (a x)) body))))))
+       ...
+       (let () body1 body2 ...)))))
 </code></pre>
 
-<p>\end{scheme}</p>
-
-<p>\begin{scheme}
-(define-syntax \ide{let<em>-values}
+<pre><code>(define-syntax \ide{let-values}
   (syntax-rules ()
-    ((let</em>-values () body0 body1 &hellip;)
-     (let () body0 body1 &hellip;))</p>
+    ((let-values (binding ...) body0 body1 ...)
+     (let-values &quot;bind&quot;
+         (binding ...) () (begin body0 body1 ...)))
 
-<pre><code>((let*-values (binding0 binding1 ...)
-     body0 body1 ...)
- (let-values (binding0)
-   (let*-values (binding1 ...)
-     body0 body1 ...)))))
+    ((let-values &quot;bind&quot; () tmps body)
+     (let tmps body))
+
+    ((let-values &quot;bind&quot; ((b0 e0)
+         binding ...) tmps body)
+     (let-values &quot;mktmp&quot; b0 e0 ()
+         (binding ...) tmps body))
+
+    ((let-values &quot;mktmp&quot; () e0 args
+         bindings tmps body)
+     (call-with-values
+       (lambda () e0)
+       (lambda args
+         (let-values &quot;bind&quot;
+             bindings tmps body))))
+
+    ((let-values &quot;mktmp&quot; (a . b) e0 (arg ...)
+         bindings (tmp ...) body)
+     (let-values &quot;mktmp&quot; b e0 (arg ... x)
+         bindings (tmp ... (a x)) body))
+
+    ((let-values &quot;mktmp&quot; a e0 (arg ...)
+        bindings (tmp ...) body)
+     (call-with-values
+       (lambda () e0)
+       (lambda (arg ... . x)
+         (let-values &quot;bind&quot;
+             bindings (tmp ... (a x)) body))))))
 </code></pre>
 
-<p>\end{scheme}</p>
+<pre><code>(define-syntax \ide{let*-values}
+  (syntax-rules ()
+    ((let*-values () body0 body1 ...)
+     (let () body0 body1 ...))
 
-<p>\begin{scheme}
-(define-syntax \ide{define-values}
+    ((let*-values (binding0 binding1 ...)
+         body0 body1 ...)
+     (let-values (binding0)
+       (let*-values (binding1 ...)
+         body0 body1 ...)))))
+</code></pre>
+
+<pre><code>(define-syntax \ide{define-values}
   (syntax-rules ()
     ((define-values () expr)
      (define dummy
@@ -1572,7 +1555,7 @@ This could also be accomplished by using an auxiliary macro.</p>
                          (lambda args \schfalse))))
     ((define-values (var) expr)
      (define var expr))
-    ((define-values (var0 var1 &hellip; varn) expr)
+    ((define-values (var0 var1 ... varn) expr)
      (begin
        (define var0
          (call-with-values (lambda () expr)
@@ -1580,12 +1563,12 @@ This could also be accomplished by using an auxiliary macro.</p>
        (define var1
          (let ((v (cadr var0)))
            (set-cdr! var0 (cddr var0))
-           v)) &hellip;
+           v)) ...
        (define varn
          (let ((v (cadr var0)))
            (set! var0 (car var0))
            v))))
-    ((define-values (var0 var1 &hellip; . varn) expr)
+    ((define-values (var0 var1 ... . varn) expr)
      (begin
        (define var0
          (call-with-values (lambda () expr)
@@ -1593,7 +1576,7 @@ This could also be accomplished by using an auxiliary macro.</p>
        (define var1
          (let ((v (cadr var0)))
            (set-cdr! var0 (cddr var0))
-           v)) &hellip;
+           v)) ...
        (define varn
          (let ((v (cdr var0)))
            (set! var0 (car var0))
@@ -1602,31 +1585,29 @@ This could also be accomplished by using an auxiliary macro.</p>
      (define var
        (call-with-values (lambda () expr)
                          list)))))
-\end{scheme}</p>
+</code></pre>
 
-<p>\begin{scheme}
-(define-syntax \ide{begin}
+<pre><code>(define-syntax \ide{begin}
   (syntax-rules ()
-    ((begin exp &hellip;)
-     ((lambda () exp &hellip;)))))
-\end{scheme}</p>
+    ((begin exp ...)
+     ((lambda () exp ...)))))
+</code></pre>
 
 <p>The following alternative expansion for {\cf begin} does not make use of
 the ability to write more than one expression in the body of a lambda
 expression.  In any case, note that these rules apply only if the body
 of the {\cf begin} contains no definitions.</p>
 
-<p>\begin{scheme}
-(define-syntax begin
+<pre><code>(define-syntax begin
   (syntax-rules ()
     ((begin exp)
      exp)
-    ((begin exp1 exp2 &hellip;)
+    ((begin exp1 exp2 ...)
      (call-with-values
          (lambda () exp1)
        (lambda args
-         (begin exp2 &hellip;))))))
-\end{scheme}</p>
+         (begin exp2 ...))))))
+</code></pre>
 
 <p>The following syntax definition
 of {\cf do} uses a trick to expand the variable clauses.
@@ -1634,101 +1615,91 @@ As with {\cf letrec} above, an auxiliary macro would also work.
 The expression {\cf (if #f #f)} is used to obtain an unspecific
 value.</p>
 
-<p>\begin{scheme}
-(define-syntax \ide{do}
+<pre><code>(define-syntax \ide{do}
   (syntax-rules ()
-    ((do ((var init step &hellip;) &hellip;)
-         (test expr &hellip;)
-         command &hellip;)
+    ((do ((var init step ...) ...)
+         (test expr ...)
+         command ...)
      (letrec
        ((loop
-         (lambda (var &hellip;)
+         (lambda (var ...)
            (if test
                (begin
-                 (if #f #f)
-                 expr &hellip;)
+                 (if \#f \#f)
+                 expr ...)
                (begin
                  command
-                 &hellip;
-                 (loop (do &ldquo;step&rdquo; var step &hellip;)
-                       &hellip;))))))
-       (loop init &hellip;)))
-    ((do &ldquo;step&rdquo; x)
+                 ...
+                 (loop (do &quot;step&quot; var step ...)
+                       ...))))))
+       (loop init ...)))
+    ((do &quot;step&quot; x)
      x)
-    ((do &ldquo;step&rdquo; x y)
+    ((do &quot;step&quot; x y)
      y)))
-\end{scheme}</p>
+</code></pre>
 
 <p>Here is a possible implementation of {\cf delay}, {\cf force} and {\cf
   delay-force}.  We define the expression</p>
 
-<p>\begin{scheme}
-(delay-force \hyper{expression})%
-\end{scheme}</p>
+<pre><code>(delay-force \hyper{expression})
+</code></pre>
 
 <p>to have the same meaning as the procedure call</p>
 
-<p>\begin{scheme}
-(make-promise \schfalse{} (lambda () \hyper{expression}))%
-\end{scheme}</p>
+<pre><code>(make-promise \schfalse{} (lambda () \hyper{expression}))
+</code></pre>
 
 <p>as follows</p>
 
-<p>\begin{scheme}
-(define-syntax delay-force
+<pre><code>(define-syntax delay-force
   (syntax-rules ()
     ((delay-force expression)
-     (make-promise \schfalse{} (lambda () expression)))))%
-\end{scheme}</p>
+     (make-promise \schfalse{} (lambda () expression)))))
+</code></pre>
 
 <p>and we define the expression</p>
 
-<p>\begin{scheme}
-(delay \hyper{expression})%
-\end{scheme}</p>
+<pre><code>(delay \hyper{expression})
+</code></pre>
 
 <p>to have the same meaning as:</p>
 
-<p>\begin{scheme}
-(delay-force (make-promise \schtrue{} \hyper{expression}))%
-\end{scheme}</p>
+<pre><code>(delay-force (make-promise \schtrue{} \hyper{expression}))
+</code></pre>
 
 <p>as follows</p>
 
-<p>\begin{scheme}
-(define-syntax delay
+<pre><code>(define-syntax delay
   (syntax-rules ()
     ((delay expression)
-     (delay-force (make-promise \schtrue{} expression)))))%
-\end{scheme}</p>
+     (delay-force (make-promise \schtrue{} expression)))))
+</code></pre>
 
 <p>where {\cf make-promise} is defined as follows:</p>
 
-<p>\begin{scheme}
-(define make-promise
+<pre><code>(define make-promise
   (lambda (done? proc)
-    (list (cons done? proc))))%
-\end{scheme}</p>
+    (list (cons done? proc))))
+</code></pre>
 
 <p>Finally, we define {\cf force} to call the procedure expressions in
 promises iteratively using a trampoline technique following
 \cite{srfi45} until a non-lazy result (i.e. a value created by {\cf
   delay} instead of {\cf delay-force}) is returned, as follows:</p>
 
-<p>\begin{scheme}
-(define (force promise)
+<pre><code>(define (force promise)
   (if (promise-done? promise)
       (promise-value promise)
       (let ((promise* ((promise-value promise))))
         (unless (promise-done? promise)
           (promise-update! promise* promise))
-        (force promise))))%
-\end{scheme}</p>
+        (force promise))))
+</code></pre>
 
 <p>with the following promise accessors:</p>
 
-<p>\begin{scheme}
-(define promise-done?
+<pre><code>(define promise-done?
   (lambda (x) (car (car x))))
 (define promise-value
   (lambda (x) (cdr (car x))))
@@ -1736,8 +1707,8 @@ promises iteratively using a trampoline technique following
   (lambda (new old)
     (set-car! (car old) (promise-done? new))
     (set-cdr! (car old) (promise-value new))
-    (set-car! new (car old))))%
-\end{scheme}</p>
+    (set-car! new (car old))))
+</code></pre>
 
 <p>The following implementation of {\cf make-parameter} and {\cf
 parameterize} is suitable for an implementation with no threads.
@@ -1745,8 +1716,7 @@ Parameter objects are implemented here as procedures, using two
 arbitrary unique objects \texttt{<param-set!>} and
 \texttt{<param-convert>}:</p>
 
-<p>\begin{scheme}
-(define (make-parameter init . o)
+<pre><code>(define (make-parameter init . o)
   (let* ((converter
           (if (pair? o) (car o) (lambda (x) x)))
          (value (converter init)))
@@ -1754,53 +1724,51 @@ arbitrary unique objects \texttt{<param-set!>} and
       (cond
        ((null? args)
         value)
-       ((eq? (car args) <param-set!>)
+       ((eq? (car args) &lt;param-set!&gt;)
         (set! value (cadr args)))
-       ((eq? (car args) <param-convert>)
+       ((eq? (car args) &lt;param-convert&gt;)
         converter)
        (else
-        (error &ldquo;bad parameter syntax&rdquo;))))))%
-\end{scheme}</p>
+        (error &quot;bad parameter syntax&quot;))))))
+</code></pre>
 
 <p>Then {\cf parameterize} uses {\cf dynamic-wind} to dynamically rebind
 the associated value:</p>
 
-<p>\begin{scheme}
-(define-syntax parameterize
+<pre><code>(define-syntax parameterize
   (syntax-rules ()
-    ((parameterize (&ldquo;step&rdquo;)
-                   ((param value p old new) &hellip;)
+    ((parameterize (&quot;step&quot;)
+                   ((param value p old new) ...)
                    ()
                    body)
-     (let ((p param) &hellip;)
-       (let ((old (p)) &hellip;
-             (new ((p <param-convert>) value)) &hellip;)
+     (let ((p param) ...)
+       (let ((old (p)) ...
+             (new ((p &lt;param-convert&gt;) value)) ...)
          (dynamic-wind
-          (lambda () (p <param-set!> new) &hellip;)
+          (lambda () (p &lt;param-set!&gt; new) ...)
           (lambda () . body)
-          (lambda () (p <param-set!> old) &hellip;)))))
-    ((parameterize (&ldquo;step&rdquo;)
+          (lambda () (p &lt;param-set!&gt; old) ...)))))
+    ((parameterize (&quot;step&quot;)
                    args
                    ((param value) . rest)
                    body)
-     (parameterize (&ldquo;step&rdquo;)
+     (parameterize (&quot;step&quot;)
                    ((param value p old new) . args)
                    rest
                    body))
-    ((parameterize ((param value) &hellip;) . body)
-     (parameterize (&ldquo;step&rdquo;)
+    ((parameterize ((param value) ...) . body)
+     (parameterize (&quot;step&quot;)
                    ()
-                   ((param value) &hellip;)
+                   ((param value) ...)
                    body))))
-\end{scheme}</p>
+</code></pre>
 
 <p>The following implementation of {\cf guard} depends on an auxiliary
 macro, here called {\cf guard-aux}.</p>
 
-<p>\begin{scheme}
-(define-syntax guard
+<pre><code>(define-syntax guard
   (syntax-rules ()
-    ((guard (var clause &hellip;) e1 e2 &hellip;)
+    ((guard (var clause ...) e1 e2 ...)
      ((call/cc
        (lambda (guard-k)
          (with-exception-handler
@@ -1814,142 +1782,140 @@ macro, here called {\cf guard-aux}.</p>
                         (handler-k
                           (lambda ()
                             (raise-continuable condition)))
-                        clause &hellip;))))))))
+                        clause ...))))))))
           (lambda ()
             (call-with-values
-             (lambda () e1 e2 &hellip;)
+             (lambda () e1 e2 ...)
              (lambda args
                (guard-k
                  (lambda ()
-                   (apply values args)))))))))))))</p>
+                   (apply values args)))))))))))))
 
-<p>(define-syntax guard-aux
+(define-syntax guard-aux
   (syntax-rules (else =&gt;)
-    ((guard-aux reraise (else result1 result2 &hellip;))
-     (begin result1 result2 &hellip;))
+    ((guard-aux reraise (else result1 result2 ...))
+     (begin result1 result2 ...))
     ((guard-aux reraise (test =&gt; result))
      (let ((temp test))
        (if temp
            (result temp)
            reraise)))
     ((guard-aux reraise (test =&gt; result)
-                clause1 clause2 &hellip;)
+                clause1 clause2 ...)
      (let ((temp test))
        (if temp
            (result temp)
-           (guard-aux reraise clause1 clause2 &hellip;))))
+           (guard-aux reraise clause1 clause2 ...))))
     ((guard-aux reraise (test))
      (or test reraise))
-    ((guard-aux reraise (test) clause1 clause2 &hellip;)
+    ((guard-aux reraise (test) clause1 clause2 ...)
      (let ((temp test))
        (if temp
            temp
-           (guard-aux reraise clause1 clause2 &hellip;))))
-    ((guard-aux reraise (test result1 result2 &hellip;))
+           (guard-aux reraise clause1 clause2 ...))))
+    ((guard-aux reraise (test result1 result2 ...))
      (if test
-         (begin result1 result2 &hellip;)
+         (begin result1 result2 ...)
          reraise))
     ((guard-aux reraise
-                (test result1 result2 &hellip;)
-                clause1 clause2 &hellip;)
+                (test result1 result2 ...)
+                clause1 clause2 ...)
      (if test
-         (begin result1 result2 &hellip;)
-         (guard-aux reraise clause1 clause2 &hellip;)))))
-\end{scheme}</p>
+         (begin result1 result2 ...)
+         (guard-aux reraise clause1 clause2 ...)))))
+</code></pre>
 
-<p>\begin{scheme}
-(define-syntax \ide{case-lambda}
+<pre><code>(define-syntax \ide{case-lambda}
   (syntax-rules ()
-    ((case-lambda (params body0 &hellip;) &hellip;)
+    ((case-lambda (params body0 ...) ...)
      (lambda args
        (let ((len (length args)))
          (let-syntax
              ((cl (syntax-rules ::: ()
                     ((cl)
-                     (error &ldquo;no matching clause&rdquo;))
+                     (error &quot;no matching clause&quot;))
                     ((cl ((p :::) . body) . rest)
-                     (if (= len (length &lsquo;(p :::)))
+                     (if (= len (length '(p :::)))
                          (apply (lambda (p :::)
                                   . body)
                                 args)
                          (cl . rest)))
                     ((cl ((p ::: . tail) . body)
                          . rest)
-                     (if (&gt;= len (length &lsquo;(p :::)))
+                     (if (&gt;= len (length '(p :::)))
                          (apply
                           (lambda (p ::: . tail)
                             . body)
                           args)
                          (cl . rest))))))
-           (cl (params body0 &hellip;) &hellip;)))))))</p>
+           (cl (params body0 ...) ...)))))))
 
-<p>\end{scheme}</p>
+</code></pre>
 
 <p>This definition of {\cf cond-expand} does not interact with the
 {\cf features} procedure.  It requires that each feature identifier provided
 by the implementation be explicitly mentioned.</p>
 
-<p>\begin{scheme}
-(define-syntax cond-expand
+<pre><code>(define-syntax cond-expand
   ;; Extend this to mention all feature ids and libraries
   (syntax-rules (and or not else r7rs library scheme base)
     ((cond-expand)
-     (syntax-error &ldquo;Unfulfilled cond-expand&rdquo;))
-    ((cond-expand (else body &hellip;))
-     (begin body &hellip;))
-    ((cond-expand ((and) body &hellip;) more-clauses &hellip;)
-     (begin body &hellip;))
-    ((cond-expand ((and req1 req2 &hellip;) body &hellip;)
-                  more-clauses &hellip;)
+     (syntax-error &quot;Unfulfilled cond-expand&quot;))
+    ((cond-expand (else body ...))
+     (begin body ...))
+    ((cond-expand ((and) body ...) more-clauses ...)
+     (begin body ...))
+    ((cond-expand ((and req1 req2 ...) body ...)
+                  more-clauses ...)
      (cond-expand
        (req1
          (cond-expand
-           ((and req2 &hellip;) body &hellip;)
-           more-clauses &hellip;))
-       more-clauses &hellip;))
-    ((cond-expand ((or) body &hellip;) more-clauses &hellip;)
-     (cond-expand more-clauses &hellip;))
-    ((cond-expand ((or req1 req2 &hellip;) body &hellip;)
-                  more-clauses &hellip;)
+           ((and req2 ...) body ...)
+           more-clauses ...))
+       more-clauses ...))
+    ((cond-expand ((or) body ...) more-clauses ...)
+     (cond-expand more-clauses ...))
+    ((cond-expand ((or req1 req2 ...) body ...)
+                  more-clauses ...)
      (cond-expand
        (req1
-        (begin body &hellip;))
+        (begin body ...))
        (else
         (cond-expand
-           ((or req2 &hellip;) body &hellip;)
-           more-clauses &hellip;))))
-    ((cond-expand ((not req) body &hellip;)
-                  more-clauses &hellip;)
+           ((or req2 ...) body ...)
+           more-clauses ...))))
+    ((cond-expand ((not req) body ...)
+                  more-clauses ...)
      (cond-expand
        (req
-         (cond-expand more-clauses &hellip;))
-       (else body &hellip;)))
-    ((cond-expand (r7rs body &hellip;)
-                  more-clauses &hellip;)
-       (begin body &hellip;))
+         (cond-expand more-clauses ...))
+       (else body ...)))
+    ((cond-expand (r7rs body ...)
+                  more-clauses ...)
+       (begin body ...))
     ;; Add clauses here for each
     ;; supported feature identifier.
     ;; Samples:
-    ;; ((cond-expand (exact-closed body &hellip;)
-    ;;               more-clauses &hellip;)
-    ;;   (begin body &hellip;))
-    ;; ((cond-expand (ieee-float body &hellip;)
-    ;;               more-clauses &hellip;)
-    ;;   (begin body &hellip;))
+    ;; ((cond-expand (exact-closed body ...)
+    ;;               more-clauses ...)
+    ;;   (begin body ...))
+    ;; ((cond-expand (ieee-float body ...)
+    ;;               more-clauses ...)
+    ;;   (begin body ...))
     ((cond-expand ((library (scheme base))
-                   body &hellip;)
-                  more-clauses &hellip;)
-      (begin body &hellip;))
+                   body ...)
+                  more-clauses ...)
+      (begin body ...))
     ;; Add clauses here for each library
-    ((cond-expand (feature-id body &hellip;)
-                  more-clauses &hellip;)
-       (cond-expand more-clauses &hellip;))
-    ((cond-expand ((library (name &hellip;))
-                   body &hellip;)
-                  more-clauses &hellip;)
-       (cond-expand more-clauses &hellip;))))</p>
+    ((cond-expand (feature-id body ...)
+                  more-clauses ...)
+       (cond-expand more-clauses ...))
+    ((cond-expand ((library (name ...))
+                   body ...)
+                  more-clauses ...)
+       (cond-expand more-clauses ...))))
 
-<p>\end{scheme}</p>
+</code></pre>
 
   </article>
 </div>

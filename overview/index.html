@@ -102,7 +102,7 @@ apparent binding of that variable.</p>
 
 <p>Scheme is a dynamically typed language.  Types
 are associated with values (also called objects\mainindex{object}) rather than
-with variables.<br />
+with variables.
 Statically typed languages, by contrast, associate types with
 variables and expressions as well as with values.</p>
 
@@ -170,7 +170,7 @@ the data it reads.  The {\cf read} procedure parses its input as data
 
 <p>Every identifier defined in this report appears in one or more of several
 \defining{libraries}.  Identifiers defined in the \defining{base library}
-are not marked specially in the body of the report.<br />
+are not marked specially in the body of the report.
 This library includes the core syntax of Scheme
 and generally useful procedures that manipulate data.  For example, the
 variable {\cf abs} is bound to a
@@ -312,7 +312,7 @@ names in the template are \var{italicized}.  Thus the header line</p>
 two arguments, a vector \var{vector} and an exact non-negative integer
 \var{k} (see below).  The header lines</p>
 
-<p>\noindent%
+<p>\noindent
 \pproto{(make-vector \var{k})}{procedure}
 \pproto{(make-vector \var{k} \var{fill})}{procedure}\unpenalty</p>
 
@@ -384,9 +384,8 @@ the length of \var{string}, then the entire string is referred to.}</p>
 <p>The symbol &ldquo;\evalsto&rdquo; used in program examples is read
 &ldquo;evaluates to.&rdquo;  For example,</p>
 
-<p>\begin{scheme}
-(* 5 8)      \ev  40%
-\end{scheme}</p>
+<pre><code>(* 5 8)      \ev  40
+</code></pre>
 
 <p>means that the expression {\tt(* 5 8)} evaluates to the object {\tt 40}.
 Or, more precisely:  the expression given by the sequence of characters

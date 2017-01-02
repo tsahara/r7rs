@@ -144,14 +144,13 @@ environment}</p>
 
 <p>No object satisfies more than one of the following predicates:</p>
 
-<p>\begin{scheme}
-boolean?          bytevector?
+<pre><code>boolean?          bytevector?
 char?             eof-object?
 null?             number?
 pair?             port?
 procedure?        string?
 symbol?           vector?
-\end{scheme}</p>
+</code></pre>
 
 <p>and all predicates created by {\cf define-record-type}.</p>
 
@@ -261,10 +260,7 @@ immutable object.</p>
 <p>%% If an implementation makes it impossible for any program to alter an
 %% immutable object, it may treat the object as a value (similar to a
 %% number, boolean, symbol, or the empty list) rather than as a container
-%% for immutable locations.
-\todo{Shinn: The previous comment that it is an error to mutate these
-  locations, combined with the following comment that they are only
-  conceptual, makes this note seem unecessary.}</p>
+%% for immutable locations.</p>
 
 <p>These locations are to be understood as conceptual, not physical.
 Hence, they do not necessarily correspond to memory addresses,
@@ -329,12 +325,12 @@ expression.</p>
 \item The last expression within the body of a lambda expression,
   shown as \hyper{tail expression} below, occurs in a tail context.
   The same is true of all the bodies of {\cf case-lambda} expressions.
-\begin{grammar}%
+\begin{grammar}
 (l\=ambda \meta{formals}
   &gt;\arbno{\meta{definition}} \arbno{\meta{expression}} \meta{tail expression})</p>
 
 <p>(case-lambda \arbno{(\meta{formals} \meta{tail body})})
-\end{grammar}%</p>
+\end{grammar}</p>
 
 <p>\item If one of the following expressions is in a tail context,
 then the subexpressions shown as \meta{tail expression} are in a tail context.
@@ -345,7 +341,7 @@ with \meta{tail expression},  and some occurrences of \meta{sequence}
 with \meta{tail sequence}.  Only those rules that contain tail contexts
 are shown here.</p>
 
-<p>\begin{grammar}%
+<p>\begin{grammar}
 (if \meta{expression} \meta{tail expression} \meta{tail expression})
 (if \meta{expression} \meta{tail expression})</p>
 
@@ -388,7 +384,7 @@ are shown here.</p>
 
 <p>\meta{tail body} : \arbno{\meta{definition}} \meta{tail sequence}
 \meta{tail sequence} : \arbno{\meta{expression}} \meta{tail expression}
-\end{grammar}%</p>
+\end{grammar}</p>
 
 <p>\item
 If a {\cf cond} or {\cf case} expression is in a tail context, and has
@@ -409,14 +405,14 @@ were in tail position within the \ide{eval} procedure.</p>
 <p>In the following example the only tail call is the call to {\cf f}.
 None of the calls to {\cf g} or {\cf h} are tail calls.  The reference to
 {\cf x} is in a tail context, but it is not a call and thus is not a
-tail call.
-\begin{scheme}%
-(lambda ()
+tail call.</p>
+
+<pre><code>(lambda ()
   (if (g)
       (let ((x (h)))
         x)
       (and (g) (f))))
-\end{scheme}%</p>
+</code></pre>
 
 <p>\begin{note}
 Implementations may
