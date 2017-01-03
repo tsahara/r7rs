@@ -19,9 +19,9 @@ This section provides a formal syntax for Scheme written in an extended
 BNF.
 
 All spaces in the grammar are for legibility.  Case is not significant
-except in the definitions of \meta{letter}, \meta{character name} and \meta{mnemonic escape}; for example, {\cf #x1A}
-and {\cf #X1a} are equivalent, but {\cf foo} and {\cf Foo}
-and {\cf #\backwhack{}space} and {\cf #\backwhack{}Space} are distinct.
+except in the definitions of \meta{letter}, \meta{character name} and \meta{mnemonic escape}; for example, ``#x1A``
+and ``#X1a`` are equivalent, but ``foo`` and ``Foo``
+and ``#\backwhack{``space} and ``#\backwhack{``Space} are distinct.
 \meta{empty} stands for the empty string.
 
 The following extensions to BNF are used to make the description more
@@ -105,7 +105,7 @@ but a \meta{delimiter} or the end of file.
 % This is a kludge, but \multicolumn doesn't work in tabbing environments.
 \setbox0\hbox{\cf\meta{identifier} \goesto{} $\langle$}
 
-Note that {\cf +i}, {\cf -i} and \meta{infnan} below are exceptions to the
+Note that ``+i``, ``-i`` and \meta{infnan} below are exceptions to the
 \meta{peculiar identifier} rule; they are parsed as numbers, not
 identifiers.
 
@@ -410,9 +410,9 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \meta{template element} \: \meta{template}
 \>  \| \meta{template} \meta{ellipsis}
 \meta{template datum} \: \meta{pattern datum}
-\meta{pattern identifier} \: \meta{any identifier except {\cf ...}}
-\meta{ellipsis} \: \meta{an identifier defaulting to {\cf ...}}
-\meta{underscore} \: \meta{the identifier {\cf \_}}
+\meta{pattern identifier} \: \meta{any identifier except ``...``}
+\meta{ellipsis} \: \meta{an identifier defaulting to ``...``}
+\meta{underscore} \: \meta{the identifier ``\_``}
 \end{grammar}
 
 ### 7.1.6. Programs and definitions
@@ -514,7 +514,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 This section provides a formal denotational semantics for the primitive
 expressions of Scheme and selected built-in procedures.  The concepts
 and notation used here are described in~\cite{Stoy77}; the definition of
-{\cf dynamic-wind} is taken from~\cite{GasbichlerKnauelSperberKelsey2003}.
+``dynamic-wind`` is taken from~\cite{GasbichlerKnauelSperberKelsey2003}.
 The notation is summarized below:
 
 \begin{tabular}{ll}
@@ -980,7 +980,7 @@ be used in place of {\it unspecified}.
                    \fun{true},
                    \fun{false})
                \kappa,$\\
-    \>$\go{1}\wrong{non-numeric argument to {\cf <}})
+    \>$\go{1}\wrong{non-numeric argument to ``<``})
 \end{semfun}
 
 \schindex{+}
@@ -992,7 +992,7 @@ be used in place of {\it unspecified}.
     \>$\go{1}\fun{send}\,
        $\=$((\epsilon_1\:\vert\:\NUM+\epsilon_2\:\vert\:\NUM)\hbox{ \rm in }\EXP)
            \kappa,$\\
-    \>$\go{1}\wrong{non-numeric argument to {\cf +}})
+    \>$\go{1}\wrong{non-numeric argument to ``+``})
 \end{semfun}
 
 \schindex{car}
@@ -1002,7 +1002,7 @@ be used in place of {\it unspecified}.
  \go{1}$\fun{onearg}\,(\lambda\epsilon\omega\kappa\:.\:
    $\=$\epsilon\:\elem\:\PAI\rightarrow
           \fun{car-internal}\:\epsilon\kappa,$\\
-    \>$\go{1}\wrong{non-pair argument to {\cf car}})
+    \>$\go{1}\wrong{non-pair argument to ``car``})
 \end{semfun}
 
 \schindex{car-internal}
@@ -1033,8 +1033,8 @@ be used in place of {\it unspecified}.
           \fun{assign}\,$\=$(\epsilon_1\:\vert\:\PAI\elt 1)$\\
     \>                           \>$\epsilon_2$\\
     \>                                  \>$(\fun{send}\:\fun{unspecified}\:\kappa),$\\
-    \>$\wrong{immutable argument to {\cf set-car!}},$\\
-    \>$\wrong{non-pair argument to {\cf set-car!}})
+    \>$\wrong{immutable argument to ``set-car!``},$\\
+    \>$\wrong{non-pair argument to ``set-car!``})
 \end{semfun}
 
 \schindex{eqv?}
@@ -1107,7 +1107,7 @@ be used in place of {\it unspecified}.
    $\=$\epsilon_1\:\elem\:\FUN\rightarrow
          \fun{valueslist}\:\epsilon_2
             (\lambda\arbno{\epsilon}\:.\:\fun{applicate}\:\epsilon_1\arbno{\epsilon}\omega\kappa),$\\
-    \>$\go{1}\wrong{bad procedure argument to {\cf apply}})
+    \>$\go{1}\wrong{bad procedure argument to ``apply``})
 \end{semfun}
 
 \begin{semfun}
@@ -1125,7 +1125,7 @@ be used in place of {\it unspecified}.
     \>    \>       \>                               \>$ (\fun{single}(\lambda\epsilon\:.\:
               \kappa(\langle\epsilon\rangle\:\S\:\arbno{\epsilon}))))),$\\
     \>$\epsilon = \fun{null}\rightarrow\kappa\langle\:\rangle,$\\
-    \>$\go{1}\wrong{non-list argument to {\cf values-list}}
+    \>$\go{1}\wrong{non-list argument to ``values-list``}
 \end{semfun}
 
 \begin{semfun}
@@ -1252,8 +1252,8 @@ be used in place of {\it unspecified}.
 \label{derivedsection}
 
 This section gives syntax definitions for the derived expression types in
-terms of the primitive expression types (literal, variable, call, {\cf lambda},
-{\cf if}, and {\cf set!}), except for {\cf quasiquote}.
+terms of the primitive expression types (literal, variable, call, ``lambda``,
+``if``, and ``set!``), except for ``quasiquote``.
 
 Conditional derived syntax types:
 
@@ -1382,7 +1382,7 @@ Binding constructs:
          body1 body2 ...)))))
 ```
 
-The following {\cf letrec} macro uses the symbol {\cf <undefined>}
+The following ``letrec`` macro uses the symbol ``<undefined>``
 in place of an expression which returns something that when stored in
 a location makes it an error to try to obtain the value stored in the
 location.  (No such expression is defined in Scheme.)
@@ -1529,10 +1529,10 @@ This could also be accomplished by using an auxiliary macro.
      ((lambda () exp ...)))))
 ```
 
-The following alternative expansion for {\cf begin} does not make use of
+The following alternative expansion for ``begin`` does not make use of
 the ability to write more than one expression in the body of a lambda
 expression.  In any case, note that these rules apply only if the body
-of the {\cf begin} contains no definitions.
+of the ``begin`` contains no definitions.
 
 ```
 (define-syntax begin
@@ -1547,9 +1547,9 @@ of the {\cf begin} contains no definitions.
 ```
 
 The following syntax definition
-of {\cf do} uses a trick to expand the variable clauses.
-As with {\cf letrec} above, an auxiliary macro would also work.
-The expression {\cf (if #f #f)} is used to obtain an unspecific
+of ``do`` uses a trick to expand the variable clauses.
+As with ``letrec`` above, an auxiliary macro would also work.
+The expression ``(if #f #f)`` is used to obtain an unspecific
 value.
 
 ```
@@ -1577,7 +1577,7 @@ value.
      y)))
 ```
 
-Here is a possible implementation of {\cf delay}, {\cf force} and {\cf
+Here is a possible implementation of ``delay``, ``force`` and {\cf
   delay-force}.  We define the expression
 
 ```
@@ -1620,7 +1620,7 @@ as follows
      (delay-force (make-promise \schtrue{} expression)))))
 ```
 
-where {\cf make-promise} is defined as follows:
+where ``make-promise`` is defined as follows:
 
 ```
 (define make-promise
@@ -1628,10 +1628,10 @@ where {\cf make-promise} is defined as follows:
     (list (cons done? proc))))
 ```
 
-Finally, we define {\cf force} to call the procedure expressions in
+Finally, we define ``force`` to call the procedure expressions in
 promises iteratively using a trampoline technique following
 \cite{srfi45} until a non-lazy result (i.e. a value created by {\cf
-  delay} instead of {\cf delay-force}) is returned, as follows:
+  delay} instead of ``delay-force``) is returned, as follows:
 
 ```
 (define (force promise)
@@ -1657,7 +1657,7 @@ with the following promise accessors:
     (set-car! new (car old))))
 ```
 
-The following implementation of {\cf make-parameter} and {\cf
+The following implementation of ``make-parameter`` and {\cf
 parameterize} is suitable for an implementation with no threads.
 Parameter objects are implemented here as procedures, using two
 arbitrary unique objects \texttt{<param-set!>} and
@@ -1680,7 +1680,7 @@ arbitrary unique objects \texttt{<param-set!>} and
         (error "bad parameter syntax"))))))
 ```
 
-Then {\cf parameterize} uses {\cf dynamic-wind} to dynamically rebind
+Then ``parameterize`` uses ``dynamic-wind`` to dynamically rebind
 the associated value:
 
 ```
@@ -1712,8 +1712,8 @@ the associated value:
                    body))))
 ```
 
-The following implementation of {\cf guard} depends on an auxiliary
-macro, here called {\cf guard-aux}.
+The following implementation of ``guard`` depends on an auxiliary
+macro, here called ``guard-aux``.
 
 ```
 (define-syntax guard
@@ -1803,8 +1803,8 @@ macro, here called {\cf guard-aux}.
 
 ```
 
-This definition of {\cf cond-expand} does not interact with the
-{\cf features} procedure.  It requires that each feature identifier provided
+This definition of ``cond-expand`` does not interact with the
+``features`` procedure.  It requires that each feature identifier provided
 by the implementation be explicitly mentioned.
 
 ```

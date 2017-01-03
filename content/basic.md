@@ -32,11 +32,11 @@ locations.  These expression types are called {\em binding constructs}.
 \mainindex{binding construct}
 Those that bind syntactic keywords are listed in section~\ref{macrosection}.
 The most fundamental of the variable binding constructs is the
-{\cf lambda} expression, because all other variable binding constructs
-can be explained in terms of {\cf lambda} expressions.  The other
-variable binding constructs are {\cf let}, {\cf let*}, {\cf letrec},
-{\cf letrec*}, {\cf let-values}, {\cf let*-values},
-and {\cf do} expressions (see sections~\ref{lambda}, \ref{letrec}, and
+``lambda`` expression, because all other variable binding constructs
+can be explained in terms of ``lambda`` expressions.  The other
+variable binding constructs are ``let``, ``let*``, ``letrec``,
+``letrec*``, ``let-values``, ``let*-values``,
+and ``do`` expressions (see sections~\ref{lambda}, \ref{letrec}, and
 \ref{do}).
 
 %Note: internal definitions not mentioned here.
@@ -46,8 +46,8 @@ block structure.  To each place where an identifier is bound in a program
 there corresponds a \defining{region} of the program text within which
 the binding is visible.  The region is determined by the particular
 binding construct that establishes the binding; if the binding is
-established by a {\cf lambda} expression, for example, then its region
-is the entire {\cf lambda} expression.  Every mention of an identifier
+established by a ``lambda`` expression, for example, then its region
+is the entire ``lambda`` expression.  Every mention of an identifier
 refers to the binding of the identifier that established the
 innermost of the regions containing the use.  If there is no binding of
 the identifier whose region contains the use, then the use refers to the
@@ -71,7 +71,7 @@ procedure?        string?
 symbol?           vector?
 ```
 
-and all predicates created by {\cf define-record-type}.
+and all predicates created by ``define-record-type``.
 
 These predicates define the types
 {\em boolean, bytevector, character}, the empty list object,
@@ -109,11 +109,11 @@ procedures, do not have standard representations (although particular
 implementations may define representations for them).
 
 An external representation can be written in a program to obtain the
-corresponding object (see {\cf quote}, section~\ref{quote}).
+corresponding object (see ``quote``, section~\ref{quote}).
 
 External representations can also be used for input and output.  The
-procedure {\cf read} (section~\ref{read}) parses external
-representations, and the procedure {\cf write} (section~\ref{write})
+procedure ``read`` (section~\ref{read}) parses external
+representations, and the procedure ``write`` (section~\ref{write})
 generates them.  Together, they provide an elegant and powerful
 input/output facility.
 
@@ -144,7 +144,7 @@ stored into one of these locations using the {\tt string-set!} procedure, but
 the string continues to denote the same locations as before.
 
 An object fetched from a location, by a variable reference or by
-a procedure such as {\cf car}, {\cf vector-ref}, or {\cf string-ref}, is
+a procedure such as ``car``, ``vector-ref``, or ``string-ref``, is
 equivalent in the sense of \ide{eqv?}
 (section~\ref{equivalencesection})
 to the object last stored in the location before the fetch.
@@ -167,7 +167,7 @@ Every object that denotes locations is
 either mutable\index{mutable} or
 immutable\index{immutable}.  Literal constants, the strings
 returned by \ide{symbol->string},
-and possibly the environment returned by {\cf scheme-report-environment}
+and possibly the environment returned by ``scheme-report-environment``
 are immutable objects.  All objects
 created by the other procedures listed in this report are mutable.
 It is an
@@ -203,7 +203,7 @@ properly tail-recursive if it supports an unbounded number of active
 tail calls.  A call is {\em active} if the called procedure might still
 return.  Note that this includes calls that might be returned from either
 by the current continuation or by continuations captured earlier by
-{\cf call-with-current-continuation} that are later invoked.
+``call-with-current-continuation`` that are later invoked.
 In the absence of captured continuations, calls could
 return at most once and the active calls would be those that had not
 yet returned.
@@ -241,7 +241,7 @@ expression.
 \begin{itemize}
 \item The last expression within the body of a lambda expression,
   shown as \hyper{tail expression} below, occurs in a tail context.
-  The same is true of all the bodies of {\cf case-lambda} expressions.
+  The same is true of all the bodies of ``case-lambda`` expressions.
 \begin{grammar}
 (l\=ambda \meta{formals}
   \>\arbno{\meta{definition}} \arbno{\meta{expression}} \meta{tail expression})
@@ -304,8 +304,8 @@ are shown here.
 \end{grammar}
 
 \item
-If a {\cf cond} or {\cf case} expression is in a tail context, and has
-a clause of the form {\cf (\hyperi{expression} => \hyperii{expression})}
+If a ``cond`` or ``case`` expression is in a tail context, and has
+a clause of the form ``(\hyperi{expression`` => \hyperii{expression})}
 then the (implied) call to
 the procedure that results from the evaluation of \hyperii{expression} is in a
 tail context.  \hyperii{expression} itself is not in a tail context.
@@ -320,9 +320,9 @@ The first argument passed to \ide{apply} and to
 Similarly, \ide{eval} must evaluate its first argument as if it
 were in tail position within the \ide{eval} procedure.
 
-In the following example the only tail call is the call to {\cf f}.
-None of the calls to {\cf g} or {\cf h} are tail calls.  The reference to
-{\cf x} is in a tail context, but it is not a call and thus is not a
+In the following example the only tail call is the call to ``f``.
+None of the calls to ``g`` or ``h`` are tail calls.  The reference to
+``x`` is in a tail context, but it is not a call and thus is not a
 tail call.
 
 ```
@@ -335,11 +335,11 @@ tail call.
 
 \begin{note}
 Implementations may
-recognize that some non-tail calls, such as the call to {\cf h}
+recognize that some non-tail calls, such as the call to ``h``
 above, can be evaluated as though they were tail calls.
-In the example above, the {\cf let} expression could be compiled
-as a tail call to {\cf h}. (The possibility of {\cf h} returning
+In the example above, the ``let`` expression could be compiled
+as a tail call to ``h``. (The possibility of ``h`` returning
 an unexpected number of values can be ignored, because in that
-case the effect of the {\cf let} is explicitly unspecified and
+case the effect of the ``let`` is explicitly unspecified and
 implementation-dependent.)
 \end{note}

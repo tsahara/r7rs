@@ -21,13 +21,14 @@
 		       #/\\subsection\*?{(.*?)}/ "### \\1"
 		       #/\\begin{scheme}/   "```"
 		       #/\\end{scheme}/     "```"
-		       #/(?<!`)``(?!`)(.*?)''/ "\"\\1\""
+		       #/``([^\n]+?(\n[^\n]+?)?)''/ "\"\\1\""
 
 		       #/\\unsection/ ""
 		       #/\\vest / ""
 
 		       #/\\medskip/ "{{< medskip >}}"
 
+		       #/{\\cf (.*?)}/ "``\\1``"
 		       #/\\rthreers/ "{{< rnrs 3 >}}"
 		       #/\\rfourrs/  "{{< rnrs 4 >}}"
 		       #/\\rfivers/  "{{< rnrs 5 >}}"

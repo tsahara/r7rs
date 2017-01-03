@@ -7,22 +7,22 @@ menu = "main"
 
 %%The Internet Scheme Repository at
 %%\begin{center}
-%%{\cf http://www.cs.indiana.edu/scheme-repository/}
+%%``http://www.cs.indiana.edu/scheme-repository/``
 %%\end{center}
 %%contains an extensive Scheme bibliography, as well as papers,
 %%programs, implementations, and other material related to Scheme.
 %% Removed as only of historical interest; schemers.org links to it.
 
 The Scheme community website at
-{\cf http://schemers.org}
+``http://schemers.org``
 contains additional resources for learning and programming, job and
 event postings, and Scheme user group information.
 
 A bibliography of Scheme-related research at
-{\cf http://library.readscheme.org}
+``http://library.readscheme.org``
 links to technical papers and theses related to the Scheme language,
 including both classic papers and recent research.
 
 On-line Scheme discussions are held using IRC
-on the {\cf #scheme} channel at {\cf irc.freenode.net}
-and on the Usenet discussion group {\cf comp.lang.scheme}.
+on the ``#scheme`` channel at ``irc.freenode.net``
+and on the Usenet discussion group ``comp.lang.scheme``.

@@ -74,11 +74,11 @@ notation for programs and other data; the grammar of Scheme generates a
 sublanguage of the language used for data.  An important
 consequence of this simple, uniform representation is that
 Scheme programs and data can easily be treated uniformly by other Scheme programs.
-For example, the {\cf eval} procedure evaluates a Scheme program expressed
+For example, the ``eval`` procedure evaluates a Scheme program expressed
 as data.
 
-The {\cf read} procedure performs syntactic as well as lexical decomposition of
-the data it reads.  The {\cf read} procedure parses its input as data
+The ``read`` procedure performs syntactic as well as lexical decomposition of
+the data it reads.  The ``read`` procedure parses its input as data
 (section~\ref{datumsyntax}), not as program.
 
 The formal syntax of Scheme is described in section~\ref{BNF}.
@@ -95,9 +95,9 @@ Every identifier defined in this report appears in one or more of several
 are not marked specially in the body of the report.
 This library includes the core syntax of Scheme
 and generally useful procedures that manipulate data.  For example, the
-variable {\cf abs} is bound to a
+variable ``abs`` is bound to a
 procedure of one argument that computes the absolute value of a
-number, and the variable {\cf +} is bound to a procedure that computes
+number, and the variable ``+`` is bound to a procedure that computes
 sums.  The full list
 all the standard libraries and the identifiers they export is given in
 Appendix~\ref{stdlibraries}.
@@ -132,14 +132,14 @@ When speaking of an error situation, this report uses the phrase "an
 error is signaled" to indicate that implementations must detect and
 report the error.
 An error is signaled by raising a non-continuable exception, as if by
-the procedure {\cf raise} as described in section~\ref{exceptionsection}.  The object raised is implementation-dependent
+the procedure ``raise`` as described in section~\ref{exceptionsection}.  The object raised is implementation-dependent
 and need not be distinct from objects previously used for the same purpose.
 In addition to errors signaled in situations described in this
 report, programmers can signal their own errors and handle signaled errors.
 
 The phrase "an error that satisfies {\em predicate} is signaled" means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
-passed to the specified predicate (such as {\cf file-error?} or {\cf
+passed to the specified predicate (such as ``file-error?`` or {\cf
 read-error?}), the predicate returns \schtrue{}.
 
 If such wording does not appear in the discussion of
@@ -149,8 +149,8 @@ Such a situation is sometimes, but not always, referred to with the phrase
 "an error."
 In such a situation, an implementation may or may not signal an error;
 if it does signal an error, the object that is signaled may or may not
-satisfy the predicates {\cf error-object?}, {\cf file-error?}, or
-{\cf read-error?}.
+satisfy the predicates ``error-object?``, ``file-error?``, or
+``read-error?``.
 Alternatively, implementations may provide non-portable extensions.
 
 For example, it is an error for a procedure to be passed an argument of a type that
@@ -334,7 +334,7 @@ The value returned by a mutation procedure is unspecified.
 
 By convention, "\ide{->}" appears within the names of procedures that
 take an object of one type and return an analogous object of another type.
-For example, {\cf list->vector} takes a list and returns a vector whose
+For example, ``list->vector`` takes a list and returns a vector whose
 elements are the same as those of the list.
 
 A \defining{command} is a procedure that does not return useful values

@@ -63,7 +63,7 @@ Work in the spring of 1988 resulted in {{< rnrs 4 >}}~\cite{R4RS},
 which became the basis for the
 IEEE Standard for the Scheme Programming Language in 1991~\cite{IEEEScheme}.
 In 1998, several additions to the IEEE standard, including high-level
-hygienic macros, multiple return values, and {\cf eval}, were finalized
+hygienic macros, multiple return values, and ``eval``, were finalized
 as the {{< rnrs 5 >}}~\cite{R5RS}.
 
 
@@ -144,7 +144,7 @@ Manual}~\cite{TImanual85}.  We gladly acknowledge the influence of
 manuals for MIT Scheme~\cite{MITScheme}, T~\cite{Rees84}, Scheme
 84~\cite{Scheme84}, Common Lisp~\cite{CLtL}, and Algol 60~\cite{Naur63},
 as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,
-all of which are available at {\cf http://srfi.schemers.org}.
+all of which are available at ``http://srfi.schemers.org``.
 
 %% We also thank Betty Dexter for the extreme effort she put into
 %% setting this report in \TeX, and Donald Knuth for designing the program

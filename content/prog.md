@@ -28,7 +28,7 @@ equivalent to the sequence of expressions and definitions
 in the \ide{begin}.
 Similarly, in a \hyper{body}, {\tt(begin \hyperi{definition} \dotsfoo)} is equivalent
 to the sequence \hyperi{definition} \dotsfoo.
-Macros can expand into such {\cf begin} forms.
+Macros can expand into such ``begin`` forms.
 For the formal definition, see~\ref{sequencing}.
 
 Import declarations and definitions
@@ -103,7 +103,7 @@ forms modify this set as follows:
 In a program or library declaration, it is an error to import the same
 identifier more than once with different bindings, or to redefine or
 mutate an imported binding with a definition
-or with {\cf set!}, or to refer to an identifier before it is imported.
+or with ``set!``, or to refer to an identifier before it is imported.
 However, a REPL should permit these actions.
 
 ## 5.3. Variable definitions
@@ -156,7 +156,7 @@ if \hyper{variable} is bound to a non-syntax value.  However, if
 or is a syntactic keyword,
 then the definition will bind
 \hyper{variable} to a new location before performing the assignment,
-whereas it would be an error to perform a {\cf set!}\ on an
+whereas it would be an error to perform a ``set!``\ on an
 unbound\index{unbound} variable.
 
 ```
@@ -191,8 +191,8 @@ and the region of the binding is the entire \hyper{body}.  For example,
 
 An expanded \hyper{body} containing internal definitions
 can always be
-converted into a completely equivalent {\cf letrec*} expression.  For
-example, the {\cf let} expression in the above example is equivalent
+converted into a completely equivalent ``letrec*`` expression.  For
+example, the ``let`` expression in the above example is equivalent
 to
 
 ```
@@ -202,7 +202,7 @@ to
     (foo (+ x 3))))
 ```
 
-Just as for the equivalent {\cf letrec*} expression, it is an error if it is not
+Just as for the equivalent ``letrec*`` expression, it is an error if it is not
 possible to evaluate each \hyper{expression} of every internal
 definition in a \hyper{body} without assigning or referring to
 the value of the corresponding \hyper{variable} or the \hyper{variable}
@@ -218,10 +218,10 @@ that form the body of the \ide{begin}.
 
 ### 5.3.3. Multiple-value definitions
 
-Another kind of definition is provided by {\cf define-values},
+Another kind of definition is provided by ``define-values``,
 which creates multiple definitions from a single
 expression returning multiple values.
-It is allowed wherever {\cf define} is allowed.
+It is allowed wherever ``define`` is allowed.
 
 \begin{entry}{
 \proto{define-values}{ \hyper{formals} \hyper{expression}}{\exprtype}}\nobreak
@@ -231,7 +231,7 @@ It is an error if a variable appears more than once in the set of \hyper{formals
 \semantics
 \hyper{Expression} is evaluated, and the \hyper{formals} are bound
 to the return values in the same way that the \hyper{formals} in a
-{\cf lambda} expression are matched to the arguments in a procedure
+``lambda`` expression are matched to the arguments in a procedure
 call.
 
 ```
@@ -257,7 +257,7 @@ the \hyper{transformer spec} is an instance of \ide{syntax-rules}.
 Like variable definitions, syntax definitions can appear at the outermost level or
 nested within a \ide{body}.
 
-If the {\cf define-syntax} occurs at the outermost level, then the global
+If the ``define-syntax`` occurs at the outermost level, then the global
 syntactic environment is extended by binding the
 \hyper{keyword} to the specified transformer, but previous expansions
 of any global binding for \hyper{keyword} remain unchanged.
@@ -345,12 +345,12 @@ field name.
 It is also an error for the same identifier to occur more than once
 as an accessor or mutator name.
 
-The {\cf define-record-type} construct is generative: each use creates a new record
+The ``define-record-type`` construct is generative: each use creates a new record
 type that is distinct from all existing types, including Scheme's
 predefined types and other record types --- even record types of
 the same name or structure.
 
-An instance of {\cf define-record-type} is equivalent to the following
+An instance of ``define-record-type`` is equivalent to the following
 definitions:
 
 \begin{itemize}
@@ -396,9 +396,9 @@ For instance, the following record-type definition
   (y kdr))
 ```
 
-defines {\cf kons} to be a constructor, {\cf kar} and {\cf kdr}
-to be accessors, {\cf set-kar!} to be a modifier, and {\cf pare?}
-to be a predicate for instances of {\cf <pare>}.
+defines ``kons`` to be a constructor, ``kar`` and ``kdr``
+to be accessors, ``set-kar!`` to be a modifier, and ``pare?``
+to be a predicate for instances of ``<pare>``.
 
 ```
   (pare? (kons 1 2))        \ev \schtrue
@@ -434,12 +434,12 @@ A library definition takes the following form:
 \hyper{library name} is a list whose members are identifiers and exact non-negative integers.  It is used to
 identify the library uniquely when importing from other programs or
 libraries.
-Libraries whose first identifier is {\cf scheme} are reserved for use by this
+Libraries whose first identifier is ``scheme`` are reserved for use by this
 report and future versions of this report.
-Libraries whose first identifier is {\cf srfi} are reserved for libraries
+Libraries whose first identifier is ``srfi`` are reserved for libraries
 implementing Scheme Requests for Implementation.
 It is inadvisable, but not an error, for identifiers in library names to
-contain any of the characters {\cf | \backwhack{} ? * < " : > + [ ] /}
+contain any of the characters ``| \backwhack{`` ? * < " : > + [ ] /}
 or control characters after escapes are expanded.
 
 \label{librarydeclarations}
@@ -489,8 +489,8 @@ The \ide{begin}, \ide{include}, and \ide{include-ci} declarations are
 used to specify the body of
 the library.  They have the same syntax and semantics as the corresponding
 expression types.
-This form of {\cf begin} is analogous to, but not the same as, the
-two types of {\cf begin} defined in section~\ref{sequencing}.
+This form of ``begin`` is analogous to, but not the same as, the
+two types of ``begin`` defined in section~\ref{sequencing}.
 
 The \ide{include-library-declarations} declaration is similar to
 \ide{include} except that the contents of the file are spliced directly into the
@@ -500,7 +500,7 @@ form of library interface.
 
 The \ide{cond-expand} declaration has the same syntax and semantics as
 the \ide{cond-expand} expression type, except that it expands to
-spliced-in library declarations rather than expressions enclosed in {\cf begin}.
+spliced-in library declarations rather than expressions enclosed in ``begin``.
 
 
 
@@ -524,17 +524,17 @@ expanded program or library body is evaluated. This rule applies
 transitively.  If a library is imported by more than one program or
 library, it may possibly be loaded additional times.
 
-Similarly, during the expansion of a library {\cf (foo)}, if any syntax
-keywords imported from another library {\cf (bar)} are needed to expand
-the library, then the library {\cf (bar)} must be expanded and its syntax
-definitions evaluated before the expansion of {\cf (foo)}.
+Similarly, during the expansion of a library ``(foo)``, if any syntax
+keywords imported from another library ``(bar)`` are needed to expand
+the library, then the library ``(bar)`` must be expanded and its syntax
+definitions evaluated before the expansion of ``(foo)``.
 
 Regardless of the number of times that a library is loaded, each
 program or library that imports bindings from a library must do so from a
 single loading of that library, regardless of the number of import
 declarations in which it appears.
-That is, {\cf (import (only (foo) a))} followed by {\cf (import (only (foo) b))}
-has the same effect as {\cf (import (only (foo) a b))}.
+That is, ``(import (only (foo) a))`` followed by ``(import (only (foo) b))``
+has the same effect as ``(import (only (foo) a b))``.
 
 ### 5.6.2. Library example
 The following example shows
@@ -644,9 +644,9 @@ the global Scheme environment in a REPL
 must not be empty, but must start out with at least the bindings provided by the
 base library.  This library includes the core syntax of Scheme
 and generally useful procedures that manipulate data.  For example, the
-variable {\cf abs} is bound to a
+variable ``abs`` is bound to a
 procedure of one argument that computes the absolute value of a
-number, and the variable {\cf +} is bound to a procedure that computes
+number, and the variable ``+`` is bound to a procedure that computes
 sums.  The full list of {\cf(scheme base)} bindings can be found in
 Appendix~\ref{stdlibraries}.
 

@@ -30,7 +30,7 @@ characters:
 ```
 
 Alternatively, an identifier can be represented by a sequence of zero or more
-characters enclosed within vertical lines ({\cf $|$}), analogous to
+characters enclosed within vertical lines (``$|$``), analogous to
 string literals.  Any character, including whitespace characters, but
 excluding the backslash and vertical line characters,
 can appear verbatim in such an identifier.
@@ -97,7 +97,7 @@ section~\ref{wscommentsection}) but must be followed by a delimiter.
 They are treated as comments, except that they affect the reading
 of subsequent data from the same port. The {\cf{}#!fold-case} directive causes
 subsequent identifiers and character names to be case-folded
-as if by {\cf string-foldcase} (see section~\ref{stringsection}).
+as if by ``string-foldcase`` (see section~\ref{stringsection}).
 It has no effect on character
 literals.  The {\cf{}#!no-fold-case} directive
 causes a return to the default, non-folding behavior.
@@ -258,7 +258,7 @@ defined in this case.
 
 It is an error for a \hyper{program} or \hyper{library} to include
 circular references except in literals.  In particular,
-it is an error for {\cf quasiquote} (section~\ref{quasiquote}) to contain them.
+it is an error for ``quasiquote`` (section~\ref{quasiquote}) to contain them.
 
 ```
 #1=(begin (display #\x) #1#)

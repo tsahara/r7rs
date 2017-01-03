@@ -7,7 +7,7 @@ menu = "main"
 \extrapart{Example} % -*- Mode: Lisp; Package: SCHEME; Syntax: Common-lisp -*-
 
 \nobreak
-The procedure {\cf integrate-system} integrates the system 
+The procedure ``integrate-system`` integrates the system
 $$y_k^\prime = f_k(y_1, y_2, \ldots, y_n), \; k = 1, \ldots, n$$
 of differential equations with the method of Runge-Kutta.
 
@@ -18,7 +18,7 @@ y_n^\prime$).  The parameter {\tt initial-state} provides an initial
 system state, and {\tt h} is an initial guess for the length of the
 integration step.
 
-The value returned by {\cf integrate-system} is an infinite stream of
+The value returned by ``integrate-system`` is an infinite stream of
 system states.
 
 \begin{schemenoindent}
@@ -33,7 +33,7 @@ system states.
       states)))
 \end{schemenoindent}
 
-The procedure {\cf runge-kutta-4} takes a function, {\tt f}, that produces a
+The procedure ``runge-kutta-4`` takes a function, {\tt f}, that produces a
 system derivative from a system state.  It
 produces a function that takes a system state and
 produces a new system state.
@@ -81,7 +81,7 @@ produces a new system state.
   (elementwise (lambda (x) (* x s))))
 \end{schemenoindent}
 
-The {\cf map-streams} procedure is analogous to {\cf map}: it applies its first
+The ``map-streams`` procedure is analogous to ``map``: it applies its first
 argument (a procedure) to all the elements of its second argument (a
 stream).
 
@@ -102,7 +102,7 @@ of the stream.
 \end{schemenoindent}
 
 \bigskip
-The following illustrates the use of {\cf integrate-system} in
+The following illustrates the use of ``integrate-system`` in
 integrating the system
 $$ C {dv_C \over dt} = -i_L - {v_C \over R}$$\nobreak
 $$ L {di_L \over dt} = v_C$$

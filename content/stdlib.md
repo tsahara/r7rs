@@ -14,7 +14,7 @@ This section lists the exports provided by the standard libraries.  The
 libraries are factored so as to separate features which might not be
 supported by all implementations, or which might be expensive to load.
 
-The {\cf scheme} library prefix is used for all standard libraries, and
+The ``scheme`` library prefix is used for all standard libraries, and
 is reserved for use by future standards.
 
 \textbf{Base Library}
@@ -32,135 +32,135 @@ the word, but they capture common patterns of usage, and are therefore
 provided as convenient abbreviations.
 
 ```
-{\cf *}                       {\cf +}
-{\cf -}                       {\cf ...}
-{\cf /}                       {\cf <}
-{\cf <=}                      {\cf =}
-{\cf =>}                      {\cf >}
-{\cf >=}                      {\cf \_}
-{\cf abs}                     {\cf and}
-{\cf append}                  {\cf apply}
-{\cf assoc}                   {\cf assq}
-{\cf assv}                    {\cf begin}
-{\cf binary-port?\ }           {\cf boolean=?}
-{\cf boolean?\ }               {\cf bytevector}
-{\cf bytevector-append}       {\cf bytevector-copy}
-{\cf bytevector-copy!}        {\cf bytevector-length}
-{\cf bytevector-u8-ref}       {\cf bytevector-u8-set!}
-{\cf bytevector?\ }            {\cf caar}
-{\cf cadr}
-{\cf call-with-current-continuation}
-{\cf call-with-port}          {\cf call-with-values}
-{\cf call/cc}                 {\cf car}
-{\cf case}                    {\cf cdar}
-{\cf cddr}                    {\cf cdr}
-{\cf ceiling}                 {\cf char->integer}
-{\cf char-ready?\ }            {\cf char<=?}
-{\cf char<?\ }                 {\cf char=?}
-{\cf char>=?\ }                {\cf char>?}
-{\cf char?\ }                  {\cf close-input-port}
-{\cf close-output-port}       {\cf close-port}
-{\cf complex?\ }               {\cf cond}
-{\cf cond-expand}             {\cf cons}
-{\cf current-error-port}      {\cf current-input-port}
-{\cf current-output-port}     {\cf define}
-{\cf define-record-type}      {\cf define-syntax}
-{\cf define-values}           {\cf denominator}
-{\cf do}                      {\cf dynamic-wind}
-{\cf else}                    {\cf eof-object}
-{\cf eof-object?\ }            {\cf eq?}
-{\cf equal?\ }                 {\cf eqv?}
-{\cf error}                   {\cf error-object-irritants}
-{\cf error-object-message}    {\cf error-object?}
-{\cf even?\ }                  {\cf exact}
-{\cf exact-integer-sqrt}      {\cf exact-integer?}
-{\cf exact?\ }                 {\cf expt}
-{\cf features}                {\cf file-error?}
-{\cf floor}                   {\cf floor-quotient}
-{\cf floor-remainder}         {\cf floor/}
-{\cf flush-output-port}       {\cf for-each}
-{\cf gcd}                     {\cf get-output-bytevector}
-{\cf get-output-string}       {\cf guard}
-{\cf if}                      {\cf include}
-{\cf include-ci}              {\cf inexact}
-{\cf inexact?\ }               {\cf input-port-open?}
-{\cf input-port?\ }            {\cf integer->char}
-{\cf integer?\ }               {\cf lambda}
-{\cf lcm}                     {\cf length}
-{\cf let}                     {\cf let*}
-{\cf let*-values}             {\cf let-syntax}
-{\cf let-values}              {\cf letrec}
-{\cf letrec*}                 {\cf letrec-syntax}
-{\cf list}                    {\cf list->string}
-{\cf list->vector}            {\cf list-copy}
-{\cf list-ref}                {\cf list-set!}
-{\cf list-tail}               {\cf list?}
-{\cf make-bytevector}         {\cf make-list}
-{\cf make-parameter}          {\cf make-string}
-{\cf make-vector}             {\cf map}
-{\cf max}                     {\cf member}
-{\cf memq}                    {\cf memv}
-{\cf min}                     {\cf modulo}
-{\cf negative?\ }              {\cf newline}
-{\cf not}                     {\cf null?}
-{\cf number->string}          {\cf number?}
-{\cf numerator}               {\cf odd?}
-{\cf open-input-bytevector}   {\cf open-input-string}
-{\cf open-output-bytevector}  {\cf open-output-string}
-{\cf or}                      {\cf output-port-open?}
-{\cf output-port?\ }           {\cf pair?}
-{\cf parameterize}            {\cf peek-char}
-{\cf peek-u8}                 {\cf port?}
-{\cf positive?\ }              {\cf procedure?}
-{\cf quasiquote}              {\cf quote}
-{\cf quotient}                {\cf raise}
-{\cf raise-continuable}       {\cf rational?}
-{\cf rationalize}             {\cf read-bytevector}
-{\cf read-bytevector!}        {\cf read-char}
-{\cf read-error?\ }            {\cf read-line}
-{\cf read-string}             {\cf read-u8}
-{\cf real?\ }                  {\cf remainder}
-{\cf reverse}                 {\cf round}
-{\cf set!}                    {\cf set-car!}
-{\cf set-cdr!}                {\cf square}
-{\cf string}                  {\cf string->list}
-{\cf string->number}          {\cf string->symbol}
-{\cf string->utf8}            {\cf string->vector}
-{\cf string-append}           {\cf string-copy}
-{\cf string-copy!}            {\cf string-fill!}
-{\cf string-for-each}         {\cf string-length}
-{\cf string-map}              {\cf string-ref}
-{\cf string-set!}             {\cf string<=?}
-{\cf string<?\ }               {\cf string=?}
-{\cf string>=?\ }              {\cf string>?}
-{\cf string?\ }                {\cf substring}
-{\cf symbol->string}          {\cf symbol=?}
-{\cf symbol?\ }                {\cf syntax-error}
-{\cf syntax-rules}            {\cf textual-port?}
-{\cf truncate}                {\cf truncate-quotient}
-{\cf truncate-remainder}      {\cf truncate/}
-{\cf u8-ready?\ }              {\cf unless}
-{\cf unquote}                 {\cf unquote-splicing}
-{\cf utf8->string}            {\cf values}
-{\cf vector}                  {\cf vector->list}
-{\cf vector->string}          {\cf vector-append}
-{\cf vector-copy}             {\cf vector-copy!}
-{\cf vector-fill!}            {\cf vector-for-each}
-{\cf vector-length}           {\cf vector-map}
-{\cf vector-ref}              {\cf vector-set!}
-{\cf vector?\ }                {\cf when}
-{\cf with-exception-handler}  {\cf write-bytevector}
-{\cf write-char}              {\cf write-string}
-{\cf write-u8}                {\cf zero?}
+``*``                       ``+``
+``-``                       ``...``
+``/``                       ``<``
+``<=``                      ``=``
+``=>``                      ``>``
+``>=``                      ``\_``
+``abs``                     ``and``
+``append``                  ``apply``
+``assoc``                   ``assq``
+``assv``                    ``begin``
+``binary-port?\ ``           ``boolean=?``
+``boolean?\ ``               ``bytevector``
+``bytevector-append``       ``bytevector-copy``
+``bytevector-copy!``        ``bytevector-length``
+``bytevector-u8-ref``       ``bytevector-u8-set!``
+``bytevector?\ ``            ``caar``
+``cadr``
+``call-with-current-continuation``
+``call-with-port``          ``call-with-values``
+``call/cc``                 ``car``
+``case``                    ``cdar``
+``cddr``                    ``cdr``
+``ceiling``                 ``char->integer``
+``char-ready?\ ``            ``char<=?``
+``char<?\ ``                 ``char=?``
+``char>=?\ ``                ``char>?``
+``char?\ ``                  ``close-input-port``
+``close-output-port``       ``close-port``
+``complex?\ ``               ``cond``
+``cond-expand``             ``cons``
+``current-error-port``      ``current-input-port``
+``current-output-port``     ``define``
+``define-record-type``      ``define-syntax``
+``define-values``           ``denominator``
+``do``                      ``dynamic-wind``
+``else``                    ``eof-object``
+``eof-object?\ ``            ``eq?``
+``equal?\ ``                 ``eqv?``
+``error``                   ``error-object-irritants``
+``error-object-message``    ``error-object?``
+``even?\ ``                  ``exact``
+``exact-integer-sqrt``      ``exact-integer?``
+``exact?\ ``                 ``expt``
+``features``                ``file-error?``
+``floor``                   ``floor-quotient``
+``floor-remainder``         ``floor/``
+``flush-output-port``       ``for-each``
+``gcd``                     ``get-output-bytevector``
+``get-output-string``       ``guard``
+``if``                      ``include``
+``include-ci``              ``inexact``
+``inexact?\ ``               ``input-port-open?``
+``input-port?\ ``            ``integer->char``
+``integer?\ ``               ``lambda``
+``lcm``                     ``length``
+``let``                     ``let*``
+``let*-values``             ``let-syntax``
+``let-values``              ``letrec``
+``letrec*``                 ``letrec-syntax``
+``list``                    ``list->string``
+``list->vector``            ``list-copy``
+``list-ref``                ``list-set!``
+``list-tail``               ``list?``
+``make-bytevector``         ``make-list``
+``make-parameter``          ``make-string``
+``make-vector``             ``map``
+``max``                     ``member``
+``memq``                    ``memv``
+``min``                     ``modulo``
+``negative?\ ``              ``newline``
+``not``                     ``null?``
+``number->string``          ``number?``
+``numerator``               ``odd?``
+``open-input-bytevector``   ``open-input-string``
+``open-output-bytevector``  ``open-output-string``
+``or``                      ``output-port-open?``
+``output-port?\ ``           ``pair?``
+``parameterize``            ``peek-char``
+``peek-u8``                 ``port?``
+``positive?\ ``              ``procedure?``
+``quasiquote``              ``quote``
+``quotient``                ``raise``
+``raise-continuable``       ``rational?``
+``rationalize``             ``read-bytevector``
+``read-bytevector!``        ``read-char``
+``read-error?\ ``            ``read-line``
+``read-string``             ``read-u8``
+``real?\ ``                  ``remainder``
+``reverse``                 ``round``
+``set!``                    ``set-car!``
+``set-cdr!``                ``square``
+``string``                  ``string->list``
+``string->number``          ``string->symbol``
+``string->utf8``            ``string->vector``
+``string-append``           ``string-copy``
+``string-copy!``            ``string-fill!``
+``string-for-each``         ``string-length``
+``string-map``              ``string-ref``
+``string-set!``             ``string<=?``
+``string<?\ ``               ``string=?``
+``string>=?\ ``              ``string>?``
+``string?\ ``                ``substring``
+``symbol->string``          ``symbol=?``
+``symbol?\ ``                ``syntax-error``
+``syntax-rules``            ``textual-port?``
+``truncate``                ``truncate-quotient``
+``truncate-remainder``      ``truncate/``
+``u8-ready?\ ``              ``unless``
+``unquote``                 ``unquote-splicing``
+``utf8->string``            ``values``
+``vector``                  ``vector->list``
+``vector->string``          ``vector-append``
+``vector-copy``             ``vector-copy!``
+``vector-fill!``            ``vector-for-each``
+``vector-length``           ``vector-map``
+``vector-ref``              ``vector-set!``
+``vector?\ ``                ``when``
+``with-exception-handler``  ``write-bytevector``
+``write-char``              ``write-string``
+``write-u8``                ``zero?``
 ```
 
 \textbf{Case-Lambda Library}
 
-The \texttt{(scheme case-lambda)} library exports the {\cf case-lambda}
+The \texttt{(scheme case-lambda)} library exports the ``case-lambda``
 syntax.
 
 ```
-{\cf case-lambda}
+``case-lambda``
 ```
 
 \textbf{Char Library}
@@ -169,17 +169,17 @@ The \texttt{(scheme char)} library provides the procedures for dealing with
 characters that involve potentially large tables when supporting all of Unicode.
 
 ```
-{\cf char-alphabetic?\ }       {\cf char-ci<=?}
-{\cf char-ci<?\ }              {\cf char-ci=?}
-{\cf char-ci>=?\ }             {\cf char-ci>?}
-{\cf char-downcase}           {\cf char-foldcase}
-{\cf char-lower-case?\ }       {\cf char-numeric?}
-{\cf char-upcase}             {\cf char-upper-case?}
-{\cf char-whitespace?\ }       {\cf digit-value}
-{\cf string-ci<=?\ }           {\cf string-ci<?}
-{\cf string-ci=?\ }            {\cf string-ci>=?}
-{\cf string-ci>?\ }            {\cf string-downcase}
-{\cf string-foldcase}         {\cf string-upcase}
+``char-alphabetic?\ ``       ``char-ci<=?``
+``char-ci<?\ ``              ``char-ci=?``
+``char-ci>=?\ ``             ``char-ci>?``
+``char-downcase``           ``char-foldcase``
+``char-lower-case?\ ``       ``char-numeric?``
+``char-upcase``             ``char-upper-case?``
+``char-whitespace?\ ``       ``digit-value``
+``string-ci<=?\ ``           ``string-ci<?``
+``string-ci=?\ ``            ``string-ci>=?``
+``string-ci>?\ ``            ``string-downcase``
+``string-foldcase``         ``string-upcase``
 ```
 
 \textbf{Complex Library}
@@ -188,39 +188,39 @@ The \texttt{(scheme complex)} library exports procedures which are
 typically only useful with non-real numbers.
 
 ```
-{\cf angle}                   {\cf imag-part}
-{\cf magnitude}               {\cf make-polar}
-{\cf make-rectangular}        {\cf real-part}
+``angle``                   ``imag-part``
+``magnitude``               ``make-polar``
+``make-rectangular``        ``real-part``
 ```
 
 \textbf{CxR Library}
 
 The \texttt{(scheme cxr)} library exports twenty-four procedures which
-are the compositions of from three to four {\cf car} and {\cf cdr}
-operations.  For example {\cf caddar} could be defined by
+are the compositions of from three to four ``car`` and ``cdr``
+operations.  For example ``caddar`` could be defined by
 
 ```
 (define caddar
   (lambda (x) (car (cdr (cdr (car x)))))){\rm.}
 ```
 
-The procedures {\cf car} and {\cf cdr} themselves and the four
+The procedures ``car`` and ``cdr`` themselves and the four
 two-level compositions are included in the base library.  See
 section~\ref{listsection}.
 
 ```
-{\cf caaaar}                  {\cf caaadr}
-{\cf caaar}                   {\cf caadar}
-{\cf caaddr}                  {\cf caadr}
-{\cf cadaar}                  {\cf cadadr}
-{\cf cadar}                   {\cf caddar}
-{\cf cadddr}                  {\cf caddr}
-{\cf cdaaar}                  {\cf cdaadr}
-{\cf cdaar}                   {\cf cdadar}
-{\cf cdaddr}                  {\cf cdadr}
-{\cf cddaar}                  {\cf cddadr}
-{\cf cddar}                   {\cf cdddar}
-{\cf cddddr}                  {\cf cdddr}
+``caaaar``                  ``caaadr``
+``caaar``                   ``caadar``
+``caaddr``                  ``caadr``
+``cadaar``                  ``cadadr``
+``cadar``                   ``caddar``
+``cadddr``                  ``caddr``
+``cdaaar``                  ``cdaadr``
+``cdaar``                   ``cdadar``
+``cdaddr``                  ``cdadr``
+``cddaar``                  ``cddadr``
+``cddar``                   ``cdddar``
+``cddddr``                  ``cdddr``
 ```
 
 \textbf{Eval Library}
@@ -229,7 +229,7 @@ The \texttt{(scheme eval)} library exports procedures for evaluating Scheme
 data as programs.
 
 ```
-{\cf environment}             {\cf eval}
+``environment``             ``eval``
 ```
 
 \textbf{File Library}
@@ -238,11 +238,11 @@ The \texttt{(scheme file)} library provides procedures for accessing
 files.
 
 ```
-{\cf call-with-input-file}    {\cf call-with-output-file}
-{\cf delete-file}             {\cf file-exists?}
-{\cf open-binary-input-file}  {\cf open-binary-output-file}
-{\cf open-input-file}         {\cf open-output-file}
-{\cf with-input-from-file}    {\cf with-output-to-file}
+``call-with-input-file``    ``call-with-output-file``
+``delete-file``             ``file-exists?``
+``open-binary-input-file``  ``open-binary-output-file``
+``open-input-file``         ``open-output-file``
+``with-input-from-file``    ``with-output-to-file``
 ```
 
 \textbf{Inexact Library}
@@ -251,12 +251,12 @@ The \texttt{(scheme inexact)} library exports procedures which are
 typically only useful with inexact values.
 
 ```
-{\cf acos}                    {\cf asin}
-{\cf atan}                    {\cf cos}
-{\cf exp}                     {\cf finite?}
-{\cf infinite?\ }              {\cf log}
-{\cf nan?\ }                   {\cf sin}
-{\cf sqrt}                    {\cf tan}
+``acos``                    ``asin``
+``atan``                    ``cos``
+``exp``                     ``finite?``
+``infinite?\ ``              ``log``
+``nan?\ ``                   ``sin``
+``sqrt``                    ``tan``
 ```
 
 \textbf{Lazy Library}
@@ -264,9 +264,9 @@ typically only useful with inexact values.
 The \texttt{(scheme lazy)} library exports procedures and syntax keywords for lazy evaluation.
 
 ```
-{\cf delay}                   {\cf delay-force}
-{\cf force}                   {\cf make-promise}
-{\cf promise?}
+``delay``                   ``delay-force``
+``force``                   ``make-promise``
+``promise?``
 ```
 
 \textbf{Load Library}
@@ -275,7 +275,7 @@ The \texttt{(scheme load)} library exports procedures for loading
 Scheme expressions from files.
 
 ```
-{\cf load}
+``load``
 ```
 
 \textbf{Process-Context Library}
@@ -284,10 +284,10 @@ The \texttt{(scheme process-context)} library exports procedures for
 accessing with the program's calling context.
 
 ```
-{\cf command-line}            {\cf emergency-exit}
-{\cf exit}
-{\cf get-environment-variable}
-{\cf get-environment-variables}
+``command-line``            ``emergency-exit``
+``exit``
+``get-environment-variable``
+``get-environment-variables``
 ```
 
 \textbf{Read Library}
@@ -296,7 +296,7 @@ The \texttt{(scheme read)} library provides procedures for reading
 Scheme objects.
 
 ```
-{\cf read}
+``read``
 ```
 
 \textbf{Repl Library}
@@ -305,7 +305,7 @@ The \texttt{(scheme repl)} library exports the {\cf
   interaction-environment} procedure.
 
 ```
-{\cf interaction-environment}
+``interaction-environment``
 ```
 
 \textbf{Time Library}
@@ -313,8 +313,8 @@ The \texttt{(scheme repl)} library exports the {\cf
 The \texttt{(scheme time)} library provides access to time-related values.
 
 ```
-{\cf current-jiffy}           {\cf current-second}
-{\cf jiffies-per-second}
+``current-jiffy``           ``current-second``
+``jiffies-per-second``
 ```
 
 \textbf{Write Library}
@@ -323,131 +323,131 @@ The \texttt{(scheme write)} library provides procedures for writing
 Scheme objects.
 
 ```
-{\cf display}                 {\cf write}
-{\cf write-shared}            {\cf write-simple}
+``display``                 ``write``
+``write-shared``            ``write-simple``
 ```
 
 \textbf{R5RS Library}
 
 The \texttt{(scheme r5rs)} library provides the identifiers defined by
 {{< rnrs 5 >}}, except that
-{\cf transcript-on} and {\cf transcript-off} are not present.
+``transcript-on`` and ``transcript-off`` are not present.
 Note that
-the {\cf exact} and {\cf inexact} procedures appear under their {{< rnrs 5 >}}\ names
-{\cf inexact->exact} and {\cf exact->inexact} respectively.
+the ``exact`` and ``inexact`` procedures appear under their {{< rnrs 5 >}}\ names
+``inexact->exact`` and ``exact->inexact`` respectively.
 However, if an implementation does not provide a particular library such as the
 complex library, the corresponding identifiers will not appear in this
 library either.
 
 ```
-{\cf *}                       {\cf +}
-{\cf -}                       {\cf /}
-{\cf <}                       {\cf <=}
-{\cf =}                       {\cf >}
-{\cf >=}                      {\cf abs}
-{\cf acos}                    {\cf and}
-{\cf angle}                   {\cf append}
-{\cf apply}                   {\cf asin}
-{\cf assoc}                   {\cf assq}
-{\cf assv}                    {\cf atan}
-{\cf begin}                   {\cf boolean?}
-{\cf caaaar}                  {\cf caaadr}
-{\cf caaar}                   {\cf caadar}
-{\cf caaddr}                  {\cf caadr}
-{\cf caar}                    {\cf cadaar}
-{\cf cadadr}                  {\cf cadar}
-{\cf caddar}                  {\cf cadddr}
-{\cf caddr}                   {\cf cadr}
-{\cf call-with-current-continuation}
-{\cf call-with-input-file}    {\cf call-with-output-file}
-{\cf call-with-values}        {\cf car}
-{\cf case}                    {\cf cdaaar}
-{\cf cdaadr}                  {\cf cdaar}
-{\cf cdadar}                  {\cf cdaddr}
-{\cf cdadr}                   {\cf cdar}
-{\cf cddaar}                  {\cf cddadr}
-{\cf cddar}                   {\cf cdddar}
-{\cf cddddr}                  {\cf cdddr}
-{\cf cddr}                    {\cf cdr}
-{\cf ceiling}                 {\cf char->integer}
-{\cf char-alphabetic?\ }       {\cf char-ci<=?}
-{\cf char-ci<?\ }              {\cf char-ci=?}
-{\cf char-ci>=?\ }             {\cf char-ci>?}
-{\cf char-downcase}           {\cf char-lower-case?}
-{\cf char-numeric?\ }          {\cf char-ready?}
-{\cf char-upcase}             {\cf char-upper-case?}
-{\cf char-whitespace?\ }       {\cf char<=?}
-{\cf char<?\ }                 {\cf char=?}
-{\cf char>=?\ }                {\cf char>?}
-{\cf char?\ }                  {\cf close-input-port}
-{\cf close-output-port}       {\cf complex?}
-{\cf cond}                    {\cf cons}
-{\cf cos}                     {\cf current-input-port}
-{\cf current-output-port}     {\cf define}
-{\cf define-syntax}           {\cf delay}
-{\cf denominator}             {\cf display}
-{\cf do}                      {\cf dynamic-wind}
-{\cf eof-object?\ }            {\cf eq?}
-{\cf equal?\ }                 {\cf eqv?}
-{\cf eval}                    {\cf even?}
-{\cf exact->inexact}          {\cf exact?}
-{\cf exp}                     {\cf expt}
-{\cf floor}                   {\cf for-each}
-{\cf force}                   {\cf gcd}
-{\cf if}                      {\cf imag-part}
-{\cf inexact->exact}          {\cf inexact?}
-{\cf input-port?\ }            {\cf integer->char}
-{\cf integer?\ }               {\cf interaction-environment}
-{\cf lambda}                  {\cf lcm}
-{\cf length}                  {\cf let}
-{\cf let*}                    {\cf let-syntax}
-{\cf letrec}                  {\cf letrec-syntax}
-{\cf list}                    {\cf list->string}
-{\cf list->vector}            {\cf list-ref}
-{\cf list-tail}               {\cf list?}
-{\cf load}                    {\cf log}
-{\cf magnitude}               {\cf make-polar}
-{\cf make-rectangular}        {\cf make-string}
-{\cf make-vector}             {\cf map}
-{\cf max}                     {\cf member}
-{\cf memq}                    {\cf memv}
-{\cf min}                     {\cf modulo}
-{\cf negative?\ }              {\cf newline}
-{\cf not}                     {\cf null-environment}
-{\cf null?\ }                  {\cf number->string}
-{\cf number?\ }                {\cf numerator}
-{\cf odd?\ }                   {\cf open-input-file}
-{\cf open-output-file}        {\cf or}
-{\cf output-port?\ }           {\cf pair?}
-{\cf peek-char}               {\cf positive?}
-{\cf procedure?\ }             {\cf quasiquote}
-{\cf quote}                   {\cf quotient}
-{\cf rational?\ }              {\cf rationalize}
-{\cf read}                    {\cf read-char}
-{\cf real-part}               {\cf real?}
-{\cf remainder}               {\cf reverse}
-{\cf round}
-{\cf scheme-report-environment}
-{\cf set!}                    {\cf set-car!}
-{\cf set-cdr!}                {\cf sin}
-{\cf sqrt}                    {\cf string}
-{\cf string->list}            {\cf string->number}
-{\cf string->symbol}          {\cf string-append}
-{\cf string-ci<=?\ }           {\cf string-ci<?}
-{\cf string-ci=?\ }            {\cf string-ci>=?}
-{\cf string-ci>?\ }            {\cf string-copy}
-{\cf string-fill!}            {\cf string-length}
-{\cf string-ref}              {\cf string-set!}
-{\cf string<=?\ }              {\cf string<?}
-{\cf string=?\ }               {\cf string>=?}
-{\cf string>?\ }               {\cf string?}
-{\cf substring}               {\cf symbol->string}
-{\cf symbol?\ }                {\cf tan}
-{\cf truncate}                {\cf values}
-{\cf vector}                  {\cf vector->list}
-{\cf vector-fill!}            {\cf vector-length}
-{\cf vector-ref}              {\cf vector-set!}
-{\cf vector?\ }                {\cf with-input-from-file}
-{\cf with-output-to-file}     {\cf write}
-{\cf write-char}              {\cf zero?}
+``*``                       ``+``
+``-``                       ``/``
+``<``                       ``<=``
+``=``                       ``>``
+``>=``                      ``abs``
+``acos``                    ``and``
+``angle``                   ``append``
+``apply``                   ``asin``
+``assoc``                   ``assq``
+``assv``                    ``atan``
+``begin``                   ``boolean?``
+``caaaar``                  ``caaadr``
+``caaar``                   ``caadar``
+``caaddr``                  ``caadr``
+``caar``                    ``cadaar``
+``cadadr``                  ``cadar``
+``caddar``                  ``cadddr``
+``caddr``                   ``cadr``
+``call-with-current-continuation``
+``call-with-input-file``    ``call-with-output-file``
+``call-with-values``        ``car``
+``case``                    ``cdaaar``
+``cdaadr``                  ``cdaar``
+``cdadar``                  ``cdaddr``
+``cdadr``                   ``cdar``
+``cddaar``                  ``cddadr``
+``cddar``                   ``cdddar``
+``cddddr``                  ``cdddr``
+``cddr``                    ``cdr``
+``ceiling``                 ``char->integer``
+``char-alphabetic?\ ``       ``char-ci<=?``
+``char-ci<?\ ``              ``char-ci=?``
+``char-ci>=?\ ``             ``char-ci>?``
+``char-downcase``           ``char-lower-case?``
+``char-numeric?\ ``          ``char-ready?``
+``char-upcase``             ``char-upper-case?``
+``char-whitespace?\ ``       ``char<=?``
+``char<?\ ``                 ``char=?``
+``char>=?\ ``                ``char>?``
+``char?\ ``                  ``close-input-port``
+``close-output-port``       ``complex?``
+``cond``                    ``cons``
+``cos``                     ``current-input-port``
+``current-output-port``     ``define``
+``define-syntax``           ``delay``
+``denominator``             ``display``
+``do``                      ``dynamic-wind``
+``eof-object?\ ``            ``eq?``
+``equal?\ ``                 ``eqv?``
+``eval``                    ``even?``
+``exact->inexact``          ``exact?``
+``exp``                     ``expt``
+``floor``                   ``for-each``
+``force``                   ``gcd``
+``if``                      ``imag-part``
+``inexact->exact``          ``inexact?``
+``input-port?\ ``            ``integer->char``
+``integer?\ ``               ``interaction-environment``
+``lambda``                  ``lcm``
+``length``                  ``let``
+``let*``                    ``let-syntax``
+``letrec``                  ``letrec-syntax``
+``list``                    ``list->string``
+``list->vector``            ``list-ref``
+``list-tail``               ``list?``
+``load``                    ``log``
+``magnitude``               ``make-polar``
+``make-rectangular``        ``make-string``
+``make-vector``             ``map``
+``max``                     ``member``
+``memq``                    ``memv``
+``min``                     ``modulo``
+``negative?\ ``              ``newline``
+``not``                     ``null-environment``
+``null?\ ``                  ``number->string``
+``number?\ ``                ``numerator``
+``odd?\ ``                   ``open-input-file``
+``open-output-file``        ``or``
+``output-port?\ ``           ``pair?``
+``peek-char``               ``positive?``
+``procedure?\ ``             ``quasiquote``
+``quote``                   ``quotient``
+``rational?\ ``              ``rationalize``
+``read``                    ``read-char``
+``real-part``               ``real?``
+``remainder``               ``reverse``
+``round``
+``scheme-report-environment``
+``set!``                    ``set-car!``
+``set-cdr!``                ``sin``
+``sqrt``                    ``string``
+``string->list``            ``string->number``
+``string->symbol``          ``string-append``
+``string-ci<=?\ ``           ``string-ci<?``
+``string-ci=?\ ``            ``string-ci>=?``
+``string-ci>?\ ``            ``string-copy``
+``string-fill!``            ``string-length``
+``string-ref``              ``string-set!``
+``string<=?\ ``              ``string<?``
+``string=?\ ``               ``string>=?``
+``string>?\ ``               ``string?``
+``substring``               ``symbol->string``
+``symbol?\ ``                ``tan``
+``truncate``                ``values``
+``vector``                  ``vector->list``
+``vector-fill!``            ``vector-length``
+``vector-ref``              ``vector-set!``
+``vector?\ ``                ``with-input-from-file``
+``with-output-to-file``     ``write``
+``write-char``              ``zero?``
 ```

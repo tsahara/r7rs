@@ -19,34 +19,34 @@ the "Revised$^5$ report"~\cite{R5RS}.
 
 \item Case sensitivity is now the default in symbols and character names.
 This means that code written under the assumption that symbols could be
-written {\cf FOO} or {\cf Foo} in some contexts and {\cf foo} in other contexts
-can either be changed, be marked with the new {\cf #!fold-case} directive,
-or be included in a library using the {\cf include-ci} library declaration.
+written ``FOO`` or ``Foo`` in some contexts and ``foo`` in other contexts
+can either be changed, be marked with the new ``#!fold-case`` directive,
+or be included in a library using the ``include-ci`` library declaration.
 All standard identifiers are entirely in lower case.
 
-\item The {\cf syntax-rules} construct now recognizes {\em \_} (underscore) 
+\item The ``syntax-rules`` construct now recognizes {\em \_} (underscore)
 as a wildcard, which means it cannot be used as a syntax variable.
 It can still be used as a literal.
 
-\item The {{< rnrs 5 >}}\ procedures {\cf exact->inexact} and {\cf inexact->exact}
-have been renamed to their {{< rnrs 6 >}}\ names, {\cf inexact} and {\cf exact},
+\item The {{< rnrs 5 >}}\ procedures ``exact->inexact`` and ``inexact->exact``
+have been renamed to their {{< rnrs 6 >}}\ names, ``inexact`` and ``exact``,
 respectively, as these names are shorter and more correct.
 The former names are still available in the {{< rnrs 5 >}}\ library.
 
-\item The guarantee that string comparison (with {\cf string<?} and the
+\item The guarantee that string comparison (with ``string<?`` and the
 related predicates) is a lexicographical extension of character comparison
-(with {\cf char<?} and the related predicates) has been removed.  
+(with ``char<?`` and the related predicates) has been removed.
 
 \item Support for the # character in numeric literals is no longer required.
 
-\item Support for the letters {\cf s}, {\cf f}, {\cf d}, and {\cf l}
+\item Support for the letters ``s``, ``f``, ``d``, and ``l``
 as exponent markers is no longer required.
 
-\item Implementations of {\cf string\coerce{}number} are no longer permitted
+\item Implementations of ``string\coerce{``number} are no longer permitted
 to return \schfalse{} when the argument contains an explicit radix prefix,
-and must be compatible with {\cf read} and the syntax of numbers in programs.
+and must be compatible with ``read`` and the syntax of numbers in programs.
 
-\item The procedures {\cf transcript-on} and {\cf transcript-off} have been removed.
+\item The procedures ``transcript-on`` and ``transcript-off`` have been removed.
 
 \end{itemize}
 
@@ -70,26 +70,26 @@ The contents of a library can be made conditional on the features of
 the implementation on which it is to be used.
 There is an {{< rnrs 5 >}}\ compatibility library.
 
-\item The expressions types {\cf include}, {\cf include-ci}, and {\cf cond-expand}
+\item The expressions types ``include``, ``include-ci``, and ``cond-expand``
 have been added to the base library; they have the same semantics as the
 corresponding library declarations.
 
-\item Exceptions can now be signaled explicitly with {\cf raise},
-{\cf raise-continuable} or {\cf error}, and can be handled with {\cf
-with-exception-handler} and the {\cf guard} syntax.
+\item Exceptions can now be signaled explicitly with ``raise``,
+``raise-continuable`` or ``error``, and can be handled with {\cf
+with-exception-handler} and the ``guard`` syntax.
 Any object can specify an error condition; the implementation-defined
-conditions signaled by {\cf error} have a predicate to detect them and accessor functions to
-retrieve the arguments passed to {\cf error}.
-Conditions signaled by {\cf read} and by file-related procedures
+conditions signaled by ``error`` have a predicate to detect them and accessor functions to
+retrieve the arguments passed to ``error``.
+Conditions signaled by ``read`` and by file-related procedures
 also have predicates to detect them.
 
 \item New disjoint types supporting access to multiple fields can be
-generated with the {\cf define-record-type} of SRFI 9~\cite{srfi9}
+generated with the ``define-record-type`` of SRFI 9~\cite{srfi9}
 
-\item Parameter objects can be created with {\cf make-parameter}, and
-dynamically rebound with {\cf parameterize}.
-The procedures {\cf current-input-port} and {\cf current-output-port} are now
-parameter objects, as is the newly introduced {\cf current-error-port}.
+\item Parameter objects can be created with ``make-parameter``, and
+dynamically rebound with ``parameterize``.
+The procedures ``current-input-port`` and ``current-output-port`` are now
+parameter objects, as is the newly introduced ``current-error-port``.
 
 \item Support for promises has been enhanced based on SRFI 45~\cite{srfi45}.
 
@@ -101,17 +101,17 @@ Bytevectors have a datum representation and evaluate to themselves.
 
 \item Vector constants evaluate to themselves.
 
-\item The procedure {\cf read-line} is provided to make line-oriented textual input
+\item The procedure ``read-line`` is provided to make line-oriented textual input
 simpler.
 
-\item The procedure {\cf flush-output-port} is provided to allow minimal
+\item The procedure ``flush-output-port`` is provided to allow minimal
 control of output port buffering.
 
 \item {\em Ports} can now be designated as {\em textual} or {\em
 binary} ports, with new procedures for reading and writing binary
 data.
-The new predicates {\cf input-port-open?} and {\cf output-port-open?} return whether a port is open or closed.
-The new procedure {\cf close-port} now closes a port; if the port
+The new predicates ``input-port-open?`` and ``output-port-open?`` return whether a port is open or closed.
+The new procedure ``close-port`` now closes a port; if the port
 has both input and output sides, both are closed.
 
 \item {\em String ports} have been added as a way to read and write
@@ -120,82 +120,82 @@ and write bytes to and from bytevectors.
 
 \item There are now I/O procedures specific to strings and bytevectors.
 
-\item The {\cf write} procedure now generates datum labels when applied to
-circular objects.  The new procedure {\cf write-simple} never generates
-labels; {\cf write-shared} generates labels for all shared and circular
+\item The ``write`` procedure now generates datum labels when applied to
+circular objects.  The new procedure ``write-simple`` never generates
+labels; ``write-shared`` generates labels for all shared and circular
 structure.
-The {\cf display} procedure must not loop on circular objects.
+The ``display`` procedure must not loop on circular objects.
 
-\item The {{< rnrs 6 >}}\ procedure {\cf eof-object} has been added.
+\item The {{< rnrs 6 >}}\ procedure ``eof-object`` has been added.
 Eof-objects are now required to be a disjoint type.
 
 \item Syntax definitions are now allowed wherever variable definitions are.
 
-\item The {\cf syntax-rules} construct now allows
+\item The ``syntax-rules`` construct now allows
 the ellipsis symbol to be specified explicitly instead of the default
-{\cf ...}, allows template escapes with an ellipsis-prefixed list, and
+``...``, allows template escapes with an ellipsis-prefixed list, and
 allows tail patterns to follow an ellipsis pattern.
 
-\item The {\cf syntax-error} syntax has been added as a way to signal immediate
+\item The ``syntax-error`` syntax has been added as a way to signal immediate
 and more informative errors when a macro is expanded.
 
-\item The {\cf letrec*} binding construct has been added, and internal {\cf define} 
+\item The ``letrec*`` binding construct has been added, and internal ``define``
 is specified in terms of it.
 
 \item Support for capturing multiple values has been enhanced with {\cf
-define-values}, {\cf let-values}, and {\cf let*-values}.
+define-values}, ``let-values``, and ``let*-values``.
 Standard expression types which contain a sequence of expressions now
 permit passing zero or more than one value to the continuations of all
 non-final expressions of the sequence.
 
-\item The {\cf case} conditional now supports {\tt =>} syntax
-analogous to {\cf cond} not only in regular clauses but in the {\cf
+\item The ``case`` conditional now supports {\tt =>} syntax
+analogous to ``cond`` not only in regular clauses but in the {\cf
 else} clause as well.
 
 \item To support dispatching on the number of arguments passed to a
-procedure, {\cf case-lambda} has been added in its own library.
+procedure, ``case-lambda`` has been added in its own library.
 
-\item The convenience conditionals {\cf when} and {\cf unless} have been added.
+\item The convenience conditionals ``when`` and ``unless`` have been added.
 
-\item The behavior of {\cf eqv?} on inexact numbers now conforms to the
+\item The behavior of ``eqv?`` on inexact numbers now conforms to the
 {{< rnrs 6 >}}\ definition.
 
-\item When applied to procedures, {\cf eq?} and {\cf eqv?} are permitted to
+\item When applied to procedures, ``eq?`` and ``eqv?`` are permitted to
 return different answers.
 
-\item The {{< rnrs 6 >}}\ procedures {\cf boolean=?} and {\cf symbol=?} have been added.
+\item The {{< rnrs 6 >}}\ procedures ``boolean=?`` and ``symbol=?`` have been added.
 
 \item Positive infinity, negative infinity, NaN, and negative inexact zero have been added
 to the numeric tower as inexact values with the written
-representations {\tt +inf.0}, {\tt -inf.0}, {\tt +nan.0}, and {\cf -0.0}
+representations {\tt +inf.0}, {\tt -inf.0}, {\tt +nan.0}, and ``-0.0``
 respectively.  Support for them is not required.
 The representation {\tt -nan.0} is synonymous with {\tt +nan.0}.
 
-\item The {\cf log} procedure now accepts a second argument specifying
+\item The ``log`` procedure now accepts a second argument specifying
 the logarithm base.
 
-\item The procedures {\cf map} and {\cf for-each} are now required to terminate on
+\item The procedures ``map`` and ``for-each`` are now required to terminate on
 the shortest argument list.
 
-\item The procedures {\cf member} and {\cf assoc} now take an optional third argument
+\item The procedures ``member`` and ``assoc`` now take an optional third argument
 specifying the equality predicate to be used.
 
-\item The numeric procedures {\cf finite?}, {\cf infinite?}, {\cf nan?},
-{\cf exact-integer?}, {\cf square}, and {\cf exact-integer-sqrt}
+\item The numeric procedures ``finite?``, ``infinite?``, ``nan?``,
+``exact-integer?``, ``square``, and ``exact-integer-sqrt``
 have been added.
 
-\item The {\cf -} and {\cf /} procedures
+\item The ``-`` and ``/`` procedures
 and the character and string comparison
 predicates are now required to support more than two arguments.
 
 \item The forms \sharptrue{} and \sharpfalse{} are now supported
 as well as \schtrue{} and \schfalse{}.
 
-\item The procedures {\cf make-list}, {\cf list-copy}, {\cf list-set!},
-{\cf string-map}, {\cf string-for-each}, {\cf string->vector}, 
-{\cf vector-append},
-{\cf vector-copy}, {\cf vector-map}, {\cf vector-for-each}, 
-{\cf vector->string}, {\cf vector-copy!}, and {\cf string-copy!}
+\item The procedures ``make-list``, ``list-copy``, ``list-set!``,
+``string-map``, ``string-for-each``, ``string->vector``,
+``vector-append``,
+``vector-copy``, ``vector-map``, ``vector-for-each``,
+``vector->string``, ``vector-copy!``, and ``string-copy!``
 have been added to round out the sequence operations.
 
 \item Some string and vector procedures support processing of part of a string or vector using
@@ -211,7 +211,7 @@ and case conversion procedures added for strings.
 String comparison is no longer
 required to be consistent with character comparison, which is based
 solely on Unicode scalar values.
-The new {\cf digit-value} procedure has been added to obtain the numerical
+The new ``digit-value`` procedure has been added to obtain the numerical
 value of a numeric character.
 
 \item There are now two additional comment syntaxes: {\tt #;} to
@@ -225,7 +225,7 @@ shared structure.
 \item Strings and symbols now allow mnemonic and numeric escape
 sequences, and the list of named characters has been extended.
 
-\item The procedures {\cf file-exists?}\ and {\cf delete-file} are available in the
+\item The procedures ``file-exists?``\ and ``delete-file`` are available in the
 {\tt (scheme file)} library.
 
 \item An interface to the system environment, command line, and process exit status is
@@ -237,16 +237,16 @@ available in the {\tt (scheme process-context)} library.
 \item A less irregular set of integer division operators is provided
 with new and clearer names.
 
-\item The {\cf load} procedure now accepts a second argument specifying the environment to
+\item The ``load`` procedure now accepts a second argument specifying the environment to
 load into.
 
-\item The {\cf call-with-current-continuation} procedure now has the synonym
-{\cf call/cc}.
+\item The ``call-with-current-continuation`` procedure now has the synonym
+``call/cc``.
 
 \item The semantics of read-eval-print loops are now partly prescribed,
 requiring the redefinition of procedures, but not syntax keywords, to have retroactive effect.
 
-\item The formal semantics now handles {\cf dynamic-wind}.
+\item The formal semantics now handles ``dynamic-wind``.
 \end{itemize}
 
 ### Incompatibilities with {{< rnrs 6 >}}
@@ -256,17 +256,17 @@ the "Revised$^6$ report"~\cite{R6RS} and its accompanying Standard Libraries doc
 {\em This list is not authoritative, and is possibly incomplete.}
 
 \begin{itemize}
-\item {{< rnrs 7 >}}\ libraries begin with the keyword {\cf define-library}
-rather than {\cf library} in order to make them syntactically
+\item {{< rnrs 7 >}}\ libraries begin with the keyword ``define-library``
+rather than ``library`` in order to make them syntactically
 distinguishable from {{< rnrs 6 >}}\ libraries.
 In {{< rnrs 7 >}}\ terms, the body of an {{< rnrs 6 >}}\ library consists
 of a single export declaration followed by a single import declaration,
 followed by commands and definitions.  In {{< rnrs 7 >}}, commands and
-definitions are not permitted directly within the body: they have to be be wrapped in a {\cf begin}
+definitions are not permitted directly within the body: they have to be be wrapped in a ``begin``
 library declaration.
 
-\item There is no direct {{< rnrs 6 >}}\ equivalent of the {\cf include}, {\cf include-ci},
-{\cf include-library-declarations}, or {\cf cond-expand} library declarations.
+\item There is no direct {{< rnrs 6 >}}\ equivalent of the ``include``, ``include-ci``,
+``include-library-declarations``, or ``cond-expand`` library declarations.
 On the other hand, the {{< rnrs 7 >}}\ library syntax does not support phase or version specifications.
 
 \item The grouping of standardized identifiers into libraries is different from the {{< rnrs 6 >}}\
@@ -274,10 +274,10 @@ approach. In particular, procedures which are optional in {{< rnrs 5 >}}\, eithe
 or by implication, have been removed from the base library.
 Only the base library itself is an absolute requirement.
 
-\item No form of identifier syntax is provided. 
+\item No form of identifier syntax is provided.
 
 \item Internal syntax definitions are allowed, but uses of a syntax form
-cannot appear before its definition; the {\cf even}/{\cf odd} example given in
+cannot appear before its definition; the ``even``/``odd`` example given in
 {{< rnrs 6 >}}\ is not allowed.
 
 \item The {{< rnrs 6 >}}\ exception system was incorporated as-is, but the condition
@@ -293,34 +293,34 @@ Non-Unicode characters are permitted.
 
 \item The full numeric tower is optional as in {{< rnrs 5 >}}, but optional support for IEEE
 infinities, NaN, and {\mbox -0.0} was adopted from {{< rnrs 6 >}}. Most clarifications on
-numeric results were also adopted, but the {{< rnrs 6 >}}\ procedures {\cf real-valued?},
-{\cf rational-valued?}, and {\cf integer-valued}? were not. 
-The {{< rnrs 6 >}}\ division operators {\cf div}, {\cf mod}, {\cf div-and-mod}, {\cf
-div0}, {\cf mod0} and {\cf div0-and-mod0} are not provided.
+numeric results were also adopted, but the {{< rnrs 6 >}}\ procedures ``real-valued?``,
+``rational-valued?``, and ``integer-valued``? were not.
+The {{< rnrs 6 >}}\ division operators ``div``, ``mod``, ``div-and-mod``, {\cf
+div0}, ``mod0`` and ``div0-and-mod0`` are not provided.
 
 \item When a result is unspecified, it is still required to be a single value.
 However, non-final expressions
 in a body can return any number of values.
 
-\item The semantics of {\cf map} and {\cf for-each} have been changed to use
+\item The semantics of ``map`` and ``for-each`` have been changed to use
 the SRFI 1~\cite{srfi1} early termination behavior. Likewise,
-{\cf assoc} and {\cf member} take an optional {\cf equal?} argument as in SRFI 1,
-instead of the separate {\cf assp} and {\cf memp} procedures of {{< rnrs 6 >}}.
+``assoc`` and ``member`` take an optional ``equal?`` argument as in SRFI 1,
+instead of the separate ``assp`` and ``memp`` procedures of {{< rnrs 6 >}}.
 
-\item The {{< rnrs 6 >}}~{\cf quasiquote} clarifications have been adopted, with the
-exception of multiple-argument {\cf unquote} and
-{\cf unquote-splicing}.
+\item The {{< rnrs 6 >}}~``quasiquote`` clarifications have been adopted, with the
+exception of multiple-argument ``unquote`` and
+``unquote-splicing``.
 
 \item The {{< rnrs 6 >}}~method of specifying mantissa widths was not adopted.
 
 \item String ports are compatible with SRFI 6~\cite{srfi6} rather than {{< rnrs 6 >}}.
 
-\item {{< rnrs 6 >}}{}-style bytevectors are included, but 
-only the unsigned byte ({\cf u8}) procedures have been provided.
-The lexical syntax uses {\cf #u8} for compatibility
-with SRFI 4~\cite{srfi4}, rather than the {{< rnrs 6 >}}~{\cf #vu8} style.
+\item {{< rnrs 6 >}}{}-style bytevectors are included, but
+only the unsigned byte (``u8``) procedures have been provided.
+The lexical syntax uses ``#u8`` for compatibility
+with SRFI 4~\cite{srfi4}, rather than the {{< rnrs 6 >}}~``#vu8`` style.
 
-\item The utility macros {\cf when} and {\cf unless} are provided, but 
+\item The utility macros ``when`` and ``unless`` are provided, but
 their result is left unspecified.
 
 \item The remaining features of the Standard Libraries document were

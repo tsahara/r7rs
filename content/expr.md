@@ -17,9 +17,9 @@ be defined as macros.
 Suitable syntax definitions of some of the derived expressions are
 given in section~\ref{derivedsection}.
 
-The procedures {\cf force}, {\cf promise?}, {\cf make-promise}, and {\cf make-parameter}
+The procedures ``force``, ``promise?``, ``make-promise``, and ``make-parameter``
 are also described in this chapter because they are intimately associated
-with the {\cf delay}, {\cf delay-force}, and {\cf parameterize} expression types.
+with the ``delay``, ``delay-force``, and ``parameterize`` expression types.
 
 ## 4.1. Primitive expression types
 \label{primitivexps}
@@ -49,7 +49,7 @@ x   \ev  28
 \pproto{\singlequote\hyper{datum}}{\exprtype}
 \pproto{\hyper{constant}}{\exprtype}}
 
-{\cf (quote \hyper{datum})} evaluates to \hyper{datum}.\mainschindex{'}
+``(quote \hyper{datum``)} evaluates to \hyper{datum}.\mainschindex{'}
 \hyper{Datum}
 can be any external representation of a Scheme object (see
 section~\ref{externalreps}).  This notation is used to include literal
@@ -61,7 +61,7 @@ constants in Scheme code.
 (quote (+ 1 2))               \ev  (+ 1 2)
 ```
 
-{\cf (quote \hyper{datum})} can be abbreviated as
+``(quote \hyper{datum``)} can be abbreviated as
 \singlequote\hyper{datum}.  The two notations are equivalent in all
 respects.
 
@@ -95,7 +95,7 @@ themselves; they need not be quoted.
 
 As noted in section~\ref{storagemodel}, it is an error to attempt to alter a constant
 (i.e.~the value of a literal expression) using a mutation procedure like
-{\cf set-car!}\ or {\cf string-set!}.
+``set-car!``\ or ``string-set!``.
 
 \end{entry}
 
@@ -117,14 +117,14 @@ arguments.\mainindex{call}\mainindex{procedure call}
 
 The procedures in this document are available as the values of variables exported by the
 standard libraries.  For example, the addition and multiplication
-procedures in the above examples are the values of the variables {\cf +}
-and {\cf *} in the base library.  New procedures are created by evaluating \lambdaexp{}s
+procedures in the above examples are the values of the variables ``+``
+and ``*`` in the base library.  New procedures are created by evaluating \lambdaexp{}s
 (see section~\ref{lambda}).
 
 Procedure calls can return any number of values (see \ide{values} in
 section~\ref{proceduresection}).
 Most of the procedures defined in this report return one
-value or, for procedures such as {\cf apply}, pass on the values returned
+value or, for procedures such as ``apply``, pass on the values returned
 by a call to one of their arguments.
 Exceptions are noted in the individual descriptions.
 
@@ -171,7 +171,7 @@ in those locations.
 existing location.)
 Next, the expressions in the
 body of the lambda expression (which, if it contains definitions,
-represents a {\cf letrec*} form --- see section~\ref{letrecstar})
+represents a ``letrec*`` form --- see section~\ref{letrecstar})
 will be evaluated sequentially in the extended environment.
 The results of the last expression in the body will be returned as
 the results of the procedure call.
@@ -245,7 +245,7 @@ with a storage location, in order to make \ide{eqv?} and
 expressions.
 
 \semantics
-An {\cf if} expression is evaluated as follows: first,
+An ``if`` expression is evaluated as follows: first,
 \hyper{test} is evaluated.  If it yields a true value\index{true} (see
 section~\ref{booleansection}), then \hyper{consequent} is evaluated and
 its values are returned.  Otherwise \hyper{alternate} is evaluated and its
@@ -273,9 +273,9 @@ unspecified.
 \semantics
 \hyper{Expression} is evaluated, and the resulting value is stored in
 the location to which \hyper{variable} is bound.  It is an error if \hyper{variable} is not
-bound either in some region\index{region} enclosing the {\cf set!}\ expression
+bound either in some region\index{region} enclosing the ``set!``\ expression
 or else globally.
-The result of the {\cf set!} expression is
+The result of the ``set!`` expression is
 unspecified.
 
 ```
@@ -298,9 +298,9 @@ Both \ide{include} and
 \ide{include-ci} take one or more filenames expressed as string literals,
 apply an implementation-specific algorithm to find corresponding files,
 read the contents of the files in the specified order as if by repeated applications
-of {\cf read},
-and effectively replace the {\cf include} or {\cf include-ci} expression
-with a {\cf begin} expression containing what was read from the files.
+of ``read``,
+and effectively replace the ``include`` or ``include-ci`` expression
+with a ``begin`` expression containing what was read from the files.
 The difference between the two is that \ide{include-ci} reads each file
 as if it began with the {\cf{}#!fold-case} directive, while \ide{include}
 does not.
@@ -348,13 +348,13 @@ an "else clause," which has the form
 \mainschindex{=>}
 
 \semantics
-A {\cf cond} expression is evaluated by evaluating the \hyper{test}
+A ``cond`` expression is evaluated by evaluating the \hyper{test}
 expressions of successive \hyper{clause}s in order until one of them
 evaluates to a true value\index{true} (see
 section~\ref{booleansection}).  When a \hyper{test} evaluates to a true
 value, the remaining \hyper{expression}s in its \hyper{clause} are
 evaluated in order, and the results of the last \hyper{expression} in the
-\hyper{clause} are returned as the results of the entire {\cf cond}
+\hyper{clause} are returned as the results of the entire ``cond``
 expression.
 
 If the selected \hyper{clause} contains only the
@@ -363,7 +363,7 @@ If the selected \hyper{clause} contains only the
 \ide{=>} alternate form, then the \hyper{expression} is evaluated.
 It is an error if its value is not a procedure that accepts one argument.  This procedure is then
 called on the value of the \hyper{test} and the values returned by this
-procedure are returned by the {\cf cond} expression.
+procedure are returned by the ``cond`` expression.
 
 If all \hyper{test}s evaluate
 to \schfalse{}, and there is no else clause, then the result of
@@ -413,26 +413,26 @@ or
 \schindex{else}
 
 \semantics
-A {\cf case} expression is evaluated as follows.  \hyper{Key} is
+A ``case`` expression is evaluated as follows.  \hyper{Key} is
 evaluated and its result is compared against each \hyper{datum}.  If the
 result of evaluating \hyper{key} is the same (in the sense of
-{\cf eqv?}; see section~\ref{eqv?}) to a \hyper{datum}, then the
+``eqv?``; see section~\ref{eqv?}) to a \hyper{datum}, then the
 expressions in the corresponding \hyper{clause} are evaluated in order
 and the results of the last expression in the \hyper{clause} are
-returned as the results of the {\cf case} expression.
+returned as the results of the ``case`` expression.
 
 If the result of
 evaluating \hyper{key} is different from every \hyper{datum}, then if
 there is an else clause, its expressions are evaluated and the
-results of the last are the results of the {\cf case} expression;
-otherwise the result of the {\cf case} expression is unspecified.
+results of the last are the results of the ``case`` expression;
+otherwise the result of the ``case`` expression is unspecified.
 
 If the selected \hyper{clause} or else clause uses the
 \ide{=>} alternate form, then the \hyper{expression} is evaluated.
 It is an error if its value is not a procedure accepting one argument.
 This procedure is then
 called on the value of the \hyper{key} and the values returned by this
-procedure are returned by the {\cf case} expression.
+procedure are returned by the ``case`` expression.
 
 ```
 (case (* 2 3)
@@ -499,7 +499,7 @@ The \hyper{test} is an expression.
 
 \semantics
 The test is evaluated, and if it evaluates to a true value,
-the expressions are evaluated in order.  The result of the {\cf when}
+the expressions are evaluated in order.  The result of the ``when``
 expression is unspecified.
 
 ```
@@ -518,7 +518,7 @@ The \hyper{test} is an expression.
 
 \semantics
 The test is evaluated, and if it evaluates to \schfalse{},
-the expressions are evaluated in order.  The result of the {\cf unless}
+the expressions are evaluated in order.  The result of the ``unless``
 expression is unspecified.
 
 ```
@@ -563,17 +563,17 @@ each \hyper{feature identifier} and {\tt(library \hyper{library name})}
 on the implementation's lists with \schtrue, and all other feature
 identifiers and library names with \schfalse, then evaluating the
 resulting expression as a Scheme boolean expression under the normal
-interpretation of {\cf and}, {\cf or}, and {\cf not}.
+interpretation of ``and``, ``or``, and ``not``.
 
 A \ide{cond-expand} is then expanded by evaluating the
 \hyper{feature requirement}s of successive \hyper{ce-clause}s
 in order until one of them returns \schtrue.  When a true clause is
 found, the corresponding \hyper{expression}s are expanded to a
-{\cf begin}, and the remaining clauses are ignored.
+``begin``, and the remaining clauses are ignored.
 If none of the \hyper{feature requirement}s evaluate to \schtrue, then
 if there is an else clause, its \hyper{expression}s are
 included.  Otherwise, the behavior of the \ide{cond-expand} is unspecified.
-Unlike {\cf cond}, {\cf cond-expand} does not depend on the value
+Unlike ``cond``, ``cond-expand`` does not depend on the value
 of any variables.
 
 The exact features provided are implementation-defined, but for
@@ -585,18 +585,18 @@ appendix~\ref{stdfeatures}.
 ### 4.2.2. Binding constructs
 \label{bindingsection}
 
-The binding constructs {\cf let}, {\cf let*}, {\cf letrec}, {\cf letrec*},
-{\cf let-values}, and {\cf let*-values}
+The binding constructs ``let``, ``let*``, ``letrec``, ``letrec*``,
+``let-values``, and ``let*-values``
 give Scheme a block structure, like Algol 60.  The syntax of the first four
 constructs is identical, but they differ in the regions\index{region} they establish
-for their variable bindings.  In a {\cf let} expression, the initial
+for their variable bindings.  In a ``let`` expression, the initial
 values are computed before any of the variables become bound; in a
-{\cf let*} expression, the bindings and evaluations are performed
-sequentially; while in {\cf letrec} and {\cf letrec*} expressions,
+``let*`` expression, the bindings and evaluations are performed
+sequentially; while in ``letrec`` and ``letrec*`` expressions,
 all the bindings are in
 effect while their initial values are being computed, thus allowing
 mutually recursive definitions.
-The {\cf let-values} and {\cf let*-values} constructs are analogous to {\cf let} and {\cf let*}
+The ``let-values`` and ``let*-values`` constructs are analogous to ``let`` and ``let*``
 respectively, but are designed to handle multiple-valued expressions, binding
 different identifiers to the returned values.
 
@@ -632,7 +632,7 @@ region.\index{region}
     (* z x)))                   \ev  35
 ```
 
-See also "named {\cf let}," section \ref{namedlet}.
+See also "named ``let``," section \ref{namedlet}.
 
 \end{entry}
 
@@ -651,9 +651,9 @@ zero or more definitions followed by
 one or more expressions as described in section~\ref{lambda}.
 
 \semantics
-The {\cf let*} binding construct is similar to {\cf let}, but the bindings are performed
+The ``let*`` binding construct is similar to ``let``, but the bindings are performed
 sequentially from left to right, and the region\index{region} of a binding indicated
-by {\cf(\hyper{variable} \hyper{init})} is that part of the {\cf let*}
+by {\cf(\hyper{variable} \hyper{init})} is that part of the ``let*``
 expression to the right of the binding.  Thus the second binding is done
 in an environment in which the first binding is visible, and so on.
 The \hyper{variable}s need not be distinct.
@@ -688,7 +688,7 @@ some unspecified order), each \hyper{variable} is assigned to the result
 of the corresponding \hyper{init}, the \hyper{body} is evaluated in the
 resulting environment, and the values of the last expression in
 \hyper{body} are returned.  Each binding of a \hyper{variable} has the
-entire {\cf letrec} expression as its region\index{region}, making it possible to
+entire ``letrec`` expression as its region\index{region}, making it possible to
 define mutually recursive procedures.
 
 ```
@@ -706,14 +706,14 @@ define mutually recursive procedures.
 		\ev  \schtrue
 ```
 
-One restriction on {\cf letrec} is very important: if it is not possible
+One restriction on ``letrec`` is very important: if it is not possible
 to evaluate each \hyper{init} without assigning or referring to the value of any
 \hyper{variable}, it is an error.  The
 restriction is necessary because
-{\cf letrec} is defined in terms of a procedure
-call where a {\cf lambda} expression binds the \hyper{variable}s to the values
+``letrec`` is defined in terms of a procedure
+call where a ``lambda`` expression binds the \hyper{variable}s to the values
 of the \hyper{init}s.
-In the most common uses of {\cf letrec}, all the \hyper{init}s are
+In the most common uses of ``letrec``, all the \hyper{init}s are
 \lambdaexp{}s and the restriction is satisfied automatically.
 
 \end{entry}
@@ -740,7 +740,7 @@ result of evaluating the corresponding \hyper{init}, the \hyper{body} is
 evaluated in the resulting environment, and the values of the last
 expression in \hyper{body} are returned.
 Despite the left-to-right evaluation and assignment order, each binding of
-a \hyper{variable} has the entire {\cf letrec*} expression as its
+a \hyper{variable} has the entire ``letrec*`` expression as its
 region\index{region}, making it possible to define mutually recursive
 procedures.
 
@@ -782,11 +782,11 @@ once in the set of \hyper{formals}.
 
 \semantics
 The \hyper{init}s are evaluated in the current environment (in some
-unspecified order) as if by invoking {\cf call-with-values}, and the
+unspecified order) as if by invoking ``call-with-values``, and the
 variables occurring in the \hyper{formals} are bound to fresh locations
 holding the values returned by the \hyper{init}s, where the
 \hyper{formals} are matched to the return values in the same way that
-the \hyper{formals} in a {\cf lambda} expression are matched to the
+the \hyper{formals} in a ``lambda`` expression are matched to the
 arguments in a procedure call.  Then, the \hyper{body} is evaluated in
 the extended environment, and the values of the last expression of
 \hyper{body} are returned.  Each binding of a \hyper{variable} has
@@ -817,7 +817,7 @@ definitions followed by one or more expressions as described in section~\ref{lam
 it is an error if any variable appears more than once.
 
 \semantics
-The {\cf let*-values} construct is similar to {\cf let-values}, but the
+The ``let*-values`` construct is similar to ``let-values``, but the
 \hyper{init}s are evaluated and bindings created sequentially from
 left to right, with the region of the bindings of each \hyper{formals}
 including the \hyper{init}s to its right as well as \hyper{body}.  Thus the
@@ -839,17 +839,17 @@ set of bindings is visible and initialized, and so on.
 ### 4.2.3. Sequencing
 \label{sequencing}
 
-Both of Scheme's sequencing constructs are named {\cf begin}, but the two
+Both of Scheme's sequencing constructs are named ``begin``, but the two
 have slightly different forms and uses:
 
 \begin{entry}{
 \proto{begin}{ \hyper{expression or definition} \dotsfoo}{\exprtype}}
 
-This form of {\cf begin} can appear as part of a \hyper{body}, or at the
+This form of ``begin`` can appear as part of a \hyper{body}, or at the
 outermost level of a \hyper{program}, or at the REPL, or directly nested
-in a {\cf begin} that is itself of this form.
+in a ``begin`` that is itself of this form.
 It causes the contained expressions and definitions to be evaluated
-exactly as if the enclosing {\cf begin} construct were not present.
+exactly as if the enclosing ``begin`` construct were not present.
 
 \begin{rationale}
 This form is commonly used in the output of
@@ -863,7 +863,7 @@ splice them into the context in which they are expanded.
 \begin{entry}{
 \rproto{begin}{ \hyperi{expression} \hyperii{expression} \dotsfoo}{\exprtype}}
 
-This form of {\cf begin} can be used as an ordinary expression.
+This form of ``begin`` can be used as an ordinary expression.
 The \hyper{expression}s are evaluated sequentially from left to right,
 and the values of the last \hyper{expression} are returned. This
 expression type is used to sequence side effects such as assignments
@@ -883,7 +883,7 @@ or input and output.
 
 \end{entry}
 
-Note that there is a third form of {\cf begin} used as a library declaration:
+Note that there is a third form of ``begin`` used as a library declaration:
 see section~\ref{librarydeclarations}.
 
 ### 4.2.4. Iteration
@@ -900,12 +900,12 @@ All of \hyper{init}, \hyper{step}, \hyper{test}, and \hyper{command}
 are expressions.
 
 \semantics
-A {\cf do} expression is an iteration construct.  It specifies a set of variables to
+A ``do`` expression is an iteration construct.  It specifies a set of variables to
 be bound, how they are to be initialized at the start, and how they are
 to be updated on each iteration.  When a termination condition is met,
 the loop exits after evaluating the \hyper{expression}s.
 
-A {\cf do} expression is evaluated as follows:
+A ``do`` expression is evaluated as follows:
 The \hyper{init} expressions are evaluated (in some unspecified order),
 the \hyper{variable}s are bound to fresh locations, the results of the
 \hyper{init} expressions are stored in the bindings of the
@@ -922,12 +922,12 @@ expressions are evaluated in some unspecified order, the
 If \hyper{test} evaluates to a true value, then the
 \hyper{expression}s are evaluated from left to right and the values of
 the last \hyper{expression} are returned.  If no \hyper{expression}s
-are present, then the value of the {\cf do} expression is unspecified.
+are present, then the value of the ``do`` expression is unspecified.
 
 The region\index{region} of the binding of a \hyper{variable}
-consists of the entire {\cf do} expression except for the \hyper{init}s.
+consists of the entire ``do`` expression except for the \hyper{init}s.
 It is an error for a \hyper{variable} to appear more than once in the
-list of {\cf do} variables.
+list of ``do`` variables.
 
 A \hyper{step} can be omitted, in which case the effect is the
 same as if {\cf(\hyper{variable} \hyper{init} \hyper{variable})} had
@@ -952,10 +952,10 @@ been written instead of {\cf(\hyper{variable} \hyper{init})}.
 
 \label{namedlet}
 \semantics
-"Named {\cf let}" is a variant on the syntax of \ide{let} which provides
-a more general looping construct than {\cf do} and can also be used to express
+"Named ``let``" is a variant on the syntax of \ide{let} which provides
+a more general looping construct than ``do`` and can also be used to express
 recursion.
-It has the same syntax and semantics as ordinary {\cf let}
+It has the same syntax and semantics as ordinary ``let``
 except that \hyper{variable} is bound within \hyper{body} to a procedure
 whose formal arguments are the bound variables and whose body is
 \hyper{body}.  Thus the execution of \hyper{body} can be repeated by
@@ -988,11 +988,11 @@ invoking the procedure named by \hyper{variable}.
 
 
 \semantics
-The {\cf delay} construct is used together with the procedure \ide{force} to
+The ``delay`` construct is used together with the procedure \ide{force} to
 implement \defining{lazy evaluation} or \defining{call by need}.
 {\tt(delay~\hyper{expression})} returns an object called a
 \defining{promise} which at some point in the future can be asked (by
-the {\cf force} procedure) to evaluate
+the ``force`` procedure) to evaluate
 \hyper{expression}, and deliver the resulting value.
 
 The effect of \hyper{expression} returning multiple values
@@ -1006,17 +1006,17 @@ is unspecified.
 
 
 \semantics
-The expression {\cf (delay-force \var{expression})} is conceptually similar to
-{\cf (delay (force \var{expression}))},
+The expression ``(delay-force \var{expression``)} is conceptually similar to
+``(delay (force \var{expression``))},
 with the difference that forcing the result
-of {\cf delay-force} will in effect result in a tail call to
-{\cf (force \var{expression})},
+of ``delay-force`` will in effect result in a tail call to
+``(force \var{expression``)},
 while forcing the result of
-{\cf (delay (force \var{expression}))}
+``(delay (force \var{expression``))}
 might not.  Thus
 iterative lazy algorithms that might result in a long series of chains of
-{\cf delay} and {\cf force}
-can be rewritten using {\cf delay-force} to prevent consuming
+``delay`` and ``force``
+can be rewritten using ``delay-force`` to prevent consuming
 unbounded space during evaluation.
 
 \end{entry}
@@ -1024,14 +1024,14 @@ unbounded space during evaluation.
 \begin{entry}{
 \proto{force}{ promise}{lazy library procedure}}
 
-The {\cf force} procedure forces the value of a \var{promise} created
+The ``force`` procedure forces the value of a \var{promise} created
 by \ide{delay}, \ide{delay-force}, or \ide{make-promise}.\index{promise}
 If no value has been computed for the promise, then a value is
 computed and returned.  The value of the promise must be cached (or
 "memoized") so that if it is forced a second time, the previously
 computed value is returned.
 Consequently, a delayed expression is evaluated using the parameter
-values and exception handler of the call to {\cf force} which first
+values and exception handler of the call to ``force`` which first
 requested its value.
 If \var{promise} is not a promise, it may be returned unchanged.
 
@@ -1057,12 +1057,12 @@ If \var{promise} is not a promise, it may be returned unchanged.
 
 The following example is a mechanical transformation of a lazy
 stream-filtering algorithm into Scheme.  Each call to a constructor is
-wrapped in {\cf delay}, and each argument passed to a deconstructor is
-wrapped in {\cf force}.  The use of {\cf (delay-force ...)} instead of {\cf
+wrapped in ``delay``, and each argument passed to a deconstructor is
+wrapped in ``force``.  The use of ``(delay-force ...)`` instead of {\cf
 (delay (force ...))} around the body of the procedure ensures that an
 ever-growing sequence of pending promises does not
 exhaust available storage,
-because {\cf force} will in effect force such sequences iteratively.
+because ``force`` will in effect force such sequences iteratively.
 
 ```
 (define (stream-filter p? s)
@@ -1080,7 +1080,7 @@ because {\cf force} will in effect force such sequences iteratively.
 ```
 
 The following examples are not intended to illustrate good programming
-style, as {\cf delay}, {\cf force}, and {\cf delay-force} are mainly intended
+style, as ``delay``, ``force``, and ``delay-force`` are mainly intended
 for programs written in the functional style.
 However, they do illustrate the property that only one value is
 computed for a promise, no matter how many times it is forced.
@@ -1100,11 +1100,11 @@ p                     \ev  {\it{}a promise, still}
        (force p))     \ev  6
 ```
 
-Various extensions to this semantics of {\cf delay}, {\cf force} and
-{\cf delay-force} are supported in some implementations:
+Various extensions to this semantics of ``delay``, ``force`` and
+``delay-force`` are supported in some implementations:
 
 \begin{itemize}
-\item Calling {\cf force} on an object that is not a promise may simply
+\item Calling ``force`` on an object that is not a promise may simply
 return the object.
 
 \item It may be the case that there is no means by which a promise can be
@@ -1119,9 +1119,9 @@ depending on the implementation:
 
 \item Implementations may implement "implicit forcing," where
 the value of a promise is forced by procedures
-that operate only on arguments of a certain type, like {\cf cdr}
-and {\cf *}.  However, procedures that operate uniformly on their
-arguments, like {\cf list}, must not force them.
+that operate only on arguments of a certain type, like ``cdr``
+and ``*``.  However, procedures that operate uniformly on their
+arguments, like ``list``, must not force them.
 
 ```
 (+ (delay (* 3 7)) 13)  \ev  \unspecified
@@ -1134,7 +1134,7 @@ arguments, like {\cf list}, must not force them.
 \begin{entry}{
 \proto{promise?} { \var{obj}}{lazy library procedure}}
 
-The {\cf promise?} procedure returns
+The ``promise?`` procedure returns
 \schtrue{} if its argument is a promise, and \schfalse{} otherwise.  Note
 that promises are not necessarily disjoint from other Scheme types such
 as procedures.
@@ -1144,8 +1144,8 @@ as procedures.
 \begin{entry}{
 \proto{make-promise} { \var{obj}}{lazy library procedure}}
 
-The {\cf make-promise} procedure returns a promise which, when forced, will return
-\var{obj}.  It is similar to {\cf delay}, but does not delay
+The ``make-promise`` procedure returns a promise which, when forced, will return
+\var{obj}.  It is similar to ``delay``, but does not delay
 its argument: it is a procedure rather than syntax.
 If \var{obj} is already a promise, it is returned.
 
@@ -1173,10 +1173,10 @@ Returns a newly allocated parameter object,
 which is a procedure that accepts zero arguments and
 returns the value associated with the parameter object.
 Initially, this value is the value of
-{\cf (\var{converter} \var{init})}, or of \var{init}
+``(\var{converter`` \var{init})}, or of \var{init}
 if the conversion procedure \var{converter} is not specified.
 The associated value can be temporarily changed
-using {\cf parameterize}, which is described below.
+using ``parameterize``, which is described below.
 
 The effect of passing arguments to a parameter object is
 implementation-dependent.
@@ -1193,7 +1193,7 @@ Both \hyperi{param} and \hyperi{value} are expressions.
 
 \domain{It is an error if the value of any \hyper{param} expression is not a parameter object.}
 \semantics
-A {\cf parameterize} expression is used to change the values returned by
+A ``parameterize`` expression is used to change the values returned by
 specified parameter objects during the evaluation of the body.
 
 The \hyper{param} and \hyper{value} expressions
@@ -1205,17 +1205,17 @@ Then the previous values of the parameters are restored without passing
 them to the conversion procedure.
 The results of the last
 expression in the \hyper{body} are returned as the results of the entire
-{\cf parameterize} expression.
+``parameterize`` expression.
 
 \begin{note}
 If the conversion procedure is not idempotent, the results of
-{\cf (parameterize ((x (x))) ...)},
+``(parameterize ((x (x))) ...)``,
 which appears to bind the parameter \var{x} to its current value,
 might not be what the user expects.
 \end{note}
 
 If an implementation supports multiple threads of execution, then
-{\cf parameterize} must not change the associated values of any parameters
+``parameterize`` must not change the associated values of any parameters
 in any thread other than the current thread and threads created
 inside \hyper{body}.
 
@@ -1258,21 +1258,21 @@ procedure in the call chain explicitly.
 \mainschindex{guard}
 
 \syntax
-Each \hyper{cond clause} is as in the specification of {\cf cond}.
+Each \hyper{cond clause} is as in the specification of ``cond``.
 
 \semantics
 The \hyper{body} is evaluated with an exception
 handler that binds the raised object (see \ide{raise} in section~\ref{exceptionsection})
 to \hyper{variable} and, within the scope of
 that binding, evaluates the clauses as if they were the clauses of a
-{\cf cond} expression. That implicit {\cf cond} expression is evaluated with the
-continuation and dynamic environment of the {\cf guard} expression. If every
+``cond`` expression. That implicit ``cond`` expression is evaluated with the
+continuation and dynamic environment of the ``guard`` expression. If every
 \hyper{cond clause}'s \hyper{test} evaluates to \schfalse{} and there
 is no else clause, then
-{\cf raise-continuable} is invoked on the raised object within the dynamic
-environment of the original call to {\cf raise}
-or {\cf raise-continuable}, except that the current
-exception handler is that of the {\cf guard} expression.
+``raise-continuable`` is invoked on the raised object within the dynamic
+environment of the original call to ``raise``
+or ``raise-continuable``, except that the current
+exception handler is that of the ``guard`` expression.
 
 
 See section~\ref{exceptionsection} for a more complete discussion of
@@ -1322,8 +1322,8 @@ inserted in place of the comma at-sign expression sequence.  A comma
 at-sign normally appears only within a list or vector \hyper{qq template}.
 
 \begin{note}
-In order to unquote an identifier beginning with {\cf @}, it is necessary
-to use either an explicit {\cf unquote} or to put whitespace after the comma,
+In order to unquote an identifier beginning with ``@``, it is necessary
+to use either an explicit ``unquote`` or to put whitespace after the comma,
 to avoid colliding with the comma at-sign sequence.
 \end{note}
 
@@ -1333,7 +1333,7 @@ to avoid colliding with the comma at-sign sequence.
           \lev  (list a (quote a))
 `(a ,(+ 1 2) ,@(map abs '(4 -5 6)) b)
           \lev  (a 3 4 5 6 b)
-`(({\cf foo} ,(- 10 3)) ,@(cdr '(c)) . ,(car '(cons)))
+`((``foo`` ,(- 10 3)) ,@(cdr '(c)) . ,(car '(cons)))
           \lev  ((foo 7) . cons)
 `#(10 5 ,(sqrt 4) ,@(map sqrt '(16 9)) 8)
           \lev  #(10 5 2 4 3 8)
@@ -1385,9 +1385,9 @@ However, it is not equivalent to this expression:
 The two notations
  \backquote\hyper{qq template} and {\tt (quasiquote \hyper{qq template})}
  are identical in all respects.
- {\cf,\hyper{expression}} is identical to {\cf (unquote \hyper{expression})},
+ {\cf,\hyper{expression}} is identical to ``(unquote \hyper{expression``)},
  and
- {\cf,@\hyper{expression}} is identical to {\cf (unquote-splicing \hyper{expression})}.
+ {\cf,@\hyper{expression}} is identical to ``(unquote-splicing \hyper{expression``)}.
 The \ide{write} procedure may output either format.
 \mainschindex{`}
 
@@ -1400,8 +1400,8 @@ The \ide{write} procedure may output either format.
 ```
 
 
-It is an error if any of the identifiers {\cf quasiquote}, {\cf unquote},
-or {\cf unquote-splicing} appear in positions within a \hyper{qq template}
+It is an error if any of the identifiers ``quasiquote``, ``unquote``,
+or ``unquote-splicing`` appear in positions within a \hyper{qq template}
 otherwise than as described above.
 
 \end{entry}
@@ -1418,7 +1418,7 @@ where \hyper{formals} and \hyper{body} have the same syntax
 as in a \lambdaexp.
 
 \semantics
-A {\cf case-lambda} expression evaluates to a procedure that accepts
+A ``case-lambda`` expression evaluates to a procedure that accepts
 a variable number of arguments and is lexically scoped in the same
 manner as a procedure resulting from a \lambdaexp. When the procedure
 is called, the first \hyper{clause} for which the arguments agree
@@ -1509,11 +1509,11 @@ Implementations may provide macro facilities of other types.
 ### 4.3.1. Binding constructs for syntactic keywords
 \label{bindsyntax}
 
-The {\cf let-syntax} and {\cf letrec-syntax} binding constructs are
-analogous to {\cf let} and {\cf letrec}, but they bind
+The ``let-syntax`` and ``letrec-syntax`` binding constructs are
+analogous to ``let`` and ``letrec``, but they bind
 syntactic keywords to macro transformers instead of binding variables
 to locations that contain values.  Syntactic keywords can also be
-bound globally or locally with {\cf define-syntax};
+bound globally or locally with ``define-syntax``;
 see section~\ref{define-syntax}.
 
 \begin{entry}{
@@ -1525,7 +1525,7 @@ see section~\ref{define-syntax}.
 ((\hyper{keyword} \hyper{transformer spec}) \dotsfoo)
 ```
 Each \hyper{keyword} is an identifier,
-each \hyper{transformer spec} is an instance of {\cf syntax-rules}, and
+each \hyper{transformer spec} is an instance of ``syntax-rules``, and
 \hyper{body} is a sequence of one or more definitions followed
 by one or more expressions.  It is an error
 for a \hyper{keyword} to appear more than once in the list of keywords
@@ -1534,7 +1534,7 @@ being bound.
 \semantics
 The \hyper{body} is expanded in the syntactic environment
 obtained by extending the syntactic environment of the
-{\cf let-syntax} expression with macros whose keywords are
+``let-syntax`` expression with macros whose keywords are
 the \hyper{keyword}s, bound to the specified transformers.
 Each binding of a \hyper{keyword} has \hyper{body} as its region.
 
@@ -1560,18 +1560,18 @@ Each binding of a \hyper{keyword} has \hyper{body} as its region.
 \proto{letrec-syntax}{ \hyper{bindings} \hyper{body}}{\exprtype}}
 
 \syntax
-Same as for {\cf let-syntax}.
+Same as for ``let-syntax``.
 
 \semantics
  The \hyper{body} is expanded in the syntactic environment obtained by
-extending the syntactic environment of the {\cf letrec-syntax}
+extending the syntactic environment of the ``letrec-syntax``
 expression with macros whose keywords are the
 \hyper{keyword}s, bound to the specified transformers.
 Each binding of a \hyper{keyword} has the \hyper{transformer spec}s
 as well as the \hyper{body} within its region,
 so the transformers can
 transcribe expressions into uses of the macros
-introduced by the {\cf letrec-syntax} expression.
+introduced by the ``letrec-syntax`` expression.
 
 ```
 (letrec-syntax
@@ -1645,19 +1645,19 @@ and a \hyper{template} is either an identifier, a constant, or one of the follow
 where an \hyper{element} is a \hyper{template} optionally
 followed by an \hyper{ellipsis}.
 An \hyper{ellipsis} is the identifier specified in the second form
-of {\cf syntax-rules}, or the default identifier {\cf ...}
+of ``syntax-rules``, or the default identifier ``...``
 (three consecutive periods) otherwise.\schindex{...}
 
-\semantics An instance of {\cf syntax-rules} produces a new macro
+\semantics An instance of ``syntax-rules`` produces a new macro
 transformer by specifying a sequence of hygienic rewrite rules.  A use
 of a macro whose keyword is associated with a transformer specified by
-{\cf syntax-rules} is matched against the patterns contained in the
+``syntax-rules`` is matched against the patterns contained in the
 \hyper{syntax rule}s, beginning with the leftmost \hyper{syntax rule}.
 When a match is found, the macro use is transcribed hygienically
 according to the template.
 
 An identifier appearing within a \hyper{pattern} can be an underscore
-({\cf \_}), a literal identifier listed in the list of \hyper{literal}s,
+(``\_``), a literal identifier listed in the list of \hyper{literal}s,
 or the \hyper{ellipsis}.
 All other identifiers appearing within a \hyper{pattern} are
 {\em pattern variables}.
@@ -1692,25 +1692,25 @@ case it is matched as a literal.
 More formally, an input expression $E$ matches a pattern $P$ if and only if:
 
 \begin{itemize}
-\item $P$ is an underscore ({\cf \_}).
+\item $P$ is an underscore (``\_``).
 
 \item $P$ is a non-literal identifier; or
 
 \item $P$ is a literal identifier and $E$ is an identifier with the same
       binding; or
 
-\item $P$ is a list {\cf ($P_1$ $\dots$ $P_n$)} and $E$ is a
+\item $P$ is a list ``($P_1$ $\dots$ $P_n$)`` and $E$ is a
       list of $n$
       elements that match $P_1$ through $P_n$, respectively; or
 
 \item $P$ is an improper list
-      {\cf ($P_1$ $P_2$ $\dots$ $P_n$ . $P_{n+1}$)}
+      ``($P_1$ $P_2$ $\dots$ $P_n$ . $P_{n+1``$)}
       and $E$ is a list or
       improper list of $n$ or more elements that match $P_1$ through $P_n$,
       respectively, and whose $n$th tail matches $P_{n+1}$; or
 
 \item $P$ is of the form
-      {\cf ($P_1$ $\dots$ $P_k$ $P_e$ \meta{ellipsis} $P_{m+1}$ \dotsfoo{} $P_n$)}
+      ``($P_1$ $\dots$ $P_k$ $P_e$ \meta{ellipsis`` $P_{m+1}$ \dotsfoo{} $P_n$)}
       where $E$ is
       a proper list of $n$ elements, the first $k$ of which match
       $P_1$ through $P_k$, respectively,
@@ -1718,7 +1718,7 @@ More formally, an input expression $E$ matches a pattern $P$ if and only if:
       whose remaining $n-m$ elements match $P_{m+1}$ through $P_n$; or
 
 \item $P$ is of the form
-      {\cf ($P_1$ $\dots$ $P_k$ $P_{e}$ \meta{ellipsis} $P_{m+1}$ \dotsfoo{} $P_n$ . $P_x$)}
+      ``($P_1$ $\dots$ $P_k$ $P_{e``$ \meta{ellipsis} $P_{m+1}$ \dotsfoo{} $P_n$ . $P_x$)}
       where $E$ is
       a list or improper list of $n$ elements, the first $k$ of which match
       $P_1$ through $P_k$,
@@ -1726,19 +1726,19 @@ More formally, an input expression $E$ matches a pattern $P$ if and only if:
       whose remaining $n-m$ elements match $P_{m+1}$ through $P_n$,
       and whose $n$th and final cdr matches $P_x$; or
 
-\item $P$ is a vector of the form {\cf #($P_1$ $\dots$ $P_n$)}
+\item $P$ is a vector of the form ``#($P_1$ $\dots$ $P_n$)``
       and $E$ is a vector
       of $n$ elements that match $P_1$ through $P_n$; or
 
 \item $P$ is of the form
-      {\cf #($P_1$ $\dots$ $P_k$ $P_{e}$ \meta{ellipsis} $P_{m+1}$ \dotsfoo $P_n$)}
+      ``#($P_1$ $\dots$ $P_k$ $P_{e``$ \meta{ellipsis} $P_{m+1}$ \dotsfoo $P_n$)}
       where $E$ is a vector of $n$
       elements the first $k$ of which match $P_1$ through $P_k$,
       whose next $m-k$ elements each match $P_e$,
       and whose remaining $n-m$ elements match $P_{m+1}$ through $P_n$; or
 
 \item $P$ is a constant and $E$ is equal to $P$ in the sense of
-      the {\cf equal?} procedure.
+      the ``equal?`` procedure.
 \end{itemize}
 
 It is an error to use a macro keyword, within the scope of its
@@ -1764,17 +1764,17 @@ or the identifier
 \hyper{ellipsis} are inserted into the output as literal identifiers.  If a
 literal identifier is inserted as a free identifier then it refers to the
 binding of that identifier within whose scope the instance of
-{\cf syntax-rules} appears.
+``syntax-rules`` appears.
 If a literal identifier is inserted as a bound identifier then it is
 in effect renamed to prevent inadvertent captures of free identifiers.
 
 A template of the form
-{\cf (\hyper{ellipsis} \hyper{template})} is identical to \hyper{template},
+``(\hyper{ellipsis`` \hyper{template})} is identical to \hyper{template},
 except that
 ellipses within the template have no special meaning.
 That is, any ellipses contained within \hyper{template} are
 treated as ordinary identifiers.
-In particular, the template {\cf (\hyper{ellipsis} \hyper{ellipsis})} produces
+In particular, the template ``(\hyper{ellipsis`` \hyper{ellipsis})} produces
 a single \hyper{ellipsis}.
 This allows syntactic abstractions to expand into code containing
 ellipses.
@@ -1801,9 +1801,9 @@ the following is not an error.
   (cond (\schtrue => 'ok)))           \ev ok
 ```
 
-The macro transformer for {\cf cond} recognizes {\cf =>}
+The macro transformer for ``cond`` recognizes ``=>``
 as a local variable, and hence an expression, and not as the
-base identifier {\cf =>}, which the macro transformer treats
+base identifier ``=>``, which the macro transformer treats
 as a syntactic keyword.  Thus the example expands into
 
 ```
@@ -1830,10 +1830,10 @@ which would result in an invalid procedure call.
 \pproto{(syntax-error \hyper{message} \hyper{args} \dotsfoo)}{\exprtype}}
 \mainschindex{syntax-error}
 
-{\cf syntax-error} behaves similarly to {\cf error} (\ref{exceptionsection}) except that implementations
+``syntax-error`` behaves similarly to ``error`` (\ref{exceptionsection}) except that implementations
 with an expansion pass separate from evaluation should signal an error
-as soon as {\cf syntax-error} is expanded.  This can be used as
-a {\cf syntax-rules} \hyper{template} for a \hyper{pattern} that is
+as soon as ``syntax-error`` is expanded.  This can be used as
+a ``syntax-rules`` \hyper{template} for a \hyper{pattern} that is
 an invalid use of the macro, which can provide more descriptive error
 messages.  \hyper{message} is a string literal, and \hyper{args}
 arbitrary expressions providing additional information.
