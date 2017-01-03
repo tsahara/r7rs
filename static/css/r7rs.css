@@ -6,6 +6,11 @@ ul {
 	margin: 0;
 }
 
+span.editors {
+    font-style: italic;
+    font-variant: normal;
+}
+
 span.rnrs {
 	font-size: 75%;
 	vertical-align: super;

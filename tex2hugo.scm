@@ -26,7 +26,8 @@
 		       #/\\unsection/ ""
 		       #/\\vest / ""
 
-		       #/\\medskip/ "{{< medskip >}}"
+		       #/\\authorsc{(.*?)}/ "\\1"
+		       #/\\medskip/         "{{< medskip >}}"
 
 		       #/{\\cf (.*?)}/ "``\\1``"
 		       #/\\rthreers/ "{{< rnrs 3 >}}"
