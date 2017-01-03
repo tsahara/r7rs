@@ -130,7 +130,7 @@ in a lambda expression).  This form is equivalent to
   (lambda (\hyper{formals}) \hyper{body}))\rm.
 ```
 
-\item{\tt(define (\hyper{variable} .\ \hyper{formal}) \hyper{body})}
+\item{\tt(define (\hyper{variable} . \hyper{formal}) \hyper{body})}
 
 \hyper{Formal} is a single
 variable.  This form is equivalent to
@@ -149,14 +149,14 @@ At the outermost level of a program, a definition
 ```
 has essentially the same effect as the assignment expression
 ```
-(\ide{set!}\ \hyper{variable} \hyper{expression})
+(\ide{set!} \hyper{variable} \hyper{expression})
 ```
 if \hyper{variable} is bound to a non-syntax value.  However, if
 \hyper{variable} is not bound,
 or is a syntactic keyword,
 then the definition will bind
 \hyper{variable} to a new location before performing the assignment,
-whereas it would be an error to perform a ``set!``\ on an
+whereas it would be an error to perform a ``set!`` on an
 unbound\index{unbound} variable.
 
 ```

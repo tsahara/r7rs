@@ -42,12 +42,12 @@ provided as convenient abbreviations.
 ``append``                  ``apply``
 ``assoc``                   ``assq``
 ``assv``                    ``begin``
-``binary-port?\ ``           ``boolean=?``
-``boolean?\ ``               ``bytevector``
+``binary-port? ``           ``boolean=?``
+``boolean? ``               ``bytevector``
 ``bytevector-append``       ``bytevector-copy``
 ``bytevector-copy!``        ``bytevector-length``
 ``bytevector-u8-ref``       ``bytevector-u8-set!``
-``bytevector?\ ``            ``caar``
+``bytevector? ``            ``caar``
 ``cadr``
 ``call-with-current-continuation``
 ``call-with-port``          ``call-with-values``
@@ -55,12 +55,12 @@ provided as convenient abbreviations.
 ``case``                    ``cdar``
 ``cddr``                    ``cdr``
 ``ceiling``                 ``char->integer``
-``char-ready?\ ``            ``char<=?``
-``char<?\ ``                 ``char=?``
-``char>=?\ ``                ``char>?``
-``char?\ ``                  ``close-input-port``
+``char-ready? ``            ``char<=?``
+``char<? ``                 ``char=?``
+``char>=? ``                ``char>?``
+``char? ``                  ``close-input-port``
 ``close-output-port``       ``close-port``
-``complex?\ ``               ``cond``
+``complex? ``               ``cond``
 ``cond-expand``             ``cons``
 ``current-error-port``      ``current-input-port``
 ``current-output-port``     ``define``
@@ -68,13 +68,13 @@ provided as convenient abbreviations.
 ``define-values``           ``denominator``
 ``do``                      ``dynamic-wind``
 ``else``                    ``eof-object``
-``eof-object?\ ``            ``eq?``
-``equal?\ ``                 ``eqv?``
+``eof-object? ``            ``eq?``
+``equal? ``                 ``eqv?``
 ``error``                   ``error-object-irritants``
 ``error-object-message``    ``error-object?``
-``even?\ ``                  ``exact``
+``even? ``                  ``exact``
 ``exact-integer-sqrt``      ``exact-integer?``
-``exact?\ ``                 ``expt``
+``exact? ``                 ``expt``
 ``features``                ``file-error?``
 ``floor``                   ``floor-quotient``
 ``floor-remainder``         ``floor/``
@@ -83,9 +83,9 @@ provided as convenient abbreviations.
 ``get-output-string``       ``guard``
 ``if``                      ``include``
 ``include-ci``              ``inexact``
-``inexact?\ ``               ``input-port-open?``
-``input-port?\ ``            ``integer->char``
-``integer?\ ``               ``lambda``
+``inexact? ``               ``input-port-open?``
+``input-port? ``            ``integer->char``
+``integer? ``               ``lambda``
 ``lcm``                     ``length``
 ``let``                     ``let*``
 ``let*-values``             ``let-syntax``
@@ -101,25 +101,25 @@ provided as convenient abbreviations.
 ``max``                     ``member``
 ``memq``                    ``memv``
 ``min``                     ``modulo``
-``negative?\ ``              ``newline``
+``negative? ``              ``newline``
 ``not``                     ``null?``
 ``number->string``          ``number?``
 ``numerator``               ``odd?``
 ``open-input-bytevector``   ``open-input-string``
 ``open-output-bytevector``  ``open-output-string``
 ``or``                      ``output-port-open?``
-``output-port?\ ``           ``pair?``
+``output-port? ``           ``pair?``
 ``parameterize``            ``peek-char``
 ``peek-u8``                 ``port?``
-``positive?\ ``              ``procedure?``
+``positive? ``              ``procedure?``
 ``quasiquote``              ``quote``
 ``quotient``                ``raise``
 ``raise-continuable``       ``rational?``
 ``rationalize``             ``read-bytevector``
 ``read-bytevector!``        ``read-char``
-``read-error?\ ``            ``read-line``
+``read-error? ``            ``read-line``
 ``read-string``             ``read-u8``
-``real?\ ``                  ``remainder``
+``real? ``                  ``remainder``
 ``reverse``                 ``round``
 ``set!``                    ``set-car!``
 ``set-cdr!``                ``square``
@@ -131,15 +131,15 @@ provided as convenient abbreviations.
 ``string-for-each``         ``string-length``
 ``string-map``              ``string-ref``
 ``string-set!``             ``string<=?``
-``string<?\ ``               ``string=?``
-``string>=?\ ``              ``string>?``
-``string?\ ``                ``substring``
+``string<? ``               ``string=?``
+``string>=? ``              ``string>?``
+``string? ``                ``substring``
 ``symbol->string``          ``symbol=?``
-``symbol?\ ``                ``syntax-error``
+``symbol? ``                ``syntax-error``
 ``syntax-rules``            ``textual-port?``
 ``truncate``                ``truncate-quotient``
 ``truncate-remainder``      ``truncate/``
-``u8-ready?\ ``              ``unless``
+``u8-ready? ``              ``unless``
 ``unquote``                 ``unquote-splicing``
 ``utf8->string``            ``values``
 ``vector``                  ``vector->list``
@@ -148,7 +148,7 @@ provided as convenient abbreviations.
 ``vector-fill!``            ``vector-for-each``
 ``vector-length``           ``vector-map``
 ``vector-ref``              ``vector-set!``
-``vector?\ ``                ``when``
+``vector? ``                ``when``
 ``with-exception-handler``  ``write-bytevector``
 ``write-char``              ``write-string``
 ``write-u8``                ``zero?``
@@ -169,16 +169,16 @@ The \texttt{(scheme char)} library provides the procedures for dealing with
 characters that involve potentially large tables when supporting all of Unicode.
 
 ```
-``char-alphabetic?\ ``       ``char-ci<=?``
-``char-ci<?\ ``              ``char-ci=?``
-``char-ci>=?\ ``             ``char-ci>?``
+``char-alphabetic? ``       ``char-ci<=?``
+``char-ci<? ``              ``char-ci=?``
+``char-ci>=? ``             ``char-ci>?``
 ``char-downcase``           ``char-foldcase``
-``char-lower-case?\ ``       ``char-numeric?``
+``char-lower-case? ``       ``char-numeric?``
 ``char-upcase``             ``char-upper-case?``
-``char-whitespace?\ ``       ``digit-value``
-``string-ci<=?\ ``           ``string-ci<?``
-``string-ci=?\ ``            ``string-ci>=?``
-``string-ci>?\ ``            ``string-downcase``
+``char-whitespace? ``       ``digit-value``
+``string-ci<=? ``           ``string-ci<?``
+``string-ci=? ``            ``string-ci>=?``
+``string-ci>? ``            ``string-downcase``
 ``string-foldcase``         ``string-upcase``
 ```
 
@@ -254,8 +254,8 @@ typically only useful with inexact values.
 ``acos``                    ``asin``
 ``atan``                    ``cos``
 ``exp``                     ``finite?``
-``infinite?\ ``              ``log``
-``nan?\ ``                   ``sin``
+``infinite? ``              ``log``
+``nan? ``                   ``sin``
 ``sqrt``                    ``tan``
 ```
 
@@ -333,7 +333,7 @@ The \texttt{(scheme r5rs)} library provides the identifiers defined by
 {{< rnrs 5 >}}, except that
 ``transcript-on`` and ``transcript-off`` are not present.
 Note that
-the ``exact`` and ``inexact`` procedures appear under their {{< rnrs 5 >}}\ names
+the ``exact`` and ``inexact`` procedures appear under their {{< rnrs 5 >}} names
 ``inexact->exact`` and ``exact->inexact`` respectively.
 However, if an implementation does not provide a particular library such as the
 complex library, the corresponding identifiers will not appear in this
@@ -370,16 +370,16 @@ library either.
 ``cddddr``                  ``cdddr``
 ``cddr``                    ``cdr``
 ``ceiling``                 ``char->integer``
-``char-alphabetic?\ ``       ``char-ci<=?``
-``char-ci<?\ ``              ``char-ci=?``
-``char-ci>=?\ ``             ``char-ci>?``
+``char-alphabetic? ``       ``char-ci<=?``
+``char-ci<? ``              ``char-ci=?``
+``char-ci>=? ``             ``char-ci>?``
 ``char-downcase``           ``char-lower-case?``
-``char-numeric?\ ``          ``char-ready?``
+``char-numeric? ``          ``char-ready?``
 ``char-upcase``             ``char-upper-case?``
-``char-whitespace?\ ``       ``char<=?``
-``char<?\ ``                 ``char=?``
-``char>=?\ ``                ``char>?``
-``char?\ ``                  ``close-input-port``
+``char-whitespace? ``       ``char<=?``
+``char<? ``                 ``char=?``
+``char>=? ``                ``char>?``
+``char? ``                  ``close-input-port``
 ``close-output-port``       ``complex?``
 ``cond``                    ``cons``
 ``cos``                     ``current-input-port``
@@ -387,8 +387,8 @@ library either.
 ``define-syntax``           ``delay``
 ``denominator``             ``display``
 ``do``                      ``dynamic-wind``
-``eof-object?\ ``            ``eq?``
-``equal?\ ``                 ``eqv?``
+``eof-object? ``            ``eq?``
+``equal? ``                 ``eqv?``
 ``eval``                    ``even?``
 ``exact->inexact``          ``exact?``
 ``exp``                     ``expt``
@@ -396,8 +396,8 @@ library either.
 ``force``                   ``gcd``
 ``if``                      ``imag-part``
 ``inexact->exact``          ``inexact?``
-``input-port?\ ``            ``integer->char``
-``integer?\ ``               ``interaction-environment``
+``input-port? ``            ``integer->char``
+``integer? ``               ``interaction-environment``
 ``lambda``                  ``lcm``
 ``length``                  ``let``
 ``let*``                    ``let-syntax``
@@ -412,17 +412,17 @@ library either.
 ``max``                     ``member``
 ``memq``                    ``memv``
 ``min``                     ``modulo``
-``negative?\ ``              ``newline``
+``negative? ``              ``newline``
 ``not``                     ``null-environment``
-``null?\ ``                  ``number->string``
-``number?\ ``                ``numerator``
-``odd?\ ``                   ``open-input-file``
+``null? ``                  ``number->string``
+``number? ``                ``numerator``
+``odd? ``                   ``open-input-file``
 ``open-output-file``        ``or``
-``output-port?\ ``           ``pair?``
+``output-port? ``           ``pair?``
 ``peek-char``               ``positive?``
-``procedure?\ ``             ``quasiquote``
+``procedure? ``             ``quasiquote``
 ``quote``                   ``quotient``
-``rational?\ ``              ``rationalize``
+``rational? ``              ``rationalize``
 ``read``                    ``read-char``
 ``real-part``               ``real?``
 ``remainder``               ``reverse``
@@ -433,21 +433,21 @@ library either.
 ``sqrt``                    ``string``
 ``string->list``            ``string->number``
 ``string->symbol``          ``string-append``
-``string-ci<=?\ ``           ``string-ci<?``
-``string-ci=?\ ``            ``string-ci>=?``
-``string-ci>?\ ``            ``string-copy``
+``string-ci<=? ``           ``string-ci<?``
+``string-ci=? ``            ``string-ci>=?``
+``string-ci>? ``            ``string-copy``
 ``string-fill!``            ``string-length``
 ``string-ref``              ``string-set!``
-``string<=?\ ``              ``string<?``
-``string=?\ ``               ``string>=?``
-``string>?\ ``               ``string?``
+``string<=? ``              ``string<?``
+``string=? ``               ``string>=?``
+``string>? ``               ``string?``
 ``substring``               ``symbol->string``
-``symbol?\ ``                ``tan``
+``symbol? ``                ``tan``
 ``truncate``                ``values``
 ``vector``                  ``vector->list``
 ``vector-fill!``            ``vector-length``
 ``vector-ref``              ``vector-set!``
-``vector?\ ``                ``with-input-from-file``
+``vector? ``                ``with-input-from-file``
 ``with-output-to-file``     ``write``
 ``write-char``              ``zero?``
 ```

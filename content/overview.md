@@ -30,7 +30,7 @@ variables and expressions as well as with values.
 All objects created in the course of a Scheme computation, including
 procedures and continuations, have unlimited extent.
 No Scheme object is ever destroyed.  The reason that
-implementations of Scheme do not (usually!)\ run out of storage is that
+implementations of Scheme do not (usually!) run out of storage is that
 they are permitted to reclaim the storage occupied by an object if
 they can prove that the object cannot possibly matter to any future
 computation.

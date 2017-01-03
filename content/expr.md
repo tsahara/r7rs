@@ -95,7 +95,7 @@ themselves; they need not be quoted.
 
 As noted in section~\ref{storagemodel}, it is an error to attempt to alter a constant
 (i.e.~the value of a literal expression) using a mutation procedure like
-``set-car!``\ or ``string-set!``.
+``set-car!`` or ``string-set!``.
 
 \end{entry}
 
@@ -205,7 +205,7 @@ allocated list, and the list is stored in a fresh location
 that is bound to
 \hyper{variable}.
 
-\item {\tt(\hyperi{variable} \dotsfoo{} \hyper{variable$_{n}$}\ {\bf.}\
+\item {\tt(\hyperi{variable} \dotsfoo{} \hyper{variable$_{n}$} {\bf.}\
 \hyper{variable$_{n+1}$})}:
 If a space-delimited period precedes the last variable, then
 the procedure takes $n$ or more arguments, where $n$ is the
@@ -273,7 +273,7 @@ unspecified.
 \semantics
 \hyper{Expression} is evaluated, and the resulting value is stored in
 the location to which \hyper{variable} is bound.  It is an error if \hyper{variable} is not
-bound either in some region\index{region} enclosing the ``set!``\ expression
+bound either in some region\index{region} enclosing the ``set!`` expression
 or else globally.
 The result of the ``set!`` expression is
 unspecified.

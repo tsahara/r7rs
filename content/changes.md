@@ -28,10 +28,10 @@ All standard identifiers are entirely in lower case.
 as a wildcard, which means it cannot be used as a syntax variable.
 It can still be used as a literal.
 
-\item The {{< rnrs 5 >}}\ procedures ``exact->inexact`` and ``inexact->exact``
-have been renamed to their {{< rnrs 6 >}}\ names, ``inexact`` and ``exact``,
+\item The {{< rnrs 5 >}} procedures ``exact->inexact`` and ``inexact->exact``
+have been renamed to their {{< rnrs 6 >}} names, ``inexact`` and ``exact``,
 respectively, as these names are shorter and more correct.
-The former names are still available in the {{< rnrs 5 >}}\ library.
+The former names are still available in the {{< rnrs 5 >}} library.
 
 \item The guarantee that string comparison (with ``string<?`` and the
 related predicates) is a lexicographical extension of character comparison
@@ -59,7 +59,7 @@ the "Revised$^5$ report"~\cite{R5RS}.
 
 \begin{itemize}
 
-\item Various minor ambiguities and unclarities in {{< rnrs 5 >}}\ have been cleaned up.
+\item Various minor ambiguities and unclarities in {{< rnrs 5 >}} have been cleaned up.
 
 \item Libraries have been added as a new program structure to improve
 encapsulation and sharing of code.  Some existing and new identifiers
@@ -68,7 +68,7 @@ Libraries can be imported into other libraries or main programs, with
 controlled exposure and renaming of identifiers.
 The contents of a library can be made conditional on the features of
 the implementation on which it is to be used.
-There is an {{< rnrs 5 >}}\ compatibility library.
+There is an {{< rnrs 5 >}} compatibility library.
 
 \item The expressions types ``include``, ``include-ci``, and ``cond-expand``
 have been added to the base library; they have the same semantics as the
@@ -126,7 +126,7 @@ labels; ``write-shared`` generates labels for all shared and circular
 structure.
 The ``display`` procedure must not loop on circular objects.
 
-\item The {{< rnrs 6 >}}\ procedure ``eof-object`` has been added.
+\item The {{< rnrs 6 >}} procedure ``eof-object`` has been added.
 Eof-objects are now required to be a disjoint type.
 
 \item Syntax definitions are now allowed wherever variable definitions are.
@@ -158,12 +158,12 @@ procedure, ``case-lambda`` has been added in its own library.
 \item The convenience conditionals ``when`` and ``unless`` have been added.
 
 \item The behavior of ``eqv?`` on inexact numbers now conforms to the
-{{< rnrs 6 >}}\ definition.
+{{< rnrs 6 >}} definition.
 
 \item When applied to procedures, ``eq?`` and ``eqv?`` are permitted to
 return different answers.
 
-\item The {{< rnrs 6 >}}\ procedures ``boolean=?`` and ``symbol=?`` have been added.
+\item The {{< rnrs 6 >}} procedures ``boolean=?`` and ``symbol=?`` have been added.
 
 \item Positive infinity, negative infinity, NaN, and negative inexact zero have been added
 to the numeric tower as inexact values with the written
@@ -225,7 +225,7 @@ shared structure.
 \item Strings and symbols now allow mnemonic and numeric escape
 sequences, and the list of named characters has been extended.
 
-\item The procedures ``file-exists?``\ and ``delete-file`` are available in the
+\item The procedures ``file-exists?`` and ``delete-file`` are available in the
 {\tt (scheme file)} library.
 
 \item An interface to the system environment, command line, and process exit status is
@@ -256,18 +256,18 @@ the "Revised$^6$ report"~\cite{R6RS} and its accompanying Standard Libraries doc
 {\em This list is not authoritative, and is possibly incomplete.}
 
 \begin{itemize}
-\item {{< rnrs 7 >}}\ libraries begin with the keyword ``define-library``
+\item {{< rnrs 7 >}} libraries begin with the keyword ``define-library``
 rather than ``library`` in order to make them syntactically
-distinguishable from {{< rnrs 6 >}}\ libraries.
-In {{< rnrs 7 >}}\ terms, the body of an {{< rnrs 6 >}}\ library consists
+distinguishable from {{< rnrs 6 >}} libraries.
+In {{< rnrs 7 >}} terms, the body of an {{< rnrs 6 >}} library consists
 of a single export declaration followed by a single import declaration,
 followed by commands and definitions.  In {{< rnrs 7 >}}, commands and
 definitions are not permitted directly within the body: they have to be be wrapped in a ``begin``
 library declaration.
 
-\item There is no direct {{< rnrs 6 >}}\ equivalent of the ``include``, ``include-ci``,
+\item There is no direct {{< rnrs 6 >}} equivalent of the ``include``, ``include-ci``,
 ``include-library-declarations``, or ``cond-expand`` library declarations.
-On the other hand, the {{< rnrs 7 >}}\ library syntax does not support phase or version specifications.
+On the other hand, the {{< rnrs 7 >}} library syntax does not support phase or version specifications.
 
 \item The grouping of standardized identifiers into libraries is different from the {{< rnrs 6 >}}\
 approach. In particular, procedures which are optional in {{< rnrs 5 >}}\, either expressly
@@ -278,11 +278,11 @@ Only the base library itself is an absolute requirement.
 
 \item Internal syntax definitions are allowed, but uses of a syntax form
 cannot appear before its definition; the ``even``/``odd`` example given in
-{{< rnrs 6 >}}\ is not allowed.
+{{< rnrs 6 >}} is not allowed.
 
-\item The {{< rnrs 6 >}}\ exception system was incorporated as-is, but the condition
-types have been left unspecified.  In particular, where {{< rnrs 6 >}}\ requires
-a condition of a specified type to be signaled, {{< rnrs 7 >}}\ says only
+\item The {{< rnrs 6 >}} exception system was incorporated as-is, but the condition
+types have been left unspecified.  In particular, where {{< rnrs 6 >}} requires
+a condition of a specified type to be signaled, {{< rnrs 7 >}} says only
 "it is an error", leaving the question of signaling open.
 
 \item Full Unicode support is not required.
@@ -293,9 +293,9 @@ Non-Unicode characters are permitted.
 
 \item The full numeric tower is optional as in {{< rnrs 5 >}}, but optional support for IEEE
 infinities, NaN, and {\mbox -0.0} was adopted from {{< rnrs 6 >}}. Most clarifications on
-numeric results were also adopted, but the {{< rnrs 6 >}}\ procedures ``real-valued?``,
+numeric results were also adopted, but the {{< rnrs 6 >}} procedures ``real-valued?``,
 ``rational-valued?``, and ``integer-valued``? were not.
-The {{< rnrs 6 >}}\ division operators ``div``, ``mod``, ``div-and-mod``, {\cf
+The {{< rnrs 6 >}} division operators ``div``, ``mod``, ``div-and-mod``, {\cf
 div0}, ``mod0`` and ``div0-and-mod0`` are not provided.
 
 \item When a result is unspecified, it is still required to be a single value.

@@ -42,8 +42,8 @@ A \defining{predicate} is a procedure that always returns a boolean
 value (\schtrue{} or \schfalse).  An \defining{equivalence predicate} is
 the computational analogue of a mathematical equivalence relation; it is
 symmetric, reflexive, and transitive.  Of the equivalence predicates
-described in this section, ``eq?``\ is the finest or most
-discriminating, ``equal?``\ is the coarsest, and ``eqv?``\ is
+described in this section, ``eq?`` is the finest or most
+discriminating, ``equal?`` is the coarsest, and ``eqv?`` is
 slightly less discriminating than ``eq?``.
 
 
@@ -166,7 +166,7 @@ boolean.
 Note that ``(eqv? 0.0 -0.0)`` will return \schfalse{} if negative zero
 is distinguished, and \schtrue{} if negative zero is not distinguished.
 
-The next set of examples shows the use of ``eqv?``\ with procedures
+The next set of examples shows the use of ``eqv?`` with procedures
 that have local state.  The ``gen-counter`` procedure must return a distinct
 procedure every time, since each procedure has its own internal counter.
 The ``gen-loser`` procedure, however, returns operationally equivalent procedures each time, since
@@ -235,15 +235,15 @@ inexact numbers for bitwise equality is correct by the above definition.
 \begin{entry}{
 \proto{eq?}{ \vari{obj} \varii{obj}}{procedure}}
 
-The ``eq?``\ procedure is similar to ``eqv?``\ except that in some cases it is
+The ``eq?`` procedure is similar to ``eqv?`` except that in some cases it is
 capable of discerning distinctions finer than those detectable by
-``eqv?``.  It must always return \schfalse{} when ``eqv?``\ also
-would, but may return \schfalse{} in some cases where ``eqv?``\ would return \schtrue{}.
+``eqv?``.  It must always return \schfalse{} when ``eqv?`` also
+would, but may return \schfalse{} in some cases where ``eqv?`` would return \schtrue{}.
 
 On symbols, booleans, the empty list, pairs, and records,
 and also on non-empty
-strings, vectors, and bytevectors, ``eq?``\ and ``eqv?``\ are guaranteed to have the same
-behavior.  On procedures, ``eq?``\ must return true if the arguments' location
+strings, vectors, and bytevectors, ``eq?`` and ``eqv?`` are guaranteed to have the same
+behavior.  On procedures, ``eq?`` must return true if the arguments' location
 tags are equal.  On numbers and characters, ``eq?``'s behavior is
 implementation-dependent, but it will always return either true or
 false.  On empty strings, empty vectors, and empty bytevectors, ``eq?`` may also behave
@@ -270,11 +270,11 @@ differently from ``eqv?``.
 ```
 
 
-\begin{rationale} It will usually be possible to implement ``eq?``\ much
+\begin{rationale} It will usually be possible to implement ``eq?`` much
 more efficiently than ``eqv?``, for example, as a simple pointer
 comparison instead of as some more complicated operation.  One reason is
-that it is not always possible to compute ``eqv?``\ of two numbers in
-constant time, whereas ``eq?``\ implemented as pointer comparison will
+that it is not always possible to compute ``eqv?`` of two numbers in
+constant time, whereas ``eq?`` implemented as pointer comparison will
 always finish in constant time.
 \end{rationale}
 
@@ -297,7 +297,7 @@ may return either \schtrue{} or \schfalse{}.
 %% and their correspondingly named fields are ``equal?``.
 
 Even if its arguments are
-circular data structures, ``equal?``\ must always terminate.
+circular data structures, ``equal?`` must always terminate.
 
 ```
 (equal? 'a 'a)                  \ev  \schtrue
@@ -345,7 +345,7 @@ and Scheme numbers.
 Mathematically, numbers are arranged into a tower of subtypes
 in which each level is a subset of the level above it:
 \begin{tabbing}
-\ \ \ \ \ \ \ \ \ \=\tupe{number} \\
+         \=\tupe{number} \\
 \> \tupe{complex number} \\
 \> \tupe{real number} \\
 \> \tupe{rational number} \\
@@ -1329,7 +1329,7 @@ These procedures implement the natural one-to-one correspondence between
 implementation-dependent range.  See section~\ref{restrictions}.
 
 \begin{note}
-These procedures were known in {{< rnrs 5 >}}\ as ``exact->inexact`` and
+These procedures were known in {{< rnrs 5 >}} as ``exact->inexact`` and
 ``inexact->exact``, respectively, but they have always accepted
 arguments of any exactness.  The new names are clearer and shorter,
 as well as being compatible with {{< rnrs 6 >}}.
@@ -1428,7 +1428,7 @@ The rules used by a particular implementation for ``string->number`` must
 also be applied to ``read`` and to the routine that reads programs, in
 order to maintain consistency between internal numeric processing, I/O,
 and the processing of programs.
-As a consequence, the {{< rnrs 5 >}}\ permission to return \schfalse{} when
+As a consequence, the {{< rnrs 5 >}} permission to return \schfalse{} when
 \var{string} has an explicit radix prefix has been withdrawn.
 \end{note}
 
@@ -1518,7 +1518,7 @@ record structure with two fields called the car and cdr fields (for
 historical reasons).  Pairs are created by the procedure ``cons``.
 The car and cdr fields are accessed by the procedures ``car`` and
 ``cdr``.  The car and cdr fields are assigned by the procedures
-``set-car!``\ and ``set-cdr!``.
+``set-car!`` and ``set-cdr!``.
 
 Pairs are used primarily to represent lists.  A \defining{list} can
 be defined recursively as either the empty list\index{empty list} or a pair whose
@@ -1546,10 +1546,10 @@ terminated by the empty list.
 \end{note}
 
 The most general notation (external representation) for Scheme pairs is
-the "dotted" notation \hbox``(\vari{c`` .\ \varii{c})} where
+the "dotted" notation \hbox``(\vari{c`` . \varii{c})} where
 \vari{c} is the value of the car field and \varii{c} is the value of the
-cdr field.  For example ``(4 .\ 5)`` is a pair whose car is 4 and whose
-cdr is 5.  Note that ``(4 .\ 5)`` is the external representation of a
+cdr field.  For example ``(4 . 5)`` is a pair whose car is 4 and whose
+cdr is 5.  Note that ``(4 . 5)`` is the external representation of a
 pair, not an expression that evaluates to a pair.
 
 A more streamlined notation can be used for lists: the elements of the
@@ -1916,7 +1916,7 @@ These procedures return the first sublist of \var{list} whose car is
 returned by {\tt (list-tail \var{list} \var{k})} for \var{k} less
 than the length of \var{list}.  If
 \var{obj} does not occur in \var{list}, then \schfalse{} (not the empty list) is
-returned.  The ``memq`` procedure uses ``eq?``\ to compare \var{obj} with the elements of
+returned.  The ``memq`` procedure uses ``eq?`` to compare \var{obj} with the elements of
 \var{list}, while ``memv`` uses ``eqv?`` and
 ``member`` uses \var{compare}, if given, and ``equal?`` otherwise.
 
@@ -1948,8 +1948,8 @@ pairs.}
 These procedures find the first pair in \var{alist} whose car field is \var{obj},
 and returns that pair.  If no pair in \var{alist} has \var{obj} as its
 car, then \schfalse{} (not the empty list) is returned.  The ``assq`` procedure uses
-``eq?``\ to compare \var{obj} with the car fields of the pairs in \var{alist},
-while ``assv`` uses ``eqv?``\ and ``assoc`` uses \var{compare} if given
+``eq?`` to compare \var{obj} with the car fields of the pairs in \var{alist},
+while ``assv`` uses ``eqv?`` and ``assoc`` uses \var{compare} if given
 and ``equal?`` otherwise.
 
 ```
@@ -2200,9 +2200,9 @@ These predicates are required to be transitive.
 \proto{char-ci<=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{char library procedure}
 \proto{char-ci>=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{char library procedure}}
 
-These procedures are similar to ``char=?``\ et cetera, but they treat
+These procedures are similar to ``char=?`` et cetera, but they treat
 upper case and lower case letters as the same.  For example, {\cf
-(char-ci=?\ #\backwhack{}A #\backwhack{}a)} returns \schtrue.
+(char-ci=? #\backwhack{}A #\backwhack{}a)} returns \schtrue.
 
 Specifically, these procedures behave as if ``char-foldcase`` were
 applied to their arguments before they were compared.
@@ -2475,7 +2475,7 @@ These procedures compare strings in an implementation-defined way.
 One approach is to make them the lexicographic extensions to strings of
 the corresponding orderings on characters.  In that case, ``string<?``\
 would be the lexicographic ordering on strings induced by the ordering
-``char<?``\ on characters, and if the two strings differ in length but
+``char<?`` on characters, and if the two strings differ in length but
 are the same up to the length of the shorter string, the shorter string
 would be considered to be lexicographically less than the longer string.
 However, it is also permitted to use the natural ordering imposed by the
@@ -2552,7 +2552,7 @@ returns a newly allocated string formed from the elements in the list
 In both procedures, order is preserved.
 ``string\coerce{``list}
 and ``list\coerce{``string} are
-inverses so far as ``equal?``\ is concerned.
+inverses so far as ``equal?`` is concerned.
 
 \end{entry}
 
@@ -3011,7 +3011,7 @@ flow of program execution in special ways.
 Procedures in this section that invoke procedure arguments
 always do so in the same dynamic environment as the call of the
 original procedure.
-The ``procedure?``\ predicate is also described here.
+The ``procedure?`` predicate is also described here.
 
 \begin{entry}{
 \proto{procedure?}{ obj}{procedure}}
@@ -3644,7 +3644,7 @@ If \var{version} is equal to ``5``,
 corresponding to {{< rnrs 5 >}},
 ``scheme-report-environment`` returns a specifier for an
 environment that contains only the bindings
-defined in the {{< rnrs 5 >}}\ library.
+defined in the {{< rnrs 5 >}} library.
 Implementations must support this value of \var{version}.
 
 Implementations may also support other values of \var{version}, in which
@@ -3669,7 +3669,7 @@ corresponding to {{< rnrs 5 >}},
 the ``null-environment`` procedure returns
 a specifier for an environment that contains only the
 bindings for all syntactic keywords
-defined in the {{< rnrs 5 >}}\ library.
+defined in the {{< rnrs 5 >}} library.
 Implementations must support this value of \var{version}.
 
 Implementations may also support other values of \var{version}, in which
@@ -4080,8 +4080,8 @@ returns \schtrue.
 The ``char-ready?`` procedure exists to make it possible for a program to
 accept characters from interactive ports without getting stuck waiting for
 input.  Any input editors associated with such ports must ensure that
-characters whose existence has been asserted by ``char-ready?``\ cannot
-be removed from the input.  If ``char-ready?``\ were to return \schfalse{} at end of
+characters whose existence has been asserted by ``char-ready?`` cannot
+be removed from the input.  If ``char-ready?`` were to return \schfalse{} at end of
 file, a port at end of file would be indistinguishable from an interactive
 port that has no ready characters.
 \end{rationale}
@@ -4131,7 +4131,7 @@ Returns \schtrue{} if a byte is ready on the binary input \var{port}
 and returns \schfalse{} otherwise.  If ``u8-ready?`` returns
 \schtrue{} then the next ``read-u8`` operation on the given
 \var{port} is guaranteed not to hang.  If the \var{port} is at end of
-file then ``u8-ready?``\ returns \schtrue.
+file then ``u8-ready?`` returns \schtrue.
 
 \end{entry}
 

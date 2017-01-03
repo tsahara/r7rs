@@ -80,13 +80,13 @@ containing the corresponding character.
 \meta{line ending} \: \meta{newline} \| \meta{return} \meta{newline}
 \> \| \meta{return}
 \meta{comment} \: ; \= $\langle$\rm all subsequent characters up to a
-		    \>\ \rm line ending$\rangle$\index{comment}
+		    \> \rm line ending$\rangle$\index{comment}
 \> \| \meta{nested comment}
 \> \| #; \meta{intertoken space} \meta{datum}
 \meta{nested comment} \: #| \= \meta{comment text}
 \> \arbno{\meta{comment cont}} |#
 \meta{comment text} \: \= $\langle$\rm character sequence not containing
-\>\ \rm {\tt #|} or {\tt |#}$\rangle$
+\> \rm {\tt #|} or {\tt |#}$\rangle$
 \meta{comment cont} \: \meta{nested comment} \meta{comment text}
 \meta{directive} \: #!fold-case \| #!no-fold-case
 \end{grammar}
@@ -235,7 +235,7 @@ successfully parses.  Note that any string that parses as an
 \>  \| \meta{character} \| \meta{string} \|  \meta{symbol} \| \meta{bytevector}
 \meta{symbol} \: \meta{identifier}
 \meta{compound datum} \: \meta{list} \| \meta{vector} \| \meta{abbreviation}
-\meta{list} \: (\arbno{\meta{datum}}) \| (\atleastone{\meta{datum}} .\ \meta{datum})
+\meta{list} \: (\arbno{\meta{datum}}) \| (\atleastone{\meta{datum}} . \meta{datum})
 \meta{abbreviation} \: \meta{abbrev prefix} \meta{datum}
 \meta{abbrev prefix} \: ' \| ` \| , \| ,@
 \meta{vector} \: #(\arbno{\meta{datum}})
@@ -271,7 +271,7 @@ from their libraries, and that none of them have been redefined or shadowed.
 
 \meta{lambda expression} \: (lambda \meta{formals} \meta{body})
 \meta{formals} \: (\arbno{\meta{identifier}}) \| \meta{identifier}
-\>  \| (\atleastone{\meta{identifier}} .\ \meta{identifier})
+\>  \| (\atleastone{\meta{identifier}} . \meta{identifier})
 \meta{body} \:  \arbno{\meta{definition}} \meta{sequence}
 \meta{sequence} \: \arbno{\meta{command}} \meta{expression}
 \meta{command} \: \meta{expression}
@@ -362,7 +362,7 @@ production rules.  Imagine a copy of the following rules for $D = 1, 2,
 \>    \| \meta{vector qq template $D$}
 \>    \| \meta{unquotation $D$}
 \meta{list qq template $D$} \: (\arbno{\meta{qq template or splice $D$}})
-\>    \| (\atleastone{\meta{qq template or splice $D$}} .\ \meta{qq template $D$})
+\>    \| (\atleastone{\meta{qq template or splice $D$}} . \meta{qq template $D$})
 \>    \| '\meta{qq template $D$}
 \>    \| \meta{quasiquotation $D+1$}
 \meta{vector qq template $D$} \: #(\arbno{\meta{qq template or splice $D$}})
@@ -386,7 +386,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \meta{transformer spec} \:
 \> (syntax-rules (\arbno{\meta{identifier}}) \arbno{\meta{syntax rule}})
 \> \| (syntax-rules \meta{identifier} (\arbno{\meta{identifier}})
-\> \> \ \ \arbno{\meta{syntax rule}})
+\> \>   \arbno{\meta{syntax rule}})
 \meta{syntax rule} \: (\meta{pattern} \meta{template})
 \meta{pattern} \: \meta{pattern identifier}
 \>  \| \meta{underscore}
@@ -394,7 +394,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \>  \| (\atleastone{\meta{pattern}} . \meta{pattern})
 \>  \| (\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}})
 \>  \| (\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}}
-\> \> \ \ . \meta{pattern})
+\> \>   . \meta{pattern})
 \>  \| #(\arbno{\meta{pattern}})
 \>  \| #(\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}})
 \>  \| \meta{pattern datum}
@@ -404,7 +404,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \>  \| \meta{number}
 \meta{template} \: \meta{pattern identifier}
 \>  \| (\arbno{\meta{template element}})
-\>  \| (\atleastone{\meta{template element}} .\ \meta{template})
+\>  \| (\atleastone{\meta{template element}} . \meta{template})
 \>  \| #(\arbno{\meta{template element}})
 \>  \| \meta{template datum}
 \meta{template element} \: \meta{template}
@@ -429,10 +429,10 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \>   \| \meta{syntax definition}
 \>   \| (define-values \meta{formals} \meta{body})
 \>   \| (define-record-type \meta{identifier}
-\> \> \ \ \meta{constructor} \meta{identifier} \arbno{\meta{field spec}})
+\> \>   \meta{constructor} \meta{identifier} \arbno{\meta{field spec}})
 \>   \| (begin \arbno{\meta{definition}})
 \meta{def formals} \: \arbno{\meta{identifier}}
-\>   \| \arbno{\meta{identifier}} .\ \meta{identifier}
+\>   \| \arbno{\meta{identifier}} . \meta{identifier}
 \meta{constructor} \: (\meta{identifier} \arbno{\meta{field name}})
 \meta{field spec} \: (\meta{field name} \meta{accessor})
 \>   \| (\meta{field name} \meta{accessor} \meta{mutator})
@@ -458,7 +458,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \> \| (include-library-declarations \atleastone{\meta{string}})
 \> \| (cond-expand \atleastone{\meta{cond-expand clause}})
 \> \| (cond-expand \atleastone{\meta{cond-expand clause}}
-\hbox to 1\wd0{\hfill}\ (else \arbno{\meta{library declaration}}))
+\hbox to 1\wd0{\hfill} (else \arbno{\meta{library declaration}}))
 \meta{import declaration} \: (import \atleastone{\meta{import set}})
 \meta{export spec} \: \meta{identifier}
 \> \| (rename \meta{identifier} \meta{identifier})
@@ -596,7 +596,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.
 \begin{grammar}
 \Exp{} \goesto{} \K{} \| \I{} \| (\E$_0$ \arbno{\E})
  \copy1{} (lambda (\arbno{\I}) \arbno{\C} \E$_0$)
- \copy1{} (lambda (\arbno{\I} {\bf.}\ \I) \arbno{\C} \E$_0$)
+ \copy1{} (lambda (\arbno{\I} {\bf.} \I) \arbno{\C} \E$_0$)
  \copy1{} (lambda \I{} \arbno{\C} \E$_0$)
  \copy1{} (if \E$_0$ \E$_1$ \E$_2$) \| (if \E$_0$ \E$_1$)
  \copy1{} (set! \I{} \E)
@@ -704,7 +704,7 @@ Definition of \Ksem{} deliberately omitted.
 \end{semfun}
 
 \begin{semfun}
-\Esem\sembrack{\hbox{\texttt{(lambda (\arbno{\I} {\bf.}\ \I) \arbno{\C} $\E_0$)}}} =$\\
+\Esem\sembrack{\hbox{\texttt{(lambda (\arbno{\I} {\bf.} \I) \arbno{\C} $\E_0$)}}} =$\\
  \go{1}$\lambda\rho\omega\kappa\:.\:\lambda\sigma\:.\:$\\
   \go{2}$\fun{new}\:\sigma\:\elem\:\LOC\rightarrow$\\
    \go{3}$\fun{send}\:
@@ -731,7 +731,7 @@ Definition of \Ksem{} deliberately omitted.
 
 \begin{semfun}
 \Esem\sembrack{\hbox{\texttt{(lambda \I{} \arbno{\C} $\E_0$)}}} =
- \Esem\sembrack{\hbox{\texttt{(lambda ({\bf.}\ \I) \arbno{\C} $\E_0$)}}}
+ \Esem\sembrack{\hbox{\texttt{(lambda ({\bf.} \I) \arbno{\C} $\E_0$)}}}
 \end{semfun}
 
 \begin{semfun}

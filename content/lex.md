@@ -126,7 +126,7 @@ comment.\mainindex{comment}\mainschindex{;}  The comment continues to the
 end of the line on which the semicolon appears.
 
 Another way to indicate a comment is to prefix a \hyper{datum}
-(cf.\ section~\ref{datumsyntax}) with {\tt #;}\sharpindex{;} and optional
+(cf. section~\ref{datumsyntax}) with {\tt #;}\sharpindex{;} and optional
 \meta{whitespace}.  The comment consists of
 the comment prefix {\tt #;}, the space, and the \hyper{datum} together.  This
 notation is useful for "commenting out" sections of code.
@@ -156,7 +156,7 @@ section~\ref{numbersection}.
 
 \begin{description}{}{}
 
-\item[{\tt.\ + -}]
+\item[{\tt. + -}]
 These are used in numbers, and can also occur anywhere in an identifier.
 A delimited plus or minus sign by itself
 is also an identifier.

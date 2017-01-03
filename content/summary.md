@@ -8,7 +8,7 @@ menu = "main"
 The report gives a defining description of the programming language
 Scheme.  Scheme is a statically scoped and properly tail recursive
 dialect of the Lisp programming language~\cite{McCarthy} invented by Guy Lewis
-Steele~Jr.\ and Gerald Jay~Sussman.  It was designed to have
+Steele~Jr. and Gerald Jay~Sussman.  It was designed to have
 exceptionally clear and simple semantics and few different ways to
 form expressions.  A wide variety of programming paradigms, including
 imperative, functional, and object-oriented styles, find convenient
@@ -44,9 +44,9 @@ The report concludes with a list of references and an
 alphabetic index.
 
 \begin{note}
-The editors of the {{< rnrs 5 >}}\ and {{< rnrs 6 >}}\ reports are
+The editors of the {{< rnrs 5 >}} and {{< rnrs 6 >}} reports are
 listed as authors of this report in recognition of the substantial
-portions of this report that are copied directly from {{< rnrs 5 >}}\ and {{< rnrs 6 >}}.
+portions of this report that are copied directly from {{< rnrs 5 >}} and {{< rnrs 6 >}}.
 There is no intended implication that those editors, individually or
 collectively, support or do not support this report.
 \end{note}
