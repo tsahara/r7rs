@@ -37,7 +37,7 @@ provided as convenient abbreviations.
 ``/``                       ``<``
 ``<=``                      ``=``
 ``=>``                      ``>``
-``>=``                      ``\_``
+``>=``                      ``_``
 ``abs``                     ``and``
 ``append``                  ``apply``
 ``assoc``                   ``assq``

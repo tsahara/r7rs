@@ -2222,7 +2222,7 @@ numeric, whitespace, upper case, or lower case characters, respectively,
 otherwise they return \schfalse.
 
 Specifically, they must return \schtrue{} when applied to characters with
-the Unicode properties Alphabetic, Numeric\_Digit, White\_Space, Uppercase, and
+the Unicode properties Alphabetic, Numeric_Digit, White_Space, Uppercase, and
 Lowercase respectively, and \schfalse{} when applied to any other Unicode
 characters.  Note that many Unicode characters are alphabetic but neither
 upper nor lower case.
@@ -4414,7 +4414,7 @@ and communicates an exit value to the operating system
 in the same manner as ``exit``.
 
 \begin{note}
-The ``emergency-exit`` procedure corresponds to the ``\_exit`` procedure
+The ``emergency-exit`` procedure corresponds to the ``_exit`` procedure
 in Windows and Posix.
 \end{note}
 

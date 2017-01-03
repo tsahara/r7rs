@@ -1609,7 +1609,7 @@ A \hyper{transformer spec} has one of the following forms:
 \pproto{(syntax-rules \hyper{ellipsis} (\hyper{literal} \dotsfoo)}{\exprtype}
 {\tt\obeyspaces
 \hspace*{1em}\hyper{syntax rule} \dotsfoo)}\\
-\pproto{\_}{\auxiliarytype}
+\pproto{_}{\auxiliarytype}
 \pproto{\dotsfoo}{\auxiliarytype}}
 \mainschindex{_}
 
@@ -1657,7 +1657,7 @@ When a match is found, the macro use is transcribed hygienically
 according to the template.
 
 An identifier appearing within a \hyper{pattern} can be an underscore
-(``\_``), a literal identifier listed in the list of \hyper{literal}s,
+(``_``), a literal identifier listed in the list of \hyper{literal}s,
 or the \hyper{ellipsis}.
 All other identifiers appearing within a \hyper{pattern} are
 {\em pattern variables}.
@@ -1692,7 +1692,7 @@ case it is matched as a literal.
 More formally, an input expression $E$ matches a pattern $P$ if and only if:
 
 \begin{itemize}
-\item $P$ is an underscore (``\_``).
+\item $P$ is an underscore (``_``).
 
 \item $P$ is a non-literal identifier; or
 
@@ -1843,12 +1843,12 @@ exception handlers or guards.
 ```
 (define-syntax simple-let
   (syntax-rules ()
-    ((\_ (head ... ((x . y) val) . tail)
+    ((_ (head ... ((x . y) val) . tail)
         body1 body2 ...)
      (syntax-error
       "expected an identifier but got"
       (x . y)))
-    ((\_ ((name val) ...) body1 body2 ...)
+    ((_ ((name val) ...) body1 body2 ...)
      ((lambda (name ...) body1 body2 ...)
        val ...))))
 ```

@@ -24,7 +24,7 @@ can either be changed, be marked with the new ``#!fold-case`` directive,
 or be included in a library using the ``include-ci`` library declaration.
 All standard identifiers are entirely in lower case.
 
-\item The ``syntax-rules`` construct now recognizes {\em \_} (underscore)
+\item The ``syntax-rules`` construct now recognizes {\em _} (underscore)
 as a wildcard, which means it cannot be used as a syntax variable.
 It can still be used as a literal.
 

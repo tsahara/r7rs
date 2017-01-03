@@ -412,7 +412,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \meta{template datum} \: \meta{pattern datum}
 \meta{pattern identifier} \: \meta{any identifier except ``...``}
 \meta{ellipsis} \: \meta{an identifier defaulting to ``...``}
-\meta{underscore} \: \meta{the identifier ``\_``}
+\meta{underscore} \: \meta{the identifier ``_``}
 \end{grammar}
 
 ### 7.1.6. Programs and definitions
@@ -1394,12 +1394,12 @@ This could also be accomplished by using an auxiliary macro.
 (define-syntax \ide{letrec}
   (syntax-rules ()
     ((letrec ((var1 init1) ...) body ...)
-     (letrec "generate\_temp\_names"
+     (letrec "generate_temp_names"
        (var1 ...)
        ()
        ((var1 init1) ...)
        body ...))
-    ((letrec "generate\_temp\_names"
+    ((letrec "generate_temp_names"
        ()
        (temp1 ...)
        ((var1 init1) ...)
@@ -1409,12 +1409,12 @@ This could also be accomplished by using an auxiliary macro.
          (set! var1 temp1)
          ...
          body ...)))
-    ((letrec "generate\_temp\_names"
+    ((letrec "generate_temp_names"
        (x y ...)
        (temp ...)
        ((var1 init1) ...)
        body ...)
-     (letrec "generate\_temp\_names"
+     (letrec "generate_temp_names"
        (y ...)
        (newtemp temp ...)
        ((var1 init1) ...)
