@@ -50,18 +50,3 @@ portions of this report that are copied directly from {{< rnrs 5 >}} and {{< rnr
 There is no intended implication that those editors, individually or
 collectively, support or do not support this report.
 \end{note}
-
-
-
-\vfill
-\eject
-
-\chapter*{Contents}
-\addvspace{3.5pt}                  % don't shrink this gap
-\renewcommand{\tocshrink}{-3.5pt}  % value determined experimentally
-{\footnotesize
-\tableofcontents
-}
-
-\vfill
-\eject
