@@ -5,6 +5,7 @@
     <title>Standard procedures</title>
   </head>
   <body>
+    <div style="margin-top: 20px;" />
 
 
 <div>
@@ -97,11 +98,11 @@
 
 <p>This chapter describes Scheme&rsquo;s built-in procedures.</p>
 
-<p>The procedures {\cf force}, {\cf promise?}, and {\cf make-promise} are intimately associated
-with the expression types {\cf delay} and {\cf delay-force}, and are described
+<p>The procedures <code>force</code>, <code>promise?</code>, and <code>make-promise</code> are intimately associated
+with the expression types <code>delay</code> and <code>delay-force</code>, and are described
 with them in section~\ref{force}.  In the same way, the procedure
-{\cf make-parameter} is intimately associated with the expression type
-{\cf parameterize}, and is described with it in section~\ref{make-parameter}.</p>
+<code>make-parameter</code> is intimately associated with the expression type
+<code>parameterize</code>, and is described with it in section~\ref{make-parameter}.</p>
 
 <p>A program can use a global variable definition to bind any variable.  It may
 subsequently alter any such binding by an assignment (see
@@ -122,40 +123,40 @@ it means that the locations in the object are fresh.</p>
 value (\schtrue{} or \schfalse).  An \defining{equivalence predicate} is
 the computational analogue of a mathematical equivalence relation; it is
 symmetric, reflexive, and transitive.  Of the equivalence predicates
-described in this section, {\cf eq?}\ is the finest or most
-discriminating, {\cf equal?}\ is the coarsest, and {\cf eqv?}\ is
-slightly less discriminating than {\cf eq?}.</p>
+described in this section, <code>eq?</code> is the finest or most
+discriminating, <code>equal?</code> is the coarsest, and <code>eqv?</code> is
+slightly less discriminating than <code>eq?</code>.</p>
 
 <p>\begin{entry}{
 \proto{eqv?}{ \vari{obj} \varii{obj}}{procedure}}</p>
 
-<p>The {\cf eqv?} procedure defines a useful equivalence relation on objects.
+<p>The <code>eqv?</code> procedure defines a useful equivalence relation on objects.
 Briefly, it returns \schtrue{} if \vari{obj} and \varii{obj} are
 normally regarded as the same object.  This relation is left slightly
 open to interpretation, but the following partial specification of
-{\cf eqv?} holds for all implementations of Scheme.</p>
+<code>eqv?</code> holds for all implementations of Scheme.</p>
 
-<p>The {\cf eqv?} procedure returns \schtrue{} if:</p>
+<p>The <code>eqv?</code> procedure returns \schtrue{} if:</p>
 
 <p>\begin{itemize}
 \item \vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.</p>
 
 <p>\item \vari{obj} and \varii{obj} are both symbols and are the same
-symbol according to the {\cf symbol=?} procedure
+symbol according to the <code>symbol=?</code> procedure
 (section~\ref{symbolsection}).</p>
 
 <p>\item \vari{obj} and \varii{obj} are both exact numbers and
-are numerically equal (in the sense of {\cf =}).</p>
+are numerically equal (in the sense of <code>=</code>).</p>
 
 <p>\item \vari{obj} and \varii{obj} are both inexact numbers such that
-they are numerically equal (in the sense of {\cf =})
-and they yield the same results (in the sense of {\cf eqv?})
+they are numerically equal (in the sense of <code>=</code>)
+and they yield the same results (in the sense of <code>eqv?</code>)
 when passed as arguments to any other procedure
 that can be defined as a finite composition of Scheme&rsquo;s standard
 arithmetic procedures, provided it does not result in a NaN value.</p>
 
 <p>\item \vari{obj} and \varii{obj} are both characters and are the same
-character according to the {\cf char=?} procedure
+character according to the <code>char=?</code> procedure
 (section~\ref{charactersection}).</p>
 
 <p>\item \vari{obj} and \varii{obj} are both the empty list.</p>
@@ -168,7 +169,7 @@ or strings that denote the same location in the store
 equal (section~\ref{lambda}).
 \end{itemize}</p>
 
-<p>The {\cf eqv?} procedure returns \schfalse{} if:</p>
+<p>The <code>eqv?</code> procedure returns \schfalse{} if:</p>
 
 <p>\begin{itemize}
 \item \vari{obj} and \varii{obj} are of different types
@@ -178,25 +179,25 @@ equal (section~\ref{lambda}).
 \schfalse{}.</p>
 
 <p>\item \vari{obj} and \varii{obj} are symbols but are not the same
-symbol according to the {\cf symbol=?} procedure
+symbol according to the <code>symbol=?</code> procedure
 (section~\ref{symbolsection}).</p>
 
 <p>\item one of \vari{obj} and \varii{obj} is an exact number but the other
 is an inexact number.</p>
 
 <p>\item \vari{obj} and \varii{obj} are both exact numbers and
-are numerically unequal (in the sense of {\cf =}).</p>
+are numerically unequal (in the sense of <code>=</code>).</p>
 
 <p>\item \vari{obj} and \varii{obj} are both inexact numbers such that either
-they are numerically unequal (in the sense of {\cf =}),
-or they do not yield the same results (in the sense of {\cf eqv?})
+they are numerically unequal (in the sense of <code>=</code>),
+or they do not yield the same results (in the sense of <code>eqv?</code>)
 when passed as arguments to any other procedure
 that can be defined as a finite composition of Scheme&rsquo;s standard
 arithmetic procedures, provided it does not result in a NaN value.
-As an exception, the behavior of {\cf eqv?} is unspecified
+As an exception, the behavior of <code>eqv?</code> is unspecified
 when both \vari{obj} and \varii{obj} are NaN.</p>
 
-<p>\item \vari{obj} and \varii{obj} are characters for which the {\cf char=?}
+<p>\item \vari{obj} and \varii{obj} are characters for which the <code>char=?</code>
 procedure returns \schfalse{}.</p>
 
 <p>\item one of \vari{obj} and \varii{obj} is the empty list but the other
@@ -226,8 +227,8 @@ or strings that denote distinct locations.</p>
 </code></pre>
 
 <p>The following examples illustrate cases in which the above rules do
-not fully specify the behavior of {\cf eqv?}.  All that can be said
-about such cases is that the value returned by {\cf eqv?} must be a
+not fully specify the behavior of <code>eqv?</code>.  All that can be said
+about such cases is that the value returned by <code>eqv?</code> must be a
 boolean.</p>
 
 <pre><code>(eqv? &quot;&quot; &quot;&quot;)             \ev  \unspecified
@@ -240,15 +241,15 @@ boolean.</p>
 (eqv? +nan.0 +nan.0)     \ev  \unspecified
 </code></pre>
 
-<p>Note that {\cf (eqv? 0.0 -0.0)} will return \schfalse{} if negative zero
+<p>Note that <code>(eqv? 0.0 -0.0)</code> will return \schfalse{} if negative zero
 is distinguished, and \schtrue{} if negative zero is not distinguished.</p>
 
-<p>The next set of examples shows the use of {\cf eqv?}\ with procedures
-that have local state.  The {\cf gen-counter} procedure must return a distinct
+<p>The next set of examples shows the use of <code>eqv?</code> with procedures
+that have local state.  The <code>gen-counter</code> procedure must return a distinct
 procedure every time, since each procedure has its own internal counter.
-The {\cf gen-loser} procedure, however, returns operationally equivalent procedures each time, since
+The <code>gen-loser</code> procedure, however, returns operationally equivalent procedures each time, since
 the local state does not affect the value or side effects of the
-procedures.  However, {\cf eqv?} may or may not detect this equivalence.</p>
+procedures.  However, <code>eqv?</code> may or may not detect this equivalence.</p>
 
 <pre><code>(define gen-counter
   (lambda ()
@@ -281,7 +282,7 @@ procedures.  However, {\cf eqv?} may or may not detect this equivalence.</p>
 <p>Since it is an error to modify constant objects (those returned by
 literal expressions), implementations may
 share structure between constants where appropriate.  Thus
-the value of {\cf eqv?} on constants is sometimes
+the value of <code>eqv?</code> on constants is sometimes
 implementation-dependent.</p>
 
 <pre><code>(eqv? '(a) '(a))                 \ev  \unspecified
@@ -291,7 +292,7 @@ implementation-dependent.</p>
   (eqv? x x))                    \ev  \schtrue
 </code></pre>
 
-<p>The above definition of {\cf eqv?} allows implementations latitude in
+<p>The above definition of <code>eqv?</code> allows implementations latitude in
 their treatment of procedures and literals:  implementations may
 either detect or fail to detect that two procedures or two literals
 are equivalent to each other, and can decide whether or not to
@@ -300,7 +301,7 @@ bit pattern to represent both.</p>
 
 <p>\begin{note}
 If inexact numbers are represented as IEEE binary floating-point numbers,
-then an implementation of {\cf eqv?} that simply compares equal-sized
+then an implementation of <code>eqv?</code> that simply compares equal-sized
 inexact numbers for bitwise equality is correct by the above definition.
 \end{note}</p>
 
@@ -309,19 +310,19 @@ inexact numbers for bitwise equality is correct by the above definition.
 <p>\begin{entry}{
 \proto{eq?}{ \vari{obj} \varii{obj}}{procedure}}</p>
 
-<p>The {\cf eq?}\ procedure is similar to {\cf eqv?}\ except that in some cases it is
+<p>The <code>eq?</code> procedure is similar to <code>eqv?</code> except that in some cases it is
 capable of discerning distinctions finer than those detectable by
-{\cf eqv?}.  It must always return \schfalse{} when {\cf eqv?}\ also
-would, but may return \schfalse{} in some cases where {\cf eqv?}\ would return \schtrue{}.</p>
+<code>eqv?</code>.  It must always return \schfalse{} when <code>eqv?</code> also
+would, but may return \schfalse{} in some cases where <code>eqv?</code> would return \schtrue{}.</p>
 
 <p>On symbols, booleans, the empty list, pairs, and records,
 and also on non-empty
-strings, vectors, and bytevectors, {\cf eq?}\ and {\cf eqv?}\ are guaranteed to have the same
-behavior.  On procedures, {\cf eq?}\ must return true if the arguments&rsquo; location
-tags are equal.  On numbers and characters, {\cf eq?}&rsquo;s behavior is
+strings, vectors, and bytevectors, <code>eq?</code> and <code>eqv?</code> are guaranteed to have the same
+behavior.  On procedures, <code>eq?</code> must return true if the arguments&rsquo; location
+tags are equal.  On numbers and characters, <code>eq?</code>&rsquo;s behavior is
 implementation-dependent, but it will always return either true or
-false.  On empty strings, empty vectors, and empty bytevectors, {\cf eq?} may also behave
-differently from {\cf eqv?}.</p>
+false.  On empty strings, empty vectors, and empty bytevectors, <code>eq?</code> may also behave
+differently from <code>eqv?</code>.</p>
 
 <pre><code>(eq? 'a 'a)                     \ev  \schtrue
 (eq? '(a) '(a))                 \ev  \unspecified
@@ -342,11 +343,11 @@ differently from {\cf eqv?}.</p>
   (eq? p p))      \ev  \schtrue
 </code></pre>
 
-<p>\begin{rationale} It will usually be possible to implement {\cf eq?}\ much
-more efficiently than {\cf eqv?}, for example, as a simple pointer
+<p>\begin{rationale} It will usually be possible to implement <code>eq?</code> much
+more efficiently than <code>eqv?</code>, for example, as a simple pointer
 comparison instead of as some more complicated operation.  One reason is
-that it is not always possible to compute {\cf eqv?}\ of two numbers in
-constant time, whereas {\cf eq?}\ implemented as pointer comparison will
+that it is not always possible to compute <code>eqv?</code> of two numbers in
+constant time, whereas <code>eq?</code> implemented as pointer comparison will
 always finish in constant time.
 \end{rationale}</p>
 
@@ -355,20 +356,20 @@ always finish in constant time.
 <p>\begin{entry}{
 \proto{equal?}{ \vari{obj} \varii{obj}}{procedure}}</p>
 
-<p>The {\cf equal?} procedure, when applied to pairs, vectors, strings and
+<p>The <code>equal?</code> procedure, when applied to pairs, vectors, strings and
 bytevectors, recursively compares them, returning \schtrue{} when the
 unfoldings of its arguments into (possibly infinite) trees are equal
-(in the sense of {\cf equal?})
+(in the sense of <code>equal?</code>)
 as ordered trees, and \schfalse{} otherwise.  It returns the same as
-{\cf eqv?} when applied to booleans, symbols, numbers, characters,
-ports, procedures, and the empty list.  If two objects are {\cf eqv?},
-they must be {\cf equal?} as well.  In all other cases, {\cf equal?}
+<code>eqv?</code> when applied to booleans, symbols, numbers, characters,
+ports, procedures, and the empty list.  If two objects are <code>eqv?</code>,
+they must be <code>equal?</code> as well.  In all other cases, <code>equal?</code>
 may return either \schtrue{} or \schfalse{}.
-%% Note that records are {\cf equal?} if their record types are the same
-%% and their correspondingly named fields are {\cf equal?}.</p>
+%% Note that records are <code>equal?</code> if their record types are the same
+%% and their correspondingly named fields are <code>equal?</code>.</p>
 
 <p>Even if its arguments are
-circular data structures, {\cf equal?}\ must always terminate.</p>
+circular data structures, <code>equal?</code> must always terminate.</p>
 
 <pre><code>(equal? 'a 'a)                  \ev  \schtrue
 (equal? '(a) '(a))              \ev  \schtrue
@@ -385,7 +386,7 @@ circular data structures, {\cf equal?}\ must always terminate.</p>
 </code></pre>
 
 <p>\begin{note}
-A rule of thumb is that objects are generally {\cf equal?} if they print
+A rule of thumb is that objects are generally <code>equal?</code> if they print
 the same.
 \end{note}</p>
 
@@ -414,7 +415,7 @@ and Scheme numbers.</p>
 <p>Mathematically, numbers are arranged into a tower of subtypes
 in which each level is a subset of the level above it:
 \begin{tabbing}
-\ \ \ \ \ \ \ \ \ \=\tupe{number} <br />
+         \=\tupe{number} <br />
 &gt; \tupe{complex number} <br />
 &gt; \tupe{real number} <br />
 &gt; \tupe{rational number} <br />
@@ -472,13 +473,13 @@ since approximate methods such as floating-point arithmetic may be used,
 but it is the duty of each implementation to make the result as close as
 practical to the mathematically ideal result.</p>
 
-<p>Rational operations such as {\cf +} should always produce
+<p>Rational operations such as <code>+</code> should always produce
 \tupe{exact} results when given \tupe{exact} arguments.
 If the operation is unable to produce an \tupe{exact} result,
 then it may either report the violation of an implementation restriction
 or it may silently coerce its
 result to an \tupe{inexact} value.
-However, {\cf (/~3~4)} must not return the mathematically incorrect value {\cf 0}.
+However, <code>(/~3~4)</code> must not return the mathematically incorrect value <code>0</code>.
 See section~\ref{restrictions}.</p>
 
 <p>Except for \ide{exact}, the operations described in
@@ -489,8 +490,8 @@ arguments.  For example, multiplication of any number by an \tupe{exact} zero
 may produce an \tupe{exact} zero result, even if the other argument is
 \tupe{inexact}.</p>
 
-<p>Specifically, the expression {\cf (* 0 +inf.0)} may return {\cf 0},
-or {\cf +nan.0}, or report that inexact numbers are not supported,
+<p>Specifically, the expression <code>(* 0 +inf.0)</code> may return <code>0</code>,
+or <code>+nan.0</code>, or report that inexact numbers are not supported,
 or report that non-rational real numbers are not supported, or fail
 silently or noisily in other implementation-specific ways.</p>
 
@@ -557,7 +558,7 @@ truncate-remainder
 <p>It is recommended, but not required, that implementations support
 \tupe{exact} \tupe{integer}s and \tupe{exact} \tupe{rational}s of
 practically unlimited size and precision, and to implement the
-above procedures and the {\cf /} procedure in
+above procedures and the <code>/</code> procedure in
 such a way that they always return \tupe{exact} results when given \tupe{exact}
 arguments.  If one of these procedures is unable to deliver an \tupe{exact}
 result when given \tupe{exact} arguments, then it may either report a
@@ -600,11 +601,11 @@ floating-point numbers with differing precisions.  In an implementation
 which does so, an inexact result must be represented with at least
 as much precision as is used to express any of the inexact arguments
 to that operation.  Although it is desirable for potentially inexact
-operations such as {\cf sqrt} to produce \tupe{exact} answers when
+operations such as <code>sqrt</code> to produce \tupe{exact} answers when
 applied to \tupe{exact} arguments, if an \tupe{exact} number is operated
 upon so as to produce an \tupe{inexact} result, then the most precise
 representation available must be used.  For example, the value of {\cf
-(sqrt 4)} should be {\cf 2}, but in an implementation that provides both
+(sqrt 4)} should be <code>2</code>, but in an implementation that provides both
 single and double precision floating point numbers it may be the latter
 but must not be the former.</p>
 
@@ -635,7 +636,7 @@ so indeterminate that it might represent any real value, including
 positive or negative infinity, and might even be greater than positive
 infinity or less than negative infinity.
 An implementation that does not support non-real numbers may use NaN
-to represent non-real values like {\cf (sqrt -1.0)} and {\cf (asin 2.0)}.</p>
+to represent non-real values like <code>(sqrt -1.0)</code> and <code>(asin 2.0)</code>.</p>
 
 <p>A NaN always compares false to any number, including a NaN.
 An arithmetic operation where one operand is NaN returns NaN, unless the
@@ -649,14 +650,14 @@ NaN unless both zeros are exact.</p>
 %% values, or just one, they are all equivalent in terms of Scheme
 %% computation.</p>
 
-<p>Negative zero is an inexact real value written {\cf -0.0} and is distinct
-(in the sense of {\cf eqv?}) from {\cf 0.0}.  A Scheme implementation
+<p>Negative zero is an inexact real value written <code>-0.0</code> and is distinct
+(in the sense of <code>eqv?</code>) from <code>0.0</code>.  A Scheme implementation
 is not required to distinguish negative zero.  If it does, however, the
 behavior of the transcendental functions is sensitive to the distinction
 in accordance with IEEE 754.
 Specifically, in a Scheme implementing both complex numbers and negative zero,
 the branch cut of the complex logarithm function is such that
-{\cf (imag-part (log -1.0-0.0i))} is $-\pi$ rather than $\pi$.</p>
+<code>(imag-part (log -1.0-0.0i))</code> is $-\pi$ rather than $\pi$.</p>
 
 <p>Furthermore, the negation of negative zero is ordinary zero and vice
 versa.  This implies that the sum of two or more negative zeros is negative,
@@ -677,14 +678,14 @@ constants.</p>
 
 <p>A number can be written in binary, octal, decimal, or
 hexa-decimal by the use of a radix prefix.  The radix prefixes are {\cf
-#b}\sharpindex{b} (binary), {\cf #o}\sharpindex{o} (octal), {\cf
-#d}\sharpindex{d} (decimal), and {\cf #x}\sharpindex{x} (hexa-decimal).  With
+#b}\sharpindex{b} (binary), <code>#o</code>\sharpindex{o} (octal), {\cf
+#d}\sharpindex{d} (decimal), and <code>#x</code>\sharpindex{x} (hexa-decimal).  With
 no radix prefix, a number is assumed to be expressed in decimal.</p>
 
 <p>A
 numerical constant can be specified to be either \tupe{exact} or
-\tupe{inexact} by a prefix.  The prefixes are {\cf #e}\sharpindex{e}
-for \tupe{exact}, and {\cf #i}\sharpindex{i} for \tupe{inexact}.  An exactness
+\tupe{inexact} by a prefix.  The prefixes are <code>#e</code>\sharpindex{e}
+for \tupe{exact}, and <code>#i</code>\sharpindex{i} for \tupe{inexact}.  An exactness
 prefix can appear before or after any radix prefix that is used.  If
 the written representation of a number has no exactness prefix, the
 constant is
@@ -698,10 +699,10 @@ the precision of a constant.  For this purpose,
 implementations may accept numerical constants
 written with an exponent marker that indicates the
 desired precision of the \tupe{inexact}
-representation.  If so, the letter {\cf s}, {\cf f},
-{\cf d}, or {\cf l}, meaning \var{short}, \var{single},
+representation.  If so, the letter <code>s</code>, <code>f</code>,
+<code>d</code>, or <code>l</code>, meaning \var{short}, \var{single},
 \var{double}, or \var{long} precision, respectively,
-can be used in place of {\cf e}.
+can be used in place of <code>e</code>.
 The default precision has at least as much precision
 as \var{double}, but
 implementations may allow this default to be set by the user.</p>
@@ -713,8 +714,8 @@ implementations may allow this default to be set by the user.</p>
 </code></pre>
 
 <p>The numbers positive infinity, negative infinity, and NaN are written
-{\cf +inf.0}, {\cf -inf.0} and {\cf +nan.0} respectively.
-NaN may also be written {\cf -nan.0}.
+<code>+inf.0</code>, <code>-inf.0</code> and <code>+nan.0</code> respectively.
+NaN may also be written <code>-nan.0</code>.
 The use of signs in the written representation does not necessarily
 reflect the underlying sign of the NaN value, if any.
 Implementations are not required to support these numbers, but if they do,
@@ -724,10 +725,10 @@ between different NaNs.</p>
 
 <p>There are two notations provided for non-real complex numbers:
 the \defining{rectangular notation}
-\var{a}{\cf +}\var{b}{\cf i},
+\var{a}<code>+</code>\var{b}<code>i</code>,
 where \var{a} is the real part and \var{b} is the imaginary part;
 and the \defining{polar notation}
-\var{r}{\cf @}$\theta$,
+\var{r}<code>@</code>$\theta$,
 where \var{r} is the magnitude and $\theta$ is the phase (angle) in radians.
 These are related by the equation
 $a+b\mathrm{i} = r \cos\theta + (r \sin\theta) \mathrm{i}$.
@@ -761,12 +762,12 @@ type predicates are also true of that number.  Consequently, if a type
 predicate is false of a number, then all lower type predicates are
 also false of that number.</p>
 
-<p>If \vr{z} is a complex number, then {\cf (real? \vr{z})} is true if
-and only if {\cf (zero? (imag-part \vr{z}))} is true.
+<p>If \vr{z} is a complex number, then <code>(real? \vr{z</code>)} is true if
+and only if <code>(zero? (imag-part \vr{z</code>))} is true.
 If \vr{x} is an inexact real number, then {\cf
-(integer? \vr{x})} is true if and only if {\cf (= \vr{x} (round \vr{x}))}.</p>
+(integer? \vr{x})} is true if and only if <code>(= \vr{x</code> (round \vr{x}))}.</p>
 
-<p>The numbers {\cf +inf.0}, {\cf -inf.0}, and {\cf +nan.0} are real but
+<p>The numbers <code>+inf.0</code>, <code>-inf.0</code>, and <code>+nan.0</code> are real but
 not rational.</p>
 
 <pre><code>(complex? 3+4i)         \ev  \schtrue
@@ -831,8 +832,8 @@ otherwise returns \schfalse{}.</p>
 <p>\begin{entry}{
 \proto{finite?}{ \vr{z}}{inexact library procedure}}</p>
 
-<p>The {\cf finite?} procedure returns \schtrue{} on all real numbers except
-{\cf +inf.0}, {\cf -inf.0}, and {\cf +nan.0}, and on complex
+<p>The <code>finite?</code> procedure returns \schtrue{} on all real numbers except
+<code>+inf.0</code>, <code>-inf.0</code>, and <code>+nan.0</code>, and on complex
 numbers if their real and imaginary parts are both finite.
 Otherwise it returns \schfalse{}.</p>
 
@@ -846,8 +847,8 @@ Otherwise it returns \schfalse{}.</p>
 <p>\begin{entry}{
 \proto{infinite?}{ \vr{z}}{inexact library procedure}}</p>
 
-<p>The {\cf infinite?} procedure returns \schtrue{} on the real numbers
-{\cf +inf.0} and {\cf -inf.0}, and on complex
+<p>The <code>infinite?</code> procedure returns \schtrue{} on the real numbers
+<code>+inf.0</code> and <code>-inf.0</code>, and on complex
 numbers if their real or imaginary parts or both are infinite.
 Otherwise it returns \schfalse{}.</p>
 
@@ -862,8 +863,8 @@ Otherwise it returns \schfalse{}.</p>
 <p>\begin{entry}{
 \proto{nan?}{ \vr{z}}{inexact library procedure}}</p>
 
-<p>The {\cf nan?} procedure returns \schtrue{} on {\cf +nan.0}, and on complex
-numbers if their real or imaginary parts or both are {\cf +nan.0}.
+<p>The <code>nan?</code> procedure returns \schtrue{} on <code>+nan.0</code>, and on complex
+numbers if their real or imaginary parts or both are <code>+nan.0</code>.
 Otherwise it returns \schfalse{}.</p>
 
 <pre><code>(nan? +nan.0)          \ev  \schtrue
@@ -885,7 +886,7 @@ Otherwise it returns \schfalse{}.</p>
 equal, monotonically increasing, monotonically decreasing,
 monotonically non-decreasing, or monotonically non-increasing,
 and \schfalse{} otherwise.
-If any of the arguments are {\cf +nan.0}, all the predicates return \schfalse{}.
+If any of the arguments are <code>+nan.0</code>, all the predicates return \schfalse{}.
 They do not distinguish between inexact zero and inexact negative zero.</p>
 
 <p>These predicates are required to be transitive.</p>
@@ -894,13 +895,13 @@ They do not distinguish between inexact zero and inexact negative zero.</p>
 The implementation approach
 of converting all arguments to inexact numbers
 if any argument is inexact is not transitive.  For example, let
-{\cf big} be {\cf (expt 2 1000)}, and assume that {\cf big} is exact and that
+<code>big</code> be <code>(expt 2 1000)</code>, and assume that <code>big</code> is exact and that
 inexact numbers are represented by 64-bit IEEE binary floating point numbers.
-Then {\cf (= (- big 1) (inexact big))} and
-{\cf (= (inexact big) (+ big 1))} would both be true with this approach,
+Then <code>(= (- big 1) (inexact big))</code> and
+<code>(= (inexact big) (+ big 1))</code> would both be true with this approach,
 because of the limitations of IEEE
-representations of large integers, whereas {\cf (= (- big 1) (+ big 1))}
-is false.  Converting inexact values to exact numbers that are the same (in the sense of {\cf =}) to them will avoid
+representations of large integers, whereas <code>(= (- big 1) (+ big 1))</code>
+is false.  Converting inexact values to exact numbers that are the same (in the sense of <code>=</code>) to them will avoid
 this problem, though special care must be taken with infinities.
 \end{note}</p>
 
@@ -938,8 +939,8 @@ returning \schtrue{} or \schfalse.  See note above.</p>
 <p>\begin{note}
 If any argument is inexact, then the result will also be inexact (unless
 the procedure can prove that the inaccuracy is not large enough to affect the
-result, which is possible only in unusual implementations).  If {\cf min} or
-{\cf max} is used to compare numbers of mixed exactness, and the numerical
+result, which is possible only in unusual implementations).  If <code>min</code> or
+<code>max</code> is used to compare numbers of mixed exactness, and the numerical
 value of the result cannot be represented as an inexact number without loss of
 accuracy, then the procedure may report a violation of an implementation
 restriction.
@@ -972,7 +973,7 @@ restriction.
 quotient of their arguments, associating to the left.  With one argument,
 however, they return the additive or multiplicative inverse of their argument.</p>
 
-<p>It is an error if any argument of {\cf /} other than the first is an exact zero.
+<p>It is an error if any argument of <code>/</code> other than the first is an exact zero.
 If the first argument is an exact zero, an implementation may return an
 exact zero unless one of the other arguments is a NaN.</p>
 
@@ -988,7 +989,7 @@ exact zero unless one of the other arguments is a NaN.</p>
 <p>\begin{entry}{
 \proto{abs}{ x}{procedure}}</p>
 
-<p>The {\cf abs} procedure returns the absolute value of its argument.</p>
+<p>The <code>abs</code> procedure returns the absolute value of its argument.</p>
 
 <pre><code>(abs -7)                \ev  7
 </code></pre>
@@ -1005,7 +1006,7 @@ exact zero unless one of the other arguments is a NaN.</p>
 
 <p>These procedures implement
 number-theoretic (integer) division.  It is an error if \vrii{n} is zero.
-The procedures ending in {\cf /} return two integers; the other
+The procedures ending in <code>/</code> return two integers; the other
 procedures return an integer.  All the procedures compute a
 quotient \vr{n_q} and remainder \vr{n_r} such that
 $\vri{n} = \vrii{n} \vr{n_q} + \vr{n_r}$.  For each of the
@@ -1055,9 +1056,9 @@ with \vrii{n} not equal to 0,</p>
 \proto{remainder}{ \vri{n} \vrii{n}}{procedure}
 \proto{modulo}{ \vri{n} \vrii{n}}{procedure}}</p>
 
-<p>The {\cf quotient} and {\cf remainder} procedures are equivalent to {\cf
-truncate-quotient} and {\cf truncate-remainder}, respectively, and {\cf
-modulo} is equivalent to {\cf floor-remainder}.</p>
+<p>The <code>quotient</code> and <code>remainder</code> procedures are equivalent to {\cf
+truncate-quotient} and <code>truncate-remainder</code>, respectively, and {\cf
+modulo} is equivalent to <code>floor-remainder</code>.</p>
 
 <p>\begin{note}
 These procedures are provided for backward compatibility with earlier
@@ -1106,22 +1107,22 @@ denominator of 0 is defined to be 1.</p>
 }</p>
 
 <p>These procedures return integers.
-The {\cf floor} procedure returns the largest integer not larger than \vr{x}.
-The {\cf ceiling} procedure returns the smallest integer not smaller than~\vr{x},
-{\cf truncate} returns the integer closest to \vr{x} whose absolute
-value is not larger than the absolute value of \vr{x}, and {\cf round} returns the
+The <code>floor</code> procedure returns the largest integer not larger than \vr{x}.
+The <code>ceiling</code> procedure returns the smallest integer not smaller than~\vr{x},
+<code>truncate</code> returns the integer closest to \vr{x} whose absolute
+value is not larger than the absolute value of \vr{x}, and <code>round</code> returns the
 closest integer to \vr{x}, rounding to even when \vr{x} is halfway between two
 integers.</p>
 
 <p>\begin{rationale}
-The {\cf round} procedure rounds to even for consistency with the default rounding
+The <code>round</code> procedure rounds to even for consistency with the default rounding
 mode specified by the IEEE 754 IEEE floating-point standard.
 \end{rationale}</p>
 
 <p>\begin{note}
 If the argument to one of these procedures is inexact, then the result
 will also be inexact.  If an exact value is needed, the
-result can be passed to the {\cf exact} procedure.
+result can be passed to the <code>exact</code> procedure.
 If the argument is infinite or a NaN, then it is returned.
 \end{note}</p>
 
@@ -1145,7 +1146,7 @@ If the argument is infinite or a NaN, then it is returned.
 \proto{rationalize}{ x y}{procedure}
 }</p>
 
-<p>The {\cf rationalize} procedure returns the {\em simplest} rational number
+<p>The <code>rationalize</code> procedure returns the {\em simplest} rational number
 differing from \vr{x} by no more than \vr{y}.  A rational number $r_1$ is
 {\em simpler} \mainindex{simplest rational} than another rational number
 $r_2$ if $r_1 = p_1/q_1$ and $r_2 = p_2/q_2$ (in lowest terms) and $|p_1|
@@ -1176,20 +1177,20 @@ all.</p>
 \rproto{atan}{ \vr{y} \vr{x}}{inexact library procedure}}</p>
 
 <p>These procedures
-compute the usual transcendental functions.  The {\cf log} procedure
+compute the usual transcendental functions.  The <code>log</code> procedure
 computes the natural logarithm of \vr{z} (not the base ten logarithm)
 if a single argument is given, or the base-\vrii{z} logarithm of \vri{z}
 if two arguments are given.
-The {\cf asin}, {\cf acos}, and {\cf atan} procedures compute arcsine ($\sin^{-1}$),
+The <code>asin</code>, <code>acos</code>, and <code>atan</code> procedures compute arcsine ($\sin^{-1}$),
 arc-cosine ($\cos^{-1}$), and arctangent ($\tan^{-1}$), respectively.
-The two-argument variant of {\cf atan} computes {\tt (angle
+The two-argument variant of <code>atan</code> computes {\tt (angle
 (make-rectangular \vr{x} \vr{y}))} (see below), even in implementations
 that don&rsquo;t support complex numbers.</p>
 
 <p>In general, the mathematical functions log, arcsine, arc-cosine, and
 arctangent are multiply defined.
 The value of $\log z$ is defined to be the one whose imaginary part
-lies in the range from $-\pi$ (inclusive if {\cf -0.0} is distinguished,
+lies in the range from $-\pi$ (inclusive if <code>-0.0</code> is distinguished,
 exclusive otherwise) to $\pi$ (inclusive).
 The value of $\log 0$ is mathematically undefined.
 With $\log$ defined this way, the values of $\sin^{-1} z$, $\cos^{-1} z$,
@@ -1198,11 +1199,11 @@ $$\sin^{-1} z = -i \log (i z + \sqrt{1 - z^2})$$
 $$\cos^{-1} z = \pi / 2 - \sin^{-1} z$$
 $$\tan^{-1} z = (\log (1 + i z) - \log (1 - i z)) / (2 i)$$</p>
 
-<p>However, {\cf (log 0.0)} returns {\cf -inf.0}
-(and {\cf (log -0.0)} returns {\cf -inf.0+$\pi$i}) if the
-implementation supports infinities (and {\cf -0.0}).</p>
+<p>However, <code>(log 0.0)</code> returns <code>-inf.0</code>
+(and <code>(log -0.0)</code> returns <code>-inf.0+$\pi$i</code>) if the
+implementation supports infinities (and <code>-0.0</code>).</p>
 
-<p>The range of \texttt{({\cf atan} \var{y} \var{x})} is as in the
+<p>The range of \texttt{(<code>atan</code> \var{y} \var{x})} is as in the
 following table. The asterisk (*) indicates that the entry applies to
 implementations that distinguish minus zero.</p>
 
@@ -1243,7 +1244,7 @@ result from a real argument.</p>
 \proto{square}{ \vr{z}}{procedure}}</p>
 
 <p>Returns the square of \vr{z}.
-This is equivalent to \texttt{({\cf *} \var{z} \var{z})}.</p>
+This is equivalent to \texttt{(<code>*</code> \var{z} \var{z})}.</p>
 
 <pre><code>(square 42)      \ev 1764
 (square 2.0)     \ev 4.0
@@ -1290,7 +1291,7 @@ $\var{k} = s^2 + r$ and $\var{k} &lt; (s+1)^2$.</p>
 
 <p>Returns \vri{z} raised to the power \vrii{z}.  For nonzero \vri{z}, this is
 $${z_1}^{z_2} = e^{z_2 \log {z_1}}$$
-The value of $0^z$ is $1$ if {\cf (zero? z)}, $0$ if {\cf (real-part z)}
+The value of $0^z$ is $1$ if <code>(zero? z)</code>, $0$ if <code>(real-part z)</code>
 is positive, and an error otherwise.  Similarly for $0.0^z$,
 with inexact results.
 \end{entry}</p>
@@ -1320,16 +1321,16 @@ Then all of</p>
 <p>are true, where $-\pi \le x<em>{angle} \le \pi$ with $x</em>{angle} = \vriv{x} + 2\pi n$
 for some integer $n$.</p>
 
-<p>The {\cf make-polar} procedure may return an inexact complex number even if its
+<p>The <code>make-polar</code> procedure may return an inexact complex number even if its
 arguments are exact.
-The {\cf real-part} and {\cf imag-part} procedures may return exact real
+The <code>real-part</code> and <code>imag-part</code> procedures may return exact real
 numbers when applied to an inexact complex number if the corresponding
-argument passed to {\cf make-rectangular} was exact.</p>
+argument passed to <code>make-rectangular</code> was exact.</p>
 
 <p>\begin{rationale}
-The {\cf magnitude} procedure is the same as \ide{abs} for a real argument,
-but {\cf abs} is in the base library, whereas
-{\cf magnitude} is in the optional complex library.
+The <code>magnitude</code> procedure is the same as \ide{abs} for a real argument,
+but <code>abs</code> is in the base library, whereas
+<code>magnitude</code> is in the optional complex library.
 \end{rationale}</p>
 
 <p>\end{entry}</p>
@@ -1338,28 +1339,28 @@ but {\cf abs} is in the base library, whereas
 \proto{inexact}{ \vr{z}}{procedure}
 \proto{exact}{ \vr{z}}{procedure}}</p>
 
-<p>The procedure {\cf inexact} returns an \tupe{inexact} representation of \vr{z}.
+<p>The procedure <code>inexact</code> returns an \tupe{inexact} representation of \vr{z}.
 The value returned is the
 \tupe{inexact} number that is numerically closest to the argument.
 For inexact arguments, the result is the same as the argument. For exact
 complex numbers, the result is a complex number whose real and imaginary
-parts are the result of applying {\cf inexact} to the real
+parts are the result of applying <code>inexact</code> to the real
 and imaginary parts of the argument, respectively.
 If an \tupe{exact} argument has no reasonably close \tupe{inexact} equivalent
-(in the sense of {\cf =}),
+(in the sense of <code>=</code>),
 then a violation of an implementation restriction may be reported.</p>
 
-<p>The procedure {\cf exact} returns an \tupe{exact} representation of
+<p>The procedure <code>exact</code> returns an \tupe{exact} representation of
 \vr{z}.  The value returned is the \tupe{exact} number that is numerically
 closest to the argument.
 For exact arguments, the result is the same as the argument. For inexact
 non-integral real arguments, the implementation may return a rational
 approximation, or may report an implementation violation. For inexact
 complex arguments, the result is a complex number whose real and
-imaginary parts are the result of applying {\cf exact} to the
+imaginary parts are the result of applying <code>exact</code> to the
 real and imaginary parts of the argument, respectively.
 If an \tupe{inexact} argument has no reasonably close \tupe{exact} equivalent,
-(in the sense of {\cf =}),
+(in the sense of <code>=</code>),
 then a violation of an implementation restriction may be reported.</p>
 
 <p>These procedures implement the natural one-to-one correspondence between
@@ -1368,8 +1369,8 @@ implementation-dependent range.  See section~\ref{restrictions}.</p>
 
 <p>\begin{note}
 These procedures were known in R<span class="rnrs">5</span>RS
-\ as {\cf exact-&gt;inexact} and
-{\cf inexact-&gt;exact}, respectively, but they have always accepted
+ as <code>exact-&gt;inexact</code> and
+<code>inexact-&gt;exact</code>, respectively, but they have always accepted
 arguments of any exactness.  The new names are clearer and shorter,
 as well as being compatible with R<span class="rnrs">6</span>RS
 .
@@ -1387,7 +1388,7 @@ as well as being compatible with R<span class="rnrs">6</span>RS
 \rproto{number-&gt;string}{ z radix}{procedure}}</p>
 
 <p>\domain{It is an error if \vr{radix} is not one of 2, 8, 10, or 16.}
-The procedure {\cf number\coerce{}string} takes a
+The procedure <code>number\coerce{</code>string} takes a
 number and a radix and returns as a string an external representation of
 the given number in the given radix such that</p>
 
@@ -1410,7 +1411,7 @@ zeroes) needed to make the above expression
 true~\cite{howtoprint,howtoread};
 otherwise the format of the result is unspecified.</p>
 
-<p>The result returned by {\cf number\coerce{}string}
+<p>The result returned by <code>number\coerce{</code>string}
 never contains an explicit radix prefix.</p>
 
 <p>\begin{note}
@@ -1438,7 +1439,7 @@ If supplied, \vr{radix} is a default radix that will be overridden
 if an explicit radix prefix is present in \vr{string} (e.g. {\tt &ldquo;#o177&rdquo;}).  If \vr{radix}
 is not supplied, then the default radix is 10.  If \vr{string} is not
 a syntactically valid notation for a number, or would result in a
-number that the implementation cannot represent, then {\cf string-&gt;number}
+number that the implementation cannot represent, then <code>string-&gt;number</code>
 returns \schfalse{}.
 An error is never signaled due to the content of \vr{string}.</p>
 
@@ -1448,27 +1449,27 @@ An error is never signaled due to the content of \vr{string}.</p>
 </code></pre>
 
 <p>\begin{note}
-The domain of {\cf string-&gt;number} may be restricted by implementations
+The domain of <code>string-&gt;number</code> may be restricted by implementations
 in the following ways.
 If all numbers supported by an implementation are real, then
-{\cf string-&gt;number} is permitted to return \schfalse{} whenever
+<code>string-&gt;number</code> is permitted to return \schfalse{} whenever
 \vr{string} uses the polar or rectangular notations for complex
 numbers.  If all numbers are integers, then
-{\cf string-&gt;number} may return \schfalse{} whenever
+<code>string-&gt;number</code> may return \schfalse{} whenever
 the fractional notation is used.  If all numbers are exact, then
-{\cf string-&gt;number} may return \schfalse{} whenever
+<code>string-&gt;number</code> may return \schfalse{} whenever
 an exponent marker or explicit exactness prefix is used.
 If all inexact
 numbers are integers, then
-{\cf string-&gt;number} may return \schfalse{} whenever
+<code>string-&gt;number</code> may return \schfalse{} whenever
 a decimal point is used.</p>
 
-<p>The rules used by a particular implementation for {\cf string-&gt;number} must
-also be applied to {\cf read} and to the routine that reads programs, in
+<p>The rules used by a particular implementation for <code>string-&gt;number</code> must
+also be applied to <code>read</code> and to the routine that reads programs, in
 order to maintain consistency between internal numeric processing, I/O,
 and the processing of programs.
 As a consequence, the R<span class="rnrs">5</span>RS
-\ permission to return \schfalse{} when
+ permission to return \schfalse{} when
 \var{string} has an explicit radix prefix has been withdrawn.
 \end{note}</p>
 
@@ -1483,7 +1484,7 @@ As a consequence, the R<span class="rnrs">5</span>RS
 Alternatively, they can be written \sharptrue~and \sharpfalse,
 respectively.  What really
 matters, though, are the objects that the Scheme conditional expressions
-({\cf if}, {\cf cond}, {\cf and}, {\cf or}, {\cf when}, {\cf unless}, {\cf do}) treat as
+(<code>if</code>, <code>cond</code>, <code>and</code>, <code>or</code>, <code>when</code>, <code>unless</code>, <code>do</code>) treat as
 true\index{true} or false\index{false}.  The phrase &ldquo;a true value&rdquo;\index{true}
 (or sometimes just &ldquo;true&rdquo;) means any object treated as true by the
 conditional expressions, and the phrase &ldquo;a false value&rdquo;\index{false} (or
@@ -1511,7 +1512,7 @@ in programs.</p>
 <p>\begin{entry}{
 \proto{not}{ obj}{procedure}}</p>
 
-<p>The {\cf not} procedure returns \schtrue{} if \var{obj} is false, and returns
+<p>The <code>not</code> procedure returns \schtrue{} if \var{obj} is false, and returns
 \schfalse{} otherwise.</p>
 
 <pre><code>(not \schtrue)   \ev  \schfalse
@@ -1528,7 +1529,7 @@ in programs.</p>
 <p>\begin{entry}{
 \proto{boolean?}{ obj}{procedure}}</p>
 
-<p>The {\cf boolean?} predicate returns \schtrue{} if \var{obj} is either \schtrue{} or
+<p>The <code>boolean?</code> predicate returns \schtrue{} if \var{obj} is either \schtrue{} or
 \schfalse{} and returns \schfalse{} otherwise.</p>
 
 <pre><code>(boolean? \schfalse)  \ev  \schtrue
@@ -1552,10 +1553,10 @@ are \schtrue{} or all are \schfalse{}.</p>
 
 <p>A \defining{pair} (sometimes called a \defining{dotted pair}) is a
 record structure with two fields called the car and cdr fields (for
-historical reasons).  Pairs are created by the procedure {\cf cons}.
-The car and cdr fields are accessed by the procedures {\cf car} and
-{\cf cdr}.  The car and cdr fields are assigned by the procedures
-{\cf set-car!}\ and {\cf set-cdr!}.</p>
+historical reasons).  Pairs are created by the procedure <code>cons</code>.
+The car and cdr fields are accessed by the procedures <code>car</code> and
+<code>cdr</code>.  The car and cdr fields are assigned by the procedures
+<code>set-car!</code> and <code>set-cdr!</code>.</p>
 
 <p>Pairs are used primarily to represent lists.  A \defining{list} can
 be defined recursively as either the empty list\index{empty list} or a pair whose
@@ -1583,10 +1584,10 @@ terminated by the empty list.
 \end{note}</p>
 
 <p>The most general notation (external representation) for Scheme pairs is
-the &ldquo;dotted&rdquo; notation \hbox{\cf (\vari{c} .\ \varii{c})} where
+the &ldquo;dotted&rdquo; notation \hbox<code>(\vari{c</code> . \varii{c})} where
 \vari{c} is the value of the car field and \varii{c} is the value of the
-cdr field.  For example {\cf (4 .\ 5)} is a pair whose car is 4 and whose
-cdr is 5.  Note that {\cf (4 .\ 5)} is the external representation of a
+cdr field.  For example <code>(4 . 5)</code> is a pair whose car is 4 and whose
+cdr is 5.  Note that <code>(4 . 5)</code> is the external representation of a
 pair, not an expression that evaluates to a pair.</p>
 
 <p>A more streamlined notation can be used for lists: the elements of the
@@ -1643,13 +1644,13 @@ is \hyper{datum}.  This convention is supported so that arbitrary Scheme
 programs can be represented as lists.
 That is, according to Scheme&rsquo;s grammar, every
 \meta{expression} is also a \meta{datum} (see section~\ref{datum}).
-Among other things, this permits the use of the {\cf read} procedure to
+Among other things, this permits the use of the <code>read</code> procedure to
 parse Scheme programs.  See section~\ref{externalreps}.</p>
 
 <p>\begin{entry}{
 \proto{pair?}{ obj}{procedure}}</p>
 
-<p>The {\cf pair?} predicate returns \schtrue{} if \var{obj} is a pair, and otherwise
+<p>The <code>pair?</code> predicate returns \schtrue{} if \var{obj} is a pair, and otherwise
 returns \schfalse.</p>
 
 <pre><code>(pair? '(a . b))        \ev  \schtrue
@@ -1665,7 +1666,7 @@ returns \schfalse.</p>
 
 <p>Returns a newly allocated pair whose car is \vari{obj} and whose cdr is
 \varii{obj}.  The pair is guaranteed to be different (in the sense of
-{\cf eqv?}) from every existing object.</p>
+<code>eqv?</code>) from every existing object.</p>
 
 <pre><code>(cons 'a '())           \ev  (a)
 (cons '(a) '(b c d))    \ev  ((a) b c d)
@@ -1731,7 +1732,7 @@ Note that it is an error to take the cdr of the empty list.</p>
 \proto{cdar}{ pair}{procedure}
 \proto{cddr}{ pair}{procedure}}</p>
 
-<p>These procedures are compositions of {\cf car} and {\cf cdr} as follows:</p>
+<p>These procedures are compositions of <code>car</code> and <code>cdr</code> as follows:</p>
 
 <pre><code>(define (caar x) (car (car x)))
 (define (cadr x) (car (cdr x)))
@@ -1754,9 +1755,9 @@ Note that it is an error to take the cdr of the empty list.</p>
 \proto{cdddar}{ pair}{cxr library procedure}
 \proto{cddddr}{ pair}{cxr library procedure}}</p>
 
-<p>These twenty-four procedures are further compositions of {\cf car} and {\cf cdr}
+<p>These twenty-four procedures are further compositions of <code>car</code> and <code>cdr</code>
 on the same principles.
-For example, {\cf caddr} could be defined by</p>
+For example, <code>caddr</code> could be defined by</p>
 
 <pre><code>(define caddr (lambda (x) (car (cdr (cdr x))))){\rm.}
 </code></pre>
@@ -1868,7 +1869,7 @@ in reverse order.</p>
 <p>\domain{It is an error if \var{list} has fewer than \vr{k} elements.}
 Returns the sublist of \var{list} obtained by omitting the first \vr{k}
 elements.
-The {\cf list-tail} procedure could be defined by</p>
+The <code>list-tail</code> procedure could be defined by</p>
 
 <pre><code>(define list-tail
   (lambda (x k)
@@ -1898,7 +1899,7 @@ as the car of {\tt(list-tail \var{list} \vr{k})}.)</p>
 \proto{list-set!}{ list k obj}{procedure}}</p>
 
 <p>\domain{It is an error if \vr{k} is not a valid index of \var{list}.}
-The {\cf list-set!} procedure stores \var{obj} in element \vr{k} of \var{list}.</p>
+The <code>list-set!</code> procedure stores \var{obj} in element \vr{k} of \var{list}.</p>
 
 <pre><code>(let ((ls (list 'one 'two 'five!)))
   (list-set! ls 2 'three)
@@ -1920,9 +1921,9 @@ The {\cf list-set!} procedure stores \var{obj} in element \vr{k} of \var{list}.<
 returned by {\tt (list-tail \var{list} \var{k})} for \var{k} less
 than the length of \var{list}.  If
 \var{obj} does not occur in \var{list}, then \schfalse{} (not the empty list) is
-returned.  The {\cf memq} procedure uses {\cf eq?}\ to compare \var{obj} with the elements of
-\var{list}, while {\cf memv} uses {\cf eqv?} and
-{\cf member} uses \var{compare}, if given, and {\cf equal?} otherwise.</p>
+returned.  The <code>memq</code> procedure uses <code>eq?</code> to compare \var{obj} with the elements of
+\var{list}, while <code>memv</code> uses <code>eqv?</code> and
+<code>member</code> uses \var{compare}, if given, and <code>equal?</code> otherwise.</p>
 
 <pre><code>(memq 'a '(a b c))              \ev  (a b c)
 (memq 'b '(a b c))              \ev  (b c)
@@ -1949,10 +1950,10 @@ returned.  The {\cf memq} procedure uses {\cf eq?}\ to compare \var{obj} with th
 pairs.}
 These procedures find the first pair in \var{alist} whose car field is \var{obj},
 and returns that pair.  If no pair in \var{alist} has \var{obj} as its
-car, then \schfalse{} (not the empty list) is returned.  The {\cf assq} procedure uses
-{\cf eq?}\ to compare \var{obj} with the car fields of the pairs in \var{alist},
-while {\cf assv} uses {\cf eqv?}\ and {\cf assoc} uses \var{compare} if given
-and {\cf equal?} otherwise.</p>
+car, then \schfalse{} (not the empty list) is returned.  The <code>assq</code> procedure uses
+<code>eq?</code> to compare \var{obj} with the car fields of the pairs in \var{alist},
+while <code>assv</code> uses <code>eqv?</code> and <code>assoc</code> uses \var{compare} if given
+and <code>equal?</code> otherwise.</p>
 
 <pre><code>(define e '((a 1) (b 2) (c 3)))
 (assq 'a e)     \ev  (a 1)
@@ -1972,7 +1973,7 @@ and {\cf equal?} otherwise.</p>
 
 <p>\begin{rationale}
 Although they are often used as predicates,
-{\cf memq}, {\cf memv}, {\cf member}, {\cf assq}, {\cf assv}, and {\cf assoc} do not
+<code>memq</code>, <code>memv</code>, <code>member</code>, <code>assq</code>, <code>assv</code>, and <code>assoc</code> do not
 have question marks in their names because they return
 potentially useful values rather than just \schtrue{} or \schfalse{}.
 \end{rationale}
@@ -1983,9 +1984,9 @@ potentially useful values rather than just \schtrue{} or \schfalse{}.
 
 <p>Returns a newly allocated copy of the given \var{obj} if it is a list.
 Only the pairs themselves are copied; the cars of the result are
-the same (in the sense of {\cf eqv?}) as the cars of \var{list}.
+the same (in the sense of <code>eqv?</code>) as the cars of \var{list}.
 If \var{obj} is an improper list, so is the result, and the final
-cdrs are the same in the sense of {\cf eqv?}.
+cdrs are the same in the sense of <code>eqv?</code>.
 An \var{obj} which is not a list is returned unchanged.
 It is an error if \var{obj} is a circular list.</p>
 
@@ -2003,7 +2004,7 @@ a \ev (1 8 2 8)
 <p>\label{symbolsection}</p>
 
 <p>Symbols are objects whose usefulness rests on the fact that two
-symbols are identical (in the sense of {\cf eqv?}) if and only if their
+symbols are identical (in the sense of <code>eqv?</code>) if and only if their
 names are spelled the same way.  For instance, they can be used
 the way enumerated values are used in other languages.</p>
 
@@ -2012,9 +2013,9 @@ writing an identifier; see sections~\ref{syntaxsection}
 and~\ref{identifiersyntax}.</p>
 
 <p>It is guaranteed that any symbol that has been returned as part of
-a literal expression, or read using the {\cf read} procedure, and
-subsequently written out using the {\cf write} procedure, will read back
-in as the identical symbol (in the sense of {\cf eqv?}).</p>
+a literal expression, or read using the <code>read</code> procedure, and
+subsequently written out using the <code>write</code> procedure, will read back
+in as the identical symbol (in the sense of <code>eqv?</code>).</p>
 
 <p>\begin{note}
 Some implementations have values known as &ldquo;uninterned symbols,&rdquo;
@@ -2043,7 +2044,7 @@ implementation-dependent extensions.
 \proto{symbol=?}{ \vari{symbol} \varii{symbol} \variii{symbol} \dotsfoo}{procedure}}</p>
 
 <p>Returns \schtrue{} if all the arguments are symbols and all have the same
-names in the sense of {\cf string=?}.</p>
+names in the sense of <code>string=?</code>.</p>
 
 <p>\begin{note}
 The definition above assumes that none of the arguments
@@ -2110,7 +2111,7 @@ or \sharpsign\backwhack\hyper{character name} or
 <p>The following character names must be supported
 by all implementations with the given values.
 Implementations may add other names
-provided they cannot be interpreted as hex scalar values preceded by {\cf x}.</p>
+provided they cannot be interpreted as hex scalar values preceded by <code>x</code>.</p>
 
 <p>$$
 \begin{tabular}{ll}
@@ -2176,7 +2177,7 @@ insensitive&rdquo;) embedded in their names.</p>
 <p>\label{characterequality}</p>
 
 <p>These procedures return \schtrue{} if
-the results of passing their arguments to {\cf char\coerce{}integer}
+the results of passing their arguments to <code>char\coerce{</code>integer}
 are respectively
 equal, monotonically increasing, monotonically decreasing,
 monotonically non-decreasing, or monotonically non-increasing.</p>
@@ -2192,11 +2193,11 @@ monotonically non-decreasing, or monotonically non-increasing.</p>
 \proto{char-ci&lt;=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{char library procedure}
 \proto{char-ci&gt;=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{char library procedure}}</p>
 
-<p>These procedures are similar to {\cf char=?}\ et cetera, but they treat
+<p>These procedures are similar to <code>char=?</code> et cetera, but they treat
 upper case and lower case letters as the same.  For example, {\cf
-(char-ci=?\ #\backwhack{}A #\backwhack{}a)} returns \schtrue.</p>
+(char-ci=? #\backwhack{}A #\backwhack{}a)} returns \schtrue.</p>
 
-<p>Specifically, these procedures behave as if {\cf char-foldcase} were
+<p>Specifically, these procedures behave as if <code>char-foldcase</code> were
 applied to their arguments before they were compared.</p>
 
 <p>\end{entry}</p>
@@ -2224,7 +2225,7 @@ upper nor lower case.</p>
 \proto{digit-value}{ char}{char library procedure}}</p>
 
 <p>This procedure returns the numeric value (0 to 9) of its argument
-if it is a numeric digit (that is, if {\cf char-numeric?} returns \schtrue{}),
+if it is a numeric digit (that is, if <code>char-numeric?</code> returns \schtrue{}),
 or \schfalse{} on any other character.</p>
 
 <pre><code>(digit-value #\3) \ev 3
@@ -2240,7 +2241,7 @@ or \schfalse{} on any other character.</p>
 \proto{integer-&gt;char}{ \vr{n}}{procedure}}</p>
 
 <p>Given a Unicode character,
-{\cf char\coerce{}integer} returns an exact integer
+<code>char\coerce{</code>integer} returns an exact integer
 between 0 and {\tt #xD7FF} or
 between {\tt #xE000} and {\tt #x10FFFF}
 which is equal to the Unicode scalar value of that character.
@@ -2250,7 +2251,7 @@ This is true independent of whether the implementation uses
 the Unicode representation internally.</p>
 
 <p>Given an exact integer that is the value returned by
-a character when {\cf char\coerce{}integer} is applied to it, {\cf integer\coerce{}char}
+a character when <code>char\coerce{</code>integer} is applied to it, <code>integer\coerce{</code>char}
 returns that character.
 \end{entry}</p>
 
@@ -2259,19 +2260,19 @@ returns that character.
 \proto{char-downcase}{ char}{char library procedure}
 \proto{char-foldcase}{ char}{char library procedure}}</p>
 
-<p>The {\cf char-upcase} procedure, given an argument that is the
+<p>The <code>char-upcase</code> procedure, given an argument that is the
 lowercase part of a Unicode casing pair, returns the uppercase member
 of the pair, provided that both characters are supported by the Scheme
 implementation.  Note that language-sensitive casing pairs are not used.  If the
 argument is not the lowercase member of such a pair, it is returned.</p>
 
-<p>The {\cf char-downcase} procedure, given an argument that is the
+<p>The <code>char-downcase</code> procedure, given an argument that is the
 uppercase part of a Unicode casing pair, returns the lowercase member
 of the pair, provided that both characters are supported by the Scheme
 implementation.  Note that language-sensitive casing pairs are not used.  If the
 argument is not the uppercase member of such a pair, it is returned.</p>
 
-<p>The {\cf char-foldcase} procedure applies the Unicode simple
+<p>The <code>char-foldcase</code> procedure applies the Unicode simple
 case-folding algorithm to its argument and returns the result.  Note that
 language-sensitive folding is not used.  If the argument is an uppercase
 letter, the result will be either a lowercase letter
@@ -2290,7 +2291,7 @@ equivalents.</p>
 
 <p>Strings are sequences of characters.
 Strings are written as sequences of characters enclosed within quotation marks
-({\cf &ldquo;}).  Within a string literal, various escape
+(<code>&quot;</code>).  Within a string literal, various escape
 sequences\mainindex{escape sequence} represent characters other than
 themselves.  Escape sequences always start with a backslash (\backwhack{}):</p>
 
@@ -2337,7 +2338,7 @@ character of a string has index 0, the second has index 1, and so on.</p>
 
 <p>Some of the procedures that operate on strings ignore the
 difference between upper and lower case.  The names of the versions that ignore case
-end with \hbox{&ldquo;{\cf -ci}&ldquo;} (for &ldquo;case insensitive&rdquo;).</p>
+end with \hbox{&rdquo;<code>-ci</code>&rdquo;} (for &ldquo;case insensitive&rdquo;).</p>
 
 <p>Implementations may forbid certain characters from appearing in strings.
 However, with the exception of {\tt #\backwhack{}null}, ASCII characters must
@@ -2347,15 +2348,15 @@ but only allow characters U+0001 to U+00FF (the Latin-1 repertoire
 without {\tt #\backwhack{}null}) in strings.</p>
 
 <p>It is an error to pass such a forbidden character to
-{\cf make-string}, {\cf string}, {\cf string-set!}, or {\cf string-fill!},
-as part of the list passed to {\cf list\coerce{}string},
-or as part of the vector passed to {\cf vector\coerce{}string}
+<code>make-string</code>, <code>string</code>, <code>string-set!</code>, or <code>string-fill!</code>,
+as part of the list passed to <code>list\coerce{</code>string},
+or as part of the vector passed to <code>vector\coerce{</code>string}
 (see section~\ref{vectortostring}),
 or in UTF-8 encoded form within a bytevector passed to
-{\cf utf8\coerce{}string} (see section~\ref{utf8tostring}).
-It is also an error for a procedure passed to {\cf string-map}
+<code>utf8\coerce{</code>string} (see section~\ref{utf8tostring}).
+It is also an error for a procedure passed to <code>string-map</code>
 (see section~\ref{stringmap}) to return a forbidden character,
-or for {\cf read-string} (see section~\ref{readstring})
+or for <code>read-string</code> (see section~\ref{readstring})
 to attempt to read one.</p>
 
 <p>\begin{entry}{
@@ -2368,7 +2369,7 @@ to attempt to read one.</p>
 \proto{make-string}{ \vr{k}}{procedure}
 \rproto{make-string}{ \vr{k} char}{procedure}}</p>
 
-<p>The {\cf make-string} procedure returns a newly allocated string of
+<p>The <code>make-string</code> procedure returns a newly allocated string of
 length \vr{k}.  If \var{char} is given, then all the characters of the string
 are initialized to \var{char}, otherwise the contents of the
 string are unspecified.</p>
@@ -2379,7 +2380,7 @@ string are unspecified.</p>
 \proto{string}{ char \dotsfoo}{procedure}}</p>
 
 <p>Returns a newly allocated string composed of the arguments.
-It is analogous to {\cf list}.</p>
+It is analogous to <code>list</code>.</p>
 
 <p>\end{entry}</p>
 
@@ -2393,7 +2394,7 @@ It is analogous to {\cf list}.</p>
 \proto{string-ref}{ string \vr{k}}{procedure}}</p>
 
 <p>\domain{It is an error if \vr{k} is not a valid index of \var{string}.}
-The {\cf string-ref} procedure returns character \vr{k} of \var{string} using zero-origin indexing.
+The <code>string-ref</code> procedure returns character \vr{k} of \var{string} using zero-origin indexing.
 \end{entry}
 There is no requirement for this procedure to execute in constant time.</p>
 
@@ -2401,7 +2402,7 @@ There is no requirement for this procedure to execute in constant time.</p>
 \proto{string-set!}{ string k char}{procedure}}</p>
 
 <p>\domain{It is an error if \vr{k} is not a valid index of \var{string}.}
-The {\cf string-set!} procedure stores \var{char} in element \vr{k} of \var{string}.
+The <code>string-set!</code> procedure stores \var{char} in element \vr{k} of \var{string}.
 There is no requirement for this procedure to execute in constant time.</p>
 
 <pre><code>(define (f) (make-string 3 #\*))
@@ -2430,7 +2431,7 @@ exactly the same characters in the same positions, otherwise returns
 <p>Returns \schtrue{} if, after case-folding, all the strings are the same
 length and contain the same characters in the same positions, otherwise
 returns \schfalse.  Specifically, these procedures behave as if
-{\cf string-foldcase} were applied to their arguments before comparing them.</p>
+<code>string-foldcase</code> were applied to their arguments before comparing them.</p>
 
 <p>\end{entry}</p>
 
@@ -2452,9 +2453,9 @@ monotonically non-decreasing, or monotonically non-increasing.</p>
 
 <p>These procedures compare strings in an implementation-defined way.
 One approach is to make them the lexicographic extensions to strings of
-the corresponding orderings on characters.  In that case, {\cf string&lt;?}<br />
+the corresponding orderings on characters.  In that case, <code>string&lt;?</code><br />
 would be the lexicographic ordering on strings induced by the ordering
-{\cf char&lt;?}\ on characters, and if the two strings differ in length but
+<code>char&lt;?</code> on characters, and if the two strings differ in length but
 are the same up to the length of the shorter string, the shorter string
 would be considered to be lexicographically less than the longer string.
 However, it is also permitted to use the natural ordering imposed by the
@@ -2462,12 +2463,12 @@ implementation&rsquo;s internal representation of strings, or a more complex loc
 ordering.</p>
 
 <p>In all cases, a pair of strings must satisfy exactly one of
-{\cf string&lt;?}, {\cf string=?}, and {\cf string&gt;?}, and must satisfy
-{\cf string&lt;=?} if and only if they do not satisfy {\cf string&gt;?} and
-{\cf string&gt;=?} if and only if they do not satisfy {\cf string&lt;?}.</p>
+<code>string&lt;?</code>, <code>string=?</code>, and <code>string&gt;?</code>, and must satisfy
+<code>string&lt;=?</code> if and only if they do not satisfy <code>string&gt;?</code> and
+<code>string&gt;=?</code> if and only if they do not satisfy <code>string&lt;?</code>.</p>
 
 <p>The \hbox{&ldquo;{\tt -ci}&ldquo;} procedures behave as if they applied
-{\cf string-foldcase} to their arguments before invoking the corresponding
+<code>string-foldcase</code> to their arguments before invoking the corresponding
 procedures without  \hbox{&ldquo;{\tt -ci}&ldquo;}.</p>
 
 <p>\end{entry}</p>
@@ -2480,7 +2481,7 @@ procedures without  \hbox{&ldquo;{\tt -ci}&ldquo;}.</p>
 <p>These procedures apply the Unicode full string uppercasing, lowercasing,
 and case-folding algorithms to their arguments and return the result.
 In certain cases, the result differs in length from the argument.
-If the result is equal to the argument in the sense of {\cf string=?}, the argument may be returned.
+If the result is equal to the argument in the sense of <code>string=?</code>, the argument may be returned.
 Note that language-sensitive mappings and foldings are not used.</p>
 
 <p>The Unicode Standard prescribes special treatment of the Greek letter
@@ -2495,10 +2496,10 @@ choose to change $\Sigma$ to $\sigma$ in all cases.</p>
 <p>\begin{entry}{
 \proto{substring}{ string start end}{procedure}}</p>
 
-<p>The {\cf substring} procedure returns a newly allocated string formed from the characters of
+<p>The <code>substring</code> procedure returns a newly allocated string formed from the characters of
 \var{string} beginning with index \var{start} and ending with index
 \var{end}.
-This is equivalent to calling {\cf string-copy} with the same arguments,
+This is equivalent to calling <code>string-copy</code> with the same arguments,
 but is provided for backward compatibility and
 stylistic flexibility.
 \end{entry}</p>
@@ -2518,15 +2519,15 @@ characters in the given strings.</p>
 \proto{list-&gt;string}{ list}{procedure}}</p>
 
 <p>\domain{It is an error if any element of \var{list} is not a character.}
-The {\cf string\coerce{}list} procedure returns a newly allocated list of the
+The <code>string\coerce{</code>list} procedure returns a newly allocated list of the
 characters of \var{string} between \var{start} and \var{end}.
-{\cf list\coerce{}string}
+<code>list\coerce{</code>string}
 returns a newly allocated string formed from the elements in the list
 \var{list}.
 In both procedures, order is preserved.
-{\cf string\coerce{}list}
-and {\cf list\coerce{}string} are
-inverses so far as {\cf equal?}\ is concerned.</p>
+<code>string\coerce{</code>list}
+and <code>list\coerce{</code>string} are
+inverses so far as <code>equal?</code> is concerned.</p>
 
 <p>\end{entry}</p>
 
@@ -2546,8 +2547,8 @@ between \var{start} and \var{end}.</p>
 \rproto{string-copy!}{ to at from start end}{procedure}}</p>
 
 <p>\domain{It is an error if \var{at} is less than zero or greater than the length of \var{to}.
-It is also an error if {\cf (- (string-length \var{to}) \var{at})}
-is less than {\cf (- \var{end} \var{start})}.}
+It is also an error if <code>(- (string-length \var{to</code>) \var{at})}
+is less than <code>(- \var{end</code> \var{start})}.}
 Copies the characters of string \var{from} between \var{start} and \var{end}
 to string \var{to}, starting at \var{at}.  The order in which characters are
 copied is unspecified, except that if the source and destination overlap,
@@ -2571,7 +2572,7 @@ b \ev &quot;a12de&quot;
 
 <p>\domain{It is an error if \var{fill} is not a character.}</p>
 
-<p>The {\cf string-fill!} procedure stores \var{fill}
+<p>The <code>string-fill!</code> procedure stores \var{fill}
 in the elements of \var{string}
 between \var{start} and \var{end}.</p>
 
@@ -2595,7 +2596,7 @@ element is indexed by one less than the length of the vector.</p>
 
 <p>Vectors are written using the notation {\tt#(\var{obj} \dotsfoo)}.
 For example, a vector of length 3 containing the number zero in element
-0, the list {\cf(2 2 2 2)} in element 1, and the string {\cf &ldquo;Anna&rdquo;} in
+0, the list {\cf(2 2 2 2)} in element 1, and the string <code>&quot;Anna&quot;</code> in
 element 2 can be written as follows:</p>
 
 <pre><code>#(0 (2 2 2 2) &quot;Anna&quot;)
@@ -2623,7 +2624,7 @@ Otherwise the initial contents of each element is unspecified.</p>
 \proto{vector}{ obj \dotsfoo}{procedure}}</p>
 
 <p>Returns a newly allocated vector whose elements contain the given
-arguments.  It is analogous to {\cf list}.</p>
+arguments.  It is analogous to <code>list</code>.</p>
 
 <pre><code>(vector 'a 'b 'c)               \ev  #(a b c)
 </code></pre>
@@ -2640,7 +2641,7 @@ arguments.  It is analogous to {\cf list}.</p>
 \proto{vector-ref}{ vector k}{procedure}}</p>
 
 <p>\domain{It is an error if \vr{k} is not a valid index of \var{vector}.}
-The {\cf vector-ref} procedure returns the contents of element \vr{k} of
+The <code>vector-ref</code> procedure returns the contents of element \vr{k} of
 \var{vector}.</p>
 
 <pre><code>(vector-ref '#(1 1 2 3 5 8 13 21)
@@ -2656,7 +2657,7 @@ The {\cf vector-ref} procedure returns the contents of element \vr{k} of
 \proto{vector-set!}{ vector k obj}{procedure}}</p>
 
 <p>\domain{It is an error if \vr{k} is not a valid index of \var{vector}.}
-The {\cf vector-set!} procedure stores \var{obj} in element \vr{k} of \var{vector}.</p>
+The <code>vector-set!</code> procedure stores \var{obj} in element \vr{k} of \var{vector}.</p>
 
 <pre><code>(let ((vec (vector 0 '(2 2 2 2) &quot;Anna&quot;)))
   (vector-set! vec 1 '(&quot;Sue&quot; &quot;Sue&quot;))
@@ -2673,9 +2674,9 @@ The {\cf vector-set!} procedure stores \var{obj} in element \vr{k} of \var{vecto
 \rproto{vector-&gt;list}{ vector start end}{procedure}
 \proto{list-&gt;vector}{ list}{procedure}}</p>
 
-<p>The {\cf vector-&gt;list} procedure returns a newly allocated list of the objects contained
+<p>The <code>vector-&gt;list</code> procedure returns a newly allocated list of the objects contained
 in the elements of \var{vector} between \var{start} and \var{end}.
-The {\cf list-&gt;vector} procedure returns a newly
+The <code>list-&gt;vector</code> procedure returns a newly
 created vector initialized to the elements of the list \var{list}.</p>
 
 <p>In both procedures, order is preserved.</p>
@@ -2698,10 +2699,10 @@ created vector initialized to the elements of the list \var{list}.</p>
 
 <p>\domain{It is an error if any element of \var{vector} between \var{start}
 and \var{end} is not a character.}
-The {\cf vector-&gt;string} procedure returns a newly allocated string of the objects contained
+The <code>vector-&gt;string</code> procedure returns a newly allocated string of the objects contained
 in the elements of \var{vector}
 between \var{start} and \var{end}.
-The {\cf string-&gt;vector} procedure returns a newly
+The <code>string-&gt;vector</code> procedure returns a newly
 created vector initialized to the elements of the string \var{string}
 between \var{start} and \var{end}.</p>
 
@@ -2722,7 +2723,7 @@ between \var{start} and \var{end}.</p>
 <p>Returns a newly allocated copy of the elements of the given \var{vector}
 between \var{start} and \var{end}.
 The elements of the new vector are the same (in the sense of
-{\cf eqv?}) as the elements of the old.</p>
+<code>eqv?</code>) as the elements of the old.</p>
 
 <pre><code>(define a #(1 8 2 8)) ; a may be immutable
 (define b (vector-copy a))
@@ -2740,8 +2741,8 @@ c \ev #(8 2)
 \rproto{vector-copy!}{ to at from start end}{procedure}}</p>
 
 <p>\domain{It is an error if \var{at} is less than zero or greater than the length of \var{to}.
-It is also an error if {\cf (- (vector-length \var{to}) \var{at})}
-is less than {\cf (- \var{end} \var{start})}.}
+It is also an error if <code>(- (vector-length \var{to</code>) \var{at})}
+is less than <code>(- \var{end</code> \var{start})}.}
 Copies the elements of vector \var{from} between \var{start} and \var{end}
 to vector \var{to}, starting at \var{at}.  The order in which elements are
 copied is unspecified, except that if the source and destination overlap,
@@ -2774,7 +2775,7 @@ of the elements of the given vectors.</p>
 \rproto{vector-fill!}{ vector fill start}{procedure}
 \rproto{vector-fill!}{ vector fill start end}{procedure}}</p>
 
-<p>The {\cf vector-fill!} procedure stores \var{fill}
+<p>The <code>vector-fill!</code> procedure stores \var{fill}
 in the elements of \var{vector}
 between \var{start} and \var{end}.</p>
 
@@ -2806,7 +2807,7 @@ For example, a bytevector of length 3 containing the byte 0 in element
 0, the byte 10 in element 1, and the byte 5 in
 element 2 can be written as follows:</p>
 
-<pre><code>\#u8(0 10 5)
+<pre><code>#u8(0 10 5)
 </code></pre>
 
 <p>Bytevector constants are self-evaluating, so they do not need to be quoted in programs.</p>
@@ -2822,12 +2823,12 @@ Otherwise, \schfalse{} is returned.
 \proto{make-bytevector}{ k}{procedure}
 \rproto{make-bytevector}{ k byte}{procedure}}</p>
 
-<p>The {\cf make-bytevector} procedure returns a newly allocated bytevector of
+<p>The <code>make-bytevector</code> procedure returns a newly allocated bytevector of
 length \vr{k}.  If \var{byte} is given, then all elements of the bytevector
 are initialized to \var{byte}, otherwise the contents of each
 element are unspecified.</p>
 
-<pre><code>(make-bytevector 2 12) \ev \#u8(12 12)
+<pre><code>(make-bytevector 2 12) \ev #u8(12 12)
 </code></pre>
 
 <p>\end{entry}</p>
@@ -2837,8 +2838,8 @@ element are unspecified.</p>
 
 <p>Returns a newly allocated bytevector containing its arguments.</p>
 
-<pre><code>(bytevector 1 3 5 1 3 5)        \ev  \#u8(1 3 5 1 3 5)
-(bytevector)                          \ev  \#u8()
+<pre><code>(bytevector 1 3 5 1 3 5)        \ev  #u8(1 3 5 1 3 5)
+(bytevector)                          \ev  #u8()
 </code></pre>
 
 <p>\end{entry}</p>
@@ -2855,7 +2856,7 @@ element are unspecified.</p>
 <p>\domain{It is an error if \vr{k} is not a valid index of \var{bytevector}.}
 Returns the \var{k}th byte of \var{bytevector}.</p>
 
-<pre><code>(bytevector-u8-ref '\#u8(1 1 2 3 5 8 13 21)
+<pre><code>(bytevector-u8-ref '#u8(1 1 2 3 5 8 13 21)
             5)  \lev  8
 </code></pre>
 
@@ -2869,7 +2870,7 @@ Stores \var{byte} as the \var{k}th byte of \var{bytevector}.</p>
 
 <pre><code>(let ((bv (bytevector 1 2 3 4)))
   (bytevector-u8-set! bv 1 3)
-  bv) \lev \#u8(1 3 3 4)
+  bv) \lev #u8(1 3 3 4)
 </code></pre>
 
 <p>\end{entry}</p>
@@ -2882,8 +2883,8 @@ Stores \var{byte} as the \var{k}th byte of \var{bytevector}.</p>
 <p>Returns a newly allocated bytevector containing the bytes in \var{bytevector}
 between \var{start} and \var{end}.</p>
 
-<pre><code>(define a \#u8(1 2 3 4 5))
-(bytevector-copy a 2 4)) \ev \#u8(3 4)
+<pre><code>(define a #u8(1 2 3 4 5))
+(bytevector-copy a 2 4)) \ev #u8(3 4)
 </code></pre>
 
 <p>\end{entry}</p>
@@ -2894,8 +2895,8 @@ between \var{start} and \var{end}.</p>
 \rproto{bytevector-copy!}{ to at from start end}{procedure}}</p>
 
 <p>\domain{It is an error if \var{at} is less than zero or greater than the length of \var{to}.
-It is also an error if {\cf (- (bytevector-length \var{to}) \var{at})}
-is less than {\cf (- \var{end} \var{start})}.}
+It is also an error if <code>(- (bytevector-length \var{to</code>) \var{at})}
+is less than <code>(- \var{end</code> \var{start})}.}
 Copies the bytes of bytevector \var{from} between \var{start} and \var{end}
 to bytevector \var{to}, starting at \var{at}.  The order in which bytes are
 copied is unspecified, except that if the source and destination overlap,
@@ -2907,7 +2908,7 @@ such circumstances.</p>
 <pre><code>(define a (bytevector 1 2 3 4 5))
 (define b (bytevector 10 20 30 40 50))
 (bytevector-copy! b 1 a 0 2)
-b \ev \#u8(10 1 2 40 50)
+b \ev #u8(10 1 2 40 50)
 </code></pre>
 
 <p>\begin{note}
@@ -2924,7 +2925,7 @@ contrary to other such procedures in Scheme.
 <p>Returns a newly allocated bytevector whose elements are the concatenation
 of the elements in the given bytevectors.</p>
 
-<pre><code>(bytevector-append \#u8(0 1 2) \#u8(3 4 5)) \lev \#u8(0 1 2 3 4 5)
+<pre><code>(bytevector-append #u8(0 1 2) #u8(3 4 5)) \lev #u8(0 1 2 3 4 5)
 </code></pre>
 
 <p>\end{entry}</p>
@@ -2941,15 +2942,15 @@ of the elements in the given bytevectors.</p>
 <p>\domain{It is an error for \var{bytevector} to contain invalid UTF-8 byte sequences.}
 These procedures translate between strings and bytevectors
 that encode those strings using the UTF-8 encoding.
-The {\cf utf8\coerce{}string} procedure decodes the bytes of
+The <code>utf8\coerce{</code>string} procedure decodes the bytes of
 a bytevector between \var{start} and \var{end}
 and returns the corresponding string;
-the {\cf string\coerce{}utf8} procedure encodes the characters of a
+the <code>string\coerce{</code>utf8} procedure encodes the characters of a
 string between \var{start} and \var{end}
 and returns the corresponding bytevector.</p>
 
-<pre><code>(utf8-&gt;string \#u8(\#x41)) \ev &quot;A&quot;
-(string-&gt;utf8 &quot;$\lambda$&quot;) \ev \#u8(\#xCE \#xBB)
+<pre><code>(utf8-&gt;string #u8(#x41)) \ev &quot;A&quot;
+(string-&gt;utf8 &quot;$\lambda$&quot;) \ev #u8(#xCE #xBB)
 </code></pre>
 
 <p>\end{entry}</p>
@@ -2963,7 +2964,7 @@ flow of program execution in special ways.
 Procedures in this section that invoke procedure arguments
 always do so in the same dynamic environment as the call of the
 original procedure.
-The {\cf procedure?}\ predicate is also described here.</p>
+The <code>procedure?</code> predicate is also described here.</p>
 
 <p>\begin{entry}{
 \proto{procedure?}{ obj}{procedure}}</p>
@@ -2985,7 +2986,7 @@ The {\cf procedure?}\ predicate is also described here.</p>
 <p>\begin{entry}{
 \proto{apply}{ proc \vari{arg} $\ldots$ args}{procedure}}</p>
 
-<p>The {\cf apply} procedure calls \var{proc} with the elements of the list
+<p>The <code>apply</code> procedure calls \var{proc} with the elements of the list
 {\cf(append (list \vari{arg} \dotsfoo) \var{args})} as the actual
 arguments.</p>
 
@@ -3007,14 +3008,14 @@ arguments.</p>
 <p>\domain{It is an error if \var{proc} does not
 accept as many arguments as there are {\it list}s
 and return a single value.}
-The {\cf map} procedure applies \var{proc} element-wise to the elements of the
+The <code>map</code> procedure applies \var{proc} element-wise to the elements of the
 \var{list}s and returns a list of the results, in order.
 If more than one \var{list} is given and not all lists have the same length,
-{\cf map} terminates when the shortest list runs out.
+<code>map</code> terminates when the shortest list runs out.
 The \var{list}s can be circular, but it is an error if all of them are circular.
 It is an error for \var{proc} to mutate any of the lists.
 The dynamic order in which \var{proc} is applied to the elements of the
-\var{list}s is unspecified.  If multiple returns occur from {\cf map},
+\var{list}s is unspecified.  If multiple returns occur from <code>map</code>,
 the values returned by earlier returns are not mutated.</p>
 
 <pre><code>(map cadr '((a b) (d e) (g h)))   \lev  (b e h)
@@ -3040,13 +3041,13 @@ the values returned by earlier returns are not mutated.</p>
 <p>\domain{It is an error if \var{proc} does not
 accept as many arguments as there are {\it string}s
 and return a single character.}
-The {\cf string-map} procedure applies \var{proc} element-wise to the elements of the
+The <code>string-map</code> procedure applies \var{proc} element-wise to the elements of the
 \var{string}s and returns a string of the results, in order.
 If more than one \var{string} is given and not all strings have the same length,
-{\cf string-map} terminates when the shortest string runs out.
+<code>string-map</code> terminates when the shortest string runs out.
 The dynamic order in which \var{proc} is applied to the elements of the
 \var{string}s is unspecified.
-If multiple returns occur from {\cf string-map},
+If multiple returns occur from <code>string-map</code>,
 the values returned by earlier returns are not mutated.</p>
 
 <pre><code>(string-map char-foldcase &quot;AbdEgH&quot;) \lev  &quot;abdegh&quot;
@@ -3072,28 +3073,28 @@ the values returned by earlier returns are not mutated.</p>
 <p>\domain{It is an error if \var{proc} does not
 accept as many arguments as there are {\it vector}s
 and return a single value.}
-The {\cf vector-map} procedure applies \var{proc} element-wise to the elements of the
+The <code>vector-map</code> procedure applies \var{proc} element-wise to the elements of the
 \var{vector}s and returns a vector of the results, in order.
 If more than one \var{vector} is given and not all vectors have the same length,
-{\cf vector-map} terminates when the shortest vector runs out.
+<code>vector-map</code> terminates when the shortest vector runs out.
 The dynamic order in which \var{proc} is applied to the elements of the
 \var{vector}s is unspecified.
-If multiple returns occur from {\cf vector-map},
+If multiple returns occur from <code>vector-map</code>,
 the values returned by earlier returns are not mutated.</p>
 
-<pre><code>(vector-map cadr '\#((a b) (d e) (g h)))   \lev  \#(b e h)
+<pre><code>(vector-map cadr '#((a b) (d e) (g h)))   \lev  #(b e h)
 
 (vector-map (lambda (n) (expt n n))
-            '\#(1 2 3 4 5))                \lev  \#(1 4 27 256 3125)
+            '#(1 2 3 4 5))                \lev  #(1 4 27 256 3125)
 
-(vector-map + '\#(1 2 3) '\#(4 5 6 7))       \lev  \#(5 7 9)
+(vector-map + '#(1 2 3) '#(4 5 6 7))       \lev  #(5 7 9)
 
 (let ((count 0))
   (vector-map
    (lambda (ignored)
      (set! count (+ count 1))
      count)
-   '\#(a b)))                     \ev  \#(1 2) \var{or} \#(2 1)
+   '#(a b)))                     \ev  #(1 2) \var{or} #(2 1)
 </code></pre>
 
 <p>\end{entry}</p>
@@ -3103,13 +3104,13 @@ the values returned by earlier returns are not mutated.</p>
 
 <p>\domain{It is an error if \var{proc} does not
 accept as many arguments as there are {\it list}s.}
-The arguments to {\cf for-each} are like the arguments to {\cf map}, but
-{\cf for-each} calls \var{proc} for its side effects rather than for its
-values.  Unlike {\cf map}, {\cf for-each} is guaranteed to call \var{proc} on
+The arguments to <code>for-each</code> are like the arguments to <code>map</code>, but
+<code>for-each</code> calls \var{proc} for its side effects rather than for its
+values.  Unlike <code>map</code>, <code>for-each</code> is guaranteed to call \var{proc} on
 the elements of the \var{list}s in order from the first element(s) to the
-last, and the value returned by {\cf for-each} is unspecified.
+last, and the value returned by <code>for-each</code> is unspecified.
 If more than one \var{list} is given and not all lists have the same length,
-{\cf for-each} terminates when the shortest list runs out.
+<code>for-each</code> terminates when the shortest list runs out.
 The \var{list}s can be circular, but it is an error if all of them are circular.</p>
 
 <p>It is an error for \var{proc} to mutate any of the lists.</p>
@@ -3118,7 +3119,7 @@ The \var{list}s can be circular, but it is an error if all of them are circular.
   (for-each (lambda (i)
               (vector-set! v i (* i i)))
             '(0 1 2 3 4))
-  v)                                \ev  \#(0 1 4 9 16)
+  v)                                \ev  #(0 1 4 9 16)
 </code></pre>
 
 <p>\end{entry}</p>
@@ -3128,14 +3129,14 @@ The \var{list}s can be circular, but it is an error if all of them are circular.
 
 <p>\domain{It is an error if \var{proc} does not
 accept as many arguments as there are {\it string}s.}
-The arguments to {\cf string-for-each} are like the arguments to {\cf
-string-map}, but {\cf string-for-each} calls \var{proc} for its side
-effects rather than for its values.  Unlike {\cf string-map}, {\cf
+The arguments to <code>string-for-each</code> are like the arguments to {\cf
+string-map}, but <code>string-for-each</code> calls \var{proc} for its side
+effects rather than for its values.  Unlike <code>string-map</code>, {\cf
 string-for-each} is guaranteed to call \var{proc} on the elements of
 the \var{list}s in order from the first element(s) to the last, and the
-value returned by {\cf string-for-each} is unspecified.
+value returned by <code>string-for-each</code> is unspecified.
 If more than one \var{string} is given and not all strings have the same length,
-{\cf string-for-each} terminates when the shortest string runs out.
+<code>string-for-each</code> terminates when the shortest string runs out.
 It is an error for \var{proc} to mutate any of the strings.</p>
 
 <pre><code>(let ((v '()))
@@ -3152,20 +3153,20 @@ It is an error for \var{proc} to mutate any of the strings.</p>
 
 <p>\domain{It is an error if \var{proc} does not
 accept as many arguments as there are {\it vector}s.}
-The arguments to {\cf vector-for-each} are like the arguments to {\cf
-vector-map}, but {\cf vector-for-each} calls \var{proc} for its side
-effects rather than for its values.  Unlike {\cf vector-map}, {\cf
+The arguments to <code>vector-for-each</code> are like the arguments to {\cf
+vector-map}, but <code>vector-for-each</code> calls \var{proc} for its side
+effects rather than for its values.  Unlike <code>vector-map</code>, {\cf
 vector-for-each} is guaranteed to call \var{proc} on the elements of
 the \var{vector}s in order from the first element(s) to the last, and
-the value returned by {\cf vector-for-each} is unspecified.
+the value returned by <code>vector-for-each</code> is unspecified.
 If more than one \var{vector} is given and not all vectors have the same length,
-{\cf vector-for-each} terminates when the shortest vector runs out.
+<code>vector-for-each</code> terminates when the shortest vector runs out.
 It is an error for \var{proc} to mutate any of the vectors.</p>
 
 <pre><code>(let ((v (make-list 5)))
   (vector-for-each
    (lambda (i) (list-set! v i (* i i)))
-   '\#(0 1 2 3 4))
+   '#(0 1 2 3 4))
   v)                                \ev  (0 1 4 9 16)
 </code></pre>
 
@@ -3177,8 +3178,8 @@ It is an error for \var{proc} to mutate any of the vectors.</p>
 
 <p>\label{continuations} \domain{It is an error if \var{proc} does not accept one
 argument.}
-The procedure {\cf call-with-current-continuation} (or its
-equivalent abbreviation {\cf call/cc}) packages
+The procedure <code>call-with-current-continuation</code> (or its
+equivalent abbreviation <code>call/cc</code>) packages
 the current continuation (see the rationale below) as an &ldquo;escape
 procedure&rdquo;\mainindex{escape procedure} and passes it as an argument to
 \var{proc}.
@@ -3192,15 +3193,15 @@ will cause the invocation of \var{before} and \var{after} thunks installed using
 <p>The escape procedure accepts the same number of arguments as the continuation to
 the original call to \callcc.
 Most continuations take only one value.
-Continuations created by the {\cf call-with-values}
+Continuations created by the <code>call-with-values</code>
 procedure (including the initialization expressions of
-{\cf define-values}, {\cf let-values}, and {\cf let<em>-values} expressions),
+<code>define-values</code>, <code>let-values</code>, and <code>let*-values</code> expressions),
 take the number of values that the consumer expects.
 The continuations of all non-final expressions within a sequence
-of expressions, such as in {\cf lambda}, {\cf case-lambda}, {\cf begin},
-{\cf let}, {\cf let</em>}, {\cf letrec}, {\cf letrec<em>}, {\cf let-values},
-{\cf let</em>-values}, {\cf let-syntax}, {\cf letrec-syntax}, {\cf parameterize},
-{\cf guard}, {\cf case}, {\cf cond}, {\cf when}, and {\cf unless} expressions,
+of expressions, such as in <code>lambda</code>, <code>case-lambda</code>, <code>begin</code>,
+<code>let</code>, <code>let*</code>, <code>letrec</code>, <code>letrec*</code>, <code>let-values</code>,
+<code>let*-values</code>, <code>let-syntax</code>, <code>letrec-syntax</code>, <code>parameterize</code>,
+<code>guard</code>, <code>case</code>, <code>cond</code>, <code>when</code>, and <code>unless</code> expressions,
 take an arbitrary number of values because they discard the values passed
 to them in any event.
 The effect of passing no values or more than one value to continuations
@@ -3209,13 +3210,13 @@ that were not created in one of these ways is unspecified.</p>
 <p>The escape procedure that is passed to \var{proc} has
 unlimited extent just like any other procedure in Scheme.  It can be stored
 in variables or data structures and can be called as many times as desired.
-However, like the {\cf raise} and {\cf error} procedures, it never
+However, like the <code>raise</code> and <code>error</code> procedures, it never
 returns to its caller.</p>
 
 <p>The following examples show only the simplest ways in which
-{\cf call-with-current-continuation} is used.  If all real uses were as
+<code>call-with-current-continuation</code> is used.  If all real uses were as
 simple as these examples, there would be no need for a procedure with
-the power of {\cf call-with-current-continuation}.</p>
+the power of <code>call-with-current-continuation</code>.</p>
 
 <pre><code>(call-with-current-continuation
   (lambda (exit)
@@ -3244,11 +3245,11 @@ the power of {\cf call-with-current-continuation}.</p>
 
 <p>\begin{rationale}</p>
 
-<p>A common use of {\cf call-with-current-continuation} is for
+<p>A common use of <code>call-with-current-continuation</code> is for
 structured, non-local exits from loops or procedure bodies, but in fact
-{\cf call-with-current-continuation} is useful for implementing a
+<code>call-with-current-continuation</code> is useful for implementing a
 wide variety of advanced control structures.
-In fact, {\cf raise} and {\cf guard} provide a more structured mechanism
+In fact, <code>raise</code> and <code>guard</code> provide a more structured mechanism
 for non-local exits.</p>
 
 <p>Whenever a Scheme expression is evaluated there is a
@@ -3263,36 +3264,36 @@ the answer to the REPL&rsquo;s continuation to be printed.  Normally these
 ubiquitous continuations are hidden behind the scenes and programmers do not
 think much about them.  On rare occasions, however, a programmer
 needs to deal with continuations explicitly.
-The {\cf call-with-current-continuation} procedure allows Scheme programmers to do
+The <code>call-with-current-continuation</code> procedure allows Scheme programmers to do
 that by creating a procedure that acts just like the current
 continuation.</p>
 
 <p>% Most programming languages incorporate one or more special-purpose
-% escape constructs with names like {\tt exit}, \hbox{{\cf return}}, or
+% escape constructs with names like {\tt exit}, \hbox{<code>return</code>}, or
 % even {\tt goto}.  In 1965, however, Peter Landin~\cite{Landin65}
 % invented a general purpose escape operator called the J-operator.  John
 % Reynolds~\cite{Reynolds72} described a simpler but equally powerful
-% construct in 1972.  The {\cf catch} syntax described by Sussman
+% construct in 1972.  The <code>catch</code> syntax described by Sussman
 % and Steele in the 1975 report on Scheme is exactly the same as
 % Reynolds&rsquo;s construct, though its name came from a less general construct
 % in MacLisp.  Several Scheme implementers noticed that the full power of
 % \ide{catch} could be provided by a procedure instead of by a
 % special syntactic construct, and the name
-% {\cf call-with-current-continuation} was coined in 1982.  This name is
+% <code>call-with-current-continuation</code> was coined in 1982.  This name is
 % descriptive, but opinions differ on the merits of such a long name, and
 % some people prefer the name \ide{call/cc} instead.</p>
 
 <p>\end{rationale}</p>
 
 <p>%% \begin{note}
-%% The {\cf call/cc} procedure is capable of capturing continuations
+%% The <code>call/cc</code> procedure is capable of capturing continuations
 %% originating outside of Scheme when Scheme is embedded in some host
 %% language. It is not always practical or even meaningful to restore
 %% these continuations.
 %% \end{note}</p>
 
 <p>%% \begin{note}
-%% The interactions of \callcc{} with {\cf dynamic-wind} are defined by
+%% The interactions of \callcc{} with <code>dynamic-wind</code> are defined by
 %% the formal semantics, but are hard to understand in complex cases.  In
 %% addition, in some implementations \callcc{} consumes an amount of
 %% memory that depends on the number of active continuations.
@@ -3343,8 +3344,8 @@ whenever it exits that dynamic extent.  The dynamic extent of a procedure
 call is the period between when the call is initiated and when it
 returns.
 The \var{before} and \var{after} thunks are called in the same dynamic
-environment as the call to {\cf dynamic-wind}.
-In Scheme, because of {\cf call-with-current-continuation}, the
+environment as the call to <code>dynamic-wind</code>.
+In Scheme, because of <code>call-with-current-continuation</code>, the
 dynamic extent of a call is not always a single, connected time period.
 It is defined as follows:
 \begin{itemize}
@@ -3353,7 +3354,7 @@ called procedure begins.</p>
 
 <p>\item The dynamic extent is also entered when execution is not within
 the dynamic extent and a continuation is invoked that was captured
-(using {\cf call-with-current-continuation}) during the dynamic extent.</p>
+(using <code>call-with-current-continuation</code>) during the dynamic extent.</p>
 
 <p>\item It is exited when the called procedure returns.</p>
 
@@ -3362,27 +3363,27 @@ a continuation is invoked that was captured while not within the
 dynamic extent.
 \end{itemize}</p>
 
-<p>If a second call to {\cf dynamic-wind} occurs within the dynamic extent of the
+<p>If a second call to <code>dynamic-wind</code> occurs within the dynamic extent of the
 call to \var{thunk} and then a continuation is invoked in such a way that the
-\var{after}s from these two invocations of {\cf dynamic-wind} are both to be
+\var{after}s from these two invocations of <code>dynamic-wind</code> are both to be
 called, then the \var{after} associated with the second (inner) call to
-{\cf dynamic-wind} is called first.</p>
+<code>dynamic-wind</code> is called first.</p>
 
-<p>If a second call to {\cf dynamic-wind} occurs within the dynamic extent of the
+<p>If a second call to <code>dynamic-wind</code> occurs within the dynamic extent of the
 call to \var{thunk} and then a continuation is invoked in such a way that the
-\var{before}s from these two invocations of {\cf dynamic-wind} are both to be
+\var{before}s from these two invocations of <code>dynamic-wind</code> are both to be
 called, then the \var{before} associated with the first (outer) call to
-{\cf dynamic-wind} is called first.</p>
+<code>dynamic-wind</code> is called first.</p>
 
 <p>If invoking a continuation requires calling the \var{before} from one call
-to {\cf dynamic-wind} and the \var{after} from another, then the \var{after}
+to <code>dynamic-wind</code> and the \var{after} from another, then the \var{after}
 is called first.</p>
 
 <p>The effect of using a captured continuation to enter or exit the dynamic
 extent of a call to \var{before} or \var{after} is unspecified.</p>
 
 <pre><code>(let ((path '())
-      (c \#f))
+      (c #f))
   (let ((add (lambda (s)
                (set! path (cons s path)))))
     (dynamic-wind
@@ -3409,7 +3410,7 @@ extent of a call to \var{before} or \var{after} is unspecified.</p>
 <p>This section describes Scheme&rsquo;s exception-handling and
 exception-raising procedures.
 For the concept of Scheme exceptions, see section~\ref{errorsituations}.
-See also \ref{guard} for the {\cf guard} syntax.</p>
+See also \ref{guard} for the <code>guard</code> syntax.</p>
 
 <p>\defining{Exception handler}s are one-argument procedures that determine the
 action the program takes when an exceptional situation is signaled.
@@ -3427,7 +3428,7 @@ object can be used to represent an exception.</p>
 
 <p>\domain{It is an error if \var{handler} does not accept one argument.
 It is also an error if \var{thunk} does not accept zero arguments.}
-The {\cf with-exception-handler} procedure returns the results of invoking
+The <code>with-exception-handler</code> procedure returns the results of invoking
 \var{thunk}.  \var{Handler} is installed as the current
 exception handler
 in the dynamic environment used for the invocation of \var{thunk}.</p>
@@ -3461,7 +3462,7 @@ in the dynamic environment used for the invocation of \var{thunk}.</p>
 
 <p>Raises an exception by invoking the current exception
 handler on \var{obj}. The handler is called with the same
-dynamic environment as that of the call to {\cf raise}, except that
+dynamic environment as that of the call to <code>raise</code>, except that
 the current exception handler is the one that was in place when the
 handler being called was installed.  If the handler returns, a secondary
 exception is raised in the same dynamic environment as the handler.
@@ -3475,12 +3476,12 @@ the secondary exception is unspecified.
 <p>Raises an exception by invoking the current
 exception handler on \var{obj}. The handler is called with
 the same dynamic environment as the call to
-{\cf raise-continuable}, except that: (1) the current
+<code>raise-continuable</code>, except that: (1) the current
 exception handler is the one that was in place when the handler being
 called was installed, and (2) if the handler being called returns,
 then it will again become the current exception handler.  If the
 handler returns, the values it returns become the values returned by
-the call to {\cf raise-continuable}.
+the call to <code>raise-continuable</code>.
 \end{entry}</p>
 
 <pre><code>(with-exception-handler
@@ -3503,14 +3504,14 @@ the call to {\cf raise-continuable}.
 
 <p>\domain{\var{Message} should be a string.}
 Raises an exception as if by calling
-{\cf raise} on a newly allocated implementation-defined object which encapsulates
+<code>raise</code> on a newly allocated implementation-defined object which encapsulates
 the information provided by \var{message},
 as well as any \var{obj}s, known as the \defining{irritants}.
-The procedure {\cf error-object?} must return \schtrue{} on such objects.</p>
+The procedure <code>error-object?</code> must return \schtrue{} on such objects.</p>
 
 <pre><code>(define (null-list? l)
-  (cond ((pair? l) \#f)
-        ((null? l) \#t)
+  (cond ((pair? l) #f)
+        ((null? l) #t)
         (else
           (error
             &quot;null-list?: argument out of domain&quot;
@@ -3522,12 +3523,12 @@ The procedure {\cf error-object?} must return \schtrue{} on such objects.</p>
 <p>\begin{entry}{
 \proto{error-object?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is an object created by {\cf error}
+<p>Returns \schtrue{} if \var{obj} is an object created by <code>error</code>
 or one of an implementation-defined set of objects.  Otherwise, it returns
 \schfalse.
 The objects used to signal errors, including those which satisfy the
-predicates {\cf file-error?} and {\cf read-error?}, may or may not
-satisfy {\cf error-object?}.</p>
+predicates <code>file-error?</code> and <code>read-error?</code>, may or may not
+satisfy <code>error-object?</code>.</p>
 
 <p>\end{entry}</p>
 
@@ -3550,7 +3551,7 @@ satisfy {\cf error-object?}.</p>
 \proto{file-error?}{ obj}{procedure}}</p>
 
 <p>Error type predicates.  Returns \schtrue{} if \var{obj} is an
-object raised by the {\cf read} procedure or by the inability to open
+object raised by the <code>read</code> procedure or by the inability to open
 an input or output port on a file, respectively.  Otherwise, it
 returns \schfalse.
 % Not required to be an error object.</p>
@@ -3574,24 +3575,24 @@ represented by the specifier are immutable, as is the environment itself.</p>
 <p>\begin{entry}{
 \proto{scheme-report-environment}{ version}{r5rs library procedure}}</p>
 
-<p>If \var{version} is equal to {\cf 5},
+<p>If \var{version} is equal to <code>5</code>,
 corresponding to R<span class="rnrs">5</span>RS
 ,
-{\cf scheme-report-environment} returns a specifier for an
+<code>scheme-report-environment</code> returns a specifier for an
 environment that contains only the bindings
 defined in the R<span class="rnrs">5</span>RS
-\ library.
+ library.
 Implementations must support this value of \var{version}.</p>
 
 <p>Implementations may also support other values of \var{version}, in which
 case they return a specifier for an environment containing bindings corresponding to the specified version of the report.
 If \var{version}
-is neither {\cf 5} nor another value supported by
+is neither <code>5</code> nor another value supported by
 the implementation, an error is signaled.</p>
 
-<p>The effect of defining or assigning (through the use of {\cf eval})
-an identifier bound in a {\cf scheme-report-environment} (for example
-{\cf car}) is unspecified.  Thus both the environment and the bindings
+<p>The effect of defining or assigning (through the use of <code>eval</code>)
+an identifier bound in a <code>scheme-report-environment</code> (for example
+<code>car</code>) is unspecified.  Thus both the environment and the bindings
 it contains may be immutable.</p>
 
 <p>\end{entry}</p>
@@ -3599,25 +3600,25 @@ it contains may be immutable.</p>
 <p>\begin{entry}{
 \proto{null-environment}{ version}{r5rs library procedure}}</p>
 
-<p>If \var{version} is equal to {\cf 5},
+<p>If \var{version} is equal to <code>5</code>,
 corresponding to R<span class="rnrs">5</span>RS
 ,
-the {\cf null-environment} procedure returns
+the <code>null-environment</code> procedure returns
 a specifier for an environment that contains only the
 bindings for all syntactic keywords
 defined in the R<span class="rnrs">5</span>RS
-\ library.
+ library.
 Implementations must support this value of \var{version}.</p>
 
 <p>Implementations may also support other values of \var{version}, in which
 case they return a specifier for an environment containing appropriate bindings corresponding to the specified version of the report.
 If \var{version}
-is neither {\cf 5} nor another value supported by
+is neither <code>5</code> nor another value supported by
 the implementation, an error is signaled.</p>
 
-<p>The effect of defining or assigning (through the use of {\cf eval})
-an identifier bound in a {\cf scheme-report-environment} (for example
-{\cf car}) is unspecified.  Thus both the environment and the bindings
+<p>The effect of defining or assigning (through the use of <code>eval</code>)
+an identifier bound in a <code>scheme-report-environment</code> (for example
+<code>car</code>) is unspecified.  Thus both the environment and the bindings
 it contains may be immutable.</p>
 
 <p>\end{entry}</p>
@@ -3640,7 +3641,7 @@ expressions entered by the user into a REPL.</p>
 specified environment and its values are returned.
 If it is a definition, the specified identifier(s) are defined in the specified
 environment, provided the environment is not immutable.
-Implementations may extend {\cf eval} to allow other objects.</p>
+Implementations may extend <code>eval</code> to allow other objects.</p>
 
 <pre><code>(eval '(* 7 3) (environment '(scheme base)))
                                                    \ev  21
@@ -3674,11 +3675,11 @@ and {\em binary ports}, but may also provide other port types.</p>
 
 <p>A textual port supports reading or writing of individual characters
 from or to a backing store containing characters
-using {\cf read-char} and {\cf write-char} below, and it supports operations
-defined in terms of characters, such as {\cf read} and {\cf write}.</p>
+using <code>read-char</code> and <code>write-char</code> below, and it supports operations
+defined in terms of characters, such as <code>read</code> and <code>write</code>.</p>
 
 <p>A binary port supports reading or writing of individual bytes from
-or to a backing store containing bytes using {\cf read-u8} and {\cf
+or to a backing store containing bytes using <code>read-u8</code> and {\cf
 write-u8} below, as well as operations defined in terms of bytes.
 Whether the textual and binary port types are disjoint is
 implementation-dependent.</p>
@@ -3690,7 +3691,7 @@ system on which the Scheme program is running.</p>
 \proto{call-with-port}{ port proc}{procedure}}</p>
 
 <p>\domain{It is an error if \var{proc} does not accept one argument.}
-The {\cf call-with-port}
+The <code>call-with-port</code>
 procedure calls \var{proc} with \var{port} as an argument.
 If \var{proc} returns,
 then the port is closed automatically and the values yielded by the
@@ -3704,7 +3705,7 @@ Because Scheme&rsquo;s escape procedures have unlimited extent, it  is
 possible to escape from the current continuation but later to resume it.
 If implementations were permitted to close the port on any escape from the
 current continuation, then it would be impossible to write portable code using
-both {\cf call-with-current-continuation} and {\cf call-with-port}.
+both <code>call-with-current-continuation</code> and <code>call-with-port</code>.
 \end{rationale}</p>
 
 <p>\end{entry}</p>
@@ -3716,9 +3717,9 @@ both {\cf call-with-current-continuation} and {\cf call-with-port}.
 <p>\domain{It is an error if \var{proc} does not accept one argument.}
 These procedures obtain a
 textual port obtained by opening the named file for input or output
-as if by {\cf open-input-file} or {\cf open-output-file}.
+as if by <code>open-input-file</code> or <code>open-output-file</code>.
 The port and \var{proc} are then passed to a procedure equivalent
-to {\cf call-with-port}.
+to <code>call-with-port</code>.
 \end{entry}</p>
 
 <p>\begin{entry}{
@@ -3750,7 +3751,7 @@ performing input or output, respectively, and \schfalse{} otherwise.</p>
 
 <p>Returns the current default input port, output port, or error port (an
 output port), respectively.  These procedures are parameter objects, which can be
-overridden with {\cf parameterize} (see
+overridden with <code>parameterize</code> (see
 section~\ref{make-parameter}).  The initial bindings for these
 are implementation-defined textual ports.</p>
 
@@ -3761,9 +3762,9 @@ are implementation-defined textual ports.</p>
 \proto{with-output-to-file}{ string thunk}{file library procedure}}</p>
 
 <p>The file is opened for input or output
-as if by {\cf open-input-file} or {\cf open-output-file},
+as if by <code>open-input-file</code> or <code>open-output-file</code>,
 and the new port is made to be the value returned by
-{\cf current-input-port} or {\cf current-output-port}
+<code>current-input-port</code> or <code>current-output-port</code>
 (as used by {\tt (read)}, {\tt (write \var{obj})}, and so forth).
 The \var{thunk} is then called with no arguments.  When the \var{thunk} returns,
 the port is closed and the previous default is restored.
@@ -3772,7 +3773,7 @@ Both procedures return the values yielded by \var{thunk}.
 If an escape procedure
 is used to escape from the continuation of these procedures, they
 behave exactly as if the current input or output port had been bound
-dynamically with {\cf parameterize}.</p>
+dynamically with <code>parameterize</code>.</p>
 
 <p>\end{entry}</p>
 
@@ -3782,7 +3783,7 @@ dynamically with {\cf parameterize}.</p>
 
 <p>Takes a \var{string} for an existing file and returns a textual
 input port or binary input port that is capable of delivering data from the
-file.  If the file does not exist or cannot be opened, an error that satisfies {\cf file-error?} is signaled.</p>
+file.  If the file does not exist or cannot be opened, an error that satisfies <code>file-error?</code> is signaled.</p>
 
 <p>\end{entry}</p>
 
@@ -3797,7 +3798,7 @@ data to a new file by that name.</p>
 <p>If a file with the given name already exists,
 the effect is unspecified.
 If the file cannot be opened,
-an error that satisfies {\cf file-error?} is signaled.</p>
+an error that satisfies <code>file-error?</code> is signaled.</p>
 
 <p>\end{entry}</p>
 
@@ -3812,8 +3813,8 @@ It is an error
 to apply the last two procedures to a port which is not an input
 or output port, respectively.
 Scheme implementations may provide ports which are simultaneously
-input and output ports, such as sockets; the {\cf close-input-port}
-and {\cf close-output-port} procedures can then be used to close the
+input and output ports, such as sockets; the <code>close-input-port</code>
+and <code>close-output-port</code> procedures can then be used to close the
 input and output sides of the port independently.</p>
 
 <p>These routines have no effect if the port has already been closed.</p>
@@ -3833,7 +3834,7 @@ If the string is modified, the effect is unspecified.</p>
 \proto{open-output-string}{}{procedure}}</p>
 
 <p>Returns a textual output port that will accumulate characters for
-retrieval by {\cf get-output-string}.</p>
+retrieval by <code>get-output-string</code>.</p>
 
 <p>\end{entry}</p>
 
@@ -3841,7 +3842,7 @@ retrieval by {\cf get-output-string}.</p>
 \proto{get-output-string}{ port}{procedure}}</p>
 
 <p>\domain{It is an error if \var{port} was not created with
-{\cf open-output-string}.}
+<code>open-output-string</code>.}
 Returns a string consisting of the
 characters that have been output to the port so far in the order they
 were output.
@@ -3872,7 +3873,7 @@ bytes from the bytevector.</p>
 \proto{open-output-bytevector}{}{procedure}}</p>
 
 <p>Returns a binary output port that will accumulate bytes for
-retrieval by {\cf get-output-bytevector}.</p>
+retrieval by <code>get-output-bytevector</code>.</p>
 
 <p>\end{entry}</p>
 
@@ -3880,7 +3881,7 @@ retrieval by {\cf get-output-bytevector}.</p>
 \proto{get-output-bytevector}{ port}{procedure}}</p>
 
 <p>\domain{It is an error if \var{port} was not created with
-{\cf open-output-bytevector}.}  Returns a bytevector consisting
+<code>open-output-bytevector</code>.}  Returns a bytevector consisting
 of the bytes that have been output to the port so far in the
 order they were output.
 \end{entry}</p>
@@ -3890,7 +3891,7 @@ order they were output.
 <p>\label{inputsection}</p>
 
 <p>If \var{port} is omitted from any input procedure, it defaults to the
-value returned by {\cf (current-input-port)}.
+value returned by <code>(current-input-port)</code>.
 It is an error to attempt an input operation on a closed port.</p>
 
 <p>\noindent \hbox{ }  %???
@@ -3900,7 +3901,7 @@ It is an error to attempt an input operation on a closed port.</p>
 \proto{read}{}{read library procedure}
 \rproto{read}{ port}{read library procedure}}</p>
 
-<p>The {\cf read} procedure converts external representations of Scheme objects into the
+<p>The <code>read</code> procedure converts external representations of Scheme objects into the
 objects themselves.  That is, it is a parser for the non-terminal
 \meta{datum} (see sections~\ref{datum} and
 \ref{listsection}).  It returns the next
@@ -3917,7 +3918,7 @@ object is returned.  The port remains open, and further attempts
 to read will also return an end-of-file object.  If an end of file is
 encountered after the beginning of an object&rsquo;s external representation,
 but the external representation is incomplete and therefore not parsable,
-an error that satisfies {\cf read-error?} is signaled.</p>
+an error that satisfies <code>read-error?</code> is signaled.</p>
 
 <p>\end{entry}</p>
 
@@ -3942,13 +3943,13 @@ the \var{port} to point to the following character.  If no more characters
 are available, an end-of-file object is returned.</p>
 
 <p>\begin{note}
-The value returned by a call to {\cf peek-char} is the same as the
-value that would have been returned by a call to {\cf read-char} with the
+The value returned by a call to <code>peek-char</code> is the same as the
+value that would have been returned by a call to <code>read-char</code> with the
 same \var{port}.  The only difference is that the very next call to
-{\cf read-char} or {\cf peek-char} on that \var{port} will return the
-value returned by the preceding call to {\cf peek-char}.  In particular, a call
-to {\cf peek-char} on an interactive port will hang waiting for input
-whenever a call to {\cf read-char} would have hung.
+<code>read-char</code> or <code>peek-char</code> on that \var{port} will return the
+value returned by the preceding call to <code>peek-char</code>.  In particular, a call
+to <code>peek-char</code> on an interactive port will hang waiting for input
+whenever a call to <code>read-char</code> would have hung.
 \end{note}</p>
 
 <p>\end{entry}</p>
@@ -3978,7 +3979,7 @@ Implementations may also recognize other end of line characters or sequences.</p
 <p>Returns \schtrue{} if \var{obj} is an end-of-file object, otherwise returns
 \schfalse.  The precise set of end-of-file objects will vary among
 implementations, but in any case no end-of-file object will ever be an object
-that can be read in using {\cf read}.</p>
+that can be read in using <code>read</code>.</p>
 
 <p>\end{entry}</p>
 
@@ -3994,17 +3995,17 @@ that can be read in using {\cf read}.</p>
 \rproto{char-ready?}{ port}{procedure}}</p>
 
 <p>Returns \schtrue{} if a character is ready on the textual input \var{port} and
-returns \schfalse{} otherwise.  If {\cf char-ready} returns \schtrue{} then
-the next {\cf read-char} operation on the given \var{port} is guaranteed
-not to hang.  If the \var{port} is at end of file then {\cf char-ready?}<br />
+returns \schfalse{} otherwise.  If <code>char-ready</code> returns \schtrue{} then
+the next <code>read-char</code> operation on the given \var{port} is guaranteed
+not to hang.  If the \var{port} is at end of file then <code>char-ready?</code><br />
 returns \schtrue.</p>
 
 <p>\begin{rationale}
-The {\cf char-ready?} procedure exists to make it possible for a program to
+The <code>char-ready?</code> procedure exists to make it possible for a program to
 accept characters from interactive ports without getting stuck waiting for
 input.  Any input editors associated with such ports must ensure that
-characters whose existence has been asserted by {\cf char-ready?}\ cannot
-be removed from the input.  If {\cf char-ready?}\ were to return \schfalse{} at end of
+characters whose existence has been asserted by <code>char-ready?</code> cannot
+be removed from the input.  If <code>char-ready?</code> were to return \schfalse{} at end of
 file, a port at end of file would be indistinguishable from an interactive
 port that has no ready characters.
 \end{rationale}
@@ -4050,10 +4051,10 @@ byte.  If no more bytes are available, an end-of-file object is returned.</p>
 \rproto{u8-ready?}{ port}{procedure}}</p>
 
 <p>Returns \schtrue{} if a byte is ready on the binary input \var{port}
-and returns \schfalse{} otherwise.  If {\cf u8-ready?} returns
-\schtrue{} then the next {\cf read-u8} operation on the given
+and returns \schfalse{} otherwise.  If <code>u8-ready?</code> returns
+\schtrue{} then the next <code>read-u8</code> operation on the given
 \var{port} is guaranteed not to hang.  If the \var{port} is at end of
-file then {\cf u8-ready?}\ returns \schtrue.</p>
+file then <code>u8-ready?</code> returns \schtrue.</p>
 
 <p>\end{entry}</p>
 
@@ -4093,7 +4094,7 @@ If no bytes are available, an end-of-file object is returned.</p>
 <p>\label{outputsection}</p>
 
 <p>If \var{port} is omitted from any output procedure, it defaults to the
-value returned by {\cf (current-output-port)}.
+value returned by <code>(current-output-port)</code>.
 It is an error to attempt an output operation on a closed port.</p>
 
 <p>\noindent \hbox{}
@@ -4109,7 +4110,7 @@ that appear in the written representation are enclosed in quotation marks, and
 within those strings backslash and quotation mark characters are
 escaped by backslashes.  Symbols that contain non-ASCII characters
 are escaped with vertical lines.
-Character objects are written using the {\cf #\backwhack} notation.</p>
+Character objects are written using the <code>#\backwhack</code> notation.</p>
 
 <p>If \var{obj} contains cycles which would cause an infinite loop using
 the normal written representation, then at least the objects that form
@@ -4120,7 +4121,7 @@ are no cycles.</p>
 <p>Implementations may support extended syntax to represent record types or
 other types that do not have datum representations.</p>
 
-<p>The {\cf write} procedure returns an unspecified value.</p>
+<p>The <code>write</code> procedure returns an unspecified value.</p>
 
 <p>\end{entry}</p>
 
@@ -4128,7 +4129,7 @@ other types that do not have datum representations.</p>
 \proto{write-shared}{ obj}{write library procedure}
 \rproto{write-shared}{ obj port}{write library procedure}}</p>
 
-<p>The {\cf write-shared} procedure is the same as {\cf write}, except that
+<p>The <code>write-shared</code> procedure is the same as <code>write</code>, except that
 shared structure must be represented using datum labels for all pairs
 and vectors that appear more than once in the output.</p>
 
@@ -4138,8 +4139,8 @@ and vectors that appear more than once in the output.</p>
 \proto{write-simple}{ obj}{write library procedure}
 \rproto{write-simple}{ obj port}{write library procedure}}</p>
 
-<p>The {\cf write-simple} procedure is the same as {\cf write}, except that shared structure is
-never represented using datum labels.  This can cause {\cf write-simple} not to
+<p>The <code>write-simple</code> procedure is the same as <code>write</code>, except that shared structure is
+never represented using datum labels.  This can cause <code>write-simple</code> not to
 terminate if \var{obj} contains circular structure.</p>
 
 <p>\end{entry}</p>
@@ -4150,25 +4151,25 @@ terminate if \var{obj} contains circular structure.</p>
 
 <p>Writes a representation of \var{obj} to the given textual output \var{port}.
 Strings that appear in the written representation are output as if by
-{\cf write-string} instead of by {\cf write}.
+<code>write-string</code> instead of by <code>write</code>.
 Symbols are not escaped.  Character
-objects appear in the representation as if written by {\cf write-char}
-instead of by {\cf write}.</p>
+objects appear in the representation as if written by <code>write-char</code>
+instead of by <code>write</code>.</p>
 
-<p>The {\cf display} representation of other objects is unspecified.
-However, {\cf display} must not loop forever on
+<p>The <code>display</code> representation of other objects is unspecified.
+However, <code>display</code> must not loop forever on
 self-referencing pairs, vectors, or records.  Thus if the
-normal {\cf write} representation is used, datum labels are needed
-to represent cycles as in {\cf write}.</p>
+normal <code>write</code> representation is used, datum labels are needed
+to represent cycles as in <code>write</code>.</p>
 
 <p>Implementations may support extended syntax to represent record types or
 other types that do not have datum representations.</p>
 
-<p>The {\cf display} procedure returns an unspecified value.</p>
+<p>The <code>display</code> procedure returns an unspecified value.</p>
 
 <p>\begin{rationale}
-The {\cf write} procedure is intended
-for producing mach-ine-readable output and {\cf display} for producing
+The <code>write</code> procedure is intended
+for producing mach-ine-readable output and <code>display</code> for producing
 human-readable output.
 \end{rationale}
 \end{entry}</p>
@@ -4250,19 +4251,19 @@ deserve description here.</p>
 <p>\domain{It is an error if \var{filename} is not a string.}
 An implementation-dependent operation is used to transform
 \var{filename} into the name of an existing file
-containing Scheme source code.  The {\cf load} procedure reads
+containing Scheme source code.  The <code>load</code> procedure reads
 expressions and definitions from the file and evaluates them
 sequentially in the environment specified by \var{environment-specifier}.
-If \var{environment-specifier} is omitted, {\cf (interaction-environment)}
+If \var{environment-specifier} is omitted, <code>(interaction-environment)</code>
 is assumed.</p>
 
 <p>It is unspecified whether the results of the expressions
-are printed.  The {\cf load} procedure does not affect the values
-returned by {\cf current-input-port} and {\cf current-output-port}.
+are printed.  The <code>load</code> procedure does not affect the values
+returned by <code>current-input-port</code> and <code>current-output-port</code>.
 It returns an unspecified value.</p>
 
 <p>\begin{rationale}
-For portability, {\cf load} must operate on source files.
+For portability, <code>load</code> must operate on source files.
 Its operation on other kinds of files necessarily varies among
 implementations.
 \end{rationale}
@@ -4272,7 +4273,7 @@ implementations.
 \proto{file-exists?}{ filename}{file library procedure}}</p>
 
 <p>\domain{It is an error if \var{filename} is not a string.}
-The {\cf file-exists?} procedure returns
+The <code>file-exists?</code> procedure returns
 \schtrue{} if the named file exists at the time the procedure is called,
 and \schfalse{} otherwise.</p>
 
@@ -4282,10 +4283,10 @@ and \schfalse{} otherwise.</p>
 \proto{delete-file}{ filename}{file library procedure}}</p>
 
 <p>\domain{It is an error if \var{filename} is not a string.}
-The {\cf delete-file} procedure deletes the
+The <code>delete-file</code> procedure deletes the
 named file if it exists and can be deleted, and returns an unspecified
 value.  If the file does not exist or cannot be deleted, an error
-that satisfies {\cf file-error?} is signaled.</p>
+that satisfies <code>file-error?</code> is signaled.</p>
 
 <p>\end{entry}</p>
 
@@ -4305,12 +4306,12 @@ implementation-dependent.  It is an error to mutate any of these strings.
 running program, and communicates an exit value to the operating system.
 If no argument is supplied, or if \var{obj} is \schtrue{}, the {\cf
 exit} procedure should communicate to the operating system that the
-program exited normally.  If \var{obj} is \schfalse{}, the {\cf exit}
+program exited normally.  If \var{obj} is \schfalse{}, the <code>exit</code>
 procedure should communicate to the operating system that the program
-exited abnormally.  Otherwise, {\cf exit} should translate \var{obj} into
+exited abnormally.  Otherwise, <code>exit</code> should translate \var{obj} into
 an appropriate exit value for the operating system, if possible.</p>
 
-<p>The {\cf exit} procedure
+<p>The <code>exit</code> procedure
 must not signal an exception or return to its continuation.</p>
 
 <p>\begin{note}
@@ -4327,10 +4328,10 @@ operating system&rsquo;s exit procedure.
 <p>Terminates the program without running any
 outstanding dynamic-wind \var{after} procedures
 and communicates an exit value to the operating system
-in the same manner as {\cf exit}.</p>
+in the same manner as <code>exit</code>.</p>
 
 <p>\begin{note}
-The {\cf emergency-exit} procedure corresponds to the {\cf _exit} procedure
+The <code>emergency-exit</code> procedure corresponds to the <code>_exit</code> procedure
 in Windows and Posix.
 \end{note}</p>
 
@@ -4342,15 +4343,15 @@ in Windows and Posix.
 <p>Many operating systems provide each running process with an
 \defining{environment} consisting of \defining{environment variables}.
 (This environment is not to be confused with the Scheme environments that
-can be passed to {\cf eval}: see section~\ref{environments}.)
+can be passed to <code>eval</code>: see section~\ref{environments}.)
 Both the name and value of an environment variable are strings.
-The procedure {\cf get-environment-variable} returns the value
+The procedure <code>get-environment-variable</code> returns the value
 of the environment variable \var{name},
 or \schfalse{} if the named
 environment variable is not found.  It may
 use locale information to encode the name and decode the value
 of the environment variable.  It is an error if <br />
-{\cf get-environment-variable} can&rsquo;t decode the value.
+<code>get-environment-variable</code> can&rsquo;t decode the value.
 It is also an error to mutate the resulting string.</p>
 
 <pre><code>(get-environment-variable &quot;PATH&quot;) \lev &quot;/usr/local/bin:/usr/bin:/bin&quot;
@@ -4389,18 +4390,18 @@ the best an implementation can do.
 <p>Returns the number of \defining{jiffies} as an exact integer that have elapsed since an arbitrary,
 implementation-defined epoch. A jiffy is an implementation-defined
 fraction of a second which is defined by the return value of the
-{\cf jiffies-per-second} procedure. The starting epoch is guaranteed to be
+<code>jiffies-per-second</code> procedure. The starting epoch is guaranteed to be
 constant during a run of the program, but may vary between runs.</p>
 
 <p>\begin{rationale}
 Jiffies are allowed to be implementation-dependent so that
-{\cf current-jiffy} can execute with minimum overhead. It
+<code>current-jiffy</code> can execute with minimum overhead. It
 should be very likely that a compactly represented integer will suffice
 as the returned value.  Any particular jiffy size will be inappropriate
 for some implementations: a microsecond is too long for a very fast
 machine, while a much smaller unit would force many implementations to
 return integers which have to be allocated for most calls, rendering
-{\cf current-jiffy} less useful for accurate timing measurements.
+<code>current-jiffy</code> less useful for accurate timing measurements.
 \end{rationale}</p>
 
 <p>\end{entry}</p>
@@ -4424,9 +4425,9 @@ second. This value is an implementation-specified constant.</p>
 <p>\begin{entry}{
 \proto{features}{}{procedure}}</p>
 
-<p>Returns a list of the feature identifiers which {\cf cond-expand}
+<p>Returns a list of the feature identifiers which <code>cond-expand</code>
 treats as true.  It is an error to modify this list.  Here is an
-example of what {\cf features} might return:</p>
+example of what <code>features</code> might return:</p>
 
 <pre><code>(features) \ev
   (r7rs ratios exact-complex full-unicode

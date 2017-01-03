@@ -5,6 +5,7 @@
     <title>Formal syntax and semantics</title>
   </head>
   <body>
+    <div style="margin-top: 20px;" />
 
 
 <div>
@@ -97,9 +98,9 @@ described informally in previous chapters of this report.</p>
 BNF.</p>
 
 <p>All spaces in the grammar are for legibility.  Case is not significant
-except in the definitions of \meta{letter}, \meta{character name} and \meta{mnemonic escape}; for example, {\cf #x1A}
-and {\cf #X1a} are equivalent, but {\cf foo} and {\cf Foo}
-and {\cf #\backwhack{}space} and {\cf #\backwhack{}Space} are distinct.
+except in the definitions of \meta{letter}, \meta{character name} and \meta{mnemonic escape}; for example, <code>#x1A</code>
+and <code>#X1a</code> are equivalent, but <code>foo</code> and <code>Foo</code>
+and <code>#\backwhack{</code>space} and <code>#\backwhack{</code>Space} are distinct.
 \meta{empty} stands for the empty string.</p>
 
 <p>The following extensions to BNF are used to make the description more
@@ -157,13 +158,13 @@ containing the corresponding character.</p>
 \meta{line ending} : \meta{newline} | \meta{return} \meta{newline}
 &gt; | \meta{return}
 \meta{comment} : ; \= $\langle$\rm all subsequent characters up to a
-            &gt;\ \rm line ending$\rangle$\index{comment}
+            &gt; \rm line ending$\rangle$\index{comment}
 &gt; | \meta{nested comment}
 &gt; | #; \meta{intertoken space} \meta{datum}
 \meta{nested comment} : #| \= \meta{comment text}
 &gt; \arbno{\meta{comment cont}} |#
 \meta{comment text} : \= $\langle$\rm character sequence not containing
-&gt;\ \rm {\tt #|} or {\tt |#}$\rangle$
+&gt; \rm {\tt #|} or {\tt |#}$\rangle$
 \meta{comment cont} : \meta{nested comment} \meta{comment text}
 \meta{directive} : #!fold-case | #!no-fold-case
 \end{grammar}</p>
@@ -182,7 +183,7 @@ but a \meta{delimiter} or the end of file.</p>
 <p>% This is a kludge, but \multicolumn doesn&rsquo;t work in tabbing environments.
 \setbox0\hbox{\cf\meta{identifier} \goesto{} $\langle$}</p>
 
-<p>Note that {\cf +i}, {\cf -i} and \meta{infnan} below are exceptions to the
+<p>Note that <code>+i</code>, <code>-i</code> and \meta{infnan} below are exceptions to the
 \meta{peculiar identifier} rule; they are parsed as numbers, not
 identifiers.</p>
 
@@ -311,7 +312,7 @@ successfully parses.  Note that any string that parses as an
 &gt;  | \meta{character} | \meta{string} |  \meta{symbol} | \meta{bytevector}
 \meta{symbol} : \meta{identifier}
 \meta{compound datum} : \meta{list} | \meta{vector} | \meta{abbreviation}
-\meta{list} : (\arbno{\meta{datum}}) | (\atleastone{\meta{datum}} .\ \meta{datum})
+\meta{list} : (\arbno{\meta{datum}}) | (\atleastone{\meta{datum}} . \meta{datum})
 \meta{abbreviation} : \meta{abbrev prefix} \meta{datum}
 \meta{abbrev prefix} : &lsquo; | ` | , | ,@
 \meta{vector} : #(\arbno{\meta{datum}})
@@ -346,7 +347,7 @@ from their libraries, and that none of them have been redefined or shadowed.</p>
 
 <p>\meta{lambda expression} : (lambda \meta{formals} \meta{body})
 \meta{formals} : (\arbno{\meta{identifier}}) | \meta{identifier}
-&gt;  | (\atleastone{\meta{identifier}} .\ \meta{identifier})
+&gt;  | (\atleastone{\meta{identifier}} . \meta{identifier})
 \meta{body} :  \arbno{\meta{definition}} \meta{sequence}
 \meta{sequence} : \arbno{\meta{command}} \meta{expression}
 \meta{command} : \meta{expression}</p>
@@ -437,7 +438,7 @@ production rules.  Imagine a copy of the following rules for $D = 1, 2,
 &gt;    | \meta{vector qq template $D$}
 &gt;    | \meta{unquotation $D$}
 \meta{list qq template $D$} : (\arbno{\meta{qq template or splice $D$}})
-&gt;    | (\atleastone{\meta{qq template or splice $D$}} .\ \meta{qq template $D$})
+&gt;    | (\atleastone{\meta{qq template or splice $D$}} . \meta{qq template $D$})
 &gt;    | &lsquo;\meta{qq template $D$}
 &gt;    | \meta{quasiquotation $D+1$}
 \meta{vector qq template $D$} : #(\arbno{\meta{qq template or splice $D$}})
@@ -461,7 +462,7 @@ un-quo-ta-tion $D$} takes precedence.</p>
 \meta{transformer spec} :
 &gt; (syntax-rules (\arbno{\meta{identifier}}) \arbno{\meta{syntax rule}})
 &gt; | (syntax-rules \meta{identifier} (\arbno{\meta{identifier}})
-&gt; &gt; \ \ \arbno{\meta{syntax rule}})
+&gt; &gt;   \arbno{\meta{syntax rule}})
 \meta{syntax rule} : (\meta{pattern} \meta{template})
 \meta{pattern} : \meta{pattern identifier}
 &gt;  | \meta{underscore}
@@ -469,7 +470,7 @@ un-quo-ta-tion $D$} takes precedence.</p>
 &gt;  | (\atleastone{\meta{pattern}} . \meta{pattern})
 &gt;  | (\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}})
 &gt;  | (\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}}
-&gt; &gt; \ \ . \meta{pattern})
+&gt; &gt;   . \meta{pattern})
 &gt;  | #(\arbno{\meta{pattern}})
 &gt;  | #(\arbno{\meta{pattern}} \meta{pattern} \meta{ellipsis} \arbno{\meta{pattern}})
 &gt;  | \meta{pattern datum}
@@ -479,15 +480,15 @@ un-quo-ta-tion $D$} takes precedence.</p>
 &gt;  | \meta{number}
 \meta{template} : \meta{pattern identifier}
 &gt;  | (\arbno{\meta{template element}})
-&gt;  | (\atleastone{\meta{template element}} .\ \meta{template})
+&gt;  | (\atleastone{\meta{template element}} . \meta{template})
 &gt;  | #(\arbno{\meta{template element}})
 &gt;  | \meta{template datum}
 \meta{template element} : \meta{template}
 &gt;  | \meta{template} \meta{ellipsis}
 \meta{template datum} : \meta{pattern datum}
-\meta{pattern identifier} : \meta{any identifier except {\cf &hellip;}}
-\meta{ellipsis} : \meta{an identifier defaulting to {\cf &hellip;}}
-\meta{underscore} : \meta{the identifier {\cf _}}
+\meta{pattern identifier} : \meta{any identifier except <code>...</code>}
+\meta{ellipsis} : \meta{an identifier defaulting to <code>...</code>}
+\meta{underscore} : \meta{the identifier <code>_</code>}
 \end{grammar}</p>
 
 <h3 id="7-1-6-programs-and-definitions">7.1.6. Programs and definitions</h3>
@@ -504,10 +505,10 @@ un-quo-ta-tion $D$} takes precedence.</p>
 &gt;   | \meta{syntax definition}
 &gt;   | (define-values \meta{formals} \meta{body})
 &gt;   | (define-record-type \meta{identifier}
-&gt; &gt; \ \ \meta{constructor} \meta{identifier} \arbno{\meta{field spec}})
+&gt; &gt;   \meta{constructor} \meta{identifier} \arbno{\meta{field spec}})
 &gt;   | (begin \arbno{\meta{definition}})
 \meta{def formals} : \arbno{\meta{identifier}}
-&gt;   | \arbno{\meta{identifier}} .\ \meta{identifier}
+&gt;   | \arbno{\meta{identifier}} . \meta{identifier}
 \meta{constructor} : (\meta{identifier} \arbno{\meta{field name}})
 \meta{field spec} : (\meta{field name} \meta{accessor})
 &gt;   | (\meta{field name} \meta{accessor} \meta{mutator})
@@ -533,7 +534,7 @@ un-quo-ta-tion $D$} takes precedence.</p>
 &gt; | (include-library-declarations \atleastone{\meta{string}})
 &gt; | (cond-expand \atleastone{\meta{cond-expand clause}})
 &gt; | (cond-expand \atleastone{\meta{cond-expand clause}}
-\hbox to 1\wd0{\hfill}\ (else \arbno{\meta{library declaration}}))
+\hbox to 1\wd0{\hfill} (else \arbno{\meta{library declaration}}))
 \meta{import declaration} : (import \atleastone{\meta{import set}})
 \meta{export spec} : \meta{identifier}
 &gt; | (rename \meta{identifier} \meta{identifier})
@@ -591,7 +592,7 @@ un-quo-ta-tion $D$} takes precedence.</p>
 <p>This section provides a formal denotational semantics for the primitive
 expressions of Scheme and selected built-in procedures.  The concepts
 and notation used here are described in~\cite{Stoy77}; the definition of
-{\cf dynamic-wind} is taken from~\cite{GasbichlerKnauelSperberKelsey2003}.
+<code>dynamic-wind</code> is taken from~\cite{GasbichlerKnauelSperberKelsey2003}.
 The notation is summarized below:</p>
 
 <p>\begin{tabular}{ll}
@@ -672,7 +673,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.</p>
 \begin{grammar}
 \Exp{} \goesto{} \K{} | \I{} | (\E$_0$ \arbno{\E})
  \copy1{} (lambda (\arbno{\I}) \arbno{\C} \E$_0$)
- \copy1{} (lambda (\arbno{\I} {\bf.}\ \I) \arbno{\C} \E$_0$)
+ \copy1{} (lambda (\arbno{\I} {\bf.} \I) \arbno{\C} \E$_0$)
  \copy1{} (lambda \I{} \arbno{\C} \E$_0$)
  \copy1{} (if \E$_0$ \E$_1$ \E$_2$) | (if \E$_0$ \E$_1$)
  \copy1{} (set! \I{} \E)
@@ -780,7 +781,7 @@ $\arbno{\Esem}:$ &amp; $\arbno{\Exp}\to\ENV\to\DP\to\EC\to\CC$ <br />
 \end{semfun}</p>
 
 <p>\begin{semfun}
-\Esem\sembrack{\hbox{\texttt{(lambda (\arbno{\I} {\bf.}\ \I) \arbno{\C} $\E_0$)}}} =$<br />
+\Esem\sembrack{\hbox{\texttt{(lambda (\arbno{\I} {\bf.} \I) \arbno{\C} $\E_0$)}}} =$<br />
  \go{1}$\lambda\rho\omega\kappa:.:\lambda\sigma:.:$<br />
   \go{2}$\fun{new}:\sigma:\elem:\LOC\rightarrow$<br />
    \go{3}$\fun{send}:
@@ -807,7 +808,7 @@ $\arbno{\Esem}:$ &amp; $\arbno{\Exp}\to\ENV\to\DP\to\EC\to\CC$ <br />
 
 <p>\begin{semfun}
 \Esem\sembrack{\hbox{\texttt{(lambda \I{} \arbno{\C} $\E_0$)}}} =
- \Esem\sembrack{\hbox{\texttt{(lambda ({\bf.}\ \I) \arbno{\C} $\E_0$)}}}
+ \Esem\sembrack{\hbox{\texttt{(lambda ({\bf.} \I) \arbno{\C} $\E_0$)}}}
 \end{semfun}</p>
 
 <p>\begin{semfun}
@@ -1056,7 +1057,7 @@ be used in place of {\it unspecified}.</p>
                    \fun{true},
                    \fun{false})
                \kappa,$<br />
-    &gt;$\go{1}\wrong{non-numeric argument to {\cf &lt;}})
+    &gt;$\go{1}\wrong{non-numeric argument to <code>&lt;</code>})
 \end{semfun}</p>
 
 <p>\schindex{+}
@@ -1068,7 +1069,7 @@ be used in place of {\it unspecified}.</p>
     &gt;$\go{1}\fun{send}\,
        $\=$((\epsilon_1:\vert:\NUM+\epsilon_2:\vert:\NUM)\hbox{ \rm in }\EXP)
            \kappa,$<br />
-    &gt;$\go{1}\wrong{non-numeric argument to {\cf +}})
+    &gt;$\go{1}\wrong{non-numeric argument to <code>+</code>})
 \end{semfun}</p>
 
 <p>\schindex{car}
@@ -1078,7 +1079,7 @@ be used in place of {\it unspecified}.</p>
  \go{1}$\fun{onearg}\,(\lambda\epsilon\omega\kappa:.:
    $\=$\epsilon:\elem:\PAI\rightarrow
           \fun{car-internal}:\epsilon\kappa,$<br />
-    &gt;$\go{1}\wrong{non-pair argument to {\cf car}})
+    &gt;$\go{1}\wrong{non-pair argument to <code>car</code>})
 \end{semfun}</p>
 
 <p>\schindex{car-internal}
@@ -1109,8 +1110,8 @@ be used in place of {\it unspecified}.</p>
           \fun{assign}\,$\=$(\epsilon_1:\vert:\PAI\elt 1)$<br />
     &gt;                           &gt;$\epsilon_2$<br />
     &gt;                                  &gt;$(\fun{send}:\fun{unspecified}:\kappa),$<br />
-    &gt;$\wrong{immutable argument to {\cf set-car!}},$<br />
-    &gt;$\wrong{non-pair argument to {\cf set-car!}})
+    &gt;$\wrong{immutable argument to <code>set-car!</code>},$<br />
+    &gt;$\wrong{non-pair argument to <code>set-car!</code>})
 \end{semfun}</p>
 
 <p>\schindex{eqv?}
@@ -1183,7 +1184,7 @@ be used in place of {\it unspecified}.</p>
    $\=$\epsilon_1:\elem:\FUN\rightarrow
          \fun{valueslist}:\epsilon_2
             (\lambda\arbno{\epsilon}:.:\fun{applicate}:\epsilon_1\arbno{\epsilon}\omega\kappa),$<br />
-    &gt;$\go{1}\wrong{bad procedure argument to {\cf apply}})
+    &gt;$\go{1}\wrong{bad procedure argument to <code>apply</code>})
 \end{semfun}</p>
 
 <p>\begin{semfun}
@@ -1201,7 +1202,7 @@ be used in place of {\it unspecified}.</p>
     &gt;    &gt;       &gt;                               &gt;$ (\fun{single}(\lambda\epsilon:.:
               \kappa(\langle\epsilon\rangle:\S:\arbno{\epsilon}))))),$<br />
     &gt;$\epsilon = \fun{null}\rightarrow\kappa\langle:\rangle,$<br />
-    &gt;$\go{1}\wrong{non-list argument to {\cf values-list}}
+    &gt;$\go{1}\wrong{non-list argument to <code>values-list</code>}
 \end{semfun}</p>
 
 <p>\begin{semfun}
@@ -1330,8 +1331,8 @@ be used in place of {\it unspecified}.</p>
 <p>\label{derivedsection}</p>
 
 <p>This section gives syntax definitions for the derived expression types in
-terms of the primitive expression types (literal, variable, call, {\cf lambda},
-{\cf if}, and {\cf set!}), except for {\cf quasiquote}.</p>
+terms of the primitive expression types (literal, variable, call, <code>lambda</code>,
+<code>if</code>, and <code>set!</code>), except for <code>quasiquote</code>.</p>
 
 <p>Conditional derived syntax types:</p>
 
@@ -1452,7 +1453,7 @@ terms of the primitive expression types (literal, variable, call, {\cf lambda},
          body1 body2 ...)))))
 </code></pre>
 
-<p>The following {\cf letrec} macro uses the symbol {\cf <undefined>}
+<p>The following <code>letrec</code> macro uses the symbol <code>&lt;undefined&gt;</code>
 in place of an expression which returns something that when stored in
 a location makes it an error to try to obtain the value stored in the
 location.  (No such expression is defined in Scheme.)
@@ -1463,12 +1464,12 @@ This could also be accomplished by using an auxiliary macro.</p>
 <pre><code>(define-syntax \ide{letrec}
   (syntax-rules ()
     ((letrec ((var1 init1) ...) body ...)
-     (letrec &quot;generate\_temp\_names&quot;
+     (letrec &quot;generate_temp_names&quot;
        (var1 ...)
        ()
        ((var1 init1) ...)
        body ...))
-    ((letrec &quot;generate\_temp\_names&quot;
+    ((letrec &quot;generate_temp_names&quot;
        ()
        (temp1 ...)
        ((var1 init1) ...)
@@ -1478,12 +1479,12 @@ This could also be accomplished by using an auxiliary macro.</p>
          (set! var1 temp1)
          ...
          body ...)))
-    ((letrec &quot;generate\_temp\_names&quot;
+    ((letrec &quot;generate_temp_names&quot;
        (x y ...)
        (temp ...)
        ((var1 init1) ...)
        body ...)
-     (letrec &quot;generate\_temp\_names&quot;
+     (letrec &quot;generate_temp_names&quot;
        (y ...)
        (newtemp temp ...)
        ((var1 init1) ...)
@@ -1593,10 +1594,10 @@ This could also be accomplished by using an auxiliary macro.</p>
      ((lambda () exp ...)))))
 </code></pre>
 
-<p>The following alternative expansion for {\cf begin} does not make use of
+<p>The following alternative expansion for <code>begin</code> does not make use of
 the ability to write more than one expression in the body of a lambda
 expression.  In any case, note that these rules apply only if the body
-of the {\cf begin} contains no definitions.</p>
+of the <code>begin</code> contains no definitions.</p>
 
 <pre><code>(define-syntax begin
   (syntax-rules ()
@@ -1610,9 +1611,9 @@ of the {\cf begin} contains no definitions.</p>
 </code></pre>
 
 <p>The following syntax definition
-of {\cf do} uses a trick to expand the variable clauses.
-As with {\cf letrec} above, an auxiliary macro would also work.
-The expression {\cf (if #f #f)} is used to obtain an unspecific
+of <code>do</code> uses a trick to expand the variable clauses.
+As with <code>letrec</code> above, an auxiliary macro would also work.
+The expression <code>(if #f #f)</code> is used to obtain an unspecific
 value.</p>
 
 <pre><code>(define-syntax \ide{do}
@@ -1625,7 +1626,7 @@ value.</p>
          (lambda (var ...)
            (if test
                (begin
-                 (if \#f \#f)
+                 (if #f #f)
                  expr ...)
                (begin
                  command
@@ -1639,7 +1640,7 @@ value.</p>
      y)))
 </code></pre>
 
-<p>Here is a possible implementation of {\cf delay}, {\cf force} and {\cf
+<p>Here is a possible implementation of <code>delay</code>, <code>force</code> and {\cf
   delay-force}.  We define the expression</p>
 
 <pre><code>(delay-force \hyper{expression})
@@ -1676,17 +1677,17 @@ value.</p>
      (delay-force (make-promise \schtrue{} expression)))))
 </code></pre>
 
-<p>where {\cf make-promise} is defined as follows:</p>
+<p>where <code>make-promise</code> is defined as follows:</p>
 
 <pre><code>(define make-promise
   (lambda (done? proc)
     (list (cons done? proc))))
 </code></pre>
 
-<p>Finally, we define {\cf force} to call the procedure expressions in
+<p>Finally, we define <code>force</code> to call the procedure expressions in
 promises iteratively using a trampoline technique following
 \cite{srfi45} until a non-lazy result (i.e. a value created by {\cf
-  delay} instead of {\cf delay-force}) is returned, as follows:</p>
+  delay} instead of <code>delay-force</code>) is returned, as follows:</p>
 
 <pre><code>(define (force promise)
   (if (promise-done? promise)
@@ -1710,7 +1711,7 @@ promises iteratively using a trampoline technique following
     (set-car! new (car old))))
 </code></pre>
 
-<p>The following implementation of {\cf make-parameter} and {\cf
+<p>The following implementation of <code>make-parameter</code> and {\cf
 parameterize} is suitable for an implementation with no threads.
 Parameter objects are implemented here as procedures, using two
 arbitrary unique objects \texttt{<param-set!>} and
@@ -1732,7 +1733,7 @@ arbitrary unique objects \texttt{<param-set!>} and
         (error &quot;bad parameter syntax&quot;))))))
 </code></pre>
 
-<p>Then {\cf parameterize} uses {\cf dynamic-wind} to dynamically rebind
+<p>Then <code>parameterize</code> uses <code>dynamic-wind</code> to dynamically rebind
 the associated value:</p>
 
 <pre><code>(define-syntax parameterize
@@ -1763,8 +1764,8 @@ the associated value:</p>
                    body))))
 </code></pre>
 
-<p>The following implementation of {\cf guard} depends on an auxiliary
-macro, here called {\cf guard-aux}.</p>
+<p>The following implementation of <code>guard</code> depends on an auxiliary
+macro, here called <code>guard-aux</code>.</p>
 
 <pre><code>(define-syntax guard
   (syntax-rules ()
@@ -1852,8 +1853,8 @@ macro, here called {\cf guard-aux}.</p>
 
 </code></pre>
 
-<p>This definition of {\cf cond-expand} does not interact with the
-{\cf features} procedure.  It requires that each feature identifier provided
+<p>This definition of <code>cond-expand</code> does not interact with the
+<code>features</code> procedure.  It requires that each feature identifier provided
 by the implementation be explicitly mentioned.</p>
 
 <pre><code>(define-syntax cond-expand

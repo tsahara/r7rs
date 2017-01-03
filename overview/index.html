@@ -5,6 +5,7 @@
     <title>Overview of Scheme</title>
   </head>
   <body>
+    <div style="margin-top: 20px;" />
 
 
 <div>
@@ -109,7 +110,7 @@ variables and expressions as well as with values.</p>
 <p>All objects created in the course of a Scheme computation, including
 procedures and continuations, have unlimited extent.
 No Scheme object is ever destroyed.  The reason that
-implementations of Scheme do not (usually!)\ run out of storage is that
+implementations of Scheme do not (usually!) run out of storage is that
 they are permitted to reclaim the storage occupied by an object if
 they can prove that the object cannot possibly matter to any future
 computation.</p>
@@ -153,11 +154,11 @@ notation for programs and other data; the grammar of Scheme generates a
 sublanguage of the language used for data.  An important
 consequence of this simple, uniform representation is that
 Scheme programs and data can easily be treated uniformly by other Scheme programs.
-For example, the {\cf eval} procedure evaluates a Scheme program expressed
+For example, the <code>eval</code> procedure evaluates a Scheme program expressed
 as data.</p>
 
-<p>The {\cf read} procedure performs syntactic as well as lexical decomposition of
-the data it reads.  The {\cf read} procedure parses its input as data
+<p>The <code>read</code> procedure performs syntactic as well as lexical decomposition of
+the data it reads.  The <code>read</code> procedure parses its input as data
 (section~\ref{datumsyntax}), not as program.</p>
 
 <p>The formal syntax of Scheme is described in section~\ref{BNF}.</p>
@@ -173,9 +174,9 @@ the data it reads.  The {\cf read} procedure parses its input as data
 are not marked specially in the body of the report.
 This library includes the core syntax of Scheme
 and generally useful procedures that manipulate data.  For example, the
-variable {\cf abs} is bound to a
+variable <code>abs</code> is bound to a
 procedure of one argument that computes the absolute value of a
-number, and the variable {\cf +} is bound to a procedure that computes
+number, and the variable <code>+</code> is bound to a procedure that computes
 sums.  The full list
 all the standard libraries and the identifiers they export is given in
 Appendix~\ref{stdlibraries}.</p>
@@ -211,14 +212,14 @@ When speaking of an error situation, this report uses the phrase &ldquo;an
 error is signaled&rdquo; to indicate that implementations must detect and
 report the error.
 An error is signaled by raising a non-continuable exception, as if by
-the procedure {\cf raise} as described in section~\ref{exceptionsection}.  The object raised is implementation-dependent
+the procedure <code>raise</code> as described in section~\ref{exceptionsection}.  The object raised is implementation-dependent
 and need not be distinct from objects previously used for the same purpose.
 In addition to errors signaled in situations described in this
 report, programmers can signal their own errors and handle signaled errors.</p>
 
 <p>The phrase &ldquo;an error that satisfies {\em predicate} is signaled&rdquo; means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
-passed to the specified predicate (such as {\cf file-error?} or {\cf
+passed to the specified predicate (such as <code>file-error?</code> or {\cf
 read-error?}), the predicate returns \schtrue{}.</p>
 
 <p>If such wording does not appear in the discussion of
@@ -228,8 +229,8 @@ Such a situation is sometimes, but not always, referred to with the phrase
 &ldquo;an error.&rdquo;
 In such a situation, an implementation may or may not signal an error;
 if it does signal an error, the object that is signaled may or may not
-satisfy the predicates {\cf error-object?}, {\cf file-error?}, or
-{\cf read-error?}.
+satisfy the predicates <code>error-object?</code>, <code>file-error?</code>, or
+<code>read-error?</code>.
 Alternatively, implementations may provide non-portable extensions.</p>
 
 <p>For example, it is an error for a procedure to be passed an argument of a type that
@@ -410,7 +411,7 @@ The value returned by a mutation procedure is unspecified.</p>
 
 <p>By convention, &ldquo;\ide{-&gt;}&rdquo; appears within the names of procedures that
 take an object of one type and return an analogous object of another type.
-For example, {\cf list-&gt;vector} takes a list and returns a vector whose
+For example, <code>list-&gt;vector</code> takes a list and returns a vector whose
 elements are the same as those of the list.</p>
 
 <p>A \defining{command} is a procedure that does not return useful values

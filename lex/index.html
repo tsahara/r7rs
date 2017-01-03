@@ -5,6 +5,7 @@
     <title>Lexical conventions</title>
   </head>
   <body>
+    <div style="margin-top: 20px;" />
 
 
 <div>
@@ -109,7 +110,7 @@ characters:</p>
 </code></pre>
 
 <p>Alternatively, an identifier can be represented by a sequence of zero or more
-characters enclosed within vertical lines ({\cf $|$}), analogous to
+characters enclosed within vertical lines (<code>$|$</code>), analogous to
 string literals.  Any character, including whitespace characters, but
 excluding the backslash and vertical line characters,
 can appear verbatim in such an identifier.
@@ -175,7 +176,7 @@ section~\ref{wscommentsection}) but must be followed by a delimiter.
 They are treated as comments, except that they affect the reading
 of subsequent data from the same port. The {\cf{}#!fold-case} directive causes
 subsequent identifiers and character names to be case-folded
-as if by {\cf string-foldcase} (see section~\ref{stringsection}).
+as if by <code>string-foldcase</code> (see section~\ref{stringsection}).
 It has no effect on character
 literals.  The {\cf{}#!no-fold-case} directive
 causes a return to the default, non-folding behavior.
@@ -203,7 +204,7 @@ comment.\mainindex{comment}\mainschindex{;}  The comment continues to the
 end of the line on which the semicolon appears.</p>
 
 <p>Another way to indicate a comment is to prefix a \hyper{datum}
-(cf.\ section~\ref{datumsyntax}) with {\tt #;}\sharpindex{;} and optional
+(cf. section~\ref{datumsyntax}) with {\tt #;}\sharpindex{;} and optional
 \meta{whitespace}.  The comment consists of
 the comment prefix {\tt #;}, the space, and the \hyper{datum} together.  This
 notation is useful for &ldquo;commenting out&rdquo; sections of code.</p>
@@ -231,7 +232,7 @@ section~\ref{numbersection}.</p>
 
 <p>\begin{description}{}{}</p>
 
-<p>\item[{\tt.\ + -}]
+<p>\item[{\tt. + -}]
 These are used in numbers, and can also occur anywhere in an identifier.
 A delimited plus or minus sign by itself
 is also an identifier.
@@ -296,7 +297,7 @@ These are used for labeling and referencing other literal data (section~\ref{lab
 
 <p>\end{description}</p>
 
-<h2 id="2-4-datum-labels-unsection">2.4. Datum labels\unsection</h2>
+<h2 id="2-4-datum-labels">2.4. Datum labels</h2>
 
 <p>\label{labelsection}</p>
 
@@ -333,7 +334,7 @@ defined in this case.</p>
 
 <p>It is an error for a \hyper{program} or \hyper{library} to include
 circular references except in literals.  In particular,
-it is an error for {\cf quasiquote} (section~\ref{quasiquote}) to contain them.</p>
+it is an error for <code>quasiquote</code> (section~\ref{quasiquote}) to contain them.</p>
 
 <pre><code>#1=(begin (display #\x) #1#)
                        \ev \scherror

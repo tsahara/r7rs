@@ -5,6 +5,7 @@
     <title>Example</title>
   </head>
   <body>
+    <div style="margin-top: 20px;" />
 
 
 <div>
@@ -83,7 +84,7 @@
     <p>\extrapart{Example} % -<em>- Mode: Lisp; Package: SCHEME; Syntax: Common-lisp -</em>-</p>
 
 <p>\nobreak
-The procedure {\cf integrate-system} integrates the system
+The procedure <code>integrate-system</code> integrates the system
 $$y_k^\prime = f_k(y_1, y_2, \ldots, y_n), \; k = 1, \ldots, n$$
 of differential equations with the method of Runge-Kutta.</p>
 
@@ -94,7 +95,7 @@ y_n^\prime$).  The parameter {\tt initial-state} provides an initial
 system state, and {\tt h} is an initial guess for the length of the
 integration step.</p>
 
-<p>The value returned by {\cf integrate-system} is an infinite stream of
+<p>The value returned by <code>integrate-system</code> is an infinite stream of
 system states.</p>
 
 <p>\begin{schemenoindent}
@@ -109,7 +110,7 @@ system states.</p>
       states)))
 \end{schemenoindent}</p>
 
-<p>The procedure {\cf runge-kutta-4} takes a function, {\tt f}, that produces a
+<p>The procedure <code>runge-kutta-4</code> takes a function, {\tt f}, that produces a
 system derivative from a system state.  It
 produces a function that takes a system state and
 produces a new system state.</p>
@@ -157,7 +158,7 @@ produces a new system state.</p>
   (elementwise (lambda (x) (* x s))))
 \end{schemenoindent}</p>
 
-<p>The {\cf map-streams} procedure is analogous to {\cf map}: it applies its first
+<p>The <code>map-streams</code> procedure is analogous to <code>map</code>: it applies its first
 argument (a procedure) to all the elements of its second argument (a
 stream).</p>
 
@@ -178,7 +179,7 @@ of the stream.</p>
 \end{schemenoindent}</p>
 
 <p>\bigskip
-The following illustrates the use of {\cf integrate-system} in
+The following illustrates the use of <code>integrate-system</code> in
 integrating the system
 $$ C {dv_C \over dt} = -i_L - {v_C \over R}$$\nobreak
 $$ L {di_L \over dt} = v_C$$
