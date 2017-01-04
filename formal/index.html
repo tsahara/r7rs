@@ -85,14 +85,16 @@
 
 <h1 id="7-formal-syntax-and-semantics">7. Formal syntax and semantics</h1>
 
-<p>\label{formalchapter}</p>
+<a id="formalchapter"></a>
+
 
 <p>This chapter provides formal descriptions of what has already been
 described informally in previous chapters of this report.</p>
 
 <h2 id="7-1-formal-syntax">7.1. Formal syntax</h2>
 
-<p>\label{BNF}</p>
+<a id="BNF"></a>
+
 
 <p>This section provides a formal syntax for Scheme written in an extended
 BNF.</p>
@@ -177,8 +179,10 @@ but a \meta{delimiter} or the end of file.</p>
 \meta{intertoken space} : \arbno{\meta{atmosphere}}
 \end{grammar}</p>
 
-<p>\label{extendedalphas}
-\label{identifiersyntax}</p>
+<p><a id="extendedalphas"></a>
+
+<a id="identifiersyntax"></a>
+</p>
 
 <p>% This is a kludge, but \multicolumn doesn&rsquo;t work in tabbing environments.
 \setbox0\hbox{\cf\meta{identifier} \goesto{} $\langle$}</p>
@@ -217,7 +221,8 @@ identifiers.</p>
  &gt; | \meta{inline hex escape} | \meta{mnemonic escape} | \backwhack{}|</p>
 
 <p>\meta{boolean} : \schtrue{} | \schfalse{} | \sharptrue{} | \sharpfalse{}
-\label{charactersyntax}
+<a id="charactersyntax"></a>
+
 \meta{character} : #\backwhack{} \meta{any character}
  &gt;  | #\backwhack{} \meta{character name}
  &gt;  | #\backwhack{}x\meta{hex scalar value}
@@ -234,7 +239,8 @@ identifiers.</p>
 \meta{byte} : \meta{any exact integer between 0 and 255}
 \end{grammar}</p>
 
-<p>\label{numbersyntax}</p>
+<a id="numbersyntax"></a>
+
 
 <p>\begin{grammar}
 \meta{number} : \meta{num $2$} | \meta{num $8$}
@@ -299,11 +305,13 @@ of numbers can appear in either upper or lower case.
 
 <h3 id="7-1-2-external-representations">7.1.2. External representations</h3>
 
-<p>\label{datumsyntax}</p>
+<a id="datumsyntax"></a>
+
 
 <p>\meta{Datum} is what the \ide{read} procedure (section~\ref{read})
 successfully parses.  Note that any string that parses as an
-\meta{ex-pres-sion} will also parse as a \meta{datum}.  \label{datum}</p>
+\meta{ex-pres-sion} will also parse as a \meta{datum}.  <a id="datum"></a>
+</p>
 
 <p>\begin{grammar}
 \meta{datum} : \meta{simple datum} | \meta{compound datum}
@@ -555,7 +563,8 @@ un-quo-ta-tion $D$} takes precedence.</p>
 
 <h2 id="7-2-formal-semantics">7.2. Formal semantics</h2>
 
-<p>\label{formalsemanticssection}</p>
+<a id="formalsemanticssection"></a>
+
 
 <p>\bgroup</p>
 
@@ -1328,7 +1337,8 @@ be used in place of {\it unspecified}.</p>
 
 <h2 id="7-3-derived-expression-types">7.3. Derived expression types</h2>
 
-<p>\label{derivedsection}</p>
+<a id="derivedsection"></a>
+
 
 <p>This section gives syntax definitions for the derived expression types in
 terms of the primitive expression types (literal, variable, call, <code>lambda</code>,

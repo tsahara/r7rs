@@ -85,7 +85,8 @@
 
 <h1 id="4-expressions">4. Expressions</h1>
 
-<p>\label{expressionchapter}</p>
+<a id="expressionchapter"></a>
+
 
 <p>\newcommand{\syntax}{{\em Syntax: }}
 \newcommand{\semantics}{{\em Semantics: }}</p>
@@ -103,7 +104,8 @@ with the <code>delay</code>, <code>delay-force</code>, and <code>parameterize</c
 
 <h2 id="4-1-primitive-expression-types">4.1. Primitive expression types</h2>
 
-<p>\label{primitivexps}</p>
+<a id="primitivexps"></a>
+
 
 <h3 id="4-1-1-variable-references">4.1.1. Variable references</h3>
 
@@ -124,7 +126,8 @@ x   \ev  28
 
 <h3 id="4-1-2-literal-expressions">4.1.2. Literal expressions</h3>
 
-<p>\label{literalsection}</p>
+<a id="literalsection"></a>
+
 
 <p>\begin{entry}{
 \proto{quote}{ \hyper{datum}}{\exprtype}
@@ -226,7 +229,8 @@ The order of evaluation may be chosen differently for each procedure call.
 
 <h3 id="4-1-4-procedures">4.1.4. Procedures</h3>
 
-<p>\label{lamba}</p>
+<a id="lamba"></a>
+
 
 <p>\begin{entry}{
 \proto{lambda}{ \hyper{formals} \hyper{body}}{\exprtype}}</p>
@@ -338,7 +342,8 @@ unspecified.</p>
 
 <h3 id="4-1-6-assignments">4.1.6. Assignments</h3>
 
-<p>\label{assignment}</p>
+<a id="assignment"></a>
+
 
 <p>\begin{entry}{
 \proto{set!}{ \hyper{variable} \hyper{expression}}{\exprtype}}</p>
@@ -361,7 +366,8 @@ unspecified.</p>
 
 <h3 id="4-1-7-inclusion">4.1.7. Inclusion</h3>
 
-<p>\label{inclusion}
+<p><a id="inclusion"></a>
+
 \begin{entry}{
 \proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}
 \rproto{include-ci}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}}</p>
@@ -388,7 +394,8 @@ specify other directories to search.
 
 <h2 id="4-2-derived-expression-types">4.2. Derived expression types</h2>
 
-<p>\label{derivedexps}</p>
+<a id="derivedexps"></a>
+
 
 <p>The constructs in this section are hygienic, as discussed in
 section~\ref{macrosection}.
@@ -656,7 +663,8 @@ appendix~\ref{stdfeatures}.</p>
 
 <h3 id="4-2-2-binding-constructs">4.2.2. Binding constructs</h3>
 
-<p>\label{bindingsection}</p>
+<a id="bindingsection"></a>
+
 
 <p>The binding constructs <code>let</code>, <code>let*</code>, <code>letrec</code>, <code>letrec*</code>,
 <code>let-values</code>, and <code>let*-values</code>
@@ -791,7 +799,8 @@ In the most common uses of <code>letrec</code>, all the \hyper{init}s are
 
 <p>\begin{entry}{
 \proto{letrec*}{ \hyper{bindings} \hyper{body}}{\exprtype}}
-\label{letrecstar}</p>
+<a id="letrecstar"></a>
+</p>
 
 <p>\syntax
 \hyper{Bindings} has the form</p>
@@ -905,7 +914,8 @@ set of bindings is visible and initialized, and so on.</p>
 
 <h3 id="4-2-3-sequencing">4.2.3. Sequencing</h3>
 
-<p>\label{sequencing}</p>
+<a id="sequencing"></a>
+
 
 <p>Both of Scheme&rsquo;s sequencing constructs are named <code>begin</code>, but the two
 have slightly different forms and uses:</p>
@@ -1014,7 +1024,8 @@ been written instead of {\cf(\hyper{variable} \hyper{init})}.</p>
 <p>\begin{entry}{
 \rproto{let}{ \hyper{variable} \hyper{bindings} \hyper{body}}{\exprtype}}</p>
 
-<p>\label{namedlet}
+<p><a id="namedlet"></a>
+
 \semantics
 &ldquo;Named <code>let</code>&rdquo; is a variant on the syntax of \ide{let} which provides
 a more general looping construct than <code>do</code> and can also be used to express
@@ -1347,7 +1358,8 @@ exceptions.</p>
 
 <h3 id="4-2-8-quasiquotation">4.2.8. Quasiquotation</h3>
 
-<p>\label{quasiquotesection}</p>
+<a id="quasiquotesection"></a>
+
 
 <p>\begin{entry}{
 \proto{quasiquote}{ \hyper{qq template}}{\exprtype} \nopagebreak
@@ -1453,7 +1465,8 @@ otherwise than as described above.</p>
 
 <h3 id="4-2-9-case-lambda">4.2.9. Case-lambda</h3>
 
-<p>\label{caselambdasection}
+<p><a id="caselambdasection"></a>
+
 \begin{entry}{
 \proto{case-lambda}{ \hyper{clause} \dotsfoo}{case-lambda library syntax}}</p>
 
@@ -1493,7 +1506,8 @@ the \hyper{formals} of any \hyper{clause}.</p>
 
 <h2 id="4-3-macros">4.3. Macros</h2>
 
-<p>\label{macrosection}</p>
+<a id="macrosection"></a>
+
 
 <p>Scheme programs can define and use new derived expression types,
  called {\em macros}.\mainindex{macro}
@@ -1555,7 +1569,8 @@ hygienic,Bawden88,macrosthatwork,syntacticabstraction}
 
 <h3 id="4-3-1-binding-constructs-for-syntactic-keywords">4.3.1. Binding constructs for syntactic keywords</h3>
 
-<p>\label{bindsyntax}</p>
+<a id="bindsyntax"></a>
+
 
 <p>The <code>let-syntax</code> and <code>letrec-syntax</code> binding constructs are
 analogous to <code>let</code> and <code>letrec</code>, but they bind
@@ -1645,7 +1660,8 @@ introduced by the <code>letrec-syntax</code> expression.</p>
 
 <h3 id="4-3-2-pattern-language">4.3.2. Pattern language</h3>
 
-<p>\label{patternlanguage}</p>
+<a id="patternlanguage"></a>
+
 
 <p>A \hyper{transformer spec} has one of the following forms:</p>
 

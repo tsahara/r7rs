@@ -89,8 +89,10 @@
 
 <h1 id="6-standard-procedures">6. Standard procedures</h1>
 
-<p>\label{initialenv}
-\label{builtinchapter}</p>
+<p><a id="initialenv"></a>
+
+<a id="builtinchapter"></a>
+</p>
 
 <p>\mainindex{initial environment}
 \mainindex{global environment}
@@ -117,7 +119,8 @@ it means that the locations in the object are fresh.</p>
 
 <h2 id="6-1-equivalence-predicates">6.1. Equivalence predicates</h2>
 
-<p>\label{equivalencesection}</p>
+<a id="equivalencesection"></a>
+
 
 <p>A \defining{predicate} is a procedure that always returns a boolean
 value (\schtrue{} or \schfalse).  An \defining{equivalence predicate} is
@@ -394,7 +397,8 @@ the same.
 
 <h2 id="6-2-numbers">6.2. Numbers</h2>
 
-<p>\label{numbersection}
+<p><a id="numbersection"></a>
+
 \index{number}</p>
 
 <p>\newcommand{\type}[1]{{\it#1}}
@@ -409,7 +413,8 @@ and Scheme numbers.</p>
 
 <h3 id="6-2-1-numerical-types">6.2.1. Numerical types</h3>
 
-<p>\label{numericaltypes}
+<p><a id="numericaltypes"></a>
+
 \index{numerical types}</p>
 
 <p>Mathematically, numbers are arranged into a tower of subtypes
@@ -441,7 +446,8 @@ simple programs.</p>
 
 <h3 id="6-2-2-exactness">6.2.2. Exactness</h3>
 
-<p>\mainindex{exactness} \label{exactly}</p>
+<p>\mainindex{exactness} <a id="exactly"></a>
+</p>
 
 <p>It is useful to distinguish between numbers that are
 represented exactly and those that might not be.  For example, indexes
@@ -497,7 +503,8 @@ silently or noisily in other implementation-specific ways.</p>
 
 <h3 id="6-2-3-implementation-restrictions">6.2.3. Implementation restrictions</h3>
 
-<p>\index{implementation restriction}\label{restrictions}</p>
+<p>\index{implementation restriction}<a id="restrictions"></a>
+</p>
 
 <p>Implementations of Scheme are not required to implement the whole
 tower of subtypes given in section~\ref{numericaltypes},
@@ -670,7 +677,8 @@ can be infinities, NaNs, or negative zero.</p>
 
 <h3 id="6-2-5-syntax-of-numerical-constants">6.2.5. Syntax of numerical constants</h3>
 
-<p>\label{numbernotations}</p>
+<a id="numbernotations"></a>
+
 
 <p>The syntax of the written representations for numbers is described formally in
 section~\ref{numbersyntax}.  Note that case is not significant in numerical
@@ -1477,7 +1485,8 @@ As a consequence, the R<span class="rnrs">5</span>RS
 
 <h2 id="6-3-booleans">6.3. Booleans</h2>
 
-<p>\label{booleansection}</p>
+<a id="booleansection"></a>
+
 
 <p>The standard boolean objects for true and false are written as
 \schtrue{} and \schfalse.\sharpindex{t}\sharpindex{f}
@@ -1549,7 +1558,8 @@ are \schtrue{} or all are \schfalse{}.</p>
 
 <h2 id="6-4-pairs-and-lists">6.4. Pairs and lists</h2>
 
-<p>\label{listsection}</p>
+<a id="listsection"></a>
+
 
 <p>A \defining{pair} (sometimes called a \defining{dotted pair}) is a
 record structure with two fields called the car and cdr fields (for
@@ -2001,7 +2011,8 @@ a \ev (1 8 2 8)
 
 <h2 id="6-5-symbols">6.5. Symbols</h2>
 
-<p>\label{symbolsection}</p>
+<a id="symbolsection"></a>
+
 
 <p>Symbols are objects whose usefulness rests on the fact that two
 symbols are identical (in the sense of <code>eqv?</code>) if and only if their
@@ -2093,7 +2104,8 @@ require escaping when written, but does not interpret escapes in its input.</p>
 
 <h2 id="6-6-characters">6.6. Characters</h2>
 
-<p>\label{charactersection}</p>
+<a id="charactersection"></a>
+
 
 <p>Characters are objects that represent printed characters such as
 letters and digits.
@@ -2174,7 +2186,8 @@ insensitive&rdquo;) embedded in their names.</p>
 \proto{char&lt;=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}
 \proto{char&gt;=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}}</p>
 
-<p>\label{characterequality}</p>
+<a id="characterequality"></a>
+
 
 <p>These procedures return \schtrue{} if
 the results of passing their arguments to <code>char\coerce{</code>integer}
@@ -2287,7 +2300,8 @@ equivalents.</p>
 
 <h2 id="6-7-strings">6.7. Strings</h2>
 
-<p>\label{stringsection}</p>
+<a id="stringsection"></a>
+
 
 <p>Strings are sequences of characters.
 Strings are written as sequences of characters enclosed within quotation marks
@@ -2580,7 +2594,8 @@ between \var{start} and \var{end}.</p>
 
 <h2 id="6-8-vectors">6.8. Vectors</h2>
 
-<p>\label{vectorsection}</p>
+<a id="vectorsection"></a>
+
 
 <p>Vectors are heterogeneous structures whose elements are indexed
 by integers.  A vector typically occupies less space than a list
@@ -2695,7 +2710,8 @@ created vector initialized to the elements of the list \var{list}.</p>
 \proto{string-&gt;vector}{ string}{procedure}
 \rproto{string-&gt;vector}{ string start}{procedure}
 \rproto{string-&gt;vector}{ string start end}{procedure}}
-\label{vectortostring}</p>
+<a id="vectortostring"></a>
+</p>
 
 <p>\domain{It is an error if any element of \var{vector} between \var{start}
 and \var{end} is not a character.}
@@ -2788,7 +2804,8 @@ a \lev #(1 2 smash smash 5)
 
 <h2 id="6-9-bytevectors">6.9. Bytevectors</h2>
 
-<p>\label{bytevectorsection}</p>
+<a id="bytevectorsection"></a>
+
 
 <p>\defining{Bytevectors} represent blocks of binary data.
 They are fixed-length sequences of bytes, where
@@ -2930,7 +2947,8 @@ of the elements in the given bytevectors.</p>
 
 <p>\end{entry}</p>
 
-<p>\label{utf8tostring}
+<p><a id="utf8tostring"></a>
+
 \begin{entry}{
 \proto{utf8-&gt;string}{ bytevector} {procedure}
 \rproto{utf8-&gt;string}{ bytevector start} {procedure}
@@ -2957,7 +2975,8 @@ and returns the corresponding bytevector.</p>
 
 <h2 id="6-10-control-features">6.10. Control features</h2>
 
-<p>\label{proceduresection}</p>
+<a id="proceduresection"></a>
+
 
 <p>This section describes various primitive procedures which control the
 flow of program execution in special ways.
@@ -3036,7 +3055,8 @@ the values returned by earlier returns are not mutated.</p>
 
 <p>\begin{entry}{
 \proto{string-map}{ proc \vari{string} \varii{string} \dotsfoo}{procedure}}
-\label{stringmap}</p>
+<a id="stringmap"></a>
+</p>
 
 <p>\domain{It is an error if \var{proc} does not
 accept as many arguments as there are {\it string}s
@@ -3176,7 +3196,8 @@ It is an error for \var{proc} to mutate any of the vectors.</p>
 \proto{call-with-current-continuation}{ proc}{procedure}
 \proto{call/cc}{ proc}{procedure}}</p>
 
-<p>\label{continuations} \domain{It is an error if \var{proc} does not accept one
+<p><a id="continuations"></a>
+ \domain{It is an error if \var{proc} does not accept one
 argument.}
 The procedure <code>call-with-current-continuation</code> (or its
 equivalent abbreviation <code>call/cc</code>) packages
@@ -3405,7 +3426,8 @@ extent of a call to \var{before} or \var{after} is unspecified.</p>
 
 <h2 id="6-11-exceptions">6.11. Exceptions</h2>
 
-<p>\label{exceptionsection}</p>
+<a id="exceptionsection"></a>
+
 
 <p>This section describes Scheme&rsquo;s exception-handling and
 exception-raising procedures.
@@ -3562,7 +3584,8 @@ returns \schfalse.
 
 <p>\begin{entry}{
 \proto{environment}{ \vri{list} \dotsfoo}{eval library procedure}}
-\label{environments}</p>
+<a id="environments"></a>
+</p>
 
 <p>This procedure returns a specifier for the environment that results by
 starting with an empty environment and then importing each \var{list},
@@ -3661,7 +3684,8 @@ Implementations may extend <code>eval</code> to allow other objects.</p>
 
 <h3 id="6-13-1-ports">6.13.1. Ports</h3>
 
-<p>\label{portsection}</p>
+<a id="portsection"></a>
+
 
 <p>Ports represent input and output devices.  To Scheme, an input port is
 a Scheme object that can deliver data upon command, while an output
@@ -3888,7 +3912,8 @@ order they were output.
 
 <h3 id="6-13-2-input">6.13.2. Input</h3>
 
-<p>\label{inputsection}</p>
+<a id="inputsection"></a>
+
 
 <p>If \var{port} is omitted from any input procedure, it defaults to the
 value returned by <code>(current-input-port)</code>.
@@ -4014,7 +4039,8 @@ port that has no ready characters.
 <p>\begin{entry}{
 \proto{read-string}{ k}{procedure}
 \rproto{read-string}{ k port}{procedure}}
-\label{readstring}</p>
+<a id="readstring"></a>
+</p>
 
 <p>Reads the next \var{k} characters, or as many as are available before the end of file,
 from the textual
@@ -4091,7 +4117,8 @@ If no bytes are available, an end-of-file object is returned.</p>
 
 <h3 id="6-13-3-output">6.13.3. Output</h3>
 
-<p>\label{outputsection}</p>
+<a id="outputsection"></a>
+
 
 <p>If \var{port} is omitted from any output procedure, it defaults to the
 value returned by <code>(current-output-port)</code>.

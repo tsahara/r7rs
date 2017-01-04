@@ -66,19 +66,6 @@ portions of this report that are copied directly from R&lt;span class=&#34;rnrs&
 There is no intended implication that those editors, individually or
 collectively, support or do not support this report.
 \end{note}&lt;/p&gt;
-
-&lt;p&gt;\vfill
-\eject&lt;/p&gt;
-
-&lt;p&gt;\chapter*{Contents}
-\addvspace{3.5pt}                  % don&amp;rsquo;t shrink this gap
-\renewcommand{\tocshrink}{-3.5pt}  % value determined experimentally
-{\footnotesize
-\tableofcontents
-}&lt;/p&gt;
-
-&lt;p&gt;\vfill
-\eject&lt;/p&gt;
 </description>
     </item>
     
@@ -92,7 +79,8 @@ collectively, support or do not support this report.
 
 &lt;p&gt;\clearextrapart{Introduction}&lt;/p&gt;
 
-&lt;p&gt;\label{historysection}&lt;/p&gt;
+&lt;a id=&#34;historysection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Programming languages should be designed not by piling feature on top of
 feature, but by removing the weaknesses and restrictions that make additional
@@ -268,7 +256,8 @@ all of which are available at &lt;code&gt;http://srfi.schemers.org&lt;/code&gt;.
 
 &lt;h2 id=&#34;1-1-semantics&#34;&gt;1.1. Semantics&lt;/h2&gt;
 
-&lt;p&gt;\label{semanticsection}&lt;/p&gt;
+&lt;a id=&#34;semanticsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;This section gives an overview of Scheme&amp;rsquo;s semantics.  A
 detailed informal semantics is the subject of
@@ -346,7 +335,8 @@ the data it reads.  The &lt;code&gt;read&lt;/code&gt; procedure parses its input
 
 &lt;h3 id=&#34;1-3-1-base-and-optional-features&#34;&gt;1.3.1. Base and optional features&lt;/h3&gt;
 
-&lt;p&gt;\label{qualifiers}&lt;/p&gt;
+&lt;a id=&#34;qualifiers&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Every identifier defined in this report appears in one or more of several
 \defining{libraries}.  Identifiers defined in the \defining{base library}
@@ -384,7 +374,8 @@ not conflict with the lexical syntax described in this report.
 
 &lt;h3 id=&#34;1-3-2-error-situations-and-unspecified-behavior&#34;&gt;1.3.2. Error situations and unspecified behavior&lt;/h3&gt;
 
-&lt;p&gt;\label{errorsituations}&lt;/p&gt;
+&lt;a id=&#34;errorsituations&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\mainindex{error}
 When speaking of an error situation, this report uses the phrase &amp;ldquo;an
@@ -499,7 +490,8 @@ two arguments, a vector \var{vector} and an exact non-negative integer
 &lt;p&gt;indicate that the {\tt make-vector} procedure must be defined to take
 either one or two arguments.&lt;/p&gt;
 
-&lt;p&gt;\label{typeconventions}
+&lt;p&gt;&lt;a id=&#34;typeconventions&#34;&gt;&lt;/a&gt;
+
 It is an error for a procedure to be presented with an argument that it
 is not specified to handle.  For succinctness, we follow the convention
 that if an argument name is also the name of a type listed in
@@ -620,7 +612,8 @@ Scheme, see section~\ref{BNF}.&lt;/p&gt;
 
 &lt;h2 id=&#34;2-1-identifiers&#34;&gt;2.1. Identifiers&lt;/h2&gt;
 
-&lt;p&gt;\label{syntaxsection}&lt;/p&gt;
+&lt;a id=&#34;syntaxsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;An identifier\mainindex{identifier} is any sequence of letters, digits, and
 &amp;ldquo;extended identifier characters&amp;rdquo; provided that it does not have a prefix
@@ -709,7 +702,8 @@ causes a return to the default, non-folding behavior.
 
 &lt;h2 id=&#34;2-2-whitespace-and-comments&#34;&gt;2.2. Whitespace and comments&lt;/h2&gt;
 
-&lt;p&gt;\label{wscommentsection}&lt;/p&gt;
+&lt;a id=&#34;wscommentsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\defining{Whitespace} characters include the space, tab, and newline characters.
 (Implementations may provide additional whitespace characters such
@@ -824,7 +818,8 @@ These are used for labeling and referencing other literal data (section~\ref{lab
 
 &lt;h2 id=&#34;2-4-datum-labels&#34;&gt;2.4. Datum labels&lt;/h2&gt;
 
-&lt;p&gt;\label{labelsection}&lt;/p&gt;
+&lt;a id=&#34;labelsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\begin{entry}{
 \pproto{#\hyper{n}=\hyper{datum}}{lexical syntax}
@@ -877,16 +872,17 @@ it is an error for &lt;code&gt;quasiquote&lt;/code&gt; (section~\ref{quasiquote}
       <guid>https://tsahara.github.io/r7rs/basic/</guid>
       <description>
 
-&lt;p&gt;%\vfill\eject&lt;/p&gt;
-
 &lt;h1 id=&#34;3-basic-concepts&#34;&gt;3. Basic concepts&lt;/h1&gt;
 
-&lt;p&gt;\label{basicchapter}&lt;/p&gt;
+&lt;a id=&#34;basicchapter&#34;&gt;&lt;/a&gt;
+
 
 &lt;h2 id=&#34;3-1-variables-syntactic-keywords-and-regions&#34;&gt;3.1. Variables, syntactic keywords, and regions&lt;/h2&gt;
 
-&lt;p&gt;\label{specialformsection}
-\label{variablesection}&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;specialformsection&#34;&gt;&lt;/a&gt;
+
+&lt;a id=&#34;variablesection&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;An identifier\index{identifier} can name either a type of syntax or
 a location where a value can be stored.  An identifier that names a type
@@ -935,7 +931,8 @@ environment}&lt;/p&gt;
 
 &lt;h2 id=&#34;3-2-disjointness-of-types&#34;&gt;3.2. Disjointness of types&lt;/h2&gt;
 
-&lt;p&gt;\label{disjointness}&lt;/p&gt;
+&lt;a id=&#34;disjointness&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;No object satisfies more than one of the following predicates:&lt;/p&gt;
 
@@ -968,7 +965,8 @@ Scheme value except \schfalse{}, and the word &amp;ldquo;false&amp;rdquo; to ref
 
 &lt;h2 id=&#34;3-3-external-representations&#34;&gt;3.3. External representations&lt;/h2&gt;
 
-&lt;p&gt;\label{externalreps}&lt;/p&gt;
+&lt;a id=&#34;externalreps&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;An important concept in Scheme (and Lisp) is that of the {\em external
 representation} of an object as a sequence of characters.  For example,
@@ -1012,7 +1010,8 @@ objects in the appropriate sections of chapter~\ref{initialenv}.&lt;/p&gt;
 
 &lt;h2 id=&#34;3-4-storage-model&#34;&gt;3.4. Storage model&lt;/h2&gt;
 
-&lt;p&gt;\label{storagemodel}&lt;/p&gt;
+&lt;a id=&#34;storagemodel&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Variables and objects such as pairs, strings, vectors, and bytevectors implicitly
 denote locations\mainindex{location} or sequences of locations.  A string, for
@@ -1071,7 +1070,8 @@ mutable and immutable objects.
 
 &lt;h2 id=&#34;3-5-proper-tail-recursion&#34;&gt;3.5. Proper tail recursion&lt;/h2&gt;
 
-&lt;p&gt;\label{proper tail recursion}&lt;/p&gt;
+&lt;a id=&#34;proper tail recursion&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Implementations of Scheme are required to be
 {\em properly tail-recursive}\mainindex{proper tail recursion}.
@@ -1232,7 +1232,8 @@ implementation-dependent.)
 
 &lt;h1 id=&#34;4-expressions&#34;&gt;4. Expressions&lt;/h1&gt;
 
-&lt;p&gt;\label{expressionchapter}&lt;/p&gt;
+&lt;a id=&#34;expressionchapter&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\newcommand{\syntax}{{\em Syntax: }}
 \newcommand{\semantics}{{\em Semantics: }}&lt;/p&gt;
@@ -1250,7 +1251,8 @@ with the &lt;code&gt;delay&lt;/code&gt;, &lt;code&gt;delay-force&lt;/code&gt;, a
 
 &lt;h2 id=&#34;4-1-primitive-expression-types&#34;&gt;4.1. Primitive expression types&lt;/h2&gt;
 
-&lt;p&gt;\label{primitivexps}&lt;/p&gt;
+&lt;a id=&#34;primitivexps&#34;&gt;&lt;/a&gt;
+
 
 &lt;h3 id=&#34;4-1-1-variable-references&#34;&gt;4.1.1. Variable references&lt;/h3&gt;
 
@@ -1271,7 +1273,8 @@ x   \ev  28
 
 &lt;h3 id=&#34;4-1-2-literal-expressions&#34;&gt;4.1.2. Literal expressions&lt;/h3&gt;
 
-&lt;p&gt;\label{literalsection}&lt;/p&gt;
+&lt;a id=&#34;literalsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\begin{entry}{
 \proto{quote}{ \hyper{datum}}{\exprtype}
@@ -1373,7 +1376,8 @@ The order of evaluation may be chosen differently for each procedure call.
 
 &lt;h3 id=&#34;4-1-4-procedures&#34;&gt;4.1.4. Procedures&lt;/h3&gt;
 
-&lt;p&gt;\label{lamba}&lt;/p&gt;
+&lt;a id=&#34;lamba&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\begin{entry}{
 \proto{lambda}{ \hyper{formals} \hyper{body}}{\exprtype}}&lt;/p&gt;
@@ -1485,7 +1489,8 @@ unspecified.&lt;/p&gt;
 
 &lt;h3 id=&#34;4-1-6-assignments&#34;&gt;4.1.6. Assignments&lt;/h3&gt;
 
-&lt;p&gt;\label{assignment}&lt;/p&gt;
+&lt;a id=&#34;assignment&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\begin{entry}{
 \proto{set!}{ \hyper{variable} \hyper{expression}}{\exprtype}}&lt;/p&gt;
@@ -1508,7 +1513,8 @@ unspecified.&lt;/p&gt;
 
 &lt;h3 id=&#34;4-1-7-inclusion&#34;&gt;4.1.7. Inclusion&lt;/h3&gt;
 
-&lt;p&gt;\label{inclusion}
+&lt;p&gt;&lt;a id=&#34;inclusion&#34;&gt;&lt;/a&gt;
+
 \begin{entry}{
 \proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}
 \rproto{include-ci}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}}&lt;/p&gt;
@@ -1535,7 +1541,8 @@ specify other directories to search.
 
 &lt;h2 id=&#34;4-2-derived-expression-types&#34;&gt;4.2. Derived expression types&lt;/h2&gt;
 
-&lt;p&gt;\label{derivedexps}&lt;/p&gt;
+&lt;a id=&#34;derivedexps&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;The constructs in this section are hygienic, as discussed in
 section~\ref{macrosection}.
@@ -1803,7 +1810,8 @@ appendix~\ref{stdfeatures}.&lt;/p&gt;
 
 &lt;h3 id=&#34;4-2-2-binding-constructs&#34;&gt;4.2.2. Binding constructs&lt;/h3&gt;
 
-&lt;p&gt;\label{bindingsection}&lt;/p&gt;
+&lt;a id=&#34;bindingsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;The binding constructs &lt;code&gt;let&lt;/code&gt;, &lt;code&gt;let*&lt;/code&gt;, &lt;code&gt;letrec&lt;/code&gt;, &lt;code&gt;letrec*&lt;/code&gt;,
 &lt;code&gt;let-values&lt;/code&gt;, and &lt;code&gt;let*-values&lt;/code&gt;
@@ -1938,7 +1946,8 @@ In the most common uses of &lt;code&gt;letrec&lt;/code&gt;, all the \hyper{init}
 
 &lt;p&gt;\begin{entry}{
 \proto{letrec*}{ \hyper{bindings} \hyper{body}}{\exprtype}}
-\label{letrecstar}&lt;/p&gt;
+&lt;a id=&#34;letrecstar&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;\syntax
 \hyper{Bindings} has the form&lt;/p&gt;
@@ -2052,7 +2061,8 @@ set of bindings is visible and initialized, and so on.&lt;/p&gt;
 
 &lt;h3 id=&#34;4-2-3-sequencing&#34;&gt;4.2.3. Sequencing&lt;/h3&gt;
 
-&lt;p&gt;\label{sequencing}&lt;/p&gt;
+&lt;a id=&#34;sequencing&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Both of Scheme&amp;rsquo;s sequencing constructs are named &lt;code&gt;begin&lt;/code&gt;, but the two
 have slightly different forms and uses:&lt;/p&gt;
@@ -2161,7 +2171,8 @@ been written instead of {\cf(\hyper{variable} \hyper{init})}.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \rproto{let}{ \hyper{variable} \hyper{bindings} \hyper{body}}{\exprtype}}&lt;/p&gt;
 
-&lt;p&gt;\label{namedlet}
+&lt;p&gt;&lt;a id=&#34;namedlet&#34;&gt;&lt;/a&gt;
+
 \semantics
 &amp;ldquo;Named &lt;code&gt;let&lt;/code&gt;&amp;rdquo; is a variant on the syntax of \ide{let} which provides
 a more general looping construct than &lt;code&gt;do&lt;/code&gt; and can also be used to express
@@ -2494,7 +2505,8 @@ exceptions.&lt;/p&gt;
 
 &lt;h3 id=&#34;4-2-8-quasiquotation&#34;&gt;4.2.8. Quasiquotation&lt;/h3&gt;
 
-&lt;p&gt;\label{quasiquotesection}&lt;/p&gt;
+&lt;a id=&#34;quasiquotesection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\begin{entry}{
 \proto{quasiquote}{ \hyper{qq template}}{\exprtype} \nopagebreak
@@ -2600,7 +2612,8 @@ otherwise than as described above.&lt;/p&gt;
 
 &lt;h3 id=&#34;4-2-9-case-lambda&#34;&gt;4.2.9. Case-lambda&lt;/h3&gt;
 
-&lt;p&gt;\label{caselambdasection}
+&lt;p&gt;&lt;a id=&#34;caselambdasection&#34;&gt;&lt;/a&gt;
+
 \begin{entry}{
 \proto{case-lambda}{ \hyper{clause} \dotsfoo}{case-lambda library syntax}}&lt;/p&gt;
 
@@ -2640,7 +2653,8 @@ the \hyper{formals} of any \hyper{clause}.&lt;/p&gt;
 
 &lt;h2 id=&#34;4-3-macros&#34;&gt;4.3. Macros&lt;/h2&gt;
 
-&lt;p&gt;\label{macrosection}&lt;/p&gt;
+&lt;a id=&#34;macrosection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Scheme programs can define and use new derived expression types,
  called {\em macros}.\mainindex{macro}
@@ -2702,7 +2716,8 @@ hygienic,Bawden88,macrosthatwork,syntacticabstraction}
 
 &lt;h3 id=&#34;4-3-1-binding-constructs-for-syntactic-keywords&#34;&gt;4.3.1. Binding constructs for syntactic keywords&lt;/h3&gt;
 
-&lt;p&gt;\label{bindsyntax}&lt;/p&gt;
+&lt;a id=&#34;bindsyntax&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;The &lt;code&gt;let-syntax&lt;/code&gt; and &lt;code&gt;letrec-syntax&lt;/code&gt; binding constructs are
 analogous to &lt;code&gt;let&lt;/code&gt; and &lt;code&gt;letrec&lt;/code&gt;, but they bind
@@ -2792,7 +2807,8 @@ introduced by the &lt;code&gt;letrec-syntax&lt;/code&gt; expression.&lt;/p&gt;
 
 &lt;h3 id=&#34;4-3-2-pattern-language&#34;&gt;4.3.2. Pattern language&lt;/h3&gt;
 
-&lt;p&gt;\label{patternlanguage}&lt;/p&gt;
+&lt;a id=&#34;patternlanguage&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;A \hyper{transformer spec} has one of the following forms:&lt;/p&gt;
 
@@ -3059,7 +3075,8 @@ exception handlers or guards.&lt;/p&gt;
 
 &lt;h1 id=&#34;5-program-structure&#34;&gt;5. Program structure&lt;/h1&gt;
 
-&lt;p&gt;\label{programchapter}&lt;/p&gt;
+&lt;a id=&#34;programchapter&#34;&gt;&lt;/a&gt;
+
 
 &lt;h2 id=&#34;5-1-programs&#34;&gt;5.1. Programs&lt;/h2&gt;
 
@@ -3162,7 +3179,8 @@ However, a REPL should permit these actions.&lt;/p&gt;
 
 &lt;h2 id=&#34;5-3-variable-definitions&#34;&gt;5.3. Variable definitions&lt;/h2&gt;
 
-&lt;p&gt;\label{defines}
+&lt;p&gt;&lt;a id=&#34;defines&#34;&gt;&lt;/a&gt;
+
 \mainindex{variable definition}&lt;/p&gt;
 
 &lt;p&gt;A variable definition binds one or more identifiers and specifies an initial
@@ -3225,7 +3243,8 @@ unbound\index{unbound} variable.&lt;/p&gt;
 
 &lt;h3 id=&#34;5-3-2-internal-definitions&#34;&gt;5.3.2. Internal definitions&lt;/h3&gt;
 
-&lt;p&gt;\label{internaldefines}&lt;/p&gt;
+&lt;a id=&#34;internaldefines&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Definitions can occur at the
 beginning of a \hyper{body} (that is, the body of a \ide{lambda},
@@ -3361,7 +3380,8 @@ errors:&lt;/p&gt;
 
 &lt;h2 id=&#34;5-5-record-type-definitions&#34;&gt;5.5. Record-type definitions&lt;/h2&gt;
 
-&lt;p&gt;\label{usertypes}&lt;/p&gt;
+&lt;a id=&#34;usertypes&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\defining{Record-type definitions} are used to introduce new data types, called
 \defining{record types}.
@@ -3465,7 +3485,8 @@ to be a predicate for instances of &lt;code&gt;&amp;lt;pare&amp;gt;&lt;/code&gt;
 
 &lt;h2 id=&#34;5-6-libraries&#34;&gt;5.6. Libraries&lt;/h2&gt;
 
-&lt;p&gt;\label{libraries}&lt;/p&gt;
+&lt;a id=&#34;libraries&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Libraries provide a way to organize Scheme programs into reusable parts
 with explicitly defined interfaces to the rest of the program.  This
@@ -3491,7 +3512,8 @@ It is inadvisable, but not an error, for identifiers in library names to
 contain any of the characters &lt;code&gt;| \backwhack{&lt;/code&gt; ? * &amp;lt; &amp;ldquo; : &amp;gt; + [ ] /}
 or control characters after escapes are expanded.&lt;/p&gt;
 
-&lt;p&gt;\label{librarydeclarations}
+&lt;p&gt;&lt;a id=&#34;librarydeclarations&#34;&gt;&lt;/a&gt;
+
 A \hyper{library declaration} is any of:&lt;/p&gt;
 
 &lt;p&gt;\begin{itemize}&lt;/p&gt;
@@ -3724,8 +3746,10 @@ the beginning.&lt;/p&gt;
 
 &lt;h1 id=&#34;6-standard-procedures&#34;&gt;6. Standard procedures&lt;/h1&gt;
 
-&lt;p&gt;\label{initialenv}
-\label{builtinchapter}&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;initialenv&#34;&gt;&lt;/a&gt;
+
+&lt;a id=&#34;builtinchapter&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;\mainindex{initial environment}
 \mainindex{global environment}
@@ -3752,7 +3776,8 @@ it means that the locations in the object are fresh.&lt;/p&gt;
 
 &lt;h2 id=&#34;6-1-equivalence-predicates&#34;&gt;6.1. Equivalence predicates&lt;/h2&gt;
 
-&lt;p&gt;\label{equivalencesection}&lt;/p&gt;
+&lt;a id=&#34;equivalencesection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;A \defining{predicate} is a procedure that always returns a boolean
 value (\schtrue{} or \schfalse).  An \defining{equivalence predicate} is
@@ -4029,7 +4054,8 @@ the same.
 
 &lt;h2 id=&#34;6-2-numbers&#34;&gt;6.2. Numbers&lt;/h2&gt;
 
-&lt;p&gt;\label{numbersection}
+&lt;p&gt;&lt;a id=&#34;numbersection&#34;&gt;&lt;/a&gt;
+
 \index{number}&lt;/p&gt;
 
 &lt;p&gt;\newcommand{\type}[1]{{\it#1}}
@@ -4044,7 +4070,8 @@ and Scheme numbers.&lt;/p&gt;
 
 &lt;h3 id=&#34;6-2-1-numerical-types&#34;&gt;6.2.1. Numerical types&lt;/h3&gt;
 
-&lt;p&gt;\label{numericaltypes}
+&lt;p&gt;&lt;a id=&#34;numericaltypes&#34;&gt;&lt;/a&gt;
+
 \index{numerical types}&lt;/p&gt;
 
 &lt;p&gt;Mathematically, numbers are arranged into a tower of subtypes
@@ -4076,7 +4103,8 @@ simple programs.&lt;/p&gt;
 
 &lt;h3 id=&#34;6-2-2-exactness&#34;&gt;6.2.2. Exactness&lt;/h3&gt;
 
-&lt;p&gt;\mainindex{exactness} \label{exactly}&lt;/p&gt;
+&lt;p&gt;\mainindex{exactness} &lt;a id=&#34;exactly&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;It is useful to distinguish between numbers that are
 represented exactly and those that might not be.  For example, indexes
@@ -4132,7 +4160,8 @@ silently or noisily in other implementation-specific ways.&lt;/p&gt;
 
 &lt;h3 id=&#34;6-2-3-implementation-restrictions&#34;&gt;6.2.3. Implementation restrictions&lt;/h3&gt;
 
-&lt;p&gt;\index{implementation restriction}\label{restrictions}&lt;/p&gt;
+&lt;p&gt;\index{implementation restriction}&lt;a id=&#34;restrictions&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Implementations of Scheme are not required to implement the whole
 tower of subtypes given in section~\ref{numericaltypes},
@@ -4305,7 +4334,8 @@ can be infinities, NaNs, or negative zero.&lt;/p&gt;
 
 &lt;h3 id=&#34;6-2-5-syntax-of-numerical-constants&#34;&gt;6.2.5. Syntax of numerical constants&lt;/h3&gt;
 
-&lt;p&gt;\label{numbernotations}&lt;/p&gt;
+&lt;a id=&#34;numbernotations&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;The syntax of the written representations for numbers is described formally in
 section~\ref{numbersyntax}.  Note that case is not significant in numerical
@@ -5112,7 +5142,8 @@ As a consequence, the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
 
 &lt;h2 id=&#34;6-3-booleans&#34;&gt;6.3. Booleans&lt;/h2&gt;
 
-&lt;p&gt;\label{booleansection}&lt;/p&gt;
+&lt;a id=&#34;booleansection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;The standard boolean objects for true and false are written as
 \schtrue{} and \schfalse.\sharpindex{t}\sharpindex{f}
@@ -5184,7 +5215,8 @@ are \schtrue{} or all are \schfalse{}.&lt;/p&gt;
 
 &lt;h2 id=&#34;6-4-pairs-and-lists&#34;&gt;6.4. Pairs and lists&lt;/h2&gt;
 
-&lt;p&gt;\label{listsection}&lt;/p&gt;
+&lt;a id=&#34;listsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;A \defining{pair} (sometimes called a \defining{dotted pair}) is a
 record structure with two fields called the car and cdr fields (for
@@ -5636,7 +5668,8 @@ a \ev (1 8 2 8)
 
 &lt;h2 id=&#34;6-5-symbols&#34;&gt;6.5. Symbols&lt;/h2&gt;
 
-&lt;p&gt;\label{symbolsection}&lt;/p&gt;
+&lt;a id=&#34;symbolsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Symbols are objects whose usefulness rests on the fact that two
 symbols are identical (in the sense of &lt;code&gt;eqv?&lt;/code&gt;) if and only if their
@@ -5728,7 +5761,8 @@ require escaping when written, but does not interpret escapes in its input.&lt;/
 
 &lt;h2 id=&#34;6-6-characters&#34;&gt;6.6. Characters&lt;/h2&gt;
 
-&lt;p&gt;\label{charactersection}&lt;/p&gt;
+&lt;a id=&#34;charactersection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Characters are objects that represent printed characters such as
 letters and digits.
@@ -5809,7 +5843,8 @@ insensitive&amp;rdquo;) embedded in their names.&lt;/p&gt;
 \proto{char&amp;lt;=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}
 \proto{char&amp;gt;=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;\label{characterequality}&lt;/p&gt;
+&lt;a id=&#34;characterequality&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;These procedures return \schtrue{} if
 the results of passing their arguments to &lt;code&gt;char\coerce{&lt;/code&gt;integer}
@@ -5922,7 +5957,8 @@ equivalents.&lt;/p&gt;
 
 &lt;h2 id=&#34;6-7-strings&#34;&gt;6.7. Strings&lt;/h2&gt;
 
-&lt;p&gt;\label{stringsection}&lt;/p&gt;
+&lt;a id=&#34;stringsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Strings are sequences of characters.
 Strings are written as sequences of characters enclosed within quotation marks
@@ -6215,7 +6251,8 @@ between \var{start} and \var{end}.&lt;/p&gt;
 
 &lt;h2 id=&#34;6-8-vectors&#34;&gt;6.8. Vectors&lt;/h2&gt;
 
-&lt;p&gt;\label{vectorsection}&lt;/p&gt;
+&lt;a id=&#34;vectorsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Vectors are heterogeneous structures whose elements are indexed
 by integers.  A vector typically occupies less space than a list
@@ -6330,7 +6367,8 @@ created vector initialized to the elements of the list \var{list}.&lt;/p&gt;
 \proto{string-&amp;gt;vector}{ string}{procedure}
 \rproto{string-&amp;gt;vector}{ string start}{procedure}
 \rproto{string-&amp;gt;vector}{ string start end}{procedure}}
-\label{vectortostring}&lt;/p&gt;
+&lt;a id=&#34;vectortostring&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;\domain{It is an error if any element of \var{vector} between \var{start}
 and \var{end} is not a character.}
@@ -6423,7 +6461,8 @@ a \lev #(1 2 smash smash 5)
 
 &lt;h2 id=&#34;6-9-bytevectors&#34;&gt;6.9. Bytevectors&lt;/h2&gt;
 
-&lt;p&gt;\label{bytevectorsection}&lt;/p&gt;
+&lt;a id=&#34;bytevectorsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\defining{Bytevectors} represent blocks of binary data.
 They are fixed-length sequences of bytes, where
@@ -6565,7 +6604,8 @@ of the elements in the given bytevectors.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
 
-&lt;p&gt;\label{utf8tostring}
+&lt;p&gt;&lt;a id=&#34;utf8tostring&#34;&gt;&lt;/a&gt;
+
 \begin{entry}{
 \proto{utf8-&amp;gt;string}{ bytevector} {procedure}
 \rproto{utf8-&amp;gt;string}{ bytevector start} {procedure}
@@ -6592,7 +6632,8 @@ and returns the corresponding bytevector.&lt;/p&gt;
 
 &lt;h2 id=&#34;6-10-control-features&#34;&gt;6.10. Control features&lt;/h2&gt;
 
-&lt;p&gt;\label{proceduresection}&lt;/p&gt;
+&lt;a id=&#34;proceduresection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;This section describes various primitive procedures which control the
 flow of program execution in special ways.
@@ -6671,7 +6712,8 @@ the values returned by earlier returns are not mutated.&lt;/p&gt;
 
 &lt;p&gt;\begin{entry}{
 \proto{string-map}{ proc \vari{string} \varii{string} \dotsfoo}{procedure}}
-\label{stringmap}&lt;/p&gt;
+&lt;a id=&#34;stringmap&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;\domain{It is an error if \var{proc} does not
 accept as many arguments as there are {\it string}s
@@ -6811,7 +6853,8 @@ It is an error for \var{proc} to mutate any of the vectors.&lt;/p&gt;
 \proto{call-with-current-continuation}{ proc}{procedure}
 \proto{call/cc}{ proc}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;\label{continuations} \domain{It is an error if \var{proc} does not accept one
+&lt;p&gt;&lt;a id=&#34;continuations&#34;&gt;&lt;/a&gt;
+ \domain{It is an error if \var{proc} does not accept one
 argument.}
 The procedure &lt;code&gt;call-with-current-continuation&lt;/code&gt; (or its
 equivalent abbreviation &lt;code&gt;call/cc&lt;/code&gt;) packages
@@ -7040,7 +7083,8 @@ extent of a call to \var{before} or \var{after} is unspecified.&lt;/p&gt;
 
 &lt;h2 id=&#34;6-11-exceptions&#34;&gt;6.11. Exceptions&lt;/h2&gt;
 
-&lt;p&gt;\label{exceptionsection}&lt;/p&gt;
+&lt;a id=&#34;exceptionsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;This section describes Scheme&amp;rsquo;s exception-handling and
 exception-raising procedures.
@@ -7197,7 +7241,8 @@ returns \schfalse.
 
 &lt;p&gt;\begin{entry}{
 \proto{environment}{ \vri{list} \dotsfoo}{eval library procedure}}
-\label{environments}&lt;/p&gt;
+&lt;a id=&#34;environments&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;This procedure returns a specifier for the environment that results by
 starting with an empty environment and then importing each \var{list},
@@ -7296,7 +7341,8 @@ Implementations may extend &lt;code&gt;eval&lt;/code&gt; to allow other objects.
 
 &lt;h3 id=&#34;6-13-1-ports&#34;&gt;6.13.1. Ports&lt;/h3&gt;
 
-&lt;p&gt;\label{portsection}&lt;/p&gt;
+&lt;a id=&#34;portsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Ports represent input and output devices.  To Scheme, an input port is
 a Scheme object that can deliver data upon command, while an output
@@ -7523,7 +7569,8 @@ order they were output.
 
 &lt;h3 id=&#34;6-13-2-input&#34;&gt;6.13.2. Input&lt;/h3&gt;
 
-&lt;p&gt;\label{inputsection}&lt;/p&gt;
+&lt;a id=&#34;inputsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;If \var{port} is omitted from any input procedure, it defaults to the
 value returned by &lt;code&gt;(current-input-port)&lt;/code&gt;.
@@ -7649,7 +7696,8 @@ port that has no ready characters.
 &lt;p&gt;\begin{entry}{
 \proto{read-string}{ k}{procedure}
 \rproto{read-string}{ k port}{procedure}}
-\label{readstring}&lt;/p&gt;
+&lt;a id=&#34;readstring&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Reads the next \var{k} characters, or as many as are available before the end of file,
 from the textual
@@ -7726,7 +7774,8 @@ If no bytes are available, an end-of-file object is returned.&lt;/p&gt;
 
 &lt;h3 id=&#34;6-13-3-output&#34;&gt;6.13.3. Output&lt;/h3&gt;
 
-&lt;p&gt;\label{outputsection}&lt;/p&gt;
+&lt;a id=&#34;outputsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;If \var{port} is omitted from any output procedure, it defaults to the
 value returned by &lt;code&gt;(current-output-port)&lt;/code&gt;.
@@ -8086,14 +8135,16 @@ example of what &lt;code&gt;features&lt;/code&gt; might return:&lt;/p&gt;
 
 &lt;h1 id=&#34;7-formal-syntax-and-semantics&#34;&gt;7. Formal syntax and semantics&lt;/h1&gt;
 
-&lt;p&gt;\label{formalchapter}&lt;/p&gt;
+&lt;a id=&#34;formalchapter&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;This chapter provides formal descriptions of what has already been
 described informally in previous chapters of this report.&lt;/p&gt;
 
 &lt;h2 id=&#34;7-1-formal-syntax&#34;&gt;7.1. Formal syntax&lt;/h2&gt;
 
-&lt;p&gt;\label{BNF}&lt;/p&gt;
+&lt;a id=&#34;BNF&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;This section provides a formal syntax for Scheme written in an extended
 BNF.&lt;/p&gt;
@@ -8178,8 +8229,10 @@ but a \meta{delimiter} or the end of file.&lt;/p&gt;
 \meta{intertoken space} : \arbno{\meta{atmosphere}}
 \end{grammar}&lt;/p&gt;
 
-&lt;p&gt;\label{extendedalphas}
-\label{identifiersyntax}&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;extendedalphas&#34;&gt;&lt;/a&gt;
+
+&lt;a id=&#34;identifiersyntax&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;% This is a kludge, but \multicolumn doesn&amp;rsquo;t work in tabbing environments.
 \setbox0\hbox{\cf\meta{identifier} \goesto{} $\langle$}&lt;/p&gt;
@@ -8218,7 +8271,8 @@ identifiers.&lt;/p&gt;
  &amp;gt; | \meta{inline hex escape} | \meta{mnemonic escape} | \backwhack{}|&lt;/p&gt;
 
 &lt;p&gt;\meta{boolean} : \schtrue{} | \schfalse{} | \sharptrue{} | \sharpfalse{}
-\label{charactersyntax}
+&lt;a id=&#34;charactersyntax&#34;&gt;&lt;/a&gt;
+
 \meta{character} : #\backwhack{} \meta{any character}
  &amp;gt;  | #\backwhack{} \meta{character name}
  &amp;gt;  | #\backwhack{}x\meta{hex scalar value}
@@ -8235,7 +8289,8 @@ identifiers.&lt;/p&gt;
 \meta{byte} : \meta{any exact integer between 0 and 255}
 \end{grammar}&lt;/p&gt;
 
-&lt;p&gt;\label{numbersyntax}&lt;/p&gt;
+&lt;a id=&#34;numbersyntax&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\begin{grammar}
 \meta{number} : \meta{num $2$} | \meta{num $8$}
@@ -8300,11 +8355,13 @@ of numbers can appear in either upper or lower case.
 
 &lt;h3 id=&#34;7-1-2-external-representations&#34;&gt;7.1.2. External representations&lt;/h3&gt;
 
-&lt;p&gt;\label{datumsyntax}&lt;/p&gt;
+&lt;a id=&#34;datumsyntax&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\meta{Datum} is what the \ide{read} procedure (section~\ref{read})
 successfully parses.  Note that any string that parses as an
-\meta{ex-pres-sion} will also parse as a \meta{datum}.  \label{datum}&lt;/p&gt;
+\meta{ex-pres-sion} will also parse as a \meta{datum}.  &lt;a id=&#34;datum&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;\begin{grammar}
 \meta{datum} : \meta{simple datum} | \meta{compound datum}
@@ -8556,7 +8613,8 @@ un-quo-ta-tion $D$} takes precedence.&lt;/p&gt;
 
 &lt;h2 id=&#34;7-2-formal-semantics&#34;&gt;7.2. Formal semantics&lt;/h2&gt;
 
-&lt;p&gt;\label{formalsemanticssection}&lt;/p&gt;
+&lt;a id=&#34;formalsemanticssection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\bgroup&lt;/p&gt;
 
@@ -9329,7 +9387,8 @@ be used in place of {\it unspecified}.&lt;/p&gt;
 
 &lt;h2 id=&#34;7-3-derived-expression-types&#34;&gt;7.3. Derived expression types&lt;/h2&gt;
 
-&lt;p&gt;\label{derivedsection}&lt;/p&gt;
+&lt;a id=&#34;derivedsection&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;This section gives syntax definitions for the derived expression types in
 terms of the primitive expression types (literal, variable, call, &lt;code&gt;lambda&lt;/code&gt;,
@@ -9931,7 +9990,8 @@ by the implementation be explicitly mentioned.&lt;/p&gt;
 
 &lt;h1 id=&#34;standard-libraries&#34;&gt;Standard Libraries&lt;/h1&gt;
 
-&lt;p&gt;\label{stdlibraries}&lt;/p&gt;
+&lt;a id=&#34;stdlibraries&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;%% Note, this is used to generate stdmod.tex.  The bindings could be
 %% extracted automatically from the document, but this lets us choose
@@ -10376,14 +10436,16 @@ library either.&lt;/p&gt;
 
 &lt;h1 id=&#34;standard-feature-identifiers&#34;&gt;Standard Feature Identifiers&lt;/h1&gt;
 
-&lt;p&gt;\label{stdfeatures}&lt;/p&gt;
+&lt;a id=&#34;stdfeatures&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;An implementation may provide any or all of the feature identifiers
 listed below for use by &lt;code&gt;cond-expand&lt;/code&gt; and &lt;code&gt;features&lt;/code&gt;,
 but must not provide a feature identifier if it does not
 provide the corresponding feature.&lt;/p&gt;
 
-&lt;p&gt;\label{standard_features}&lt;/p&gt;
+&lt;a id=&#34;standard_features&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;\feature{r7rs}{All R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS
  Scheme implementations have this feature.}
@@ -10422,7 +10484,8 @@ provide the corresponding feature.&lt;/p&gt;
 &lt;h3 id=&#34;incompatibilities-with-hahahugoshortcode-1hbhb&#34;&gt;Incompatibilities with R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
 &lt;/h3&gt;
 
-&lt;p&gt;\label{incompatibilities}&lt;/p&gt;
+&lt;a id=&#34;incompatibilities&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;This section enumerates the incompatibilities between this report and
 the &amp;ldquo;Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
@@ -10467,10 +10530,11 @@ and must be compatible with &lt;code&gt;read&lt;/code&gt; and the syntax of numb
 
 &lt;p&gt;\end{itemize}&lt;/p&gt;
 
-&lt;h3 id=&#34;other-language-changes-since-hahahugoshortcode-5hbhb&#34;&gt;Other language changes since R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
+&lt;h3 id=&#34;other-language-changes-since-hahahugoshortcode-6hbhb&#34;&gt;Other language changes since R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS
 &lt;/h3&gt;
 
-&lt;p&gt;\label{differences}
+&lt;p&gt;&lt;a id=&#34;differences&#34;&gt;&lt;/a&gt;
+
 This section enumerates the additional differences between this report and
 the &amp;ldquo;Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
 
@@ -10673,7 +10737,7 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 &lt;p&gt;\item The formal semantics now handles &lt;code&gt;dynamic-wind&lt;/code&gt;.
 \end{itemize}&lt;/p&gt;
 
-&lt;h3 id=&#34;incompatibilities-with-hahahugoshortcode-11hbhb&#34;&gt;Incompatibilities with R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
+&lt;h3 id=&#34;incompatibilities-with-hahahugoshortcode-13hbhb&#34;&gt;Incompatibilities with R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS
 &lt;/h3&gt;
 
 &lt;p&gt;This section enumerates the incompatibilities between R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS
