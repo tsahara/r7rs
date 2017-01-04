@@ -66,8 +66,6 @@ In 1998, several additions to the IEEE standard, including high-level
 hygienic macros, multiple return values, and ``eval``, were finalized
 as the {{< rnrs 5 >}}~\cite{R5RS}.
 
-
-
 In the fall of 2006, work began on a more ambitious standard,
 including many new improvements and stricter requirements made in the
 interest of improved portability.  The resulting standard, the
@@ -95,8 +93,6 @@ we grant permission to copy it in whole or in part without fee.  In
 particular, we encourage implementers of Scheme to use this report as
 a starting point for manuals and other documentation, modifying it as
 necessary.
-
-
 
 
 ### Acknowledgments
@@ -145,18 +141,3 @@ manuals for MIT Scheme~\cite{MITScheme}, T~\cite{Rees84}, Scheme
 84~\cite{Scheme84}, Common Lisp~\cite{CLtL}, and Algol 60~\cite{Naur63},
 as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,
 all of which are available at ``http://srfi.schemers.org``.
-
-%% We also thank Betty Dexter for the extreme effort she put into
-%% setting this report in \TeX, and Donald Knuth for designing the program
-%% that caused her troubles.
-
-%% The Artificial Intelligence Laboratory of the
-%% Massachusetts Institute of Technology, the Computer Science
-%% Department of Indiana University, the Computer and Information
-%% Sciences Department of the University of Oregon, and the NEC Research
-%% Institute supported the preparation of this report.  Support for the MIT
-%% work was provided in part by
-%% the Advanced Research Projects Agency of the Department of Defense under Office
-%% of Naval Research contract N00014-80-C-0505.  Support for the Indiana
-%% University work was provided by NSF grants NCS 83-04567 and NCS
-%% 83-03325.

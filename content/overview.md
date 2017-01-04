@@ -13,7 +13,7 @@ chapter = 1
 
 This section gives an overview of Scheme's semantics.  A
 detailed informal semantics is the subject of
-chapters~\ref{basicchapter} through~\ref{builtinchapter}.  For reference
+chapters~\ref{basicchapter} through 6.  For reference
 purposes, section~\ref{formalsemanticssection} provides a formal
 semantics of Scheme.
 
@@ -100,7 +100,7 @@ procedure of one argument that computes the absolute value of a
 number, and the variable ``+`` is bound to a procedure that computes
 sums.  The full list
 all the standard libraries and the identifiers they export is given in
-Appendix~\ref{stdlibraries}.
+Appendix A.
 
 All implementations of Scheme:
 \begin{itemize}
@@ -190,7 +190,7 @@ not with reference to programmer or program behavior.
 
 ### 1.3.3. Entry format
 
-Chapters~\ref{expressionchapter} and~\ref{builtinchapter} are organized
+Chapters 4 and 6 are organized
 into entries.  Each entry describes one language feature or a group of
 related features, where a feature is either a syntactic construct or a
 procedure.  An entry begins with one or more header lines of the form
@@ -202,7 +202,7 @@ for identifiers in the base library, or
 \noindent\pproto{\var{template}}{\var{name} library \var{category}}\unpenalty
 
 where \var{name} is the short name of a library
-as defined in Appendix~\ref{stdlibraries}.
+as defined in Appendix A.
 
 If \var{category} is "\exprtype," the entry describes an expression
 type, and the template gives the syntax of the expression type.
