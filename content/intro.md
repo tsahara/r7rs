@@ -140,4 +140,4 @@ Manual}~\cite{TImanual85}.  We gladly acknowledge the influence of
 manuals for MIT Scheme~\cite{MITScheme}, T~\cite{Rees84}, Scheme
 84~\cite{Scheme84}, Common Lisp~\cite{CLtL}, and Algol 60~\cite{Naur63},
 as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,
-all of which are available at ``http://srfi.schemers.org``.
+all of which are available at http://srfi.schemers.org.

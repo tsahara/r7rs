@@ -5,21 +5,13 @@ menu = "main"
 +++
 \extrapart{Additional material}
 
-%%The Internet Scheme Repository at
-%%\begin{center}
-%%``http://www.cs.indiana.edu/scheme-repository/``
-%%\end{center}
-%%contains an extensive Scheme bibliography, as well as papers,
-%%programs, implementations, and other material related to Scheme.
-%% Removed as only of historical interest; schemers.org links to it.
-
 The Scheme community website at
-``http://schemers.org``
+http://schemers.org
 contains additional resources for learning and programming, job and
 event postings, and Scheme user group information.
 
 A bibliography of Scheme-related research at
-``http://library.readscheme.org``
+http://library.readscheme.org
 links to technical papers and theses related to the Scheme language,
 including both classic papers and recent research.
 
