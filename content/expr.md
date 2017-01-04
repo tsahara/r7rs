@@ -578,7 +578,7 @@ of any variables.
 
 The exact features provided are implementation-defined, but for
 portability a core set of features is given in
-appendix~\ref{stdfeatures}.
+appendix B.
 
 \end{entry}
 

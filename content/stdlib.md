@@ -3,7 +3,7 @@ weight = 73
 title = "Standard Libraries"
 menu = "main"
 +++
-# Standard Libraries
+# Appendix A. Standard Libraries
 {{< label "stdlibraries" >}}
 
 %% Note, this is used to generate stdmod.tex.  The bindings could be
