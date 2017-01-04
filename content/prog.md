@@ -5,7 +5,7 @@ menu = "main"
 chapter = 5
 +++
 # 5. Program structure
-\label{programchapter}
+{{< label "programchapter" >}}
 
 ## 5.1. Programs
 
@@ -107,7 +107,7 @@ or with ``set!``, or to refer to an identifier before it is imported.
 However, a REPL should permit these actions.
 
 ## 5.3. Variable definitions
-\label{defines}
+{{< label "defines" >}}
 \mainindex{variable definition}
 
 A variable definition binds one or more identifiers and specifies an initial
@@ -168,7 +168,7 @@ unbound\index{unbound} variable.
 ```
 
 ### 5.3.2. Internal definitions
-\label{internaldefines}
+{{< label "internaldefines" >}}
 
 Definitions can occur at the
 beginning of a \hyper{body} (that is, the body of a \ide{lambda},
@@ -310,7 +310,7 @@ errors:
 ```
 
 ## 5.5. Record-type definitions
-\label{usertypes}
+{{< label "usertypes" >}}
 
 \defining{Record-type definitions} are used to introduce new data types, called
 \defining{record types}.
@@ -414,7 +414,7 @@ to be a predicate for instances of ``<pare>``.
 
 
 ## 5.6. Libraries
-\label{libraries}
+{{< label "libraries" >}}
 
 Libraries provide a way to organize Scheme programs into reusable parts
 with explicitly defined interfaces to the rest of the program.  This
@@ -442,7 +442,7 @@ It is inadvisable, but not an error, for identifiers in library names to
 contain any of the characters ``| \backwhack{`` ? * < " : > + [ ] /}
 or control characters after escapes are expanded.
 
-\label{librarydeclarations}
+{{< label "librarydeclarations" >}}
 A \hyper{library declaration} is any of:
 
 \begin{itemize}

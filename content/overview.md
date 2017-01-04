@@ -9,7 +9,7 @@ chapter = 1
 # 1. Overview of Scheme
 
 ## 1.1. Semantics
-\label{semanticsection}
+{{< label "semanticsection" >}}
 
 This section gives an overview of Scheme's semantics.  A
 detailed informal semantics is the subject of
@@ -88,7 +88,7 @@ The formal syntax of Scheme is described in section~\ref{BNF}.
 
 
 ### 1.3.1. Base and optional features
-\label{qualifiers}
+{{< label "qualifiers" >}}
 
 Every identifier defined in this report appears in one or more of several
 \defining{libraries}.  Identifiers defined in the \defining{base library}
@@ -125,7 +125,7 @@ not conflict with the lexical syntax described in this report.
 \end{itemize}
 
 ### 1.3.2. Error situations and unspecified behavior
-\label{errorsituations}
+{{< label "errorsituations" >}}
 
 \mainindex{error}
 When speaking of an error situation, this report uses the phrase "an
@@ -242,7 +242,7 @@ two arguments, a vector \var{vector} and an exact non-negative integer
 indicate that the {\tt make-vector} procedure must be defined to take
 either one or two arguments.
 
-\label{typeconventions}
+{{< label "typeconventions" >}}
 It is an error for a procedure to be presented with an argument that it
 is not specified to handle.  For succinctness, we follow the convention
 that if an argument name is also the name of a type listed in

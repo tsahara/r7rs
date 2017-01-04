@@ -5,7 +5,7 @@ menu = "main"
 chapter = 7
 +++
 # 7. Formal syntax and semantics
-\label{formalchapter}
+{{< label "formalchapter" >}}
 
 This chapter provides formal descriptions of what has already been
 described informally in previous chapters of this report.
@@ -13,7 +13,7 @@ described informally in previous chapters of this report.
 
 
 ## 7.1. Formal syntax
-\label{BNF}
+{{< label "BNF" >}}
 
 This section provides a formal syntax for Scheme written in an extended
 BNF.
@@ -99,8 +99,8 @@ but a \meta{delimiter} or the end of file.
 \meta{intertoken space} \: \arbno{\meta{atmosphere}}
 \end{grammar}
 
-\label{extendedalphas}
-\label{identifiersyntax}
+{{< label "extendedalphas" >}}
+{{< label "identifiersyntax" >}}
 
 % This is a kludge, but \multicolumn doesn't work in tabbing environments.
 \setbox0\hbox{\cf\meta{identifier} \goesto{} $\langle$}
@@ -139,7 +139,7 @@ identifiers.
  \> \| \meta{inline hex escape} \| \meta{mnemonic escape} \| \backwhack{}|
 
 \meta{boolean} \: \schtrue{} \| \schfalse{} \| \sharptrue{} \| \sharpfalse{}
-\label{charactersyntax}
+{{< label "charactersyntax" >}}
 \meta{character} \: #\backwhack{} \meta{any character}
  \>  \| #\backwhack{} \meta{character name}
  \>  \| #\backwhack{}x\meta{hex scalar value}
@@ -157,7 +157,7 @@ identifiers.
 \end{grammar}
 
 
-\label{numbersyntax}
+{{< label "numbersyntax" >}}
 
 \begin{grammar}
 \meta{number} \: \meta{num $2$} \| \meta{num $8$}
@@ -222,11 +222,11 @@ of numbers can appear in either upper or lower case.
 
 
 ### 7.1.2. External representations
-\label{datumsyntax}
+{{< label "datumsyntax" >}}
 
 \meta{Datum} is what the \ide{read} procedure (section~\ref{read})
 successfully parses.  Note that any string that parses as an
-\meta{ex\-pres\-sion} will also parse as a \meta{datum}.  \label{datum}
+\meta{ex\-pres\-sion} will also parse as a \meta{datum}.  {{< label "datum" >}}
 
 \begin{grammar}
 \meta{datum} \: \meta{simple datum} \| \meta{compound datum}
@@ -477,7 +477,7 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \end{grammar}
 %\vfill\eject
 ## 7.2. Formal semantics
-\label{formalsemanticssection}
+{{< label "formalsemanticssection" >}}
 
 \bgroup
 
@@ -1249,7 +1249,7 @@ be used in place of {\it unspecified}.
 
 \egroup
 ## 7.3. Derived expression types
-\label{derivedsection}
+{{< label "derivedsection" >}}
 
 This section gives syntax definitions for the derived expression types in
 terms of the primitive expression types (literal, variable, call, ``lambda``,

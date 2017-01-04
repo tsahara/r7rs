@@ -7,7 +7,7 @@ menu = "main"
 
 
 ### Incompatibilities with {{< rnrs 5 >}}
-\label{incompatibilities}
+{{< label "incompatibilities" >}}
 
 This section enumerates the incompatibilities between this report and
 the "Revised$^5$ report"~\cite{R5RS}.
@@ -51,7 +51,7 @@ and must be compatible with ``read`` and the syntax of numbers in programs.
 \end{itemize}
 
 ### Other language changes since {{< rnrs 5 >}}
-\label{differences}
+{{< label "differences" >}}
 This section enumerates the additional differences between this report and
 the "Revised$^5$ report"~\cite{R5RS}.
 

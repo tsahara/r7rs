@@ -5,7 +5,7 @@ menu = "main"
 +++
 \clearextrapart{Introduction}
 
-\label{historysection}
+{{< label "historysection" >}}
 
 Programming languages should be designed not by piling feature on top of
 feature, but by removing the weaknesses and restrictions that make additional

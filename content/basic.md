@@ -4,13 +4,12 @@ title = "Basic concepts"
 menu = "main"
 chapter = 3
 +++
-%\vfill\eject
 # 3. Basic concepts
-\label{basicchapter}
+{{< label "basicchapter" >}}
 
 ## 3.1. Variables, syntactic keywords, and regions
-\label{specialformsection}
-\label{variablesection}
+{{< label "specialformsection" >}}
+{{< label "variablesection" >}}
 
 An identifier\index{identifier} can name either a type of syntax or
 a location where a value can be stored.  An identifier that names a type
@@ -58,7 +57,7 @@ it is said to be \defining{unbound}.\mainindex{bound}\index{global
 environment}
 
 ## 3.2. Disjointness of types
-\label{disjointness}
+{{< label "disjointness" >}}
 
 No object satisfies more than one of the following predicates:
 
@@ -91,7 +90,7 @@ Scheme value except \schfalse{}, and the word "false" to refer to
 \schfalse{}. \mainindex{true} \mainindex{false}
 
 ## 3.3. External representations
-\label{externalreps}
+{{< label "externalreps" >}}
 
 An important concept in Scheme (and Lisp) is that of the {\em external
 representation} of an object as a sequence of characters.  For example,
@@ -134,7 +133,7 @@ accompanies the description of the primitives for manipulating the
 objects in the appropriate sections of chapter~\ref{initialenv}.
 
 ## 3.4. Storage model
-\label{storagemodel}
+{{< label "storagemodel" >}}
 
 Variables and objects such as pairs, strings, vectors, and bytevectors implicitly
 denote locations\mainindex{location} or sequences of locations.  A string, for
@@ -193,7 +192,7 @@ mutable and immutable objects.
 \end{rationale}
 
 ## 3.5. Proper tail recursion
-\label{proper tail recursion}
+{{< label "proper tail recursion" >}}
 
 Implementations of Scheme are required to be
 {\em properly tail-recursive}\mainindex{proper tail recursion}.

@@ -14,7 +14,7 @@ conventions used in writing Scheme programs.  For a formal syntax of
 Scheme, see section~\ref{BNF}.
 
 ## 2.1. Identifiers
-\label{syntaxsection}
+{{< label "syntaxsection" >}}
 
 An identifier\mainindex{identifier} is any sequence of letters, digits, and
 "extended identifier characters" provided that it does not have a prefix
@@ -106,7 +106,7 @@ causes a return to the default, non-folding behavior.
 
 
 ## 2.2. Whitespace and comments
-\label{wscommentsection}
+{{< label "wscommentsection" >}}
 
 \defining{Whitespace} characters include the space, tab, and newline characters.
 (Implementations may provide additional whitespace characters such
@@ -222,7 +222,7 @@ These are used for labeling and referencing other literal data (section~\ref{lab
 \end{description}
 
 ## 2.4. Datum labels
-\label{labelsection}
+{{< label "labelsection" >}}
 
 \begin{entry}{
 \pproto{#\hyper{n}=\hyper{datum}}{lexical syntax}

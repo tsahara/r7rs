@@ -8,8 +8,8 @@ chapter = 6
 
 %\vfill\eject
 # 6. Standard procedures
-\label{initialenv}
-\label{builtinchapter}
+{{< label "initialenv" >}}
+{{< label "builtinchapter" >}}
 
 \mainindex{initial environment}
 \mainindex{global environment}
@@ -36,7 +36,7 @@ When a procedure is said to return a \defining{newly allocated} object,
 it means that the locations in the object are fresh.
 
 ## 6.1. Equivalence predicates
-\label{equivalencesection}
+{{< label "equivalencesection" >}}
 
 A \defining{predicate} is a procedure that always returns a boolean
 value (\schtrue{} or \schfalse).  An \defining{equivalence predicate} is
@@ -325,7 +325,7 @@ the same.
 
 
 ## 6.2. Numbers
-\label{numbersection}
+{{< label "numbersection" >}}
 \index{number}
 
 \newcommand{\type}[1]{{\it#1}}
@@ -339,7 +339,7 @@ This report uses the types \type{number}, \type{complex}, \type{real},
 and Scheme numbers.
 
 ### 6.2.1. Numerical types
-\label{numericaltypes}
+{{< label "numericaltypes" >}}
 \index{numerical types}
 
 Mathematically, numbers are arranged into a tower of subtypes
@@ -371,7 +371,7 @@ simple programs.
 
 ### 6.2.2. Exactness
 
-\mainindex{exactness} \label{exactly}
+\mainindex{exactness} {{< label "exactly" >}}
 
 It is useful to distinguish between numbers that are
 represented exactly and those that might not be.  For example, indexes
@@ -427,7 +427,7 @@ silently or noisily in other implementation-specific ways.
 
 ### 6.2.3. Implementation restrictions
 
-\index{implementation restriction}\label{restrictions}
+\index{implementation restriction}{{< label "restrictions" >}}
 
 Implementations of Scheme are not required to implement the whole
 tower of subtypes given in section~\ref{numericaltypes},
@@ -599,7 +599,7 @@ Note that both the real and the imaginary parts of a complex number
 can be infinities, NaNs, or negative zero.
 
 ### 6.2.5. Syntax of numerical constants
-\label{numbernotations}
+{{< label "numbernotations" >}}
 
 The syntax of the written representations for numbers is described formally in
 section~\ref{numbersyntax}.  Note that case is not significant in numerical
@@ -1435,7 +1435,7 @@ As a consequence, the {{< rnrs 5 >}} permission to return \schfalse{} when
 \end{entry}
 
 ## 6.3. Booleans
-\label{booleansection}
+{{< label "booleansection" >}}
 
 The standard boolean objects for true and false are written as
 \schtrue{} and \schfalse.\sharpindex{t}\sharpindex{f}
@@ -1511,7 +1511,7 @@ are \schtrue{} or all are \schfalse{}.
 \end{entry}
 
 ## 6.4. Pairs and lists
-\label{listsection}
+{{< label "listsection" >}}
 
 A \defining{pair} (sometimes called a \defining{dotted pair}) is a
 record structure with two fields called the car and cdr fields (for
@@ -2001,7 +2001,7 @@ a \ev (1 8 2 8)
 
 
 ## 6.5. Symbols
-\label{symbolsection}
+{{< label "symbolsection" >}}
 
 Symbols are objects whose usefulness rests on the fact that two
 symbols are identical (in the sense of ``eqv?``) if and only if their
@@ -2096,7 +2096,7 @@ require escaping when written, but does not interpret escapes in its input.
 
 
 ## 6.6. Characters
-\label{charactersection}
+{{< label "charactersection" >}}
 
 Characters are objects that represent printed characters such as
 letters and digits.
@@ -2180,7 +2180,7 @@ Returns \schtrue{} if \var{obj} is a character, otherwise returns \schfalse.
 \proto{char<=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}
 \proto{char>=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}}
 
-\label{characterequality}
+{{< label "characterequality" >}}
 
 These procedures return \schtrue{} if
 the results of passing their arguments to ``char\coerce{``integer}
@@ -2299,7 +2299,7 @@ equivalents.
 
 
 ## 6.7. Strings
-\label{stringsection}
+{{< label "stringsection" >}}
 
 Strings are sequences of characters.
 Strings are written as sequences of characters enclosed within quotation marks
@@ -2609,7 +2609,7 @@ between \var{start} and \var{end}.
 
 
 ## 6.8. Vectors
-\label{vectorsection}
+{{< label "vectorsection" >}}
 
 Vectors are heterogeneous structures whose elements are indexed
 by integers.  A vector typically occupies less space than a list
@@ -2731,7 +2731,7 @@ In both procedures, order is preserved.
 \proto{string->vector}{ string}{procedure}
 \rproto{string->vector}{ string start}{procedure}
 \rproto{string->vector}{ string start end}{procedure}}
-\label{vectortostring}
+{{< label "vectortostring" >}}
 
 \domain{It is an error if any element of \var{vector} between \var{start}
 and \var{end} is not a character.}
@@ -2830,7 +2830,7 @@ a \lev #(1 2 smash smash 5)
 
 
 ## 6.9. Bytevectors
-\label{bytevectorsection}
+{{< label "bytevectorsection" >}}
 
 \defining{Bytevectors} represent blocks of binary data.
 They are fixed-length sequences of bytes, where
@@ -2977,7 +2977,7 @@ of the elements in the given bytevectors.
 
 \end{entry}
 
-\label{utf8tostring}
+{{< label "utf8tostring" >}}
 \begin{entry}{
 \proto{utf8->string}{ bytevector} {procedure}
 \rproto{utf8->string}{ bytevector start} {procedure}
@@ -3004,7 +3004,7 @@ and returns the corresponding bytevector.
 \end{entry}
 
 ## 6.10. Control features
-\label{proceduresection}
+{{< label "proceduresection" >}}
 
 This section describes various primitive procedures which control the
 flow of program execution in special ways.
@@ -3087,7 +3087,7 @@ the values returned by earlier returns are not mutated.
 
 \begin{entry}{
 \proto{string-map}{ proc \vari{string} \varii{string} \dotsfoo}{procedure}}
-\label{stringmap}
+{{< label "stringmap" >}}
 
 \domain{It is an error if \var{proc} does not
 accept as many arguments as there are {\it string}s
@@ -3234,7 +3234,7 @@ It is an error for \var{proc} to mutate any of the vectors.
 \proto{call-with-current-continuation}{ proc}{procedure}
 \proto{call/cc}{ proc}{procedure}}
 
-\label{continuations} \domain{It is an error if \var{proc} does not accept one
+{{< label "continuations" >}} \domain{It is an error if \var{proc} does not accept one
 argument.}
 The procedure ``call-with-current-continuation`` (or its
 equivalent abbreviation ``call/cc``) packages
@@ -3467,7 +3467,7 @@ extent of a call to \var{before} or \var{after} is unspecified.
 \end{entry}
 
 ## 6.11. Exceptions
-\label{exceptionsection}
+{{< label "exceptionsection" >}}
 
 This section describes Scheme's exception-handling and
 exception-raising procedures.
@@ -3627,7 +3627,7 @@ returns \schfalse.
 
 \begin{entry}{
 \proto{environment}{ \vri{list} \dotsfoo}{eval library procedure}}
-\label{environments}
+{{< label "environments" >}}
 
 This procedure returns a specifier for the environment that results by
 starting with an empty environment and then importing each \var{list},
@@ -3723,7 +3723,7 @@ Implementations may extend ``eval`` to allow other objects.
 ## 6.13. Input and output
 
 ### 6.13.1. Ports
-\label{portsection}
+{{< label "portsection" >}}
 
 Ports represent input and output devices.  To Scheme, an input port is
 a Scheme object that can deliver data upon command, while an output
@@ -3960,7 +3960,7 @@ order they were output.
 
 
 ### 6.13.2. Input
-\label{inputsection}
+{{< label "inputsection" >}}
 
 If \var{port} is omitted from any input procedure, it defaults to the
 value returned by ``(current-input-port)``.
@@ -4090,7 +4090,7 @@ port that has no ready characters.
 \begin{entry}{
 \proto{read-string}{ k}{procedure}
 \rproto{read-string}{ k port}{procedure}}
-\label{readstring}
+{{< label "readstring" >}}
 
 Reads the next \var{k} characters, or as many as are available before the end of file,
 from the textual
@@ -4168,7 +4168,7 @@ If no bytes are available, an end-of-file object is returned.
 
 
 ### 6.13.3. Output
-\label{outputsection}
+{{< label "outputsection" >}}
 
 If \var{port} is omitted from any output procedure, it defaults to the
 value returned by ``(current-output-port)``.

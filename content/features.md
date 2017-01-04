@@ -4,14 +4,14 @@ title = "Standard Feature Identifiers"
 menu = "main"
 +++
 # Standard Feature Identifiers
-\label{stdfeatures}
+{{< label "stdfeatures" >}}
 
 An implementation may provide any or all of the feature identifiers
 listed below for use by ``cond-expand`` and ``features``,
 but must not provide a feature identifier if it does not
 provide the corresponding feature.  
 
-\label{standard_features}
+{{< label "standard_features" >}}
 
 \feature{r7rs}{All {{< rnrs 7 >}} Scheme implementations have this feature.}
 \feature{exact-closed}{All algebraic operations except ``/`` produce

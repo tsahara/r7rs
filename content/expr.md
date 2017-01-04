@@ -5,7 +5,7 @@ menu = "main"
 chapter = 4
 +++
 # 4. Expressions
-\label{expressionchapter}
+{{< label "expressionchapter" >}}
 
 \newcommand{\syntax}{{\em Syntax: }}
 \newcommand{\semantics}{{\em Semantics: }}
@@ -22,7 +22,7 @@ are also described in this chapter because they are intimately associated
 with the ``delay``, ``delay-force``, and ``parameterize`` expression types.
 
 ## 4.1. Primitive expression types
-\label{primitivexps}
+{{< label "primitivexps" >}}
 
 ### 4.1.1. Variable references
 
@@ -42,7 +42,7 @@ x   \ev  28
 \end{entry}
 
 ### 4.1.2. Literal expressions
-\label{literalsection}
+{{< label "literalsection" >}}
 
 \begin{entry}{
 \proto{quote}{ \hyper{datum}}{\exprtype}
@@ -149,7 +149,7 @@ The order of evaluation may be chosen differently for each procedure call.
 
 
 ### 4.1.4. Procedures
-\label{lamba}
+{{< label "lamba" >}}
 
 \begin{entry}{
 \proto{lambda}{ \hyper{formals} \hyper{body}}{\exprtype}}
@@ -265,7 +265,7 @@ unspecified.
 
 
 ### 4.1.6. Assignments
-\label{assignment}
+{{< label "assignment" >}}
 
 \begin{entry}{
 \proto{set!}{ \hyper{variable} \hyper{expression}}{\exprtype}}
@@ -288,7 +288,7 @@ unspecified.
 \end{entry}
 
 ### 4.1.7. Inclusion
-\label{inclusion}
+{{< label "inclusion" >}}
 \begin{entry}{
 \proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}
 \rproto{include-ci}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}}
@@ -314,7 +314,7 @@ specify other directories to search.
 \end{entry}
 
 ## 4.2. Derived expression types
-\label{derivedexps}
+{{< label "derivedexps" >}}
 
 The constructs in this section are hygienic, as discussed in
 section~\ref{macrosection}.
@@ -583,7 +583,7 @@ appendix~\ref{stdfeatures}.
 \end{entry}
 
 ### 4.2.2. Binding constructs
-\label{bindingsection}
+{{< label "bindingsection" >}}
 
 The binding constructs ``let``, ``let*``, ``letrec``, ``letrec*``,
 ``let-values``, and ``let*-values``
@@ -721,7 +721,7 @@ In the most common uses of ``letrec``, all the \hyper{init}s are
 
 \begin{entry}{
 \proto{letrec*}{ \hyper{bindings} \hyper{body}}{\exprtype}}
-\label{letrecstar}
+{{< label "letrecstar" >}}
 
 \syntax
 \hyper{Bindings} has the form
@@ -837,7 +837,7 @@ set of bindings is visible and initialized, and so on.
 
 
 ### 4.2.3. Sequencing
-\label{sequencing}
+{{< label "sequencing" >}}
 
 Both of Scheme's sequencing constructs are named ``begin``, but the two
 have slightly different forms and uses:
@@ -950,7 +950,7 @@ been written instead of {\cf(\hyper{variable} \hyper{init})}.
 \begin{entry}{
 \rproto{let}{ \hyper{variable} \hyper{bindings} \hyper{body}}{\exprtype}}
 
-\label{namedlet}
+{{< label "namedlet" >}}
 \semantics
 "Named ``let``" is a variant on the syntax of \ide{let} which provides
 a more general looping construct than ``do`` and can also be used to express
@@ -1295,7 +1295,7 @@ exceptions.
 
 
 ### 4.2.8. Quasiquotation
-\label{quasiquotesection}
+{{< label "quasiquotesection" >}}
 
 \begin{entry}{
 \proto{quasiquote}{ \hyper{qq template}}{\exprtype} \nopagebreak
@@ -1407,7 +1407,7 @@ otherwise than as described above.
 \end{entry}
 
 ### 4.2.9. Case-lambda
-\label{caselambdasection}
+{{< label "caselambdasection" >}}
 \begin{entry}{
 \proto{case-lambda}{ \hyper{clause} \dotsfoo}{case-lambda library syntax}}
 
@@ -1447,7 +1447,7 @@ the \hyper{formals} of any \hyper{clause}.
 \end{entry}
 
 ## 4.3. Macros
-\label{macrosection}
+{{< label "macrosection" >}}
 
 Scheme programs can define and use new derived expression types,
  called {\em macros}.\mainindex{macro}
@@ -1507,7 +1507,7 @@ hygienic,Bawden88,macrosthatwork,syntacticabstraction}
 Implementations may provide macro facilities of other types.
 
 ### 4.3.1. Binding constructs for syntactic keywords
-\label{bindsyntax}
+{{< label "bindsyntax" >}}
 
 The ``let-syntax`` and ``letrec-syntax`` binding constructs are
 analogous to ``let`` and ``letrec``, but they bind
@@ -1597,7 +1597,7 @@ introduced by the ``letrec-syntax`` expression.
 \end{entry}
 
 ### 4.3.2. Pattern language
-\label{patternlanguage}
+{{< label "patternlanguage" >}}
 
 A \hyper{transformer spec} has one of the following forms:
 

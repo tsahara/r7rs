@@ -4,7 +4,7 @@ title = "Standard Libraries"
 menu = "main"
 +++
 # Standard Libraries
-\label{stdlibraries}
+{{< label "stdlibraries" >}}
 
 %% Note, this is used to generate stdmod.tex.  The bindings could be
 %% extracted automatically from the document, but this lets us choose
