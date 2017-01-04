@@ -104,7 +104,7 @@ their support and guidance.
 This report is very much a community effort, and we'd like to
 thank everyone who provided comments and feedback, including
 the following people: David Adler, Eli Barzilay, Taylan Ulrich
-Bay\i{}rl\i/Kammer, Marco Benelli, Pierpaolo Bernardi,
+Bay&#x131;rl&#x131;/Kammer, Marco Benelli, Pierpaolo Bernardi,
 Peter Bex, Per Bothner, John Boyle, Taylor Campbell, Raffael Cavallaro,
 Ray Dillinger, Biep Durieux, Sztefan Edwards, Helmut Eller, Justin
 Ethier, Jay Reynolds Freeman, Tony Garnock-Jones, Alan Manuel Gloria,
@@ -119,22 +119,22 @@ Piitulainen, Alex Queiroz, Jim Rees, Grant Rettke, Andrew Robbins, Devon
 Schudy, Bakul Shah, Robert Smith, Arthur Smyles, Michael Sperber, John
 David Stone, Jay Sulzberger, Malcolm Tredinnick, Sam Tobin-Hochstadt,
 Andre van Tonder, Daniel Villeneuve, Denis Washington, Alan Watson,
-Mark H.  Weaver, G\"oran Weinholt, David A. Wheeler, Andy Wingo, James
-Wise, J\"org F. Wittenberger, Kevin A. Wortman, Sascha Ziemann.
+Mark H.  Weaver, G&#xf6;ran Weinholt, David A. Wheeler, Andy Wingo, James
+Wise, J&#xf6;rg F. Wittenberger, Kevin A. Wortman, Sascha Ziemann.
 
 In addition we would like to thank all the past editors, and the
 people who helped them in turn: Hal Abelson, Norman Adams, David
 Bartley, Alan Bawden, Michael Blair, Gary Brooks, George Carrette,
 Andy Cromarty, Pavel Curtis, Jeff Dalton, Olivier Danvy, Ken Dickey,
 Bruce Duba, Robert Findler, Andy Freeman, Richard Gabriel, Yekta
-G\"ursel, Ken Haase, Robert Halstead, Robert Hieb, Paul Hudak, Morry
+G&#xfc;rsel, Ken Haase, Robert Halstead, Robert Hieb, Paul Hudak, Morry
 Katz, Eugene Kohlbecker, Chris Lindblad, Jacob Matthews, Mark Meyer,
 Jim Miller, Don Oxley, Jim Philbin, Kent Pitman, John Ramsdell,
 Guillermo Rozas, Mike Shaff, Jonathan Shapiro, Guy Steele, Julie
 Sussman, Perry Wagle, Mitchel Wand, Daniel Weise, Henry Wu, and Ozan
 Yigit.  We thank Carol Fessenden, Daniel Friedman, and Christopher
 Haynes for permission to use text from the Scheme 311 version 4
-reference manual.  We thank Texas Instruments, Inc.~for permission to
+reference manual.  We thank Texas Instruments, Inc. for permission to
 use text from the {\em TI Scheme Language Reference
 Manual}~\cite{TImanual85}.  We gladly acknowledge the influence of
 manuals for MIT Scheme~\cite{MITScheme}, T~\cite{Rees84}, Scheme
