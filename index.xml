@@ -21,7 +21,7 @@
 &lt;p&gt;The report gives a defining description of the programming language
 Scheme.  Scheme is a statically scoped and properly tail recursive
 dialect of the Lisp programming language~\cite{McCarthy} invented by Guy Lewis
-Steele~Jr. and Gerald Jay~Sussman.  It was designed to have
+Steele Jr. and Gerald Jay Sussman.  It was designed to have
 exceptionally clear and simple semantics and few different ways to
 form expressions.  A wide variety of programming paradigms, including
 imperative, functional, and object-oriented styles, find convenient
@@ -34,22 +34,22 @@ the report.&lt;/p&gt;
 language and describe the notational conventions used for describing the
 language and for writing programs in the language.&lt;/p&gt;
 
-&lt;p&gt;Chapters~\ref{expressionchapter} and~\ref{programchapter} describe
+&lt;p&gt;Chapters 4 and 5 describe
 the syntax and semantics of expressions, definitions, programs, and libraries.&lt;/p&gt;
 
-&lt;p&gt;Chapter~\ref{builtinchapter} describes Scheme&amp;rsquo;s built-in
+&lt;p&gt;Chapter 6 describes Scheme&amp;rsquo;s built-in
 procedures, which include all of the language&amp;rsquo;s data manipulation and
 input/output primitives.&lt;/p&gt;
 
-&lt;p&gt;Chapter~\ref{formalchapter} provides a formal syntax for Scheme
+&lt;p&gt;Chapter 7 provides a formal syntax for Scheme
 written in extended BNF, along with a formal denotational semantics.
 An example of the use of the language follows the formal syntax and
 semantics.&lt;/p&gt;
 
-&lt;p&gt;Appendix~\ref{stdlibraries} provides a list of the standard libraries
+&lt;p&gt;Appendix A provides a list of the standard libraries
 and the identifiers that they export.&lt;/p&gt;
 
-&lt;p&gt;Appendix~\ref{stdfeatures} provides a list of optional but standardized
+&lt;p&gt;Appendix B provides a list of optional but standardized
 implementation feature names.&lt;/p&gt;
 
 &lt;p&gt;The report concludes with a list of references and an
@@ -187,7 +187,7 @@ their support and guidance.&lt;/p&gt;
 &lt;p&gt;This report is very much a community effort, and we&amp;rsquo;d like to
 thank everyone who provided comments and feedback, including
 the following people: David Adler, Eli Barzilay, Taylan Ulrich
-Bay\i{}rl\i/Kammer, Marco Benelli, Pierpaolo Bernardi,
+Bay&amp;#x131;rl&amp;#x131;/Kammer, Marco Benelli, Pierpaolo Bernardi,
 Peter Bex, Per Bothner, John Boyle, Taylor Campbell, Raffael Cavallaro,
 Ray Dillinger, Biep Durieux, Sztefan Edwards, Helmut Eller, Justin
 Ethier, Jay Reynolds Freeman, Tony Garnock-Jones, Alan Manuel Gloria,
@@ -202,43 +202,28 @@ Piitulainen, Alex Queiroz, Jim Rees, Grant Rettke, Andrew Robbins, Devon
 Schudy, Bakul Shah, Robert Smith, Arthur Smyles, Michael Sperber, John
 David Stone, Jay Sulzberger, Malcolm Tredinnick, Sam Tobin-Hochstadt,
 Andre van Tonder, Daniel Villeneuve, Denis Washington, Alan Watson,
-Mark H.  Weaver, G\&amp;ldquo;oran Weinholt, David A. Wheeler, Andy Wingo, James
-Wise, J\&amp;ldquo;org F. Wittenberger, Kevin A. Wortman, Sascha Ziemann.&lt;/p&gt;
+Mark H.  Weaver, G&amp;#xf6;ran Weinholt, David A. Wheeler, Andy Wingo, James
+Wise, J&amp;#xf6;rg F. Wittenberger, Kevin A. Wortman, Sascha Ziemann.&lt;/p&gt;
 
 &lt;p&gt;In addition we would like to thank all the past editors, and the
 people who helped them in turn: Hal Abelson, Norman Adams, David
 Bartley, Alan Bawden, Michael Blair, Gary Brooks, George Carrette,
 Andy Cromarty, Pavel Curtis, Jeff Dalton, Olivier Danvy, Ken Dickey,
 Bruce Duba, Robert Findler, Andy Freeman, Richard Gabriel, Yekta
-G\&amp;ldquo;ursel, Ken Haase, Robert Halstead, Robert Hieb, Paul Hudak, Morry
+G&amp;#xfc;rsel, Ken Haase, Robert Halstead, Robert Hieb, Paul Hudak, Morry
 Katz, Eugene Kohlbecker, Chris Lindblad, Jacob Matthews, Mark Meyer,
 Jim Miller, Don Oxley, Jim Philbin, Kent Pitman, John Ramsdell,
 Guillermo Rozas, Mike Shaff, Jonathan Shapiro, Guy Steele, Julie
 Sussman, Perry Wagle, Mitchel Wand, Daniel Weise, Henry Wu, and Ozan
 Yigit.  We thank Carol Fessenden, Daniel Friedman, and Christopher
 Haynes for permission to use text from the Scheme 311 version 4
-reference manual.  We thank Texas Instruments, Inc.~for permission to
+reference manual.  We thank Texas Instruments, Inc. for permission to
 use text from the {\em TI Scheme Language Reference
 Manual}~\cite{TImanual85}.  We gladly acknowledge the influence of
 manuals for MIT Scheme~\cite{MITScheme}, T~\cite{Rees84}, Scheme
 84~\cite{Scheme84}, Common Lisp~\cite{CLtL}, and Algol 60~\cite{Naur63},
 as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,
-all of which are available at &lt;code&gt;http://srfi.schemers.org&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;%% We also thank Betty Dexter for the extreme effort she put into
-%% setting this report in \TeX, and Donald Knuth for designing the program
-%% that caused her troubles.&lt;/p&gt;
-
-&lt;p&gt;%% The Artificial Intelligence Laboratory of the
-%% Massachusetts Institute of Technology, the Computer Science
-%% Department of Indiana University, the Computer and Information
-%% Sciences Department of the University of Oregon, and the NEC Research
-%% Institute supported the preparation of this report.  Support for the MIT
-%% work was provided in part by
-%% the Advanced Research Projects Agency of the Department of Defense under Office
-%% of Naval Research contract N00014-80-C-0505.  Support for the Indiana
-%% University work was provided by NSF grants NCS 83-04567 and NCS
-%% 83-03325.&lt;/p&gt;
+all of which are available at &lt;a href=&#34;http://srfi.schemers.org&#34;&gt;http://srfi.schemers.org&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -261,7 +246,7 @@ all of which are available at &lt;code&gt;http://srfi.schemers.org&lt;/code&gt;.
 
 &lt;p&gt;This section gives an overview of Scheme&amp;rsquo;s semantics.  A
 detailed informal semantics is the subject of
-chapters~\ref{basicchapter} through~\ref{builtinchapter}.  For reference
+chapters~\ref{basicchapter} through 6.  For reference
 purposes, section~\ref{formalsemanticssection} provides a formal
 semantics of Scheme.&lt;/p&gt;
 
@@ -348,7 +333,7 @@ procedure of one argument that computes the absolute value of a
 number, and the variable &lt;code&gt;+&lt;/code&gt; is bound to a procedure that computes
 sums.  The full list
 all the standard libraries and the identifiers they export is given in
-Appendix~\ref{stdlibraries}.&lt;/p&gt;
+Appendix A.&lt;/p&gt;
 
 &lt;p&gt;All implementations of Scheme:
 \begin{itemize}&lt;/p&gt;
@@ -438,7 +423,7 @@ not with reference to programmer or program behavior.&lt;/p&gt;
 
 &lt;h3 id=&#34;1-3-3-entry-format&#34;&gt;1.3.3. Entry format&lt;/h3&gt;
 
-&lt;p&gt;Chapters~\ref{expressionchapter} and~\ref{builtinchapter} are organized
+&lt;p&gt;Chapters 4 and 6 are organized
 into entries.  Each entry describes one language feature or a group of
 related features, where a feature is either a syntactic construct or a
 procedure.  An entry begins with one or more header lines of the form&lt;/p&gt;
@@ -450,7 +435,7 @@ procedure.  An entry begins with one or more header lines of the form&lt;/p&gt;
 &lt;p&gt;\noindent\pproto{\var{template}}{\var{name} library \var{category}}\unpenalty&lt;/p&gt;
 
 &lt;p&gt;where \var{name} is the short name of a library
-as defined in Appendix~\ref{stdlibraries}.&lt;/p&gt;
+as defined in Appendix A.&lt;/p&gt;
 
 &lt;p&gt;If \var{category} is &amp;ldquo;\exprtype,&amp;rdquo; the entry describes an expression
 type, and the template gives the syntax of the expression type.
@@ -924,7 +909,7 @@ refers to the binding of the identifier that established the
 innermost of the regions containing the use.  If there is no binding of
 the identifier whose region contains the use, then the use refers to the
 binding for the variable in the global environment, if any
-(chapters~\ref{expressionchapter} and \ref{initialenv}); if there is no
+(chapters 4 and \ref{initialenv}); if there is no
 binding for the identifier,
 it is said to be \defining{unbound}.\mainindex{bound}\index{global
 environment}&lt;/p&gt;
@@ -1130,7 +1115,7 @@ expression.&lt;/p&gt;
 &lt;p&gt;\item If one of the following expressions is in a tail context,
 then the subexpressions shown as \meta{tail expression} are in a tail context.
 These were derived from rules in the grammar given in
-chapter~\ref{formalchapter} by replacing some occurrences of \meta{body}
+chapter 7 by replacing some occurrences of \meta{body}
 with \meta{tail body},  some occurrences of \meta{expression}
 with \meta{tail expression},  and some occurrences of \meta{sequence}
 with \meta{tail sequence}.  Only those rules that contain tail contexts
@@ -1804,7 +1789,7 @@ of any variables.&lt;/p&gt;
 
 &lt;p&gt;The exact features provided are implementation-defined, but for
 portability a core set of features is given in
-appendix~\ref{stdfeatures}.&lt;/p&gt;
+appendix B.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
 
@@ -3086,7 +3071,7 @@ expressions and definitions.
 Import declarations specify the libraries on which a program or library depends;
 a subset of the identifiers exported by the libraries are made available to
 the program.
-Expressions are described in chapter~\ref{expressionchapter}.
+Expressions are described in chapter 4.
 Definitions are either variable definitions, syntax definitions, or
 record-type definitions, all of which are explained in this chapter.
 They are valid in some, but not all, contexts where expressions
@@ -3717,7 +3702,7 @@ variable &lt;code&gt;abs&lt;/code&gt; is bound to a
 procedure of one argument that computes the absolute value of a
 number, and the variable &lt;code&gt;+&lt;/code&gt; is bound to a procedure that computes
 sums.  The full list of {\cf(scheme base)} bindings can be found in
-Appendix~\ref{stdlibraries}.&lt;/p&gt;
+Appendix A.&lt;/p&gt;
 
 &lt;p&gt;Implementations may provide an initial REPL environment
 which behaves as if all possible variables are bound to locations, most of
@@ -9988,7 +9973,7 @@ by the implementation be explicitly mentioned.&lt;/p&gt;
       <guid>https://tsahara.github.io/r7rs/stdlib/</guid>
       <description>
 
-&lt;h1 id=&#34;standard-libraries&#34;&gt;Standard Libraries&lt;/h1&gt;
+&lt;h1 id=&#34;appendix-a-standard-libraries&#34;&gt;Appendix A. Standard Libraries&lt;/h1&gt;
 
 &lt;a id=&#34;stdlibraries&#34;&gt;&lt;/a&gt;
 
@@ -10852,21 +10837,13 @@ left to future standardization efforts.&lt;/p&gt;
       <guid>https://tsahara.github.io/r7rs/additional/</guid>
       <description>&lt;p&gt;\extrapart{Additional material}&lt;/p&gt;
 
-&lt;p&gt;%%The Internet Scheme Repository at
-%%\begin{center}
-%%&lt;code&gt;http://www.cs.indiana.edu/scheme-repository/&lt;/code&gt;
-%%\end{center}
-%%contains an extensive Scheme bibliography, as well as papers,
-%%programs, implementations, and other material related to Scheme.
-%% Removed as only of historical interest; schemers.org links to it.&lt;/p&gt;
-
 &lt;p&gt;The Scheme community website at
-&lt;code&gt;http://schemers.org&lt;/code&gt;
+&lt;a href=&#34;http://schemers.org&#34;&gt;http://schemers.org&lt;/a&gt;
 contains additional resources for learning and programming, job and
 event postings, and Scheme user group information.&lt;/p&gt;
 
 &lt;p&gt;A bibliography of Scheme-related research at
-&lt;code&gt;http://library.readscheme.org&lt;/code&gt;
+&lt;a href=&#34;http://library.readscheme.org&#34;&gt;http://library.readscheme.org&lt;/a&gt;
 links to technical papers and theses related to the Scheme language,
 including both classic papers and recent research.&lt;/p&gt;
 
