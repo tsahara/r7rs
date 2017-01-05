@@ -19,6 +19,8 @@
 		       #/\\chapter{(.*?)}/ "# \\1"
 		       #/\\section{(.*?)}/ "## \\1"
 		       #/\\subsection\*?{(.*?)}/ "### \\1"
+		       #/\\begin{note}/     "*Note:&nbsp;*"
+		       #/\\end{note}/       ""
 		       #/\\begin{scheme}/   "```"
 		       #/\\end{scheme}/     "```"
 		       #/``([^\n]+?(\n[^\n]+?)?)''/ "\"\\1\""
@@ -37,11 +39,13 @@
 		       #/\\rsixrs/   "{{< rnrs 6 >}}"
 		       #/\\rsevenrs/ "{{< rnrs 7 >}}"
 
-		       #/%\n/ "\n"
+		       #/%+\n/ "\n"
 		       #/\\ / " "
 		       #/\\#/ "#"
 		       #/\\_/ "_"
 		       #/\\todo{(.*?)}/ ""
+
+		       #/[ \t]+\n/ "\n"
 		       ))
 
 (define (format-line line c)

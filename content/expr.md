@@ -129,21 +129,21 @@ by a call to one of their arguments.
 Exceptions are noted in the individual descriptions.
 
 
-\begin{note} In contrast to other dialects of Lisp, the order of
+*Note:&nbsp;* In contrast to other dialects of Lisp, the order of
 evaluation is unspecified, and the operator expression and the operand
 expressions are always evaluated with the same evaluation rules.
-\end{note}
 
-\begin{note}
+
+*Note:&nbsp;*
 Although the order of evaluation is otherwise unspecified, the effect of
 any concurrent evaluation of the operator and operand expressions is
 constrained to be consistent with some sequential order of evaluation.
 The order of evaluation may be chosen differently for each procedure call.
-\end{note}
 
-\begin{note} In many dialects of Lisp, the empty list, {\tt
+
+*Note:&nbsp;* In many dialects of Lisp, the empty list, {\tt
 ()}, is a legitimate expression evaluating to itself.  In Scheme, it is an error.
-\end{note}
+
 
 \end{entry}
 
@@ -305,11 +305,11 @@ The difference between the two is that \ide{include-ci} reads each file
 as if it began with the {\cf{}#!fold-case} directive, while \ide{include}
 does not.
 
-\begin{note}
+*Note:&nbsp;*
 Implementations are encouraged to search for files in the directory
 which contains the including file, and to provide a way for users to
 specify other directories to search.
-\end{note}
+
 
 \end{entry}
 
@@ -1207,12 +1207,12 @@ The results of the last
 expression in the \hyper{body} are returned as the results of the entire
 ``parameterize`` expression.
 
-\begin{note}
+*Note:&nbsp;*
 If the conversion procedure is not idempotent, the results of
 ``(parameterize ((x (x))) ...)``,
 which appears to bind the parameter \var{x} to its current value,
 might not be what the user expects.
-\end{note}
+
 
 If an implementation supports multiple threads of execution, then
 ``parameterize`` must not change the associated values of any parameters
@@ -1321,11 +1321,11 @@ of the list are then "stripped away" and the elements of the list are
 inserted in place of the comma at-sign expression sequence.  A comma
 at-sign normally appears only within a list or vector \hyper{qq template}.
 
-\begin{note}
+*Note:&nbsp;*
 In order to unquote an identifier beginning with ``@``, it is necessary
 to use either an explicit ``unquote`` or to put whitespace after the comma,
 to avoid colliding with the comma at-sign sequence.
-\end{note}
+
 
 ```
 `(list ,(+ 1 2) 4)  \ev  (list 3 4)

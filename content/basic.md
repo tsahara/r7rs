@@ -332,7 +332,7 @@ tail call.
       (and (g) (f))))
 ```
 
-\begin{note}
+*Note:&nbsp;*
 Implementations may
 recognize that some non-tail calls, such as the call to ``h``
 above, can be evaluated as though they were tail calls.
@@ -341,4 +341,3 @@ as a tail call to ``h``. (The possibility of ``h`` returning
 an unexpected number of values can be ignored, because in that
 case the effect of the ``let`` is explicitly unspecified and
 implementation-dependent.)
-\end{note}

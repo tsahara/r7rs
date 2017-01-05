@@ -42,10 +42,9 @@ implementation feature names.
 The report concludes with a list of references and an
 alphabetic index.
 
-\begin{note}
+*Note:&nbsp;*
 The editors of the {{< rnrs 5 >}} and {{< rnrs 6 >}} reports are
 listed as authors of this report in recognition of the substantial
 portions of this report that are copied directly from {{< rnrs 5 >}} and {{< rnrs 6 >}}.
 There is no intended implication that those editors, individually or
 collectively, support or do not support this report.
-\end{note}

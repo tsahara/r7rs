@@ -28,7 +28,7 @@ menu = "main"
 %  -- Will, 1991.
 
 % This is just a personal remark on your question on the RRRS:
-% The language CUCH (Curry-Church) was implemented by 1964 and 
+% The language CUCH (Curry-Church) was implemented by 1964 and
 % is a practical version of the lambda-calculus (call-by-name).
 % One reference you may find in Formal Language Description Languages
 % for Computer Programming T.~B.~Steele, 1965 (or so).
@@ -169,7 +169,7 @@ In {\em Proceedings of the 1986 ACM Conference on Lisp
 %% Peter Landin.
 %% A correspondence between Algol 60 and Church's lambda notation: Part I.
 %% {\em Communications of the ACM} 8(2):89--101, February 1965.
-%% 
+
 \bibitem{McCarthy}
 John McCarthy.
 Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I.
@@ -214,7 +214,7 @@ In {\em ACM SIGPLAN Notices} 21(12), pages~37--79, December 1986.
 %% Definitional interpreters for higher order programming languages.
 %% In {\em ACM Conference Proceedings}, pages 717--740.
 %% ACM, ~1972.
-%% 
+
 \bibitem{srfi1}
 Olin Shivers.
 SRFI 1: List Library.
@@ -254,7 +254,7 @@ MIT Press, Cambridge, 1977.
 \bibitem{TImanual85}
 Texas Instruments, Inc.
 TI Scheme Language Reference Manual.
-Preliminary version 1.0, November 1985. 
+Preliminary version 1.0, November 1985.
 
 \bibitem{srfi45}
 Andre van Tonder.

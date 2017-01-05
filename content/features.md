@@ -9,7 +9,7 @@ menu = "main"
 An implementation may provide any or all of the feature identifiers
 listed below for use by ``cond-expand`` and ``features``,
 but must not provide a feature identifier if it does not
-provide the corresponding feature.  
+provide the corresponding feature.
 
 {{< label "standard_features" >}}
 
