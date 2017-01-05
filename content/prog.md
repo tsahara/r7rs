@@ -62,43 +62,43 @@ exported by a library.  Each \hyper{import set} names a set of bindings
 from a library and possibly specifies local names for the
 imported bindings. It takes one of the following forms:
 
-\begin{itemize}
-\item {\tt\hyper{library name}}
-\item {\tt(only \hyper{import set} \hyper{identifier} \dotsfoo)}
-\item {\tt(except \hyper{import set} \hyper{identifier} \dotsfoo)}
-\item {\tt(prefix \hyper{import set} \hyper{identifier})}
-\item {\tt(rename \hyper{import set}\\
+
+- {\tt\hyper{library name}}
+- {\tt(only \hyper{import set} \hyper{identifier} \dotsfoo)}
+- {\tt(except \hyper{import set} \hyper{identifier} \dotsfoo)}
+- {\tt(prefix \hyper{import set} \hyper{identifier})}
+- {\tt(rename \hyper{import set}\\
 {\obeyspaces
 \hspace*{4em}(\hyperi{identifier} \hyperii{identifier}) \dotsfoo)}}
-\end{itemize}
+
 
 In the first form, all of the identifiers in the named library's export
 clauses are imported with the same names (or the exported names if
 exported with \ide{rename}).  The additional \hyper{import set}
 forms modify this set as follows:
 
-\begin{itemize}
 
-\item \ide{only} produces a subset of the given
+
+- \ide{only} produces a subset of the given
   \hyper{import set} including only the listed identifiers (after any
   renaming).  It is an error if any of the listed identifiers are
   not found in the original set.
 
-\item \ide{except} produces a subset of the given
+- \ide{except} produces a subset of the given
   \hyper{import set}, excluding the listed identifiers (after any
   renaming). It is an error if any of the listed identifiers are not
   found in the original set.
 
-\item \ide{rename} modifies the given \hyper{import set},
+- \ide{rename} modifies the given \hyper{import set},
   replacing each instance of \hyperi{identifier} with
   \hyperii{identifier}. It is an error if any of the listed
   \hyperi{identifier}s are not found in the original set.
 
-\item \ide{prefix} automatically renames all identifiers in
+- \ide{prefix} automatically renames all identifiers in
   the given \hyper{import set}, prefixing each with the specified
   \hyper{identifier}.
 
-\end{itemize}
+
 
 In a program or library declaration, it is an error to import the same
 identifier more than once with different bindings, or to redefine or
@@ -115,7 +115,7 @@ value for each of them.
 The simplest kind of variable definition
 takes one of the following forms:\mainschindex{define}
 
-\begin{itemize}
+
 
 \item{\tt(define \hyper{variable} \hyper{expression})}
 
@@ -139,7 +139,7 @@ variable.  This form is equivalent to
   (lambda \hyper{formal} \hyper{body}))\rm.
 ```
 
-\end{itemize}
+
 
 ### 5.3.1. Top level definitions
 
@@ -353,14 +353,14 @@ the same name or structure.
 An instance of ``define-record-type`` is equivalent to the following
 definitions:
 
-\begin{itemize}
 
-\item \hyper{name} is bound to a representation of the record type itself.
+
+- \hyper{name} is bound to a representation of the record type itself.
 This may be a run-time object or a purely syntactic representation.
 The representation is not utilized in this report, but it serves as a
 means to identify the record type for use by further language extensions.
 
-\item \hyper{constructor name} is bound to a procedure that takes as
+- \hyper{constructor name} is bound to a procedure that takes as
   many arguments as there are \hyper{field name}s in the
   \texttt{(\hyper{constructor name} \dotsfoo)} subexpression and returns a
   new record of type \hyper{name}.  Fields whose names are listed with
@@ -369,22 +369,22 @@ means to identify the record type for use by further language extensions.
   unspecified.  It is an error for a field name to appear in
   \hyper{constructor} but not as a \hyper{field name}.
 
-\item \hyper{pred} is bound to a predicate that returns \schtrue{} when given a
+- \hyper{pred} is bound to a predicate that returns \schtrue{} when given a
   value returned by the procedure bound to  \hyper{constructor name} and \schfalse{} for
   everything else.
 
-\item Each \hyper{accessor name} is bound to a procedure that takes a record of
+- Each \hyper{accessor name} is bound to a procedure that takes a record of
   type \hyper{name} and returns the current value of the corresponding
   field.  It is an error to pass an accessor a value which is not a
   record of the appropriate type.
 
-\item Each \hyper{modifier name} is bound to a procedure that takes a record of
+- Each \hyper{modifier name} is bound to a procedure that takes a record of
   type \hyper{name} and a value which becomes the new value of the
   corresponding field; an unspecified value is returned.  It is an
   error to pass a modifier a first argument which is not a record of
   the appropriate type.
 
-\end{itemize}
+
 
 For instance, the following record-type definition
 
@@ -445,7 +445,7 @@ or control characters after escapes are expanded.
 {{< label "librarydeclarations" >}}
 A \hyper{library declaration} is any of:
 
-\begin{itemize}
+
 
 \item{\tt(export \hyper{export spec} \dotsfoo)}
 
@@ -461,16 +461,16 @@ A \hyper{library declaration} is any of:
 
 \item{\tt(cond-expand \hyperi{ce-clause} \hyperii{ce-clause} \dotsfoo)}
 
-\end{itemize}
+
 
 An \ide{export} declaration specifies a list of identifiers which
 can be made visible to other libraries or programs.
 An \hyper{export spec} takes one of the following forms:
 
-\begin{itemize}
+
 \item{\hyper{identifier}}
 \item{\tt{(rename \hyperi{identifier} \hyperii{identifier})}}
-\end{itemize}
+
 
 In an \hyper{export spec}, an \hyper{identifier} names a single
 binding defined within or imported into the library, where the

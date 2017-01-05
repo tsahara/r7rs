@@ -64,15 +64,15 @@ the-word-recursion-has-many-meanings
 See section~\ref{extendedalphas} for the formal syntax of identifiers.
 
 Identifiers have two uses within Scheme programs:
-\begin{itemize}
-\item Any identifier can be used as a variable\index{variable}
+
+- Any identifier can be used as a variable\index{variable}
  or as a syntactic keyword\index{syntactic keyword}
 (see sections~\ref{variablesection} and~\ref{macrosection}).
 
-\item When an identifier appears as a literal or within a literal
+- When an identifier appears as a literal or within a literal
 (see section~\ref{quote}), it is being used to denote a {\em symbol}
 (see section~\ref{symbolsection}).
-\end{itemize}
+
 
 In contrast with earlier revisions of the report~\cite{R5RS}, the
 syntax distinguishes between upper and lower case in

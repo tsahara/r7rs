@@ -58,57 +58,57 @@ open to interpretation, but the following partial specification of
 
 The ``eqv?`` procedure returns \schtrue{} if:
 
-\begin{itemize}
-\item \vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.
 
-\item \vari{obj} and \varii{obj} are both symbols and are the same
+- \vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.
+
+- \vari{obj} and \varii{obj} are both symbols and are the same
 symbol according to the ``symbol=?`` procedure
 (section~\ref{symbolsection}).
 
-\item \vari{obj} and \varii{obj} are both exact numbers and
+- \vari{obj} and \varii{obj} are both exact numbers and
 are numerically equal (in the sense of ``=``).
 
-\item \vari{obj} and \varii{obj} are both inexact numbers such that
+- \vari{obj} and \varii{obj} are both inexact numbers such that
 they are numerically equal (in the sense of ``=``)
 and they yield the same results (in the sense of ``eqv?``)
 when passed as arguments to any other procedure
 that can be defined as a finite composition of Scheme's standard
 arithmetic procedures, provided it does not result in a NaN value.
 
-\item \vari{obj} and \varii{obj} are both characters and are the same
+- \vari{obj} and \varii{obj} are both characters and are the same
 character according to the ``char=?`` procedure
 (section~\ref{charactersection}).
 
-\item \vari{obj} and \varii{obj} are both the empty list.
+- \vari{obj} and \varii{obj} are both the empty list.
 
-\item \vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
+- \vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
 or strings that denote the same location in the store
 (section~\ref{storagemodel}).
 
-\item \vari{obj} and \varii{obj} are procedures whose location tags are
+- \vari{obj} and \varii{obj} are procedures whose location tags are
 equal (section~\ref{lambda}).
-\end{itemize}
+
 
 The ``eqv?`` procedure returns \schfalse{} if:
 
-\begin{itemize}
-\item \vari{obj} and \varii{obj} are of different types
+
+- \vari{obj} and \varii{obj} are of different types
 (section~\ref{disjointness}).
 
-\item one of \vari{obj} and \varii{obj} is \schtrue{} but the other is
+- one of \vari{obj} and \varii{obj} is \schtrue{} but the other is
 \schfalse{}.
 
-\item \vari{obj} and \varii{obj} are symbols but are not the same
+- \vari{obj} and \varii{obj} are symbols but are not the same
 symbol according to the ``symbol=?`` procedure
 (section~\ref{symbolsection}).
 
-\item one of \vari{obj} and \varii{obj} is an exact number but the other
+- one of \vari{obj} and \varii{obj} is an exact number but the other
 is an inexact number.
 
-\item \vari{obj} and \varii{obj} are both exact numbers and
+- \vari{obj} and \varii{obj} are both exact numbers and
 are numerically unequal (in the sense of ``=``).
 
-\item \vari{obj} and \varii{obj} are both inexact numbers such that either
+- \vari{obj} and \varii{obj} are both inexact numbers such that either
 they are numerically unequal (in the sense of ``=``),
 or they do not yield the same results (in the sense of ``eqv?``)
 when passed as arguments to any other procedure
@@ -117,19 +117,19 @@ arithmetic procedures, provided it does not result in a NaN value.
 As an exception, the behavior of ``eqv?`` is unspecified
 when both \vari{obj} and \varii{obj} are NaN.
 
-\item \vari{obj} and \varii{obj} are characters for which the ``char=?``
+- \vari{obj} and \varii{obj} are characters for which the ``char=?``
 procedure returns \schfalse{}.
 
-\item one of \vari{obj} and \varii{obj} is the empty list but the other
+- one of \vari{obj} and \varii{obj} is the empty list but the other
 is not.
 
-\item \vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
+- \vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
 or strings that denote distinct locations.
 
-\item \vari{obj} and \varii{obj} are procedures that would behave differently
+- \vari{obj} and \varii{obj} are procedures that would behave differently
 (return different values or have different side effects) for some arguments.
 
-\end{itemize}
+
 
 ```
 (eqv? 'a 'a)                     \ev  \schtrue
@@ -1525,11 +1525,11 @@ be defined recursively as either the empty list\index{empty list} or a pair whos
 cdr is a list.  More precisely, the set of lists is defined as the smallest
 set \var{X} such that
 
-\begin{itemize}
-\item The empty list is in \var{X}.
-\item If \var{list} is in \var{X}, then any pair whose cdr field contains
+
+- The empty list is in \var{X}.
+- If \var{list} is in \var{X}, then any pair whose cdr field contains
       \var{list} is also in \var{X}.
-\end{itemize}
+
 
 The objects in the car fields of successive pairs of a list are the
 elements of the list.  For example, a two-element list is a pair whose car
@@ -2307,7 +2307,7 @@ Strings are written as sequences of characters enclosed within quotation marks
 sequences\mainindex{escape sequence} represent characters other than
 themselves.  Escape sequences always start with a backslash (\backwhack{}):
 
-\begin{itemize}
+
 \item{\cf\backwhack{}a} : alarm, U+0007
 \item{\cf\backwhack{}b} : backspace, U+0008
 \item{\cf\backwhack{}t} : character tabulation, U+0009
@@ -2320,7 +2320,7 @@ themselves.  Escape sequences always start with a backslash (\backwhack{}):
       \arbno{\hyper{intraline whitespace}}} : nothing
 \item{\cf\backwhack{}x\meta{hex scalar value};} : specified character (note the
   terminating semi-colon).
-\end{itemize}
+
 
 The result is unspecified if any other character in a string occurs
 after a backslash.
@@ -3410,20 +3410,20 @@ environment as the call to ``dynamic-wind``.
 In Scheme, because of ``call-with-current-continuation``, the
 dynamic extent of a call is not always a single, connected time period.
 It is defined as follows:
-\begin{itemize}
-\item The dynamic extent is entered when execution of the body of the
+
+- The dynamic extent is entered when execution of the body of the
 called procedure begins.
 
-\item The dynamic extent is also entered when execution is not within
+- The dynamic extent is also entered when execution is not within
 the dynamic extent and a continuation is invoked that was captured
 (using ``call-with-current-continuation``) during the dynamic extent.
 
-\item It is exited when the called procedure returns.
+- It is exited when the called procedure returns.
 
-\item It is also exited when execution is within the dynamic extent and
+- It is also exited when execution is within the dynamic extent and
 a continuation is invoked that was captured while not within the
 dynamic extent.
-\end{itemize}
+
 
 If a second call to ``dynamic-wind`` occurs within the dynamic extent of the
 call to \var{thunk} and then a continuation is invoked in such a way that the

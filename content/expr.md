@@ -192,20 +192,20 @@ the results of the procedure call.
 
 \hyper{Formals} have one of the following forms:
 
-\begin{itemize}
-\item {\tt(\hyperi{variable} \dotsfoo)}:
+
+- {\tt(\hyperi{variable} \dotsfoo)}:
 The procedure takes a fixed number of arguments; when the procedure is
 called, the arguments will be stored in fresh locations
 that are bound to the corresponding variables.
 
-\item \hyper{variable}:
+- \hyper{variable}:
 The procedure takes any number of arguments; when the procedure is
 called, the sequence of actual arguments is converted into a newly
 allocated list, and the list is stored in a fresh location
 that is bound to
 \hyper{variable}.
 
-\item {\tt(\hyperi{variable} \dotsfoo{} \hyper{variable$_{n}$} {\bf.}\
+- {\tt(\hyperi{variable} \dotsfoo{} \hyper{variable$_{n}$} {\bf.}\
 \hyper{variable$_{n+1}$})}:
 If a space-delimited period precedes the last variable, then
 the procedure takes $n$ or more arguments, where $n$ is the
@@ -215,7 +215,7 @@ The value stored in the binding of the last variable will be a
 newly allocated
 list of the actual arguments left over after all the other actual
 arguments have been matched up against the other formal arguments.
-\end{itemize}
+
 
 It is an error for a \hyper{variable} to appear more than once in
 \hyper{formals}.
@@ -547,13 +547,13 @@ The last clause can be an "else clause," which has the form
 
 A \hyper{feature requirement} takes one of the following forms:
 
-\begin{itemize}
-\item {\tt\hyper{feature identifier}}
-\item {\tt(library \hyper{library name})}
-\item {\tt(and \hyper{feature requirement} \dotsfoo)}
-\item {\tt(or \hyper{feature requirement} \dotsfoo)}
-\item {\tt(not \hyper{feature requirement})}
-\end{itemize}
+
+- {\tt\hyper{feature identifier}}
+- {\tt(library \hyper{library name})}
+- {\tt(and \hyper{feature requirement} \dotsfoo)}
+- {\tt(or \hyper{feature requirement} \dotsfoo)}
+- {\tt(not \hyper{feature requirement})}
+
 
 \semantics
 Each implementation maintains a list of feature identifiers which are
@@ -1103,11 +1103,11 @@ p                     \ev  {\it{}a promise, still}
 Various extensions to this semantics of ``delay``, ``force`` and
 ``delay-force`` are supported in some implementations:
 
-\begin{itemize}
-\item Calling ``force`` on an object that is not a promise may simply
+
+- Calling ``force`` on an object that is not a promise may simply
 return the object.
 
-\item It may be the case that there is no means by which a promise can be
+- It may be the case that there is no means by which a promise can be
 operationally distinguished from its forced value.  That is, expressions
 like the following may evaluate to either \schtrue{} or to \schfalse{},
 depending on the implementation:
@@ -1117,7 +1117,7 @@ depending on the implementation:
 (pair? (delay (cons 1 2)))  \ev  \unspecified
 ```
 
-\item Implementations may implement "implicit forcing," where
+- Implementations may implement "implicit forcing," where
 the value of a promise is forced by procedures
 that operate only on arguments of a certain type, like ``cdr``
 and ``*``.  However, procedures that operate uniformly on their
@@ -1128,7 +1128,7 @@ arguments, like ``list``, must not force them.
 (car
   (list (delay (* 3 7)) 13))    \ev {\it{}a promise}
 ```
-\end{itemize}
+
 \end{entry}
 
 \begin{entry}{
@@ -1471,32 +1471,32 @@ of the macro.
 
 The macro definition facility consists of two parts:
 
-\begin{itemize}
-\item A set of expressions used to establish that certain identifiers
+
+- A set of expressions used to establish that certain identifiers
 are macro keywords, associate them with macro transformers, and control
 the scope within which a macro is defined, and
 
-\item a pattern language for specifying macro transformers.
-\end{itemize}
+- a pattern language for specifying macro transformers.
+
 
 The syntactic keyword of a macro can shadow variable bindings, and local
 variable bindings can shadow syntactic bindings.  \index{keyword}
 Two mechanisms are provided to prevent unintended conflicts:
 
-\begin{itemize}
 
-\item If a macro transformer inserts a binding for an identifier
+
+- If a macro transformer inserts a binding for an identifier
 (variable or keyword), the identifier will in effect be renamed
 throughout its scope to avoid conflicts with other identifiers.
 Note that a global variable definition may or may not introduce a binding;
 see section~\ref{defines}.
 
-\item If a macro transformer inserts a free reference to an
+- If a macro transformer inserts a free reference to an
 identifier, the reference refers to the binding that was visible
 where the transformer was specified, regardless of any local
 bindings that surround the use of the macro.
 
-\end{itemize}
+
 
 In consequence, all macros
 defined using the pattern language  are "hygienic" and "referentially
@@ -1691,25 +1691,25 @@ case it is matched as a literal.
 
 More formally, an input expression $E$ matches a pattern $P$ if and only if:
 
-\begin{itemize}
-\item $P$ is an underscore (``_``).
 
-\item $P$ is a non-literal identifier; or
+- $P$ is an underscore (``_``).
 
-\item $P$ is a literal identifier and $E$ is an identifier with the same
+- $P$ is a non-literal identifier; or
+
+- $P$ is a literal identifier and $E$ is an identifier with the same
       binding; or
 
-\item $P$ is a list ``($P_1$ $\dots$ $P_n$)`` and $E$ is a
+- $P$ is a list ``($P_1$ $\dots$ $P_n$)`` and $E$ is a
       list of $n$
       elements that match $P_1$ through $P_n$, respectively; or
 
-\item $P$ is an improper list
+- $P$ is an improper list
       ``($P_1$ $P_2$ $\dots$ $P_n$ . $P_{n+1``$)}
       and $E$ is a list or
       improper list of $n$ or more elements that match $P_1$ through $P_n$,
       respectively, and whose $n$th tail matches $P_{n+1}$; or
 
-\item $P$ is of the form
+- $P$ is of the form
       ``($P_1$ $\dots$ $P_k$ $P_e$ \meta{ellipsis`` $P_{m+1}$ \dotsfoo{} $P_n$)}
       where $E$ is
       a proper list of $n$ elements, the first $k$ of which match
@@ -1717,7 +1717,7 @@ More formally, an input expression $E$ matches a pattern $P$ if and only if:
       whose next $m-k$ elements each match $P_e$,
       whose remaining $n-m$ elements match $P_{m+1}$ through $P_n$; or
 
-\item $P$ is of the form
+- $P$ is of the form
       ``($P_1$ $\dots$ $P_k$ $P_{e``$ \meta{ellipsis} $P_{m+1}$ \dotsfoo{} $P_n$ . $P_x$)}
       where $E$ is
       a list or improper list of $n$ elements, the first $k$ of which match
@@ -1726,20 +1726,20 @@ More formally, an input expression $E$ matches a pattern $P$ if and only if:
       whose remaining $n-m$ elements match $P_{m+1}$ through $P_n$,
       and whose $n$th and final cdr matches $P_x$; or
 
-\item $P$ is a vector of the form ``#($P_1$ $\dots$ $P_n$)``
+- $P$ is a vector of the form ``#($P_1$ $\dots$ $P_n$)``
       and $E$ is a vector
       of $n$ elements that match $P_1$ through $P_n$; or
 
-\item $P$ is of the form
+- $P$ is of the form
       ``#($P_1$ $\dots$ $P_k$ $P_{e``$ \meta{ellipsis} $P_{m+1}$ \dotsfoo $P_n$)}
       where $E$ is a vector of $n$
       elements the first $k$ of which match $P_1$ through $P_k$,
       whose next $m-k$ elements each match $P_e$,
       and whose remaining $n-m$ elements match $P_{m+1}$ through $P_n$; or
 
-\item $P$ is a constant and $E$ is equal to $P$ in the sense of
+- $P$ is a constant and $E$ is equal to $P$ in the sense of
       the ``equal?`` procedure.
-\end{itemize}
+
 
 It is an error to use a macro keyword, within the scope of its
 binding, in an expression that does not match any of the patterns.

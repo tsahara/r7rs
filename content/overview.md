@@ -103,26 +103,26 @@ all the standard libraries and the identifiers they export is given in
 Appendix A.
 
 All implementations of Scheme:
-\begin{itemize}
 
-\item Must provide the base library and all the identifiers
+
+- Must provide the base library and all the identifiers
 exported from it.
 
-\item May provide or omit the other
+- May provide or omit the other
 libraries given in this report, but each library must either be provided
 in its entirety, exporting no additional identifiers, or else omitted
 altogether.
 
-\item May provide other libraries not described in this report.
+- May provide other libraries not described in this report.
 
-\item May also extend the function of any identifier in this
+- May also extend the function of any identifier in this
 report, provided the extensions are not in conflict with the language
 reported here.
 
-\item Must support portable
+- Must support portable
 code by providing a mode of operation in which the lexical syntax does
 not conflict with the lexical syntax described in this report.
-\end{itemize}
+
 
 ### 1.3.2. Error situations and unspecified behavior
 {{< label "errorsituations" >}}
@@ -282,7 +282,7 @@ $$
 The names \vr{start} and \vr{end} are used as indexes into strings,
 vectors, and bytevectors.  Their use implies the following:
 
-\begin{itemize}
+
 
 \item{It is an error if \var{start} is greater than \var{end}.}
 
@@ -300,7 +300,7 @@ exclusive.  As an example, consider a string.  If
 substring is referred to, and if \var{start} is zero and \var{end} is
 the length of \var{string}, then the entire string is referred to.}
 
-\end{itemize}
+
 
 ### 1.3.4. Evaluation examples
 

@@ -237,8 +237,8 @@ in a {\em tail context}.  Tail contexts are defined inductively.  Note
 that a tail context is always determined with respect to a particular lambda
 expression.
 
-\begin{itemize}
-\item The last expression within the body of a lambda expression,
+
+- The last expression within the body of a lambda expression,
   shown as \hyper{tail expression} below, occurs in a tail context.
   The same is true of all the bodies of ``case-lambda`` expressions.
 \begin{grammar}
@@ -248,7 +248,7 @@ expression.
 (case-lambda \arbno{(\meta{formals} \meta{tail body})})
 \end{grammar}
 
-\item If one of the following expressions is in a tail context,
+- If one of the following expressions is in a tail context,
 then the subexpressions shown as \meta{tail expression} are in a tail context.
 These were derived from rules in the grammar given in
 chapter 7 by replacing some occurrences of \meta{body}
@@ -310,7 +310,7 @@ the procedure that results from the evaluation of \hyperii{expression} is in a
 tail context.  \hyperii{expression} itself is not in a tail context.
 
 
-\end{itemize}
+
 
 Certain procedures defined in this report are also required to perform tail calls.
 The first argument passed to \ide{apply} and to

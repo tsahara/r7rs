@@ -25,6 +25,10 @@
 		       #/\\end{scheme}/     "```"
 		       #/``([^\n]+?(\n[^\n]+?)?)''/ "\"\\1\""
 
+		       #/\\begin{itemize}/  ""
+		       #/\\end{itemize}/    ""
+		       #/\\item /           "- "
+
 		       #/\\unsection/ ""
 		       #/\\vest / ""
 
