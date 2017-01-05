@@ -420,7 +420,7 @@ tail call.</p>
       (and (g) (f))))
 </code></pre>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 Implementations may
 recognize that some non-tail calls, such as the call to <code>h</code>
 above, can be evaluated as though they were tail calls.
@@ -428,8 +428,7 @@ In the example above, the <code>let</code> expression could be compiled
 as a tail call to <code>h</code>. (The possibility of <code>h</code> returning
 an unexpected number of values can be ignored, because in that
 case the effect of the <code>let</code> is explicitly unspecified and
-implementation-dependent.)
-\end{note}</p>
+implementation-dependent.)</p>
 
   </article>
 </div>

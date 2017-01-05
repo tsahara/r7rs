@@ -302,11 +302,10 @@ are equivalent to each other, and can decide whether or not to
 merge representations of equivalent objects by using the same pointer or
 bit pattern to represent both.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 If inexact numbers are represented as IEEE binary floating-point numbers,
 then an implementation of <code>eqv?</code> that simply compares equal-sized
-inexact numbers for bitwise equality is correct by the above definition.
-\end{note}</p>
+inexact numbers for bitwise equality is correct by the above definition.</p>
 
 <p>\end{entry}</p>
 
@@ -388,10 +387,9 @@ circular data structures, <code>equal?</code> must always terminate.</p>
         (lambda (y) y))  \ev  \unspecified
 </code></pre>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 A rule of thumb is that objects are generally <code>equal?</code> if they print
-the same.
-\end{note}</p>
+the same.</p>
 
 <p>\end{entry}</p>
 
@@ -795,17 +793,15 @@ not rational.</p>
 (integer? 8/4)          \ev  \schtrue
 </code></pre>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 The behavior of these type predicates on \tupe{inexact} numbers
-is unreliable, since any inaccuracy might affect the result.
-\end{note}</p>
+is unreliable, since any inaccuracy might affect the result.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 In many implementations the \ide{complex?} procedure will be the same as
 \ide{number?}, but unusual implementations may represent
 some irrational numbers exactly or may extend the number system to
-support some kind of non-complex numbers.
-\end{note}</p>
+support some kind of non-complex numbers.</p>
 
 <p>\end{entry}</p>
 
@@ -899,7 +895,7 @@ They do not distinguish between inexact zero and inexact negative zero.</p>
 
 <p>These predicates are required to be transitive.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 The implementation approach
 of converting all arguments to inexact numbers
 if any argument is inexact is not transitive.  For example, let
@@ -910,15 +906,13 @@ Then <code>(= (- big 1) (inexact big))</code> and
 because of the limitations of IEEE
 representations of large integers, whereas <code>(= (- big 1) (+ big 1))</code>
 is false.  Converting inexact values to exact numbers that are the same (in the sense of <code>=</code>) to them will avoid
-this problem, though special care must be taken with infinities.
-\end{note}</p>
+this problem, though special care must be taken with infinities.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 While it is not an error to compare \tupe{inexact} numbers using these
 predicates, the results are unreliable because a small inaccuracy
 can affect the result; this is especially true of \ide{=} and \ide{zero?}.
-When in doubt, consult a numerical analyst.
-\end{note}</p>
+When in doubt, consult a numerical analyst.</p>
 
 <p>\end{entry}</p>
 
@@ -944,15 +938,14 @@ returning \schtrue{} or \schfalse.  See note above.</p>
 (max 3.9 4)            \ev  4.0  ; inexact
 </code></pre>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 If any argument is inexact, then the result will also be inexact (unless
 the procedure can prove that the inaccuracy is not large enough to affect the
 result, which is possible only in unusual implementations).  If <code>min</code> or
 <code>max</code> is used to compare numbers of mixed exactness, and the numerical
 value of the result cannot be represented as an inexact number without loss of
 accuracy, then the procedure may report a violation of an implementation
-restriction.
-\end{note}</p>
+restriction.</p>
 
 <p>\end{entry}</p>
 
@@ -1068,11 +1061,11 @@ with \vrii{n} not equal to 0,</p>
 truncate-quotient} and <code>truncate-remainder</code>, respectively, and {\cf
 modulo} is equivalent to <code>floor-remainder</code>.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 These procedures are provided for backward compatibility with earlier
-versions of this report.
-\end{note}
-\end{entry}</p>
+versions of this report.</p>
+
+<p>\end{entry}</p>
 
 <p>\begin{entry}{
 \proto{gcd}{ \vri{n} \dotsfoo}{procedure}
@@ -1127,12 +1120,11 @@ The <code>round</code> procedure rounds to even for consistency with the default
 mode specified by the IEEE 754 IEEE floating-point standard.
 \end{rationale}</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 If the argument to one of these procedures is inexact, then the result
 will also be inexact.  If an exact value is needed, the
 result can be passed to the <code>exact</code> procedure.
-If the argument is infinite or a NaN, then it is returned.
-\end{note}</p>
+If the argument is infinite or a NaN, then it is returned.</p>
 
 <pre><code>(floor -4.3)          \ev  -5.0
 (ceiling -4.3)        \ev  -4.0
@@ -1375,14 +1367,11 @@ then a violation of an implementation restriction may be reported.</p>
 \tupe{exact} and \tupe{inexact} integers throughout an
 implementation-dependent range.  See section~\ref{restrictions}.</p>
 
-<p>\begin{note}
-These procedures were known in R<span class="rnrs">5</span>RS
- as <code>exact-&gt;inexact</code> and
+<p><em>Note:&nbsp;</em>
+These procedures were known in R<span class="rnrs">5</span>RS as <code>exact-&gt;inexact</code> and
 <code>inexact-&gt;exact</code>, respectively, but they have always accepted
 arguments of any exactness.  The new names are clearer and shorter,
-as well as being compatible with R<span class="rnrs">6</span>RS
-.
-\end{note}</p>
+as well as being compatible with R<span class="rnrs">6</span>RS.</p>
 
 <p>\end{entry}</p>
 
@@ -1422,10 +1411,9 @@ otherwise the format of the result is unspecified.</p>
 <p>The result returned by <code>number\coerce{</code>string}
 never contains an explicit radix prefix.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 The error case can occur only when \vr{z} is not a complex number
-or is a complex number with a non-rational real or imaginary part.
-\end{note}</p>
+or is a complex number with a non-rational real or imaginary part.</p>
 
 <p>\begin{rationale}
 If \vr{z} is an inexact number and
@@ -1456,7 +1444,7 @@ An error is never signaled due to the content of \vr{string}.</p>
 (string-&gt;number &quot;1e2&quot;)        \ev  100.0
 </code></pre>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 The domain of <code>string-&gt;number</code> may be restricted by implementations
 in the following ways.
 If all numbers supported by an implementation are real, then
@@ -1476,10 +1464,8 @@ a decimal point is used.</p>
 also be applied to <code>read</code> and to the routine that reads programs, in
 order to maintain consistency between internal numeric processing, I/O,
 and the processing of programs.
-As a consequence, the R<span class="rnrs">5</span>RS
- permission to return \schfalse{} when
-\var{string} has an explicit radix prefix has been withdrawn.
-\end{note}</p>
+As a consequence, the R<span class="rnrs">5</span>RS permission to return \schfalse{} when
+\var{string} has an explicit radix prefix has been withdrawn.</p>
 
 <p>\end{entry}</p>
 
@@ -1504,11 +1490,10 @@ counts as false in conditional expressions.
 All other Scheme values, including \schtrue,
 count as true.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 Unlike some other dialects of Lisp,
 Scheme distinguishes \schfalse{} and the empty list \index{empty list}
-from each other and from the symbol \ide{nil}.
-\end{note}</p>
+from each other and from the symbol \ide{nil}.</p>
 
 <p>Boolean constants evaluate to themselves, so they do not need to be quoted
 in programs.</p>
@@ -1588,10 +1573,9 @@ elements, which is the same as the number of pairs.</p>
 <p>The empty list\mainindex{empty list} is a special object of its own type.
 It is not a pair, it has no elements, and its length is zero.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 The above definitions imply that all lists have finite length and are
-terminated by the empty list.
-\end{note}</p>
+terminated by the empty list.</p>
 
 <p>The most general notation (external representation) for Scheme pairs is
 the &ldquo;dotted&rdquo; notation \hbox<code>(\vari{c</code> . \varii{c})} where
@@ -2028,13 +2012,12 @@ a literal expression, or read using the <code>read</code> procedure, and
 subsequently written out using the <code>write</code> procedure, will read back
 in as the identical symbol (in the sense of <code>eqv?</code>).</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 Some implementations have values known as &ldquo;uninterned symbols,&rdquo;
 which defeat write/read invariance, and also violate the rule that two
 symbols are the same if and only if their names are spelled the same.
 This report does not specify the behavior of
-implementation-dependent extensions.
-\end{note}</p>
+implementation-dependent extensions.</p>
 
 <p>\begin{entry}{
 \proto{symbol?}{ obj}{procedure}}</p>
@@ -2057,10 +2040,9 @@ implementation-dependent extensions.
 <p>Returns \schtrue{} if all the arguments are symbols and all have the same
 names in the sense of <code>string=?</code>.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 The definition above assumes that none of the arguments
-are uninterned symbols.
-\end{note}</p>
+are uninterned symbols.</p>
 
 <p>\end{entry}</p>
 
@@ -2928,11 +2910,9 @@ such circumstances.</p>
 b \ev #u8(10 1 2 40 50)
 </code></pre>
 
-<p>\begin{note}
-This procedure appears in R<span class="rnrs">6</span>RS
-, but places the source before the destination,
-contrary to other such procedures in Scheme.
-\end{note}</p>
+<p><em>Note:&nbsp;</em>
+This procedure appears in R<span class="rnrs">6</span>RS, but places the source before the destination,
+contrary to other such procedures in Scheme.</p>
 
 <p>\end{entry}</p>
 
@@ -3306,20 +3286,19 @@ continuation.</p>
 
 <p>\end{rationale}</p>
 
-<p>%% \begin{note}
+<p>%% <em>Note:&nbsp;</em>
 %% The <code>call/cc</code> procedure is capable of capturing continuations
 %% originating outside of Scheme when Scheme is embedded in some host
 %% language. It is not always practical or even meaningful to restore
-%% these continuations.
-%% \end{note}</p>
+%% these continuations.</p>
 
-<p>%% \begin{note}
+<p>%% <em>Note:&nbsp;</em>
 %% The interactions of \callcc{} with <code>dynamic-wind</code> are defined by
 %% the formal semantics, but are hard to understand in complex cases.  In
 %% addition, in some implementations \callcc{} consumes an amount of
-%% memory that depends on the number of active continuations.
-%% \end{note}
-\end{entry}</p>
+%% memory that depends on the number of active continuations.</p>
+
+<p>\end{entry}</p>
 
 <p>\begin{entry}{
 \proto{values}{ obj $\ldots$}{procedure}}</p>
@@ -3599,12 +3578,10 @@ represented by the specifier are immutable, as is the environment itself.</p>
 \proto{scheme-report-environment}{ version}{r5rs library procedure}}</p>
 
 <p>If \var{version} is equal to <code>5</code>,
-corresponding to R<span class="rnrs">5</span>RS
-,
+corresponding to R<span class="rnrs">5</span>RS,
 <code>scheme-report-environment</code> returns a specifier for an
 environment that contains only the bindings
-defined in the R<span class="rnrs">5</span>RS
- library.
+defined in the R<span class="rnrs">5</span>RS library.
 Implementations must support this value of \var{version}.</p>
 
 <p>Implementations may also support other values of \var{version}, in which
@@ -3624,13 +3601,11 @@ it contains may be immutable.</p>
 \proto{null-environment}{ version}{r5rs library procedure}}</p>
 
 <p>If \var{version} is equal to <code>5</code>,
-corresponding to R<span class="rnrs">5</span>RS
-,
+corresponding to R<span class="rnrs">5</span>RS,
 the <code>null-environment</code> procedure returns
 a specifier for an environment that contains only the
 bindings for all syntactic keywords
-defined in the R<span class="rnrs">5</span>RS
- library.
+defined in the R<span class="rnrs">5</span>RS library.
 Implementations must support this value of \var{version}.</p>
 
 <p>Implementations may also support other values of \var{version}, in which
@@ -3967,15 +3942,14 @@ but {\em without} updating
 the \var{port} to point to the following character.  If no more characters
 are available, an end-of-file object is returned.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 The value returned by a call to <code>peek-char</code> is the same as the
 value that would have been returned by a call to <code>read-char</code> with the
 same \var{port}.  The only difference is that the very next call to
 <code>read-char</code> or <code>peek-char</code> on that \var{port} will return the
 value returned by the preceding call to <code>peek-char</code>.  In particular, a call
 to <code>peek-char</code> on an interactive port will hang waiting for input
-whenever a call to <code>read-char</code> would have hung.
-\end{note}</p>
+whenever a call to <code>read-char</code> would have hung.</p>
 
 <p>\end{entry}</p>
 
@@ -4341,10 +4315,9 @@ an appropriate exit value for the operating system, if possible.</p>
 <p>The <code>exit</code> procedure
 must not signal an exception or return to its continuation.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 Because of the requirement to run handlers, this procedure is not just the
-operating system&rsquo;s exit procedure.
-\end{note}</p>
+operating system&rsquo;s exit procedure.</p>
 
 <p>\end{entry}</p>
 
@@ -4357,10 +4330,9 @@ outstanding dynamic-wind \var{after} procedures
 and communicates an exit value to the operating system
 in the same manner as <code>exit</code>.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 The <code>emergency-exit</code> procedure corresponds to the <code>_exit</code> procedure
-in Windows and Posix.
-\end{note}</p>
+in Windows and Posix.</p>
 
 <p>\end{entry}</p>
 

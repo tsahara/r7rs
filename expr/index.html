@@ -209,21 +209,18 @@ value or, for procedures such as <code>apply</code>, pass on the values returned
 by a call to one of their arguments.
 Exceptions are noted in the individual descriptions.</p>
 
-<p>\begin{note} In contrast to other dialects of Lisp, the order of
+<p><em>Note:&nbsp;</em> In contrast to other dialects of Lisp, the order of
 evaluation is unspecified, and the operator expression and the operand
-expressions are always evaluated with the same evaluation rules.
-\end{note}</p>
+expressions are always evaluated with the same evaluation rules.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 Although the order of evaluation is otherwise unspecified, the effect of
 any concurrent evaluation of the operator and operand expressions is
 constrained to be consistent with some sequential order of evaluation.
-The order of evaluation may be chosen differently for each procedure call.
-\end{note}</p>
+The order of evaluation may be chosen differently for each procedure call.</p>
 
-<p>\begin{note} In many dialects of Lisp, the empty list, {\tt
-()}, is a legitimate expression evaluating to itself.  In Scheme, it is an error.
-\end{note}</p>
+<p><em>Note:&nbsp;</em> In many dialects of Lisp, the empty list, {\tt
+()}, is a legitimate expression evaluating to itself.  In Scheme, it is an error.</p>
 
 <p>\end{entry}</p>
 
@@ -384,11 +381,10 @@ The difference between the two is that \ide{include-ci} reads each file
 as if it began with the {\cf{}#!fold-case} directive, while \ide{include}
 does not.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 Implementations are encouraged to search for files in the directory
 which contains the including file, and to provide a way for users to
-specify other directories to search.
-\end{note}</p>
+specify other directories to search.</p>
 
 <p>\end{entry}</p>
 
@@ -1272,12 +1268,11 @@ The results of the last
 expression in the \hyper{body} are returned as the results of the entire
 <code>parameterize</code> expression.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 If the conversion procedure is not idempotent, the results of
 <code>(parameterize ((x (x))) ...)</code>,
 which appears to bind the parameter \var{x} to its current value,
-might not be what the user expects.
-\end{note}</p>
+might not be what the user expects.</p>
 
 <p>If an implementation supports multiple threads of execution, then
 <code>parameterize</code> must not change the associated values of any parameters
@@ -1385,11 +1380,10 @@ of the list are then &ldquo;stripped away&rdquo; and the elements of the list ar
 inserted in place of the comma at-sign expression sequence.  A comma
 at-sign normally appears only within a list or vector \hyper{qq template}.</p>
 
-<p>\begin{note}
+<p><em>Note:&nbsp;</em>
 In order to unquote an identifier beginning with <code>@</code>, it is necessary
 to use either an explicit <code>unquote</code> or to put whitespace after the comma,
-to avoid colliding with the comma at-sign sequence.
-\end{note}</p>
+to avoid colliding with the comma at-sign sequence.</p>
 
 <pre><code>`(list ,(+ 1 2) 4)  \ev  (list 3 4)
 (let ((name 'a)) `(list ,name ',name))
