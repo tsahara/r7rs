@@ -3,8 +3,7 @@ weight = 3
 title = "Introduction"
 menu = "main"
 +++
-\clearextrapart{Introduction}
-
+# INTRODUCTION
 {{< label "historysection" >}}
 
 Programming languages should be designed not by piling feature on top of
