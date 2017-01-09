@@ -38,14 +38,14 @@ to be extended in a consistent and reliable manner.
 ### Background
 
 The first description of Scheme was written in
-1975~\cite{Scheme75}.  A revised report~\cite{Scheme78}
+1975 {{< cite "Scheme75" >}}.  A revised report {{< cite "Scheme78" >}}
 appeared in 1978, which described the evolution
 of the language as its MIT implementation was upgraded to support an
-innovative compiler~\cite{Rabbit}.  Three distinct projects began in
+innovative compiler {{< cite "Rabbit" >}}.  Three distinct projects began in
 1981 and 1982 to use variants of Scheme for courses at MIT, Yale, and
-Indiana University~\cite{Rees82,MITScheme,Scheme311}.  An introductory
+Indiana University {{< cite "Rees82,MITScheme,Scheme311" >}}.  An introductory
 computer science textbook using Scheme was published in
-1984~\cite{SICP}.
+1984 {{< cite "SICP" >}}.
 
 As Scheme became more widespread,
 local dialects began to diverge until students and researchers
@@ -54,21 +54,21 @@ sites.
 Fifteen representatives of the major implementations of Scheme therefore
 met in October 1984 to work toward a better and more widely accepted
 standard for Scheme.
-Their report, the RRRS~\cite{RRRS},
+Their report, the RRRS {{< cite "RRRS" >}},
 was published at MIT and Indiana University in the summer of 1985.
 Further revision took place in the spring of 1986, resulting in the
-{{< rnrs 3 >}}~\cite{R3RS}.
-Work in the spring of 1988 resulted in {{< rnrs 4 >}}~\cite{R4RS},
+{{< rnrs 3 >}} {{< cite "R3RS" >}}.
+Work in the spring of 1988 resulted in {{< rnrs 4 >}} {{< cite "R4RS" >}},
 which became the basis for the
-IEEE Standard for the Scheme Programming Language in 1991~\cite{IEEEScheme}.
+IEEE Standard for the Scheme Programming Language in 1991 {{< cite "IEEEScheme" >}}.
 In 1998, several additions to the IEEE standard, including high-level
 hygienic macros, multiple return values, and ``eval``, were finalized
-as the {{< rnrs 5 >}}~\cite{R5RS}.
+as the {{< rnrs 5 >}} {{< cite "R5RS" >}}.
 
 In the fall of 2006, work began on a more ambitious standard,
 including many new improvements and stricter requirements made in the
 interest of improved portability.  The resulting standard, the
-{{< rnrs 6 >}}, was completed in August 2007~\cite{R6RS}, and was organized
+{{< rnrs 6 >}}, was completed in August 2007 {{< cite "R6RS" >}}, and was organized
 as a core language and set of mandatory standard libraries.
 Several new implementations of Scheme conforming to it were created.
 However, most existing {{< rnrs 5 >}}{} implementations (even excluding those
@@ -135,8 +135,8 @@ Yigit.  We thank Carol Fessenden, Daniel Friedman, and Christopher
 Haynes for permission to use text from the Scheme 311 version 4
 reference manual.  We thank Texas Instruments, Inc. for permission to
 use text from the {\em TI Scheme Language Reference
-Manual}~\cite{TImanual85}.  We gladly acknowledge the influence of
-manuals for MIT Scheme~\cite{MITScheme}, T~\cite{Rees84}, Scheme
-84~\cite{Scheme84}, Common Lisp~\cite{CLtL}, and Algol 60~\cite{Naur63},
+Manual} {{< cite "TImanual85" >}}.  We gladly acknowledge the influence of
+manuals for MIT Scheme {{< cite "MITScheme" >}}, T {{< cite "Rees84" >}}, Scheme
+84 {{< cite "Scheme84" >}}, Common Lisp {{< cite "CLtL" >}}, and Algol 60 {{< cite "Naur63" >}},
 as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,
 all of which are available at http://srfi.schemers.org.

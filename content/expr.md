@@ -1500,8 +1500,7 @@ bindings that surround the use of the macro.
 
 In consequence, all macros
 defined using the pattern language  are "hygienic" and "referentially
-transparent" and thus preserve Scheme's lexical scoping.~\cite{Kohlbecker86,
-hygienic,Bawden88,macrosthatwork,syntacticabstraction}
+transparent" and thus preserve Scheme's lexical scoping. {{< cite "Kohlbecker86,hygienic,Bawden88,macrosthatwork,syntacticabstraction" >}}
 \mainindex{hygienic}\mainindex{referentially transparent}
 
 Implementations may provide macro facilities of other types.

@@ -10,7 +10,7 @@ menu = "main"
 {{< label "incompatibilities" >}}
 
 This section enumerates the incompatibilities between this report and
-the "Revised$^5$ report"~\cite{R5RS}.
+the "Revised$^5$ report" {{< cite "R5RS" >}}.
 
 {\em This list is not authoritative, but is believed to be correct and complete.}
 
@@ -53,7 +53,7 @@ and must be compatible with ``read`` and the syntax of numbers in programs.
 ### Other language changes since {{< rnrs 5 >}}
 {{< label "differences" >}}
 This section enumerates the additional differences between this report and
-the "Revised$^5$ report"~\cite{R5RS}.
+the "Revised$^5$ report" {{< cite "R5RS" >}}.
 
 {\em This list is not authoritative, but is believed to be correct and complete.}
 
@@ -84,14 +84,14 @@ Conditions signaled by ``read`` and by file-related procedures
 also have predicates to detect them.
 
 - New disjoint types supporting access to multiple fields can be
-generated with the ``define-record-type`` of SRFI 9~\cite{srfi9}
+generated with the ``define-record-type`` of SRFI 9 {{< cite "srfi9" >}}
 
 - Parameter objects can be created with ``make-parameter``, and
 dynamically rebound with ``parameterize``.
 The procedures ``current-input-port`` and ``current-output-port`` are now
 parameter objects, as is the newly introduced ``current-error-port``.
 
-- Support for promises has been enhanced based on SRFI 45~\cite{srfi45}.
+- Support for promises has been enhanced based on SRFI 45 {{< cite "srfi45" >}}.
 
 - {\em Bytevectors}, vectors of exact integers in the range
 from 0 to 255 inclusive, have been added as a new disjoint type.
@@ -251,7 +251,7 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 
 ### Incompatibilities with {{< rnrs 6 >}}
 This section enumerates the incompatibilities between {{< rnrs 7 >}}~and
-the "Revised$^6$ report"~\cite{R6RS} and its accompanying Standard Libraries document.
+the "Revised$^6$ report" {{< cite "R6RS" >}} and its accompanying Standard Libraries document.
 
 {\em This list is not authoritative, and is possibly incomplete.}
 
@@ -303,7 +303,7 @@ However, non-final expressions
 in a body can return any number of values.
 
 - The semantics of ``map`` and ``for-each`` have been changed to use
-the SRFI 1~\cite{srfi1} early termination behavior. Likewise,
+the SRFI 1 {{< cite "srfi1" >}} early termination behavior. Likewise,
 ``assoc`` and ``member`` take an optional ``equal?`` argument as in SRFI 1,
 instead of the separate ``assp`` and ``memp`` procedures of {{< rnrs 6 >}}.
 
@@ -313,17 +313,15 @@ exception of multiple-argument ``unquote`` and
 
 - The {{< rnrs 6 >}}~method of specifying mantissa widths was not adopted.
 
-- String ports are compatible with SRFI 6~\cite{srfi6} rather than {{< rnrs 6 >}}.
+- String ports are compatible with SRFI 6 {{< cite "srfi6" >}} rather than {{< rnrs 6 >}}.
 
 - {{< rnrs 6 >}}{}-style bytevectors are included, but
 only the unsigned byte (``u8``) procedures have been provided.
 The lexical syntax uses ``#u8`` for compatibility
-with SRFI 4~\cite{srfi4}, rather than the {{< rnrs 6 >}}~``#vu8`` style.
+with SRFI 4 {{< cite "srfi4" >}}, rather than the {{< rnrs 6 >}}~``#vu8`` style.
 
 - The utility macros ``when`` and ``unless`` are provided, but
 their result is left unspecified.
 
 - The remaining features of the Standard Libraries document were
 left to future standardization efforts.
-
-

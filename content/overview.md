@@ -182,7 +182,7 @@ not say what value is returned. \mainindex{unspecified}
 Finally, the words and phrases "must," "must not," "shall,"
 "shall not," "should," "should not," "may," "required,"
 "recommended," and "optional," although not capitalized in this
-report, are to be interpreted as described in RFC~2119~\cite{rfc2119}.
+report, are to be interpreted as described in RFC~2119 {{< cite "rfc2119" >}}.
 They are used only with reference to implementer or implementation behavior,
 not with reference to programmer or program behavior.
 

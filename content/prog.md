@@ -539,7 +539,7 @@ has the same effect as ``(import (only (foo) a b))``.
 ### 5.6.2. Library example
 The following example shows
 how a program can be divided into libraries plus a relatively small
-main program~\cite{life}.
+main program {{< cite "life" >}}.
 If the main program is entered into a REPL, it is not necessary to import
 the base library.
 

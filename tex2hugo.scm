@@ -37,6 +37,7 @@
 		       #/\\medskip/         "{{< medskip >}}"
 
 		       #/{\\cf (.*?)}/ "``\\1``"
+		       #/~?\\cite{(.*?)}/ " {{< cite \"\\1\" >}}"
 		       #/\\rthreers/ "{{< rnrs 3 >}}"
 		       #/\\rfourrs/  "{{< rnrs 4 >}}"
 		       #/\\rfivers/  "{{< rnrs 5 >}}"

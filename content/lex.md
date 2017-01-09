@@ -74,7 +74,7 @@ Identifiers have two uses within Scheme programs:
 (see section~\ref{symbolsection}).
 
 
-In contrast with earlier revisions of the report~\cite{R5RS}, the
+In contrast with earlier revisions of the report {{< cite "R5RS" >}}, the
 syntax distinguishes between upper and lower case in
 identifiers and in characters specified using their names.  However, it
 does not distinguish between upper and lower case in numbers,

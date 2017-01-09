@@ -123,7 +123,7 @@ SRFI 4: Homogeneous Numeric Vector Datatypes.
 Carol Fessenden, William Clinger, Daniel P.~Friedman, and Christopher Haynes.
 Scheme 311 version 4 reference manual.
 Indiana University Computer Science Technical Report 137, February 1983.
-Superseded by~\cite{Scheme84}.
+Superseded by {{< cite "Scheme84" >}}.
 
 \bibitem{Scheme84}
 D.~Friedman, C.~Haynes, E.~Kohlbecker, and M.~Wand.

@@ -207,7 +207,7 @@ In the absence of captured continuations, calls could
 return at most once and the active calls would be those that had not
 yet returned.
 A formal definition of proper tail recursion can be found
-in~\cite{propertailrecursion}.
+in {{< cite "propertailrecursion" >}}.
 
 \begin{rationale}
 
