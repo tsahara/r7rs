@@ -13,12 +13,12 @@ chapter = 3
 
 An identifier\index{identifier} can name either a type of syntax or
 a location where a value can be stored.  An identifier that names a type
-of syntax is called a {\em syntactic keyword}\mainindex{syntactic keyword}
-and is said to be {\em bound} to a transformer for that syntax.  An identifier that names a
-location is called a {\em variable}\mainindex{variable} and is said to be
-{\em bound} to that location.  The set of all visible
+of syntax is called a _syntactic keyword_\mainindex{syntactic keyword}
+and is said to be _bound_ to a transformer for that syntax.  An identifier that names a
+location is called a _variable_\mainindex{variable} and is said to be
+_bound_ to that location.  The set of all visible
 bindings\mainindex{binding} in effect at some point in a program is
-known as the {\em environment} in effect at that point.  The value
+known as the _environment_ in effect at that point.  The value
 stored in the location to which a variable is bound is called the
 variable's value.  By abuse of terminology, the variable is sometimes
 said to name the value or to be bound to the value.  This is not quite
@@ -27,7 +27,7 @@ accurate, but confusion rarely results from this practice.
 Certain expression types are used to create new kinds of syntax
 and to bind syntactic keywords to those new syntaxes, while other
 expression types create new locations and bind variables to those
-locations.  These expression types are called {\em binding constructs}.
+locations.  These expression types are called _binding constructs_.
 \mainindex{binding construct}
 Those that bind syntactic keywords are listed in section~\ref{macrosection}.
 The most fundamental of the variable binding constructs is the
@@ -73,8 +73,8 @@ symbol?           vector?
 and all predicates created by ``define-record-type``.
 
 These predicates define the types
-{\em boolean, bytevector, character}, the empty list object,
-{\em eof-object, number, pair, port, procedure, string, symbol, vector},
+_boolean, bytevector, character_, the empty list object,
+_eof-object, number, pair, port, procedure, string, symbol, vector_,
 and all record types.
 \mainindex{type}\schindex{boolean?}\schindex{pair?}\schindex{symbol?}
 \schindex{number?}\schindex{char?}\schindex{string?}\schindex{vector?}
@@ -92,8 +92,8 @@ Scheme value except \schfalse{}, and the word "false" to refer to
 ## 3.3. External representations
 {{< label "externalreps" >}}
 
-An important concept in Scheme (and Lisp) is that of the {\em external
-representation} of an object as a sequence of characters.  For example,
+An important concept in Scheme (and Lisp) is that of the _external
+representation_ of an object as a sequence of characters.  For example,
 an external representation of the integer 28 is the sequence of
 characters "{\tt 28}", and an external representation of a list consisting
 of the integers 8 and 13 is the sequence of characters "{\tt(8 13)}".
@@ -116,8 +116,8 @@ representations, and the procedure ``write`` (section~\ref{write})
 generates them.  Together, they provide an elegant and powerful
 input/output facility.
 
-Note that the sequence of characters "{\tt(+ 2 6)}" is {\em not} an
-external representation of the integer 8, even though it {\em is} an
+Note that the sequence of characters "{\tt(+ 2 6)}" is _not_ an
+external representation of the integer 8, even though it _is_ an
 expression evaluating to the integer 8; rather, it is an external
 representation of a three-element list, the elements of which are the symbol
 {\tt +} and the integers 2 and 6.  Scheme's syntax has the property that
@@ -195,11 +195,11 @@ mutable and immutable objects.
 {{< label "proper tail recursion" >}}
 
 Implementations of Scheme are required to be
-{\em properly tail-recursive}\mainindex{proper tail recursion}.
+_properly tail-recursive_\mainindex{proper tail recursion}.
 Procedure calls that occur in certain syntactic
-contexts defined below are {\em tail calls}.  A Scheme implementation is
+contexts defined below are _tail calls_.  A Scheme implementation is
 properly tail-recursive if it supports an unbounded number of active
-tail calls.  A call is {\em active} if the called procedure might still
+tail calls.  A call is _active_ if the called procedure might still
 return.  Note that this includes calls that might be returned from either
 by the current continuation or by continuations captured earlier by
 ``call-with-current-continuation`` that are later invoked.
@@ -232,8 +232,8 @@ there was no need to include both in the language.
 
 \end{rationale}
 
-A {\em tail call}\mainindex{tail call} is a procedure call that occurs
-in a {\em tail context}.  Tail contexts are defined inductively.  Note
+A _tail call_\mainindex{tail call} is a procedure call that occurs
+in a _tail context_.  Tail contexts are defined inductively.  Note
 that a tail context is always determined with respect to a particular lambda
 expression.
 

@@ -70,7 +70,7 @@ Identifiers have two uses within Scheme programs:
 (see sections~\ref{variablesection} and~\ref{macrosection}).
 
 - When an identifier appears as a literal or within a literal
-(see section~\ref{quote}), it is being used to denote a {\em symbol}
+(see section~\ref{quote}), it is being used to denote a _symbol_
 (see section~\ref{symbolsection}).
 
 
@@ -163,7 +163,7 @@ is also an identifier.
 A delimited period (not occurring within a number or identifier) is used
 in the notation for pairs (section~\ref{listsection}), and to indicate a
 rest-parameter in a  formal parameter list (section~\ref{lambda}).
-Note that a sequence of two or more periods {\em is} an identifier.
+Note that a sequence of two or more periods _is_ an identifier.
 
 \item[\tt( )]
 Parentheses are used for grouping and to notate lists

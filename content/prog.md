@@ -176,7 +176,7 @@ beginning of a \hyper{body} (that is, the body of a \ide{lambda},
 \ide{let-values}, \ide{let*-values}, \ide{let-syntax}, \ide{letrec-syntax},
 \ide{parameterize}, \ide{guard}, or \ide{case-lambda}).  Note that
 such a body might not be apparent until after expansion of other syntax.
-Such definitions are known as {\em internal definitions}\mainindex{internal
+Such definitions are known as _internal definitions_\mainindex{internal
 definition} as opposed to the global definitions described above.
 The variables defined by internal definitions are local to the
 \hyper{body}.  That is, \hyper{variable} is bound rather than assigned,

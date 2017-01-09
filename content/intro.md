@@ -134,8 +134,8 @@ Sussman, Perry Wagle, Mitchel Wand, Daniel Weise, Henry Wu, and Ozan
 Yigit.  We thank Carol Fessenden, Daniel Friedman, and Christopher
 Haynes for permission to use text from the Scheme 311 version 4
 reference manual.  We thank Texas Instruments, Inc. for permission to
-use text from the {\em TI Scheme Language Reference
-Manual} {{< cite "TImanual85" >}}.  We gladly acknowledge the influence of
+use text from the _TI Scheme Language Reference
+Manual_ {{< cite "TImanual85" >}}.  We gladly acknowledge the influence of
 manuals for MIT Scheme {{< cite "MITScheme" >}}, T {{< cite "Rees84" >}}, Scheme
 84 {{< cite "Scheme84" >}}, Common Lisp {{< cite "CLtL" >}}, and Algol 60 {{< cite "Naur63" >}},
 as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,

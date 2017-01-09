@@ -7,10 +7,10 @@ chapter = 4
 # 4. Expressions
 {{< label "expressionchapter" >}}
 
-\newcommand{\syntax}{{\em Syntax: }}
-\newcommand{\semantics}{{\em Semantics: }}
+\newcommand{\syntax}{_Syntax: _}
+\newcommand{\semantics}{_Semantics: _}
 
-Expression types are categorized as {\em primitive} or {\em derived}.
+Expression types are categorized as _primitive_ or _derived_.
 Primitive expression types include variables and procedure calls.
 Derived expression types are not semantically primitive, but can instead
 be defined as macros.
@@ -506,7 +506,7 @@ expression is unspecified.
 (when (= 1 1.0)
   (display "1")
   (display "2"))  \ev  \unspecified
- \>{\em and prints}  12
+ \>_and prints_  12
 ```
 \end{entry}
 
@@ -525,7 +525,7 @@ expression is unspecified.
 (unless (= 1 1.0)
   (display "1")
   (display "2"))  \ev  \unspecified
- \>{\em and prints nothing}
+ \>_and prints nothing_
 ```
 \end{entry}
 
@@ -878,7 +878,7 @@ or input and output.
 
 (begin (display "4 plus 1 equals ")
        (display (+ 4 1)))      \ev  \unspecified
- \>{\em and prints}  4 plus 1 equals 5
+ \>_and prints_  4 plus 1 equals 5
 ```
 
 \end{entry}
@@ -1450,23 +1450,23 @@ the \hyper{formals} of any \hyper{clause}.
 {{< label "macrosection" >}}
 
 Scheme programs can define and use new derived expression types,
- called {\em macros}.\mainindex{macro}
+ called _macros_.\mainindex{macro}
 Program-defined expression types have the syntax
 ```
 (\hyper{keyword} {\hyper{datum}} ...)
 ```
 where \hyper{keyword} is an identifier that uniquely determines the
-expression type.  This identifier is called the {\em syntactic
-keyword}\index{syntactic keyword}, or simply {\em
+expression type.  This identifier is called the _syntactic
+keyword_\index{syntactic keyword}, or simply {\em
 keyword}\index{keyword}, of the macro\index{macro keyword}.  The
 number of the \hyper{datum}s, and their syntax, depends on the
 expression type.
 
-Each instance of a macro is called a {\em use}\index{macro use}
+Each instance of a macro is called a _use_\index{macro use}
 of the macro.
 The set of rules that specifies
 how a use of a macro is transcribed into a more primitive expression
-is called the {\em transformer}\index{macro transformer}
+is called the _transformer_\index{macro transformer}
 of the macro.
 
 The macro definition facility consists of two parts:
@@ -1659,7 +1659,7 @@ An identifier appearing within a \hyper{pattern} can be an underscore
 (``_``), a literal identifier listed in the list of \hyper{literal}s,
 or the \hyper{ellipsis}.
 All other identifiers appearing within a \hyper{pattern} are
-{\em pattern variables}.
+_pattern variables_.
 
 The keyword at the beginning of the pattern in a
 \hyper{syntax rule} is not involved in the matching and

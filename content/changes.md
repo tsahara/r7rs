@@ -12,7 +12,7 @@ menu = "main"
 This section enumerates the incompatibilities between this report and
 the "Revised$^5$ report" {{< cite "R5RS" >}}.
 
-{\em This list is not authoritative, but is believed to be correct and complete.}
+_This list is not authoritative, but is believed to be correct and complete._
 
 
 
@@ -24,7 +24,7 @@ can either be changed, be marked with the new ``#!fold-case`` directive,
 or be included in a library using the ``include-ci`` library declaration.
 All standard identifiers are entirely in lower case.
 
-- The ``syntax-rules`` construct now recognizes {\em _} (underscore)
+- The ``syntax-rules`` construct now recognizes ___ (underscore)
 as a wildcard, which means it cannot be used as a syntax variable.
 It can still be used as a literal.
 
@@ -55,7 +55,7 @@ and must be compatible with ``read`` and the syntax of numbers in programs.
 This section enumerates the additional differences between this report and
 the "Revised$^5$ report" {{< cite "R5RS" >}}.
 
-{\em This list is not authoritative, but is believed to be correct and complete.}
+_This list is not authoritative, but is believed to be correct and complete._
 
 
 
@@ -93,7 +93,7 @@ parameter objects, as is the newly introduced ``current-error-port``.
 
 - Support for promises has been enhanced based on SRFI 45 {{< cite "srfi45" >}}.
 
-- {\em Bytevectors}, vectors of exact integers in the range
+- _Bytevectors_, vectors of exact integers in the range
 from 0 to 255 inclusive, have been added as a new disjoint type.
 A subset of the vector procedures is provided.  Bytevectors
 can be converted to and from strings in accordance with the UTF-8 character encoding.
@@ -107,15 +107,15 @@ simpler.
 - The procedure ``flush-output-port`` is provided to allow minimal
 control of output port buffering.
 
-- {\em Ports} can now be designated as {\em textual} or {\em
+- _Ports_ can now be designated as _textual_ or {\em
 binary} ports, with new procedures for reading and writing binary
 data.
 The new predicates ``input-port-open?`` and ``output-port-open?`` return whether a port is open or closed.
 The new procedure ``close-port`` now closes a port; if the port
 has both input and output sides, both are closed.
 
-- {\em String ports} have been added as a way to read and write
-characters to and from strings, and {\em bytevector ports} to read
+- _String ports_ have been added as a way to read and write
+characters to and from strings, and _bytevector ports_ to read
 and write bytes to and from bytevectors.
 
 - There are now I/O procedures specific to strings and bytevectors.
@@ -253,7 +253,7 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 This section enumerates the incompatibilities between {{< rnrs 7 >}}~and
 the "Revised$^6$ report" {{< cite "R6RS" >}} and its accompanying Standard Libraries document.
 
-{\em This list is not authoritative, and is possibly incomplete.}
+_This list is not authoritative, and is possibly incomplete._
 
 
 - {{< rnrs 7 >}} libraries begin with the keyword ``define-library``

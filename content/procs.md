@@ -1097,9 +1097,9 @@ If the argument is infinite or a NaN, then it is returned.
 \proto{rationalize}{ x y}{procedure}
 }
 
-The ``rationalize`` procedure returns the {\em simplest} rational number
+The ``rationalize`` procedure returns the _simplest_ rational number
 differing from \vr{x} by no more than \vr{y}.  A rational number $r_1$ is
-{\em simpler} \mainindex{simplest rational} than another rational number
+_simpler_ \mainindex{simplest rational} than another rational number
 $r_2$ if $r_1 = p_1/q_1$ and $r_2 = p_2/q_2$ (in lowest terms) and $|p_1|
 \leq |p_2|$ and $|q_1| \leq |q_2|$.  Thus $3/5$ is simpler than $4/7$.
 Although not all rationals are comparable in this ordering (consider $2/7$
@@ -2343,7 +2343,7 @@ Examples:
 "\x03B1; is named GREEK SMALL LETTER ALPHA."
 ```
 
-The {\em length} of a string is the number of characters that it
+The _length_ of a string is the number of characters that it
 contains.  This number is an exact, non-negative integer that is fixed when the
 string is created.  The \defining{valid indexes} of a string are the
 exact non-negative integers less than the length of the string.  The first
@@ -2616,9 +2616,9 @@ by integers.  A vector typically occupies less space than a list
 of the same length, and the average time needed to access a randomly
 chosen element is typically less for the vector than for the list.
 
-The {\em length} of a vector is the number of elements that it
+The _length_ of a vector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when the
-vector is created.  The {\em valid indexes}\index{valid indexes} of a
+vector is created.  The _valid indexes_\index{valid indexes} of a
 vector are the exact non-negative integers less than the length of the
 vector.  The first element in a vector is indexed by zero, and the last
 element is indexed by one less than the length of the vector.
@@ -2838,9 +2838,9 @@ a \defining{byte} is an exact integer in the range from 0 to 255 inclusive.
 A bytevector is typically more space-efficient than a vector
 containing the same values.
 
-The {\em length} of a bytevector is the number of elements that it
+The _length_ of a bytevector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when
-the bytevector is created.  The {\em valid indexes}\index{valid indexes} of
+the bytevector is created.  The _valid indexes_\index{valid indexes} of
 a bytevector are the exact non-negative integers less than the length of the
 bytevector, starting at index zero as with vectors.
 
@@ -3507,14 +3507,14 @@ in the dynamic environment used for the invocation of \var{thunk}.
    (lambda ()
     (+ 1 (raise 'an-error))))))
         \ev exception
- \>{\em and prints}  condition: an-error
+ \>_and prints_  condition: an-error
 
 (with-exception-handler
  (lambda (x)
   (display "something went wrong\backwhack{}n"))
  (lambda ()
   (+ 1 (raise 'an-error))))
- \>{\em prints}  something went wrong
+ \>_prints_  something went wrong
 ```
 
 After printing, the second example then raises another exception.
@@ -3731,9 +3731,9 @@ port is a Scheme object that can accept data.\mainindex{port}
 Whether the input and output port types are disjoint is
 implementation-dependent.
 
-Different {\em port types} operate on different data.  Scheme
-imple\-men\-ta\-tions are required to support {\em textual ports}
-and {\em binary ports}, but may also provide other port types.
+Different _port types_ operate on different data.  Scheme
+imple\-men\-ta\-tions are required to support _textual ports_
+and _binary ports_, but may also provide other port types.
 
 A textual port supports reading or writing of individual characters
 from or to a backing store containing characters
@@ -4012,7 +4012,7 @@ are available, an end-of-file object is returned.
 \rproto{peek-char}{ port}{procedure}}
 
 Returns the next character available from the textual input \var{port},
-but {\em without} updating
+but _without_ updating
 the \var{port} to point to the following character.  If no more characters
 are available, an end-of-file object is returned.
 
@@ -4118,7 +4118,7 @@ available, an end-of-file object is returned.
 \rproto{peek-u8}{ port}{procedure}}
 
 Returns the next byte available from the binary input \var{port},
-but {\em without} updating the \var{port} to point to the following
+but _without_ updating the \var{port} to point to the following
 byte.  If no more bytes are available, an end-of-file object is returned.
 
 \end{entry}

@@ -137,7 +137,7 @@ and need not be distinct from objects previously used for the same purpose.
 In addition to errors signaled in situations described in this
 report, programmers can signal their own errors and handle signaled errors.
 
-The phrase "an error that satisfies {\em predicate} is signaled" means that an error is
+The phrase "an error that satisfies _predicate_ is signaled" means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
 passed to the specified predicate (such as ``file-error?`` or {\cf
 read-error?}), the predicate returns \schtrue{}.
