@@ -88,10 +88,10 @@
 <a id="expressionchapter"></a>
 
 
-<p>\newcommand{\syntax}{{\em Syntax: }}
-\newcommand{\semantics}{{\em Semantics: }}</p>
+<p>\newcommand{\syntax}{_Syntax: _}
+\newcommand{\semantics}{_Semantics: _}</p>
 
-<p>Expression types are categorized as {\em primitive} or {\em derived}.
+<p>Expression types are categorized as <em>primitive</em> or <em>derived</em>.
 Primitive expression types include variables and procedure calls.
 Derived expression types are not semantically primitive, but can instead
 be defined as macros.
@@ -112,11 +112,11 @@ with the <code>delay</code>, <code>delay-force</code>, and <code>parameterize</c
 <p>\begin{entry}{
 \pproto{\hyper{variable}}{\exprtype}}</p>
 
-<p>An expression consisting of a variable\index{variable}
+<p>An expression consisting of a variable
 (section~\ref{variablesection}) is a variable reference.  The value of
 the variable reference is the value stored in the location to which the
 variable is bound.  It is an error to reference an
-unbound\index{unbound} variable.</p>
+unbound variable.</p>
 
 <pre><code>(define x 28)
 x   \ev  28
@@ -190,7 +190,7 @@ themselves; they need not be quoted.</p>
 expression for the procedure to be called followed by expressions for the arguments to be
 passed to it.  The operator and operand expressions are evaluated (in an
 unspecified order) and the resulting procedure is passed the resulting
-arguments.\mainindex{call}\mainindex{procedure call}</p>
+arguments.</p>
 
 <pre><code>(+ 3 4)                   \ev  7
 ((if #f + *) 3 4)         \ev  12
@@ -269,20 +269,20 @@ the results of the procedure call.</p>
 
 <p>\hyper{Formals} have one of the following forms:</p>
 
-<p>\begin{itemize}
-\item {\tt(\hyperi{variable} \dotsfoo)}:
+<ul>
+<li><p>{\tt(\hyperi{variable} \dotsfoo)}:
 The procedure takes a fixed number of arguments; when the procedure is
 called, the arguments will be stored in fresh locations
-that are bound to the corresponding variables.</p>
+that are bound to the corresponding variables.</p></li>
 
-<p>\item \hyper{variable}:
+<li><p>\hyper{variable}:
 The procedure takes any number of arguments; when the procedure is
 called, the sequence of actual arguments is converted into a newly
 allocated list, and the list is stored in a fresh location
 that is bound to
-\hyper{variable}.</p>
+\hyper{variable}.</p></li>
 
-<p>\item {\tt(\hyperi{variable} \dotsfoo{} \hyper{variable$<em>{n}$} {\bf.}<br />
+<li><p>{\tt(\hyperi{variable} \dotsfoo{} \hyper{variable$<em>{n}$} {\bf.}<br />
 \hyper{variable$</em>{n+1}$})}:
 If a space-delimited period precedes the last variable, then
 the procedure takes $n$ or more arguments, where $n$ is the
@@ -291,8 +291,8 @@ at least one).
 The value stored in the binding of the last variable will be a
 newly allocated
 list of the actual arguments left over after all the other actual
-arguments have been matched up against the other formal arguments.
-\end{itemize}</p>
+arguments have been matched up against the other formal arguments.</p></li>
+</ul>
 
 <p>It is an error for a \hyper{variable} to appear more than once in
 \hyper{formals}.</p>
@@ -321,7 +321,7 @@ expressions.</p>
 
 <p>\semantics
 An <code>if</code> expression is evaluated as follows: first,
-\hyper{test} is evaluated.  If it yields a true value\index{true} (see
+\hyper{test} is evaluated.  If it yields a true value (see
 section~\ref{booleansection}), then \hyper{consequent} is evaluated and
 its values are returned.  Otherwise \hyper{alternate} is evaluated and its
 values are returned.  If \hyper{test} yields a false value and no
@@ -348,7 +348,7 @@ unspecified.</p>
 <p>\semantics
 \hyper{Expression} is evaluated, and the resulting value is stored in
 the location to which \hyper{variable} is bound.  It is an error if \hyper{variable} is not
-bound either in some region\index{region} enclosing the <code>set!</code> expression
+bound either in some region enclosing the <code>set!</code> expression
 or else globally.
 The result of the <code>set!</code> expression is
 unspecified.</p>
@@ -429,7 +429,7 @@ an &ldquo;else clause,&rdquo; which has the form</p>
 <p>\semantics
 A <code>cond</code> expression is evaluated by evaluating the \hyper{test}
 expressions of successive \hyper{clause}s in order until one of them
-evaluates to a true value\index{true} (see
+evaluates to a true value (see
 section~\ref{booleansection}).  When a \hyper{test} evaluates to a true
 value, the remaining \hyper{expression}s in its \hyper{clause} are
 evaluated in order, and the results of the last \hyper{expression} in the
@@ -580,7 +580,7 @@ expression is unspecified.</p>
 <pre><code>(when (= 1 1.0)
   (display &quot;1&quot;)
   (display &quot;2&quot;))  \ev  \unspecified
- \&gt;{\em and prints}  12
+ \&gt;_and prints_  12
 </code></pre>
 
 <p>\end{entry}</p>
@@ -599,7 +599,7 @@ expression is unspecified.</p>
 <pre><code>(unless (= 1 1.0)
   (display &quot;1&quot;)
   (display &quot;2&quot;))  \ev  \unspecified
- \&gt;{\em and prints nothing}
+ \&gt;_and prints nothing_
 </code></pre>
 
 <p>\end{entry}</p>
@@ -622,13 +622,13 @@ implementation.  A
 
 <p>A \hyper{feature requirement} takes one of the following forms:</p>
 
-<p>\begin{itemize}
-\item {\tt\hyper{feature identifier}}
-\item {\tt(library \hyper{library name})}
-\item {\tt(and \hyper{feature requirement} \dotsfoo)}
-\item {\tt(or \hyper{feature requirement} \dotsfoo)}
-\item {\tt(not \hyper{feature requirement})}
-\end{itemize}</p>
+<ul>
+<li>{\tt\hyper{feature identifier}}</li>
+<li>{\tt(library \hyper{library name})}</li>
+<li>{\tt(and \hyper{feature requirement} \dotsfoo)}</li>
+<li>{\tt(or \hyper{feature requirement} \dotsfoo)}</li>
+<li>{\tt(not \hyper{feature requirement})}</li>
+</ul>
 
 <p>\semantics
 Each implementation maintains a list of feature identifiers which are
@@ -665,7 +665,7 @@ appendix B.</p>
 <p>The binding constructs <code>let</code>, <code>let*</code>, <code>letrec</code>, <code>letrec*</code>,
 <code>let-values</code>, and <code>let*-values</code>
 give Scheme a block structure, like Algol 60.  The syntax of the first four
-constructs is identical, but they differ in the regions\index{region} they establish
+constructs is identical, but they differ in the regions they establish
 for their variable bindings.  In a <code>let</code> expression, the initial
 values are computed before any of the variables become bound; in a
 <code>let*</code> expression, the bindings and evaluations are performed
@@ -698,7 +698,7 @@ unspecified order), the \hyper{variable}s are bound to fresh locations
 holding the results, the \hyper{body} is evaluated in the extended
 environment, and the values of the last expression of \hyper{body}
 are returned.  Each binding of a \hyper{variable} has \hyper{body} as its
-region.\index{region}</p>
+region.</p>
 
 <pre><code>(let ((x 2) (y 3))
   (* x y))                      \ev  6
@@ -729,7 +729,7 @@ one or more expressions as described in section~\ref{lambda}.</p>
 
 <p>\semantics
 The <code>let*</code> binding construct is similar to <code>let</code>, but the bindings are performed
-sequentially from left to right, and the region\index{region} of a binding indicated
+sequentially from left to right, and the region of a binding indicated
 by {\cf(\hyper{variable} \hyper{init})} is that part of the <code>let*</code>
 expression to the right of the binding.  Thus the second binding is done
 in an environment in which the first binding is visible, and so on.
@@ -764,7 +764,7 @@ some unspecified order), each \hyper{variable} is assigned to the result
 of the corresponding \hyper{init}, the \hyper{body} is evaluated in the
 resulting environment, and the values of the last expression in
 \hyper{body} are returned.  Each binding of a \hyper{variable} has the
-entire <code>letrec</code> expression as its region\index{region}, making it possible to
+entire <code>letrec</code> expression as its region, making it possible to
 define mutually recursive procedures.</p>
 
 <pre><code>(letrec ((even?
@@ -804,7 +804,7 @@ In the most common uses of <code>letrec</code>, all the \hyper{init}s are
 <pre><code>((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
 </code></pre>
 
-<p>and \hyper{body}\index{body} is a sequence of
+<p>and \hyper{body} is a sequence of
 zero or more definitions followed by
 one or more expressions as described in section~\ref{lambda}. It is an error for a \hyper{variable} to appear more
 than once in the list of variables being bound.</p>
@@ -817,7 +817,7 @@ evaluated in the resulting environment, and the values of the last
 expression in \hyper{body} are returned.
 Despite the left-to-right evaluation and assignment order, each binding of
 a \hyper{variable} has the entire <code>letrec*</code> expression as its
-region\index{region}, making it possible to define mutually recursive
+region, making it possible to define mutually recursive
 procedures.</p>
 
 <p>If it is not possible to evaluate each \hyper{init} without assigning or
@@ -865,7 +865,7 @@ the \hyper{formals} in a <code>lambda</code> expression are matched to the
 arguments in a procedure call.  Then, the \hyper{body} is evaluated in
 the extended environment, and the values of the last expression of
 \hyper{body} are returned.  Each binding of a \hyper{variable} has
-\hyper{body} as its region.\index{region}</p>
+\hyper{body} as its region.</p>
 
 <p>It is an error if the \hyper{formals} do not match the number of
 values returned by the corresponding \hyper{init}.</p>
@@ -951,7 +951,7 @@ or input and output.</p>
 
 (begin (display &quot;4 plus 1 equals &quot;)
        (display (+ 4 1)))      \ev  \unspecified
- \&gt;{\em and prints}  4 plus 1 equals 5
+ \&gt;_and prints_  4 plus 1 equals 5
 </code></pre>
 
 <p>\end{entry}</p>
@@ -997,7 +997,7 @@ expressions are evaluated in some unspecified order, the
 the last \hyper{expression} are returned.  If no \hyper{expression}s
 are present, then the value of the <code>do</code> expression is unspecified.</p>
 
-<p>The region\index{region} of the binding of a \hyper{variable}
+<p>The region of the binding of a \hyper{variable}
 consists of the entire <code>do</code> expression except for the \hyper{init}s.
 It is an error for a \hyper{variable} to appear more than once in the
 list of <code>do</code> variables.</p>
@@ -1090,7 +1090,7 @@ unbounded space during evaluation.</p>
 \proto{force}{ promise}{lazy library procedure}}</p>
 
 <p>The <code>force</code> procedure forces the value of a \var{promise} created
-by \ide{delay}, \ide{delay-force}, or \ide{make-promise}.\index{promise}
+by \ide{delay}, \ide{delay-force}, or \ide{make-promise}.
 If no value has been computed for the promise, then a value is
 computed and returned.  The value of the promise must be cached (or
 &ldquo;memoized&rdquo;) so that if it is forced a second time, the previously
@@ -1165,32 +1165,34 @@ p                     \ev  {\it{}a promise, still}
 <p>Various extensions to this semantics of <code>delay</code>, <code>force</code> and
 <code>delay-force</code> are supported in some implementations:</p>
 
-<p>\begin{itemize}
-\item Calling <code>force</code> on an object that is not a promise may simply
-return the object.</p>
+<ul>
+<li><p>Calling <code>force</code> on an object that is not a promise may simply
+return the object.</p></li>
 
-<p>\item It may be the case that there is no means by which a promise can be
+<li><p>It may be the case that there is no means by which a promise can be
 operationally distinguished from its forced value.  That is, expressions
 like the following may evaluate to either \schtrue{} or to \schfalse{},
-depending on the implementation:</p>
+depending on the implementation:</p></li>
+</ul>
 
 <pre><code>(eqv? (delay 1) 1)          \ev  \unspecified
 (pair? (delay (cons 1 2)))  \ev  \unspecified
 </code></pre>
 
-<p>\item Implementations may implement &ldquo;implicit forcing,&rdquo; where
+<ul>
+<li>Implementations may implement &ldquo;implicit forcing,&rdquo; where
 the value of a promise is forced by procedures
 that operate only on arguments of a certain type, like <code>cdr</code>
 and <code>*</code>.  However, procedures that operate uniformly on their
-arguments, like <code>list</code>, must not force them.</p>
+arguments, like <code>list</code>, must not force them.</li>
+</ul>
 
 <pre><code>(+ (delay (* 3 7)) 13)  \ev  \unspecified
 (car
   (list (delay (* 3 7)) 13))    \ev {\it{}a promise}
 </code></pre>
 
-<p>\end{itemize}
-\end{entry}</p>
+<p>\end{entry}</p>
 
 <p>\begin{entry}{
 \proto{promise?} { \var{obj}}{lazy library procedure}}</p>
@@ -1364,10 +1366,10 @@ exceptions.</p>
 \pproto{unquote-splicing}{\auxiliarytype}
 \pproto{\commaatsign}{\auxiliarytype}}</p>
 
-<p>&ldquo;Quasiquote&rdquo;\index{backquote} expressions are useful
+<p>&ldquo;Quasiquote&rdquo; expressions are useful
 for constructing a list or vector structure when some but not all of the
 desired structure is known in advance.  If no
-commas\index{comma} appear within the \hyper{qq template}, the result of
+commas appear within the \hyper{qq template}, the result of
 evaluating
 \backquote\hyper{qq template} is equivalent to the result of evaluating
 \singlequote\hyper{qq template}.  If a comma\mainschindex{,} appears within the
@@ -1504,60 +1506,57 @@ the \hyper{formals} of any \hyper{clause}.</p>
 
 
 <p>Scheme programs can define and use new derived expression types,
- called {\em macros}.\mainindex{macro}
+ called <em>macros</em>.
 Program-defined expression types have the syntax</p>
 
 <pre><code>(\hyper{keyword} {\hyper{datum}} ...)
 </code></pre>
 
 <p>where \hyper{keyword} is an identifier that uniquely determines the
-expression type.  This identifier is called the {\em syntactic
-keyword}\index{syntactic keyword}, or simply {\em
-keyword}\index{keyword}, of the macro\index{macro keyword}.  The
+expression type.  This identifier is called the <em>syntactic
+keyword</em>, or simply {\em
+keyword}, of the macro.  The
 number of the \hyper{datum}s, and their syntax, depends on the
 expression type.</p>
 
-<p>Each instance of a macro is called a {\em use}\index{macro use}
+<p>Each instance of a macro is called a <em>use</em>
 of the macro.
 The set of rules that specifies
 how a use of a macro is transcribed into a more primitive expression
-is called the {\em transformer}\index{macro transformer}
+is called the <em>transformer</em>
 of the macro.</p>
 
 <p>The macro definition facility consists of two parts:</p>
 
-<p>\begin{itemize}
-\item A set of expressions used to establish that certain identifiers
+<ul>
+<li><p>A set of expressions used to establish that certain identifiers
 are macro keywords, associate them with macro transformers, and control
-the scope within which a macro is defined, and</p>
+the scope within which a macro is defined, and</p></li>
 
-<p>\item a pattern language for specifying macro transformers.
-\end{itemize}</p>
+<li><p>a pattern language for specifying macro transformers.</p></li>
+</ul>
 
 <p>The syntactic keyword of a macro can shadow variable bindings, and local
-variable bindings can shadow syntactic bindings.  \index{keyword}
+variable bindings can shadow syntactic bindings.
 Two mechanisms are provided to prevent unintended conflicts:</p>
 
-<p>\begin{itemize}</p>
-
-<p>\item If a macro transformer inserts a binding for an identifier
+<ul>
+<li><p>If a macro transformer inserts a binding for an identifier
 (variable or keyword), the identifier will in effect be renamed
 throughout its scope to avoid conflicts with other identifiers.
 Note that a global variable definition may or may not introduce a binding;
-see section~\ref{defines}.</p>
+see section~\ref{defines}.</p></li>
 
-<p>\item If a macro transformer inserts a free reference to an
+<li><p>If a macro transformer inserts a free reference to an
 identifier, the reference refers to the binding that was visible
 where the transformer was specified, regardless of any local
-bindings that surround the use of the macro.</p>
-
-<p>\end{itemize}</p>
+bindings that surround the use of the macro.</p></li>
+</ul>
 
 <p>In consequence, all macros
 defined using the pattern language  are &ldquo;hygienic&rdquo; and &ldquo;referentially
-transparent&rdquo; and thus preserve Scheme&rsquo;s lexical scoping.~\cite{Kohlbecker86,
-hygienic,Bawden88,macrosthatwork,syntacticabstraction}
-\mainindex{hygienic}\mainindex{referentially transparent}</p>
+transparent&rdquo; and thus preserve Scheme&rsquo;s lexical scoping. <a href="../ref/#Kohlbecker86">[Kohlbecker86]</a><a href="../ref/#hygienic">[hygienic]</a><a href="../ref/#Bawden88">[Bawden88]</a><a href="../ref/#macrosthatwork">[macrosthatwork]</a><a href="../ref/#syntacticabstraction">[syntacticabstraction]</a>
+</p>
 
 <p>Implementations may provide macro facilities of other types.</p>
 
@@ -1721,7 +1720,7 @@ according to the template.</p>
 (<code>_</code>), a literal identifier listed in the list of \hyper{literal}s,
 or the \hyper{ellipsis}.
 All other identifiers appearing within a \hyper{pattern} are
-{\em pattern variables}.</p>
+<em>pattern variables</em>.</p>
 
 <p>The keyword at the beginning of the pattern in a
 \hyper{syntax rule} is not involved in the matching and
@@ -1752,55 +1751,55 @@ case it is matched as a literal.</p>
 
 <p>More formally, an input expression $E$ matches a pattern $P$ if and only if:</p>
 
-<p>\begin{itemize}
-\item $P$ is an underscore (<code>_</code>).</p>
+<ul>
+<li><p>$P$ is an underscore (<code>_</code>).</p></li>
 
-<p>\item $P$ is a non-literal identifier; or</p>
+<li><p>$P$ is a non-literal identifier; or</p></li>
 
-<p>\item $P$ is a literal identifier and $E$ is an identifier with the same
-      binding; or</p>
+<li><p>$P$ is a literal identifier and $E$ is an identifier with the same
+  binding; or</p></li>
 
-<p>\item $P$ is a list <code>($P_1$ $\dots$ $P_n$)</code> and $E$ is a
-      list of $n$
-      elements that match $P_1$ through $P_n$, respectively; or</p>
+<li><p>$P$ is a list <code>($P_1$ $\dots$ $P_n$)</code> and $E$ is a
+  list of $n$
+  elements that match $P_1$ through $P_n$, respectively; or</p></li>
 
-<p>\item $P$ is an improper list
-      <code>($P_1$ $P_2$ $\dots$ $P_n$ . $P_{n+1</code>$)}
-      and $E$ is a list or
-      improper list of $n$ or more elements that match $P_1$ through $P<em>n$,
-      respectively, and whose $n$th tail matches $P</em>{n+1}$; or</p>
+<li><p>$P$ is an improper list
+  <code>($P_1$ $P_2$ $\dots$ $P_n$ . $P_{n+1</code>$)}
+  and $E$ is a list or
+  improper list of $n$ or more elements that match $P_1$ through $P<em>n$,
+  respectively, and whose $n$th tail matches $P</em>{n+1}$; or</p></li>
 
-<p>\item $P$ is of the form
-      <code>($P_1$ $\dots$ $P_k$ $P_e$ \meta{ellipsis</code> $P_{m+1}$ \dotsfoo{} $P_n$)}
-      where $E$ is
-      a proper list of $n$ elements, the first $k$ of which match
-      $P_1$ through $P_k$, respectively,
-      whose next $m-k$ elements each match $P<em>e$,
-      whose remaining $n-m$ elements match $P</em>{m+1}$ through $P_n$; or</p>
+<li><p>$P$ is of the form
+  <code>($P_1$ $\dots$ $P_k$ $P_e$ \meta{ellipsis</code> $P_{m+1}$ \dotsfoo{} $P_n$)}
+  where $E$ is
+  a proper list of $n$ elements, the first $k$ of which match
+  $P_1$ through $P_k$, respectively,
+  whose next $m-k$ elements each match $P<em>e$,
+  whose remaining $n-m$ elements match $P</em>{m+1}$ through $P_n$; or</p></li>
 
-<p>\item $P$ is of the form
-      <code>($P_1$ $\dots$ $P_k$ $P_{e</code>$ \meta{ellipsis} $P_{m+1}$ \dotsfoo{} $P_n$ . $P_x$)}
-      where $E$ is
-      a list or improper list of $n$ elements, the first $k$ of which match
-      $P_1$ through $P_k$,
-      whose next $m-k$ elements each match $P<em>e$,
-      whose remaining $n-m$ elements match $P</em>{m+1}$ through $P_n$,
-      and whose $n$th and final cdr matches $P_x$; or</p>
+<li><p>$P$ is of the form
+  <code>($P_1$ $\dots$ $P_k$ $P_{e</code>$ \meta{ellipsis} $P_{m+1}$ \dotsfoo{} $P_n$ . $P_x$)}
+  where $E$ is
+  a list or improper list of $n$ elements, the first $k$ of which match
+  $P_1$ through $P_k$,
+  whose next $m-k$ elements each match $P<em>e$,
+  whose remaining $n-m$ elements match $P</em>{m+1}$ through $P_n$,
+  and whose $n$th and final cdr matches $P_x$; or</p></li>
 
-<p>\item $P$ is a vector of the form <code>#($P_1$ $\dots$ $P_n$)</code>
-      and $E$ is a vector
-      of $n$ elements that match $P_1$ through $P_n$; or</p>
+<li><p>$P$ is a vector of the form <code>#($P_1$ $\dots$ $P_n$)</code>
+  and $E$ is a vector
+  of $n$ elements that match $P_1$ through $P_n$; or</p></li>
 
-<p>\item $P$ is of the form
-      <code>#($P_1$ $\dots$ $P_k$ $P_{e</code>$ \meta{ellipsis} $P_{m+1}$ \dotsfoo $P_n$)}
-      where $E$ is a vector of $n$
-      elements the first $k$ of which match $P_1$ through $P_k$,
-      whose next $m-k$ elements each match $P<em>e$,
-      and whose remaining $n-m$ elements match $P</em>{m+1}$ through $P_n$; or</p>
+<li><p>$P$ is of the form
+  <code>#($P_1$ $\dots$ $P_k$ $P_{e</code>$ \meta{ellipsis} $P_{m+1}$ \dotsfoo $P_n$)}
+  where $E$ is a vector of $n$
+  elements the first $k$ of which match $P_1$ through $P_k$,
+  whose next $m-k$ elements each match $P<em>e$,
+  and whose remaining $n-m$ elements match $P</em>{m+1}$ through $P_n$; or</p></li>
 
-<p>\item $P$ is a constant and $E$ is equal to $P$ in the sense of
-      the <code>equal?</code> procedure.
-\end{itemize}</p>
+<li><p>$P$ is a constant and $E$ is equal to $P$ in the sense of
+  the <code>equal?</code> procedure.</p></li>
+</ul>
 
 <p>It is an error to use a macro keyword, within the scope of its
 binding, in an expression that does not match any of the patterns.</p>

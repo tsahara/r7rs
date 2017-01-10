@@ -98,7 +98,7 @@ Scheme, see section~\ref{BNF}.</p>
 <a id="syntaxsection"></a>
 
 
-<p>An identifier\mainindex{identifier} is any sequence of letters, digits, and
+<p>An identifier is any sequence of letters, digits, and
 &ldquo;extended identifier characters&rdquo; provided that it does not have a prefix
 which is a valid number.
 However, the  \ide{.} token (a single period) used in the list syntax
@@ -143,18 +143,20 @@ the-word-recursion-has-many-meanings
 
 <p>See section~\ref{extendedalphas} for the formal syntax of identifiers.</p>
 
-<p>Identifiers have two uses within Scheme programs:
-\begin{itemize}
-\item Any identifier can be used as a variable\index{variable}
- or as a syntactic keyword\index{syntactic keyword}
-(see sections~\ref{variablesection} and~\ref{macrosection}).</p>
+<p>Identifiers have two uses within Scheme programs:</p>
 
-<p>\item When an identifier appears as a literal or within a literal
-(see section~\ref{quote}), it is being used to denote a {\em symbol}
-(see section~\ref{symbolsection}).
-\end{itemize}</p>
+<ul>
+<li><p>Any identifier can be used as a variable
+or as a syntactic keyword
+(see sections~\ref{variablesection} and~\ref{macrosection}).</p></li>
 
-<p>In contrast with earlier revisions of the report~\cite{R5RS}, the
+<li><p>When an identifier appears as a literal or within a literal
+(see section~\ref{quote}), it is being used to denote a <em>symbol</em>
+(see section~\ref{symbolsection}).</p></li>
+</ul>
+
+<p>In contrast with earlier revisions of the report <a href="../ref/#R5RS">[R5RS]</a>
+, the
 syntax distinguishes between upper and lower case in
 identifiers and in characters specified using their names.  However, it
 does not distinguish between upper and lower case in numbers,
@@ -202,7 +204,7 @@ is significant.</p>
 Comments are treated exactly like whitespace.</p>
 
 <p>A semicolon ({\tt;}) indicates the start of a line
-comment.\mainindex{comment}\mainschindex{;}  The comment continues to the
+comment.\mainschindex{;}  The comment continues to the
 end of the line on which the semicolon appears.</p>
 
 <p>Another way to indicate a comment is to prefix a \hyper{datum}
@@ -212,7 +214,7 @@ the comment prefix {\tt #;}, the space, and the \hyper{datum} together.  This
 notation is useful for &ldquo;commenting out&rdquo; sections of code.</p>
 
 <p>Block comments are indicated with properly nested {\tt
-  #|}\index{#&ldquo;|@\texttt{\sharpsign\verticalbar}}\index{&ldquo;|#@\texttt{\verticalbar\sharpsign}}
+  #|}}}
 and {\tt |#} pairs.</p>
 
 <pre><code>#|
@@ -241,7 +243,7 @@ is also an identifier.
 A delimited period (not occurring within a number or identifier) is used
 in the notation for pairs (section~\ref{listsection}), and to indicate a
 rest-parameter in a  formal parameter list (section~\ref{lambda}).
-Note that a sequence of two or more periods {\em is} an identifier.</p>
+Note that a sequence of two or more periods <em>is</em> an identifier.</p>
 
 <p>\item[\tt( )]
 Parentheses are used for grouping and to notate lists

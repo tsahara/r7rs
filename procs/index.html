@@ -94,10 +94,6 @@
 <a id="builtinchapter"></a>
 </p>
 
-<p>\mainindex{initial environment}
-\mainindex{global environment}
-\mainindex{procedure}</p>
-
 <p>This chapter describes Scheme&rsquo;s built-in procedures.</p>
 
 <p>The procedures <code>force</code>, <code>promise?</code>, and <code>make-promise</code> are intimately associated
@@ -141,78 +137,77 @@ open to interpretation, but the following partial specification of
 
 <p>The <code>eqv?</code> procedure returns \schtrue{} if:</p>
 
-<p>\begin{itemize}
-\item \vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.</p>
+<ul>
+<li><p>\vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are both symbols and are the same
+<li><p>\vari{obj} and \varii{obj} are both symbols and are the same
 symbol according to the <code>symbol=?</code> procedure
-(section~\ref{symbolsection}).</p>
+(section~\ref{symbolsection}).</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are both exact numbers and
-are numerically equal (in the sense of <code>=</code>).</p>
+<li><p>\vari{obj} and \varii{obj} are both exact numbers and
+are numerically equal (in the sense of <code>=</code>).</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are both inexact numbers such that
+<li><p>\vari{obj} and \varii{obj} are both inexact numbers such that
 they are numerically equal (in the sense of <code>=</code>)
 and they yield the same results (in the sense of <code>eqv?</code>)
 when passed as arguments to any other procedure
 that can be defined as a finite composition of Scheme&rsquo;s standard
-arithmetic procedures, provided it does not result in a NaN value.</p>
+arithmetic procedures, provided it does not result in a NaN value.</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are both characters and are the same
+<li><p>\vari{obj} and \varii{obj} are both characters and are the same
 character according to the <code>char=?</code> procedure
-(section~\ref{charactersection}).</p>
+(section~\ref{charactersection}).</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are both the empty list.</p>
+<li><p>\vari{obj} and \varii{obj} are both the empty list.</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
+<li><p>\vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
 or strings that denote the same location in the store
-(section~\ref{storagemodel}).</p>
+(section~\ref{storagemodel}).</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are procedures whose location tags are
-equal (section~\ref{lambda}).
-\end{itemize}</p>
+<li><p>\vari{obj} and \varii{obj} are procedures whose location tags are
+equal (section~\ref{lambda}).</p></li>
+</ul>
 
 <p>The <code>eqv?</code> procedure returns \schfalse{} if:</p>
 
-<p>\begin{itemize}
-\item \vari{obj} and \varii{obj} are of different types
-(section~\ref{disjointness}).</p>
+<ul>
+<li><p>\vari{obj} and \varii{obj} are of different types
+(section~\ref{disjointness}).</p></li>
 
-<p>\item one of \vari{obj} and \varii{obj} is \schtrue{} but the other is
-\schfalse{}.</p>
+<li><p>one of \vari{obj} and \varii{obj} is \schtrue{} but the other is
+\schfalse{}.</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are symbols but are not the same
+<li><p>\vari{obj} and \varii{obj} are symbols but are not the same
 symbol according to the <code>symbol=?</code> procedure
-(section~\ref{symbolsection}).</p>
+(section~\ref{symbolsection}).</p></li>
 
-<p>\item one of \vari{obj} and \varii{obj} is an exact number but the other
-is an inexact number.</p>
+<li><p>one of \vari{obj} and \varii{obj} is an exact number but the other
+is an inexact number.</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are both exact numbers and
-are numerically unequal (in the sense of <code>=</code>).</p>
+<li><p>\vari{obj} and \varii{obj} are both exact numbers and
+are numerically unequal (in the sense of <code>=</code>).</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are both inexact numbers such that either
+<li><p>\vari{obj} and \varii{obj} are both inexact numbers such that either
 they are numerically unequal (in the sense of <code>=</code>),
 or they do not yield the same results (in the sense of <code>eqv?</code>)
 when passed as arguments to any other procedure
 that can be defined as a finite composition of Scheme&rsquo;s standard
 arithmetic procedures, provided it does not result in a NaN value.
 As an exception, the behavior of <code>eqv?</code> is unspecified
-when both \vari{obj} and \varii{obj} are NaN.</p>
+when both \vari{obj} and \varii{obj} are NaN.</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are characters for which the <code>char=?</code>
-procedure returns \schfalse{}.</p>
+<li><p>\vari{obj} and \varii{obj} are characters for which the <code>char=?</code>
+procedure returns \schfalse{}.</p></li>
 
-<p>\item one of \vari{obj} and \varii{obj} is the empty list but the other
-is not.</p>
+<li><p>one of \vari{obj} and \varii{obj} is the empty list but the other
+is not.</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
-or strings that denote distinct locations.</p>
+<li><p>\vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
+or strings that denote distinct locations.</p></li>
 
-<p>\item \vari{obj} and \varii{obj} are procedures that would behave differently
-(return different values or have different side effects) for some arguments.</p>
-
-<p>\end{itemize}</p>
+<li><p>\vari{obj} and \varii{obj} are procedures that would behave differently
+(return different values or have different side effects) for some arguments.</p></li>
+</ul>
 
 <pre><code>(eqv? 'a 'a)                     \ev  \schtrue
 (eqv? 'a 'b)                     \ev  \schfalse
@@ -395,9 +390,8 @@ the same.</p>
 
 <h2 id="6-2-numbers">6.2. Numbers</h2>
 
-<p><a id="numbersection"></a>
+<a id="numbersection"></a>
 
-\index{number}</p>
 
 <p>\newcommand{\type}[1]{{\it#1}}
 \newcommand{\tupe}[1]{{#1}}</p>
@@ -411,9 +405,8 @@ and Scheme numbers.</p>
 
 <h3 id="6-2-1-numerical-types">6.2.1. Numerical types</h3>
 
-<p><a id="numericaltypes"></a>
+<a id="numericaltypes"></a>
 
-\index{numerical types}</p>
 
 <p>Mathematically, numbers are arranged into a tower of subtypes
 in which each level is a subset of the level above it:
@@ -444,8 +437,8 @@ simple programs.</p>
 
 <h3 id="6-2-2-exactness">6.2.2. Exactness</h3>
 
-<p>\mainindex{exactness} <a id="exactly"></a>
-</p>
+<a id="exactly"></a>
+
 
 <p>It is useful to distinguish between numbers that are
 represented exactly and those that might not be.  For example, indexes
@@ -501,8 +494,8 @@ silently or noisily in other implementation-specific ways.</p>
 
 <h3 id="6-2-3-implementation-restrictions">6.2.3. Implementation restrictions</h3>
 
-<p>\index{implementation restriction}<a id="restrictions"></a>
-</p>
+<a id="restrictions"></a>
+
 
 <p>Implementations of Scheme are not required to implement the whole
 tower of subtypes given in section~\ref{numericaltypes},
@@ -582,7 +575,8 @@ floating-point representations
 follow the IEEE 754 standard,
 and that implementations using
 other representations should match or exceed the precision achievable
-using these floating-point standards~\cite{IEEE}.
+using these floating-point standards <a href="../ref/#IEEE">[IEEE]</a>
+.
 In particular, the description of transcendental functions in IEEE 754-2008
 should be followed by such implementations, particularly with respect
 to infinities and NaNs.</p>
@@ -598,8 +592,6 @@ violation of an implementation restriction or it may silently represent the
 constant by an \tupe{inexact} number.</p>
 
 <h3 id="6-2-4-implementation-extensions">6.2.4. Implementation extensions</h3>
-
-<p>\index{implementation extension}</p>
 
 <p>Implementations may provide more than one representation of
 floating-point numbers with differing precisions.  In an implementation
@@ -1146,9 +1138,9 @@ If the argument is infinite or a NaN, then it is returned.</p>
 \proto{rationalize}{ x y}{procedure}
 }</p>
 
-<p>The <code>rationalize</code> procedure returns the {\em simplest} rational number
+<p>The <code>rationalize</code> procedure returns the <em>simplest</em> rational number
 differing from \vr{x} by no more than \vr{y}.  A rational number $r_1$ is
-{\em simpler} \mainindex{simplest rational} than another rational number
+<em>simpler</em>  than another rational number
 $r_2$ if $r_1 = p_1/q_1$ and $r_2 = p_2/q_2$ (in lowest terms) and $|p_1|
 \leq |p_2|$ and $|q_1| \leq |q_2|$.  Thus $<sup>3</sup>&frasl;<sub>5</sub>$ is simpler than $<sup>4</sup>&frasl;<sub>7</sub>$.
 Although not all rationals are comparable in this ordering (consider $<sup>2</sup>&frasl;<sub>7</sub>$
@@ -1232,8 +1224,10 @@ $\ast$&amp; $y = -0.0$ &amp; $x = 0$    &amp; $-\frac{\pi}{2}$
 \end{tabular}
 \end{center}</p>
 
-<p>The above specification follows~\cite{CLtL}, which in turn
-cites~\cite{Penfield81}; refer to these sources for more detailed
+<p>The above specification follows <a href="../ref/#CLtL">[CLtL]</a>
+, which in turn
+cites <a href="../ref/#Penfield81">[Penfield81]</a>
+; refer to these sources for more detailed
 discussion of branch cuts, boundary conditions, and implementation of
 these functions.  When it is possible, these procedures produce a real
 result from a real argument.</p>
@@ -1405,7 +1399,8 @@ can be satisfied by a result that contains a decimal point,
 then the result contains a decimal point and is expressed using the
 minimum number of digits (exclusive of exponent and trailing
 zeroes) needed to make the above expression
-true~\cite{howtoprint,howtoread};
+true <a href="../ref/#howtoprint">[howtoprint]</a><a href="../ref/#howtoread">[howtoread]</a>
+;
 otherwise the format of the result is unspecified.</p>
 
 <p>The result returned by <code>number\coerce{</code>string}
@@ -1480,9 +1475,9 @@ Alternatively, they can be written \sharptrue~and \sharpfalse,
 respectively.  What really
 matters, though, are the objects that the Scheme conditional expressions
 (<code>if</code>, <code>cond</code>, <code>and</code>, <code>or</code>, <code>when</code>, <code>unless</code>, <code>do</code>) treat as
-true\index{true} or false\index{false}.  The phrase &ldquo;a true value&rdquo;\index{true}
+true or false.  The phrase &ldquo;a true value&rdquo;
 (or sometimes just &ldquo;true&rdquo;) means any object treated as true by the
-conditional expressions, and the phrase &ldquo;a false value&rdquo;\index{false} (or
+conditional expressions, and the phrase &ldquo;a false value&rdquo; (or
 &ldquo;false&rdquo;) means any object treated as false by the conditional expressions.</p>
 
 <p>Of all the Scheme values, only \schfalse{}
@@ -1492,7 +1487,7 @@ count as true.</p>
 
 <p><em>Note:&nbsp;</em>
 Unlike some other dialects of Lisp,
-Scheme distinguishes \schfalse{} and the empty list \index{empty list}
+Scheme distinguishes \schfalse{} and the empty list
 from each other and from the symbol \ide{nil}.</p>
 
 <p>Boolean constants evaluate to themselves, so they do not need to be quoted
@@ -1554,15 +1549,15 @@ The car and cdr fields are accessed by the procedures <code>car</code> and
 <code>set-car!</code> and <code>set-cdr!</code>.</p>
 
 <p>Pairs are used primarily to represent lists.  A \defining{list} can
-be defined recursively as either the empty list\index{empty list} or a pair whose
+be defined recursively as either the empty list or a pair whose
 cdr is a list.  More precisely, the set of lists is defined as the smallest
 set \var{X} such that</p>
 
-<p>\begin{itemize}
-\item The empty list is in \var{X}.
-\item If \var{list} is in \var{X}, then any pair whose cdr field contains
-      \var{list} is also in \var{X}.
-\end{itemize}</p>
+<ul>
+<li>The empty list is in \var{X}.</li>
+<li>If \var{list} is in \var{X}, then any pair whose cdr field contains
+  \var{list} is also in \var{X}.</li>
+</ul>
 
 <p>The objects in the car fields of successive pairs of a list are the
 elements of the list.  For example, a two-element list is a pair whose car
@@ -1570,7 +1565,7 @@ is the first element and whose cdr is a pair whose car is the second element
 and whose cdr is the empty list.  The length of a list is the number of
 elements, which is the same as the number of pairs.</p>
 
-<p>The empty list\mainindex{empty list} is a special object of its own type.
+<p>The empty list is a special object of its own type.
 It is not a pair, it has no elements, and its length is zero.</p>
 
 <p><em>Note:&nbsp;</em>
@@ -1586,7 +1581,7 @@ pair, not an expression that evaluates to a pair.</p>
 
 <p>A more streamlined notation can be used for lists: the elements of the
 list are simply enclosed in parentheses and separated by spaces.  The
-empty list\index{empty list} is written {\tt()}.  For example,</p>
+empty list is written {\tt()}.  For example,</p>
 
 <pre><code>(a b c d e)
 </code></pre>
@@ -1675,7 +1670,7 @@ returns \schfalse.</p>
 \proto{car}{ pair}{procedure}}</p>
 
 <p>Returns the contents of the car field of \var{pair}.  Note that it is an
-error to take the car of the empty list\index{empty list}.</p>
+error to take the car of the empty list.</p>
 
 <pre><code>(car '(a b c))          \ev  a
 (car '((a) b c d))      \ev  (a)
@@ -1763,7 +1758,7 @@ For example, <code>caddr</code> could be defined by</p>
 <p>\begin{entry}{
 \proto{null?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is the empty list\index{empty list},
+<p>Returns \schtrue{} if \var{obj} is the empty list,
 otherwise returns \schfalse.</p>
 
 <p>\end{entry}</p>
@@ -2273,7 +2268,8 @@ language-sensitive folding is not used.  If the argument is an uppercase
 letter, the result will be either a lowercase letter
 or the same as the argument if the lowercase letter does not exist or
 is not supported by the implementation.
-See UAX #29~\cite{uax29} (part of the Unicode Standard) for details.</p>
+See UAX #29 <a href="../ref/#uax29">[uax29]</a>
+ (part of the Unicode Standard) for details.</p>
 
 <p>Note that many Unicode lowercase characters do not have uppercase
 equivalents.</p>
@@ -2288,11 +2284,10 @@ equivalents.</p>
 <p>Strings are sequences of characters.
 Strings are written as sequences of characters enclosed within quotation marks
 (<code>&quot;</code>).  Within a string literal, various escape
-sequences\mainindex{escape sequence} represent characters other than
+sequences represent characters other than
 themselves.  Escape sequences always start with a backslash (\backwhack{}):</p>
 
-<p>\begin{itemize}
-\item{\cf\backwhack{}a} : alarm, U+0007
+<p>\item{\cf\backwhack{}a} : alarm, U+0007
 \item{\cf\backwhack{}b} : backspace, U+0008
 \item{\cf\backwhack{}t} : character tabulation, U+0009
 \item{\cf\backwhack{}n} : linefeed, U+000A
@@ -2303,8 +2298,7 @@ themselves.  Escape sequences always start with a backslash (\backwhack{}):</p>
 \item{\cf\backwhack{}\arbno{\hyper{intraline whitespace}}\hyper{line ending}
       \arbno{\hyper{intraline whitespace}}} : nothing
 \item{\cf\backwhack{}x\meta{hex scalar value};} : specified character (note the
-  terminating semi-colon).
-\end{itemize}</p>
+  terminating semi-colon).</p>
 
 <p>The result is unspecified if any other character in a string occurs
 after a backslash.</p>
@@ -2326,7 +2320,7 @@ the string.</p>
 &quot;\x03B1; is named GREEK SMALL LETTER ALPHA.&quot;
 </code></pre>
 
-<p>The {\em length} of a string is the number of characters that it
+<p>The <em>length</em> of a string is the number of characters that it
 contains.  This number is an exact, non-negative integer that is fixed when the
 string is created.  The \defining{valid indexes} of a string are the
 exact non-negative integers less than the length of the string.  The first
@@ -2482,7 +2476,8 @@ Note that language-sensitive mappings and foldings are not used.</p>
 
 <p>The Unicode Standard prescribes special treatment of the Greek letter
 $\Sigma$, whose normal lower-case form is $\sigma$ but which becomes
-$\varsigma$ at the end of a word.  See UAX #29~\cite{uax29} (part of
+$\varsigma$ at the end of a word.  See UAX #29 <a href="../ref/#uax29">[uax29]</a>
+ (part of
 the Unicode Standard) for details.  However, implementations of {\cf
 string-downcase} are not required to provide this behavior, and may
 choose to change $\Sigma$ to $\sigma$ in all cases.</p>
@@ -2584,9 +2579,9 @@ by integers.  A vector typically occupies less space than a list
 of the same length, and the average time needed to access a randomly
 chosen element is typically less for the vector than for the list.</p>
 
-<p>The {\em length} of a vector is the number of elements that it
+<p>The <em>length</em> of a vector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when the
-vector is created.  The {\em valid indexes}\index{valid indexes} of a
+vector is created.  The <em>valid indexes</em> of a
 vector are the exact non-negative integers less than the length of the
 vector.  The first element in a vector is indexed by zero, and the last
 element is indexed by one less than the length of the vector.</p>
@@ -2795,9 +2790,9 @@ a \defining{byte} is an exact integer in the range from 0 to 255 inclusive.
 A bytevector is typically more space-efficient than a vector
 containing the same values.</p>
 
-<p>The {\em length} of a bytevector is the number of elements that it
+<p>The <em>length</em> of a bytevector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when
-the bytevector is created.  The {\em valid indexes}\index{valid indexes} of
+the bytevector is created.  The <em>valid indexes</em> of
 a bytevector are the exact non-negative integers less than the length of the
 bytevector, starting at index zero as with vectors.</p>
 
@@ -3182,7 +3177,7 @@ argument.}
 The procedure <code>call-with-current-continuation</code> (or its
 equivalent abbreviation <code>call/cc</code>) packages
 the current continuation (see the rationale below) as an &ldquo;escape
-procedure&rdquo;\mainindex{escape procedure} and passes it as an argument to
+procedure&rdquo; and passes it as an argument to
 \var{proc}.
 The escape procedure is a Scheme procedure that, if it is
 later called, will abandon whatever continuation is in effect at that later
@@ -3271,9 +3266,11 @@ continuation.</p>
 
 <p>% Most programming languages incorporate one or more special-purpose
 % escape constructs with names like {\tt exit}, \hbox{<code>return</code>}, or
-% even {\tt goto}.  In 1965, however, Peter Landin~\cite{Landin65}
+% even {\tt goto}.  In 1965, however, Peter Landin <a href="../ref/#Landin65">[Landin65]</a>
+
 % invented a general purpose escape operator called the J-operator.  John
-% Reynolds~\cite{Reynolds72} described a simpler but equally powerful
+% Reynolds <a href="../ref/#Reynolds72">[Reynolds72]</a>
+ described a simpler but equally powerful
 % construct in 1972.  The <code>catch</code> syntax described by Sussman
 % and Steele in the 1975 report on Scheme is exactly the same as
 % Reynolds&rsquo;s construct, though its name came from a less general construct
@@ -3347,21 +3344,22 @@ The \var{before} and \var{after} thunks are called in the same dynamic
 environment as the call to <code>dynamic-wind</code>.
 In Scheme, because of <code>call-with-current-continuation</code>, the
 dynamic extent of a call is not always a single, connected time period.
-It is defined as follows:
-\begin{itemize}
-\item The dynamic extent is entered when execution of the body of the
-called procedure begins.</p>
+It is defined as follows:</p>
 
-<p>\item The dynamic extent is also entered when execution is not within
+<ul>
+<li><p>The dynamic extent is entered when execution of the body of the
+called procedure begins.</p></li>
+
+<li><p>The dynamic extent is also entered when execution is not within
 the dynamic extent and a continuation is invoked that was captured
-(using <code>call-with-current-continuation</code>) during the dynamic extent.</p>
+(using <code>call-with-current-continuation</code>) during the dynamic extent.</p></li>
 
-<p>\item It is exited when the called procedure returns.</p>
+<li><p>It is exited when the called procedure returns.</p></li>
 
-<p>\item It is also exited when execution is within the dynamic extent and
+<li><p>It is also exited when execution is within the dynamic extent and
 a continuation is invoked that was captured while not within the
-dynamic extent.
-\end{itemize}</p>
+dynamic extent.</p></li>
+</ul>
 
 <p>If a second call to <code>dynamic-wind</code> occurs within the dynamic extent of the
 call to \var{thunk} and then a continuation is invoked in such a way that the
@@ -3418,7 +3416,7 @@ action the program takes when an exceptional situation is signaled.
 The system implicitly maintains a current exception handler
 in the dynamic environment.</p>
 
-<p>\index{current exception handler}The program raises an exception by
+<p>The program raises an exception by
 invoking the current exception handler, passing it an object
 encapsulating information about the exception.  Any procedure
 accepting one argument can serve as an exception handler and any
@@ -3445,14 +3443,14 @@ in the dynamic environment used for the invocation of \var{thunk}.</p>
    (lambda ()
     (+ 1 (raise 'an-error))))))
         \ev exception
- \&gt;{\em and prints}  condition: an-error
+ \&gt;_and prints_  condition: an-error
 
 (with-exception-handler
  (lambda (x)
   (display &quot;something went wrong\backwhack{}n&quot;))
  (lambda ()
   (+ 1 (raise 'an-error))))
- \&gt;{\em prints}  something went wrong
+ \&gt;_prints_  something went wrong
 </code></pre>
 
 <p>After printing, the second example then raises another exception.
@@ -3664,13 +3662,13 @@ Implementations may extend <code>eval</code> to allow other objects.</p>
 
 <p>Ports represent input and output devices.  To Scheme, an input port is
 a Scheme object that can deliver data upon command, while an output
-port is a Scheme object that can accept data.\mainindex{port}
+port is a Scheme object that can accept data.
 Whether the input and output port types are disjoint is
 implementation-dependent.</p>
 
-<p>Different {\em port types} operate on different data.  Scheme
-imple-men-ta-tions are required to support {\em textual ports}
-and {\em binary ports}, but may also provide other port types.</p>
+<p>Different <em>port types</em> operate on different data.  Scheme
+imple-men-ta-tions are required to support <em>textual ports</em>
+and <em>binary ports</em>, but may also provide other port types.</p>
 
 <p>A textual port supports reading or writing of individual characters
 from or to a backing store containing characters
@@ -3938,7 +3936,7 @@ are available, an end-of-file object is returned.</p>
 \rproto{peek-char}{ port}{procedure}}</p>
 
 <p>Returns the next character available from the textual input \var{port},
-but {\em without} updating
+but <em>without</em> updating
 the \var{port} to point to the following character.  If no more characters
 are available, an end-of-file object is returned.</p>
 
@@ -4041,7 +4039,7 @@ available, an end-of-file object is returned.</p>
 \rproto{peek-u8}{ port}{procedure}}</p>
 
 <p>Returns the next byte available from the binary input \var{port},
-but {\em without} updating the \var{port} to point to the following
+but <em>without</em> updating the \var{port} to point to the following
 byte.  If no more bytes are available, an end-of-file object is returned.</p>
 
 <p>\end{entry}</p>

@@ -95,14 +95,14 @@
 <a id="variablesection"></a>
 </p>
 
-<p>An identifier\index{identifier} can name either a type of syntax or
+<p>An identifier can name either a type of syntax or
 a location where a value can be stored.  An identifier that names a type
-of syntax is called a {\em syntactic keyword}\mainindex{syntactic keyword}
-and is said to be {\em bound} to a transformer for that syntax.  An identifier that names a
-location is called a {\em variable}\mainindex{variable} and is said to be
-{\em bound} to that location.  The set of all visible
-bindings\mainindex{binding} in effect at some point in a program is
-known as the {\em environment} in effect at that point.  The value
+of syntax is called a <em>syntactic keyword</em>
+and is said to be <em>bound</em> to a transformer for that syntax.  An identifier that names a
+location is called a <em>variable</em> and is said to be
+<em>bound</em> to that location.  The set of all visible
+bindings in effect at some point in a program is
+known as the <em>environment</em> in effect at that point.  The value
 stored in the location to which a variable is bound is called the
 variable&rsquo;s value.  By abuse of terminology, the variable is sometimes
 said to name the value or to be bound to the value.  This is not quite
@@ -111,9 +111,9 @@ accurate, but confusion rarely results from this practice.</p>
 <p>Certain expression types are used to create new kinds of syntax
 and to bind syntactic keywords to those new syntaxes, while other
 expression types create new locations and bind variables to those
-locations.  These expression types are called {\em binding constructs}.
-\mainindex{binding construct}
-Those that bind syntactic keywords are listed in section~\ref{macrosection}.
+locations.  These expression types are called <em>binding constructs</em>.</p>
+
+<p>Those that bind syntactic keywords are listed in section~\ref{macrosection}.
 The most fundamental of the variable binding constructs is the
 <code>lambda</code> expression, because all other variable binding constructs
 can be explained in terms of <code>lambda</code> expressions.  The other
@@ -137,8 +137,7 @@ the identifier whose region contains the use, then the use refers to the
 binding for the variable in the global environment, if any
 (chapters 4 and \ref{initialenv}); if there is no
 binding for the identifier,
-it is said to be \defining{unbound}.\mainindex{bound}\index{global
-environment}</p>
+it is said to be \defining{unbound}.</p>
 
 <h2 id="3-2-disjointness-of-types">3.2. Disjointness of types</h2>
 
@@ -158,12 +157,12 @@ symbol?           vector?
 <p>and all predicates created by <code>define-record-type</code>.</p>
 
 <p>These predicates define the types
-{\em boolean, bytevector, character}, the empty list object,
-{\em eof-object, number, pair, port, procedure, string, symbol, vector},
+<em>boolean, bytevector, character</em>, the empty list object,
+<em>eof-object, number, pair, port, procedure, string, symbol, vector</em>,
 and all record types.
-\mainindex{type}\schindex{boolean?}\schindex{pair?}\schindex{symbol?}
+\schindex{boolean?}\schindex{pair?}\schindex{symbol?}
 \schindex{number?}\schindex{char?}\schindex{string?}\schindex{vector?}
-\schindex{bytevector?}\schindex{port?}\schindex{procedure?}\index{empty list}
+\schindex{bytevector?}\schindex{port?}\schindex{procedure?}
 \schindex{eof-object?}</p>
 
 <p>Although there is a separate boolean type,
@@ -172,15 +171,15 @@ conditional test.  As explained in section~\ref{booleansection}, all
 values count as true in such a test except for \schfalse{}.
 This report uses the word &ldquo;true&rdquo; to refer to any
 Scheme value except \schfalse{}, and the word &ldquo;false&rdquo; to refer to
-\schfalse{}. \mainindex{true} \mainindex{false}</p>
+\schfalse{}.</p>
 
 <h2 id="3-3-external-representations">3.3. External representations</h2>
 
 <a id="externalreps"></a>
 
 
-<p>An important concept in Scheme (and Lisp) is that of the {\em external
-representation} of an object as a sequence of characters.  For example,
+<p>An important concept in Scheme (and Lisp) is that of the <em>external
+representation</em> of an object as a sequence of characters.  For example,
 an external representation of the integer 28 is the sequence of
 characters &ldquo;{\tt 28}&ldquo;, and an external representation of a list consisting
 of the integers 8 and 13 is the sequence of characters &ldquo;{\tt(8 13)}&ldquo;.</p>
@@ -203,8 +202,8 @@ representations, and the procedure <code>write</code> (section~\ref{write})
 generates them.  Together, they provide an elegant and powerful
 input/output facility.</p>
 
-<p>Note that the sequence of characters &ldquo;{\tt(+ 2 6)}&rdquo; is {\em not} an
-external representation of the integer 8, even though it {\em is} an
+<p>Note that the sequence of characters &ldquo;{\tt(+ 2 6)}&rdquo; is <em>not</em> an
+external representation of the integer 8, even though it <em>is</em> an
 expression evaluating to the integer 8; rather, it is an external
 representation of a three-element list, the elements of which are the symbol
 {\tt +} and the integers 2 and 6.  Scheme&rsquo;s syntax has the property that
@@ -225,7 +224,7 @@ objects in the appropriate sections of chapter~\ref{initialenv}.</p>
 
 
 <p>Variables and objects such as pairs, strings, vectors, and bytevectors implicitly
-denote locations\mainindex{location} or sequences of locations.  A string, for
+denote locations or sequences of locations.  A string, for
 example, denotes as many locations as there are characters in the string.
 A new value can be
 stored into one of these locations using the {\tt string-set!} procedure, but
@@ -252,8 +251,8 @@ vectors, and empty bytevectors, which contain no locations, may or may
 not be newly allocated.</p>
 
 <p>Every object that denotes locations is
-either mutable\index{mutable} or
-immutable\index{immutable}.  Literal constants, the strings
+either mutable or
+immutable.  Literal constants, the strings
 returned by \ide{symbol-&gt;string},
 and possibly the environment returned by <code>scheme-report-environment</code>
 are immutable objects.  All objects
@@ -272,7 +271,7 @@ Hence, they do not necessarily correspond to memory addresses,
 and even if they do, the memory address might not be constant.</p>
 
 <p>\begin{rationale}
-In many systems it is desirable for constants\index{constant} (i.e. the values of
+In many systems it is desirable for constants (i.e. the values of
 literal expressions) to reside in read-only memory.
 Making it an error to alter constants permits this implementation strategy,
 while not requiring other systems to distinguish between
@@ -285,11 +284,11 @@ mutable and immutable objects.
 
 
 <p>Implementations of Scheme are required to be
-{\em properly tail-recursive}\mainindex{proper tail recursion}.
+<em>properly tail-recursive</em>.
 Procedure calls that occur in certain syntactic
-contexts defined below are {\em tail calls}.  A Scheme implementation is
+contexts defined below are <em>tail calls</em>.  A Scheme implementation is
 properly tail-recursive if it supports an unbounded number of active
-tail calls.  A call is {\em active} if the called procedure might still
+tail calls.  A call is <em>active</em> if the called procedure might still
 return.  Note that this includes calls that might be returned from either
 by the current continuation or by continuations captured earlier by
 <code>call-with-current-continuation</code> that are later invoked.
@@ -297,7 +296,8 @@ In the absence of captured continuations, calls could
 return at most once and the active calls would be those that had not
 yet returned.
 A formal definition of proper tail recursion can be found
-in~\cite{propertailrecursion}.</p>
+in <a href="../ref/#propertailrecursion">[propertailrecursion]</a>
+.</p>
 
 <p>\begin{rationale}</p>
 
@@ -322,30 +322,33 @@ there was no need to include both in the language.</p>
 
 <p>\end{rationale}</p>
 
-<p>A {\em tail call}\mainindex{tail call} is a procedure call that occurs
-in a {\em tail context}.  Tail contexts are defined inductively.  Note
+<p>A <em>tail call</em> is a procedure call that occurs
+in a <em>tail context</em>.  Tail contexts are defined inductively.  Note
 that a tail context is always determined with respect to a particular lambda
 expression.</p>
 
-<p>\begin{itemize}
-\item The last expression within the body of a lambda expression,
-  shown as \hyper{tail expression} below, occurs in a tail context.
-  The same is true of all the bodies of <code>case-lambda</code> expressions.
+<ul>
+<li>The last expression within the body of a lambda expression,
+shown as \hyper{tail expression} below, occurs in a tail context.
+The same is true of all the bodies of <code>case-lambda</code> expressions.
 \begin{grammar}
 (l\=ambda \meta{formals}
-  &gt;\arbno{\meta{definition}} \arbno{\meta{expression}} \meta{tail expression})</p>
+&gt;\arbno{\meta{definition}} \arbno{\meta{expression}} \meta{tail expression})</li>
+</ul>
 
 <p>(case-lambda \arbno{(\meta{formals} \meta{tail body})})
 \end{grammar}</p>
 
-<p>\item If one of the following expressions is in a tail context,
+<ul>
+<li>If one of the following expressions is in a tail context,
 then the subexpressions shown as \meta{tail expression} are in a tail context.
 These were derived from rules in the grammar given in
 chapter 7 by replacing some occurrences of \meta{body}
 with \meta{tail body},  some occurrences of \meta{expression}
 with \meta{tail expression},  and some occurrences of \meta{sequence}
 with \meta{tail sequence}.  Only those rules that contain tail contexts
-are shown here.</p>
+are shown here.</li>
+</ul>
 
 <p>\begin{grammar}
 (if \meta{expression} \meta{tail expression} \meta{tail expression})
@@ -398,8 +401,6 @@ a clause of the form <code>(\hyperi{expression</code> =&gt; \hyperii{expression}
 then the (implied) call to
 the procedure that results from the evaluation of \hyperii{expression} is in a
 tail context.  \hyperii{expression} itself is not in a tail context.</p>
-
-<p>\end{itemize}</p>
 
 <p>Certain procedures defined in this report are also required to perform tail calls.
 The first argument passed to \ide{apply} and to

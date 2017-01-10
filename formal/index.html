@@ -112,7 +112,7 @@ concise:  \arbno{\meta{thing}} means zero or more occurrences of
 
 <h3 id="7-1-1-lexical-structure">7.1.1. Lexical structure</h3>
 
-<p>This section describes how individual tokens\index{token} (identifiers,
+<p>This section describes how individual tokens (identifiers,
 numbers, etc.) are formed from sequences of characters.  The following
 sections describe how expressions and programs are formed from sequences
 of tokens.</p>
@@ -149,7 +149,7 @@ identifiers containing such a sequence are equivalent to identifiers
 containing the corresponding character.</p>
 
 <p>\begin{grammar}
-\meta{token} : \meta{identifier} | \meta{boolean} | \meta{number}\index{identifier}
+\meta{token} : \meta{identifier} | \meta{boolean} | \meta{number}
 &gt;  | \meta{character} | \meta{string}
 &gt;  | ( | ) | \sharpsign( | \sharpsign u8( | \singlequote{} | \backquote{} | , | ,@ | {\bf.}
 \meta{delimiter} : \meta{whitespace} | \meta{vertical line}
@@ -160,7 +160,7 @@ containing the corresponding character.</p>
 \meta{line ending} : \meta{newline} | \meta{return} \meta{newline}
 &gt; | \meta{return}
 \meta{comment} : ; \= $\langle$\rm all subsequent characters up to a
-            &gt; \rm line ending$\rangle$\index{comment}
+            &gt; \rm line ending$\rangle$
 &gt; | \meta{nested comment}
 &gt; | #; \meta{intertoken space} \meta{datum}
 \meta{nested comment} : #| \= \meta{comment text}
@@ -600,8 +600,10 @@ un-quo-ta-tion $D$} takes precedence.</p>
 
 <p>This section provides a formal denotational semantics for the primitive
 expressions of Scheme and selected built-in procedures.  The concepts
-and notation used here are described in~\cite{Stoy77}; the definition of
-<code>dynamic-wind</code> is taken from~\cite{GasbichlerKnauelSperberKelsey2003}.
+and notation used here are described in <a href="../ref/#Stoy77">[Stoy77]</a>
+; the definition of
+<code>dynamic-wind</code> is taken from <a href="../ref/#GasbichlerKnauelSperberKelsey2003">[GasbichlerKnauelSperberKelsey2003]</a>
+.
 The notation is summarized below:</p>
 
 <p>\begin{tabular}{ll}
@@ -1696,7 +1698,8 @@ value.</p>
 
 <p>Finally, we define <code>force</code> to call the procedure expressions in
 promises iteratively using a trampoline technique following
-\cite{srfi45} until a non-lazy result (i.e. a value created by {\cf
+ <a href="../ref/#srfi45">[srfi45]</a>
+ until a non-lazy result (i.e. a value created by {\cf
   delay} instead of <code>delay-force</code>) is returned, as follows:</p>
 
 <pre><code>(define (force promise)

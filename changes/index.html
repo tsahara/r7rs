@@ -91,201 +91,202 @@
 
 
 <p>This section enumerates the incompatibilities between this report and
-the &ldquo;Revised$^5$ report&rdquo;~\cite{R5RS}.</p>
+the &ldquo;Revised$^5$ report&rdquo; <a href="../ref/#R5RS">[R5RS]</a>
+.</p>
 
-<p>{\em This list is not authoritative, but is believed to be correct and complete.}</p>
+<p><em>This list is not authoritative, but is believed to be correct and complete.</em></p>
 
-<p>\begin{itemize}</p>
-
-<p>\item Case sensitivity is now the default in symbols and character names.
+<ul>
+<li><p>Case sensitivity is now the default in symbols and character names.
 This means that code written under the assumption that symbols could be
 written <code>FOO</code> or <code>Foo</code> in some contexts and <code>foo</code> in other contexts
 can either be changed, be marked with the new <code>#!fold-case</code> directive,
 or be included in a library using the <code>include-ci</code> library declaration.
-All standard identifiers are entirely in lower case.</p>
+All standard identifiers are entirely in lower case.</p></li>
 
-<p>\item The <code>syntax-rules</code> construct now recognizes {\em _} (underscore)
+<li><p>The <code>syntax-rules</code> construct now recognizes ___ (underscore)
 as a wildcard, which means it cannot be used as a syntax variable.
-It can still be used as a literal.</p>
+It can still be used as a literal.</p></li>
 
-<p>\item The R<span class="rnrs">5</span>RS procedures <code>exact-&gt;inexact</code> and <code>inexact-&gt;exact</code>
+<li><p>The R<span class="rnrs">5</span>RS procedures <code>exact-&gt;inexact</code> and <code>inexact-&gt;exact</code>
 have been renamed to their R<span class="rnrs">6</span>RS names, <code>inexact</code> and <code>exact</code>,
 respectively, as these names are shorter and more correct.
-The former names are still available in the R<span class="rnrs">5</span>RS library.</p>
+The former names are still available in the R<span class="rnrs">5</span>RS library.</p></li>
 
-<p>\item The guarantee that string comparison (with <code>string&lt;?</code> and the
+<li><p>The guarantee that string comparison (with <code>string&lt;?</code> and the
 related predicates) is a lexicographical extension of character comparison
-(with <code>char&lt;?</code> and the related predicates) has been removed.</p>
+(with <code>char&lt;?</code> and the related predicates) has been removed.</p></li>
 
-<p>\item Support for the # character in numeric literals is no longer required.</p>
+<li><p>Support for the # character in numeric literals is no longer required.</p></li>
 
-<p>\item Support for the letters <code>s</code>, <code>f</code>, <code>d</code>, and <code>l</code>
-as exponent markers is no longer required.</p>
+<li><p>Support for the letters <code>s</code>, <code>f</code>, <code>d</code>, and <code>l</code>
+as exponent markers is no longer required.</p></li>
 
-<p>\item Implementations of <code>string\coerce{</code>number} are no longer permitted
+<li><p>Implementations of <code>string\coerce{</code>number} are no longer permitted
 to return \schfalse{} when the argument contains an explicit radix prefix,
-and must be compatible with <code>read</code> and the syntax of numbers in programs.</p>
+and must be compatible with <code>read</code> and the syntax of numbers in programs.</p></li>
 
-<p>\item The procedures <code>transcript-on</code> and <code>transcript-off</code> have been removed.</p>
+<li><p>The procedures <code>transcript-on</code> and <code>transcript-off</code> have been removed.</p></li>
+</ul>
 
-<p>\end{itemize}</p>
-
-<h3 id="other-language-changes-since-hahahugoshortcode-6hbhb">Other language changes since R<span class="rnrs">5</span>RS</h3>
+<h3 id="other-language-changes-since-hahahugoshortcode-7hbhb">Other language changes since R<span class="rnrs">5</span>RS</h3>
 
 <p><a id="differences"></a>
 
 This section enumerates the additional differences between this report and
-the &ldquo;Revised$^5$ report&rdquo;~\cite{R5RS}.</p>
+the &ldquo;Revised$^5$ report&rdquo; <a href="../ref/#R5RS">[R5RS]</a>
+.</p>
 
-<p>{\em This list is not authoritative, but is believed to be correct and complete.}</p>
+<p><em>This list is not authoritative, but is believed to be correct and complete.</em></p>
 
-<p>\begin{itemize}</p>
+<ul>
+<li><p>Various minor ambiguities and unclarities in R<span class="rnrs">5</span>RS have been cleaned up.</p></li>
 
-<p>\item Various minor ambiguities and unclarities in R<span class="rnrs">5</span>RS have been cleaned up.</p>
-
-<p>\item Libraries have been added as a new program structure to improve
+<li><p>Libraries have been added as a new program structure to improve
 encapsulation and sharing of code.  Some existing and new identifiers
 have been factored out into separate libraries.
 Libraries can be imported into other libraries or main programs, with
 controlled exposure and renaming of identifiers.
 The contents of a library can be made conditional on the features of
 the implementation on which it is to be used.
-There is an R<span class="rnrs">5</span>RS compatibility library.</p>
+There is an R<span class="rnrs">5</span>RS compatibility library.</p></li>
 
-<p>\item The expressions types <code>include</code>, <code>include-ci</code>, and <code>cond-expand</code>
+<li><p>The expressions types <code>include</code>, <code>include-ci</code>, and <code>cond-expand</code>
 have been added to the base library; they have the same semantics as the
-corresponding library declarations.</p>
+corresponding library declarations.</p></li>
 
-<p>\item Exceptions can now be signaled explicitly with <code>raise</code>,
+<li><p>Exceptions can now be signaled explicitly with <code>raise</code>,
 <code>raise-continuable</code> or <code>error</code>, and can be handled with {\cf
 with-exception-handler} and the <code>guard</code> syntax.
 Any object can specify an error condition; the implementation-defined
 conditions signaled by <code>error</code> have a predicate to detect them and accessor functions to
 retrieve the arguments passed to <code>error</code>.
 Conditions signaled by <code>read</code> and by file-related procedures
-also have predicates to detect them.</p>
+also have predicates to detect them.</p></li>
 
-<p>\item New disjoint types supporting access to multiple fields can be
-generated with the <code>define-record-type</code> of SRFI 9~\cite{srfi9}</p>
+<li><p>New disjoint types supporting access to multiple fields can be
+generated with the <code>define-record-type</code> of SRFI 9 <a href="../ref/#srfi9">[srfi9]</a>
+</p></li>
 
-<p>\item Parameter objects can be created with <code>make-parameter</code>, and
+<li><p>Parameter objects can be created with <code>make-parameter</code>, and
 dynamically rebound with <code>parameterize</code>.
 The procedures <code>current-input-port</code> and <code>current-output-port</code> are now
-parameter objects, as is the newly introduced <code>current-error-port</code>.</p>
+parameter objects, as is the newly introduced <code>current-error-port</code>.</p></li>
 
-<p>\item Support for promises has been enhanced based on SRFI 45~\cite{srfi45}.</p>
+<li><p>Support for promises has been enhanced based on SRFI 45 <a href="../ref/#srfi45">[srfi45]</a>
+.</p></li>
 
-<p>\item {\em Bytevectors}, vectors of exact integers in the range
+<li><p><em>Bytevectors</em>, vectors of exact integers in the range
 from 0 to 255 inclusive, have been added as a new disjoint type.
 A subset of the vector procedures is provided.  Bytevectors
 can be converted to and from strings in accordance with the UTF-8 character encoding.
-Bytevectors have a datum representation and evaluate to themselves.</p>
+Bytevectors have a datum representation and evaluate to themselves.</p></li>
 
-<p>\item Vector constants evaluate to themselves.</p>
+<li><p>Vector constants evaluate to themselves.</p></li>
 
-<p>\item The procedure <code>read-line</code> is provided to make line-oriented textual input
-simpler.</p>
+<li><p>The procedure <code>read-line</code> is provided to make line-oriented textual input
+simpler.</p></li>
 
-<p>\item The procedure <code>flush-output-port</code> is provided to allow minimal
-control of output port buffering.</p>
+<li><p>The procedure <code>flush-output-port</code> is provided to allow minimal
+control of output port buffering.</p></li>
 
-<p>\item {\em Ports} can now be designated as {\em textual} or {\em
+<li><p><em>Ports</em> can now be designated as <em>textual</em> or {\em
 binary} ports, with new procedures for reading and writing binary
 data.
 The new predicates <code>input-port-open?</code> and <code>output-port-open?</code> return whether a port is open or closed.
 The new procedure <code>close-port</code> now closes a port; if the port
-has both input and output sides, both are closed.</p>
+has both input and output sides, both are closed.</p></li>
 
-<p>\item {\em String ports} have been added as a way to read and write
-characters to and from strings, and {\em bytevector ports} to read
-and write bytes to and from bytevectors.</p>
+<li><p><em>String ports</em> have been added as a way to read and write
+characters to and from strings, and <em>bytevector ports</em> to read
+and write bytes to and from bytevectors.</p></li>
 
-<p>\item There are now I/O procedures specific to strings and bytevectors.</p>
+<li><p>There are now I/O procedures specific to strings and bytevectors.</p></li>
 
-<p>\item The <code>write</code> procedure now generates datum labels when applied to
+<li><p>The <code>write</code> procedure now generates datum labels when applied to
 circular objects.  The new procedure <code>write-simple</code> never generates
 labels; <code>write-shared</code> generates labels for all shared and circular
 structure.
-The <code>display</code> procedure must not loop on circular objects.</p>
+The <code>display</code> procedure must not loop on circular objects.</p></li>
 
-<p>\item The R<span class="rnrs">6</span>RS procedure <code>eof-object</code> has been added.
-Eof-objects are now required to be a disjoint type.</p>
+<li><p>The R<span class="rnrs">6</span>RS procedure <code>eof-object</code> has been added.
+Eof-objects are now required to be a disjoint type.</p></li>
 
-<p>\item Syntax definitions are now allowed wherever variable definitions are.</p>
+<li><p>Syntax definitions are now allowed wherever variable definitions are.</p></li>
 
-<p>\item The <code>syntax-rules</code> construct now allows
+<li><p>The <code>syntax-rules</code> construct now allows
 the ellipsis symbol to be specified explicitly instead of the default
 <code>...</code>, allows template escapes with an ellipsis-prefixed list, and
-allows tail patterns to follow an ellipsis pattern.</p>
+allows tail patterns to follow an ellipsis pattern.</p></li>
 
-<p>\item The <code>syntax-error</code> syntax has been added as a way to signal immediate
-and more informative errors when a macro is expanded.</p>
+<li><p>The <code>syntax-error</code> syntax has been added as a way to signal immediate
+and more informative errors when a macro is expanded.</p></li>
 
-<p>\item The <code>letrec*</code> binding construct has been added, and internal <code>define</code>
-is specified in terms of it.</p>
+<li><p>The <code>letrec*</code> binding construct has been added, and internal <code>define</code>
+is specified in terms of it.</p></li>
 
-<p>\item Support for capturing multiple values has been enhanced with {\cf
+<li><p>Support for capturing multiple values has been enhanced with {\cf
 define-values}, <code>let-values</code>, and <code>let*-values</code>.
 Standard expression types which contain a sequence of expressions now
 permit passing zero or more than one value to the continuations of all
-non-final expressions of the sequence.</p>
+non-final expressions of the sequence.</p></li>
 
-<p>\item The <code>case</code> conditional now supports {\tt =&gt;} syntax
+<li><p>The <code>case</code> conditional now supports {\tt =&gt;} syntax
 analogous to <code>cond</code> not only in regular clauses but in the {\cf
-else} clause as well.</p>
+else} clause as well.</p></li>
 
-<p>\item To support dispatching on the number of arguments passed to a
-procedure, <code>case-lambda</code> has been added in its own library.</p>
+<li><p>To support dispatching on the number of arguments passed to a
+procedure, <code>case-lambda</code> has been added in its own library.</p></li>
 
-<p>\item The convenience conditionals <code>when</code> and <code>unless</code> have been added.</p>
+<li><p>The convenience conditionals <code>when</code> and <code>unless</code> have been added.</p></li>
 
-<p>\item The behavior of <code>eqv?</code> on inexact numbers now conforms to the
-R<span class="rnrs">6</span>RS definition.</p>
+<li><p>The behavior of <code>eqv?</code> on inexact numbers now conforms to the
+R<span class="rnrs">6</span>RS definition.</p></li>
 
-<p>\item When applied to procedures, <code>eq?</code> and <code>eqv?</code> are permitted to
-return different answers.</p>
+<li><p>When applied to procedures, <code>eq?</code> and <code>eqv?</code> are permitted to
+return different answers.</p></li>
 
-<p>\item The R<span class="rnrs">6</span>RS procedures <code>boolean=?</code> and <code>symbol=?</code> have been added.</p>
+<li><p>The R<span class="rnrs">6</span>RS procedures <code>boolean=?</code> and <code>symbol=?</code> have been added.</p></li>
 
-<p>\item Positive infinity, negative infinity, NaN, and negative inexact zero have been added
+<li><p>Positive infinity, negative infinity, NaN, and negative inexact zero have been added
 to the numeric tower as inexact values with the written
 representations {\tt +inf.0}, {\tt -inf.0}, {\tt +nan.0}, and <code>-0.0</code>
 respectively.  Support for them is not required.
-The representation {\tt -nan.0} is synonymous with {\tt +nan.0}.</p>
+The representation {\tt -nan.0} is synonymous with {\tt +nan.0}.</p></li>
 
-<p>\item The <code>log</code> procedure now accepts a second argument specifying
-the logarithm base.</p>
+<li><p>The <code>log</code> procedure now accepts a second argument specifying
+the logarithm base.</p></li>
 
-<p>\item The procedures <code>map</code> and <code>for-each</code> are now required to terminate on
-the shortest argument list.</p>
+<li><p>The procedures <code>map</code> and <code>for-each</code> are now required to terminate on
+the shortest argument list.</p></li>
 
-<p>\item The procedures <code>member</code> and <code>assoc</code> now take an optional third argument
-specifying the equality predicate to be used.</p>
+<li><p>The procedures <code>member</code> and <code>assoc</code> now take an optional third argument
+specifying the equality predicate to be used.</p></li>
 
-<p>\item The numeric procedures <code>finite?</code>, <code>infinite?</code>, <code>nan?</code>,
+<li><p>The numeric procedures <code>finite?</code>, <code>infinite?</code>, <code>nan?</code>,
 <code>exact-integer?</code>, <code>square</code>, and <code>exact-integer-sqrt</code>
-have been added.</p>
+have been added.</p></li>
 
-<p>\item The <code>-</code> and <code>/</code> procedures
+<li><p>The <code>-</code> and <code>/</code> procedures
 and the character and string comparison
-predicates are now required to support more than two arguments.</p>
+predicates are now required to support more than two arguments.</p></li>
 
-<p>\item The forms \sharptrue{} and \sharpfalse{} are now supported
-as well as \schtrue{} and \schfalse{}.</p>
+<li><p>The forms \sharptrue{} and \sharpfalse{} are now supported
+as well as \schtrue{} and \schfalse{}.</p></li>
 
-<p>\item The procedures <code>make-list</code>, <code>list-copy</code>, <code>list-set!</code>,
+<li><p>The procedures <code>make-list</code>, <code>list-copy</code>, <code>list-set!</code>,
 <code>string-map</code>, <code>string-for-each</code>, <code>string-&gt;vector</code>,
 <code>vector-append</code>,
 <code>vector-copy</code>, <code>vector-map</code>, <code>vector-for-each</code>,
 <code>vector-&gt;string</code>, <code>vector-copy!</code>, and <code>string-copy!</code>
-have been added to round out the sequence operations.</p>
+have been added to round out the sequence operations.</p></li>
 
-<p>\item Some string and vector procedures support processing of part of a string or vector using
-optional \var{start} and \var{end} arguments.</p>
+<li><p>Some string and vector procedures support processing of part of a string or vector using
+optional \var{start} and \var{end} arguments.</p></li>
 
-<p>\item Some list procedures are now defined on circular lists.</p>
+<li><p>Some list procedures are now defined on circular lists.</p></li>
 
-<p>\item Implementations may provide any subset of the full Unicode
+<li><p>Implementations may provide any subset of the full Unicode
 repertoire that includes ASCII, but implementations must support any
 such subset in a way consistent with Unicode.
 Various character and string procedures have been extended accordingly,
@@ -294,122 +295,125 @@ String comparison is no longer
 required to be consistent with character comparison, which is based
 solely on Unicode scalar values.
 The new <code>digit-value</code> procedure has been added to obtain the numerical
-value of a numeric character.</p>
+value of a numeric character.</p></li>
 
-<p>\item There are now two additional comment syntaxes: {\tt #;} to
+<li><p>There are now two additional comment syntaxes: {\tt #;} to
 skip the next datum, and {\tt #| &hellip; |#}
-for nestable block comments.</p>
+for nestable block comments.</p></li>
 
-<p>\item Data prefixed with datum labels {\tt #<n>=} can be referenced
+<li><p>Data prefixed with datum labels {\tt #<n>=} can be referenced
 with {\tt #<n>#}, allowing for reading and writing of data with
-shared structure.</p>
+shared structure.</p></li>
 
-<p>\item Strings and symbols now allow mnemonic and numeric escape
-sequences, and the list of named characters has been extended.</p>
+<li><p>Strings and symbols now allow mnemonic and numeric escape
+sequences, and the list of named characters has been extended.</p></li>
 
-<p>\item The procedures <code>file-exists?</code> and <code>delete-file</code> are available in the
-{\tt (scheme file)} library.</p>
+<li><p>The procedures <code>file-exists?</code> and <code>delete-file</code> are available in the
+{\tt (scheme file)} library.</p></li>
 
-<p>\item An interface to the system environment, command line, and process exit status is
-available in the {\tt (scheme process-context)} library.</p>
+<li><p>An interface to the system environment, command line, and process exit status is
+available in the {\tt (scheme process-context)} library.</p></li>
 
-<p>\item Procedures for accessing time-related values are available in the
-{\tt (scheme time)} library.</p>
+<li><p>Procedures for accessing time-related values are available in the
+{\tt (scheme time)} library.</p></li>
 
-<p>\item A less irregular set of integer division operators is provided
-with new and clearer names.</p>
+<li><p>A less irregular set of integer division operators is provided
+with new and clearer names.</p></li>
 
-<p>\item The <code>load</code> procedure now accepts a second argument specifying the environment to
-load into.</p>
+<li><p>The <code>load</code> procedure now accepts a second argument specifying the environment to
+load into.</p></li>
 
-<p>\item The <code>call-with-current-continuation</code> procedure now has the synonym
-<code>call/cc</code>.</p>
+<li><p>The <code>call-with-current-continuation</code> procedure now has the synonym
+<code>call/cc</code>.</p></li>
 
-<p>\item The semantics of read-eval-print loops are now partly prescribed,
-requiring the redefinition of procedures, but not syntax keywords, to have retroactive effect.</p>
+<li><p>The semantics of read-eval-print loops are now partly prescribed,
+requiring the redefinition of procedures, but not syntax keywords, to have retroactive effect.</p></li>
 
-<p>\item The formal semantics now handles <code>dynamic-wind</code>.
-\end{itemize}</p>
+<li><p>The formal semantics now handles <code>dynamic-wind</code>.</p></li>
+</ul>
 
-<h3 id="incompatibilities-with-hahahugoshortcode-13hbhb">Incompatibilities with R<span class="rnrs">6</span>RS</h3>
+<h3 id="incompatibilities-with-hahahugoshortcode-17hbhb">Incompatibilities with R<span class="rnrs">6</span>RS</h3>
 
 <p>This section enumerates the incompatibilities between R<span class="rnrs">7</span>RS~and
-the &ldquo;Revised$^6$ report&rdquo;~\cite{R6RS} and its accompanying Standard Libraries document.</p>
+the &ldquo;Revised$^6$ report&rdquo; <a href="../ref/#R6RS">[R6RS]</a>
+ and its accompanying Standard Libraries document.</p>
 
-<p>{\em This list is not authoritative, and is possibly incomplete.}</p>
+<p><em>This list is not authoritative, and is possibly incomplete.</em></p>
 
-<p>\begin{itemize}
-\item R<span class="rnrs">7</span>RS libraries begin with the keyword <code>define-library</code>
+<ul>
+<li><p>R<span class="rnrs">7</span>RS libraries begin with the keyword <code>define-library</code>
 rather than <code>library</code> in order to make them syntactically
 distinguishable from R<span class="rnrs">6</span>RS libraries.
 In R<span class="rnrs">7</span>RS terms, the body of an R<span class="rnrs">6</span>RS library consists
 of a single export declaration followed by a single import declaration,
 followed by commands and definitions.  In R<span class="rnrs">7</span>RS, commands and
 definitions are not permitted directly within the body: they have to be be wrapped in a <code>begin</code>
-library declaration.</p>
+library declaration.</p></li>
 
-<p>\item There is no direct R<span class="rnrs">6</span>RS equivalent of the <code>include</code>, <code>include-ci</code>,
+<li><p>There is no direct R<span class="rnrs">6</span>RS equivalent of the <code>include</code>, <code>include-ci</code>,
 <code>include-library-declarations</code>, or <code>cond-expand</code> library declarations.
-On the other hand, the R<span class="rnrs">7</span>RS library syntax does not support phase or version specifications.</p>
+On the other hand, the R<span class="rnrs">7</span>RS library syntax does not support phase or version specifications.</p></li>
 
-<p>\item The grouping of standardized identifiers into libraries is different from the R<span class="rnrs">6</span>RS<br />
+<li><p>The grouping of standardized identifiers into libraries is different from the R<span class="rnrs">6</span>RS<br />
 approach. In particular, procedures which are optional in R<span class="rnrs">5</span>RS\, either expressly
 or by implication, have been removed from the base library.
-Only the base library itself is an absolute requirement.</p>
+Only the base library itself is an absolute requirement.</p></li>
 
-<p>\item No form of identifier syntax is provided.</p>
+<li><p>No form of identifier syntax is provided.</p></li>
 
-<p>\item Internal syntax definitions are allowed, but uses of a syntax form
+<li><p>Internal syntax definitions are allowed, but uses of a syntax form
 cannot appear before its definition; the <code>even</code>/<code>odd</code> example given in
-R<span class="rnrs">6</span>RS is not allowed.</p>
+R<span class="rnrs">6</span>RS is not allowed.</p></li>
 
-<p>\item The R<span class="rnrs">6</span>RS exception system was incorporated as-is, but the condition
+<li><p>The R<span class="rnrs">6</span>RS exception system was incorporated as-is, but the condition
 types have been left unspecified.  In particular, where R<span class="rnrs">6</span>RS requires
 a condition of a specified type to be signaled, R<span class="rnrs">7</span>RS says only
-&ldquo;it is an error&rdquo;, leaving the question of signaling open.</p>
+&ldquo;it is an error&rdquo;, leaving the question of signaling open.</p></li>
 
-<p>\item Full Unicode support is not required.
+<li><p>Full Unicode support is not required.
 Normalization is not provided.
 Character comparisons are
 defined by Unicode, but string comparisons are implementation-dependent.
-Non-Unicode characters are permitted.</p>
+Non-Unicode characters are permitted.</p></li>
 
-<p>\item The full numeric tower is optional as in R<span class="rnrs">5</span>RS, but optional support for IEEE
+<li><p>The full numeric tower is optional as in R<span class="rnrs">5</span>RS, but optional support for IEEE
 infinities, NaN, and {\mbox -0.0} was adopted from R<span class="rnrs">6</span>RS. Most clarifications on
 numeric results were also adopted, but the R<span class="rnrs">6</span>RS procedures <code>real-valued?</code>,
 <code>rational-valued?</code>, and <code>integer-valued</code>? were not.
 The R<span class="rnrs">6</span>RS division operators <code>div</code>, <code>mod</code>, <code>div-and-mod</code>, {\cf
-div0}, <code>mod0</code> and <code>div0-and-mod0</code> are not provided.</p>
+div0}, <code>mod0</code> and <code>div0-and-mod0</code> are not provided.</p></li>
 
-<p>\item When a result is unspecified, it is still required to be a single value.
+<li><p>When a result is unspecified, it is still required to be a single value.
 However, non-final expressions
-in a body can return any number of values.</p>
+in a body can return any number of values.</p></li>
 
-<p>\item The semantics of <code>map</code> and <code>for-each</code> have been changed to use
-the SRFI 1~\cite{srfi1} early termination behavior. Likewise,
+<li><p>The semantics of <code>map</code> and <code>for-each</code> have been changed to use
+the SRFI 1 <a href="../ref/#srfi1">[srfi1]</a>
+ early termination behavior. Likewise,
 <code>assoc</code> and <code>member</code> take an optional <code>equal?</code> argument as in SRFI 1,
-instead of the separate <code>assp</code> and <code>memp</code> procedures of R<span class="rnrs">6</span>RS.</p>
+instead of the separate <code>assp</code> and <code>memp</code> procedures of R<span class="rnrs">6</span>RS.</p></li>
 
-<p>\item The R<span class="rnrs">6</span>RS~<code>quasiquote</code> clarifications have been adopted, with the
+<li><p>The R<span class="rnrs">6</span>RS~<code>quasiquote</code> clarifications have been adopted, with the
 exception of multiple-argument <code>unquote</code> and
-<code>unquote-splicing</code>.</p>
+<code>unquote-splicing</code>.</p></li>
 
-<p>\item The R<span class="rnrs">6</span>RS~method of specifying mantissa widths was not adopted.</p>
+<li><p>The R<span class="rnrs">6</span>RS~method of specifying mantissa widths was not adopted.</p></li>
 
-<p>\item String ports are compatible with SRFI 6~\cite{srfi6} rather than R<span class="rnrs">6</span>RS.</p>
+<li><p>String ports are compatible with SRFI 6 <a href="../ref/#srfi6">[srfi6]</a>
+ rather than R<span class="rnrs">6</span>RS.</p></li>
 
-<p>\item R<span class="rnrs">6</span>RS{}-style bytevectors are included, but
+<li><p>R<span class="rnrs">6</span>RS{}-style bytevectors are included, but
 only the unsigned byte (<code>u8</code>) procedures have been provided.
 The lexical syntax uses <code>#u8</code> for compatibility
-with SRFI 4~\cite{srfi4}, rather than the R<span class="rnrs">6</span>RS~<code>#vu8</code> style.</p>
+with SRFI 4 <a href="../ref/#srfi4">[srfi4]</a>
+, rather than the R<span class="rnrs">6</span>RS~<code>#vu8</code> style.</p></li>
 
-<p>\item The utility macros <code>when</code> and <code>unless</code> are provided, but
-their result is left unspecified.</p>
+<li><p>The utility macros <code>when</code> and <code>unless</code> are provided, but
+their result is left unspecified.</p></li>
 
-<p>\item The remaining features of the Standard Libraries document were
-left to future standardization efforts.</p>
-
-<p>\end{itemize}</p>
+<li><p>The remaining features of the Standard Libraries document were
+left to future standardization efforts.</p></li>
+</ul>
 
   </article>
 </div>

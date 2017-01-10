@@ -20,7 +20,8 @@
 
 &lt;p&gt;The report gives a defining description of the programming language
 Scheme.  Scheme is a statically scoped and properly tail recursive
-dialect of the Lisp programming language~\cite{McCarthy} invented by Guy Lewis
+dialect of the Lisp programming language &lt;a href=&#34;../ref/#McCarthy&#34;&gt;[McCarthy]&lt;/a&gt;
+ invented by Guy Lewis
 Steele Jr. and Gerald Jay Sussman.  It was designed to have
 exceptionally clear and simple semantics and few different ways to
 form expressions.  A wide variety of programming paradigms, including
@@ -72,7 +73,7 @@ collectively, support or do not support this report.&lt;/p&gt;
       <guid>https://tsahara.github.io/r7rs/intro/</guid>
       <description>
 
-&lt;p&gt;\clearextrapart{Introduction}&lt;/p&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;INTRODUCTION&lt;/h1&gt;
 
 &lt;a id=&#34;historysection&#34;&gt;&lt;/a&gt;
 
@@ -108,14 +109,19 @@ to be extended in a consistent and reliable manner.&lt;/p&gt;
 &lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
 
 &lt;p&gt;The first description of Scheme was written in
-1975~\cite{Scheme75}.  A revised report~\cite{Scheme78}
+1975 &lt;a href=&#34;../ref/#Scheme75&#34;&gt;[Scheme75]&lt;/a&gt;
+.  A revised report &lt;a href=&#34;../ref/#Scheme78&#34;&gt;[Scheme78]&lt;/a&gt;
+
 appeared in 1978, which described the evolution
 of the language as its MIT implementation was upgraded to support an
-innovative compiler~\cite{Rabbit}.  Three distinct projects began in
+innovative compiler &lt;a href=&#34;../ref/#Rabbit&#34;&gt;[Rabbit]&lt;/a&gt;
+.  Three distinct projects began in
 1981 and 1982 to use variants of Scheme for courses at MIT, Yale, and
-Indiana University~\cite{Rees82,MITScheme,Scheme311}.  An introductory
+Indiana University &lt;a href=&#34;../ref/#Rees82&#34;&gt;[Rees82]&lt;/a&gt;&lt;a href=&#34;../ref/#MITScheme&#34;&gt;[MITScheme]&lt;/a&gt;&lt;a href=&#34;../ref/#Scheme311&#34;&gt;[Scheme311]&lt;/a&gt;
+.  An introductory
 computer science textbook using Scheme was published in
-1984~\cite{SICP}.&lt;/p&gt;
+1984 &lt;a href=&#34;../ref/#SICP&#34;&gt;[SICP]&lt;/a&gt;
+.&lt;/p&gt;
 
 &lt;p&gt;As Scheme became more widespread,
 local dialects began to diverge until students and researchers
@@ -124,21 +130,27 @@ sites.
 Fifteen representatives of the major implementations of Scheme therefore
 met in October 1984 to work toward a better and more widely accepted
 standard for Scheme.
-Their report, the RRRS~\cite{RRRS},
+Their report, the RRRS &lt;a href=&#34;../ref/#RRRS&#34;&gt;[RRRS]&lt;/a&gt;
+,
 was published at MIT and Indiana University in the summer of 1985.
 Further revision took place in the spring of 1986, resulting in the
-R&lt;span class=&#34;rnrs&#34;&gt;3&lt;/span&gt;RS~\cite{R3RS}.
-Work in the spring of 1988 resulted in R&lt;span class=&#34;rnrs&#34;&gt;4&lt;/span&gt;RS~\cite{R4RS},
+R&lt;span class=&#34;rnrs&#34;&gt;3&lt;/span&gt;RS &lt;a href=&#34;../ref/#R3RS&#34;&gt;[R3RS]&lt;/a&gt;
+.
+Work in the spring of 1988 resulted in R&lt;span class=&#34;rnrs&#34;&gt;4&lt;/span&gt;RS &lt;a href=&#34;../ref/#R4RS&#34;&gt;[R4RS]&lt;/a&gt;
+,
 which became the basis for the
-IEEE Standard for the Scheme Programming Language in 1991~\cite{IEEEScheme}.
+IEEE Standard for the Scheme Programming Language in 1991 &lt;a href=&#34;../ref/#IEEEScheme&#34;&gt;[IEEEScheme]&lt;/a&gt;
+.
 In 1998, several additions to the IEEE standard, including high-level
 hygienic macros, multiple return values, and &lt;code&gt;eval&lt;/code&gt;, were finalized
-as the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS~\cite{R5RS}.&lt;/p&gt;
+as the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;
+.&lt;/p&gt;
 
 &lt;p&gt;In the fall of 2006, work began on a more ambitious standard,
 including many new improvements and stricter requirements made in the
 interest of improved portability.  The resulting standard, the
-R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS, was completed in August 2007~\cite{R6RS}, and was organized
+R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS, was completed in August 2007 &lt;a href=&#34;../ref/#R6RS&#34;&gt;[R6RS]&lt;/a&gt;
+, and was organized
 as a core language and set of mandatory standard libraries.
 Several new implementations of Scheme conforming to it were created.
 However, most existing R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS{} implementations (even excluding those
@@ -204,10 +216,16 @@ Sussman, Perry Wagle, Mitchel Wand, Daniel Weise, Henry Wu, and Ozan
 Yigit.  We thank Carol Fessenden, Daniel Friedman, and Christopher
 Haynes for permission to use text from the Scheme 311 version 4
 reference manual.  We thank Texas Instruments, Inc. for permission to
-use text from the {\em TI Scheme Language Reference
-Manual}~\cite{TImanual85}.  We gladly acknowledge the influence of
-manuals for MIT Scheme~\cite{MITScheme}, T~\cite{Rees84}, Scheme
-84~\cite{Scheme84}, Common Lisp~\cite{CLtL}, and Algol 60~\cite{Naur63},
+use text from the &lt;em&gt;TI Scheme Language Reference
+Manual&lt;/em&gt; &lt;a href=&#34;../ref/#TImanual85&#34;&gt;[TImanual85]&lt;/a&gt;
+.  We gladly acknowledge the influence of
+manuals for MIT Scheme &lt;a href=&#34;../ref/#MITScheme&#34;&gt;[MITScheme]&lt;/a&gt;
+, T &lt;a href=&#34;../ref/#Rees84&#34;&gt;[Rees84]&lt;/a&gt;
+, Scheme
+84 &lt;a href=&#34;../ref/#Scheme84&#34;&gt;[Scheme84]&lt;/a&gt;
+, Common Lisp &lt;a href=&#34;../ref/#CLtL&#34;&gt;[CLtL]&lt;/a&gt;
+, and Algol 60 &lt;a href=&#34;../ref/#Naur63&#34;&gt;[Naur63]&lt;/a&gt;
+,
 as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,
 all of which are available at &lt;a href=&#34;http://srfi.schemers.org&#34;&gt;http://srfi.schemers.org&lt;/a&gt;.&lt;/p&gt;
 </description>
@@ -241,7 +259,7 @@ language.  Each use of a variable is associated with a lexically
 apparent binding of that variable.&lt;/p&gt;
 
 &lt;p&gt;Scheme is a dynamically typed language.  Types
-are associated with values (also called objects\mainindex{object}) rather than
+are associated with values (also called objects) rather than
 with variables.
 Statically typed languages, by contrast, associate types with
 variables and expressions as well as with values.&lt;/p&gt;
@@ -321,35 +339,34 @@ sums.  The full list
 all the standard libraries and the identifiers they export is given in
 Appendix A.&lt;/p&gt;
 
-&lt;p&gt;All implementations of Scheme:
-\begin{itemize}&lt;/p&gt;
+&lt;p&gt;All implementations of Scheme:&lt;/p&gt;
 
-&lt;p&gt;\item Must provide the base library and all the identifiers
-exported from it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Must provide the base library and all the identifiers
+exported from it.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item May provide or omit the other
+&lt;li&gt;&lt;p&gt;May provide or omit the other
 libraries given in this report, but each library must either be provided
 in its entirety, exporting no additional identifiers, or else omitted
-altogether.&lt;/p&gt;
+altogether.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item May provide other libraries not described in this report.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;May provide other libraries not described in this report.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item May also extend the function of any identifier in this
+&lt;li&gt;&lt;p&gt;May also extend the function of any identifier in this
 report, provided the extensions are not in conflict with the language
-reported here.&lt;/p&gt;
+reported here.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Must support portable
+&lt;li&gt;&lt;p&gt;Must support portable
 code by providing a mode of operation in which the lexical syntax does
-not conflict with the lexical syntax described in this report.
-\end{itemize}&lt;/p&gt;
+not conflict with the lexical syntax described in this report.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&#34;1-3-2-error-situations-and-unspecified-behavior&#34;&gt;1.3.2. Error situations and unspecified behavior&lt;/h3&gt;
 
 &lt;a id=&#34;errorsituations&#34;&gt;&lt;/a&gt;
 
 
-&lt;p&gt;\mainindex{error}
-When speaking of an error situation, this report uses the phrase &amp;ldquo;an
+&lt;p&gt;When speaking of an error situation, this report uses the phrase &amp;ldquo;an
 error is signaled&amp;rdquo; to indicate that implementations must detect and
 report the error.
 An error is signaled by raising a non-continuable exception, as if by
@@ -358,7 +375,7 @@ and need not be distinct from objects previously used for the same purpose.
 In addition to errors signaled in situations described in this
 report, programmers can signal their own errors and handle signaled errors.&lt;/p&gt;
 
-&lt;p&gt;The phrase &amp;ldquo;an error that satisfies {\em predicate} is signaled&amp;rdquo; means that an error is
+&lt;p&gt;The phrase &amp;ldquo;an error that satisfies &lt;em&gt;predicate&lt;/em&gt; is signaled&amp;rdquo; means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
 passed to the specified predicate (such as &lt;code&gt;file-error?&lt;/code&gt; or {\cf
 read-error?}), the predicate returns \schtrue{}.&lt;/p&gt;
@@ -387,7 +404,7 @@ implementation is permitted to report that it is unable to continue
 execution of a correct program because of some restriction imposed by the
 implementation.  Implementation restrictions are discouraged,
 but implementations are encouraged to report violations of implementation
-restrictions.\mainindex{implementation restriction}&lt;/p&gt;
+restrictions.&lt;/p&gt;
 
 &lt;p&gt;For example, an implementation may report a violation of an
 implementation restriction if it does not have enough storage to run a
@@ -398,12 +415,13 @@ too large for the implementation to represent.&lt;/p&gt;
 &lt;p&gt;If the value of an expression is said to be &amp;ldquo;unspecified,&amp;rdquo; then
 the expression must evaluate to some object without signaling an error,
 but the value depends on the implementation; this report explicitly does
-not say what value is returned. \mainindex{unspecified}&lt;/p&gt;
+not say what value is returned.&lt;/p&gt;
 
 &lt;p&gt;Finally, the words and phrases &amp;ldquo;must,&amp;rdquo; &amp;ldquo;must not,&amp;rdquo; &amp;ldquo;shall,&amp;rdquo;
 &amp;ldquo;shall not,&amp;rdquo; &amp;ldquo;should,&amp;rdquo; &amp;ldquo;should not,&amp;rdquo; &amp;ldquo;may,&amp;rdquo; &amp;ldquo;required,&amp;rdquo;
 &amp;ldquo;recommended,&amp;rdquo; and &amp;ldquo;optional,&amp;rdquo; although not capitalized in this
-report, are to be interpreted as described in RFC~2119~\cite{rfc2119}.
+report, are to be interpreted as described in RFC~2119 &lt;a href=&#34;../ref/#rfc2119&#34;&gt;[rfc2119]&lt;/a&gt;
+.
 They are used only with reference to implementer or implementation behavior,
 not with reference to programmer or program behavior.&lt;/p&gt;
 
@@ -502,8 +520,6 @@ $$&lt;/p&gt;
 &lt;p&gt;The names \vr{start} and \vr{end} are used as indexes into strings,
 vectors, and bytevectors.  Their use implies the following:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}&lt;/p&gt;
-
 &lt;p&gt;\item{It is an error if \var{start} is greater than \var{end}.}&lt;/p&gt;
 
 &lt;p&gt;\item{It is an error if \var{end} is greater than the length of the
@@ -519,8 +535,6 @@ exclusive.  As an example, consider a string.  If
 \var{start} and \var{end} are the same, an empty
 substring is referred to, and if \var{start} is zero and \var{end} is
 the length of \var{string}, then the entire string is referred to.}&lt;/p&gt;
-
-&lt;p&gt;\end{itemize}&lt;/p&gt;
 
 &lt;h3 id=&#34;1-3-4-evaluation-examples&#34;&gt;1.3.4. Evaluation examples&lt;/h3&gt;
 
@@ -586,7 +600,7 @@ Scheme, see section~\ref{BNF}.&lt;/p&gt;
 &lt;a id=&#34;syntaxsection&#34;&gt;&lt;/a&gt;
 
 
-&lt;p&gt;An identifier\mainindex{identifier} is any sequence of letters, digits, and
+&lt;p&gt;An identifier is any sequence of letters, digits, and
 &amp;ldquo;extended identifier characters&amp;rdquo; provided that it does not have a prefix
 which is a valid number.
 However, the  \ide{.} token (a single period) used in the list syntax
@@ -631,18 +645,20 @@ the-word-recursion-has-many-meanings
 
 &lt;p&gt;See section~\ref{extendedalphas} for the formal syntax of identifiers.&lt;/p&gt;
 
-&lt;p&gt;Identifiers have two uses within Scheme programs:
-\begin{itemize}
-\item Any identifier can be used as a variable\index{variable}
- or as a syntactic keyword\index{syntactic keyword}
-(see sections~\ref{variablesection} and~\ref{macrosection}).&lt;/p&gt;
+&lt;p&gt;Identifiers have two uses within Scheme programs:&lt;/p&gt;
 
-&lt;p&gt;\item When an identifier appears as a literal or within a literal
-(see section~\ref{quote}), it is being used to denote a {\em symbol}
-(see section~\ref{symbolsection}).
-\end{itemize}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Any identifier can be used as a variable
+or as a syntactic keyword
+(see sections~\ref{variablesection} and~\ref{macrosection}).&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;In contrast with earlier revisions of the report~\cite{R5RS}, the
+&lt;li&gt;&lt;p&gt;When an identifier appears as a literal or within a literal
+(see section~\ref{quote}), it is being used to denote a &lt;em&gt;symbol&lt;/em&gt;
+(see section~\ref{symbolsection}).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In contrast with earlier revisions of the report &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;
+, the
 syntax distinguishes between upper and lower case in
 identifiers and in characters specified using their names.  However, it
 does not distinguish between upper and lower case in numbers,
@@ -690,7 +706,7 @@ is significant.&lt;/p&gt;
 Comments are treated exactly like whitespace.&lt;/p&gt;
 
 &lt;p&gt;A semicolon ({\tt;}) indicates the start of a line
-comment.\mainindex{comment}\mainschindex{;}  The comment continues to the
+comment.\mainschindex{;}  The comment continues to the
 end of the line on which the semicolon appears.&lt;/p&gt;
 
 &lt;p&gt;Another way to indicate a comment is to prefix a \hyper{datum}
@@ -700,7 +716,7 @@ the comment prefix {\tt #;}, the space, and the \hyper{datum} together.  This
 notation is useful for &amp;ldquo;commenting out&amp;rdquo; sections of code.&lt;/p&gt;
 
 &lt;p&gt;Block comments are indicated with properly nested {\tt
-  #|}\index{#&amp;ldquo;|@\texttt{\sharpsign\verticalbar}}\index{&amp;ldquo;|#@\texttt{\verticalbar\sharpsign}}
+  #|}}}
 and {\tt |#} pairs.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;#|
@@ -729,7 +745,7 @@ is also an identifier.
 A delimited period (not occurring within a number or identifier) is used
 in the notation for pairs (section~\ref{listsection}), and to indicate a
 rest-parameter in a  formal parameter list (section~\ref{lambda}).
-Note that a sequence of two or more periods {\em is} an identifier.&lt;/p&gt;
+Note that a sequence of two or more periods &lt;em&gt;is&lt;/em&gt; an identifier.&lt;/p&gt;
 
 &lt;p&gt;\item[\tt( )]
 Parentheses are used for grouping and to notate lists
@@ -855,14 +871,14 @@ it is an error for &lt;code&gt;quasiquote&lt;/code&gt; (section~\ref{quasiquote}
 &lt;a id=&#34;variablesection&#34;&gt;&lt;/a&gt;
 &lt;/p&gt;
 
-&lt;p&gt;An identifier\index{identifier} can name either a type of syntax or
+&lt;p&gt;An identifier can name either a type of syntax or
 a location where a value can be stored.  An identifier that names a type
-of syntax is called a {\em syntactic keyword}\mainindex{syntactic keyword}
-and is said to be {\em bound} to a transformer for that syntax.  An identifier that names a
-location is called a {\em variable}\mainindex{variable} and is said to be
-{\em bound} to that location.  The set of all visible
-bindings\mainindex{binding} in effect at some point in a program is
-known as the {\em environment} in effect at that point.  The value
+of syntax is called a &lt;em&gt;syntactic keyword&lt;/em&gt;
+and is said to be &lt;em&gt;bound&lt;/em&gt; to a transformer for that syntax.  An identifier that names a
+location is called a &lt;em&gt;variable&lt;/em&gt; and is said to be
+&lt;em&gt;bound&lt;/em&gt; to that location.  The set of all visible
+bindings in effect at some point in a program is
+known as the &lt;em&gt;environment&lt;/em&gt; in effect at that point.  The value
 stored in the location to which a variable is bound is called the
 variable&amp;rsquo;s value.  By abuse of terminology, the variable is sometimes
 said to name the value or to be bound to the value.  This is not quite
@@ -871,9 +887,9 @@ accurate, but confusion rarely results from this practice.&lt;/p&gt;
 &lt;p&gt;Certain expression types are used to create new kinds of syntax
 and to bind syntactic keywords to those new syntaxes, while other
 expression types create new locations and bind variables to those
-locations.  These expression types are called {\em binding constructs}.
-\mainindex{binding construct}
-Those that bind syntactic keywords are listed in section~\ref{macrosection}.
+locations.  These expression types are called &lt;em&gt;binding constructs&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Those that bind syntactic keywords are listed in section~\ref{macrosection}.
 The most fundamental of the variable binding constructs is the
 &lt;code&gt;lambda&lt;/code&gt; expression, because all other variable binding constructs
 can be explained in terms of &lt;code&gt;lambda&lt;/code&gt; expressions.  The other
@@ -897,8 +913,7 @@ the identifier whose region contains the use, then the use refers to the
 binding for the variable in the global environment, if any
 (chapters 4 and \ref{initialenv}); if there is no
 binding for the identifier,
-it is said to be \defining{unbound}.\mainindex{bound}\index{global
-environment}&lt;/p&gt;
+it is said to be \defining{unbound}.&lt;/p&gt;
 
 &lt;h2 id=&#34;3-2-disjointness-of-types&#34;&gt;3.2. Disjointness of types&lt;/h2&gt;
 
@@ -918,12 +933,12 @@ symbol?           vector?
 &lt;p&gt;and all predicates created by &lt;code&gt;define-record-type&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;These predicates define the types
-{\em boolean, bytevector, character}, the empty list object,
-{\em eof-object, number, pair, port, procedure, string, symbol, vector},
+&lt;em&gt;boolean, bytevector, character&lt;/em&gt;, the empty list object,
+&lt;em&gt;eof-object, number, pair, port, procedure, string, symbol, vector&lt;/em&gt;,
 and all record types.
-\mainindex{type}\schindex{boolean?}\schindex{pair?}\schindex{symbol?}
+\schindex{boolean?}\schindex{pair?}\schindex{symbol?}
 \schindex{number?}\schindex{char?}\schindex{string?}\schindex{vector?}
-\schindex{bytevector?}\schindex{port?}\schindex{procedure?}\index{empty list}
+\schindex{bytevector?}\schindex{port?}\schindex{procedure?}
 \schindex{eof-object?}&lt;/p&gt;
 
 &lt;p&gt;Although there is a separate boolean type,
@@ -932,15 +947,15 @@ conditional test.  As explained in section~\ref{booleansection}, all
 values count as true in such a test except for \schfalse{}.
 This report uses the word &amp;ldquo;true&amp;rdquo; to refer to any
 Scheme value except \schfalse{}, and the word &amp;ldquo;false&amp;rdquo; to refer to
-\schfalse{}. \mainindex{true} \mainindex{false}&lt;/p&gt;
+\schfalse{}.&lt;/p&gt;
 
 &lt;h2 id=&#34;3-3-external-representations&#34;&gt;3.3. External representations&lt;/h2&gt;
 
 &lt;a id=&#34;externalreps&#34;&gt;&lt;/a&gt;
 
 
-&lt;p&gt;An important concept in Scheme (and Lisp) is that of the {\em external
-representation} of an object as a sequence of characters.  For example,
+&lt;p&gt;An important concept in Scheme (and Lisp) is that of the &lt;em&gt;external
+representation&lt;/em&gt; of an object as a sequence of characters.  For example,
 an external representation of the integer 28 is the sequence of
 characters &amp;ldquo;{\tt 28}&amp;ldquo;, and an external representation of a list consisting
 of the integers 8 and 13 is the sequence of characters &amp;ldquo;{\tt(8 13)}&amp;ldquo;.&lt;/p&gt;
@@ -963,8 +978,8 @@ representations, and the procedure &lt;code&gt;write&lt;/code&gt; (section~\ref{
 generates them.  Together, they provide an elegant and powerful
 input/output facility.&lt;/p&gt;
 
-&lt;p&gt;Note that the sequence of characters &amp;ldquo;{\tt(+ 2 6)}&amp;rdquo; is {\em not} an
-external representation of the integer 8, even though it {\em is} an
+&lt;p&gt;Note that the sequence of characters &amp;ldquo;{\tt(+ 2 6)}&amp;rdquo; is &lt;em&gt;not&lt;/em&gt; an
+external representation of the integer 8, even though it &lt;em&gt;is&lt;/em&gt; an
 expression evaluating to the integer 8; rather, it is an external
 representation of a three-element list, the elements of which are the symbol
 {\tt +} and the integers 2 and 6.  Scheme&amp;rsquo;s syntax has the property that
@@ -985,7 +1000,7 @@ objects in the appropriate sections of chapter~\ref{initialenv}.&lt;/p&gt;
 
 
 &lt;p&gt;Variables and objects such as pairs, strings, vectors, and bytevectors implicitly
-denote locations\mainindex{location} or sequences of locations.  A string, for
+denote locations or sequences of locations.  A string, for
 example, denotes as many locations as there are characters in the string.
 A new value can be
 stored into one of these locations using the {\tt string-set!} procedure, but
@@ -1012,8 +1027,8 @@ vectors, and empty bytevectors, which contain no locations, may or may
 not be newly allocated.&lt;/p&gt;
 
 &lt;p&gt;Every object that denotes locations is
-either mutable\index{mutable} or
-immutable\index{immutable}.  Literal constants, the strings
+either mutable or
+immutable.  Literal constants, the strings
 returned by \ide{symbol-&amp;gt;string},
 and possibly the environment returned by &lt;code&gt;scheme-report-environment&lt;/code&gt;
 are immutable objects.  All objects
@@ -1032,7 +1047,7 @@ Hence, they do not necessarily correspond to memory addresses,
 and even if they do, the memory address might not be constant.&lt;/p&gt;
 
 &lt;p&gt;\begin{rationale}
-In many systems it is desirable for constants\index{constant} (i.e. the values of
+In many systems it is desirable for constants (i.e. the values of
 literal expressions) to reside in read-only memory.
 Making it an error to alter constants permits this implementation strategy,
 while not requiring other systems to distinguish between
@@ -1045,11 +1060,11 @@ mutable and immutable objects.
 
 
 &lt;p&gt;Implementations of Scheme are required to be
-{\em properly tail-recursive}\mainindex{proper tail recursion}.
+&lt;em&gt;properly tail-recursive&lt;/em&gt;.
 Procedure calls that occur in certain syntactic
-contexts defined below are {\em tail calls}.  A Scheme implementation is
+contexts defined below are &lt;em&gt;tail calls&lt;/em&gt;.  A Scheme implementation is
 properly tail-recursive if it supports an unbounded number of active
-tail calls.  A call is {\em active} if the called procedure might still
+tail calls.  A call is &lt;em&gt;active&lt;/em&gt; if the called procedure might still
 return.  Note that this includes calls that might be returned from either
 by the current continuation or by continuations captured earlier by
 &lt;code&gt;call-with-current-continuation&lt;/code&gt; that are later invoked.
@@ -1057,7 +1072,8 @@ In the absence of captured continuations, calls could
 return at most once and the active calls would be those that had not
 yet returned.
 A formal definition of proper tail recursion can be found
-in~\cite{propertailrecursion}.&lt;/p&gt;
+in &lt;a href=&#34;../ref/#propertailrecursion&#34;&gt;[propertailrecursion]&lt;/a&gt;
+.&lt;/p&gt;
 
 &lt;p&gt;\begin{rationale}&lt;/p&gt;
 
@@ -1082,30 +1098,33 @@ there was no need to include both in the language.&lt;/p&gt;
 
 &lt;p&gt;\end{rationale}&lt;/p&gt;
 
-&lt;p&gt;A {\em tail call}\mainindex{tail call} is a procedure call that occurs
-in a {\em tail context}.  Tail contexts are defined inductively.  Note
+&lt;p&gt;A &lt;em&gt;tail call&lt;/em&gt; is a procedure call that occurs
+in a &lt;em&gt;tail context&lt;/em&gt;.  Tail contexts are defined inductively.  Note
 that a tail context is always determined with respect to a particular lambda
 expression.&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item The last expression within the body of a lambda expression,
-  shown as \hyper{tail expression} below, occurs in a tail context.
-  The same is true of all the bodies of &lt;code&gt;case-lambda&lt;/code&gt; expressions.
+&lt;ul&gt;
+&lt;li&gt;The last expression within the body of a lambda expression,
+shown as \hyper{tail expression} below, occurs in a tail context.
+The same is true of all the bodies of &lt;code&gt;case-lambda&lt;/code&gt; expressions.
 \begin{grammar}
 (l\=ambda \meta{formals}
-  &amp;gt;\arbno{\meta{definition}} \arbno{\meta{expression}} \meta{tail expression})&lt;/p&gt;
+&amp;gt;\arbno{\meta{definition}} \arbno{\meta{expression}} \meta{tail expression})&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;(case-lambda \arbno{(\meta{formals} \meta{tail body})})
 \end{grammar}&lt;/p&gt;
 
-&lt;p&gt;\item If one of the following expressions is in a tail context,
+&lt;ul&gt;
+&lt;li&gt;If one of the following expressions is in a tail context,
 then the subexpressions shown as \meta{tail expression} are in a tail context.
 These were derived from rules in the grammar given in
 chapter 7 by replacing some occurrences of \meta{body}
 with \meta{tail body},  some occurrences of \meta{expression}
 with \meta{tail expression},  and some occurrences of \meta{sequence}
 with \meta{tail sequence}.  Only those rules that contain tail contexts
-are shown here.&lt;/p&gt;
+are shown here.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;\begin{grammar}
 (if \meta{expression} \meta{tail expression} \meta{tail expression})
@@ -1159,8 +1178,6 @@ then the (implied) call to
 the procedure that results from the evaluation of \hyperii{expression} is in a
 tail context.  \hyperii{expression} itself is not in a tail context.&lt;/p&gt;
 
-&lt;p&gt;\end{itemize}&lt;/p&gt;
-
 &lt;p&gt;Certain procedures defined in this report are also required to perform tail calls.
 The first argument passed to \ide{apply} and to
 \ide{call-with-current-continuation}, and the second argument passed to
@@ -1205,10 +1222,10 @@ implementation-dependent.)&lt;/p&gt;
 &lt;a id=&#34;expressionchapter&#34;&gt;&lt;/a&gt;
 
 
-&lt;p&gt;\newcommand{\syntax}{{\em Syntax: }}
-\newcommand{\semantics}{{\em Semantics: }}&lt;/p&gt;
+&lt;p&gt;\newcommand{\syntax}{_Syntax: _}
+\newcommand{\semantics}{_Semantics: _}&lt;/p&gt;
 
-&lt;p&gt;Expression types are categorized as {\em primitive} or {\em derived}.
+&lt;p&gt;Expression types are categorized as &lt;em&gt;primitive&lt;/em&gt; or &lt;em&gt;derived&lt;/em&gt;.
 Primitive expression types include variables and procedure calls.
 Derived expression types are not semantically primitive, but can instead
 be defined as macros.
@@ -1229,11 +1246,11 @@ with the &lt;code&gt;delay&lt;/code&gt;, &lt;code&gt;delay-force&lt;/code&gt;, a
 &lt;p&gt;\begin{entry}{
 \pproto{\hyper{variable}}{\exprtype}}&lt;/p&gt;
 
-&lt;p&gt;An expression consisting of a variable\index{variable}
+&lt;p&gt;An expression consisting of a variable
 (section~\ref{variablesection}) is a variable reference.  The value of
 the variable reference is the value stored in the location to which the
 variable is bound.  It is an error to reference an
-unbound\index{unbound} variable.&lt;/p&gt;
+unbound variable.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(define x 28)
 x   \ev  28
@@ -1307,7 +1324,7 @@ themselves; they need not be quoted.&lt;/p&gt;
 expression for the procedure to be called followed by expressions for the arguments to be
 passed to it.  The operator and operand expressions are evaluated (in an
 unspecified order) and the resulting procedure is passed the resulting
-arguments.\mainindex{call}\mainindex{procedure call}&lt;/p&gt;
+arguments.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(+ 3 4)                   \ev  7
 ((if #f + *) 3 4)         \ev  12
@@ -1386,20 +1403,20 @@ the results of the procedure call.&lt;/p&gt;
 
 &lt;p&gt;\hyper{Formals} have one of the following forms:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item {\tt(\hyperi{variable} \dotsfoo)}:
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;{\tt(\hyperi{variable} \dotsfoo)}:
 The procedure takes a fixed number of arguments; when the procedure is
 called, the arguments will be stored in fresh locations
-that are bound to the corresponding variables.&lt;/p&gt;
+that are bound to the corresponding variables.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \hyper{variable}:
+&lt;li&gt;&lt;p&gt;\hyper{variable}:
 The procedure takes any number of arguments; when the procedure is
 called, the sequence of actual arguments is converted into a newly
 allocated list, and the list is stored in a fresh location
 that is bound to
-\hyper{variable}.&lt;/p&gt;
+\hyper{variable}.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item {\tt(\hyperi{variable} \dotsfoo{} \hyper{variable$&lt;em&gt;{n}$} {\bf.}&lt;br /&gt;
+&lt;li&gt;&lt;p&gt;{\tt(\hyperi{variable} \dotsfoo{} \hyper{variable$&lt;em&gt;{n}$} {\bf.}&lt;br /&gt;
 \hyper{variable$&lt;/em&gt;{n+1}$})}:
 If a space-delimited period precedes the last variable, then
 the procedure takes $n$ or more arguments, where $n$ is the
@@ -1408,8 +1425,8 @@ at least one).
 The value stored in the binding of the last variable will be a
 newly allocated
 list of the actual arguments left over after all the other actual
-arguments have been matched up against the other formal arguments.
-\end{itemize}&lt;/p&gt;
+arguments have been matched up against the other formal arguments.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;It is an error for a \hyper{variable} to appear more than once in
 \hyper{formals}.&lt;/p&gt;
@@ -1438,7 +1455,7 @@ expressions.&lt;/p&gt;
 
 &lt;p&gt;\semantics
 An &lt;code&gt;if&lt;/code&gt; expression is evaluated as follows: first,
-\hyper{test} is evaluated.  If it yields a true value\index{true} (see
+\hyper{test} is evaluated.  If it yields a true value (see
 section~\ref{booleansection}), then \hyper{consequent} is evaluated and
 its values are returned.  Otherwise \hyper{alternate} is evaluated and its
 values are returned.  If \hyper{test} yields a false value and no
@@ -1465,7 +1482,7 @@ unspecified.&lt;/p&gt;
 &lt;p&gt;\semantics
 \hyper{Expression} is evaluated, and the resulting value is stored in
 the location to which \hyper{variable} is bound.  It is an error if \hyper{variable} is not
-bound either in some region\index{region} enclosing the &lt;code&gt;set!&lt;/code&gt; expression
+bound either in some region enclosing the &lt;code&gt;set!&lt;/code&gt; expression
 or else globally.
 The result of the &lt;code&gt;set!&lt;/code&gt; expression is
 unspecified.&lt;/p&gt;
@@ -1546,7 +1563,7 @@ an &amp;ldquo;else clause,&amp;rdquo; which has the form&lt;/p&gt;
 &lt;p&gt;\semantics
 A &lt;code&gt;cond&lt;/code&gt; expression is evaluated by evaluating the \hyper{test}
 expressions of successive \hyper{clause}s in order until one of them
-evaluates to a true value\index{true} (see
+evaluates to a true value (see
 section~\ref{booleansection}).  When a \hyper{test} evaluates to a true
 value, the remaining \hyper{expression}s in its \hyper{clause} are
 evaluated in order, and the results of the last \hyper{expression} in the
@@ -1697,7 +1714,7 @@ expression is unspecified.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(when (= 1 1.0)
   (display &amp;quot;1&amp;quot;)
   (display &amp;quot;2&amp;quot;))  \ev  \unspecified
- \&amp;gt;{\em and prints}  12
+ \&amp;gt;_and prints_  12
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
@@ -1716,7 +1733,7 @@ expression is unspecified.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(unless (= 1 1.0)
   (display &amp;quot;1&amp;quot;)
   (display &amp;quot;2&amp;quot;))  \ev  \unspecified
- \&amp;gt;{\em and prints nothing}
+ \&amp;gt;_and prints nothing_
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
@@ -1739,13 +1756,13 @@ implementation.  A
 
 &lt;p&gt;A \hyper{feature requirement} takes one of the following forms:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item {\tt\hyper{feature identifier}}
-\item {\tt(library \hyper{library name})}
-\item {\tt(and \hyper{feature requirement} \dotsfoo)}
-\item {\tt(or \hyper{feature requirement} \dotsfoo)}
-\item {\tt(not \hyper{feature requirement})}
-\end{itemize}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;{\tt\hyper{feature identifier}}&lt;/li&gt;
+&lt;li&gt;{\tt(library \hyper{library name})}&lt;/li&gt;
+&lt;li&gt;{\tt(and \hyper{feature requirement} \dotsfoo)}&lt;/li&gt;
+&lt;li&gt;{\tt(or \hyper{feature requirement} \dotsfoo)}&lt;/li&gt;
+&lt;li&gt;{\tt(not \hyper{feature requirement})}&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;\semantics
 Each implementation maintains a list of feature identifiers which are
@@ -1782,7 +1799,7 @@ appendix B.&lt;/p&gt;
 &lt;p&gt;The binding constructs &lt;code&gt;let&lt;/code&gt;, &lt;code&gt;let*&lt;/code&gt;, &lt;code&gt;letrec&lt;/code&gt;, &lt;code&gt;letrec*&lt;/code&gt;,
 &lt;code&gt;let-values&lt;/code&gt;, and &lt;code&gt;let*-values&lt;/code&gt;
 give Scheme a block structure, like Algol 60.  The syntax of the first four
-constructs is identical, but they differ in the regions\index{region} they establish
+constructs is identical, but they differ in the regions they establish
 for their variable bindings.  In a &lt;code&gt;let&lt;/code&gt; expression, the initial
 values are computed before any of the variables become bound; in a
 &lt;code&gt;let*&lt;/code&gt; expression, the bindings and evaluations are performed
@@ -1815,7 +1832,7 @@ unspecified order), the \hyper{variable}s are bound to fresh locations
 holding the results, the \hyper{body} is evaluated in the extended
 environment, and the values of the last expression of \hyper{body}
 are returned.  Each binding of a \hyper{variable} has \hyper{body} as its
-region.\index{region}&lt;/p&gt;
+region.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(let ((x 2) (y 3))
   (* x y))                      \ev  6
@@ -1846,7 +1863,7 @@ one or more expressions as described in section~\ref{lambda}.&lt;/p&gt;
 
 &lt;p&gt;\semantics
 The &lt;code&gt;let*&lt;/code&gt; binding construct is similar to &lt;code&gt;let&lt;/code&gt;, but the bindings are performed
-sequentially from left to right, and the region\index{region} of a binding indicated
+sequentially from left to right, and the region of a binding indicated
 by {\cf(\hyper{variable} \hyper{init})} is that part of the &lt;code&gt;let*&lt;/code&gt;
 expression to the right of the binding.  Thus the second binding is done
 in an environment in which the first binding is visible, and so on.
@@ -1881,7 +1898,7 @@ some unspecified order), each \hyper{variable} is assigned to the result
 of the corresponding \hyper{init}, the \hyper{body} is evaluated in the
 resulting environment, and the values of the last expression in
 \hyper{body} are returned.  Each binding of a \hyper{variable} has the
-entire &lt;code&gt;letrec&lt;/code&gt; expression as its region\index{region}, making it possible to
+entire &lt;code&gt;letrec&lt;/code&gt; expression as its region, making it possible to
 define mutually recursive procedures.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(letrec ((even?
@@ -1921,7 +1938,7 @@ In the most common uses of &lt;code&gt;letrec&lt;/code&gt;, all the \hyper{init}
 &lt;pre&gt;&lt;code&gt;((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;and \hyper{body}\index{body} is a sequence of
+&lt;p&gt;and \hyper{body} is a sequence of
 zero or more definitions followed by
 one or more expressions as described in section~\ref{lambda}. It is an error for a \hyper{variable} to appear more
 than once in the list of variables being bound.&lt;/p&gt;
@@ -1934,7 +1951,7 @@ evaluated in the resulting environment, and the values of the last
 expression in \hyper{body} are returned.
 Despite the left-to-right evaluation and assignment order, each binding of
 a \hyper{variable} has the entire &lt;code&gt;letrec*&lt;/code&gt; expression as its
-region\index{region}, making it possible to define mutually recursive
+region, making it possible to define mutually recursive
 procedures.&lt;/p&gt;
 
 &lt;p&gt;If it is not possible to evaluate each \hyper{init} without assigning or
@@ -1982,7 +1999,7 @@ the \hyper{formals} in a &lt;code&gt;lambda&lt;/code&gt; expression are matched 
 arguments in a procedure call.  Then, the \hyper{body} is evaluated in
 the extended environment, and the values of the last expression of
 \hyper{body} are returned.  Each binding of a \hyper{variable} has
-\hyper{body} as its region.\index{region}&lt;/p&gt;
+\hyper{body} as its region.&lt;/p&gt;
 
 &lt;p&gt;It is an error if the \hyper{formals} do not match the number of
 values returned by the corresponding \hyper{init}.&lt;/p&gt;
@@ -2068,7 +2085,7 @@ or input and output.&lt;/p&gt;
 
 (begin (display &amp;quot;4 plus 1 equals &amp;quot;)
        (display (+ 4 1)))      \ev  \unspecified
- \&amp;gt;{\em and prints}  4 plus 1 equals 5
+ \&amp;gt;_and prints_  4 plus 1 equals 5
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
@@ -2114,7 +2131,7 @@ expressions are evaluated in some unspecified order, the
 the last \hyper{expression} are returned.  If no \hyper{expression}s
 are present, then the value of the &lt;code&gt;do&lt;/code&gt; expression is unspecified.&lt;/p&gt;
 
-&lt;p&gt;The region\index{region} of the binding of a \hyper{variable}
+&lt;p&gt;The region of the binding of a \hyper{variable}
 consists of the entire &lt;code&gt;do&lt;/code&gt; expression except for the \hyper{init}s.
 It is an error for a \hyper{variable} to appear more than once in the
 list of &lt;code&gt;do&lt;/code&gt; variables.&lt;/p&gt;
@@ -2207,7 +2224,7 @@ unbounded space during evaluation.&lt;/p&gt;
 \proto{force}{ promise}{lazy library procedure}}&lt;/p&gt;
 
 &lt;p&gt;The &lt;code&gt;force&lt;/code&gt; procedure forces the value of a \var{promise} created
-by \ide{delay}, \ide{delay-force}, or \ide{make-promise}.\index{promise}
+by \ide{delay}, \ide{delay-force}, or \ide{make-promise}.
 If no value has been computed for the promise, then a value is
 computed and returned.  The value of the promise must be cached (or
 &amp;ldquo;memoized&amp;rdquo;) so that if it is forced a second time, the previously
@@ -2282,32 +2299,34 @@ p                     \ev  {\it{}a promise, still}
 &lt;p&gt;Various extensions to this semantics of &lt;code&gt;delay&lt;/code&gt;, &lt;code&gt;force&lt;/code&gt; and
 &lt;code&gt;delay-force&lt;/code&gt; are supported in some implementations:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item Calling &lt;code&gt;force&lt;/code&gt; on an object that is not a promise may simply
-return the object.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Calling &lt;code&gt;force&lt;/code&gt; on an object that is not a promise may simply
+return the object.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item It may be the case that there is no means by which a promise can be
+&lt;li&gt;&lt;p&gt;It may be the case that there is no means by which a promise can be
 operationally distinguished from its forced value.  That is, expressions
 like the following may evaluate to either \schtrue{} or to \schfalse{},
-depending on the implementation:&lt;/p&gt;
+depending on the implementation:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;(eqv? (delay 1) 1)          \ev  \unspecified
 (pair? (delay (cons 1 2)))  \ev  \unspecified
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;\item Implementations may implement &amp;ldquo;implicit forcing,&amp;rdquo; where
+&lt;ul&gt;
+&lt;li&gt;Implementations may implement &amp;ldquo;implicit forcing,&amp;rdquo; where
 the value of a promise is forced by procedures
 that operate only on arguments of a certain type, like &lt;code&gt;cdr&lt;/code&gt;
 and &lt;code&gt;*&lt;/code&gt;.  However, procedures that operate uniformly on their
-arguments, like &lt;code&gt;list&lt;/code&gt;, must not force them.&lt;/p&gt;
+arguments, like &lt;code&gt;list&lt;/code&gt;, must not force them.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;(+ (delay (* 3 7)) 13)  \ev  \unspecified
 (car
   (list (delay (* 3 7)) 13))    \ev {\it{}a promise}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;\end{itemize}
-\end{entry}&lt;/p&gt;
+&lt;p&gt;\end{entry}&lt;/p&gt;
 
 &lt;p&gt;\begin{entry}{
 \proto{promise?} { \var{obj}}{lazy library procedure}}&lt;/p&gt;
@@ -2481,10 +2500,10 @@ exceptions.&lt;/p&gt;
 \pproto{unquote-splicing}{\auxiliarytype}
 \pproto{\commaatsign}{\auxiliarytype}}&lt;/p&gt;
 
-&lt;p&gt;&amp;ldquo;Quasiquote&amp;rdquo;\index{backquote} expressions are useful
+&lt;p&gt;&amp;ldquo;Quasiquote&amp;rdquo; expressions are useful
 for constructing a list or vector structure when some but not all of the
 desired structure is known in advance.  If no
-commas\index{comma} appear within the \hyper{qq template}, the result of
+commas appear within the \hyper{qq template}, the result of
 evaluating
 \backquote\hyper{qq template} is equivalent to the result of evaluating
 \singlequote\hyper{qq template}.  If a comma\mainschindex{,} appears within the
@@ -2621,60 +2640,57 @@ the \hyper{formals} of any \hyper{clause}.&lt;/p&gt;
 
 
 &lt;p&gt;Scheme programs can define and use new derived expression types,
- called {\em macros}.\mainindex{macro}
+ called &lt;em&gt;macros&lt;/em&gt;.
 Program-defined expression types have the syntax&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(\hyper{keyword} {\hyper{datum}} ...)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;where \hyper{keyword} is an identifier that uniquely determines the
-expression type.  This identifier is called the {\em syntactic
-keyword}\index{syntactic keyword}, or simply {\em
-keyword}\index{keyword}, of the macro\index{macro keyword}.  The
+expression type.  This identifier is called the &lt;em&gt;syntactic
+keyword&lt;/em&gt;, or simply {\em
+keyword}, of the macro.  The
 number of the \hyper{datum}s, and their syntax, depends on the
 expression type.&lt;/p&gt;
 
-&lt;p&gt;Each instance of a macro is called a {\em use}\index{macro use}
+&lt;p&gt;Each instance of a macro is called a &lt;em&gt;use&lt;/em&gt;
 of the macro.
 The set of rules that specifies
 how a use of a macro is transcribed into a more primitive expression
-is called the {\em transformer}\index{macro transformer}
+is called the &lt;em&gt;transformer&lt;/em&gt;
 of the macro.&lt;/p&gt;
 
 &lt;p&gt;The macro definition facility consists of two parts:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item A set of expressions used to establish that certain identifiers
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;A set of expressions used to establish that certain identifiers
 are macro keywords, associate them with macro transformers, and control
-the scope within which a macro is defined, and&lt;/p&gt;
+the scope within which a macro is defined, and&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item a pattern language for specifying macro transformers.
-\end{itemize}&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;a pattern language for specifying macro transformers.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;The syntactic keyword of a macro can shadow variable bindings, and local
-variable bindings can shadow syntactic bindings.  \index{keyword}
+variable bindings can shadow syntactic bindings.
 Two mechanisms are provided to prevent unintended conflicts:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}&lt;/p&gt;
-
-&lt;p&gt;\item If a macro transformer inserts a binding for an identifier
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;If a macro transformer inserts a binding for an identifier
 (variable or keyword), the identifier will in effect be renamed
 throughout its scope to avoid conflicts with other identifiers.
 Note that a global variable definition may or may not introduce a binding;
-see section~\ref{defines}.&lt;/p&gt;
+see section~\ref{defines}.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item If a macro transformer inserts a free reference to an
+&lt;li&gt;&lt;p&gt;If a macro transformer inserts a free reference to an
 identifier, the reference refers to the binding that was visible
 where the transformer was specified, regardless of any local
-bindings that surround the use of the macro.&lt;/p&gt;
-
-&lt;p&gt;\end{itemize}&lt;/p&gt;
+bindings that surround the use of the macro.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;In consequence, all macros
 defined using the pattern language  are &amp;ldquo;hygienic&amp;rdquo; and &amp;ldquo;referentially
-transparent&amp;rdquo; and thus preserve Scheme&amp;rsquo;s lexical scoping.~\cite{Kohlbecker86,
-hygienic,Bawden88,macrosthatwork,syntacticabstraction}
-\mainindex{hygienic}\mainindex{referentially transparent}&lt;/p&gt;
+transparent&amp;rdquo; and thus preserve Scheme&amp;rsquo;s lexical scoping. &lt;a href=&#34;../ref/#Kohlbecker86&#34;&gt;[Kohlbecker86]&lt;/a&gt;&lt;a href=&#34;../ref/#hygienic&#34;&gt;[hygienic]&lt;/a&gt;&lt;a href=&#34;../ref/#Bawden88&#34;&gt;[Bawden88]&lt;/a&gt;&lt;a href=&#34;../ref/#macrosthatwork&#34;&gt;[macrosthatwork]&lt;/a&gt;&lt;a href=&#34;../ref/#syntacticabstraction&#34;&gt;[syntacticabstraction]&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Implementations may provide macro facilities of other types.&lt;/p&gt;
 
@@ -2838,7 +2854,7 @@ according to the template.&lt;/p&gt;
 (&lt;code&gt;_&lt;/code&gt;), a literal identifier listed in the list of \hyper{literal}s,
 or the \hyper{ellipsis}.
 All other identifiers appearing within a \hyper{pattern} are
-{\em pattern variables}.&lt;/p&gt;
+&lt;em&gt;pattern variables&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;The keyword at the beginning of the pattern in a
 \hyper{syntax rule} is not involved in the matching and
@@ -2869,55 +2885,55 @@ case it is matched as a literal.&lt;/p&gt;
 
 &lt;p&gt;More formally, an input expression $E$ matches a pattern $P$ if and only if:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item $P$ is an underscore (&lt;code&gt;_&lt;/code&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;$P$ is an underscore (&lt;code&gt;_&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item $P$ is a non-literal identifier; or&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;$P$ is a non-literal identifier; or&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item $P$ is a literal identifier and $E$ is an identifier with the same
-      binding; or&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;$P$ is a literal identifier and $E$ is an identifier with the same
+  binding; or&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item $P$ is a list &lt;code&gt;($P_1$ $\dots$ $P_n$)&lt;/code&gt; and $E$ is a
-      list of $n$
-      elements that match $P_1$ through $P_n$, respectively; or&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;$P$ is a list &lt;code&gt;($P_1$ $\dots$ $P_n$)&lt;/code&gt; and $E$ is a
+  list of $n$
+  elements that match $P_1$ through $P_n$, respectively; or&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item $P$ is an improper list
-      &lt;code&gt;($P_1$ $P_2$ $\dots$ $P_n$ . $P_{n+1&lt;/code&gt;$)}
-      and $E$ is a list or
-      improper list of $n$ or more elements that match $P_1$ through $P&lt;em&gt;n$,
-      respectively, and whose $n$th tail matches $P&lt;/em&gt;{n+1}$; or&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;$P$ is an improper list
+  &lt;code&gt;($P_1$ $P_2$ $\dots$ $P_n$ . $P_{n+1&lt;/code&gt;$)}
+  and $E$ is a list or
+  improper list of $n$ or more elements that match $P_1$ through $P&lt;em&gt;n$,
+  respectively, and whose $n$th tail matches $P&lt;/em&gt;{n+1}$; or&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item $P$ is of the form
-      &lt;code&gt;($P_1$ $\dots$ $P_k$ $P_e$ \meta{ellipsis&lt;/code&gt; $P_{m+1}$ \dotsfoo{} $P_n$)}
-      where $E$ is
-      a proper list of $n$ elements, the first $k$ of which match
-      $P_1$ through $P_k$, respectively,
-      whose next $m-k$ elements each match $P&lt;em&gt;e$,
-      whose remaining $n-m$ elements match $P&lt;/em&gt;{m+1}$ through $P_n$; or&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;$P$ is of the form
+  &lt;code&gt;($P_1$ $\dots$ $P_k$ $P_e$ \meta{ellipsis&lt;/code&gt; $P_{m+1}$ \dotsfoo{} $P_n$)}
+  where $E$ is
+  a proper list of $n$ elements, the first $k$ of which match
+  $P_1$ through $P_k$, respectively,
+  whose next $m-k$ elements each match $P&lt;em&gt;e$,
+  whose remaining $n-m$ elements match $P&lt;/em&gt;{m+1}$ through $P_n$; or&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item $P$ is of the form
-      &lt;code&gt;($P_1$ $\dots$ $P_k$ $P_{e&lt;/code&gt;$ \meta{ellipsis} $P_{m+1}$ \dotsfoo{} $P_n$ . $P_x$)}
-      where $E$ is
-      a list or improper list of $n$ elements, the first $k$ of which match
-      $P_1$ through $P_k$,
-      whose next $m-k$ elements each match $P&lt;em&gt;e$,
-      whose remaining $n-m$ elements match $P&lt;/em&gt;{m+1}$ through $P_n$,
-      and whose $n$th and final cdr matches $P_x$; or&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;$P$ is of the form
+  &lt;code&gt;($P_1$ $\dots$ $P_k$ $P_{e&lt;/code&gt;$ \meta{ellipsis} $P_{m+1}$ \dotsfoo{} $P_n$ . $P_x$)}
+  where $E$ is
+  a list or improper list of $n$ elements, the first $k$ of which match
+  $P_1$ through $P_k$,
+  whose next $m-k$ elements each match $P&lt;em&gt;e$,
+  whose remaining $n-m$ elements match $P&lt;/em&gt;{m+1}$ through $P_n$,
+  and whose $n$th and final cdr matches $P_x$; or&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item $P$ is a vector of the form &lt;code&gt;#($P_1$ $\dots$ $P_n$)&lt;/code&gt;
-      and $E$ is a vector
-      of $n$ elements that match $P_1$ through $P_n$; or&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;$P$ is a vector of the form &lt;code&gt;#($P_1$ $\dots$ $P_n$)&lt;/code&gt;
+  and $E$ is a vector
+  of $n$ elements that match $P_1$ through $P_n$; or&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item $P$ is of the form
-      &lt;code&gt;#($P_1$ $\dots$ $P_k$ $P_{e&lt;/code&gt;$ \meta{ellipsis} $P_{m+1}$ \dotsfoo $P_n$)}
-      where $E$ is a vector of $n$
-      elements the first $k$ of which match $P_1$ through $P_k$,
-      whose next $m-k$ elements each match $P&lt;em&gt;e$,
-      and whose remaining $n-m$ elements match $P&lt;/em&gt;{m+1}$ through $P_n$; or&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;$P$ is of the form
+  &lt;code&gt;#($P_1$ $\dots$ $P_k$ $P_{e&lt;/code&gt;$ \meta{ellipsis} $P_{m+1}$ \dotsfoo $P_n$)}
+  where $E$ is a vector of $n$
+  elements the first $k$ of which match $P_1$ through $P_k$,
+  whose next $m-k$ elements each match $P&lt;em&gt;e$,
+  and whose remaining $n-m$ elements match $P&lt;/em&gt;{m+1}$ through $P_n$; or&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item $P$ is a constant and $E$ is equal to $P$ in the sense of
-      the &lt;code&gt;equal?&lt;/code&gt; procedure.
-\end{itemize}&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;$P$ is a constant and $E$ is equal to $P$ in the sense of
+  the &lt;code&gt;equal?&lt;/code&gt; procedure.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;It is an error to use a macro keyword, within the scope of its
 binding, in an expression that does not match any of the patterns.&lt;/p&gt;
@@ -3055,8 +3071,7 @@ Definitions are either variable definitions, syntax definitions, or
 record-type definitions, all of which are explained in this chapter.
 They are valid in some, but not all, contexts where expressions
 are allowed, specifically at the outermost level of a \hyper{program}
-and at the beginning of a \hyper{body}.
-\mainindex{definition}&lt;/p&gt;
+and at the beginning of a \hyper{body}.&lt;/p&gt;
 
 &lt;p&gt;At the outermost level of a program, {\tt(begin \hyperi{expression or definition} \dotsfoo)} is
 equivalent to the sequence of expressions and definitions
@@ -3097,43 +3112,41 @@ exported by a library.  Each \hyper{import set} names a set of bindings
 from a library and possibly specifies local names for the
 imported bindings. It takes one of the following forms:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item {\tt\hyper{library name}}
-\item {\tt(only \hyper{import set} \hyper{identifier} \dotsfoo)}
-\item {\tt(except \hyper{import set} \hyper{identifier} \dotsfoo)}
-\item {\tt(prefix \hyper{import set} \hyper{identifier})}
-\item {\tt(rename \hyper{import set}&lt;br /&gt;
+&lt;ul&gt;
+&lt;li&gt;{\tt\hyper{library name}}&lt;/li&gt;
+&lt;li&gt;{\tt(only \hyper{import set} \hyper{identifier} \dotsfoo)}&lt;/li&gt;
+&lt;li&gt;{\tt(except \hyper{import set} \hyper{identifier} \dotsfoo)}&lt;/li&gt;
+&lt;li&gt;{\tt(prefix \hyper{import set} \hyper{identifier})}&lt;/li&gt;
+&lt;li&gt;{\tt(rename \hyper{import set}&lt;br /&gt;
 {\obeyspaces
-\hspace*{4em}(\hyperi{identifier} \hyperii{identifier}) \dotsfoo)}}
-\end{itemize}&lt;/p&gt;
+\hspace*{4em}(\hyperi{identifier} \hyperii{identifier}) \dotsfoo)}}&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;In the first form, all of the identifiers in the named library&amp;rsquo;s export
 clauses are imported with the same names (or the exported names if
 exported with \ide{rename}).  The additional \hyper{import set}
 forms modify this set as follows:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;\ide{only} produces a subset of the given
+\hyper{import set} including only the listed identifiers (after any
+renaming).  It is an error if any of the listed identifiers are
+not found in the original set.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \ide{only} produces a subset of the given
-  \hyper{import set} including only the listed identifiers (after any
-  renaming).  It is an error if any of the listed identifiers are
-  not found in the original set.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\ide{except} produces a subset of the given
+\hyper{import set}, excluding the listed identifiers (after any
+renaming). It is an error if any of the listed identifiers are not
+found in the original set.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \ide{except} produces a subset of the given
-  \hyper{import set}, excluding the listed identifiers (after any
-  renaming). It is an error if any of the listed identifiers are not
-  found in the original set.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\ide{rename} modifies the given \hyper{import set},
+replacing each instance of \hyperi{identifier} with
+\hyperii{identifier}. It is an error if any of the listed
+\hyperi{identifier}s are not found in the original set.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \ide{rename} modifies the given \hyper{import set},
-  replacing each instance of \hyperi{identifier} with
-  \hyperii{identifier}. It is an error if any of the listed
-  \hyperi{identifier}s are not found in the original set.&lt;/p&gt;
-
-&lt;p&gt;\item \ide{prefix} automatically renames all identifiers in
-  the given \hyper{import set}, prefixing each with the specified
-  \hyper{identifier}.&lt;/p&gt;
-
-&lt;p&gt;\end{itemize}&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\ide{prefix} automatically renames all identifiers in
+the given \hyper{import set}, prefixing each with the specified
+\hyper{identifier}.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;In a program or library declaration, it is an error to import the same
 identifier more than once with different bindings, or to redefine or
@@ -3143,16 +3156,13 @@ However, a REPL should permit these actions.&lt;/p&gt;
 
 &lt;h2 id=&#34;5-3-variable-definitions&#34;&gt;5.3. Variable definitions&lt;/h2&gt;
 
-&lt;p&gt;&lt;a id=&#34;defines&#34;&gt;&lt;/a&gt;
+&lt;a id=&#34;defines&#34;&gt;&lt;/a&gt;
 
-\mainindex{variable definition}&lt;/p&gt;
 
 &lt;p&gt;A variable definition binds one or more identifiers and specifies an initial
 value for each of them.
 The simplest kind of variable definition
 takes one of the following forms:\mainschindex{define}&lt;/p&gt;
-
-&lt;p&gt;\begin{itemize}&lt;/p&gt;
 
 &lt;p&gt;\item{\tt(define \hyper{variable} \hyper{expression})}&lt;/p&gt;
 
@@ -3176,8 +3186,6 @@ variable.  This form is equivalent to&lt;/p&gt;
   (lambda \hyper{formal} \hyper{body}))\rm.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;\end{itemize}&lt;/p&gt;
-
 &lt;h3 id=&#34;5-3-1-top-level-definitions&#34;&gt;5.3.1. Top level definitions&lt;/h3&gt;
 
 &lt;p&gt;At the outermost level of a program, a definition&lt;/p&gt;
@@ -3196,7 +3204,7 @@ or is a syntactic keyword,
 then the definition will bind
 \hyper{variable} to a new location before performing the assignment,
 whereas it would be an error to perform a &lt;code&gt;set!&lt;/code&gt; on an
-unbound\index{unbound} variable.&lt;/p&gt;
+unbound variable.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(define add3
   (lambda (x) (+ x 3)))
@@ -3216,8 +3224,7 @@ beginning of a \hyper{body} (that is, the body of a \ide{lambda},
 \ide{let-values}, \ide{let*-values}, \ide{let-syntax}, \ide{letrec-syntax},
 \ide{parameterize}, \ide{guard}, or \ide{case-lambda}).  Note that
 such a body might not be apparent until after expansion of other syntax.
-Such definitions are known as {\em internal definitions}\mainindex{internal
-definition} as opposed to the global definitions described above.
+Such definitions are known as &lt;em&gt;internal definitions&lt;/em&gt; as opposed to the global definitions described above.
 The variables defined by internal definitions are local to the
 \hyper{body}.  That is, \hyper{variable} is bound rather than assigned,
 and the region of the binding is the entire \hyper{body}.  For example,&lt;/p&gt;
@@ -3284,8 +3291,7 @@ call.&lt;/p&gt;
 
 &lt;h2 id=&#34;5-4-syntax-definitions&#34;&gt;5.4. Syntax definitions&lt;/h2&gt;
 
-&lt;p&gt;\mainindex{syntax definition}
-Syntax definitions have this form:\mainschindex{define-syntax}&lt;/p&gt;
+&lt;p&gt;Syntax definitions have this form:\mainschindex{define-syntax}&lt;/p&gt;
 
 &lt;p&gt;{\tt(define-syntax \hyper{keyword} \hyper{transformer spec})}&lt;/p&gt;
 
@@ -3390,38 +3396,36 @@ the same name or structure.&lt;/p&gt;
 &lt;p&gt;An instance of &lt;code&gt;define-record-type&lt;/code&gt; is equivalent to the following
 definitions:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}&lt;/p&gt;
-
-&lt;p&gt;\item \hyper{name} is bound to a representation of the record type itself.
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;\hyper{name} is bound to a representation of the record type itself.
 This may be a run-time object or a purely syntactic representation.
 The representation is not utilized in this report, but it serves as a
-means to identify the record type for use by further language extensions.&lt;/p&gt;
+means to identify the record type for use by further language extensions.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \hyper{constructor name} is bound to a procedure that takes as
-  many arguments as there are \hyper{field name}s in the
-  \texttt{(\hyper{constructor name} \dotsfoo)} subexpression and returns a
-  new record of type \hyper{name}.  Fields whose names are listed with
-  \hyper{constructor name} have the corresponding argument as their
-  initial value.  The initial values of all other fields are
-  unspecified.  It is an error for a field name to appear in
-  \hyper{constructor} but not as a \hyper{field name}.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\hyper{constructor name} is bound to a procedure that takes as
+many arguments as there are \hyper{field name}s in the
+\texttt{(\hyper{constructor name} \dotsfoo)} subexpression and returns a
+new record of type \hyper{name}.  Fields whose names are listed with
+\hyper{constructor name} have the corresponding argument as their
+initial value.  The initial values of all other fields are
+unspecified.  It is an error for a field name to appear in
+\hyper{constructor} but not as a \hyper{field name}.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \hyper{pred} is bound to a predicate that returns \schtrue{} when given a
-  value returned by the procedure bound to  \hyper{constructor name} and \schfalse{} for
-  everything else.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\hyper{pred} is bound to a predicate that returns \schtrue{} when given a
+value returned by the procedure bound to  \hyper{constructor name} and \schfalse{} for
+everything else.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Each \hyper{accessor name} is bound to a procedure that takes a record of
-  type \hyper{name} and returns the current value of the corresponding
-  field.  It is an error to pass an accessor a value which is not a
-  record of the appropriate type.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Each \hyper{accessor name} is bound to a procedure that takes a record of
+type \hyper{name} and returns the current value of the corresponding
+field.  It is an error to pass an accessor a value which is not a
+record of the appropriate type.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Each \hyper{modifier name} is bound to a procedure that takes a record of
-  type \hyper{name} and a value which becomes the new value of the
-  corresponding field; an unspecified value is returned.  It is an
-  error to pass a modifier a first argument which is not a record of
-  the appropriate type.&lt;/p&gt;
-
-&lt;p&gt;\end{itemize}&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Each \hyper{modifier name} is bound to a procedure that takes a record of
+type \hyper{name} and a value which becomes the new value of the
+corresponding field; an unspecified value is returned.  It is an
+error to pass a modifier a first argument which is not a record of
+the appropriate type.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;For instance, the following record-type definition&lt;/p&gt;
 
@@ -3480,8 +3484,6 @@ or control characters after escapes are expanded.&lt;/p&gt;
 
 A \hyper{library declaration} is any of:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}&lt;/p&gt;
-
 &lt;p&gt;\item{\tt(export \hyper{export spec} \dotsfoo)}&lt;/p&gt;
 
 &lt;p&gt;\item{\tt(import \hyper{import set} \dotsfoo)}&lt;/p&gt;
@@ -3496,16 +3498,12 @@ A \hyper{library declaration} is any of:&lt;/p&gt;
 
 &lt;p&gt;\item{\tt(cond-expand \hyperi{ce-clause} \hyperii{ce-clause} \dotsfoo)}&lt;/p&gt;
 
-&lt;p&gt;\end{itemize}&lt;/p&gt;
-
 &lt;p&gt;An \ide{export} declaration specifies a list of identifiers which
 can be made visible to other libraries or programs.
 An \hyper{export spec} takes one of the following forms:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item{\hyper{identifier}}
-\item{\tt{(rename \hyperi{identifier} \hyperii{identifier})}}
-\end{itemize}&lt;/p&gt;
+&lt;p&gt;\item{\hyper{identifier}}
+\item{\tt{(rename \hyperi{identifier} \hyperii{identifier})}}&lt;/p&gt;
 
 &lt;p&gt;In an \hyper{export spec}, an \hyper{identifier} names a single
 binding defined within or imported into the library, where the
@@ -3573,7 +3571,8 @@ has the same effect as &lt;code&gt;(import (only (foo) a b))&lt;/code&gt;.&lt;/p
 
 &lt;p&gt;The following example shows
 how a program can be divided into libraries plus a relatively small
-main program~\cite{life}.
+main program &lt;a href=&#34;../ref/#life&#34;&gt;[life]&lt;/a&gt;
+.
 If the main program is entered into a REPL, it is not necessary to import
 the base library.&lt;/p&gt;
 
@@ -3715,10 +3714,6 @@ the beginning.&lt;/p&gt;
 &lt;a id=&#34;builtinchapter&#34;&gt;&lt;/a&gt;
 &lt;/p&gt;
 
-&lt;p&gt;\mainindex{initial environment}
-\mainindex{global environment}
-\mainindex{procedure}&lt;/p&gt;
-
 &lt;p&gt;This chapter describes Scheme&amp;rsquo;s built-in procedures.&lt;/p&gt;
 
 &lt;p&gt;The procedures &lt;code&gt;force&lt;/code&gt;, &lt;code&gt;promise?&lt;/code&gt;, and &lt;code&gt;make-promise&lt;/code&gt; are intimately associated
@@ -3762,78 +3757,77 @@ open to interpretation, but the following partial specification of
 
 &lt;p&gt;The &lt;code&gt;eqv?&lt;/code&gt; procedure returns \schtrue{} if:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item \vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are both symbols and are the same
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both symbols and are the same
 symbol according to the &lt;code&gt;symbol=?&lt;/code&gt; procedure
-(section~\ref{symbolsection}).&lt;/p&gt;
+(section~\ref{symbolsection}).&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are both exact numbers and
-are numerically equal (in the sense of &lt;code&gt;=&lt;/code&gt;).&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both exact numbers and
+are numerically equal (in the sense of &lt;code&gt;=&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are both inexact numbers such that
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both inexact numbers such that
 they are numerically equal (in the sense of &lt;code&gt;=&lt;/code&gt;)
 and they yield the same results (in the sense of &lt;code&gt;eqv?&lt;/code&gt;)
 when passed as arguments to any other procedure
 that can be defined as a finite composition of Scheme&amp;rsquo;s standard
-arithmetic procedures, provided it does not result in a NaN value.&lt;/p&gt;
+arithmetic procedures, provided it does not result in a NaN value.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are both characters and are the same
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both characters and are the same
 character according to the &lt;code&gt;char=?&lt;/code&gt; procedure
-(section~\ref{charactersection}).&lt;/p&gt;
+(section~\ref{charactersection}).&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are both the empty list.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both the empty list.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
 or strings that denote the same location in the store
-(section~\ref{storagemodel}).&lt;/p&gt;
+(section~\ref{storagemodel}).&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are procedures whose location tags are
-equal (section~\ref{lambda}).
-\end{itemize}&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are procedures whose location tags are
+equal (section~\ref{lambda}).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;The &lt;code&gt;eqv?&lt;/code&gt; procedure returns \schfalse{} if:&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item \vari{obj} and \varii{obj} are of different types
-(section~\ref{disjointness}).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are of different types
+(section~\ref{disjointness}).&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item one of \vari{obj} and \varii{obj} is \schtrue{} but the other is
-\schfalse{}.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;one of \vari{obj} and \varii{obj} is \schtrue{} but the other is
+\schfalse{}.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are symbols but are not the same
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are symbols but are not the same
 symbol according to the &lt;code&gt;symbol=?&lt;/code&gt; procedure
-(section~\ref{symbolsection}).&lt;/p&gt;
+(section~\ref{symbolsection}).&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item one of \vari{obj} and \varii{obj} is an exact number but the other
-is an inexact number.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;one of \vari{obj} and \varii{obj} is an exact number but the other
+is an inexact number.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are both exact numbers and
-are numerically unequal (in the sense of &lt;code&gt;=&lt;/code&gt;).&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both exact numbers and
+are numerically unequal (in the sense of &lt;code&gt;=&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are both inexact numbers such that either
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both inexact numbers such that either
 they are numerically unequal (in the sense of &lt;code&gt;=&lt;/code&gt;),
 or they do not yield the same results (in the sense of &lt;code&gt;eqv?&lt;/code&gt;)
 when passed as arguments to any other procedure
 that can be defined as a finite composition of Scheme&amp;rsquo;s standard
 arithmetic procedures, provided it does not result in a NaN value.
 As an exception, the behavior of &lt;code&gt;eqv?&lt;/code&gt; is unspecified
-when both \vari{obj} and \varii{obj} are NaN.&lt;/p&gt;
+when both \vari{obj} and \varii{obj} are NaN.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are characters for which the &lt;code&gt;char=?&lt;/code&gt;
-procedure returns \schfalse{}.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are characters for which the &lt;code&gt;char=?&lt;/code&gt;
+procedure returns \schfalse{}.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item one of \vari{obj} and \varii{obj} is the empty list but the other
-is not.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;one of \vari{obj} and \varii{obj} is the empty list but the other
+is not.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
-or strings that denote distinct locations.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are pairs, vectors, bytevectors, records,
+or strings that denote distinct locations.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item \vari{obj} and \varii{obj} are procedures that would behave differently
-(return different values or have different side effects) for some arguments.&lt;/p&gt;
-
-&lt;p&gt;\end{itemize}&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are procedures that would behave differently
+(return different values or have different side effects) for some arguments.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;(eqv? &#39;a &#39;a)                     \ev  \schtrue
 (eqv? &#39;a &#39;b)                     \ev  \schfalse
@@ -4016,9 +4010,8 @@ the same.&lt;/p&gt;
 
 &lt;h2 id=&#34;6-2-numbers&#34;&gt;6.2. Numbers&lt;/h2&gt;
 
-&lt;p&gt;&lt;a id=&#34;numbersection&#34;&gt;&lt;/a&gt;
+&lt;a id=&#34;numbersection&#34;&gt;&lt;/a&gt;
 
-\index{number}&lt;/p&gt;
 
 &lt;p&gt;\newcommand{\type}[1]{{\it#1}}
 \newcommand{\tupe}[1]{{#1}}&lt;/p&gt;
@@ -4032,9 +4025,8 @@ and Scheme numbers.&lt;/p&gt;
 
 &lt;h3 id=&#34;6-2-1-numerical-types&#34;&gt;6.2.1. Numerical types&lt;/h3&gt;
 
-&lt;p&gt;&lt;a id=&#34;numericaltypes&#34;&gt;&lt;/a&gt;
+&lt;a id=&#34;numericaltypes&#34;&gt;&lt;/a&gt;
 
-\index{numerical types}&lt;/p&gt;
 
 &lt;p&gt;Mathematically, numbers are arranged into a tower of subtypes
 in which each level is a subset of the level above it:
@@ -4065,8 +4057,8 @@ simple programs.&lt;/p&gt;
 
 &lt;h3 id=&#34;6-2-2-exactness&#34;&gt;6.2.2. Exactness&lt;/h3&gt;
 
-&lt;p&gt;\mainindex{exactness} &lt;a id=&#34;exactly&#34;&gt;&lt;/a&gt;
-&lt;/p&gt;
+&lt;a id=&#34;exactly&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;It is useful to distinguish between numbers that are
 represented exactly and those that might not be.  For example, indexes
@@ -4122,8 +4114,8 @@ silently or noisily in other implementation-specific ways.&lt;/p&gt;
 
 &lt;h3 id=&#34;6-2-3-implementation-restrictions&#34;&gt;6.2.3. Implementation restrictions&lt;/h3&gt;
 
-&lt;p&gt;\index{implementation restriction}&lt;a id=&#34;restrictions&#34;&gt;&lt;/a&gt;
-&lt;/p&gt;
+&lt;a id=&#34;restrictions&#34;&gt;&lt;/a&gt;
+
 
 &lt;p&gt;Implementations of Scheme are not required to implement the whole
 tower of subtypes given in section~\ref{numericaltypes},
@@ -4203,7 +4195,8 @@ floating-point representations
 follow the IEEE 754 standard,
 and that implementations using
 other representations should match or exceed the precision achievable
-using these floating-point standards~\cite{IEEE}.
+using these floating-point standards &lt;a href=&#34;../ref/#IEEE&#34;&gt;[IEEE]&lt;/a&gt;
+.
 In particular, the description of transcendental functions in IEEE 754-2008
 should be followed by such implementations, particularly with respect
 to infinities and NaNs.&lt;/p&gt;
@@ -4219,8 +4212,6 @@ violation of an implementation restriction or it may silently represent the
 constant by an \tupe{inexact} number.&lt;/p&gt;
 
 &lt;h3 id=&#34;6-2-4-implementation-extensions&#34;&gt;6.2.4. Implementation extensions&lt;/h3&gt;
-
-&lt;p&gt;\index{implementation extension}&lt;/p&gt;
 
 &lt;p&gt;Implementations may provide more than one representation of
 floating-point numbers with differing precisions.  In an implementation
@@ -4767,9 +4758,9 @@ If the argument is infinite or a NaN, then it is returned.&lt;/p&gt;
 \proto{rationalize}{ x y}{procedure}
 }&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;rationalize&lt;/code&gt; procedure returns the {\em simplest} rational number
+&lt;p&gt;The &lt;code&gt;rationalize&lt;/code&gt; procedure returns the &lt;em&gt;simplest&lt;/em&gt; rational number
 differing from \vr{x} by no more than \vr{y}.  A rational number $r_1$ is
-{\em simpler} \mainindex{simplest rational} than another rational number
+&lt;em&gt;simpler&lt;/em&gt;  than another rational number
 $r_2$ if $r_1 = p_1/q_1$ and $r_2 = p_2/q_2$ (in lowest terms) and $|p_1|
 \leq |p_2|$ and $|q_1| \leq |q_2|$.  Thus $&lt;sup&gt;3&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt;$ is simpler than $&lt;sup&gt;4&lt;/sup&gt;&amp;frasl;&lt;sub&gt;7&lt;/sub&gt;$.
 Although not all rationals are comparable in this ordering (consider $&lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;7&lt;/sub&gt;$
@@ -4853,8 +4844,10 @@ $\ast$&amp;amp; $y = -0.0$ &amp;amp; $x = 0$    &amp;amp; $-\frac{\pi}{2}$
 \end{tabular}
 \end{center}&lt;/p&gt;
 
-&lt;p&gt;The above specification follows~\cite{CLtL}, which in turn
-cites~\cite{Penfield81}; refer to these sources for more detailed
+&lt;p&gt;The above specification follows &lt;a href=&#34;../ref/#CLtL&#34;&gt;[CLtL]&lt;/a&gt;
+, which in turn
+cites &lt;a href=&#34;../ref/#Penfield81&#34;&gt;[Penfield81]&lt;/a&gt;
+; refer to these sources for more detailed
 discussion of branch cuts, boundary conditions, and implementation of
 these functions.  When it is possible, these procedures produce a real
 result from a real argument.&lt;/p&gt;
@@ -5026,7 +5019,8 @@ can be satisfied by a result that contains a decimal point,
 then the result contains a decimal point and is expressed using the
 minimum number of digits (exclusive of exponent and trailing
 zeroes) needed to make the above expression
-true~\cite{howtoprint,howtoread};
+true &lt;a href=&#34;../ref/#howtoprint&#34;&gt;[howtoprint]&lt;/a&gt;&lt;a href=&#34;../ref/#howtoread&#34;&gt;[howtoread]&lt;/a&gt;
+;
 otherwise the format of the result is unspecified.&lt;/p&gt;
 
 &lt;p&gt;The result returned by &lt;code&gt;number\coerce{&lt;/code&gt;string}
@@ -5101,9 +5095,9 @@ Alternatively, they can be written \sharptrue~and \sharpfalse,
 respectively.  What really
 matters, though, are the objects that the Scheme conditional expressions
 (&lt;code&gt;if&lt;/code&gt;, &lt;code&gt;cond&lt;/code&gt;, &lt;code&gt;and&lt;/code&gt;, &lt;code&gt;or&lt;/code&gt;, &lt;code&gt;when&lt;/code&gt;, &lt;code&gt;unless&lt;/code&gt;, &lt;code&gt;do&lt;/code&gt;) treat as
-true\index{true} or false\index{false}.  The phrase &amp;ldquo;a true value&amp;rdquo;\index{true}
+true or false.  The phrase &amp;ldquo;a true value&amp;rdquo;
 (or sometimes just &amp;ldquo;true&amp;rdquo;) means any object treated as true by the
-conditional expressions, and the phrase &amp;ldquo;a false value&amp;rdquo;\index{false} (or
+conditional expressions, and the phrase &amp;ldquo;a false value&amp;rdquo; (or
 &amp;ldquo;false&amp;rdquo;) means any object treated as false by the conditional expressions.&lt;/p&gt;
 
 &lt;p&gt;Of all the Scheme values, only \schfalse{}
@@ -5113,7 +5107,7 @@ count as true.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Note:&amp;nbsp;&lt;/em&gt;
 Unlike some other dialects of Lisp,
-Scheme distinguishes \schfalse{} and the empty list \index{empty list}
+Scheme distinguishes \schfalse{} and the empty list
 from each other and from the symbol \ide{nil}.&lt;/p&gt;
 
 &lt;p&gt;Boolean constants evaluate to themselves, so they do not need to be quoted
@@ -5175,15 +5169,15 @@ The car and cdr fields are accessed by the procedures &lt;code&gt;car&lt;/code&g
 &lt;code&gt;set-car!&lt;/code&gt; and &lt;code&gt;set-cdr!&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Pairs are used primarily to represent lists.  A \defining{list} can
-be defined recursively as either the empty list\index{empty list} or a pair whose
+be defined recursively as either the empty list or a pair whose
 cdr is a list.  More precisely, the set of lists is defined as the smallest
 set \var{X} such that&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item The empty list is in \var{X}.
-\item If \var{list} is in \var{X}, then any pair whose cdr field contains
-      \var{list} is also in \var{X}.
-\end{itemize}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The empty list is in \var{X}.&lt;/li&gt;
+&lt;li&gt;If \var{list} is in \var{X}, then any pair whose cdr field contains
+  \var{list} is also in \var{X}.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;The objects in the car fields of successive pairs of a list are the
 elements of the list.  For example, a two-element list is a pair whose car
@@ -5191,7 +5185,7 @@ is the first element and whose cdr is a pair whose car is the second element
 and whose cdr is the empty list.  The length of a list is the number of
 elements, which is the same as the number of pairs.&lt;/p&gt;
 
-&lt;p&gt;The empty list\mainindex{empty list} is a special object of its own type.
+&lt;p&gt;The empty list is a special object of its own type.
 It is not a pair, it has no elements, and its length is zero.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Note:&amp;nbsp;&lt;/em&gt;
@@ -5207,7 +5201,7 @@ pair, not an expression that evaluates to a pair.&lt;/p&gt;
 
 &lt;p&gt;A more streamlined notation can be used for lists: the elements of the
 list are simply enclosed in parentheses and separated by spaces.  The
-empty list\index{empty list} is written {\tt()}.  For example,&lt;/p&gt;
+empty list is written {\tt()}.  For example,&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(a b c d e)
 &lt;/code&gt;&lt;/pre&gt;
@@ -5296,7 +5290,7 @@ returns \schfalse.&lt;/p&gt;
 \proto{car}{ pair}{procedure}}&lt;/p&gt;
 
 &lt;p&gt;Returns the contents of the car field of \var{pair}.  Note that it is an
-error to take the car of the empty list\index{empty list}.&lt;/p&gt;
+error to take the car of the empty list.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(car &#39;(a b c))          \ev  a
 (car &#39;((a) b c d))      \ev  (a)
@@ -5384,7 +5378,7 @@ For example, &lt;code&gt;caddr&lt;/code&gt; could be defined by&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{null?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is the empty list\index{empty list},
+&lt;p&gt;Returns \schtrue{} if \var{obj} is the empty list,
 otherwise returns \schfalse.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
@@ -5894,7 +5888,8 @@ language-sensitive folding is not used.  If the argument is an uppercase
 letter, the result will be either a lowercase letter
 or the same as the argument if the lowercase letter does not exist or
 is not supported by the implementation.
-See UAX #29~\cite{uax29} (part of the Unicode Standard) for details.&lt;/p&gt;
+See UAX #29 &lt;a href=&#34;../ref/#uax29&#34;&gt;[uax29]&lt;/a&gt;
+ (part of the Unicode Standard) for details.&lt;/p&gt;
 
 &lt;p&gt;Note that many Unicode lowercase characters do not have uppercase
 equivalents.&lt;/p&gt;
@@ -5909,11 +5904,10 @@ equivalents.&lt;/p&gt;
 &lt;p&gt;Strings are sequences of characters.
 Strings are written as sequences of characters enclosed within quotation marks
 (&lt;code&gt;&amp;quot;&lt;/code&gt;).  Within a string literal, various escape
-sequences\mainindex{escape sequence} represent characters other than
+sequences represent characters other than
 themselves.  Escape sequences always start with a backslash (\backwhack{}):&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item{\cf\backwhack{}a} : alarm, U+0007
+&lt;p&gt;\item{\cf\backwhack{}a} : alarm, U+0007
 \item{\cf\backwhack{}b} : backspace, U+0008
 \item{\cf\backwhack{}t} : character tabulation, U+0009
 \item{\cf\backwhack{}n} : linefeed, U+000A
@@ -5924,8 +5918,7 @@ themselves.  Escape sequences always start with a backslash (\backwhack{}):&lt;/
 \item{\cf\backwhack{}\arbno{\hyper{intraline whitespace}}\hyper{line ending}
       \arbno{\hyper{intraline whitespace}}} : nothing
 \item{\cf\backwhack{}x\meta{hex scalar value};} : specified character (note the
-  terminating semi-colon).
-\end{itemize}&lt;/p&gt;
+  terminating semi-colon).&lt;/p&gt;
 
 &lt;p&gt;The result is unspecified if any other character in a string occurs
 after a backslash.&lt;/p&gt;
@@ -5947,7 +5940,7 @@ the string.&lt;/p&gt;
 &amp;quot;\x03B1; is named GREEK SMALL LETTER ALPHA.&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The {\em length} of a string is the number of characters that it
+&lt;p&gt;The &lt;em&gt;length&lt;/em&gt; of a string is the number of characters that it
 contains.  This number is an exact, non-negative integer that is fixed when the
 string is created.  The \defining{valid indexes} of a string are the
 exact non-negative integers less than the length of the string.  The first
@@ -6103,7 +6096,8 @@ Note that language-sensitive mappings and foldings are not used.&lt;/p&gt;
 
 &lt;p&gt;The Unicode Standard prescribes special treatment of the Greek letter
 $\Sigma$, whose normal lower-case form is $\sigma$ but which becomes
-$\varsigma$ at the end of a word.  See UAX #29~\cite{uax29} (part of
+$\varsigma$ at the end of a word.  See UAX #29 &lt;a href=&#34;../ref/#uax29&#34;&gt;[uax29]&lt;/a&gt;
+ (part of
 the Unicode Standard) for details.  However, implementations of {\cf
 string-downcase} are not required to provide this behavior, and may
 choose to change $\Sigma$ to $\sigma$ in all cases.&lt;/p&gt;
@@ -6205,9 +6199,9 @@ by integers.  A vector typically occupies less space than a list
 of the same length, and the average time needed to access a randomly
 chosen element is typically less for the vector than for the list.&lt;/p&gt;
 
-&lt;p&gt;The {\em length} of a vector is the number of elements that it
+&lt;p&gt;The &lt;em&gt;length&lt;/em&gt; of a vector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when the
-vector is created.  The {\em valid indexes}\index{valid indexes} of a
+vector is created.  The &lt;em&gt;valid indexes&lt;/em&gt; of a
 vector are the exact non-negative integers less than the length of the
 vector.  The first element in a vector is indexed by zero, and the last
 element is indexed by one less than the length of the vector.&lt;/p&gt;
@@ -6416,9 +6410,9 @@ a \defining{byte} is an exact integer in the range from 0 to 255 inclusive.
 A bytevector is typically more space-efficient than a vector
 containing the same values.&lt;/p&gt;
 
-&lt;p&gt;The {\em length} of a bytevector is the number of elements that it
+&lt;p&gt;The &lt;em&gt;length&lt;/em&gt; of a bytevector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when
-the bytevector is created.  The {\em valid indexes}\index{valid indexes} of
+the bytevector is created.  The &lt;em&gt;valid indexes&lt;/em&gt; of
 a bytevector are the exact non-negative integers less than the length of the
 bytevector, starting at index zero as with vectors.&lt;/p&gt;
 
@@ -6803,7 +6797,7 @@ argument.}
 The procedure &lt;code&gt;call-with-current-continuation&lt;/code&gt; (or its
 equivalent abbreviation &lt;code&gt;call/cc&lt;/code&gt;) packages
 the current continuation (see the rationale below) as an &amp;ldquo;escape
-procedure&amp;rdquo;\mainindex{escape procedure} and passes it as an argument to
+procedure&amp;rdquo; and passes it as an argument to
 \var{proc}.
 The escape procedure is a Scheme procedure that, if it is
 later called, will abandon whatever continuation is in effect at that later
@@ -6892,9 +6886,11 @@ continuation.&lt;/p&gt;
 
 &lt;p&gt;% Most programming languages incorporate one or more special-purpose
 % escape constructs with names like {\tt exit}, \hbox{&lt;code&gt;return&lt;/code&gt;}, or
-% even {\tt goto}.  In 1965, however, Peter Landin~\cite{Landin65}
+% even {\tt goto}.  In 1965, however, Peter Landin &lt;a href=&#34;../ref/#Landin65&#34;&gt;[Landin65]&lt;/a&gt;
+
 % invented a general purpose escape operator called the J-operator.  John
-% Reynolds~\cite{Reynolds72} described a simpler but equally powerful
+% Reynolds &lt;a href=&#34;../ref/#Reynolds72&#34;&gt;[Reynolds72]&lt;/a&gt;
+ described a simpler but equally powerful
 % construct in 1972.  The &lt;code&gt;catch&lt;/code&gt; syntax described by Sussman
 % and Steele in the 1975 report on Scheme is exactly the same as
 % Reynolds&amp;rsquo;s construct, though its name came from a less general construct
@@ -6968,21 +6964,22 @@ The \var{before} and \var{after} thunks are called in the same dynamic
 environment as the call to &lt;code&gt;dynamic-wind&lt;/code&gt;.
 In Scheme, because of &lt;code&gt;call-with-current-continuation&lt;/code&gt;, the
 dynamic extent of a call is not always a single, connected time period.
-It is defined as follows:
-\begin{itemize}
-\item The dynamic extent is entered when execution of the body of the
-called procedure begins.&lt;/p&gt;
+It is defined as follows:&lt;/p&gt;
 
-&lt;p&gt;\item The dynamic extent is also entered when execution is not within
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The dynamic extent is entered when execution of the body of the
+called procedure begins.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The dynamic extent is also entered when execution is not within
 the dynamic extent and a continuation is invoked that was captured
-(using &lt;code&gt;call-with-current-continuation&lt;/code&gt;) during the dynamic extent.&lt;/p&gt;
+(using &lt;code&gt;call-with-current-continuation&lt;/code&gt;) during the dynamic extent.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item It is exited when the called procedure returns.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;It is exited when the called procedure returns.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item It is also exited when execution is within the dynamic extent and
+&lt;li&gt;&lt;p&gt;It is also exited when execution is within the dynamic extent and
 a continuation is invoked that was captured while not within the
-dynamic extent.
-\end{itemize}&lt;/p&gt;
+dynamic extent.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;If a second call to &lt;code&gt;dynamic-wind&lt;/code&gt; occurs within the dynamic extent of the
 call to \var{thunk} and then a continuation is invoked in such a way that the
@@ -7039,7 +7036,7 @@ action the program takes when an exceptional situation is signaled.
 The system implicitly maintains a current exception handler
 in the dynamic environment.&lt;/p&gt;
 
-&lt;p&gt;\index{current exception handler}The program raises an exception by
+&lt;p&gt;The program raises an exception by
 invoking the current exception handler, passing it an object
 encapsulating information about the exception.  Any procedure
 accepting one argument can serve as an exception handler and any
@@ -7066,14 +7063,14 @@ in the dynamic environment used for the invocation of \var{thunk}.&lt;/p&gt;
    (lambda ()
     (+ 1 (raise &#39;an-error))))))
         \ev exception
- \&amp;gt;{\em and prints}  condition: an-error
+ \&amp;gt;_and prints_  condition: an-error
 
 (with-exception-handler
  (lambda (x)
   (display &amp;quot;something went wrong\backwhack{}n&amp;quot;))
  (lambda ()
   (+ 1 (raise &#39;an-error))))
- \&amp;gt;{\em prints}  something went wrong
+ \&amp;gt;_prints_  something went wrong
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;After printing, the second example then raises another exception.
@@ -7285,13 +7282,13 @@ Implementations may extend &lt;code&gt;eval&lt;/code&gt; to allow other objects.
 
 &lt;p&gt;Ports represent input and output devices.  To Scheme, an input port is
 a Scheme object that can deliver data upon command, while an output
-port is a Scheme object that can accept data.\mainindex{port}
+port is a Scheme object that can accept data.
 Whether the input and output port types are disjoint is
 implementation-dependent.&lt;/p&gt;
 
-&lt;p&gt;Different {\em port types} operate on different data.  Scheme
-imple-men-ta-tions are required to support {\em textual ports}
-and {\em binary ports}, but may also provide other port types.&lt;/p&gt;
+&lt;p&gt;Different &lt;em&gt;port types&lt;/em&gt; operate on different data.  Scheme
+imple-men-ta-tions are required to support &lt;em&gt;textual ports&lt;/em&gt;
+and &lt;em&gt;binary ports&lt;/em&gt;, but may also provide other port types.&lt;/p&gt;
 
 &lt;p&gt;A textual port supports reading or writing of individual characters
 from or to a backing store containing characters
@@ -7559,7 +7556,7 @@ are available, an end-of-file object is returned.&lt;/p&gt;
 \rproto{peek-char}{ port}{procedure}}&lt;/p&gt;
 
 &lt;p&gt;Returns the next character available from the textual input \var{port},
-but {\em without} updating
+but &lt;em&gt;without&lt;/em&gt; updating
 the \var{port} to point to the following character.  If no more characters
 are available, an end-of-file object is returned.&lt;/p&gt;
 
@@ -7662,7 +7659,7 @@ available, an end-of-file object is returned.&lt;/p&gt;
 \rproto{peek-u8}{ port}{procedure}}&lt;/p&gt;
 
 &lt;p&gt;Returns the next byte available from the binary input \var{port},
-but {\em without} updating the \var{port} to point to the following
+but &lt;em&gt;without&lt;/em&gt; updating the \var{port} to point to the following
 byte.  If no more bytes are available, an end-of-file object is returned.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
@@ -8098,7 +8095,7 @@ concise:  \arbno{\meta{thing}} means zero or more occurrences of
 
 &lt;h3 id=&#34;7-1-1-lexical-structure&#34;&gt;7.1.1. Lexical structure&lt;/h3&gt;
 
-&lt;p&gt;This section describes how individual tokens\index{token} (identifiers,
+&lt;p&gt;This section describes how individual tokens (identifiers,
 numbers, etc.) are formed from sequences of characters.  The following
 sections describe how expressions and programs are formed from sequences
 of tokens.&lt;/p&gt;
@@ -8135,7 +8132,7 @@ identifiers containing such a sequence are equivalent to identifiers
 containing the corresponding character.&lt;/p&gt;
 
 &lt;p&gt;\begin{grammar}
-\meta{token} : \meta{identifier} | \meta{boolean} | \meta{number}\index{identifier}
+\meta{token} : \meta{identifier} | \meta{boolean} | \meta{number}
 &amp;gt;  | \meta{character} | \meta{string}
 &amp;gt;  | ( | ) | \sharpsign( | \sharpsign u8( | \singlequote{} | \backquote{} | , | ,@ | {\bf.}
 \meta{delimiter} : \meta{whitespace} | \meta{vertical line}
@@ -8146,7 +8143,7 @@ containing the corresponding character.&lt;/p&gt;
 \meta{line ending} : \meta{newline} | \meta{return} \meta{newline}
 &amp;gt; | \meta{return}
 \meta{comment} : ; \= $\langle$\rm all subsequent characters up to a
-            &amp;gt; \rm line ending$\rangle$\index{comment}
+            &amp;gt; \rm line ending$\rangle$
 &amp;gt; | \meta{nested comment}
 &amp;gt; | #; \meta{intertoken space} \meta{datum}
 \meta{nested comment} : #| \= \meta{comment text}
@@ -8586,8 +8583,10 @@ un-quo-ta-tion $D$} takes precedence.&lt;/p&gt;
 
 &lt;p&gt;This section provides a formal denotational semantics for the primitive
 expressions of Scheme and selected built-in procedures.  The concepts
-and notation used here are described in~\cite{Stoy77}; the definition of
-&lt;code&gt;dynamic-wind&lt;/code&gt; is taken from~\cite{GasbichlerKnauelSperberKelsey2003}.
+and notation used here are described in &lt;a href=&#34;../ref/#Stoy77&#34;&gt;[Stoy77]&lt;/a&gt;
+; the definition of
+&lt;code&gt;dynamic-wind&lt;/code&gt; is taken from &lt;a href=&#34;../ref/#GasbichlerKnauelSperberKelsey2003&#34;&gt;[GasbichlerKnauelSperberKelsey2003]&lt;/a&gt;
+.
 The notation is summarized below:&lt;/p&gt;
 
 &lt;p&gt;\begin{tabular}{ll}
@@ -9682,7 +9681,8 @@ value.&lt;/p&gt;
 
 &lt;p&gt;Finally, we define &lt;code&gt;force&lt;/code&gt; to call the procedure expressions in
 promises iteratively using a trampoline technique following
-\cite{srfi45} until a non-lazy result (i.e. a value created by {\cf
+ &lt;a href=&#34;../ref/#srfi45&#34;&gt;[srfi45]&lt;/a&gt;
+ until a non-lazy result (i.e. a value created by {\cf
   delay} instead of &lt;code&gt;delay-force&lt;/code&gt;) is returned, as follows:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(define (force promise)
@@ -10420,201 +10420,202 @@ provide the corresponding feature.&lt;/p&gt;
 
 
 &lt;p&gt;This section enumerates the incompatibilities between this report and
-the &amp;ldquo;Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
+the &amp;ldquo;Revised$^5$ report&amp;rdquo; &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;
+.&lt;/p&gt;
 
-&lt;p&gt;{\em This list is not authoritative, but is believed to be correct and complete.}&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This list is not authoritative, but is believed to be correct and complete.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}&lt;/p&gt;
-
-&lt;p&gt;\item Case sensitivity is now the default in symbols and character names.
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Case sensitivity is now the default in symbols and character names.
 This means that code written under the assumption that symbols could be
 written &lt;code&gt;FOO&lt;/code&gt; or &lt;code&gt;Foo&lt;/code&gt; in some contexts and &lt;code&gt;foo&lt;/code&gt; in other contexts
 can either be changed, be marked with the new &lt;code&gt;#!fold-case&lt;/code&gt; directive,
 or be included in a library using the &lt;code&gt;include-ci&lt;/code&gt; library declaration.
-All standard identifiers are entirely in lower case.&lt;/p&gt;
+All standard identifiers are entirely in lower case.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The &lt;code&gt;syntax-rules&lt;/code&gt; construct now recognizes {\em _} (underscore)
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;syntax-rules&lt;/code&gt; construct now recognizes ___ (underscore)
 as a wildcard, which means it cannot be used as a syntax variable.
-It can still be used as a literal.&lt;/p&gt;
+It can still be used as a literal.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS procedures &lt;code&gt;exact-&amp;gt;inexact&lt;/code&gt; and &lt;code&gt;inexact-&amp;gt;exact&lt;/code&gt;
+&lt;li&gt;&lt;p&gt;The R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS procedures &lt;code&gt;exact-&amp;gt;inexact&lt;/code&gt; and &lt;code&gt;inexact-&amp;gt;exact&lt;/code&gt;
 have been renamed to their R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS names, &lt;code&gt;inexact&lt;/code&gt; and &lt;code&gt;exact&lt;/code&gt;,
 respectively, as these names are shorter and more correct.
-The former names are still available in the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS library.&lt;/p&gt;
+The former names are still available in the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS library.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The guarantee that string comparison (with &lt;code&gt;string&amp;lt;?&lt;/code&gt; and the
+&lt;li&gt;&lt;p&gt;The guarantee that string comparison (with &lt;code&gt;string&amp;lt;?&lt;/code&gt; and the
 related predicates) is a lexicographical extension of character comparison
-(with &lt;code&gt;char&amp;lt;?&lt;/code&gt; and the related predicates) has been removed.&lt;/p&gt;
+(with &lt;code&gt;char&amp;lt;?&lt;/code&gt; and the related predicates) has been removed.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Support for the # character in numeric literals is no longer required.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Support for the # character in numeric literals is no longer required.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Support for the letters &lt;code&gt;s&lt;/code&gt;, &lt;code&gt;f&lt;/code&gt;, &lt;code&gt;d&lt;/code&gt;, and &lt;code&gt;l&lt;/code&gt;
-as exponent markers is no longer required.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Support for the letters &lt;code&gt;s&lt;/code&gt;, &lt;code&gt;f&lt;/code&gt;, &lt;code&gt;d&lt;/code&gt;, and &lt;code&gt;l&lt;/code&gt;
+as exponent markers is no longer required.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Implementations of &lt;code&gt;string\coerce{&lt;/code&gt;number} are no longer permitted
+&lt;li&gt;&lt;p&gt;Implementations of &lt;code&gt;string\coerce{&lt;/code&gt;number} are no longer permitted
 to return \schfalse{} when the argument contains an explicit radix prefix,
-and must be compatible with &lt;code&gt;read&lt;/code&gt; and the syntax of numbers in programs.&lt;/p&gt;
+and must be compatible with &lt;code&gt;read&lt;/code&gt; and the syntax of numbers in programs.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The procedures &lt;code&gt;transcript-on&lt;/code&gt; and &lt;code&gt;transcript-off&lt;/code&gt; have been removed.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The procedures &lt;code&gt;transcript-on&lt;/code&gt; and &lt;code&gt;transcript-off&lt;/code&gt; have been removed.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;\end{itemize}&lt;/p&gt;
-
-&lt;h3 id=&#34;other-language-changes-since-hahahugoshortcode-6hbhb&#34;&gt;Other language changes since R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS&lt;/h3&gt;
+&lt;h3 id=&#34;other-language-changes-since-hahahugoshortcode-7hbhb&#34;&gt;Other language changes since R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS&lt;/h3&gt;
 
 &lt;p&gt;&lt;a id=&#34;differences&#34;&gt;&lt;/a&gt;
 
 This section enumerates the additional differences between this report and
-the &amp;ldquo;Revised$^5$ report&amp;rdquo;~\cite{R5RS}.&lt;/p&gt;
+the &amp;ldquo;Revised$^5$ report&amp;rdquo; &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;
+.&lt;/p&gt;
 
-&lt;p&gt;{\em This list is not authoritative, but is believed to be correct and complete.}&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This list is not authoritative, but is believed to be correct and complete.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Various minor ambiguities and unclarities in R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS have been cleaned up.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Various minor ambiguities and unclarities in R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS have been cleaned up.&lt;/p&gt;
-
-&lt;p&gt;\item Libraries have been added as a new program structure to improve
+&lt;li&gt;&lt;p&gt;Libraries have been added as a new program structure to improve
 encapsulation and sharing of code.  Some existing and new identifiers
 have been factored out into separate libraries.
 Libraries can be imported into other libraries or main programs, with
 controlled exposure and renaming of identifiers.
 The contents of a library can be made conditional on the features of
 the implementation on which it is to be used.
-There is an R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS compatibility library.&lt;/p&gt;
+There is an R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS compatibility library.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The expressions types &lt;code&gt;include&lt;/code&gt;, &lt;code&gt;include-ci&lt;/code&gt;, and &lt;code&gt;cond-expand&lt;/code&gt;
+&lt;li&gt;&lt;p&gt;The expressions types &lt;code&gt;include&lt;/code&gt;, &lt;code&gt;include-ci&lt;/code&gt;, and &lt;code&gt;cond-expand&lt;/code&gt;
 have been added to the base library; they have the same semantics as the
-corresponding library declarations.&lt;/p&gt;
+corresponding library declarations.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Exceptions can now be signaled explicitly with &lt;code&gt;raise&lt;/code&gt;,
+&lt;li&gt;&lt;p&gt;Exceptions can now be signaled explicitly with &lt;code&gt;raise&lt;/code&gt;,
 &lt;code&gt;raise-continuable&lt;/code&gt; or &lt;code&gt;error&lt;/code&gt;, and can be handled with {\cf
 with-exception-handler} and the &lt;code&gt;guard&lt;/code&gt; syntax.
 Any object can specify an error condition; the implementation-defined
 conditions signaled by &lt;code&gt;error&lt;/code&gt; have a predicate to detect them and accessor functions to
 retrieve the arguments passed to &lt;code&gt;error&lt;/code&gt;.
 Conditions signaled by &lt;code&gt;read&lt;/code&gt; and by file-related procedures
-also have predicates to detect them.&lt;/p&gt;
+also have predicates to detect them.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item New disjoint types supporting access to multiple fields can be
-generated with the &lt;code&gt;define-record-type&lt;/code&gt; of SRFI 9~\cite{srfi9}&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;New disjoint types supporting access to multiple fields can be
+generated with the &lt;code&gt;define-record-type&lt;/code&gt; of SRFI 9 &lt;a href=&#34;../ref/#srfi9&#34;&gt;[srfi9]&lt;/a&gt;
+&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Parameter objects can be created with &lt;code&gt;make-parameter&lt;/code&gt;, and
+&lt;li&gt;&lt;p&gt;Parameter objects can be created with &lt;code&gt;make-parameter&lt;/code&gt;, and
 dynamically rebound with &lt;code&gt;parameterize&lt;/code&gt;.
 The procedures &lt;code&gt;current-input-port&lt;/code&gt; and &lt;code&gt;current-output-port&lt;/code&gt; are now
-parameter objects, as is the newly introduced &lt;code&gt;current-error-port&lt;/code&gt;.&lt;/p&gt;
+parameter objects, as is the newly introduced &lt;code&gt;current-error-port&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Support for promises has been enhanced based on SRFI 45~\cite{srfi45}.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Support for promises has been enhanced based on SRFI 45 &lt;a href=&#34;../ref/#srfi45&#34;&gt;[srfi45]&lt;/a&gt;
+.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item {\em Bytevectors}, vectors of exact integers in the range
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Bytevectors&lt;/em&gt;, vectors of exact integers in the range
 from 0 to 255 inclusive, have been added as a new disjoint type.
 A subset of the vector procedures is provided.  Bytevectors
 can be converted to and from strings in accordance with the UTF-8 character encoding.
-Bytevectors have a datum representation and evaluate to themselves.&lt;/p&gt;
+Bytevectors have a datum representation and evaluate to themselves.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Vector constants evaluate to themselves.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Vector constants evaluate to themselves.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The procedure &lt;code&gt;read-line&lt;/code&gt; is provided to make line-oriented textual input
-simpler.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The procedure &lt;code&gt;read-line&lt;/code&gt; is provided to make line-oriented textual input
+simpler.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The procedure &lt;code&gt;flush-output-port&lt;/code&gt; is provided to allow minimal
-control of output port buffering.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The procedure &lt;code&gt;flush-output-port&lt;/code&gt; is provided to allow minimal
+control of output port buffering.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item {\em Ports} can now be designated as {\em textual} or {\em
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Ports&lt;/em&gt; can now be designated as &lt;em&gt;textual&lt;/em&gt; or {\em
 binary} ports, with new procedures for reading and writing binary
 data.
 The new predicates &lt;code&gt;input-port-open?&lt;/code&gt; and &lt;code&gt;output-port-open?&lt;/code&gt; return whether a port is open or closed.
 The new procedure &lt;code&gt;close-port&lt;/code&gt; now closes a port; if the port
-has both input and output sides, both are closed.&lt;/p&gt;
+has both input and output sides, both are closed.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item {\em String ports} have been added as a way to read and write
-characters to and from strings, and {\em bytevector ports} to read
-and write bytes to and from bytevectors.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;String ports&lt;/em&gt; have been added as a way to read and write
+characters to and from strings, and &lt;em&gt;bytevector ports&lt;/em&gt; to read
+and write bytes to and from bytevectors.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item There are now I/O procedures specific to strings and bytevectors.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;There are now I/O procedures specific to strings and bytevectors.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The &lt;code&gt;write&lt;/code&gt; procedure now generates datum labels when applied to
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;write&lt;/code&gt; procedure now generates datum labels when applied to
 circular objects.  The new procedure &lt;code&gt;write-simple&lt;/code&gt; never generates
 labels; &lt;code&gt;write-shared&lt;/code&gt; generates labels for all shared and circular
 structure.
-The &lt;code&gt;display&lt;/code&gt; procedure must not loop on circular objects.&lt;/p&gt;
+The &lt;code&gt;display&lt;/code&gt; procedure must not loop on circular objects.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS procedure &lt;code&gt;eof-object&lt;/code&gt; has been added.
-Eof-objects are now required to be a disjoint type.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS procedure &lt;code&gt;eof-object&lt;/code&gt; has been added.
+Eof-objects are now required to be a disjoint type.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Syntax definitions are now allowed wherever variable definitions are.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Syntax definitions are now allowed wherever variable definitions are.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The &lt;code&gt;syntax-rules&lt;/code&gt; construct now allows
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;syntax-rules&lt;/code&gt; construct now allows
 the ellipsis symbol to be specified explicitly instead of the default
 &lt;code&gt;...&lt;/code&gt;, allows template escapes with an ellipsis-prefixed list, and
-allows tail patterns to follow an ellipsis pattern.&lt;/p&gt;
+allows tail patterns to follow an ellipsis pattern.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The &lt;code&gt;syntax-error&lt;/code&gt; syntax has been added as a way to signal immediate
-and more informative errors when a macro is expanded.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;syntax-error&lt;/code&gt; syntax has been added as a way to signal immediate
+and more informative errors when a macro is expanded.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The &lt;code&gt;letrec*&lt;/code&gt; binding construct has been added, and internal &lt;code&gt;define&lt;/code&gt;
-is specified in terms of it.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;letrec*&lt;/code&gt; binding construct has been added, and internal &lt;code&gt;define&lt;/code&gt;
+is specified in terms of it.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Support for capturing multiple values has been enhanced with {\cf
+&lt;li&gt;&lt;p&gt;Support for capturing multiple values has been enhanced with {\cf
 define-values}, &lt;code&gt;let-values&lt;/code&gt;, and &lt;code&gt;let*-values&lt;/code&gt;.
 Standard expression types which contain a sequence of expressions now
 permit passing zero or more than one value to the continuations of all
-non-final expressions of the sequence.&lt;/p&gt;
+non-final expressions of the sequence.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The &lt;code&gt;case&lt;/code&gt; conditional now supports {\tt =&amp;gt;} syntax
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;case&lt;/code&gt; conditional now supports {\tt =&amp;gt;} syntax
 analogous to &lt;code&gt;cond&lt;/code&gt; not only in regular clauses but in the {\cf
-else} clause as well.&lt;/p&gt;
+else} clause as well.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item To support dispatching on the number of arguments passed to a
-procedure, &lt;code&gt;case-lambda&lt;/code&gt; has been added in its own library.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;To support dispatching on the number of arguments passed to a
+procedure, &lt;code&gt;case-lambda&lt;/code&gt; has been added in its own library.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The convenience conditionals &lt;code&gt;when&lt;/code&gt; and &lt;code&gt;unless&lt;/code&gt; have been added.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The convenience conditionals &lt;code&gt;when&lt;/code&gt; and &lt;code&gt;unless&lt;/code&gt; have been added.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The behavior of &lt;code&gt;eqv?&lt;/code&gt; on inexact numbers now conforms to the
-R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS definition.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The behavior of &lt;code&gt;eqv?&lt;/code&gt; on inexact numbers now conforms to the
+R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS definition.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item When applied to procedures, &lt;code&gt;eq?&lt;/code&gt; and &lt;code&gt;eqv?&lt;/code&gt; are permitted to
-return different answers.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;When applied to procedures, &lt;code&gt;eq?&lt;/code&gt; and &lt;code&gt;eqv?&lt;/code&gt; are permitted to
+return different answers.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS procedures &lt;code&gt;boolean=?&lt;/code&gt; and &lt;code&gt;symbol=?&lt;/code&gt; have been added.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS procedures &lt;code&gt;boolean=?&lt;/code&gt; and &lt;code&gt;symbol=?&lt;/code&gt; have been added.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Positive infinity, negative infinity, NaN, and negative inexact zero have been added
+&lt;li&gt;&lt;p&gt;Positive infinity, negative infinity, NaN, and negative inexact zero have been added
 to the numeric tower as inexact values with the written
 representations {\tt +inf.0}, {\tt -inf.0}, {\tt +nan.0}, and &lt;code&gt;-0.0&lt;/code&gt;
 respectively.  Support for them is not required.
-The representation {\tt -nan.0} is synonymous with {\tt +nan.0}.&lt;/p&gt;
+The representation {\tt -nan.0} is synonymous with {\tt +nan.0}.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The &lt;code&gt;log&lt;/code&gt; procedure now accepts a second argument specifying
-the logarithm base.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;log&lt;/code&gt; procedure now accepts a second argument specifying
+the logarithm base.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The procedures &lt;code&gt;map&lt;/code&gt; and &lt;code&gt;for-each&lt;/code&gt; are now required to terminate on
-the shortest argument list.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The procedures &lt;code&gt;map&lt;/code&gt; and &lt;code&gt;for-each&lt;/code&gt; are now required to terminate on
+the shortest argument list.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The procedures &lt;code&gt;member&lt;/code&gt; and &lt;code&gt;assoc&lt;/code&gt; now take an optional third argument
-specifying the equality predicate to be used.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The procedures &lt;code&gt;member&lt;/code&gt; and &lt;code&gt;assoc&lt;/code&gt; now take an optional third argument
+specifying the equality predicate to be used.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The numeric procedures &lt;code&gt;finite?&lt;/code&gt;, &lt;code&gt;infinite?&lt;/code&gt;, &lt;code&gt;nan?&lt;/code&gt;,
+&lt;li&gt;&lt;p&gt;The numeric procedures &lt;code&gt;finite?&lt;/code&gt;, &lt;code&gt;infinite?&lt;/code&gt;, &lt;code&gt;nan?&lt;/code&gt;,
 &lt;code&gt;exact-integer?&lt;/code&gt;, &lt;code&gt;square&lt;/code&gt;, and &lt;code&gt;exact-integer-sqrt&lt;/code&gt;
-have been added.&lt;/p&gt;
+have been added.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The &lt;code&gt;-&lt;/code&gt; and &lt;code&gt;/&lt;/code&gt; procedures
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;-&lt;/code&gt; and &lt;code&gt;/&lt;/code&gt; procedures
 and the character and string comparison
-predicates are now required to support more than two arguments.&lt;/p&gt;
+predicates are now required to support more than two arguments.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The forms \sharptrue{} and \sharpfalse{} are now supported
-as well as \schtrue{} and \schfalse{}.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The forms \sharptrue{} and \sharpfalse{} are now supported
+as well as \schtrue{} and \schfalse{}.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The procedures &lt;code&gt;make-list&lt;/code&gt;, &lt;code&gt;list-copy&lt;/code&gt;, &lt;code&gt;list-set!&lt;/code&gt;,
+&lt;li&gt;&lt;p&gt;The procedures &lt;code&gt;make-list&lt;/code&gt;, &lt;code&gt;list-copy&lt;/code&gt;, &lt;code&gt;list-set!&lt;/code&gt;,
 &lt;code&gt;string-map&lt;/code&gt;, &lt;code&gt;string-for-each&lt;/code&gt;, &lt;code&gt;string-&amp;gt;vector&lt;/code&gt;,
 &lt;code&gt;vector-append&lt;/code&gt;,
 &lt;code&gt;vector-copy&lt;/code&gt;, &lt;code&gt;vector-map&lt;/code&gt;, &lt;code&gt;vector-for-each&lt;/code&gt;,
 &lt;code&gt;vector-&amp;gt;string&lt;/code&gt;, &lt;code&gt;vector-copy!&lt;/code&gt;, and &lt;code&gt;string-copy!&lt;/code&gt;
-have been added to round out the sequence operations.&lt;/p&gt;
+have been added to round out the sequence operations.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Some string and vector procedures support processing of part of a string or vector using
-optional \var{start} and \var{end} arguments.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Some string and vector procedures support processing of part of a string or vector using
+optional \var{start} and \var{end} arguments.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Some list procedures are now defined on circular lists.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Some list procedures are now defined on circular lists.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Implementations may provide any subset of the full Unicode
+&lt;li&gt;&lt;p&gt;Implementations may provide any subset of the full Unicode
 repertoire that includes ASCII, but implementations must support any
 such subset in a way consistent with Unicode.
 Various character and string procedures have been extended accordingly,
@@ -10623,122 +10624,125 @@ String comparison is no longer
 required to be consistent with character comparison, which is based
 solely on Unicode scalar values.
 The new &lt;code&gt;digit-value&lt;/code&gt; procedure has been added to obtain the numerical
-value of a numeric character.&lt;/p&gt;
+value of a numeric character.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item There are now two additional comment syntaxes: {\tt #;} to
+&lt;li&gt;&lt;p&gt;There are now two additional comment syntaxes: {\tt #;} to
 skip the next datum, and {\tt #| &amp;hellip; |#}
-for nestable block comments.&lt;/p&gt;
+for nestable block comments.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Data prefixed with datum labels {\tt #&lt;n&gt;=} can be referenced
+&lt;li&gt;&lt;p&gt;Data prefixed with datum labels {\tt #&lt;n&gt;=} can be referenced
 with {\tt #&lt;n&gt;#}, allowing for reading and writing of data with
-shared structure.&lt;/p&gt;
+shared structure.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Strings and symbols now allow mnemonic and numeric escape
-sequences, and the list of named characters has been extended.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Strings and symbols now allow mnemonic and numeric escape
+sequences, and the list of named characters has been extended.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The procedures &lt;code&gt;file-exists?&lt;/code&gt; and &lt;code&gt;delete-file&lt;/code&gt; are available in the
-{\tt (scheme file)} library.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The procedures &lt;code&gt;file-exists?&lt;/code&gt; and &lt;code&gt;delete-file&lt;/code&gt; are available in the
+{\tt (scheme file)} library.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item An interface to the system environment, command line, and process exit status is
-available in the {\tt (scheme process-context)} library.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;An interface to the system environment, command line, and process exit status is
+available in the {\tt (scheme process-context)} library.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Procedures for accessing time-related values are available in the
-{\tt (scheme time)} library.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Procedures for accessing time-related values are available in the
+{\tt (scheme time)} library.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item A less irregular set of integer division operators is provided
-with new and clearer names.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;A less irregular set of integer division operators is provided
+with new and clearer names.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The &lt;code&gt;load&lt;/code&gt; procedure now accepts a second argument specifying the environment to
-load into.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;load&lt;/code&gt; procedure now accepts a second argument specifying the environment to
+load into.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The &lt;code&gt;call-with-current-continuation&lt;/code&gt; procedure now has the synonym
-&lt;code&gt;call/cc&lt;/code&gt;.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;call-with-current-continuation&lt;/code&gt; procedure now has the synonym
+&lt;code&gt;call/cc&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The semantics of read-eval-print loops are now partly prescribed,
-requiring the redefinition of procedures, but not syntax keywords, to have retroactive effect.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The semantics of read-eval-print loops are now partly prescribed,
+requiring the redefinition of procedures, but not syntax keywords, to have retroactive effect.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The formal semantics now handles &lt;code&gt;dynamic-wind&lt;/code&gt;.
-\end{itemize}&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The formal semantics now handles &lt;code&gt;dynamic-wind&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h3 id=&#34;incompatibilities-with-hahahugoshortcode-13hbhb&#34;&gt;Incompatibilities with R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS&lt;/h3&gt;
+&lt;h3 id=&#34;incompatibilities-with-hahahugoshortcode-17hbhb&#34;&gt;Incompatibilities with R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS&lt;/h3&gt;
 
 &lt;p&gt;This section enumerates the incompatibilities between R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS~and
-the &amp;ldquo;Revised$^6$ report&amp;rdquo;~\cite{R6RS} and its accompanying Standard Libraries document.&lt;/p&gt;
+the &amp;ldquo;Revised$^6$ report&amp;rdquo; &lt;a href=&#34;../ref/#R6RS&#34;&gt;[R6RS]&lt;/a&gt;
+ and its accompanying Standard Libraries document.&lt;/p&gt;
 
-&lt;p&gt;{\em This list is not authoritative, and is possibly incomplete.}&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This list is not authoritative, and is possibly incomplete.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;\begin{itemize}
-\item R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS libraries begin with the keyword &lt;code&gt;define-library&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS libraries begin with the keyword &lt;code&gt;define-library&lt;/code&gt;
 rather than &lt;code&gt;library&lt;/code&gt; in order to make them syntactically
 distinguishable from R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS libraries.
 In R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS terms, the body of an R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS library consists
 of a single export declaration followed by a single import declaration,
 followed by commands and definitions.  In R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS, commands and
 definitions are not permitted directly within the body: they have to be be wrapped in a &lt;code&gt;begin&lt;/code&gt;
-library declaration.&lt;/p&gt;
+library declaration.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item There is no direct R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS equivalent of the &lt;code&gt;include&lt;/code&gt;, &lt;code&gt;include-ci&lt;/code&gt;,
+&lt;li&gt;&lt;p&gt;There is no direct R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS equivalent of the &lt;code&gt;include&lt;/code&gt;, &lt;code&gt;include-ci&lt;/code&gt;,
 &lt;code&gt;include-library-declarations&lt;/code&gt;, or &lt;code&gt;cond-expand&lt;/code&gt; library declarations.
-On the other hand, the R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS library syntax does not support phase or version specifications.&lt;/p&gt;
+On the other hand, the R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS library syntax does not support phase or version specifications.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The grouping of standardized identifiers into libraries is different from the R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS&lt;br /&gt;
+&lt;li&gt;&lt;p&gt;The grouping of standardized identifiers into libraries is different from the R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS&lt;br /&gt;
 approach. In particular, procedures which are optional in R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS\, either expressly
 or by implication, have been removed from the base library.
-Only the base library itself is an absolute requirement.&lt;/p&gt;
+Only the base library itself is an absolute requirement.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item No form of identifier syntax is provided.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No form of identifier syntax is provided.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Internal syntax definitions are allowed, but uses of a syntax form
+&lt;li&gt;&lt;p&gt;Internal syntax definitions are allowed, but uses of a syntax form
 cannot appear before its definition; the &lt;code&gt;even&lt;/code&gt;/&lt;code&gt;odd&lt;/code&gt; example given in
-R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS is not allowed.&lt;/p&gt;
+R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS is not allowed.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS exception system was incorporated as-is, but the condition
+&lt;li&gt;&lt;p&gt;The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS exception system was incorporated as-is, but the condition
 types have been left unspecified.  In particular, where R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS requires
 a condition of a specified type to be signaled, R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS says only
-&amp;ldquo;it is an error&amp;rdquo;, leaving the question of signaling open.&lt;/p&gt;
+&amp;ldquo;it is an error&amp;rdquo;, leaving the question of signaling open.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item Full Unicode support is not required.
+&lt;li&gt;&lt;p&gt;Full Unicode support is not required.
 Normalization is not provided.
 Character comparisons are
 defined by Unicode, but string comparisons are implementation-dependent.
-Non-Unicode characters are permitted.&lt;/p&gt;
+Non-Unicode characters are permitted.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The full numeric tower is optional as in R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS, but optional support for IEEE
+&lt;li&gt;&lt;p&gt;The full numeric tower is optional as in R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS, but optional support for IEEE
 infinities, NaN, and {\mbox -0.0} was adopted from R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS. Most clarifications on
 numeric results were also adopted, but the R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS procedures &lt;code&gt;real-valued?&lt;/code&gt;,
 &lt;code&gt;rational-valued?&lt;/code&gt;, and &lt;code&gt;integer-valued&lt;/code&gt;? were not.
 The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS division operators &lt;code&gt;div&lt;/code&gt;, &lt;code&gt;mod&lt;/code&gt;, &lt;code&gt;div-and-mod&lt;/code&gt;, {\cf
-div0}, &lt;code&gt;mod0&lt;/code&gt; and &lt;code&gt;div0-and-mod0&lt;/code&gt; are not provided.&lt;/p&gt;
+div0}, &lt;code&gt;mod0&lt;/code&gt; and &lt;code&gt;div0-and-mod0&lt;/code&gt; are not provided.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item When a result is unspecified, it is still required to be a single value.
+&lt;li&gt;&lt;p&gt;When a result is unspecified, it is still required to be a single value.
 However, non-final expressions
-in a body can return any number of values.&lt;/p&gt;
+in a body can return any number of values.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The semantics of &lt;code&gt;map&lt;/code&gt; and &lt;code&gt;for-each&lt;/code&gt; have been changed to use
-the SRFI 1~\cite{srfi1} early termination behavior. Likewise,
+&lt;li&gt;&lt;p&gt;The semantics of &lt;code&gt;map&lt;/code&gt; and &lt;code&gt;for-each&lt;/code&gt; have been changed to use
+the SRFI 1 &lt;a href=&#34;../ref/#srfi1&#34;&gt;[srfi1]&lt;/a&gt;
+ early termination behavior. Likewise,
 &lt;code&gt;assoc&lt;/code&gt; and &lt;code&gt;member&lt;/code&gt; take an optional &lt;code&gt;equal?&lt;/code&gt; argument as in SRFI 1,
-instead of the separate &lt;code&gt;assp&lt;/code&gt; and &lt;code&gt;memp&lt;/code&gt; procedures of R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS.&lt;/p&gt;
+instead of the separate &lt;code&gt;assp&lt;/code&gt; and &lt;code&gt;memp&lt;/code&gt; procedures of R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS~&lt;code&gt;quasiquote&lt;/code&gt; clarifications have been adopted, with the
+&lt;li&gt;&lt;p&gt;The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS~&lt;code&gt;quasiquote&lt;/code&gt; clarifications have been adopted, with the
 exception of multiple-argument &lt;code&gt;unquote&lt;/code&gt; and
-&lt;code&gt;unquote-splicing&lt;/code&gt;.&lt;/p&gt;
+&lt;code&gt;unquote-splicing&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS~method of specifying mantissa widths was not adopted.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS~method of specifying mantissa widths was not adopted.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item String ports are compatible with SRFI 6~\cite{srfi6} rather than R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;String ports are compatible with SRFI 6 &lt;a href=&#34;../ref/#srfi6&#34;&gt;[srfi6]&lt;/a&gt;
+ rather than R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS{}-style bytevectors are included, but
+&lt;li&gt;&lt;p&gt;R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS{}-style bytevectors are included, but
 only the unsigned byte (&lt;code&gt;u8&lt;/code&gt;) procedures have been provided.
 The lexical syntax uses &lt;code&gt;#u8&lt;/code&gt; for compatibility
-with SRFI 4~\cite{srfi4}, rather than the R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS~&lt;code&gt;#vu8&lt;/code&gt; style.&lt;/p&gt;
+with SRFI 4 &lt;a href=&#34;../ref/#srfi4&#34;&gt;[srfi4]&lt;/a&gt;
+, rather than the R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS~&lt;code&gt;#vu8&lt;/code&gt; style.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The utility macros &lt;code&gt;when&lt;/code&gt; and &lt;code&gt;unless&lt;/code&gt; are provided, but
-their result is left unspecified.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The utility macros &lt;code&gt;when&lt;/code&gt; and &lt;code&gt;unless&lt;/code&gt; are provided, but
+their result is left unspecified.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;\item The remaining features of the Standard Libraries document were
-left to future standardization efforts.&lt;/p&gt;
-
-&lt;p&gt;\end{itemize}&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The remaining features of the Standard Libraries document were
+left to future standardization efforts.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -10899,269 +10903,256 @@ which models a damped oscillator.&lt;/p&gt;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tsahara.github.io/r7rs/ref/</guid>
-      <description>&lt;p&gt;% My reference for proper reference format is:
-%    Mary-Claire van Leunen.
-%    {\em A Handbook for Scholars.}
-%    Knopf, 1978.
-% I think the references list would look better in &amp;ldquo;open&amp;rdquo; format,
-% i.e. with the three blocks for each entry appearing on separate
-% lines.  I used the compressed format for SIGPLAN in the interest of
-% space.  In open format, when a block runs over one line,
-% continuation lines should be indented; this could probably be done
-% using some flavor of latex list environment.  Maybe the right thing
-% to do in the long run would be to convert to Bibtex, which probably
-% does the right thing, since it was implemented by one of van
-% Leunen&amp;rsquo;s colleagues at DEC SRC.
-%  &amp;ndash; Jonathan&lt;/p&gt;
+      <description>
 
-&lt;p&gt;% I tried to follow Jonathan&amp;rsquo;s format, insofar as I understood it.
-% I tried to order entries lexicographically by authors (with singly
-% authored papers first), then by date.
-% In some cases I replaced a technical report or conference paper
-% by a subsequent journal article, but I think there are several
-% more such replacements that ought to be made.
-%  &amp;ndash; Will, 1991.&lt;/p&gt;
+&lt;h1 id=&#34;references&#34;&gt;REFERENCES&lt;/h1&gt;
 
-&lt;p&gt;% This is just a personal remark on your question on the RRRS:
-% The language CUCH (Curry-Church) was implemented by 1964 and
-% is a practical version of the lambda-calculus (call-by-name).
-% One reference you may find in Formal Language Description Languages
-% for Computer Programming T.~B.~Steele, 1965 (or so).
-%  &amp;ndash; Matthias Felleisen&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;SICP&#34; href=&#34;.#SICP&#34;&gt;[SICP]&lt;/a&gt;
 
-&lt;p&gt;% Rather than try to keep the bibliography up-to-date, which is hopeless
-% given the time between updates, I replaced the bulk of the references
-% with a pointer to the Scheme Repository.  Ozan Yigit&amp;rsquo;s bibliography in
-% the repository is a superset of the R4RS one.
-% The bibliography now contains only items referenced within the report.
-%  &amp;ndash; Richard, 1996.&lt;/p&gt;
-
-&lt;p&gt;% Once again, the bibliography now contains only items referenced within the report.
-%  &amp;ndash; John Cowan, 2013&lt;/p&gt;
-
-&lt;p&gt;\begin{thebibliography}{999}&lt;/p&gt;
-
-&lt;p&gt;\bibitem{SICP}
 Harold Abelson and Gerald Jay Sussman with Julie Sussman.
-{\em Structure and Interpretation of Computer Programs, second edition.}
+&lt;em&gt;Structure and Interpretation of Computer Programs, second edition.&lt;/em&gt;
 MIT Press, Cambridge, 1996.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Bawden88}
+&lt;p&gt;&lt;a id=&#34;Bawden88&#34; href=&#34;.#Bawden88&#34;&gt;[Bawden88]&lt;/a&gt;
+
 Alan Bawden and Jonathan Rees.
 Syntactic closures.
-In {\em Proceedings of the 1988 ACM Symposium on Lisp and
-  Functional Programming}, pages 86&amp;ndash;95.&lt;/p&gt;
+In &lt;em&gt;Proceedings of the 1988 ACM Symposium on Lisp and
+  Functional Programming&lt;/em&gt;, pages 86&amp;ndash;95.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{rfc2119}
+&lt;p&gt;&lt;a id=&#34;rfc2119&#34; href=&#34;.#rfc2119&#34;&gt;[rfc2119]&lt;/a&gt;
+
 S. Bradner.
 Key words for use in RFCs to Indicate Requirement Levels.
 \url{&lt;a href=&#34;http://www.ietf.org/rfc/rfc2119.txt&#34;&gt;http://www.ietf.org/rfc/rfc2119.txt&lt;/a&gt;}, 1997.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{howtoprint}
+&lt;p&gt;&lt;a id=&#34;howtoprint&#34; href=&#34;.#howtoprint&#34;&gt;[howtoprint]&lt;/a&gt;
+
 Robert G. Burger~and R. Kent Dybvig.
 Printing floating-point numbers quickly and accurately.
-In {\em Proceedings of the ACM SIGPLAN &amp;lsquo;96 Conference
-  on Programming Language Design and Implementation}, pages~108&amp;ndash;116.&lt;/p&gt;
+In &lt;em&gt;Proceedings of the ACM SIGPLAN &amp;lsquo;96 Conference
+  on Programming Language Design and Implementation&lt;/em&gt;, pages~108&amp;ndash;116.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{howtoread}
+&lt;p&gt;&lt;a id=&#34;howtoread&#34; href=&#34;.#howtoread&#34;&gt;[howtoread]&lt;/a&gt;
+
 William Clinger.
 How to read floating point numbers accurately.
-In {\em Proceedings of the ACM SIGPLAN &amp;lsquo;90 Conference
-  on Programming Language Design and Implementation}, pages 92&amp;ndash;101.
-Proceedings published as {\em SIGPLAN Notices} 25(6), June 1990.&lt;/p&gt;
+In &lt;em&gt;Proceedings of the ACM SIGPLAN &amp;lsquo;90 Conference
+  on Programming Language Design and Implementation&lt;/em&gt;, pages 92&amp;ndash;101.
+Proceedings published as &lt;em&gt;SIGPLAN Notices&lt;/em&gt; 25(6), June 1990.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{propertailrecursion}
+&lt;p&gt;&lt;a id=&#34;propertailrecursion&#34; href=&#34;.#propertailrecursion&#34;&gt;[propertailrecursion]&lt;/a&gt;
+
 William Clinger.
 Proper Tail Recursion and Space Efficiency.
-In {\em Proceedings of the 1998 ACM Conference on Programming
- Language Design and Implementation}, June 1998.&lt;/p&gt;
+In &lt;em&gt;Proceedings of the 1998 ACM Conference on Programming
+ Language Design and Implementation&lt;/em&gt;, June 1998.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{srfi6}
+&lt;p&gt;&lt;a id=&#34;srfi6&#34; href=&#34;.#srfi6&#34;&gt;[srfi6]&lt;/a&gt;
+
 William Clinger.
 SRFI 6: Basic String Ports.
 \url{&lt;a href=&#34;http://srfi.schemers.org/srfi-6/&#34;&gt;http://srfi.schemers.org/srfi-6/&lt;/a&gt;}, 1999.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{RRRS}
+&lt;p&gt;&lt;a id=&#34;RRRS&#34; href=&#34;.#RRRS&#34;&gt;[RRRS]&lt;/a&gt;
+
 William Clinger, editor.
 The revised revised report on Scheme, or an uncommon Lisp.
 MIT Artificial Intelligence Memo 848, August 1985.
 Also published as Computer Science Department Technical Report 174,
   Indiana University, June 1985.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{macrosthatwork}
+&lt;p&gt;&lt;a id=&#34;macrosthatwork&#34; href=&#34;.#macrosthatwork&#34;&gt;[macrosthatwork]&lt;/a&gt;
+
 William Clinger and Jonathan Rees.
 Macros that work.
-In {\em Proceedings of the 1991 ACM Conference on Principles of
-  Programming Languages}, pages~155&amp;ndash;162.&lt;/p&gt;
+In &lt;em&gt;Proceedings of the 1991 ACM Conference on Principles of
+  Programming Languages&lt;/em&gt;, pages~155&amp;ndash;162.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{R4RS}
+&lt;p&gt;&lt;a id=&#34;R4RS&#34; href=&#34;.#R4RS&#34;&gt;[R4RS]&lt;/a&gt;
+
 William Clinger and Jonathan Rees, editors.
 The revised$^4$ report on the algorithmic language Scheme.
-In {\em ACM Lisp Pointers} 4(3), pages~1&amp;ndash;55, 1991.&lt;/p&gt;
+In &lt;em&gt;ACM Lisp Pointers&lt;/em&gt; 4(3), pages~1&amp;ndash;55, 1991.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{uax29}
+&lt;p&gt;&lt;a id=&#34;uax29&#34; href=&#34;.#uax29&#34;&gt;[uax29]&lt;/a&gt;
+
 Mark Davis.
 Unicode Standard Annex #29, Unicode Text Segmentation.
 \url{&lt;a href=&#34;http://unicode.org/reports/tr29/&#34;&gt;http://unicode.org/reports/tr29/&lt;/a&gt;}, 2010.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{syntacticabstraction}
+&lt;p&gt;&lt;a id=&#34;syntacticabstraction&#34; href=&#34;.#syntacticabstraction&#34;&gt;[syntacticabstraction]&lt;/a&gt;
+
 R.~Kent Dybvig, Robert Hieb, and Carl Bruggeman.
 Syntactic abstraction in Scheme.
-{\em Lisp and Symbolic Computation} 5(4):295&amp;ndash;326, 1993.&lt;/p&gt;
+&lt;em&gt;Lisp and Symbolic Computation&lt;/em&gt; 5(4):295&amp;ndash;326, 1993.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{srfi4}
+&lt;p&gt;&lt;a id=&#34;srfi4&#34; href=&#34;.#srfi4&#34;&gt;[srfi4]&lt;/a&gt;
+
 Marc Feeley.
 SRFI 4: Homogeneous Numeric Vector Datatypes.
 \url{&lt;a href=&#34;http://srfi.schemers.org/srfi-45/&#34;&gt;http://srfi.schemers.org/srfi-45/&lt;/a&gt;}, 1999.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Scheme311}
+&lt;p&gt;&lt;a id=&#34;Scheme311&#34; href=&#34;.#Scheme311&#34;&gt;[Scheme311]&lt;/a&gt;
+
 Carol Fessenden, William Clinger, Daniel P.~Friedman, and Christopher Haynes.
 Scheme 311 version 4 reference manual.
 Indiana University Computer Science Technical Report 137, February 1983.
-Superseded by~\cite{Scheme84}.&lt;/p&gt;
+Superseded by &lt;a href=&#34;../ref/#Scheme84&#34;&gt;[Scheme84]&lt;/a&gt;
+.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Scheme84}
+&lt;p&gt;&lt;a id=&#34;Scheme84&#34; href=&#34;.#Scheme84&#34;&gt;[Scheme84]&lt;/a&gt;
+
 D.~Friedman, C.~Haynes, E.~Kohlbecker, and M.~Wand.
 Scheme 84 interim reference manual.
 Indiana University Computer Science Technical Report 153, January 1985.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{life}
+&lt;p&gt;&lt;a id=&#34;life&#34; href=&#34;.#life&#34;&gt;[life]&lt;/a&gt;
+
 Martin Gardner.
 Mathematical Games: The fantastic combinations of John Conway&amp;rsquo;s new solitaire game &amp;ldquo;Life.&amp;rdquo;
-In {\em Scientific American}, 223:120&amp;ndash;123, October 1970.&lt;/p&gt;
+In &lt;em&gt;Scientific American&lt;/em&gt;, 223:120&amp;ndash;123, October 1970.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{IEEE}
-{\em IEEE Standard 754-2008.  IEEE Standard for Floating-Point
-Arithmetic.}  IEEE, New York, 2008.&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;IEEE&#34; href=&#34;.#IEEE&#34;&gt;[IEEE]&lt;/a&gt;
 
-&lt;p&gt;\bibitem{IEEEScheme}
-{\em IEEE Standard 1178-1990.  IEEE Standard for the Scheme
-  Programming Language.}  IEEE, New York, 1991.&lt;/p&gt;
+&lt;em&gt;IEEE Standard 754-2008.  IEEE Standard for Floating-Point
+Arithmetic.&lt;/em&gt;  IEEE, New York, 2008.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{srfi9}
+&lt;p&gt;&lt;a id=&#34;IEEEScheme&#34; href=&#34;.#IEEEScheme&#34;&gt;[IEEEScheme]&lt;/a&gt;
+
+&lt;em&gt;IEEE Standard 1178-1990.  IEEE Standard for the Scheme
+  Programming Language.&lt;/em&gt;  IEEE, New York, 1991.&lt;/p&gt;
+
+&lt;p&gt;&lt;a id=&#34;srfi9&#34; href=&#34;.#srfi9&#34;&gt;[srfi9]&lt;/a&gt;
+
 Richard Kelsey.
 SRFI 9: Defining Record Types.
 \url{&lt;a href=&#34;http://srfi.schemers.org/srfi-9/&#34;&gt;http://srfi.schemers.org/srfi-9/&lt;/a&gt;}, 1999.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{R5RS}
+&lt;p&gt;&lt;a id=&#34;R5RS&#34; href=&#34;.#R5RS&#34;&gt;[R5RS]&lt;/a&gt;
+
 Richard Kelsey, William Clinger, and Jonathan Rees, editors.
 The revised$^5$ report on the algorithmic language Scheme.
-{\em Higher-Order and Symbolic Computation}, 11(1):7-105, 1998.&lt;/p&gt;
+&lt;em&gt;Higher-Order and Symbolic Computation&lt;/em&gt;, 11(1):7-105, 1998.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Kohlbecker86}
+&lt;p&gt;&lt;a id=&#34;Kohlbecker86&#34; href=&#34;.#Kohlbecker86&#34;&gt;[Kohlbecker86]&lt;/a&gt;
+
 Eugene E. Kohlbecker~Jr.
-{\em Syntactic Extensions in the Programming Language Lisp.}
+&lt;em&gt;Syntactic Extensions in the Programming Language Lisp.&lt;/em&gt;
 PhD thesis, Indiana University, August 1986.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{hygienic}
+&lt;p&gt;&lt;a id=&#34;hygienic&#34; href=&#34;.#hygienic&#34;&gt;[hygienic]&lt;/a&gt;
+
 Eugene E.~Kohlbecker~Jr., Daniel P.~Friedman, Matthias Felleisen, and Bruce Duba.
 Hygienic macro expansion.
-In {\em Proceedings of the 1986 ACM Conference on Lisp
-  and Functional Programming}, pages 151&amp;ndash;161.&lt;/p&gt;
+In &lt;em&gt;Proceedings of the 1986 ACM Conference on Lisp
+  and Functional Programming&lt;/em&gt;, pages 151&amp;ndash;161.&lt;/p&gt;
 
-&lt;p&gt;%% The only citation of this is commented out, so commenting this out too.
-%% \bibitem{Landin65}
-%% Peter Landin.
-%% A correspondence between Algol 60 and Church&amp;rsquo;s lambda notation: Part I.
-%% {\em Communications of the ACM} 8(2):89&amp;ndash;101, February 1965.&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;McCarthy&#34; href=&#34;.#McCarthy&#34;&gt;[McCarthy]&lt;/a&gt;
 
-&lt;p&gt;\bibitem{McCarthy}
 John McCarthy.
 Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I.
-{\em Communications of the ACM} 3(4):184&amp;ndash;195, April 1960.&lt;/p&gt;
+&lt;em&gt;Communications of the ACM&lt;/em&gt; 3(4):184&amp;ndash;195, April 1960.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{MITScheme}
+&lt;p&gt;&lt;a id=&#34;MITScheme&#34; href=&#34;.#MITScheme&#34;&gt;[MITScheme]&lt;/a&gt;
+
 MIT Department of Electrical Engineering and Computer Science.
 Scheme manual, seventh edition.
 September 1984.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Naur63}
+&lt;p&gt;&lt;a id=&#34;Naur63&#34; href=&#34;.#Naur63&#34;&gt;[Naur63]&lt;/a&gt;
+
 Peter Naur et al.
 Revised report on the algorithmic language Algol 60.
-{\em Communications of the ACM} 6(1):1&amp;ndash;17, January 1963.&lt;/p&gt;
+&lt;em&gt;Communications of the ACM&lt;/em&gt; 6(1):1&amp;ndash;17, January 1963.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Penfield81}
+&lt;p&gt;&lt;a id=&#34;Penfield81&#34; href=&#34;.#Penfield81&#34;&gt;[Penfield81]&lt;/a&gt;
+
 Paul Penfield, Jr.
 Principal values and branch cuts in complex APL.
-In {\em APL &amp;lsquo;81 Conference Proceedings,} pages 248&amp;ndash;256.
+In &lt;em&gt;APL &amp;lsquo;81 Conference Proceedings,&lt;/em&gt; pages 248&amp;ndash;256.
 ACM SIGAPL, San Francisco, September 1981.
-Proceedings published as {\em APL Quote Quad} 12(1), ACM, September 1981.&lt;/p&gt;
+Proceedings published as &lt;em&gt;APL Quote Quad&lt;/em&gt; 12(1), ACM, September 1981.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Rees82}
+&lt;p&gt;&lt;a id=&#34;Rees82&#34; href=&#34;.#Rees82&#34;&gt;[Rees82]&lt;/a&gt;
+
 Jonathan A.~Rees and Norman I.~Adams IV.
 T: A dialect of Lisp or, lambda: The ultimate software tool.
-In {\em Conference Record of the 1982 ACM Symposium on Lisp and
-  Functional Programming}, pages 114&amp;ndash;122.&lt;/p&gt;
+In &lt;em&gt;Conference Record of the 1982 ACM Symposium on Lisp and
+  Functional Programming&lt;/em&gt;, pages 114&amp;ndash;122.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Rees84}
+&lt;p&gt;&lt;a id=&#34;Rees84&#34; href=&#34;.#Rees84&#34;&gt;[Rees84]&lt;/a&gt;
+
 Jonathan A.~Rees, Norman I.~Adams IV, and James R.~Meehan.
 The T manual, fourth edition.
 Yale University Computer Science Department, January 1984.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{R3RS}
+&lt;p&gt;&lt;a id=&#34;R3RS&#34; href=&#34;.#R3RS&#34;&gt;[R3RS]&lt;/a&gt;
+
 Jonathan Rees and William Clinger, editors.
 The revised$^3$ report on the algorithmic language Scheme.
-In {\em ACM SIGPLAN Notices} 21(12), pages~37&amp;ndash;79, December 1986.&lt;/p&gt;
+In &lt;em&gt;ACM SIGPLAN Notices&lt;/em&gt; 21(12), pages~37&amp;ndash;79, December 1986.&lt;/p&gt;
 
-&lt;p&gt;%% The only citation of this is commented out, so commenting this out too.
-%% \bibitem{Reynolds72}
-%% John Reynolds.
-%% Definitional interpreters for higher order programming languages.
-%% In {\em ACM Conference Proceedings}, pages 717&amp;ndash;740.
-%% ACM, ~1972.&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;srfi1&#34; href=&#34;.#srfi1&#34;&gt;[srfi1]&lt;/a&gt;
 
-&lt;p&gt;\bibitem{srfi1}
 Olin Shivers.
 SRFI 1: List Library.
 \url{&lt;a href=&#34;http://srfi.schemers.org/srfi-1/&#34;&gt;http://srfi.schemers.org/srfi-1/&lt;/a&gt;}, 1999.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Scheme78}
+&lt;p&gt;&lt;a id=&#34;Scheme78&#34; href=&#34;.#Scheme78&#34;&gt;[Scheme78]&lt;/a&gt;
+
 Guy Lewis Steele Jr.~and Gerald Jay Sussman.
 The revised report on Scheme, a dialect of Lisp.
 MIT Artificial Intelligence Memo 452, January 1978.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Rabbit}
+&lt;p&gt;&lt;a id=&#34;Rabbit&#34; href=&#34;.#Rabbit&#34;&gt;[Rabbit]&lt;/a&gt;
+
 Guy Lewis Steele Jr.
 Rabbit: a compiler for Scheme.
 MIT Artificial Intelligence Laboratory Technical Report 474, May 1978.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{R6RS}
+&lt;p&gt;&lt;a id=&#34;R6RS&#34; href=&#34;.#R6RS&#34;&gt;[R6RS]&lt;/a&gt;
+
 Michael Sperber, R. Kent Dybvig, Mathew Flatt, and Anton van Straaten, editors.
-{\em The revised$^6$ report on the algorithmic language Scheme.}
+&lt;em&gt;The revised$^6$ report on the algorithmic language Scheme.&lt;/em&gt;
 Cambridge University Press, 2010.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{CLtL}
+&lt;p&gt;&lt;a id=&#34;CLtL&#34; href=&#34;.#CLtL&#34;&gt;[CLtL]&lt;/a&gt;
+
 Guy Lewis Steele Jr.
-{\em Common Lisp: The Language, second edition.}
+&lt;em&gt;Common Lisp: The Language, second edition.&lt;/em&gt;
 Digital Press, Burlington MA, 1990.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Scheme75}
+&lt;p&gt;&lt;a id=&#34;Scheme75&#34; href=&#34;.#Scheme75&#34;&gt;[Scheme75]&lt;/a&gt;
+
 Gerald Jay Sussman and Guy Lewis Steele Jr.
 Scheme: an interpreter for extended lambda calculus.
 MIT Artificial Intelligence Memo 349, December 1975.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{Stoy77}
+&lt;p&gt;&lt;a id=&#34;Stoy77&#34; href=&#34;.#Stoy77&#34;&gt;[Stoy77]&lt;/a&gt;
+
 Joseph E.~Stoy.
-{\em Denotational Semantics: The Scott-Strachey Approach to
-  Programming Language Theory.}
+&lt;em&gt;Denotational Semantics: The Scott-Strachey Approach to
+  Programming Language Theory.&lt;/em&gt;
 MIT Press, Cambridge, 1977.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{TImanual85}
+&lt;p&gt;&lt;a id=&#34;TImanual85&#34; href=&#34;.#TImanual85&#34;&gt;[TImanual85]&lt;/a&gt;
+
 Texas Instruments, Inc.
 TI Scheme Language Reference Manual.
 Preliminary version 1.0, November 1985.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{srfi45}
+&lt;p&gt;&lt;a id=&#34;srfi45&#34; href=&#34;.#srfi45&#34;&gt;[srfi45]&lt;/a&gt;
+
 Andre van Tonder.
 SRFI 45: Primitives for Expressing Iterative Lazy Algorithms.
 \url{&lt;a href=&#34;http://srfi.schemers.org/srfi-45/&#34;&gt;http://srfi.schemers.org/srfi-45/&lt;/a&gt;}, 2002.&lt;/p&gt;
 
-&lt;p&gt;\bibitem{GasbichlerKnauelSperberKelsey2003}
+&lt;p&gt;&lt;a id=&#34;GasbichlerKnauelSperberKelsey2003&#34; href=&#34;.#GasbichlerKnauelSperberKelsey2003&#34;&gt;[GasbichlerKnauelSperberKelsey2003]&lt;/a&gt;
+
 Martin Gasbichler, Eric Knauel, Michael Sperber and Richard Kelsey.
 How to Add Threads to a Sequential Language Without Getting Tangled Up.
-{\em Proceedings of the Fourth Workshop on Scheme and Functional Programming}, November 2003.&lt;/p&gt;
-
-&lt;p&gt;\end{thebibliography}&lt;/p&gt;
+&lt;em&gt;Proceedings of the Fourth Workshop on Scheme and Functional Programming&lt;/em&gt;, November 2003.&lt;/p&gt;
 </description>
     </item>
     
