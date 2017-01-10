@@ -20,8 +20,7 @@
 
 &lt;p&gt;The report gives a defining description of the programming language
 Scheme.  Scheme is a statically scoped and properly tail recursive
-dialect of the Lisp programming language &lt;a href=&#34;../ref/#McCarthy&#34;&gt;[McCarthy]&lt;/a&gt;
- invented by Guy Lewis
+dialect of the Lisp programming language &lt;a href=&#34;../ref/#McCarthy&#34;&gt;[McCarthy]&lt;/a&gt; invented by Guy Lewis
 Steele Jr. and Gerald Jay Sussman.  It was designed to have
 exceptionally clear and simple semantics and few different ways to
 form expressions.  A wide variety of programming paradigms, including
@@ -109,19 +108,14 @@ to be extended in a consistent and reliable manner.&lt;/p&gt;
 &lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
 
 &lt;p&gt;The first description of Scheme was written in
-1975 &lt;a href=&#34;../ref/#Scheme75&#34;&gt;[Scheme75]&lt;/a&gt;
-.  A revised report &lt;a href=&#34;../ref/#Scheme78&#34;&gt;[Scheme78]&lt;/a&gt;
-
+1975 &lt;a href=&#34;../ref/#Scheme75&#34;&gt;[Scheme75]&lt;/a&gt;.  A revised report &lt;a href=&#34;../ref/#Scheme78&#34;&gt;[Scheme78]&lt;/a&gt;
 appeared in 1978, which described the evolution
 of the language as its MIT implementation was upgraded to support an
-innovative compiler &lt;a href=&#34;../ref/#Rabbit&#34;&gt;[Rabbit]&lt;/a&gt;
-.  Three distinct projects began in
+innovative compiler &lt;a href=&#34;../ref/#Rabbit&#34;&gt;[Rabbit]&lt;/a&gt;.  Three distinct projects began in
 1981 and 1982 to use variants of Scheme for courses at MIT, Yale, and
-Indiana University &lt;a href=&#34;../ref/#Rees82&#34;&gt;[Rees82]&lt;/a&gt;&lt;a href=&#34;../ref/#MITScheme&#34;&gt;[MITScheme]&lt;/a&gt;&lt;a href=&#34;../ref/#Scheme311&#34;&gt;[Scheme311]&lt;/a&gt;
-.  An introductory
+Indiana University &lt;a href=&#34;../ref/#Rees82&#34;&gt;[Rees82]&lt;/a&gt;&lt;a href=&#34;../ref/#MITScheme&#34;&gt;[MITScheme]&lt;/a&gt;&lt;a href=&#34;../ref/#Scheme311&#34;&gt;[Scheme311]&lt;/a&gt;.  An introductory
 computer science textbook using Scheme was published in
-1984 &lt;a href=&#34;../ref/#SICP&#34;&gt;[SICP]&lt;/a&gt;
-.&lt;/p&gt;
+1984 &lt;a href=&#34;../ref/#SICP&#34;&gt;[SICP]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;As Scheme became more widespread,
 local dialects began to diverge until students and researchers
@@ -130,27 +124,21 @@ sites.
 Fifteen representatives of the major implementations of Scheme therefore
 met in October 1984 to work toward a better and more widely accepted
 standard for Scheme.
-Their report, the RRRS &lt;a href=&#34;../ref/#RRRS&#34;&gt;[RRRS]&lt;/a&gt;
-,
+Their report, the RRRS &lt;a href=&#34;../ref/#RRRS&#34;&gt;[RRRS]&lt;/a&gt;,
 was published at MIT and Indiana University in the summer of 1985.
 Further revision took place in the spring of 1986, resulting in the
-R&lt;span class=&#34;rnrs&#34;&gt;3&lt;/span&gt;RS &lt;a href=&#34;../ref/#R3RS&#34;&gt;[R3RS]&lt;/a&gt;
-.
-Work in the spring of 1988 resulted in R&lt;span class=&#34;rnrs&#34;&gt;4&lt;/span&gt;RS &lt;a href=&#34;../ref/#R4RS&#34;&gt;[R4RS]&lt;/a&gt;
-,
+R&lt;span class=&#34;rnrs&#34;&gt;3&lt;/span&gt;RS &lt;a href=&#34;../ref/#R3RS&#34;&gt;[R3RS]&lt;/a&gt;.
+Work in the spring of 1988 resulted in R&lt;span class=&#34;rnrs&#34;&gt;4&lt;/span&gt;RS &lt;a href=&#34;../ref/#R4RS&#34;&gt;[R4RS]&lt;/a&gt;,
 which became the basis for the
-IEEE Standard for the Scheme Programming Language in 1991 &lt;a href=&#34;../ref/#IEEEScheme&#34;&gt;[IEEEScheme]&lt;/a&gt;
-.
+IEEE Standard for the Scheme Programming Language in 1991 &lt;a href=&#34;../ref/#IEEEScheme&#34;&gt;[IEEEScheme]&lt;/a&gt;.
 In 1998, several additions to the IEEE standard, including high-level
 hygienic macros, multiple return values, and &lt;code&gt;eval&lt;/code&gt;, were finalized
-as the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;
-.&lt;/p&gt;
+as the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In the fall of 2006, work began on a more ambitious standard,
 including many new improvements and stricter requirements made in the
 interest of improved portability.  The resulting standard, the
-R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS, was completed in August 2007 &lt;a href=&#34;../ref/#R6RS&#34;&gt;[R6RS]&lt;/a&gt;
-, and was organized
+R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS, was completed in August 2007 &lt;a href=&#34;../ref/#R6RS&#34;&gt;[R6RS]&lt;/a&gt;, and was organized
 as a core language and set of mandatory standard libraries.
 Several new implementations of Scheme conforming to it were created.
 However, most existing R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS{} implementations (even excluding those
@@ -217,15 +205,9 @@ Yigit.  We thank Carol Fessenden, Daniel Friedman, and Christopher
 Haynes for permission to use text from the Scheme 311 version 4
 reference manual.  We thank Texas Instruments, Inc. for permission to
 use text from the &lt;em&gt;TI Scheme Language Reference
-Manual&lt;/em&gt; &lt;a href=&#34;../ref/#TImanual85&#34;&gt;[TImanual85]&lt;/a&gt;
-.  We gladly acknowledge the influence of
-manuals for MIT Scheme &lt;a href=&#34;../ref/#MITScheme&#34;&gt;[MITScheme]&lt;/a&gt;
-, T &lt;a href=&#34;../ref/#Rees84&#34;&gt;[Rees84]&lt;/a&gt;
-, Scheme
-84 &lt;a href=&#34;../ref/#Scheme84&#34;&gt;[Scheme84]&lt;/a&gt;
-, Common Lisp &lt;a href=&#34;../ref/#CLtL&#34;&gt;[CLtL]&lt;/a&gt;
-, and Algol 60 &lt;a href=&#34;../ref/#Naur63&#34;&gt;[Naur63]&lt;/a&gt;
-,
+Manual&lt;/em&gt; &lt;a href=&#34;../ref/#TImanual85&#34;&gt;[TImanual85]&lt;/a&gt;.  We gladly acknowledge the influence of
+manuals for MIT Scheme &lt;a href=&#34;../ref/#MITScheme&#34;&gt;[MITScheme]&lt;/a&gt;, T &lt;a href=&#34;../ref/#Rees84&#34;&gt;[Rees84]&lt;/a&gt;, Scheme
+84 &lt;a href=&#34;../ref/#Scheme84&#34;&gt;[Scheme84]&lt;/a&gt;, Common Lisp &lt;a href=&#34;../ref/#CLtL&#34;&gt;[CLtL]&lt;/a&gt;, and Algol 60 &lt;a href=&#34;../ref/#Naur63&#34;&gt;[Naur63]&lt;/a&gt;,
 as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,
 all of which are available at &lt;a href=&#34;http://srfi.schemers.org&#34;&gt;http://srfi.schemers.org&lt;/a&gt;.&lt;/p&gt;
 </description>
@@ -420,8 +402,7 @@ not say what value is returned.&lt;/p&gt;
 &lt;p&gt;Finally, the words and phrases &amp;ldquo;must,&amp;rdquo; &amp;ldquo;must not,&amp;rdquo; &amp;ldquo;shall,&amp;rdquo;
 &amp;ldquo;shall not,&amp;rdquo; &amp;ldquo;should,&amp;rdquo; &amp;ldquo;should not,&amp;rdquo; &amp;ldquo;may,&amp;rdquo; &amp;ldquo;required,&amp;rdquo;
 &amp;ldquo;recommended,&amp;rdquo; and &amp;ldquo;optional,&amp;rdquo; although not capitalized in this
-report, are to be interpreted as described in RFC~2119 &lt;a href=&#34;../ref/#rfc2119&#34;&gt;[rfc2119]&lt;/a&gt;
-.
+report, are to be interpreted as described in RFC~2119 &lt;a href=&#34;../ref/#rfc2119&#34;&gt;[rfc2119]&lt;/a&gt;.
 They are used only with reference to implementer or implementation behavior,
 not with reference to programmer or program behavior.&lt;/p&gt;
 
@@ -657,8 +638,7 @@ or as a syntactic keyword
 (see section~\ref{symbolsection}).&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;In contrast with earlier revisions of the report &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;
-, the
+&lt;p&gt;In contrast with earlier revisions of the report &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;, the
 syntax distinguishes between upper and lower case in
 identifiers and in characters specified using their names.  However, it
 does not distinguish between upper and lower case in numbers,
@@ -1072,8 +1052,7 @@ In the absence of captured continuations, calls could
 return at most once and the active calls would be those that had not
 yet returned.
 A formal definition of proper tail recursion can be found
-in &lt;a href=&#34;../ref/#propertailrecursion&#34;&gt;[propertailrecursion]&lt;/a&gt;
-.&lt;/p&gt;
+in &lt;a href=&#34;../ref/#propertailrecursion&#34;&gt;[propertailrecursion]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;\begin{rationale}&lt;/p&gt;
 
@@ -2689,8 +2668,7 @@ bindings that surround the use of the macro.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;In consequence, all macros
 defined using the pattern language  are &amp;ldquo;hygienic&amp;rdquo; and &amp;ldquo;referentially
-transparent&amp;rdquo; and thus preserve Scheme&amp;rsquo;s lexical scoping. &lt;a href=&#34;../ref/#Kohlbecker86&#34;&gt;[Kohlbecker86]&lt;/a&gt;&lt;a href=&#34;../ref/#hygienic&#34;&gt;[hygienic]&lt;/a&gt;&lt;a href=&#34;../ref/#Bawden88&#34;&gt;[Bawden88]&lt;/a&gt;&lt;a href=&#34;../ref/#macrosthatwork&#34;&gt;[macrosthatwork]&lt;/a&gt;&lt;a href=&#34;../ref/#syntacticabstraction&#34;&gt;[syntacticabstraction]&lt;/a&gt;
-&lt;/p&gt;
+transparent&amp;rdquo; and thus preserve Scheme&amp;rsquo;s lexical scoping. &lt;a href=&#34;../ref/#Kohlbecker86&#34;&gt;[Kohlbecker86]&lt;/a&gt;&lt;a href=&#34;../ref/#hygienic&#34;&gt;[hygienic]&lt;/a&gt;&lt;a href=&#34;../ref/#Bawden88&#34;&gt;[Bawden88]&lt;/a&gt;&lt;a href=&#34;../ref/#macrosthatwork&#34;&gt;[macrosthatwork]&lt;/a&gt;&lt;a href=&#34;../ref/#syntacticabstraction&#34;&gt;[syntacticabstraction]&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Implementations may provide macro facilities of other types.&lt;/p&gt;
 
@@ -3571,8 +3549,7 @@ has the same effect as &lt;code&gt;(import (only (foo) a b))&lt;/code&gt;.&lt;/p
 
 &lt;p&gt;The following example shows
 how a program can be divided into libraries plus a relatively small
-main program &lt;a href=&#34;../ref/#life&#34;&gt;[life]&lt;/a&gt;
-.
+main program &lt;a href=&#34;../ref/#life&#34;&gt;[life]&lt;/a&gt;.
 If the main program is entered into a REPL, it is not necessary to import
 the base library.&lt;/p&gt;
 
@@ -4195,8 +4172,7 @@ floating-point representations
 follow the IEEE 754 standard,
 and that implementations using
 other representations should match or exceed the precision achievable
-using these floating-point standards &lt;a href=&#34;../ref/#IEEE&#34;&gt;[IEEE]&lt;/a&gt;
-.
+using these floating-point standards &lt;a href=&#34;../ref/#IEEE&#34;&gt;[IEEE]&lt;/a&gt;.
 In particular, the description of transcendental functions in IEEE 754-2008
 should be followed by such implementations, particularly with respect
 to infinities and NaNs.&lt;/p&gt;
@@ -4844,10 +4820,8 @@ $\ast$&amp;amp; $y = -0.0$ &amp;amp; $x = 0$    &amp;amp; $-\frac{\pi}{2}$
 \end{tabular}
 \end{center}&lt;/p&gt;
 
-&lt;p&gt;The above specification follows &lt;a href=&#34;../ref/#CLtL&#34;&gt;[CLtL]&lt;/a&gt;
-, which in turn
-cites &lt;a href=&#34;../ref/#Penfield81&#34;&gt;[Penfield81]&lt;/a&gt;
-; refer to these sources for more detailed
+&lt;p&gt;The above specification follows &lt;a href=&#34;../ref/#CLtL&#34;&gt;[CLtL]&lt;/a&gt;, which in turn
+cites &lt;a href=&#34;../ref/#Penfield81&#34;&gt;[Penfield81]&lt;/a&gt;; refer to these sources for more detailed
 discussion of branch cuts, boundary conditions, and implementation of
 these functions.  When it is possible, these procedures produce a real
 result from a real argument.&lt;/p&gt;
@@ -5019,8 +4993,7 @@ can be satisfied by a result that contains a decimal point,
 then the result contains a decimal point and is expressed using the
 minimum number of digits (exclusive of exponent and trailing
 zeroes) needed to make the above expression
-true &lt;a href=&#34;../ref/#howtoprint&#34;&gt;[howtoprint]&lt;/a&gt;&lt;a href=&#34;../ref/#howtoread&#34;&gt;[howtoread]&lt;/a&gt;
-;
+true &lt;a href=&#34;../ref/#howtoprint&#34;&gt;[howtoprint]&lt;/a&gt;&lt;a href=&#34;../ref/#howtoread&#34;&gt;[howtoread]&lt;/a&gt;;
 otherwise the format of the result is unspecified.&lt;/p&gt;
 
 &lt;p&gt;The result returned by &lt;code&gt;number\coerce{&lt;/code&gt;string}
@@ -5888,8 +5861,7 @@ language-sensitive folding is not used.  If the argument is an uppercase
 letter, the result will be either a lowercase letter
 or the same as the argument if the lowercase letter does not exist or
 is not supported by the implementation.
-See UAX #29 &lt;a href=&#34;../ref/#uax29&#34;&gt;[uax29]&lt;/a&gt;
- (part of the Unicode Standard) for details.&lt;/p&gt;
+See UAX #29 &lt;a href=&#34;../ref/#uax29&#34;&gt;[uax29]&lt;/a&gt; (part of the Unicode Standard) for details.&lt;/p&gt;
 
 &lt;p&gt;Note that many Unicode lowercase characters do not have uppercase
 equivalents.&lt;/p&gt;
@@ -6096,8 +6068,7 @@ Note that language-sensitive mappings and foldings are not used.&lt;/p&gt;
 
 &lt;p&gt;The Unicode Standard prescribes special treatment of the Greek letter
 $\Sigma$, whose normal lower-case form is $\sigma$ but which becomes
-$\varsigma$ at the end of a word.  See UAX #29 &lt;a href=&#34;../ref/#uax29&#34;&gt;[uax29]&lt;/a&gt;
- (part of
+$\varsigma$ at the end of a word.  See UAX #29 &lt;a href=&#34;../ref/#uax29&#34;&gt;[uax29]&lt;/a&gt; (part of
 the Unicode Standard) for details.  However, implementations of {\cf
 string-downcase} are not required to provide this behavior, and may
 choose to change $\Sigma$ to $\sigma$ in all cases.&lt;/p&gt;
@@ -6887,10 +6858,8 @@ continuation.&lt;/p&gt;
 &lt;p&gt;% Most programming languages incorporate one or more special-purpose
 % escape constructs with names like {\tt exit}, \hbox{&lt;code&gt;return&lt;/code&gt;}, or
 % even {\tt goto}.  In 1965, however, Peter Landin &lt;a href=&#34;../ref/#Landin65&#34;&gt;[Landin65]&lt;/a&gt;
-
 % invented a general purpose escape operator called the J-operator.  John
-% Reynolds &lt;a href=&#34;../ref/#Reynolds72&#34;&gt;[Reynolds72]&lt;/a&gt;
- described a simpler but equally powerful
+% Reynolds &lt;a href=&#34;../ref/#Reynolds72&#34;&gt;[Reynolds72]&lt;/a&gt; described a simpler but equally powerful
 % construct in 1972.  The &lt;code&gt;catch&lt;/code&gt; syntax described by Sussman
 % and Steele in the 1975 report on Scheme is exactly the same as
 % Reynolds&amp;rsquo;s construct, though its name came from a less general construct
@@ -8583,10 +8552,8 @@ un-quo-ta-tion $D$} takes precedence.&lt;/p&gt;
 
 &lt;p&gt;This section provides a formal denotational semantics for the primitive
 expressions of Scheme and selected built-in procedures.  The concepts
-and notation used here are described in &lt;a href=&#34;../ref/#Stoy77&#34;&gt;[Stoy77]&lt;/a&gt;
-; the definition of
-&lt;code&gt;dynamic-wind&lt;/code&gt; is taken from &lt;a href=&#34;../ref/#GasbichlerKnauelSperberKelsey2003&#34;&gt;[GasbichlerKnauelSperberKelsey2003]&lt;/a&gt;
-.
+and notation used here are described in &lt;a href=&#34;../ref/#Stoy77&#34;&gt;[Stoy77]&lt;/a&gt;; the definition of
+&lt;code&gt;dynamic-wind&lt;/code&gt; is taken from &lt;a href=&#34;../ref/#GasbichlerKnauelSperberKelsey2003&#34;&gt;[GasbichlerKnauelSperberKelsey2003]&lt;/a&gt;.
 The notation is summarized below:&lt;/p&gt;
 
 &lt;p&gt;\begin{tabular}{ll}
@@ -9681,8 +9648,7 @@ value.&lt;/p&gt;
 
 &lt;p&gt;Finally, we define &lt;code&gt;force&lt;/code&gt; to call the procedure expressions in
 promises iteratively using a trampoline technique following
- &lt;a href=&#34;../ref/#srfi45&#34;&gt;[srfi45]&lt;/a&gt;
- until a non-lazy result (i.e. a value created by {\cf
+ &lt;a href=&#34;../ref/#srfi45&#34;&gt;[srfi45]&lt;/a&gt; until a non-lazy result (i.e. a value created by {\cf
   delay} instead of &lt;code&gt;delay-force&lt;/code&gt;) is returned, as follows:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(define (force promise)
@@ -10420,8 +10386,7 @@ provide the corresponding feature.&lt;/p&gt;
 
 
 &lt;p&gt;This section enumerates the incompatibilities between this report and
-the &amp;ldquo;Revised$^5$ report&amp;rdquo; &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;
-.&lt;/p&gt;
+the &amp;ldquo;Revised$^5$ report&amp;rdquo; &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;This list is not authoritative, but is believed to be correct and complete.&lt;/em&gt;&lt;/p&gt;
 
@@ -10463,8 +10428,7 @@ and must be compatible with &lt;code&gt;read&lt;/code&gt; and the syntax of numb
 &lt;p&gt;&lt;a id=&#34;differences&#34;&gt;&lt;/a&gt;
 
 This section enumerates the additional differences between this report and
-the &amp;ldquo;Revised$^5$ report&amp;rdquo; &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;
-.&lt;/p&gt;
+the &amp;ldquo;Revised$^5$ report&amp;rdquo; &lt;a href=&#34;../ref/#R5RS&#34;&gt;[R5RS]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;This list is not authoritative, but is believed to be correct and complete.&lt;/em&gt;&lt;/p&gt;
 
@@ -10494,16 +10458,14 @@ Conditions signaled by &lt;code&gt;read&lt;/code&gt; and by file-related procedu
 also have predicates to detect them.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;New disjoint types supporting access to multiple fields can be
-generated with the &lt;code&gt;define-record-type&lt;/code&gt; of SRFI 9 &lt;a href=&#34;../ref/#srfi9&#34;&gt;[srfi9]&lt;/a&gt;
-&lt;/p&gt;&lt;/li&gt;
+generated with the &lt;code&gt;define-record-type&lt;/code&gt; of SRFI 9 &lt;a href=&#34;../ref/#srfi9&#34;&gt;[srfi9]&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Parameter objects can be created with &lt;code&gt;make-parameter&lt;/code&gt;, and
 dynamically rebound with &lt;code&gt;parameterize&lt;/code&gt;.
 The procedures &lt;code&gt;current-input-port&lt;/code&gt; and &lt;code&gt;current-output-port&lt;/code&gt; are now
 parameter objects, as is the newly introduced &lt;code&gt;current-error-port&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Support for promises has been enhanced based on SRFI 45 &lt;a href=&#34;../ref/#srfi45&#34;&gt;[srfi45]&lt;/a&gt;
-.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Support for promises has been enhanced based on SRFI 45 &lt;a href=&#34;../ref/#srfi45&#34;&gt;[srfi45]&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;em&gt;Bytevectors&lt;/em&gt;, vectors of exact integers in the range
 from 0 to 255 inclusive, have been added as a new disjoint type.
@@ -10664,8 +10626,7 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 &lt;h3 id=&#34;incompatibilities-with-hahahugoshortcode-17hbhb&#34;&gt;Incompatibilities with R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS&lt;/h3&gt;
 
 &lt;p&gt;This section enumerates the incompatibilities between R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS~and
-the &amp;ldquo;Revised$^6$ report&amp;rdquo; &lt;a href=&#34;../ref/#R6RS&#34;&gt;[R6RS]&lt;/a&gt;
- and its accompanying Standard Libraries document.&lt;/p&gt;
+the &amp;ldquo;Revised$^6$ report&amp;rdquo; &lt;a href=&#34;../ref/#R6RS&#34;&gt;[R6RS]&lt;/a&gt; and its accompanying Standard Libraries document.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;This list is not authoritative, and is possibly incomplete.&lt;/em&gt;&lt;/p&gt;
 
@@ -10717,8 +10678,7 @@ However, non-final expressions
 in a body can return any number of values.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;The semantics of &lt;code&gt;map&lt;/code&gt; and &lt;code&gt;for-each&lt;/code&gt; have been changed to use
-the SRFI 1 &lt;a href=&#34;../ref/#srfi1&#34;&gt;[srfi1]&lt;/a&gt;
- early termination behavior. Likewise,
+the SRFI 1 &lt;a href=&#34;../ref/#srfi1&#34;&gt;[srfi1]&lt;/a&gt; early termination behavior. Likewise,
 &lt;code&gt;assoc&lt;/code&gt; and &lt;code&gt;member&lt;/code&gt; take an optional &lt;code&gt;equal?&lt;/code&gt; argument as in SRFI 1,
 instead of the separate &lt;code&gt;assp&lt;/code&gt; and &lt;code&gt;memp&lt;/code&gt; procedures of R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS.&lt;/p&gt;&lt;/li&gt;
 
@@ -10728,14 +10688,12 @@ exception of multiple-argument &lt;code&gt;unquote&lt;/code&gt; and
 
 &lt;li&gt;&lt;p&gt;The R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS~method of specifying mantissa widths was not adopted.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;String ports are compatible with SRFI 6 &lt;a href=&#34;../ref/#srfi6&#34;&gt;[srfi6]&lt;/a&gt;
- rather than R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;String ports are compatible with SRFI 6 &lt;a href=&#34;../ref/#srfi6&#34;&gt;[srfi6]&lt;/a&gt; rather than R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS{}-style bytevectors are included, but
 only the unsigned byte (&lt;code&gt;u8&lt;/code&gt;) procedures have been provided.
 The lexical syntax uses &lt;code&gt;#u8&lt;/code&gt; for compatibility
-with SRFI 4 &lt;a href=&#34;../ref/#srfi4&#34;&gt;[srfi4]&lt;/a&gt;
-, rather than the R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS~&lt;code&gt;#vu8&lt;/code&gt; style.&lt;/p&gt;&lt;/li&gt;
+with SRFI 4 &lt;a href=&#34;../ref/#srfi4&#34;&gt;[srfi4]&lt;/a&gt;, rather than the R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS~&lt;code&gt;#vu8&lt;/code&gt; style.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;The utility macros &lt;code&gt;when&lt;/code&gt; and &lt;code&gt;unless&lt;/code&gt; are provided, but
 their result is left unspecified.&lt;/p&gt;&lt;/li&gt;
@@ -10998,8 +10956,7 @@ SRFI 4: Homogeneous Numeric Vector Datatypes.
 Carol Fessenden, William Clinger, Daniel P.~Friedman, and Christopher Haynes.
 Scheme 311 version 4 reference manual.
 Indiana University Computer Science Technical Report 137, February 1983.
-Superseded by &lt;a href=&#34;../ref/#Scheme84&#34;&gt;[Scheme84]&lt;/a&gt;
-.&lt;/p&gt;
+Superseded by &lt;a href=&#34;../ref/#Scheme84&#34;&gt;[Scheme84]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a id=&#34;Scheme84&#34; href=&#34;.#Scheme84&#34;&gt;[Scheme84]&lt;/a&gt;
 

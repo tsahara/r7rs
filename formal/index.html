@@ -600,10 +600,8 @@ un-quo-ta-tion $D$} takes precedence.</p>
 
 <p>This section provides a formal denotational semantics for the primitive
 expressions of Scheme and selected built-in procedures.  The concepts
-and notation used here are described in <a href="../ref/#Stoy77">[Stoy77]</a>
-; the definition of
-<code>dynamic-wind</code> is taken from <a href="../ref/#GasbichlerKnauelSperberKelsey2003">[GasbichlerKnauelSperberKelsey2003]</a>
-.
+and notation used here are described in <a href="../ref/#Stoy77">[Stoy77]</a>; the definition of
+<code>dynamic-wind</code> is taken from <a href="../ref/#GasbichlerKnauelSperberKelsey2003">[GasbichlerKnauelSperberKelsey2003]</a>.
 The notation is summarized below:</p>
 
 <p>\begin{tabular}{ll}
@@ -1698,8 +1696,7 @@ value.</p>
 
 <p>Finally, we define <code>force</code> to call the procedure expressions in
 promises iteratively using a trampoline technique following
- <a href="../ref/#srfi45">[srfi45]</a>
- until a non-lazy result (i.e. a value created by {\cf
+ <a href="../ref/#srfi45">[srfi45]</a> until a non-lazy result (i.e. a value created by {\cf
   delay} instead of <code>delay-force</code>) is returned, as follows:</p>
 
 <pre><code>(define (force promise)

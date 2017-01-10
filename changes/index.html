@@ -91,8 +91,7 @@
 
 
 <p>This section enumerates the incompatibilities between this report and
-the &ldquo;Revised$^5$ report&rdquo; <a href="../ref/#R5RS">[R5RS]</a>
-.</p>
+the &ldquo;Revised$^5$ report&rdquo; <a href="../ref/#R5RS">[R5RS]</a>.</p>
 
 <p><em>This list is not authoritative, but is believed to be correct and complete.</em></p>
 
@@ -134,8 +133,7 @@ and must be compatible with <code>read</code> and the syntax of numbers in progr
 <p><a id="differences"></a>
 
 This section enumerates the additional differences between this report and
-the &ldquo;Revised$^5$ report&rdquo; <a href="../ref/#R5RS">[R5RS]</a>
-.</p>
+the &ldquo;Revised$^5$ report&rdquo; <a href="../ref/#R5RS">[R5RS]</a>.</p>
 
 <p><em>This list is not authoritative, but is believed to be correct and complete.</em></p>
 
@@ -165,16 +163,14 @@ Conditions signaled by <code>read</code> and by file-related procedures
 also have predicates to detect them.</p></li>
 
 <li><p>New disjoint types supporting access to multiple fields can be
-generated with the <code>define-record-type</code> of SRFI 9 <a href="../ref/#srfi9">[srfi9]</a>
-</p></li>
+generated with the <code>define-record-type</code> of SRFI 9 <a href="../ref/#srfi9">[srfi9]</a></p></li>
 
 <li><p>Parameter objects can be created with <code>make-parameter</code>, and
 dynamically rebound with <code>parameterize</code>.
 The procedures <code>current-input-port</code> and <code>current-output-port</code> are now
 parameter objects, as is the newly introduced <code>current-error-port</code>.</p></li>
 
-<li><p>Support for promises has been enhanced based on SRFI 45 <a href="../ref/#srfi45">[srfi45]</a>
-.</p></li>
+<li><p>Support for promises has been enhanced based on SRFI 45 <a href="../ref/#srfi45">[srfi45]</a>.</p></li>
 
 <li><p><em>Bytevectors</em>, vectors of exact integers in the range
 from 0 to 255 inclusive, have been added as a new disjoint type.
@@ -335,8 +331,7 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 <h3 id="incompatibilities-with-hahahugoshortcode-17hbhb">Incompatibilities with R<span class="rnrs">6</span>RS</h3>
 
 <p>This section enumerates the incompatibilities between R<span class="rnrs">7</span>RS~and
-the &ldquo;Revised$^6$ report&rdquo; <a href="../ref/#R6RS">[R6RS]</a>
- and its accompanying Standard Libraries document.</p>
+the &ldquo;Revised$^6$ report&rdquo; <a href="../ref/#R6RS">[R6RS]</a> and its accompanying Standard Libraries document.</p>
 
 <p><em>This list is not authoritative, and is possibly incomplete.</em></p>
 
@@ -388,8 +383,7 @@ However, non-final expressions
 in a body can return any number of values.</p></li>
 
 <li><p>The semantics of <code>map</code> and <code>for-each</code> have been changed to use
-the SRFI 1 <a href="../ref/#srfi1">[srfi1]</a>
- early termination behavior. Likewise,
+the SRFI 1 <a href="../ref/#srfi1">[srfi1]</a> early termination behavior. Likewise,
 <code>assoc</code> and <code>member</code> take an optional <code>equal?</code> argument as in SRFI 1,
 instead of the separate <code>assp</code> and <code>memp</code> procedures of R<span class="rnrs">6</span>RS.</p></li>
 
@@ -399,14 +393,12 @@ exception of multiple-argument <code>unquote</code> and
 
 <li><p>The R<span class="rnrs">6</span>RS~method of specifying mantissa widths was not adopted.</p></li>
 
-<li><p>String ports are compatible with SRFI 6 <a href="../ref/#srfi6">[srfi6]</a>
- rather than R<span class="rnrs">6</span>RS.</p></li>
+<li><p>String ports are compatible with SRFI 6 <a href="../ref/#srfi6">[srfi6]</a> rather than R<span class="rnrs">6</span>RS.</p></li>
 
 <li><p>R<span class="rnrs">6</span>RS{}-style bytevectors are included, but
 only the unsigned byte (<code>u8</code>) procedures have been provided.
 The lexical syntax uses <code>#u8</code> for compatibility
-with SRFI 4 <a href="../ref/#srfi4">[srfi4]</a>
-, rather than the R<span class="rnrs">6</span>RS~<code>#vu8</code> style.</p></li>
+with SRFI 4 <a href="../ref/#srfi4">[srfi4]</a>, rather than the R<span class="rnrs">6</span>RS~<code>#vu8</code> style.</p></li>
 
 <li><p>The utility macros <code>when</code> and <code>unless</code> are provided, but
 their result is left unspecified.</p></li>

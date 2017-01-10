@@ -575,8 +575,7 @@ floating-point representations
 follow the IEEE 754 standard,
 and that implementations using
 other representations should match or exceed the precision achievable
-using these floating-point standards <a href="../ref/#IEEE">[IEEE]</a>
-.
+using these floating-point standards <a href="../ref/#IEEE">[IEEE]</a>.
 In particular, the description of transcendental functions in IEEE 754-2008
 should be followed by such implementations, particularly with respect
 to infinities and NaNs.</p>
@@ -1224,10 +1223,8 @@ $\ast$&amp; $y = -0.0$ &amp; $x = 0$    &amp; $-\frac{\pi}{2}$
 \end{tabular}
 \end{center}</p>
 
-<p>The above specification follows <a href="../ref/#CLtL">[CLtL]</a>
-, which in turn
-cites <a href="../ref/#Penfield81">[Penfield81]</a>
-; refer to these sources for more detailed
+<p>The above specification follows <a href="../ref/#CLtL">[CLtL]</a>, which in turn
+cites <a href="../ref/#Penfield81">[Penfield81]</a>; refer to these sources for more detailed
 discussion of branch cuts, boundary conditions, and implementation of
 these functions.  When it is possible, these procedures produce a real
 result from a real argument.</p>
@@ -1399,8 +1396,7 @@ can be satisfied by a result that contains a decimal point,
 then the result contains a decimal point and is expressed using the
 minimum number of digits (exclusive of exponent and trailing
 zeroes) needed to make the above expression
-true <a href="../ref/#howtoprint">[howtoprint]</a><a href="../ref/#howtoread">[howtoread]</a>
-;
+true <a href="../ref/#howtoprint">[howtoprint]</a><a href="../ref/#howtoread">[howtoread]</a>;
 otherwise the format of the result is unspecified.</p>
 
 <p>The result returned by <code>number\coerce{</code>string}
@@ -2268,8 +2264,7 @@ language-sensitive folding is not used.  If the argument is an uppercase
 letter, the result will be either a lowercase letter
 or the same as the argument if the lowercase letter does not exist or
 is not supported by the implementation.
-See UAX #29 <a href="../ref/#uax29">[uax29]</a>
- (part of the Unicode Standard) for details.</p>
+See UAX #29 <a href="../ref/#uax29">[uax29]</a> (part of the Unicode Standard) for details.</p>
 
 <p>Note that many Unicode lowercase characters do not have uppercase
 equivalents.</p>
@@ -2476,8 +2471,7 @@ Note that language-sensitive mappings and foldings are not used.</p>
 
 <p>The Unicode Standard prescribes special treatment of the Greek letter
 $\Sigma$, whose normal lower-case form is $\sigma$ but which becomes
-$\varsigma$ at the end of a word.  See UAX #29 <a href="../ref/#uax29">[uax29]</a>
- (part of
+$\varsigma$ at the end of a word.  See UAX #29 <a href="../ref/#uax29">[uax29]</a> (part of
 the Unicode Standard) for details.  However, implementations of {\cf
 string-downcase} are not required to provide this behavior, and may
 choose to change $\Sigma$ to $\sigma$ in all cases.</p>
@@ -3267,10 +3261,8 @@ continuation.</p>
 <p>% Most programming languages incorporate one or more special-purpose
 % escape constructs with names like {\tt exit}, \hbox{<code>return</code>}, or
 % even {\tt goto}.  In 1965, however, Peter Landin <a href="../ref/#Landin65">[Landin65]</a>
-
 % invented a general purpose escape operator called the J-operator.  John
-% Reynolds <a href="../ref/#Reynolds72">[Reynolds72]</a>
- described a simpler but equally powerful
+% Reynolds <a href="../ref/#Reynolds72">[Reynolds72]</a> described a simpler but equally powerful
 % construct in 1972.  The <code>catch</code> syntax described by Sussman
 % and Steele in the 1975 report on Scheme is exactly the same as
 % Reynolds&rsquo;s construct, though its name came from a less general construct
