@@ -21,7 +21,7 @@ record-type definitions, all of which are explained in this chapter.
 They are valid in some, but not all, contexts where expressions
 are allowed, specifically at the outermost level of a \hyper{program}
 and at the beginning of a \hyper{body}.
-\mainindex{definition}
+
 
 At the outermost level of a program, {\tt(begin \hyperi{expression or definition} \dotsfoo)} is
 equivalent to the sequence of expressions and definitions
@@ -108,7 +108,7 @@ However, a REPL should permit these actions.
 
 ## 5.3. Variable definitions
 {{< label "defines" >}}
-\mainindex{variable definition}
+
 
 A variable definition binds one or more identifiers and specifies an initial
 value for each of them.
@@ -157,7 +157,7 @@ or is a syntactic keyword,
 then the definition will bind
 \hyper{variable} to a new location before performing the assignment,
 whereas it would be an error to perform a ``set!`` on an
-unbound\index{unbound} variable.
+unbound variable.
 
 ```
 (define add3
@@ -176,8 +176,7 @@ beginning of a \hyper{body} (that is, the body of a \ide{lambda},
 \ide{let-values}, \ide{let*-values}, \ide{let-syntax}, \ide{letrec-syntax},
 \ide{parameterize}, \ide{guard}, or \ide{case-lambda}).  Note that
 such a body might not be apparent until after expansion of other syntax.
-Such definitions are known as _internal definitions_\mainindex{internal
-definition} as opposed to the global definitions described above.
+Such definitions are known as _internal definitions_ as opposed to the global definitions described above.
 The variables defined by internal definitions are local to the
 \hyper{body}.  That is, \hyper{variable} is bound rather than assigned,
 and the region of the binding is the entire \hyper{body}.  For example,
@@ -247,7 +246,7 @@ call.
 
 ## 5.4. Syntax definitions
 
-\mainindex{syntax definition}
+
 Syntax definitions have this form:\mainschindex{define-syntax}
 
 {\tt(define-syntax \hyper{keyword} \hyper{transformer spec})}

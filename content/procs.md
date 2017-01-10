@@ -11,9 +11,9 @@ chapter = 6
 {{< label "initialenv" >}}
 {{< label "builtinchapter" >}}
 
-\mainindex{initial environment}
-\mainindex{global environment}
-\mainindex{procedure}
+
+
+
 
 This chapter describes Scheme's built-in procedures.
 
@@ -326,7 +326,7 @@ the same.
 
 ## 6.2. Numbers
 {{< label "numbersection" >}}
-\index{number}
+
 
 \newcommand{\type}[1]{{\it#1}}
 \newcommand{\tupe}[1]{{#1}}
@@ -340,7 +340,7 @@ and Scheme numbers.
 
 ### 6.2.1. Numerical types
 {{< label "numericaltypes" >}}
-\index{numerical types}
+
 
 Mathematically, numbers are arranged into a tower of subtypes
 in which each level is a subset of the level above it:
@@ -371,7 +371,7 @@ simple programs.
 
 ### 6.2.2. Exactness
 
-\mainindex{exactness} {{< label "exactly" >}}
+ {{< label "exactly" >}}
 
 It is useful to distinguish between numbers that are
 represented exactly and those that might not be.  For example, indexes
@@ -427,7 +427,7 @@ silently or noisily in other implementation-specific ways.
 
 ### 6.2.3. Implementation restrictions
 
-\index{implementation restriction}{{< label "restrictions" >}}
+{{< label "restrictions" >}}
 
 Implementations of Scheme are not required to implement the whole
 tower of subtypes given in section~\ref{numericaltypes},
@@ -524,7 +524,7 @@ violation of an implementation restriction or it may silently represent the
 constant by an \tupe{inexact} number.
 
 ### 6.2.4. Implementation extensions
-\index{implementation extension}
+
 
 Implementations may provide more than one representation of
 floating-point numbers with differing precisions.  In an implementation
@@ -1099,7 +1099,7 @@ If the argument is infinite or a NaN, then it is returned.
 
 The ``rationalize`` procedure returns the _simplest_ rational number
 differing from \vr{x} by no more than \vr{y}.  A rational number $r_1$ is
-_simpler_ \mainindex{simplest rational} than another rational number
+_simpler_  than another rational number
 $r_2$ if $r_1 = p_1/q_1$ and $r_2 = p_2/q_2$ (in lowest terms) and $|p_1|
 \leq |p_2|$ and $|q_1| \leq |q_2|$.  Thus $3/5$ is simpler than $4/7$.
 Although not all rationals are comparable in this ordering (consider $2/7$
@@ -1443,9 +1443,9 @@ Alternatively, they can be written \sharptrue~and \sharpfalse,
 respectively.  What really
 matters, though, are the objects that the Scheme conditional expressions
 (``if``, ``cond``, ``and``, ``or``, ``when``, ``unless``, ``do``) treat as
-true\index{true} or false\index{false}.  The phrase "a true value"\index{true}
+true or false.  The phrase "a true value"
 (or sometimes just "true") means any object treated as true by the
-conditional expressions, and the phrase "a false value"\index{false} (or
+conditional expressions, and the phrase "a false value" (or
 "false") means any object treated as false by the conditional expressions.
 
 Of all the Scheme values, only \schfalse{}
@@ -1455,7 +1455,7 @@ count as true.
 
 *Note:&nbsp;*
 Unlike some other dialects of Lisp,
-Scheme distinguishes \schfalse{} and the empty list \index{empty list}
+Scheme distinguishes \schfalse{} and the empty list
 from each other and from the symbol \ide{nil}.
 
 
@@ -1521,7 +1521,7 @@ The car and cdr fields are accessed by the procedures ``car`` and
 ``set-car!`` and ``set-cdr!``.
 
 Pairs are used primarily to represent lists.  A \defining{list} can
-be defined recursively as either the empty list\index{empty list} or a pair whose
+be defined recursively as either the empty list or a pair whose
 cdr is a list.  More precisely, the set of lists is defined as the smallest
 set \var{X} such that
 
@@ -1537,7 +1537,7 @@ is the first element and whose cdr is a pair whose car is the second element
 and whose cdr is the empty list.  The length of a list is the number of
 elements, which is the same as the number of pairs.
 
-The empty list\mainindex{empty list} is a special object of its own type.
+The empty list is a special object of its own type.
 It is not a pair, it has no elements, and its length is zero.
 
 *Note:&nbsp;*
@@ -1554,7 +1554,7 @@ pair, not an expression that evaluates to a pair.
 
 A more streamlined notation can be used for lists: the elements of the
 list are simply enclosed in parentheses and separated by spaces.  The
-empty list\index{empty list} is written {\tt()}.  For example,
+empty list is written {\tt()}.  For example,
 
 ```
 (a b c d e)
@@ -1651,7 +1651,7 @@ Returns a newly allocated pair whose car is \vari{obj} and whose cdr is
 \proto{car}{ pair}{procedure}}
 
 Returns the contents of the car field of \var{pair}.  Note that it is an
-error to take the car of the empty list\index{empty list}.
+error to take the car of the empty list.
 
 ```
 (car '(a b c))          \ev  a
@@ -1748,7 +1748,7 @@ Arbitrary compositions up to four deep are provided.
 \begin{entry}{
 \proto{null?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is the empty list\index{empty list},
+Returns \schtrue{} if \var{obj} is the empty list,
 otherwise returns \schfalse.
 
 \end{entry}
@@ -2304,7 +2304,7 @@ equivalents.
 Strings are sequences of characters.
 Strings are written as sequences of characters enclosed within quotation marks
 (``"``).  Within a string literal, various escape
-sequences\mainindex{escape sequence} represent characters other than
+sequences represent characters other than
 themselves.  Escape sequences always start with a backslash (\backwhack{}):
 
 
@@ -2618,7 +2618,7 @@ chosen element is typically less for the vector than for the list.
 
 The _length_ of a vector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when the
-vector is created.  The _valid indexes_\index{valid indexes} of a
+vector is created.  The _valid indexes_ of a
 vector are the exact non-negative integers less than the length of the
 vector.  The first element in a vector is indexed by zero, and the last
 element is indexed by one less than the length of the vector.
@@ -2840,7 +2840,7 @@ containing the same values.
 
 The _length_ of a bytevector is the number of elements that it
 contains.  This number is a non-negative integer that is fixed when
-the bytevector is created.  The _valid indexes_\index{valid indexes} of
+the bytevector is created.  The _valid indexes_ of
 a bytevector are the exact non-negative integers less than the length of the
 bytevector, starting at index zero as with vectors.
 
@@ -3239,7 +3239,7 @@ argument.}
 The procedure ``call-with-current-continuation`` (or its
 equivalent abbreviation ``call/cc``) packages
 the current continuation (see the rationale below) as an "escape
-procedure"\mainindex{escape procedure} and passes it as an argument to
+procedure" and passes it as an argument to
 \var{proc}.
 The escape procedure is a Scheme procedure that, if it is
 later called, will abandon whatever continuation is in effect at that later
@@ -3479,7 +3479,7 @@ action the program takes when an exceptional situation is signaled.
 The system implicitly maintains a current exception handler
 in the dynamic environment.
 
-\index{current exception handler}The program raises an exception by
+The program raises an exception by
 invoking the current exception handler, passing it an object
 encapsulating information about the exception.  Any procedure
 accepting one argument can serve as an exception handler and any
@@ -3727,7 +3727,7 @@ Implementations may extend ``eval`` to allow other objects.
 
 Ports represent input and output devices.  To Scheme, an input port is
 a Scheme object that can deliver data upon command, while an output
-port is a Scheme object that can accept data.\mainindex{port}
+port is a Scheme object that can accept data.
 Whether the input and output port types are disjoint is
 implementation-dependent.
 

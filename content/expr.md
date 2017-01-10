@@ -29,11 +29,11 @@ with the ``delay``, ``delay-force``, and ``parameterize`` expression types.
 \begin{entry}{
 \pproto{\hyper{variable}}{\exprtype}}
 
-An expression consisting of a variable\index{variable}
+An expression consisting of a variable
 (section~\ref{variablesection}) is a variable reference.  The value of
 the variable reference is the value stored in the location to which the
 variable is bound.  It is an error to reference an
-unbound\index{unbound} variable.
+unbound variable.
 
 ```
 (define x 28)
@@ -108,7 +108,7 @@ A procedure call is written by enclosing in parentheses an
 expression for the procedure to be called followed by expressions for the arguments to be
 passed to it.  The operator and operand expressions are evaluated (in an
 unspecified order) and the resulting procedure is passed the resulting
-arguments.\mainindex{call}\mainindex{procedure call}
+arguments.
 
 ```
 (+ 3 4)                   \ev  7
@@ -246,7 +246,7 @@ expressions.
 
 \semantics
 An ``if`` expression is evaluated as follows: first,
-\hyper{test} is evaluated.  If it yields a true value\index{true} (see
+\hyper{test} is evaluated.  If it yields a true value (see
 section~\ref{booleansection}), then \hyper{consequent} is evaluated and
 its values are returned.  Otherwise \hyper{alternate} is evaluated and its
 values are returned.  If \hyper{test} yields a false value and no
@@ -273,7 +273,7 @@ unspecified.
 \semantics
 \hyper{Expression} is evaluated, and the resulting value is stored in
 the location to which \hyper{variable} is bound.  It is an error if \hyper{variable} is not
-bound either in some region\index{region} enclosing the ``set!`` expression
+bound either in some region enclosing the ``set!`` expression
 or else globally.
 The result of the ``set!`` expression is
 unspecified.
@@ -350,7 +350,7 @@ an "else clause," which has the form
 \semantics
 A ``cond`` expression is evaluated by evaluating the \hyper{test}
 expressions of successive \hyper{clause}s in order until one of them
-evaluates to a true value\index{true} (see
+evaluates to a true value (see
 section~\ref{booleansection}).  When a \hyper{test} evaluates to a true
 value, the remaining \hyper{expression}s in its \hyper{clause} are
 evaluated in order, and the results of the last \hyper{expression} in the
@@ -588,7 +588,7 @@ appendix B.
 The binding constructs ``let``, ``let*``, ``letrec``, ``letrec*``,
 ``let-values``, and ``let*-values``
 give Scheme a block structure, like Algol 60.  The syntax of the first four
-constructs is identical, but they differ in the regions\index{region} they establish
+constructs is identical, but they differ in the regions they establish
 for their variable bindings.  In a ``let`` expression, the initial
 values are computed before any of the variables become bound; in a
 ``let*`` expression, the bindings and evaluations are performed
@@ -620,7 +620,7 @@ unspecified order), the \hyper{variable}s are bound to fresh locations
 holding the results, the \hyper{body} is evaluated in the extended
 environment, and the values of the last expression of \hyper{body}
 are returned.  Each binding of a \hyper{variable} has \hyper{body} as its
-region.\index{region}
+region.
 
 ```
 (let ((x 2) (y 3))
@@ -652,7 +652,7 @@ one or more expressions as described in section~\ref{lambda}.
 
 \semantics
 The ``let*`` binding construct is similar to ``let``, but the bindings are performed
-sequentially from left to right, and the region\index{region} of a binding indicated
+sequentially from left to right, and the region of a binding indicated
 by {\cf(\hyper{variable} \hyper{init})} is that part of the ``let*``
 expression to the right of the binding.  Thus the second binding is done
 in an environment in which the first binding is visible, and so on.
@@ -688,7 +688,7 @@ some unspecified order), each \hyper{variable} is assigned to the result
 of the corresponding \hyper{init}, the \hyper{body} is evaluated in the
 resulting environment, and the values of the last expression in
 \hyper{body} are returned.  Each binding of a \hyper{variable} has the
-entire ``letrec`` expression as its region\index{region}, making it possible to
+entire ``letrec`` expression as its region, making it possible to
 define mutually recursive procedures.
 
 ```
@@ -728,7 +728,7 @@ In the most common uses of ``letrec``, all the \hyper{init}s are
 ```
 ((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
 ```
-and \hyper{body}\index{body} is a sequence of
+and \hyper{body} is a sequence of
 zero or more definitions followed by
 one or more expressions as described in section~\ref{lambda}. It is an error for a \hyper{variable} to appear more
 than once in the list of variables being bound.
@@ -741,7 +741,7 @@ evaluated in the resulting environment, and the values of the last
 expression in \hyper{body} are returned.
 Despite the left-to-right evaluation and assignment order, each binding of
 a \hyper{variable} has the entire ``letrec*`` expression as its
-region\index{region}, making it possible to define mutually recursive
+region, making it possible to define mutually recursive
 procedures.
 
 If it is not possible to evaluate each \hyper{init} without assigning or
@@ -790,7 +790,7 @@ the \hyper{formals} in a ``lambda`` expression are matched to the
 arguments in a procedure call.  Then, the \hyper{body} is evaluated in
 the extended environment, and the values of the last expression of
 \hyper{body} are returned.  Each binding of a \hyper{variable} has
-\hyper{body} as its region.\index{region}
+\hyper{body} as its region.
 
 It is an error if the \hyper{formals} do not match the number of
 values returned by the corresponding \hyper{init}.
@@ -924,7 +924,7 @@ If \hyper{test} evaluates to a true value, then the
 the last \hyper{expression} are returned.  If no \hyper{expression}s
 are present, then the value of the ``do`` expression is unspecified.
 
-The region\index{region} of the binding of a \hyper{variable}
+The region of the binding of a \hyper{variable}
 consists of the entire ``do`` expression except for the \hyper{init}s.
 It is an error for a \hyper{variable} to appear more than once in the
 list of ``do`` variables.
@@ -1025,7 +1025,7 @@ unbounded space during evaluation.
 \proto{force}{ promise}{lazy library procedure}}
 
 The ``force`` procedure forces the value of a \var{promise} created
-by \ide{delay}, \ide{delay-force}, or \ide{make-promise}.\index{promise}
+by \ide{delay}, \ide{delay-force}, or \ide{make-promise}.
 If no value has been computed for the promise, then a value is
 computed and returned.  The value of the promise must be cached (or
 "memoized") so that if it is forced a second time, the previously
@@ -1305,10 +1305,10 @@ exceptions.
 \pproto{unquote-splicing}{\auxiliarytype}
 \pproto{\commaatsign}{\auxiliarytype}}
 
-"Quasiquote"\index{backquote} expressions are useful
+"Quasiquote" expressions are useful
 for constructing a list or vector structure when some but not all of the
 desired structure is known in advance.  If no
-commas\index{comma} appear within the \hyper{qq template}, the result of
+commas appear within the \hyper{qq template}, the result of
 evaluating
 \backquote\hyper{qq template} is equivalent to the result of evaluating
 \singlequote\hyper{qq template}.  If a comma\mainschindex{,} appears within the
@@ -1450,23 +1450,23 @@ the \hyper{formals} of any \hyper{clause}.
 {{< label "macrosection" >}}
 
 Scheme programs can define and use new derived expression types,
- called _macros_.\mainindex{macro}
+ called _macros_.
 Program-defined expression types have the syntax
 ```
 (\hyper{keyword} {\hyper{datum}} ...)
 ```
 where \hyper{keyword} is an identifier that uniquely determines the
 expression type.  This identifier is called the _syntactic
-keyword_\index{syntactic keyword}, or simply {\em
-keyword}\index{keyword}, of the macro\index{macro keyword}.  The
+keyword_, or simply {\em
+keyword}, of the macro.  The
 number of the \hyper{datum}s, and their syntax, depends on the
 expression type.
 
-Each instance of a macro is called a _use_\index{macro use}
+Each instance of a macro is called a _use_
 of the macro.
 The set of rules that specifies
 how a use of a macro is transcribed into a more primitive expression
-is called the _transformer_\index{macro transformer}
+is called the _transformer_
 of the macro.
 
 The macro definition facility consists of two parts:
@@ -1480,7 +1480,7 @@ the scope within which a macro is defined, and
 
 
 The syntactic keyword of a macro can shadow variable bindings, and local
-variable bindings can shadow syntactic bindings.  \index{keyword}
+variable bindings can shadow syntactic bindings.
 Two mechanisms are provided to prevent unintended conflicts:
 
 
@@ -1501,7 +1501,7 @@ bindings that surround the use of the macro.
 In consequence, all macros
 defined using the pattern language  are "hygienic" and "referentially
 transparent" and thus preserve Scheme's lexical scoping. {{< cite "Kohlbecker86,hygienic,Bawden88,macrosthatwork,syntacticabstraction" >}}
-\mainindex{hygienic}\mainindex{referentially transparent}
+
 
 Implementations may provide macro facilities of other types.
 

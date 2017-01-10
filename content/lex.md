@@ -16,7 +16,7 @@ Scheme, see section~\ref{BNF}.
 ## 2.1. Identifiers
 {{< label "syntaxsection" >}}
 
-An identifier\mainindex{identifier} is any sequence of letters, digits, and
+An identifier is any sequence of letters, digits, and
 "extended identifier characters" provided that it does not have a prefix
 which is a valid number.
 However, the  \ide{.} token (a single period) used in the list syntax
@@ -65,8 +65,8 @@ See section~\ref{extendedalphas} for the formal syntax of identifiers.
 
 Identifiers have two uses within Scheme programs:
 
-- Any identifier can be used as a variable\index{variable}
- or as a syntactic keyword\index{syntactic keyword}
+- Any identifier can be used as a variable
+ or as a syntactic keyword
 (see sections~\ref{variablesection} and~\ref{macrosection}).
 
 - When an identifier appears as a literal or within a literal
@@ -122,7 +122,7 @@ The lexical syntax includes several comment forms.
 Comments are treated exactly like whitespace.
 
 A semicolon ({\tt;}) indicates the start of a line
-comment.\mainindex{comment}\mainschindex{;}  The comment continues to the
+comment.\mainschindex{;}  The comment continues to the
 end of the line on which the semicolon appears.
 
 Another way to indicate a comment is to prefix a \hyper{datum}
@@ -132,7 +132,7 @@ the comment prefix {\tt #;}, the space, and the \hyper{datum} together.  This
 notation is useful for "commenting out" sections of code.
 
 Block comments are indicated with properly nested {\tt
-  #|}\index{#"|@\texttt{\sharpsign\verticalbar}}\index{"|#@\texttt{\verticalbar\sharpsign}}
+  #|}}}
 and {\tt |#} pairs.
 
 ```

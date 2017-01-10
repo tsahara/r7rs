@@ -32,7 +32,7 @@ concise:  \arbno{\meta{thing}} means zero or more occurrences of
 
 ### 7.1.1. Lexical structure
 
-This section describes how individual tokens\index{token} (identifiers,
+This section describes how individual tokens (identifiers,
 numbers, etc.) are formed from sequences of characters.  The following
 sections describe how expressions and programs are formed from sequences
 of tokens.
@@ -69,7 +69,7 @@ identifiers containing such a sequence are equivalent to identifiers
 containing the corresponding character.
 
 \begin{grammar}
-\meta{token} \: \meta{identifier} \| \meta{boolean} \| \meta{number}\index{identifier}
+\meta{token} \: \meta{identifier} \| \meta{boolean} \| \meta{number}
 \>  \| \meta{character} \| \meta{string}
 \>  \| ( \| ) \| \sharpsign( \| \sharpsign u8( \| \singlequote{} \| \backquote{} \| , \| ,@ \| {\bf.}
 \meta{delimiter} \: \meta{whitespace} \| \meta{vertical line}
@@ -80,7 +80,7 @@ containing the corresponding character.
 \meta{line ending} \: \meta{newline} \| \meta{return} \meta{newline}
 \> \| \meta{return}
 \meta{comment} \: ; \= $\langle$\rm all subsequent characters up to a
-		    \> \rm line ending$\rangle$\index{comment}
+		    \> \rm line ending$\rangle$
 \> \| \meta{nested comment}
 \> \| #; \meta{intertoken space} \meta{datum}
 \meta{nested comment} \: #| \= \meta{comment text}

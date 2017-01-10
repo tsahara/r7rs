@@ -11,13 +11,13 @@ chapter = 3
 {{< label "specialformsection" >}}
 {{< label "variablesection" >}}
 
-An identifier\index{identifier} can name either a type of syntax or
+An identifier can name either a type of syntax or
 a location where a value can be stored.  An identifier that names a type
-of syntax is called a _syntactic keyword_\mainindex{syntactic keyword}
+of syntax is called a _syntactic keyword_
 and is said to be _bound_ to a transformer for that syntax.  An identifier that names a
-location is called a _variable_\mainindex{variable} and is said to be
+location is called a _variable_ and is said to be
 _bound_ to that location.  The set of all visible
-bindings\mainindex{binding} in effect at some point in a program is
+bindings in effect at some point in a program is
 known as the _environment_ in effect at that point.  The value
 stored in the location to which a variable is bound is called the
 variable's value.  By abuse of terminology, the variable is sometimes
@@ -28,7 +28,7 @@ Certain expression types are used to create new kinds of syntax
 and to bind syntactic keywords to those new syntaxes, while other
 expression types create new locations and bind variables to those
 locations.  These expression types are called _binding constructs_.
-\mainindex{binding construct}
+
 Those that bind syntactic keywords are listed in section~\ref{macrosection}.
 The most fundamental of the variable binding constructs is the
 ``lambda`` expression, because all other variable binding constructs
@@ -53,8 +53,7 @@ the identifier whose region contains the use, then the use refers to the
 binding for the variable in the global environment, if any
 (chapters 4 and \ref{initialenv}); if there is no
 binding for the identifier,
-it is said to be \defining{unbound}.\mainindex{bound}\index{global
-environment}
+it is said to be \defining{unbound}.
 
 ## 3.2. Disjointness of types
 {{< label "disjointness" >}}
@@ -76,9 +75,9 @@ These predicates define the types
 _boolean, bytevector, character_, the empty list object,
 _eof-object, number, pair, port, procedure, string, symbol, vector_,
 and all record types.
-\mainindex{type}\schindex{boolean?}\schindex{pair?}\schindex{symbol?}
+\schindex{boolean?}\schindex{pair?}\schindex{symbol?}
 \schindex{number?}\schindex{char?}\schindex{string?}\schindex{vector?}
-\schindex{bytevector?}\schindex{port?}\schindex{procedure?}\index{empty list}
+\schindex{bytevector?}\schindex{port?}\schindex{procedure?}
 \schindex{eof-object?}
 
 Although there is a separate boolean type,
@@ -87,7 +86,7 @@ conditional test.  As explained in section~\ref{booleansection}, all
 values count as true in such a test except for \schfalse{}.
 This report uses the word "true" to refer to any
 Scheme value except \schfalse{}, and the word "false" to refer to
-\schfalse{}. \mainindex{true} \mainindex{false}
+\schfalse{}.
 
 ## 3.3. External representations
 {{< label "externalreps" >}}
@@ -136,7 +135,7 @@ objects in the appropriate sections of chapter~\ref{initialenv}.
 {{< label "storagemodel" >}}
 
 Variables and objects such as pairs, strings, vectors, and bytevectors implicitly
-denote locations\mainindex{location} or sequences of locations.  A string, for
+denote locations or sequences of locations.  A string, for
 example, denotes as many locations as there are characters in the string.
 A new value can be
 stored into one of these locations using the {\tt string-set!} procedure, but
@@ -163,8 +162,8 @@ vectors, and empty bytevectors, which contain no locations, may or may
 not be newly allocated.
 
 Every object that denotes locations is
-either mutable\index{mutable} or
-immutable\index{immutable}.  Literal constants, the strings
+either mutable or
+immutable.  Literal constants, the strings
 returned by \ide{symbol->string},
 and possibly the environment returned by ``scheme-report-environment``
 are immutable objects.  All objects
@@ -184,7 +183,7 @@ Hence, they do not necessarily correspond to memory addresses,
 and even if they do, the memory address might not be constant.
 
 \begin{rationale}
-In many systems it is desirable for constants\index{constant} (i.e. the values of
+In many systems it is desirable for constants (i.e. the values of
 literal expressions) to reside in read-only memory.
 Making it an error to alter constants permits this implementation strategy,
 while not requiring other systems to distinguish between
@@ -195,7 +194,7 @@ mutable and immutable objects.
 {{< label "proper tail recursion" >}}
 
 Implementations of Scheme are required to be
-_properly tail-recursive_\mainindex{proper tail recursion}.
+_properly tail-recursive_.
 Procedure calls that occur in certain syntactic
 contexts defined below are _tail calls_.  A Scheme implementation is
 properly tail-recursive if it supports an unbounded number of active
@@ -232,7 +231,7 @@ there was no need to include both in the language.
 
 \end{rationale}
 
-A _tail call_\mainindex{tail call} is a procedure call that occurs
+A _tail call_ is a procedure call that occurs
 in a _tail context_.  Tail contexts are defined inductively.  Note
 that a tail context is always determined with respect to a particular lambda
 expression.

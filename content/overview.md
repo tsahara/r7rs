@@ -22,7 +22,7 @@ language.  Each use of a variable is associated with a lexically
 apparent binding of that variable.
 
 Scheme is a dynamically typed language.  Types
-are associated with values (also called objects\mainindex{object}) rather than
+are associated with values (also called objects) rather than
 with variables.
 Statically typed languages, by contrast, associate types with
 variables and expressions as well as with values.
@@ -127,7 +127,7 @@ not conflict with the lexical syntax described in this report.
 ### 1.3.2. Error situations and unspecified behavior
 {{< label "errorsituations" >}}
 
-\mainindex{error}
+
 When speaking of an error situation, this report uses the phrase "an
 error is signaled" to indicate that implementations must detect and
 report the error.
@@ -166,7 +166,7 @@ implementation is permitted to report that it is unable to continue
 execution of a correct program because of some restriction imposed by the
 implementation.  Implementation restrictions are discouraged,
 but implementations are encouraged to report violations of implementation
-restrictions.\mainindex{implementation restriction}
+restrictions.
 
 For example, an implementation may report a violation of an
 implementation restriction if it does not have enough storage to run a
@@ -177,7 +177,7 @@ too large for the implementation to represent.
 If the value of an expression is said to be "unspecified," then
 the expression must evaluate to some object without signaling an error,
 but the value depends on the implementation; this report explicitly does
-not say what value is returned. \mainindex{unspecified}
+not say what value is returned.
 
 Finally, the words and phrases "must," "must not," "shall,"
 "shall not," "should," "should not," "may," "required,"
