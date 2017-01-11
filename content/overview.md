@@ -4,8 +4,6 @@ title = "Overview of Scheme"
 menu = "main"
 chapter = 1
 +++
-% 1. Structure of the language
-
 # 1. Overview of Scheme
 
 ## 1.1. Semantics
@@ -13,8 +11,8 @@ chapter = 1
 
 This section gives an overview of Scheme's semantics.  A
 detailed informal semantics is the subject of
-chapters~\ref{basicchapter} through 6.  For reference
-purposes, section~\ref{formalsemanticssection} provides a formal
+chapters 3 through 6.  For reference
+purposes, section 7.2 provides a formal
 semantics of Scheme.
 
 Scheme is a statically scoped programming
@@ -41,7 +39,7 @@ even if the iterative computation is described by a syntactically
 recursive procedure.  Thus with a properly tail-recursive implementation,
 iteration can be expressed using the ordinary procedure-call
 mechanics, so that special iteration constructs are useful only as
-syntactic sugar.  See section~\ref{proper tail recursion}.
+syntactic sugar.  See section 3.5.
 
 Scheme procedures are objects in their own right.  Procedures can be
 created dynamically, stored in data structures, returned as results of
@@ -51,7 +49,7 @@ One distinguishing feature of Scheme is that continuations, which
 in most other languages only operate behind the scenes, also have
 "first-class" status.  Continuations are useful for implementing a
 wide variety of advanced control constructs, including non-local exits,
-backtracking, and coroutines.  See section~\ref{continuations}.
+backtracking, and coroutines.  See section 6.10.
 
 Arguments to Scheme procedures are always passed by value, which
 means that the actual argument expressions are evaluated before the
@@ -79,13 +77,12 @@ as data.
 
 The ``read`` procedure performs syntactic as well as lexical decomposition of
 the data it reads.  The ``read`` procedure parses its input as data
-(section~\ref{datumsyntax}), not as program.
+(section 7.1.2), not as program.
 
-The formal syntax of Scheme is described in section~\ref{BNF}.
+The formal syntax of Scheme is described in section 7.1.
 
 
 ## 1.3. Notation and terminology
-
 
 ### 1.3.1. Base and optional features
 {{< label "qualifiers" >}}
@@ -104,43 +101,39 @@ Appendix A.
 
 All implementations of Scheme:
 
+- Must provide the base library and all the identifiers exported from it.
 
-- Must provide the base library and all the identifiers
-exported from it.
-
-- May provide or omit the other
-libraries given in this report, but each library must either be provided
-in its entirety, exporting no additional identifiers, or else omitted
-altogether.
+- May provide or omit the other libraries given in this report, but each
+  library must either be provided in its entirety, exporting no additional
+  identifiers, or else omitted altogether.
 
 - May provide other libraries not described in this report.
 
-- May also extend the function of any identifier in this
-report, provided the extensions are not in conflict with the language
-reported here.
+- May also extend the function of any identifier in this report, provided
+  the extensions are not in conflict with the language reported here.
 
-- Must support portable
-code by providing a mode of operation in which the lexical syntax does
-not conflict with the lexical syntax described in this report.
+- Must support portable code by providing a mode of operation in which
+  the lexical syntax does not conflict with the lexical syntax described
+  in this report.
 
 
 ### 1.3.2. Error situations and unspecified behavior
 {{< label "errorsituations" >}}
 
-
 When speaking of an error situation, this report uses the phrase "an
 error is signaled" to indicate that implementations must detect and
 report the error.
 An error is signaled by raising a non-continuable exception, as if by
-the procedure ``raise`` as described in section~\ref{exceptionsection}.  The object raised is implementation-dependent
+the procedure ``raise`` as described in section 6.11.
+The object raised is implementation-dependent
 and need not be distinct from objects previously used for the same purpose.
 In addition to errors signaled in situations described in this
 report, programmers can signal their own errors and handle signaled errors.
 
 The phrase "an error that satisfies _predicate_ is signaled" means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
-passed to the specified predicate (such as ``file-error?`` or {\cf
-read-error?}), the predicate returns \schtrue{}.
+passed to the specified predicate (such as ``file-error?`` or
+``read-error?``), the predicate returns \schtrue{}.
 
 If such wording does not appear in the discussion of
 an error, then implementations are not required to detect or report the
@@ -153,7 +146,8 @@ satisfy the predicates ``error-object?``, ``file-error?``, or
 ``read-error?``.
 Alternatively, implementations may provide non-portable extensions.
 
-For example, it is an error for a procedure to be passed an argument of a type that
+For example, it is an error for a procedure to be passed an argument of
+a type that
 the procedure is not explicitly specified to handle, even though such
 domain errors are seldom mentioned in this report.  Implementations may
 signal an error,
@@ -182,18 +176,17 @@ not say what value is returned.
 Finally, the words and phrases "must," "must not," "shall,"
 "shall not," "should," "should not," "may," "required,"
 "recommended," and "optional," although not capitalized in this
-report, are to be interpreted as described in RFC~2119 {{< cite "rfc2119" >}}.
+report, are to be interpreted as described in RFC 2119 {{< cite "rfc2119" >}}.
 They are used only with reference to implementer or implementation behavior,
 not with reference to programmer or program behavior.
 
 
-
 ### 1.3.3. Entry format
 
-Chapters 4 and 6 are organized
-into entries.  Each entry describes one language feature or a group of
-related features, where a feature is either a syntactic construct or a
-procedure.  An entry begins with one or more header lines of the form
+Chapters 4 and 6 are organized into entries.  Each entry describes one
+language feature or a group of related features, where a feature is
+either a syntactic construct or a procedure.  An entry begins with one
+or more header lines of the form
 
 \noindent\pproto{\var{template}}{\var{category}}\unpenalty
 
