@@ -119,7 +119,7 @@ it means that the locations in the object are fresh.</p>
 
 
 <p>A \defining{predicate} is a procedure that always returns a boolean
-value (\schtrue{} or \schfalse).  An \defining{equivalence predicate} is
+value (<span class="tt">#t</span> or \schfalse).  An \defining{equivalence predicate} is
 the computational analogue of a mathematical equivalence relation; it is
 symmetric, reflexive, and transitive.  Of the equivalence predicates
 described in this section, <code>eq?</code> is the finest or most
@@ -130,15 +130,15 @@ slightly less discriminating than <code>eq?</code>.</p>
 \proto{eqv?}{ \vari{obj} \varii{obj}}{procedure}}</p>
 
 <p>The <code>eqv?</code> procedure defines a useful equivalence relation on objects.
-Briefly, it returns \schtrue{} if \vari{obj} and \varii{obj} are
+Briefly, it returns <span class="tt">#t</span> if \vari{obj} and \varii{obj} are
 normally regarded as the same object.  This relation is left slightly
 open to interpretation, but the following partial specification of
 <code>eqv?</code> holds for all implementations of Scheme.</p>
 
-<p>The <code>eqv?</code> procedure returns \schtrue{} if:</p>
+<p>The <code>eqv?</code> procedure returns <span class="tt">#t</span> if:</p>
 
 <ul>
-<li><p>\vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.</p></li>
+<li><p>\vari{obj} and \varii{obj} are both <span class="tt">#t</span> or both \schfalse.</p></li>
 
 <li><p>\vari{obj} and \varii{obj} are both symbols and are the same
 symbol according to the <code>symbol=?</code> procedure
@@ -168,14 +168,14 @@ or strings that denote the same location in the store
 equal (section~\ref{lambda}).</p></li>
 </ul>
 
-<p>The <code>eqv?</code> procedure returns \schfalse{} if:</p>
+<p>The <code>eqv?</code> procedure returns <span class="tt">#f</span> if:</p>
 
 <ul>
 <li><p>\vari{obj} and \varii{obj} are of different types
 (section~\ref{disjointness}).</p></li>
 
-<li><p>one of \vari{obj} and \varii{obj} is \schtrue{} but the other is
-\schfalse{}.</p></li>
+<li><p>one of \vari{obj} and \varii{obj} is <span class="tt">#t</span> but the other is
+<span class="tt">#f</span>.</p></li>
 
 <li><p>\vari{obj} and \varii{obj} are symbols but are not the same
 symbol according to the <code>symbol=?</code> procedure
@@ -197,7 +197,7 @@ As an exception, the behavior of <code>eqv?</code> is unspecified
 when both \vari{obj} and \varii{obj} are NaN.</p></li>
 
 <li><p>\vari{obj} and \varii{obj} are characters for which the <code>char=?</code>
-procedure returns \schfalse{}.</p></li>
+procedure returns <span class="tt">#f</span>.</p></li>
 
 <li><p>one of \vari{obj} and \varii{obj} is the empty list but the other
 is not.</p></li>
@@ -239,8 +239,8 @@ boolean.</p>
 (eqv? +nan.0 +nan.0)     \ev  \unspecified
 </code></pre>
 
-<p>Note that <code>(eqv? 0.0 -0.0)</code> will return \schfalse{} if negative zero
-is distinguished, and \schtrue{} if negative zero is not distinguished.</p>
+<p>Note that <code>(eqv? 0.0 -0.0)</code> will return <span class="tt">#f</span> if negative zero
+is distinguished, and <span class="tt">#t</span> if negative zero is not distinguished.</p>
 
 <p>The next set of examples shows the use of <code>eqv?</code> with procedures
 that have local state.  The <code>gen-counter</code> procedure must return a distinct
@@ -309,8 +309,8 @@ inexact numbers for bitwise equality is correct by the above definition.</p>
 
 <p>The <code>eq?</code> procedure is similar to <code>eqv?</code> except that in some cases it is
 capable of discerning distinctions finer than those detectable by
-<code>eqv?</code>.  It must always return \schfalse{} when <code>eqv?</code> also
-would, but may return \schfalse{} in some cases where <code>eqv?</code> would return \schtrue{}.</p>
+<code>eqv?</code>.  It must always return <span class="tt">#f</span> when <code>eqv?</code> also
+would, but may return <span class="tt">#f</span> in some cases where <code>eqv?</code> would return <span class="tt">#t</span>.</p>
 
 <p>On symbols, booleans, the empty list, pairs, and records,
 and also on non-empty
@@ -354,14 +354,14 @@ always finish in constant time.
 \proto{equal?}{ \vari{obj} \varii{obj}}{procedure}}</p>
 
 <p>The <code>equal?</code> procedure, when applied to pairs, vectors, strings and
-bytevectors, recursively compares them, returning \schtrue{} when the
+bytevectors, recursively compares them, returning <span class="tt">#t</span> when the
 unfoldings of its arguments into (possibly infinite) trees are equal
 (in the sense of <code>equal?</code>)
-as ordered trees, and \schfalse{} otherwise.  It returns the same as
+as ordered trees, and <span class="tt">#f</span> otherwise.  It returns the same as
 <code>eqv?</code> when applied to booleans, symbols, numbers, characters,
 ports, procedures, and the empty list.  If two objects are <code>eqv?</code>,
 they must be <code>equal?</code> as well.  In all other cases, <code>equal?</code>
-may return either \schtrue{} or \schfalse{}.
+may return either <span class="tt">#t</span> or <span class="tt">#f</span>.
 %% Note that records are <code>equal?</code> if their record types are the same
 %% and their correspondingly named fields are <code>equal?</code>.</p>
 
@@ -752,8 +752,8 @@ inexact numbers.</p>
 \proto{integer?}{ obj}{procedure}}</p>
 
 <p>These numerical type predicates can be applied to any kind of
-argument, including non-numbers.  They return \schtrue{} if the object is
-of the named type, and otherwise they return \schfalse{}.
+argument, including non-numbers.  They return <span class="tt">#t</span> if the object is
+of the named type, and otherwise they return <span class="tt">#f</span>.
 In general, if a type predicate is true of a number then all higher
 type predicates are also true of that number.  Consequently, if a type
 predicate is false of a number, then all lower type predicates are
@@ -814,12 +814,12 @@ is true.</p>
 <p>\begin{entry}{
 \proto{exact-integer?}{ \vr{z}}{procedure}}</p>
 
-<p>Returns \schtrue{} if \vr{z} is both \tupe{exact} and an \tupe{integer};
-otherwise returns \schfalse{}.</p>
+<p>Returns <span class="tt">#t</span> if \vr{z} is both \tupe{exact} and an \tupe{integer};
+otherwise returns <span class="tt">#f</span>.</p>
 
-<pre><code>(exact-integer? 32) \ev \schtrue{}
-(exact-integer? 32.0) \ev \schfalse{}
-(exact-integer? 32/5) \ev \schfalse{}
+<pre><code>(exact-integer? 32) \ev <span class="tt">#t</span>
+(exact-integer? 32.0) \ev <span class="tt">#f</span>
+(exact-integer? 32/5) \ev <span class="tt">#f</span>
 </code></pre>
 
 <p>\end{entry}</p>
@@ -827,10 +827,10 @@ otherwise returns \schfalse{}.</p>
 <p>\begin{entry}{
 \proto{finite?}{ \vr{z}}{inexact library procedure}}</p>
 
-<p>The <code>finite?</code> procedure returns \schtrue{} on all real numbers except
+<p>The <code>finite?</code> procedure returns <span class="tt">#t</span> on all real numbers except
 <code>+inf.0</code>, <code>-inf.0</code>, and <code>+nan.0</code>, and on complex
 numbers if their real and imaginary parts are both finite.
-Otherwise it returns \schfalse{}.</p>
+Otherwise it returns <span class="tt">#f</span>.</p>
 
 <pre><code>(finite? 3)            \ev  \schtrue
 (finite? +inf.0)       \ev  \schfalse
@@ -842,10 +842,10 @@ Otherwise it returns \schfalse{}.</p>
 <p>\begin{entry}{
 \proto{infinite?}{ \vr{z}}{inexact library procedure}}</p>
 
-<p>The <code>infinite?</code> procedure returns \schtrue{} on the real numbers
+<p>The <code>infinite?</code> procedure returns <span class="tt">#t</span> on the real numbers
 <code>+inf.0</code> and <code>-inf.0</code>, and on complex
 numbers if their real or imaginary parts or both are infinite.
-Otherwise it returns \schfalse{}.</p>
+Otherwise it returns <span class="tt">#f</span>.</p>
 
 <pre><code>(infinite? 3)            \ev  \schfalse
 (infinite? +inf.0)       \ev  \schtrue
@@ -858,9 +858,9 @@ Otherwise it returns \schfalse{}.</p>
 <p>\begin{entry}{
 \proto{nan?}{ \vr{z}}{inexact library procedure}}</p>
 
-<p>The <code>nan?</code> procedure returns \schtrue{} on <code>+nan.0</code>, and on complex
+<p>The <code>nan?</code> procedure returns <span class="tt">#t</span> on <code>+nan.0</code>, and on complex
 numbers if their real or imaginary parts or both are <code>+nan.0</code>.
-Otherwise it returns \schfalse{}.</p>
+Otherwise it returns <span class="tt">#f</span>.</p>
 
 <pre><code>(nan? +nan.0)          \ev  \schtrue
 (nan? 32)              \ev  \schfalse
@@ -877,11 +877,11 @@ Otherwise it returns \schfalse{}.</p>
 \proto{&lt;=}{ \vri{x} \vrii{x} \vriii{x} \dotsfoo}{procedure}
 \proto{&gt;=}{ \vri{x} \vrii{x} \vriii{x} \dotsfoo}{procedure}}</p>
 
-<p>These procedures return \schtrue{} if their arguments are (respectively):
+<p>These procedures return <span class="tt">#t</span> if their arguments are (respectively):
 equal, monotonically increasing, monotonically decreasing,
 monotonically non-decreasing, or monotonically non-increasing,
-and \schfalse{} otherwise.
-If any of the arguments are <code>+nan.0</code>, all the predicates return \schfalse{}.
+and <span class="tt">#f</span> otherwise.
+If any of the arguments are <code>+nan.0</code>, all the predicates return <span class="tt">#f</span>.
 They do not distinguish between inexact zero and inexact negative zero.</p>
 
 <p>These predicates are required to be transitive.</p>
@@ -915,7 +915,7 @@ When in doubt, consult a numerical analyst.</p>
 \proto{even?}{ \vr{n}}{procedure}}</p>
 
 <p>These numerical predicates test a number for a particular property,
-returning \schtrue{} or \schfalse.  See note above.</p>
+returning <span class="tt">#t</span> or \schfalse.  See note above.</p>
 
 <p>\end{entry}</p>
 
@@ -1427,7 +1427,7 @@ if an explicit radix prefix is present in \vr{string} (e.g. {\tt &ldquo;#o177&rd
 is not supplied, then the default radix is 10.  If \vr{string} is not
 a syntactically valid notation for a number, or would result in a
 number that the implementation cannot represent, then <code>string-&gt;number</code>
-returns \schfalse{}.
+returns <span class="tt">#f</span>.
 An error is never signaled due to the content of \vr{string}.</p>
 
 <pre><code>(string-&gt;number &quot;100&quot;)        \ev  100
@@ -1439,23 +1439,23 @@ An error is never signaled due to the content of \vr{string}.</p>
 The domain of <code>string-&gt;number</code> may be restricted by implementations
 in the following ways.
 If all numbers supported by an implementation are real, then
-<code>string-&gt;number</code> is permitted to return \schfalse{} whenever
+<code>string-&gt;number</code> is permitted to return <span class="tt">#f</span> whenever
 \vr{string} uses the polar or rectangular notations for complex
 numbers.  If all numbers are integers, then
-<code>string-&gt;number</code> may return \schfalse{} whenever
+<code>string-&gt;number</code> may return <span class="tt">#f</span> whenever
 the fractional notation is used.  If all numbers are exact, then
-<code>string-&gt;number</code> may return \schfalse{} whenever
+<code>string-&gt;number</code> may return <span class="tt">#f</span> whenever
 an exponent marker or explicit exactness prefix is used.
 If all inexact
 numbers are integers, then
-<code>string-&gt;number</code> may return \schfalse{} whenever
+<code>string-&gt;number</code> may return <span class="tt">#f</span> whenever
 a decimal point is used.</p>
 
 <p>The rules used by a particular implementation for <code>string-&gt;number</code> must
 also be applied to <code>read</code> and to the routine that reads programs, in
 order to maintain consistency between internal numeric processing, I/O,
 and the processing of programs.
-As a consequence, the R<span class="rnrs">5</span>RS permission to return \schfalse{} when
+As a consequence, the R<span class="rnrs">5</span>RS permission to return <span class="tt">#f</span> when
 \var{string} has an explicit radix prefix has been withdrawn.</p>
 
 <p>\end{entry}</p>
@@ -1466,7 +1466,7 @@ As a consequence, the R<span class="rnrs">5</span>RS permission to return \schfa
 
 
 <p>The standard boolean objects for true and false are written as
-\schtrue{} and \schfalse.\sharpindex{t}\sharpindex{f}
+<span class="tt">#t</span> and \schfalse.\sharpindex{t}\sharpindex{f}
 Alternatively, they can be written \sharptrue~and \sharpfalse,
 respectively.  What really
 matters, though, are the objects that the Scheme conditional expressions
@@ -1476,14 +1476,14 @@ true or false.  The phrase &ldquo;a true value&rdquo;
 conditional expressions, and the phrase &ldquo;a false value&rdquo; (or
 &ldquo;false&rdquo;) means any object treated as false by the conditional expressions.</p>
 
-<p>Of all the Scheme values, only \schfalse{}
+<p>Of all the Scheme values, only <span class="tt">#f</span>
 counts as false in conditional expressions.
 All other Scheme values, including \schtrue,
 count as true.</p>
 
 <p><em>Note:&nbsp;</em>
 Unlike some other dialects of Lisp,
-Scheme distinguishes \schfalse{} and the empty list
+Scheme distinguishes <span class="tt">#f</span> and the empty list
 from each other and from the symbol \ide{nil}.</p>
 
 <p>Boolean constants evaluate to themselves, so they do not need to be quoted
@@ -1497,8 +1497,8 @@ in programs.</p>
 <p>\begin{entry}{
 \proto{not}{ obj}{procedure}}</p>
 
-<p>The <code>not</code> procedure returns \schtrue{} if \var{obj} is false, and returns
-\schfalse{} otherwise.</p>
+<p>The <code>not</code> procedure returns <span class="tt">#t</span> if \var{obj} is false, and returns
+<span class="tt">#f</span> otherwise.</p>
 
 <pre><code>(not \schtrue)   \ev  \schfalse
 (not 3)          \ev  \schfalse
@@ -1514,8 +1514,8 @@ in programs.</p>
 <p>\begin{entry}{
 \proto{boolean?}{ obj}{procedure}}</p>
 
-<p>The <code>boolean?</code> predicate returns \schtrue{} if \var{obj} is either \schtrue{} or
-\schfalse{} and returns \schfalse{} otherwise.</p>
+<p>The <code>boolean?</code> predicate returns <span class="tt">#t</span> if \var{obj} is either <span class="tt">#t</span> or
+<span class="tt">#f</span> and returns <span class="tt">#f</span> otherwise.</p>
 
 <pre><code>(boolean? \schfalse)  \ev  \schtrue
 (boolean? 0)          \ev  \schfalse
@@ -1527,8 +1527,8 @@ in programs.</p>
 <p>\begin{entry}{
 \proto{boolean=?}{ \vari{boolean} \varii{boolean} \variii{boolean} \dotsfoo}{procedure}}</p>
 
-<p>Returns \schtrue{} if all the arguments are booleans and all
-are \schtrue{} or all are \schfalse{}.</p>
+<p>Returns <span class="tt">#t</span> if all the arguments are booleans and all
+are <span class="tt">#t</span> or all are <span class="tt">#f</span>.</p>
 
 <p>\end{entry}</p>
 
@@ -1635,7 +1635,7 @@ parse Scheme programs.  See section~\ref{externalreps}.</p>
 <p>\begin{entry}{
 \proto{pair?}{ obj}{procedure}}</p>
 
-<p>The <code>pair?</code> predicate returns \schtrue{} if \var{obj} is a pair, and otherwise
+<p>The <code>pair?</code> predicate returns <span class="tt">#t</span> if \var{obj} is a pair, and otherwise
 returns \schfalse.</p>
 
 <pre><code>(pair? '(a . b))        \ev  \schtrue
@@ -1754,7 +1754,7 @@ For example, <code>caddr</code> could be defined by</p>
 <p>\begin{entry}{
 \proto{null?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is the empty list,
+<p>Returns <span class="tt">#t</span> if \var{obj} is the empty list,
 otherwise returns \schfalse.</p>
 
 <p>\end{entry}</p>
@@ -1762,7 +1762,7 @@ otherwise returns \schfalse.</p>
 <p>\begin{entry}{
 \proto{list?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is a list.  Otherwise, it returns \schfalse{}.
+<p>Returns <span class="tt">#t</span> if \var{obj} is a list.  Otherwise, it returns <span class="tt">#f</span>.
 By definition, all lists have finite length and are terminated by
 the empty list.</p>
 
@@ -1905,7 +1905,7 @@ The <code>list-set!</code> procedure stores \var{obj} in element \vr{k} of \var{
 \var{obj}, where the sublists of \var{list} are the non-empty lists
 returned by {\tt (list-tail \var{list} \var{k})} for \var{k} less
 than the length of \var{list}.  If
-\var{obj} does not occur in \var{list}, then \schfalse{} (not the empty list) is
+\var{obj} does not occur in \var{list}, then <span class="tt">#f</span> (not the empty list) is
 returned.  The <code>memq</code> procedure uses <code>eq?</code> to compare \var{obj} with the elements of
 \var{list}, while <code>memv</code> uses <code>eqv?</code> and
 <code>member</code> uses \var{compare}, if given, and <code>equal?</code> otherwise.</p>
@@ -1935,7 +1935,7 @@ returned.  The <code>memq</code> procedure uses <code>eq?</code> to compare \var
 pairs.}
 These procedures find the first pair in \var{alist} whose car field is \var{obj},
 and returns that pair.  If no pair in \var{alist} has \var{obj} as its
-car, then \schfalse{} (not the empty list) is returned.  The <code>assq</code> procedure uses
+car, then <span class="tt">#f</span> (not the empty list) is returned.  The <code>assq</code> procedure uses
 <code>eq?</code> to compare \var{obj} with the car fields of the pairs in \var{alist},
 while <code>assv</code> uses <code>eqv?</code> and <code>assoc</code> uses \var{compare} if given
 and <code>equal?</code> otherwise.</p>
@@ -1960,7 +1960,7 @@ and <code>equal?</code> otherwise.</p>
 Although they are often used as predicates,
 <code>memq</code>, <code>memv</code>, <code>member</code>, <code>assq</code>, <code>assv</code>, and <code>assoc</code> do not
 have question marks in their names because they return
-potentially useful values rather than just \schtrue{} or \schfalse{}.
+potentially useful values rather than just <span class="tt">#t</span> or <span class="tt">#f</span>.
 \end{rationale}
 \end{entry}</p>
 
@@ -2013,7 +2013,7 @@ implementation-dependent extensions.</p>
 <p>\begin{entry}{
 \proto{symbol?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is a symbol, otherwise returns \schfalse.</p>
+<p>Returns <span class="tt">#t</span> if \var{obj} is a symbol, otherwise returns \schfalse.</p>
 
 <pre><code>(symbol? 'foo)          \ev  \schtrue
 (symbol? (car '(a b)))  \ev  \schtrue
@@ -2028,7 +2028,7 @@ implementation-dependent extensions.</p>
 <p>\begin{entry}{
 \proto{symbol=?}{ \vari{symbol} \varii{symbol} \variii{symbol} \dotsfoo}{procedure}}</p>
 
-<p>Returns \schtrue{} if all the arguments are symbols and all have the same
+<p>Returns <span class="tt">#t</span> if all the arguments are symbols and all have the same
 names in the sense of <code>string=?</code>.</p>
 
 <p><em>Note:&nbsp;</em>
@@ -2148,7 +2148,7 @@ insensitive&rdquo;) embedded in their names.</p>
 <p>\begin{entry}{
 \proto{char?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is a character, otherwise returns \schfalse.</p>
+<p>Returns <span class="tt">#t</span> if \var{obj} is a character, otherwise returns \schfalse.</p>
 
 <p>\end{entry}</p>
 
@@ -2162,7 +2162,7 @@ insensitive&rdquo;) embedded in their names.</p>
 <a id="characterequality"></a>
 
 
-<p>These procedures return \schtrue{} if
+<p>These procedures return <span class="tt">#t</span> if
 the results of passing their arguments to <code>char\coerce{</code>integer}
 are respectively
 equal, monotonically increasing, monotonically decreasing,
@@ -2195,13 +2195,13 @@ applied to their arguments before they were compared.</p>
 \proto{char-upper-case?}{ letter}{char library procedure}
 \proto{char-lower-case?}{ letter}{char library procedure}}</p>
 
-<p>These procedures return \schtrue{} if their arguments are alphabetic,
+<p>These procedures return <span class="tt">#t</span> if their arguments are alphabetic,
 numeric, whitespace, upper case, or lower case characters, respectively,
 otherwise they return \schfalse.</p>
 
-<p>Specifically, they must return \schtrue{} when applied to characters with
+<p>Specifically, they must return <span class="tt">#t</span> when applied to characters with
 the Unicode properties Alphabetic, Numeric_Digit, White_Space, Uppercase, and
-Lowercase respectively, and \schfalse{} when applied to any other Unicode
+Lowercase respectively, and <span class="tt">#f</span> when applied to any other Unicode
 characters.  Note that many Unicode characters are alphabetic but neither
 upper nor lower case.</p>
 
@@ -2211,8 +2211,8 @@ upper nor lower case.</p>
 \proto{digit-value}{ char}{char library procedure}}</p>
 
 <p>This procedure returns the numeric value (0 to 9) of its argument
-if it is a numeric digit (that is, if <code>char-numeric?</code> returns \schtrue{}),
-or \schfalse{} on any other character.</p>
+if it is a numeric digit (that is, if <code>char-numeric?</code> returns <span class="tt">#t</span>),
+or <span class="tt">#f</span> on any other character.</p>
 
 <pre><code>(digit-value #\3) \ev 3
 (digit-value #\x0664) \ev 4
@@ -2347,7 +2347,7 @@ to attempt to read one.</p>
 <p>\begin{entry}{
 \proto{string?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is a string, otherwise returns \schfalse.
+<p>Returns <span class="tt">#t</span> if \var{obj} is a string, otherwise returns \schfalse.
 \end{entry}</p>
 
 <p>\begin{entry}{
@@ -2404,7 +2404,7 @@ There is no requirement for this procedure to execute in constant time.</p>
 <p>\begin{entry}{
 \proto{string=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}}</p>
 
-<p>Returns \schtrue{} if all the strings are the same length and contain
+<p>Returns <span class="tt">#t</span> if all the strings are the same length and contain
 exactly the same characters in the same positions, otherwise returns
 \schfalse.</p>
 
@@ -2413,7 +2413,7 @@ exactly the same characters in the same positions, otherwise returns
 <p>\begin{entry}{
 \proto{string-ci=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}}</p>
 
-<p>Returns \schtrue{} if, after case-folding, all the strings are the same
+<p>Returns <span class="tt">#t</span> if, after case-folding, all the strings are the same
 length and contain the same characters in the same positions, otherwise
 returns \schfalse.  Specifically, these procedures behave as if
 <code>string-foldcase</code> were applied to their arguments before comparing them.</p>
@@ -2430,7 +2430,7 @@ returns \schfalse.  Specifically, these procedures behave as if
 \proto{string&gt;=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}
 \proto{string-ci&gt;=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}}</p>
 
-<p>These procedures return \schtrue{} if their arguments are (respectively):
+<p>These procedures return <span class="tt">#t</span> if their arguments are (respectively):
 monotonically increasing, monotonically decreasing,
 monotonically non-decreasing, or monotonically non-increasing.</p>
 
@@ -2593,7 +2593,7 @@ element 2 can be written as follows:</p>
 <p>\begin{entry}{
 \proto{vector?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is a vector; otherwise returns \schfalse.
+<p>Returns <span class="tt">#t</span> if \var{obj} is a vector; otherwise returns \schfalse.
 \end{entry}</p>
 
 <p>\begin{entry}{
@@ -2803,8 +2803,8 @@ element 2 can be written as follows:</p>
 <p>\begin{entry}{
 \proto{bytevector?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is a bytevector.
-Otherwise, \schfalse{} is returned.
+<p>Returns <span class="tt">#t</span> if \var{obj} is a bytevector.
+Otherwise, <span class="tt">#f</span> is returned.
 \end{entry}</p>
 
 <p>\begin{entry}{
@@ -2957,7 +2957,7 @@ The <code>procedure?</code> predicate is also described here.</p>
 <p>\begin{entry}{
 \proto{procedure?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is a procedure, otherwise returns \schfalse.</p>
+<p>Returns <span class="tt">#t</span> if \var{obj} is a procedure, otherwise returns \schfalse.</p>
 
 <pre><code>(procedure? car)            \ev  \schtrue
 (procedure? 'car)           \ev  \schfalse
@@ -3498,7 +3498,7 @@ Raises an exception as if by calling
 <code>raise</code> on a newly allocated implementation-defined object which encapsulates
 the information provided by \var{message},
 as well as any \var{obj}s, known as the \defining{irritants}.
-The procedure <code>error-object?</code> must return \schtrue{} on such objects.</p>
+The procedure <code>error-object?</code> must return <span class="tt">#t</span> on such objects.</p>
 
 <pre><code>(define (null-list? l)
   (cond ((pair? l) #f)
@@ -3514,7 +3514,7 @@ The procedure <code>error-object?</code> must return \schtrue{} on such objects.
 <p>\begin{entry}{
 \proto{error-object?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is an object created by <code>error</code>
+<p>Returns <span class="tt">#t</span> if \var{obj} is an object created by <code>error</code>
 or one of an implementation-defined set of objects.  Otherwise, it returns
 \schfalse.
 The objects used to signal errors, including those which satisfy the
@@ -3541,7 +3541,7 @@ satisfy <code>error-object?</code>.</p>
 \proto{read-error?}{ obj}{procedure}
 \proto{file-error?}{ obj}{procedure}}</p>
 
-<p>Error type predicates.  Returns \schtrue{} if \var{obj} is an
+<p>Error type predicates.  Returns <span class="tt">#t</span> if \var{obj} is an
 object raised by the <code>read</code> procedure or by the inability to open
 an input or output port on a file, respectively.  Otherwise, it
 returns \schfalse.
@@ -3718,7 +3718,7 @@ to <code>call-with-port</code>.
 \proto{binary-port?}{ obj}{procedure}
 \proto{port?}{ obj}{procedure}}</p>
 
-<p>These procedures return \schtrue{} if \var{obj} is an input port, output port,
+<p>These procedures return <span class="tt">#t</span> if \var{obj} is an input port, output port,
 textual port, binary port, or any
 kind of port, respectively.  Otherwise they return \schfalse.</p>
 
@@ -3728,8 +3728,8 @@ kind of port, respectively.  Otherwise they return \schfalse.</p>
 \proto{input-port-open?}{ port}{procedure}
 \proto{output-port-open?}{ port}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{port} is still open and capable of
-performing input or output, respectively, and \schfalse{} otherwise.</p>
+<p>Returns <span class="tt">#t</span> if \var{port} is still open and capable of
+performing input or output, respectively, and <span class="tt">#f</span> otherwise.</p>
 
 <p>\end{entry}</p>
 
@@ -3965,7 +3965,7 @@ Implementations may also recognize other end of line characters or sequences.</p
 <p>\begin{entry}{
 \proto{eof-object?}{ obj}{procedure}}</p>
 
-<p>Returns \schtrue{} if \var{obj} is an end-of-file object, otherwise returns
+<p>Returns <span class="tt">#t</span> if \var{obj} is an end-of-file object, otherwise returns
 \schfalse.  The precise set of end-of-file objects will vary among
 implementations, but in any case no end-of-file object will ever be an object
 that can be read in using <code>read</code>.</p>
@@ -3983,8 +3983,8 @@ that can be read in using <code>read</code>.</p>
 \proto{char-ready?}{}{procedure}
 \rproto{char-ready?}{ port}{procedure}}</p>
 
-<p>Returns \schtrue{} if a character is ready on the textual input \var{port} and
-returns \schfalse{} otherwise.  If <code>char-ready</code> returns \schtrue{} then
+<p>Returns <span class="tt">#t</span> if a character is ready on the textual input \var{port} and
+returns <span class="tt">#f</span> otherwise.  If <code>char-ready</code> returns <span class="tt">#t</span> then
 the next <code>read-char</code> operation on the given \var{port} is guaranteed
 not to hang.  If the \var{port} is at end of file then <code>char-ready?</code><br />
 returns \schtrue.</p>
@@ -3994,7 +3994,7 @@ The <code>char-ready?</code> procedure exists to make it possible for a program 
 accept characters from interactive ports without getting stuck waiting for
 input.  Any input editors associated with such ports must ensure that
 characters whose existence has been asserted by <code>char-ready?</code> cannot
-be removed from the input.  If <code>char-ready?</code> were to return \schfalse{} at end of
+be removed from the input.  If <code>char-ready?</code> were to return <span class="tt">#f</span> at end of
 file, a port at end of file would be indistinguishable from an interactive
 port that has no ready characters.
 \end{rationale}
@@ -4040,9 +4040,9 @@ byte.  If no more bytes are available, an end-of-file object is returned.</p>
 \proto{u8-ready?}{}{procedure}
 \rproto{u8-ready?}{ port}{procedure}}</p>
 
-<p>Returns \schtrue{} if a byte is ready on the binary input \var{port}
-and returns \schfalse{} otherwise.  If <code>u8-ready?</code> returns
-\schtrue{} then the next <code>read-u8</code> operation on the given
+<p>Returns <span class="tt">#t</span> if a byte is ready on the binary input \var{port}
+and returns <span class="tt">#f</span> otherwise.  If <code>u8-ready?</code> returns
+<span class="tt">#t</span> then the next <code>read-u8</code> operation on the given
 \var{port} is guaranteed not to hang.  If the \var{port} is at end of
 file then <code>u8-ready?</code> returns \schtrue.</p>
 
@@ -4265,8 +4265,8 @@ implementations.
 
 <p>\domain{It is an error if \var{filename} is not a string.}
 The <code>file-exists?</code> procedure returns
-\schtrue{} if the named file exists at the time the procedure is called,
-and \schfalse{} otherwise.</p>
+<span class="tt">#t</span> if the named file exists at the time the procedure is called,
+and <span class="tt">#f</span> otherwise.</p>
 
 <p>\end{entry}</p>
 
@@ -4295,9 +4295,9 @@ implementation-dependent.  It is an error to mutate any of these strings.
 
 <p>Runs all outstanding dynamic-wind \var{after} procedures, terminates the
 running program, and communicates an exit value to the operating system.
-If no argument is supplied, or if \var{obj} is \schtrue{}, the {\cf
+If no argument is supplied, or if \var{obj} is <span class="tt">#t</span>, the {\cf
 exit} procedure should communicate to the operating system that the
-program exited normally.  If \var{obj} is \schfalse{}, the <code>exit</code>
+program exited normally.  If \var{obj} is <span class="tt">#f</span>, the <code>exit</code>
 procedure should communicate to the operating system that the program
 exited abnormally.  Otherwise, <code>exit</code> should translate \var{obj} into
 an appropriate exit value for the operating system, if possible.</p>
@@ -4336,7 +4336,7 @@ can be passed to <code>eval</code>: see section~\ref{environments}.)
 Both the name and value of an environment variable are strings.
 The procedure <code>get-environment-variable</code> returns the value
 of the environment variable \var{name},
-or \schfalse{} if the named
+or <span class="tt">#f</span> if the named
 environment variable is not found.  It may
 use locale information to encode the name and decode the value
 of the environment variable.  It is an error if <br />

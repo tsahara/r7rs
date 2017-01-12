@@ -122,13 +122,13 @@ related predicates) is a lexicographical extension of character comparison
 as exponent markers is no longer required.</p></li>
 
 <li><p>Implementations of <code>string\coerce{</code>number} are no longer permitted
-to return \schfalse{} when the argument contains an explicit radix prefix,
+to return <span class="tt">#f</span> when the argument contains an explicit radix prefix,
 and must be compatible with <code>read</code> and the syntax of numbers in programs.</p></li>
 
 <li><p>The procedures <code>transcript-on</code> and <code>transcript-off</code> have been removed.</p></li>
 </ul>
 
-<h3 id="other-language-changes-since-hahahugoshortcode-7hbhb">Other language changes since R<span class="rnrs">5</span>RS</h3>
+<h3 id="other-language-changes-since-hahahugoshortcode-8hbhb">Other language changes since R<span class="rnrs">5</span>RS</h3>
 
 <p><a id="differences"></a>
 
@@ -268,7 +268,7 @@ and the character and string comparison
 predicates are now required to support more than two arguments.</p></li>
 
 <li><p>The forms \sharptrue{} and \sharpfalse{} are now supported
-as well as \schtrue{} and \schfalse{}.</p></li>
+as well as <span class="tt">#t</span> and <span class="tt">#f</span>.</p></li>
 
 <li><p>The procedures <code>make-list</code>, <code>list-copy</code>, <code>list-set!</code>,
 <code>string-map</code>, <code>string-for-each</code>, <code>string-&gt;vector</code>,
@@ -328,7 +328,7 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 <li><p>The formal semantics now handles <code>dynamic-wind</code>.</p></li>
 </ul>
 
-<h3 id="incompatibilities-with-hahahugoshortcode-17hbhb">Incompatibilities with R<span class="rnrs">6</span>RS</h3>
+<h3 id="incompatibilities-with-hahahugoshortcode-20hbhb">Incompatibilities with R<span class="rnrs">6</span>RS</h3>
 
 <p>This section enumerates the incompatibilities between R<span class="rnrs">7</span>RS~and
 the &ldquo;Revised$^6$ report&rdquo; <a href="../ref/#R6RS">[R6RS]</a> and its accompanying Standard Libraries document.</p>

@@ -221,8 +221,6 @@ all of which are available at &lt;a href=&#34;http://srfi.schemers.org&#34;&gt;h
       <guid>https://tsahara.github.io/r7rs/overview/</guid>
       <description>
 
-&lt;p&gt;% 1. Structure of the language&lt;/p&gt;
-
 &lt;h1 id=&#34;1-overview-of-scheme&#34;&gt;1. Overview of Scheme&lt;/h1&gt;
 
 &lt;h2 id=&#34;1-1-semantics&#34;&gt;1.1. Semantics&lt;/h2&gt;
@@ -232,8 +230,8 @@ all of which are available at &lt;a href=&#34;http://srfi.schemers.org&#34;&gt;h
 
 &lt;p&gt;This section gives an overview of Scheme&amp;rsquo;s semantics.  A
 detailed informal semantics is the subject of
-chapters~\ref{basicchapter} through 6.  For reference
-purposes, section~\ref{formalsemanticssection} provides a formal
+chapters 3 through 6.  For reference
+purposes, section 7.2 provides a formal
 semantics of Scheme.&lt;/p&gt;
 
 &lt;p&gt;Scheme is a statically scoped programming
@@ -260,7 +258,7 @@ even if the iterative computation is described by a syntactically
 recursive procedure.  Thus with a properly tail-recursive implementation,
 iteration can be expressed using the ordinary procedure-call
 mechanics, so that special iteration constructs are useful only as
-syntactic sugar.  See section~\ref{proper tail recursion}.&lt;/p&gt;
+syntactic sugar.  See section 3.5.&lt;/p&gt;
 
 &lt;p&gt;Scheme procedures are objects in their own right.  Procedures can be
 created dynamically, stored in data structures, returned as results of
@@ -270,7 +268,7 @@ procedures, and so on.&lt;/p&gt;
 in most other languages only operate behind the scenes, also have
 &amp;ldquo;first-class&amp;rdquo; status.  Continuations are useful for implementing a
 wide variety of advanced control constructs, including non-local exits,
-backtracking, and coroutines.  See section~\ref{continuations}.&lt;/p&gt;
+backtracking, and coroutines.  See section 6.10.&lt;/p&gt;
 
 &lt;p&gt;Arguments to Scheme procedures are always passed by value, which
 means that the actual argument expressions are evaluated before the
@@ -298,9 +296,9 @@ as data.&lt;/p&gt;
 
 &lt;p&gt;The &lt;code&gt;read&lt;/code&gt; procedure performs syntactic as well as lexical decomposition of
 the data it reads.  The &lt;code&gt;read&lt;/code&gt; procedure parses its input as data
-(section~\ref{datumsyntax}), not as program.&lt;/p&gt;
+(section 7.1.2), not as program.&lt;/p&gt;
 
-&lt;p&gt;The formal syntax of Scheme is described in section~\ref{BNF}.&lt;/p&gt;
+&lt;p&gt;The formal syntax of Scheme is described in section 7.1.&lt;/p&gt;
 
 &lt;h2 id=&#34;1-3-notation-and-terminology&#34;&gt;1.3. Notation and terminology&lt;/h2&gt;
 
@@ -324,23 +322,20 @@ Appendix A.&lt;/p&gt;
 &lt;p&gt;All implementations of Scheme:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Must provide the base library and all the identifiers
-exported from it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Must provide the base library and all the identifiers exported from it.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;May provide or omit the other
-libraries given in this report, but each library must either be provided
-in its entirety, exporting no additional identifiers, or else omitted
-altogether.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;May provide or omit the other libraries given in this report, but each
+library must either be provided in its entirety, exporting no additional
+identifiers, or else omitted altogether.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;May provide other libraries not described in this report.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;May also extend the function of any identifier in this
-report, provided the extensions are not in conflict with the language
-reported here.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;May also extend the function of any identifier in this report, provided
+the extensions are not in conflict with the language reported here.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Must support portable
-code by providing a mode of operation in which the lexical syntax does
-not conflict with the lexical syntax described in this report.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Must support portable code by providing a mode of operation in which
+the lexical syntax does not conflict with the lexical syntax described
+in this report.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;1-3-2-error-situations-and-unspecified-behavior&#34;&gt;1.3.2. Error situations and unspecified behavior&lt;/h3&gt;
@@ -352,15 +347,16 @@ not conflict with the lexical syntax described in this report.&lt;/p&gt;&lt;/li&
 error is signaled&amp;rdquo; to indicate that implementations must detect and
 report the error.
 An error is signaled by raising a non-continuable exception, as if by
-the procedure &lt;code&gt;raise&lt;/code&gt; as described in section~\ref{exceptionsection}.  The object raised is implementation-dependent
+the procedure &lt;code&gt;raise&lt;/code&gt; as described in section 6.11.
+The object raised is implementation-dependent
 and need not be distinct from objects previously used for the same purpose.
 In addition to errors signaled in situations described in this
 report, programmers can signal their own errors and handle signaled errors.&lt;/p&gt;
 
 &lt;p&gt;The phrase &amp;ldquo;an error that satisfies &lt;em&gt;predicate&lt;/em&gt; is signaled&amp;rdquo; means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
-passed to the specified predicate (such as &lt;code&gt;file-error?&lt;/code&gt; or {\cf
-read-error?}), the predicate returns \schtrue{}.&lt;/p&gt;
+passed to the specified predicate (such as &lt;code&gt;file-error?&lt;/code&gt; or
+&lt;code&gt;read-error?&lt;/code&gt;), the predicate returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt;.&lt;/p&gt;
 
 &lt;p&gt;If such wording does not appear in the discussion of
 an error, then implementations are not required to detect or report the
@@ -373,7 +369,8 @@ satisfy the predicates &lt;code&gt;error-object?&lt;/code&gt;, &lt;code&gt;file-
 &lt;code&gt;read-error?&lt;/code&gt;.
 Alternatively, implementations may provide non-portable extensions.&lt;/p&gt;
 
-&lt;p&gt;For example, it is an error for a procedure to be passed an argument of a type that
+&lt;p&gt;For example, it is an error for a procedure to be passed an argument of
+a type that
 the procedure is not explicitly specified to handle, even though such
 domain errors are seldom mentioned in this report.  Implementations may
 signal an error,
@@ -402,16 +399,16 @@ not say what value is returned.&lt;/p&gt;
 &lt;p&gt;Finally, the words and phrases &amp;ldquo;must,&amp;rdquo; &amp;ldquo;must not,&amp;rdquo; &amp;ldquo;shall,&amp;rdquo;
 &amp;ldquo;shall not,&amp;rdquo; &amp;ldquo;should,&amp;rdquo; &amp;ldquo;should not,&amp;rdquo; &amp;ldquo;may,&amp;rdquo; &amp;ldquo;required,&amp;rdquo;
 &amp;ldquo;recommended,&amp;rdquo; and &amp;ldquo;optional,&amp;rdquo; although not capitalized in this
-report, are to be interpreted as described in RFC~2119 &lt;a href=&#34;../ref/#rfc2119&#34;&gt;[rfc2119]&lt;/a&gt;.
+report, are to be interpreted as described in RFC 2119 &lt;a href=&#34;../ref/#rfc2119&#34;&gt;[rfc2119]&lt;/a&gt;.
 They are used only with reference to implementer or implementation behavior,
 not with reference to programmer or program behavior.&lt;/p&gt;
 
 &lt;h3 id=&#34;1-3-3-entry-format&#34;&gt;1.3.3. Entry format&lt;/h3&gt;
 
-&lt;p&gt;Chapters 4 and 6 are organized
-into entries.  Each entry describes one language feature or a group of
-related features, where a feature is either a syntactic construct or a
-procedure.  An entry begins with one or more header lines of the form&lt;/p&gt;
+&lt;p&gt;Chapters 4 and 6 are organized into entries.  Each entry describes one
+language feature or a group of related features, where a feature is
+either a syntactic construct or a procedure.  An entry begins with one
+or more header lines of the form&lt;/p&gt;
 
 &lt;p&gt;\noindent\pproto{\var{template}}{\var{category}}\unpenalty&lt;/p&gt;
 
@@ -473,7 +470,7 @@ conventions also imply type restrictions:
 $$
 \begin{tabular}{ll}
 \vr{alist}&amp;amp;association list (list of pairs)&lt;br /&gt;
-\vr{boolean}&amp;amp;boolean value (\schtrue{} or \schfalse{})&lt;br /&gt;
+\vr{boolean}&amp;amp;boolean value (&lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; or &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;)&lt;br /&gt;
 \vr{byte}&amp;amp;exact integer $0 \leq byte &amp;lt; 256$&lt;br /&gt;
 \vr{bytevector}&amp;amp;bytevector&lt;br /&gt;
 \vr{char}&amp;amp;character&lt;br /&gt;
@@ -760,7 +757,7 @@ are reserved for possible future extensions to the language.&lt;/p&gt;
 &lt;p&gt;\item[\sharpsign] The number sign is used for a variety of purposes depending on
 the character that immediately follows it:&lt;/p&gt;
 
-&lt;p&gt;\item[\schtrue{} \schfalse{}]
+&lt;p&gt;\item[&lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;]
 These are the boolean constants (section~\ref{booleansection}),
 along with the alternatives \sharpfoo{true} and \sharpfoo{false}.&lt;/p&gt;
 
@@ -924,10 +921,10 @@ and all record types.
 &lt;p&gt;Although there is a separate boolean type,
 any Scheme value can be used as a boolean value for the purpose of a
 conditional test.  As explained in section~\ref{booleansection}, all
-values count as true in such a test except for \schfalse{}.
+values count as true in such a test except for &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.
 This report uses the word &amp;ldquo;true&amp;rdquo; to refer to any
-Scheme value except \schfalse{}, and the word &amp;ldquo;false&amp;rdquo; to refer to
-\schfalse{}.&lt;/p&gt;
+Scheme value except &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;, and the word &amp;ldquo;false&amp;rdquo; to refer to
+&lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;3-3-external-representations&#34;&gt;3.3. External representations&lt;/h2&gt;
 
@@ -1558,7 +1555,7 @@ called on the value of the \hyper{test} and the values returned by this
 procedure are returned by the &lt;code&gt;cond&lt;/code&gt; expression.&lt;/p&gt;
 
 &lt;p&gt;If all \hyper{test}s evaluate
-to \schfalse{}, and there is no else clause, then the result of
+to &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;, and there is no else clause, then the result of
 the conditional expression is unspecified; if there is an else
 clause, then its \hyper{expression}s are evaluated in order, and the values of
 the last one are returned.&lt;/p&gt;
@@ -1571,7 +1568,7 @@ the last one are returned.&lt;/p&gt;
       (else &#39;equal))            \ev  equal
 
 (cond ((assv &#39;b &#39;((a 1) (b 2))) =&amp;gt; cadr)
-      (else \schfalse{}))         \ev  2
+      (else &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;))         \ev  2
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
@@ -1646,11 +1643,11 @@ procedure are returned by the &lt;code&gt;case&lt;/code&gt; expression.&lt;/p&gt
 
 &lt;p&gt;\semantics
 The \hyper{test} expressions are evaluated from left to right, and if
-any expression evaluates to \schfalse{} (see
-section~\ref{booleansection}), then \schfalse{} is returned.  Any remaining
+any expression evaluates to &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; (see
+section~\ref{booleansection}), then &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; is returned.  Any remaining
 expressions are not evaluated.  If all the expressions evaluate to
 true values, the values of the last expression are returned.  If there
-are no expressions, then \schtrue{} is returned.&lt;/p&gt;
+are no expressions, then &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; is returned.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(and (= 2 2) (&amp;gt; 2 1))           \ev  \schtrue
 (and (= 2 2) (&amp;lt; 2 1))           \ev  \schfalse
@@ -1667,8 +1664,8 @@ are no expressions, then \schtrue{} is returned.&lt;/p&gt;
 The \hyper{test} expressions are evaluated from left to right, and the value of the
 first expression that evaluates to a true value (see
 section~\ref{booleansection}) is returned.  Any remaining expressions
-are not evaluated.  If all expressions evaluate to \schfalse{}
-or if there are no expressions, then \schfalse{} is returned.&lt;/p&gt;
+are not evaluated.  If all expressions evaluate to &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;
+or if there are no expressions, then &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; is returned.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(or (= 2 2) (&amp;gt; 2 1))            \ev  \schtrue
 (or (= 2 2) (&amp;lt; 2 1))            \ev  \schtrue
@@ -1705,7 +1702,7 @@ expression is unspecified.&lt;/p&gt;
 The \hyper{test} is an expression.&lt;/p&gt;
 
 &lt;p&gt;\semantics
-The test is evaluated, and if it evaluates to \schfalse{},
+The test is evaluated, and if it evaluates to &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;,
 the expressions are evaluated in order.  The result of the &lt;code&gt;unless&lt;/code&gt;
 expression is unspecified.&lt;/p&gt;
 
@@ -2284,7 +2281,7 @@ return the object.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;It may be the case that there is no means by which a promise can be
 operationally distinguished from its forced value.  That is, expressions
-like the following may evaluate to either \schtrue{} or to \schfalse{},
+like the following may evaluate to either &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; or to &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;,
 depending on the implementation:&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -2311,7 +2308,7 @@ arguments, like &lt;code&gt;list&lt;/code&gt;, must not force them.&lt;/li&gt;
 \proto{promise?} { \var{obj}}{lazy library procedure}}&lt;/p&gt;
 
 &lt;p&gt;The &lt;code&gt;promise?&lt;/code&gt; procedure returns
-\schtrue{} if its argument is a promise, and \schfalse{} otherwise.  Note
+&lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if its argument is a promise, and &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; otherwise.  Note
 that promises are not necessarily disjoint from other Scheme types such
 as procedures.&lt;/p&gt;
 
@@ -2441,7 +2438,7 @@ to \hyper{variable} and, within the scope of
 that binding, evaluates the clauses as if they were the clauses of a
 &lt;code&gt;cond&lt;/code&gt; expression. That implicit &lt;code&gt;cond&lt;/code&gt; expression is evaluated with the
 continuation and dynamic environment of the &lt;code&gt;guard&lt;/code&gt; expression. If every
-\hyper{cond clause}&amp;rsquo;s \hyper{test} evaluates to \schfalse{} and there
+\hyper{cond clause}&amp;rsquo;s \hyper{test} evaluates to &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; and there
 is no else clause, then
 &lt;code&gt;raise-continuable&lt;/code&gt; is invoked on the raised object within the dynamic
 environment of the original call to &lt;code&gt;raise&lt;/code&gt;
@@ -3389,8 +3386,8 @@ initial value.  The initial values of all other fields are
 unspecified.  It is an error for a field name to appear in
 \hyper{constructor} but not as a \hyper{field name}.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;\hyper{pred} is bound to a predicate that returns \schtrue{} when given a
-value returned by the procedure bound to  \hyper{constructor name} and \schfalse{} for
+&lt;li&gt;&lt;p&gt;\hyper{pred} is bound to a predicate that returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; when given a
+value returned by the procedure bound to  \hyper{constructor name} and &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; for
 everything else.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Each \hyper{accessor name} is bound to a procedure that takes a record of
@@ -3716,7 +3713,7 @@ it means that the locations in the object are fresh.&lt;/p&gt;
 
 
 &lt;p&gt;A \defining{predicate} is a procedure that always returns a boolean
-value (\schtrue{} or \schfalse).  An \defining{equivalence predicate} is
+value (&lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; or \schfalse).  An \defining{equivalence predicate} is
 the computational analogue of a mathematical equivalence relation; it is
 symmetric, reflexive, and transitive.  Of the equivalence predicates
 described in this section, &lt;code&gt;eq?&lt;/code&gt; is the finest or most
@@ -3727,15 +3724,15 @@ slightly less discriminating than &lt;code&gt;eq?&lt;/code&gt;.&lt;/p&gt;
 \proto{eqv?}{ \vari{obj} \varii{obj}}{procedure}}&lt;/p&gt;
 
 &lt;p&gt;The &lt;code&gt;eqv?&lt;/code&gt; procedure defines a useful equivalence relation on objects.
-Briefly, it returns \schtrue{} if \vari{obj} and \varii{obj} are
+Briefly, it returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \vari{obj} and \varii{obj} are
 normally regarded as the same object.  This relation is left slightly
 open to interpretation, but the following partial specification of
 &lt;code&gt;eqv?&lt;/code&gt; holds for all implementations of Scheme.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;eqv?&lt;/code&gt; procedure returns \schtrue{} if:&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;eqv?&lt;/code&gt; procedure returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; or both \schfalse.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are both symbols and are the same
 symbol according to the &lt;code&gt;symbol=?&lt;/code&gt; procedure
@@ -3765,14 +3762,14 @@ or strings that denote the same location in the store
 equal (section~\ref{lambda}).&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The &lt;code&gt;eqv?&lt;/code&gt; procedure returns \schfalse{} if:&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;eqv?&lt;/code&gt; procedure returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; if:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are of different types
 (section~\ref{disjointness}).&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;one of \vari{obj} and \varii{obj} is \schtrue{} but the other is
-\schfalse{}.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;one of \vari{obj} and \varii{obj} is &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; but the other is
+&lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are symbols but are not the same
 symbol according to the &lt;code&gt;symbol=?&lt;/code&gt; procedure
@@ -3794,7 +3791,7 @@ As an exception, the behavior of &lt;code&gt;eqv?&lt;/code&gt; is unspecified
 when both \vari{obj} and \varii{obj} are NaN.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;\vari{obj} and \varii{obj} are characters for which the &lt;code&gt;char=?&lt;/code&gt;
-procedure returns \schfalse{}.&lt;/p&gt;&lt;/li&gt;
+procedure returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;one of \vari{obj} and \varii{obj} is the empty list but the other
 is not.&lt;/p&gt;&lt;/li&gt;
@@ -3836,8 +3833,8 @@ boolean.&lt;/p&gt;
 (eqv? +nan.0 +nan.0)     \ev  \unspecified
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Note that &lt;code&gt;(eqv? 0.0 -0.0)&lt;/code&gt; will return \schfalse{} if negative zero
-is distinguished, and \schtrue{} if negative zero is not distinguished.&lt;/p&gt;
+&lt;p&gt;Note that &lt;code&gt;(eqv? 0.0 -0.0)&lt;/code&gt; will return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; if negative zero
+is distinguished, and &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if negative zero is not distinguished.&lt;/p&gt;
 
 &lt;p&gt;The next set of examples shows the use of &lt;code&gt;eqv?&lt;/code&gt; with procedures
 that have local state.  The &lt;code&gt;gen-counter&lt;/code&gt; procedure must return a distinct
@@ -3906,8 +3903,8 @@ inexact numbers for bitwise equality is correct by the above definition.&lt;/p&g
 
 &lt;p&gt;The &lt;code&gt;eq?&lt;/code&gt; procedure is similar to &lt;code&gt;eqv?&lt;/code&gt; except that in some cases it is
 capable of discerning distinctions finer than those detectable by
-&lt;code&gt;eqv?&lt;/code&gt;.  It must always return \schfalse{} when &lt;code&gt;eqv?&lt;/code&gt; also
-would, but may return \schfalse{} in some cases where &lt;code&gt;eqv?&lt;/code&gt; would return \schtrue{}.&lt;/p&gt;
+&lt;code&gt;eqv?&lt;/code&gt;.  It must always return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; when &lt;code&gt;eqv?&lt;/code&gt; also
+would, but may return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; in some cases where &lt;code&gt;eqv?&lt;/code&gt; would return &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt;.&lt;/p&gt;
 
 &lt;p&gt;On symbols, booleans, the empty list, pairs, and records,
 and also on non-empty
@@ -3951,14 +3948,14 @@ always finish in constant time.
 \proto{equal?}{ \vari{obj} \varii{obj}}{procedure}}&lt;/p&gt;
 
 &lt;p&gt;The &lt;code&gt;equal?&lt;/code&gt; procedure, when applied to pairs, vectors, strings and
-bytevectors, recursively compares them, returning \schtrue{} when the
+bytevectors, recursively compares them, returning &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; when the
 unfoldings of its arguments into (possibly infinite) trees are equal
 (in the sense of &lt;code&gt;equal?&lt;/code&gt;)
-as ordered trees, and \schfalse{} otherwise.  It returns the same as
+as ordered trees, and &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; otherwise.  It returns the same as
 &lt;code&gt;eqv?&lt;/code&gt; when applied to booleans, symbols, numbers, characters,
 ports, procedures, and the empty list.  If two objects are &lt;code&gt;eqv?&lt;/code&gt;,
 they must be &lt;code&gt;equal?&lt;/code&gt; as well.  In all other cases, &lt;code&gt;equal?&lt;/code&gt;
-may return either \schtrue{} or \schfalse{}.
+may return either &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; or &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.
 %% Note that records are &lt;code&gt;equal?&lt;/code&gt; if their record types are the same
 %% and their correspondingly named fields are &lt;code&gt;equal?&lt;/code&gt;.&lt;/p&gt;
 
@@ -4349,8 +4346,8 @@ inexact numbers.&lt;/p&gt;
 \proto{integer?}{ obj}{procedure}}&lt;/p&gt;
 
 &lt;p&gt;These numerical type predicates can be applied to any kind of
-argument, including non-numbers.  They return \schtrue{} if the object is
-of the named type, and otherwise they return \schfalse{}.
+argument, including non-numbers.  They return &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if the object is
+of the named type, and otherwise they return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.
 In general, if a type predicate is true of a number then all higher
 type predicates are also true of that number.  Consequently, if a type
 predicate is false of a number, then all lower type predicates are
@@ -4411,12 +4408,12 @@ is true.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{exact-integer?}{ \vr{z}}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \vr{z} is both \tupe{exact} and an \tupe{integer};
-otherwise returns \schfalse{}.&lt;/p&gt;
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \vr{z} is both \tupe{exact} and an \tupe{integer};
+otherwise returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;(exact-integer? 32) \ev \schtrue{}
-(exact-integer? 32.0) \ev \schfalse{}
-(exact-integer? 32/5) \ev \schfalse{}
+&lt;pre&gt;&lt;code&gt;(exact-integer? 32) \ev &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt;
+(exact-integer? 32.0) \ev &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;
+(exact-integer? 32/5) \ev &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
@@ -4424,10 +4421,10 @@ otherwise returns \schfalse{}.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{finite?}{ \vr{z}}{inexact library procedure}}&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;finite?&lt;/code&gt; procedure returns \schtrue{} on all real numbers except
+&lt;p&gt;The &lt;code&gt;finite?&lt;/code&gt; procedure returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; on all real numbers except
 &lt;code&gt;+inf.0&lt;/code&gt;, &lt;code&gt;-inf.0&lt;/code&gt;, and &lt;code&gt;+nan.0&lt;/code&gt;, and on complex
 numbers if their real and imaginary parts are both finite.
-Otherwise it returns \schfalse{}.&lt;/p&gt;
+Otherwise it returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(finite? 3)            \ev  \schtrue
 (finite? +inf.0)       \ev  \schfalse
@@ -4439,10 +4436,10 @@ Otherwise it returns \schfalse{}.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{infinite?}{ \vr{z}}{inexact library procedure}}&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;infinite?&lt;/code&gt; procedure returns \schtrue{} on the real numbers
+&lt;p&gt;The &lt;code&gt;infinite?&lt;/code&gt; procedure returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; on the real numbers
 &lt;code&gt;+inf.0&lt;/code&gt; and &lt;code&gt;-inf.0&lt;/code&gt;, and on complex
 numbers if their real or imaginary parts or both are infinite.
-Otherwise it returns \schfalse{}.&lt;/p&gt;
+Otherwise it returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(infinite? 3)            \ev  \schfalse
 (infinite? +inf.0)       \ev  \schtrue
@@ -4455,9 +4452,9 @@ Otherwise it returns \schfalse{}.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{nan?}{ \vr{z}}{inexact library procedure}}&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;nan?&lt;/code&gt; procedure returns \schtrue{} on &lt;code&gt;+nan.0&lt;/code&gt;, and on complex
+&lt;p&gt;The &lt;code&gt;nan?&lt;/code&gt; procedure returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; on &lt;code&gt;+nan.0&lt;/code&gt;, and on complex
 numbers if their real or imaginary parts or both are &lt;code&gt;+nan.0&lt;/code&gt;.
-Otherwise it returns \schfalse{}.&lt;/p&gt;
+Otherwise it returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(nan? +nan.0)          \ev  \schtrue
 (nan? 32)              \ev  \schfalse
@@ -4474,11 +4471,11 @@ Otherwise it returns \schfalse{}.&lt;/p&gt;
 \proto{&amp;lt;=}{ \vri{x} \vrii{x} \vriii{x} \dotsfoo}{procedure}
 \proto{&amp;gt;=}{ \vri{x} \vrii{x} \vriii{x} \dotsfoo}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;These procedures return \schtrue{} if their arguments are (respectively):
+&lt;p&gt;These procedures return &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if their arguments are (respectively):
 equal, monotonically increasing, monotonically decreasing,
 monotonically non-decreasing, or monotonically non-increasing,
-and \schfalse{} otherwise.
-If any of the arguments are &lt;code&gt;+nan.0&lt;/code&gt;, all the predicates return \schfalse{}.
+and &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; otherwise.
+If any of the arguments are &lt;code&gt;+nan.0&lt;/code&gt;, all the predicates return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.
 They do not distinguish between inexact zero and inexact negative zero.&lt;/p&gt;
 
 &lt;p&gt;These predicates are required to be transitive.&lt;/p&gt;
@@ -4512,7 +4509,7 @@ When in doubt, consult a numerical analyst.&lt;/p&gt;
 \proto{even?}{ \vr{n}}{procedure}}&lt;/p&gt;
 
 &lt;p&gt;These numerical predicates test a number for a particular property,
-returning \schtrue{} or \schfalse.  See note above.&lt;/p&gt;
+returning &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; or \schfalse.  See note above.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
 
@@ -5024,7 +5021,7 @@ if an explicit radix prefix is present in \vr{string} (e.g. {\tt &amp;ldquo;#o17
 is not supplied, then the default radix is 10.  If \vr{string} is not
 a syntactically valid notation for a number, or would result in a
 number that the implementation cannot represent, then &lt;code&gt;string-&amp;gt;number&lt;/code&gt;
-returns \schfalse{}.
+returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.
 An error is never signaled due to the content of \vr{string}.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(string-&amp;gt;number &amp;quot;100&amp;quot;)        \ev  100
@@ -5036,23 +5033,23 @@ An error is never signaled due to the content of \vr{string}.&lt;/p&gt;
 The domain of &lt;code&gt;string-&amp;gt;number&lt;/code&gt; may be restricted by implementations
 in the following ways.
 If all numbers supported by an implementation are real, then
-&lt;code&gt;string-&amp;gt;number&lt;/code&gt; is permitted to return \schfalse{} whenever
+&lt;code&gt;string-&amp;gt;number&lt;/code&gt; is permitted to return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; whenever
 \vr{string} uses the polar or rectangular notations for complex
 numbers.  If all numbers are integers, then
-&lt;code&gt;string-&amp;gt;number&lt;/code&gt; may return \schfalse{} whenever
+&lt;code&gt;string-&amp;gt;number&lt;/code&gt; may return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; whenever
 the fractional notation is used.  If all numbers are exact, then
-&lt;code&gt;string-&amp;gt;number&lt;/code&gt; may return \schfalse{} whenever
+&lt;code&gt;string-&amp;gt;number&lt;/code&gt; may return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; whenever
 an exponent marker or explicit exactness prefix is used.
 If all inexact
 numbers are integers, then
-&lt;code&gt;string-&amp;gt;number&lt;/code&gt; may return \schfalse{} whenever
+&lt;code&gt;string-&amp;gt;number&lt;/code&gt; may return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; whenever
 a decimal point is used.&lt;/p&gt;
 
 &lt;p&gt;The rules used by a particular implementation for &lt;code&gt;string-&amp;gt;number&lt;/code&gt; must
 also be applied to &lt;code&gt;read&lt;/code&gt; and to the routine that reads programs, in
 order to maintain consistency between internal numeric processing, I/O,
 and the processing of programs.
-As a consequence, the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS permission to return \schfalse{} when
+As a consequence, the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS permission to return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; when
 \var{string} has an explicit radix prefix has been withdrawn.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
@@ -5063,7 +5060,7 @@ As a consequence, the R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS permiss
 
 
 &lt;p&gt;The standard boolean objects for true and false are written as
-\schtrue{} and \schfalse.\sharpindex{t}\sharpindex{f}
+&lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; and \schfalse.\sharpindex{t}\sharpindex{f}
 Alternatively, they can be written \sharptrue~and \sharpfalse,
 respectively.  What really
 matters, though, are the objects that the Scheme conditional expressions
@@ -5073,14 +5070,14 @@ true or false.  The phrase &amp;ldquo;a true value&amp;rdquo;
 conditional expressions, and the phrase &amp;ldquo;a false value&amp;rdquo; (or
 &amp;ldquo;false&amp;rdquo;) means any object treated as false by the conditional expressions.&lt;/p&gt;
 
-&lt;p&gt;Of all the Scheme values, only \schfalse{}
+&lt;p&gt;Of all the Scheme values, only &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;
 counts as false in conditional expressions.
 All other Scheme values, including \schtrue,
 count as true.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Note:&amp;nbsp;&lt;/em&gt;
 Unlike some other dialects of Lisp,
-Scheme distinguishes \schfalse{} and the empty list
+Scheme distinguishes &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; and the empty list
 from each other and from the symbol \ide{nil}.&lt;/p&gt;
 
 &lt;p&gt;Boolean constants evaluate to themselves, so they do not need to be quoted
@@ -5094,8 +5091,8 @@ in programs.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{not}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;not&lt;/code&gt; procedure returns \schtrue{} if \var{obj} is false, and returns
-\schfalse{} otherwise.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;not&lt;/code&gt; procedure returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is false, and returns
+&lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; otherwise.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(not \schtrue)   \ev  \schfalse
 (not 3)          \ev  \schfalse
@@ -5111,8 +5108,8 @@ in programs.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{boolean?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;boolean?&lt;/code&gt; predicate returns \schtrue{} if \var{obj} is either \schtrue{} or
-\schfalse{} and returns \schfalse{} otherwise.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;boolean?&lt;/code&gt; predicate returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is either &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; or
+&lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; and returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; otherwise.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(boolean? \schfalse)  \ev  \schtrue
 (boolean? 0)          \ev  \schfalse
@@ -5124,8 +5121,8 @@ in programs.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{boolean=?}{ \vari{boolean} \varii{boolean} \variii{boolean} \dotsfoo}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if all the arguments are booleans and all
-are \schtrue{} or all are \schfalse{}.&lt;/p&gt;
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if all the arguments are booleans and all
+are &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; or all are &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
 
@@ -5232,7 +5229,7 @@ parse Scheme programs.  See section~\ref{externalreps}.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{pair?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;pair?&lt;/code&gt; predicate returns \schtrue{} if \var{obj} is a pair, and otherwise
+&lt;p&gt;The &lt;code&gt;pair?&lt;/code&gt; predicate returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is a pair, and otherwise
 returns \schfalse.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(pair? &#39;(a . b))        \ev  \schtrue
@@ -5351,7 +5348,7 @@ For example, &lt;code&gt;caddr&lt;/code&gt; could be defined by&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{null?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is the empty list,
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is the empty list,
 otherwise returns \schfalse.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
@@ -5359,7 +5356,7 @@ otherwise returns \schfalse.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{list?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is a list.  Otherwise, it returns \schfalse{}.
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is a list.  Otherwise, it returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.
 By definition, all lists have finite length and are terminated by
 the empty list.&lt;/p&gt;
 
@@ -5502,7 +5499,7 @@ The &lt;code&gt;list-set!&lt;/code&gt; procedure stores \var{obj} in element \vr
 \var{obj}, where the sublists of \var{list} are the non-empty lists
 returned by {\tt (list-tail \var{list} \var{k})} for \var{k} less
 than the length of \var{list}.  If
-\var{obj} does not occur in \var{list}, then \schfalse{} (not the empty list) is
+\var{obj} does not occur in \var{list}, then &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; (not the empty list) is
 returned.  The &lt;code&gt;memq&lt;/code&gt; procedure uses &lt;code&gt;eq?&lt;/code&gt; to compare \var{obj} with the elements of
 \var{list}, while &lt;code&gt;memv&lt;/code&gt; uses &lt;code&gt;eqv?&lt;/code&gt; and
 &lt;code&gt;member&lt;/code&gt; uses \var{compare}, if given, and &lt;code&gt;equal?&lt;/code&gt; otherwise.&lt;/p&gt;
@@ -5532,7 +5529,7 @@ returned.  The &lt;code&gt;memq&lt;/code&gt; procedure uses &lt;code&gt;eq?&lt;/
 pairs.}
 These procedures find the first pair in \var{alist} whose car field is \var{obj},
 and returns that pair.  If no pair in \var{alist} has \var{obj} as its
-car, then \schfalse{} (not the empty list) is returned.  The &lt;code&gt;assq&lt;/code&gt; procedure uses
+car, then &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; (not the empty list) is returned.  The &lt;code&gt;assq&lt;/code&gt; procedure uses
 &lt;code&gt;eq?&lt;/code&gt; to compare \var{obj} with the car fields of the pairs in \var{alist},
 while &lt;code&gt;assv&lt;/code&gt; uses &lt;code&gt;eqv?&lt;/code&gt; and &lt;code&gt;assoc&lt;/code&gt; uses \var{compare} if given
 and &lt;code&gt;equal?&lt;/code&gt; otherwise.&lt;/p&gt;
@@ -5557,7 +5554,7 @@ and &lt;code&gt;equal?&lt;/code&gt; otherwise.&lt;/p&gt;
 Although they are often used as predicates,
 &lt;code&gt;memq&lt;/code&gt;, &lt;code&gt;memv&lt;/code&gt;, &lt;code&gt;member&lt;/code&gt;, &lt;code&gt;assq&lt;/code&gt;, &lt;code&gt;assv&lt;/code&gt;, and &lt;code&gt;assoc&lt;/code&gt; do not
 have question marks in their names because they return
-potentially useful values rather than just \schtrue{} or \schfalse{}.
+potentially useful values rather than just &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; or &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.
 \end{rationale}
 \end{entry}&lt;/p&gt;
 
@@ -5610,7 +5607,7 @@ implementation-dependent extensions.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{symbol?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is a symbol, otherwise returns \schfalse.&lt;/p&gt;
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is a symbol, otherwise returns \schfalse.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(symbol? &#39;foo)          \ev  \schtrue
 (symbol? (car &#39;(a b)))  \ev  \schtrue
@@ -5625,7 +5622,7 @@ implementation-dependent extensions.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{symbol=?}{ \vari{symbol} \varii{symbol} \variii{symbol} \dotsfoo}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if all the arguments are symbols and all have the same
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if all the arguments are symbols and all have the same
 names in the sense of &lt;code&gt;string=?&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Note:&amp;nbsp;&lt;/em&gt;
@@ -5745,7 +5742,7 @@ insensitive&amp;rdquo;) embedded in their names.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{char?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is a character, otherwise returns \schfalse.&lt;/p&gt;
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is a character, otherwise returns \schfalse.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
 
@@ -5759,7 +5756,7 @@ insensitive&amp;rdquo;) embedded in their names.&lt;/p&gt;
 &lt;a id=&#34;characterequality&#34;&gt;&lt;/a&gt;
 
 
-&lt;p&gt;These procedures return \schtrue{} if
+&lt;p&gt;These procedures return &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if
 the results of passing their arguments to &lt;code&gt;char\coerce{&lt;/code&gt;integer}
 are respectively
 equal, monotonically increasing, monotonically decreasing,
@@ -5792,13 +5789,13 @@ applied to their arguments before they were compared.&lt;/p&gt;
 \proto{char-upper-case?}{ letter}{char library procedure}
 \proto{char-lower-case?}{ letter}{char library procedure}}&lt;/p&gt;
 
-&lt;p&gt;These procedures return \schtrue{} if their arguments are alphabetic,
+&lt;p&gt;These procedures return &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if their arguments are alphabetic,
 numeric, whitespace, upper case, or lower case characters, respectively,
 otherwise they return \schfalse.&lt;/p&gt;
 
-&lt;p&gt;Specifically, they must return \schtrue{} when applied to characters with
+&lt;p&gt;Specifically, they must return &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; when applied to characters with
 the Unicode properties Alphabetic, Numeric_Digit, White_Space, Uppercase, and
-Lowercase respectively, and \schfalse{} when applied to any other Unicode
+Lowercase respectively, and &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; when applied to any other Unicode
 characters.  Note that many Unicode characters are alphabetic but neither
 upper nor lower case.&lt;/p&gt;
 
@@ -5808,8 +5805,8 @@ upper nor lower case.&lt;/p&gt;
 \proto{digit-value}{ char}{char library procedure}}&lt;/p&gt;
 
 &lt;p&gt;This procedure returns the numeric value (0 to 9) of its argument
-if it is a numeric digit (that is, if &lt;code&gt;char-numeric?&lt;/code&gt; returns \schtrue{}),
-or \schfalse{} on any other character.&lt;/p&gt;
+if it is a numeric digit (that is, if &lt;code&gt;char-numeric?&lt;/code&gt; returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt;),
+or &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; on any other character.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(digit-value #\3) \ev 3
 (digit-value #\x0664) \ev 4
@@ -5944,7 +5941,7 @@ to attempt to read one.&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{string?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is a string, otherwise returns \schfalse.
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is a string, otherwise returns \schfalse.
 \end{entry}&lt;/p&gt;
 
 &lt;p&gt;\begin{entry}{
@@ -6001,7 +5998,7 @@ There is no requirement for this procedure to execute in constant time.&lt;/p&gt
 &lt;p&gt;\begin{entry}{
 \proto{string=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if all the strings are the same length and contain
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if all the strings are the same length and contain
 exactly the same characters in the same positions, otherwise returns
 \schfalse.&lt;/p&gt;
 
@@ -6010,7 +6007,7 @@ exactly the same characters in the same positions, otherwise returns
 &lt;p&gt;\begin{entry}{
 \proto{string-ci=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if, after case-folding, all the strings are the same
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if, after case-folding, all the strings are the same
 length and contain the same characters in the same positions, otherwise
 returns \schfalse.  Specifically, these procedures behave as if
 &lt;code&gt;string-foldcase&lt;/code&gt; were applied to their arguments before comparing them.&lt;/p&gt;
@@ -6027,7 +6024,7 @@ returns \schfalse.  Specifically, these procedures behave as if
 \proto{string&amp;gt;=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}
 \proto{string-ci&amp;gt;=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}}&lt;/p&gt;
 
-&lt;p&gt;These procedures return \schtrue{} if their arguments are (respectively):
+&lt;p&gt;These procedures return &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if their arguments are (respectively):
 monotonically increasing, monotonically decreasing,
 monotonically non-decreasing, or monotonically non-increasing.&lt;/p&gt;
 
@@ -6190,7 +6187,7 @@ element 2 can be written as follows:&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{vector?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is a vector; otherwise returns \schfalse.
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is a vector; otherwise returns \schfalse.
 \end{entry}&lt;/p&gt;
 
 &lt;p&gt;\begin{entry}{
@@ -6400,8 +6397,8 @@ element 2 can be written as follows:&lt;/p&gt;
 &lt;p&gt;\begin{entry}{
 \proto{bytevector?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is a bytevector.
-Otherwise, \schfalse{} is returned.
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is a bytevector.
+Otherwise, &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; is returned.
 \end{entry}&lt;/p&gt;
 
 &lt;p&gt;\begin{entry}{
@@ -6554,7 +6551,7 @@ The &lt;code&gt;procedure?&lt;/code&gt; predicate is also described here.&lt;/p&
 &lt;p&gt;\begin{entry}{
 \proto{procedure?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is a procedure, otherwise returns \schfalse.&lt;/p&gt;
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is a procedure, otherwise returns \schfalse.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(procedure? car)            \ev  \schtrue
 (procedure? &#39;car)           \ev  \schfalse
@@ -7095,7 +7092,7 @@ Raises an exception as if by calling
 &lt;code&gt;raise&lt;/code&gt; on a newly allocated implementation-defined object which encapsulates
 the information provided by \var{message},
 as well as any \var{obj}s, known as the \defining{irritants}.
-The procedure &lt;code&gt;error-object?&lt;/code&gt; must return \schtrue{} on such objects.&lt;/p&gt;
+The procedure &lt;code&gt;error-object?&lt;/code&gt; must return &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; on such objects.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(define (null-list? l)
   (cond ((pair? l) #f)
@@ -7111,7 +7108,7 @@ The procedure &lt;code&gt;error-object?&lt;/code&gt; must return \schtrue{} on s
 &lt;p&gt;\begin{entry}{
 \proto{error-object?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is an object created by &lt;code&gt;error&lt;/code&gt;
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is an object created by &lt;code&gt;error&lt;/code&gt;
 or one of an implementation-defined set of objects.  Otherwise, it returns
 \schfalse.
 The objects used to signal errors, including those which satisfy the
@@ -7138,7 +7135,7 @@ satisfy &lt;code&gt;error-object?&lt;/code&gt;.&lt;/p&gt;
 \proto{read-error?}{ obj}{procedure}
 \proto{file-error?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Error type predicates.  Returns \schtrue{} if \var{obj} is an
+&lt;p&gt;Error type predicates.  Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is an
 object raised by the &lt;code&gt;read&lt;/code&gt; procedure or by the inability to open
 an input or output port on a file, respectively.  Otherwise, it
 returns \schfalse.
@@ -7315,7 +7312,7 @@ to &lt;code&gt;call-with-port&lt;/code&gt;.
 \proto{binary-port?}{ obj}{procedure}
 \proto{port?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;These procedures return \schtrue{} if \var{obj} is an input port, output port,
+&lt;p&gt;These procedures return &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is an input port, output port,
 textual port, binary port, or any
 kind of port, respectively.  Otherwise they return \schfalse.&lt;/p&gt;
 
@@ -7325,8 +7322,8 @@ kind of port, respectively.  Otherwise they return \schfalse.&lt;/p&gt;
 \proto{input-port-open?}{ port}{procedure}
 \proto{output-port-open?}{ port}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{port} is still open and capable of
-performing input or output, respectively, and \schfalse{} otherwise.&lt;/p&gt;
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{port} is still open and capable of
+performing input or output, respectively, and &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; otherwise.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
 
@@ -7562,7 +7559,7 @@ Implementations may also recognize other end of line characters or sequences.&lt
 &lt;p&gt;\begin{entry}{
 \proto{eof-object?}{ obj}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if \var{obj} is an end-of-file object, otherwise returns
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if \var{obj} is an end-of-file object, otherwise returns
 \schfalse.  The precise set of end-of-file objects will vary among
 implementations, but in any case no end-of-file object will ever be an object
 that can be read in using &lt;code&gt;read&lt;/code&gt;.&lt;/p&gt;
@@ -7580,8 +7577,8 @@ that can be read in using &lt;code&gt;read&lt;/code&gt;.&lt;/p&gt;
 \proto{char-ready?}{}{procedure}
 \rproto{char-ready?}{ port}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if a character is ready on the textual input \var{port} and
-returns \schfalse{} otherwise.  If &lt;code&gt;char-ready&lt;/code&gt; returns \schtrue{} then
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if a character is ready on the textual input \var{port} and
+returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; otherwise.  If &lt;code&gt;char-ready&lt;/code&gt; returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; then
 the next &lt;code&gt;read-char&lt;/code&gt; operation on the given \var{port} is guaranteed
 not to hang.  If the \var{port} is at end of file then &lt;code&gt;char-ready?&lt;/code&gt;&lt;br /&gt;
 returns \schtrue.&lt;/p&gt;
@@ -7591,7 +7588,7 @@ The &lt;code&gt;char-ready?&lt;/code&gt; procedure exists to make it possible fo
 accept characters from interactive ports without getting stuck waiting for
 input.  Any input editors associated with such ports must ensure that
 characters whose existence has been asserted by &lt;code&gt;char-ready?&lt;/code&gt; cannot
-be removed from the input.  If &lt;code&gt;char-ready?&lt;/code&gt; were to return \schfalse{} at end of
+be removed from the input.  If &lt;code&gt;char-ready?&lt;/code&gt; were to return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; at end of
 file, a port at end of file would be indistinguishable from an interactive
 port that has no ready characters.
 \end{rationale}
@@ -7637,9 +7634,9 @@ byte.  If no more bytes are available, an end-of-file object is returned.&lt;/p&
 \proto{u8-ready?}{}{procedure}
 \rproto{u8-ready?}{ port}{procedure}}&lt;/p&gt;
 
-&lt;p&gt;Returns \schtrue{} if a byte is ready on the binary input \var{port}
-and returns \schfalse{} otherwise.  If &lt;code&gt;u8-ready?&lt;/code&gt; returns
-\schtrue{} then the next &lt;code&gt;read-u8&lt;/code&gt; operation on the given
+&lt;p&gt;Returns &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if a byte is ready on the binary input \var{port}
+and returns &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; otherwise.  If &lt;code&gt;u8-ready?&lt;/code&gt; returns
+&lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; then the next &lt;code&gt;read-u8&lt;/code&gt; operation on the given
 \var{port} is guaranteed not to hang.  If the \var{port} is at end of
 file then &lt;code&gt;u8-ready?&lt;/code&gt; returns \schtrue.&lt;/p&gt;
 
@@ -7862,8 +7859,8 @@ implementations.
 
 &lt;p&gt;\domain{It is an error if \var{filename} is not a string.}
 The &lt;code&gt;file-exists?&lt;/code&gt; procedure returns
-\schtrue{} if the named file exists at the time the procedure is called,
-and \schfalse{} otherwise.&lt;/p&gt;
+&lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; if the named file exists at the time the procedure is called,
+and &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; otherwise.&lt;/p&gt;
 
 &lt;p&gt;\end{entry}&lt;/p&gt;
 
@@ -7892,9 +7889,9 @@ implementation-dependent.  It is an error to mutate any of these strings.
 
 &lt;p&gt;Runs all outstanding dynamic-wind \var{after} procedures, terminates the
 running program, and communicates an exit value to the operating system.
-If no argument is supplied, or if \var{obj} is \schtrue{}, the {\cf
+If no argument is supplied, or if \var{obj} is &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt;, the {\cf
 exit} procedure should communicate to the operating system that the
-program exited normally.  If \var{obj} is \schfalse{}, the &lt;code&gt;exit&lt;/code&gt;
+program exited normally.  If \var{obj} is &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;, the &lt;code&gt;exit&lt;/code&gt;
 procedure should communicate to the operating system that the program
 exited abnormally.  Otherwise, &lt;code&gt;exit&lt;/code&gt; should translate \var{obj} into
 an appropriate exit value for the operating system, if possible.&lt;/p&gt;
@@ -7933,7 +7930,7 @@ can be passed to &lt;code&gt;eval&lt;/code&gt;: see section~\ref{environments}.)
 Both the name and value of an environment variable are strings.
 The procedure &lt;code&gt;get-environment-variable&lt;/code&gt; returns the value
 of the environment variable \var{name},
-or \schfalse{} if the named
+or &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; if the named
 environment variable is not found.  It may
 use locale information to encode the name and decode the value
 of the environment variable.  It is an error if &lt;br /&gt;
@@ -8172,7 +8169,7 @@ identifiers.&lt;/p&gt;
  &amp;gt; \meta{any character other than \meta{vertical line} or \backwhack}
  &amp;gt; | \meta{inline hex escape} | \meta{mnemonic escape} | \backwhack{}|&lt;/p&gt;
 
-&lt;p&gt;\meta{boolean} : \schtrue{} | \schfalse{} | \sharptrue{} | \sharpfalse{}
+&lt;p&gt;\meta{boolean} : &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; | &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; | \sharptrue{} | \sharpfalse{}
 &lt;a id=&#34;charactersyntax&#34;&gt;&lt;/a&gt;
 
 \meta{character} : #\backwhack{} \meta{any character}
@@ -9610,7 +9607,7 @@ value.&lt;/p&gt;
 
 &lt;p&gt;to have the same meaning as the procedure call&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;(make-promise \schfalse{} (lambda () \hyper{expression}))
+&lt;pre&gt;&lt;code&gt;(make-promise &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; (lambda () \hyper{expression}))
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;as follows&lt;/p&gt;
@@ -9618,7 +9615,7 @@ value.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(define-syntax delay-force
   (syntax-rules ()
     ((delay-force expression)
-     (make-promise \schfalse{} (lambda () expression)))))
+     (make-promise &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; (lambda () expression)))))
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and we define the expression&lt;/p&gt;
@@ -9628,7 +9625,7 @@ value.&lt;/p&gt;
 
 &lt;p&gt;to have the same meaning as:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;(delay-force (make-promise \schtrue{} \hyper{expression}))
+&lt;pre&gt;&lt;code&gt;(delay-force (make-promise &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; \hyper{expression}))
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;as follows&lt;/p&gt;
@@ -9636,7 +9633,7 @@ value.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(define-syntax delay
   (syntax-rules ()
     ((delay expression)
-     (delay-force (make-promise \schtrue{} expression)))))
+     (delay-force (make-promise &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; expression)))))
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;where &lt;code&gt;make-promise&lt;/code&gt; is defined as follows:&lt;/p&gt;
@@ -10417,13 +10414,13 @@ related predicates) is a lexicographical extension of character comparison
 as exponent markers is no longer required.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Implementations of &lt;code&gt;string\coerce{&lt;/code&gt;number} are no longer permitted
-to return \schfalse{} when the argument contains an explicit radix prefix,
+to return &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt; when the argument contains an explicit radix prefix,
 and must be compatible with &lt;code&gt;read&lt;/code&gt; and the syntax of numbers in programs.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;The procedures &lt;code&gt;transcript-on&lt;/code&gt; and &lt;code&gt;transcript-off&lt;/code&gt; have been removed.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;other-language-changes-since-hahahugoshortcode-7hbhb&#34;&gt;Other language changes since R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS&lt;/h3&gt;
+&lt;h3 id=&#34;other-language-changes-since-hahahugoshortcode-8hbhb&#34;&gt;Other language changes since R&lt;span class=&#34;rnrs&#34;&gt;5&lt;/span&gt;RS&lt;/h3&gt;
 
 &lt;p&gt;&lt;a id=&#34;differences&#34;&gt;&lt;/a&gt;
 
@@ -10563,7 +10560,7 @@ and the character and string comparison
 predicates are now required to support more than two arguments.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;The forms \sharptrue{} and \sharpfalse{} are now supported
-as well as \schtrue{} and \schfalse{}.&lt;/p&gt;&lt;/li&gt;
+as well as &lt;span class=&#34;tt&#34;&gt;#t&lt;/span&gt; and &lt;span class=&#34;tt&#34;&gt;#f&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;The procedures &lt;code&gt;make-list&lt;/code&gt;, &lt;code&gt;list-copy&lt;/code&gt;, &lt;code&gt;list-set!&lt;/code&gt;,
 &lt;code&gt;string-map&lt;/code&gt;, &lt;code&gt;string-for-each&lt;/code&gt;, &lt;code&gt;string-&amp;gt;vector&lt;/code&gt;,
@@ -10623,7 +10620,7 @@ requiring the redefinition of procedures, but not syntax keywords, to have retro
 &lt;li&gt;&lt;p&gt;The formal semantics now handles &lt;code&gt;dynamic-wind&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;incompatibilities-with-hahahugoshortcode-17hbhb&#34;&gt;Incompatibilities with R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS&lt;/h3&gt;
+&lt;h3 id=&#34;incompatibilities-with-hahahugoshortcode-20hbhb&#34;&gt;Incompatibilities with R&lt;span class=&#34;rnrs&#34;&gt;6&lt;/span&gt;RS&lt;/h3&gt;
 
 &lt;p&gt;This section enumerates the incompatibilities between R&lt;span class=&#34;rnrs&#34;&gt;7&lt;/span&gt;RS~and
 the &amp;ldquo;Revised$^6$ report&amp;rdquo; &lt;a href=&#34;../ref/#R6RS&#34;&gt;[R6RS]&lt;/a&gt; and its accompanying Standard Libraries document.&lt;/p&gt;

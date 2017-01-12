@@ -445,7 +445,7 @@ called on the value of the \hyper{test} and the values returned by this
 procedure are returned by the <code>cond</code> expression.</p>
 
 <p>If all \hyper{test}s evaluate
-to \schfalse{}, and there is no else clause, then the result of
+to <span class="tt">#f</span>, and there is no else clause, then the result of
 the conditional expression is unspecified; if there is an else
 clause, then its \hyper{expression}s are evaluated in order, and the values of
 the last one are returned.</p>
@@ -458,7 +458,7 @@ the last one are returned.</p>
       (else 'equal))            \ev  equal
 
 (cond ((assv 'b '((a 1) (b 2))) =&gt; cadr)
-      (else \schfalse{}))         \ev  2
+      (else <span class="tt">#f</span>))         \ev  2
 </code></pre>
 
 <p>\end{entry}</p>
@@ -533,11 +533,11 @@ procedure are returned by the <code>case</code> expression.</p>
 
 <p>\semantics
 The \hyper{test} expressions are evaluated from left to right, and if
-any expression evaluates to \schfalse{} (see
-section~\ref{booleansection}), then \schfalse{} is returned.  Any remaining
+any expression evaluates to <span class="tt">#f</span> (see
+section~\ref{booleansection}), then <span class="tt">#f</span> is returned.  Any remaining
 expressions are not evaluated.  If all the expressions evaluate to
 true values, the values of the last expression are returned.  If there
-are no expressions, then \schtrue{} is returned.</p>
+are no expressions, then <span class="tt">#t</span> is returned.</p>
 
 <pre><code>(and (= 2 2) (&gt; 2 1))           \ev  \schtrue
 (and (= 2 2) (&lt; 2 1))           \ev  \schfalse
@@ -554,8 +554,8 @@ are no expressions, then \schtrue{} is returned.</p>
 The \hyper{test} expressions are evaluated from left to right, and the value of the
 first expression that evaluates to a true value (see
 section~\ref{booleansection}) is returned.  Any remaining expressions
-are not evaluated.  If all expressions evaluate to \schfalse{}
-or if there are no expressions, then \schfalse{} is returned.</p>
+are not evaluated.  If all expressions evaluate to <span class="tt">#f</span>
+or if there are no expressions, then <span class="tt">#f</span> is returned.</p>
 
 <pre><code>(or (= 2 2) (&gt; 2 1))            \ev  \schtrue
 (or (= 2 2) (&lt; 2 1))            \ev  \schtrue
@@ -592,7 +592,7 @@ expression is unspecified.</p>
 The \hyper{test} is an expression.</p>
 
 <p>\semantics
-The test is evaluated, and if it evaluates to \schfalse{},
+The test is evaluated, and if it evaluates to <span class="tt">#f</span>,
 the expressions are evaluated in order.  The result of the <code>unless</code>
 expression is unspecified.</p>
 
@@ -1171,7 +1171,7 @@ return the object.</p></li>
 
 <li><p>It may be the case that there is no means by which a promise can be
 operationally distinguished from its forced value.  That is, expressions
-like the following may evaluate to either \schtrue{} or to \schfalse{},
+like the following may evaluate to either <span class="tt">#t</span> or to <span class="tt">#f</span>,
 depending on the implementation:</p></li>
 </ul>
 
@@ -1198,7 +1198,7 @@ arguments, like <code>list</code>, must not force them.</li>
 \proto{promise?} { \var{obj}}{lazy library procedure}}</p>
 
 <p>The <code>promise?</code> procedure returns
-\schtrue{} if its argument is a promise, and \schfalse{} otherwise.  Note
+<span class="tt">#t</span> if its argument is a promise, and <span class="tt">#f</span> otherwise.  Note
 that promises are not necessarily disjoint from other Scheme types such
 as procedures.</p>
 
@@ -1328,7 +1328,7 @@ to \hyper{variable} and, within the scope of
 that binding, evaluates the clauses as if they were the clauses of a
 <code>cond</code> expression. That implicit <code>cond</code> expression is evaluated with the
 continuation and dynamic environment of the <code>guard</code> expression. If every
-\hyper{cond clause}&rsquo;s \hyper{test} evaluates to \schfalse{} and there
+\hyper{cond clause}&rsquo;s \hyper{test} evaluates to <span class="tt">#f</span> and there
 is no else clause, then
 <code>raise-continuable</code> is invoked on the raised object within the dynamic
 environment of the original call to <code>raise</code>

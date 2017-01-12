@@ -220,7 +220,7 @@ identifiers.</p>
  &gt; \meta{any character other than \meta{vertical line} or \backwhack}
  &gt; | \meta{inline hex escape} | \meta{mnemonic escape} | \backwhack{}|</p>
 
-<p>\meta{boolean} : \schtrue{} | \schfalse{} | \sharptrue{} | \sharpfalse{}
+<p>\meta{boolean} : <span class="tt">#t</span> | <span class="tt">#f</span> | \sharptrue{} | \sharpfalse{}
 <a id="charactersyntax"></a>
 
 \meta{character} : #\backwhack{} \meta{any character}
@@ -1658,7 +1658,7 @@ value.</p>
 
 <p>to have the same meaning as the procedure call</p>
 
-<pre><code>(make-promise \schfalse{} (lambda () \hyper{expression}))
+<pre><code>(make-promise <span class="tt">#f</span> (lambda () \hyper{expression}))
 </code></pre>
 
 <p>as follows</p>
@@ -1666,7 +1666,7 @@ value.</p>
 <pre><code>(define-syntax delay-force
   (syntax-rules ()
     ((delay-force expression)
-     (make-promise \schfalse{} (lambda () expression)))))
+     (make-promise <span class="tt">#f</span> (lambda () expression)))))
 </code></pre>
 
 <p>and we define the expression</p>
@@ -1676,7 +1676,7 @@ value.</p>
 
 <p>to have the same meaning as:</p>
 
-<pre><code>(delay-force (make-promise \schtrue{} \hyper{expression}))
+<pre><code>(delay-force (make-promise <span class="tt">#t</span> \hyper{expression}))
 </code></pre>
 
 <p>as follows</p>
@@ -1684,7 +1684,7 @@ value.</p>
 <pre><code>(define-syntax delay
   (syntax-rules ()
     ((delay expression)
-     (delay-force (make-promise \schtrue{} expression)))))
+     (delay-force (make-promise <span class="tt">#t</span> expression)))))
 </code></pre>
 
 <p>where <code>make-promise</code> is defined as follows:</p>
