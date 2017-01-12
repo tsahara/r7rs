@@ -138,7 +138,7 @@ identifiers.
  \> \meta{any character other than \meta{vertical line} or \backwhack}
  \> \| \meta{inline hex escape} \| \meta{mnemonic escape} \| \backwhack{}|
 
-\meta{boolean} \: \schtrue{} \| \schfalse{} \| \sharptrue{} \| \sharpfalse{}
+\meta{boolean} \: {{< tt "#t" >}} \| {{< tt "#f" >}} \| \sharptrue{} \| \sharpfalse{}
 {{< label "charactersyntax" >}}
 \meta{character} \: #\backwhack{} \meta{any character}
  \>  \| #\backwhack{} \meta{character name}
@@ -1587,7 +1587,7 @@ Here is a possible implementation of ``delay``, ``force`` and {\cf
 to have the same meaning as the procedure call
 
 ```
-(make-promise \schfalse{} (lambda () \hyper{expression}))
+(make-promise {{< tt "#f" >}} (lambda () \hyper{expression}))
 ```
 
 as follows
@@ -1596,7 +1596,7 @@ as follows
 (define-syntax delay-force
   (syntax-rules ()
     ((delay-force expression)
-     (make-promise \schfalse{} (lambda () expression)))))
+     (make-promise {{< tt "#f" >}} (lambda () expression)))))
 ```
 
 and we define the expression
@@ -1608,7 +1608,7 @@ and we define the expression
 to have the same meaning as:
 
 ```
-(delay-force (make-promise \schtrue{} \hyper{expression}))
+(delay-force (make-promise {{< tt "#t" >}} \hyper{expression}))
 ```
 
 as follows
@@ -1617,7 +1617,7 @@ as follows
 (define-syntax delay
   (syntax-rules ()
     ((delay expression)
-     (delay-force (make-promise \schtrue{} expression)))))
+     (delay-force (make-promise {{< tt "#t" >}} expression)))))
 ```
 
 where ``make-promise`` is defined as follows:

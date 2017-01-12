@@ -39,7 +39,7 @@ it means that the locations in the object are fresh.
 {{< label "equivalencesection" >}}
 
 A \defining{predicate} is a procedure that always returns a boolean
-value (\schtrue{} or \schfalse).  An \defining{equivalence predicate} is
+value ({{< tt "#t" >}} or \schfalse).  An \defining{equivalence predicate} is
 the computational analogue of a mathematical equivalence relation; it is
 symmetric, reflexive, and transitive.  Of the equivalence predicates
 described in this section, ``eq?`` is the finest or most
@@ -51,15 +51,15 @@ slightly less discriminating than ``eq?``.
 \proto{eqv?}{ \vari{obj} \varii{obj}}{procedure}}
 
 The ``eqv?`` procedure defines a useful equivalence relation on objects.
-Briefly, it returns \schtrue{} if \vari{obj} and \varii{obj} are
+Briefly, it returns {{< tt "#t" >}} if \vari{obj} and \varii{obj} are
 normally regarded as the same object.  This relation is left slightly
 open to interpretation, but the following partial specification of
 ``eqv?`` holds for all implementations of Scheme.
 
-The ``eqv?`` procedure returns \schtrue{} if:
+The ``eqv?`` procedure returns {{< tt "#t" >}} if:
 
 
-- \vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.
+- \vari{obj} and \varii{obj} are both {{< tt "#t" >}} or both \schfalse.
 
 - \vari{obj} and \varii{obj} are both symbols and are the same
 symbol according to the ``symbol=?`` procedure
@@ -89,14 +89,14 @@ or strings that denote the same location in the store
 equal (section~\ref{lambda}).
 
 
-The ``eqv?`` procedure returns \schfalse{} if:
+The ``eqv?`` procedure returns {{< tt "#f" >}} if:
 
 
 - \vari{obj} and \varii{obj} are of different types
 (section~\ref{disjointness}).
 
-- one of \vari{obj} and \varii{obj} is \schtrue{} but the other is
-\schfalse{}.
+- one of \vari{obj} and \varii{obj} is {{< tt "#t" >}} but the other is
+{{< tt "#f" >}}.
 
 - \vari{obj} and \varii{obj} are symbols but are not the same
 symbol according to the ``symbol=?`` procedure
@@ -118,7 +118,7 @@ As an exception, the behavior of ``eqv?`` is unspecified
 when both \vari{obj} and \varii{obj} are NaN.
 
 - \vari{obj} and \varii{obj} are characters for which the ``char=?``
-procedure returns \schfalse{}.
+procedure returns {{< tt "#f" >}}.
 
 - one of \vari{obj} and \varii{obj} is the empty list but the other
 is not.
@@ -163,8 +163,8 @@ boolean.
 (eqv? +nan.0 +nan.0)     \ev  \unspecified
 ```
 
-Note that ``(eqv? 0.0 -0.0)`` will return \schfalse{} if negative zero
-is distinguished, and \schtrue{} if negative zero is not distinguished.
+Note that ``(eqv? 0.0 -0.0)`` will return {{< tt "#f" >}} if negative zero
+is distinguished, and {{< tt "#t" >}} if negative zero is not distinguished.
 
 The next set of examples shows the use of ``eqv?`` with procedures
 that have local state.  The ``gen-counter`` procedure must return a distinct
@@ -237,8 +237,8 @@ inexact numbers for bitwise equality is correct by the above definition.
 
 The ``eq?`` procedure is similar to ``eqv?`` except that in some cases it is
 capable of discerning distinctions finer than those detectable by
-``eqv?``.  It must always return \schfalse{} when ``eqv?`` also
-would, but may return \schfalse{} in some cases where ``eqv?`` would return \schtrue{}.
+``eqv?``.  It must always return {{< tt "#f" >}} when ``eqv?`` also
+would, but may return {{< tt "#f" >}} in some cases where ``eqv?`` would return {{< tt "#t" >}}.
 
 On symbols, booleans, the empty list, pairs, and records,
 and also on non-empty
@@ -285,14 +285,14 @@ always finish in constant time.
 \proto{equal?}{ \vari{obj} \varii{obj}}{procedure}}
 
 The ``equal?`` procedure, when applied to pairs, vectors, strings and
-bytevectors, recursively compares them, returning \schtrue{} when the
+bytevectors, recursively compares them, returning {{< tt "#t" >}} when the
 unfoldings of its arguments into (possibly infinite) trees are equal
 (in the sense of ``equal?``)
-as ordered trees, and \schfalse{} otherwise.  It returns the same as
+as ordered trees, and {{< tt "#f" >}} otherwise.  It returns the same as
 ``eqv?`` when applied to booleans, symbols, numbers, characters,
 ports, procedures, and the empty list.  If two objects are ``eqv?``,
 they must be ``equal?`` as well.  In all other cases, ``equal?``
-may return either \schtrue{} or \schfalse{}.
+may return either {{< tt "#t" >}} or {{< tt "#f" >}}.
 %% Note that records are ``equal?`` if their record types are the same
 %% and their correspondingly named fields are ``equal?``.
 
@@ -688,8 +688,8 @@ inexact numbers.
 \proto{integer?}{ obj}{procedure}}
 
 These numerical type predicates can be applied to any kind of
-argument, including non-numbers.  They return \schtrue{} if the object is
-of the named type, and otherwise they return \schfalse{}.
+argument, including non-numbers.  They return {{< tt "#t" >}} if the object is
+of the named type, and otherwise they return {{< tt "#f" >}}.
 In general, if a type predicate is true of a number then all higher
 type predicates are also true of that number.  Consequently, if a type
 predicate is false of a number, then all lower type predicates are
@@ -755,13 +755,13 @@ is true.
 \begin{entry}{
 \proto{exact-integer?}{ \vr{z}}{procedure}}
 
-Returns \schtrue{} if \vr{z} is both \tupe{exact} and an \tupe{integer};
-otherwise returns \schfalse{}.
+Returns {{< tt "#t" >}} if \vr{z} is both \tupe{exact} and an \tupe{integer};
+otherwise returns {{< tt "#f" >}}.
 
 ```
-(exact-integer? 32) \ev \schtrue{}
-(exact-integer? 32.0) \ev \schfalse{}
-(exact-integer? 32/5) \ev \schfalse{}
+(exact-integer? 32) \ev {{< tt "#t" >}}
+(exact-integer? 32.0) \ev {{< tt "#f" >}}
+(exact-integer? 32/5) \ev {{< tt "#f" >}}
 ```
 \end{entry}
 
@@ -769,10 +769,10 @@ otherwise returns \schfalse{}.
 \begin{entry}{
 \proto{finite?}{ \vr{z}}{inexact library procedure}}
 
-The ``finite?`` procedure returns \schtrue{} on all real numbers except
+The ``finite?`` procedure returns {{< tt "#t" >}} on all real numbers except
 ``+inf.0``, ``-inf.0``, and ``+nan.0``, and on complex
 numbers if their real and imaginary parts are both finite.
-Otherwise it returns \schfalse{}.
+Otherwise it returns {{< tt "#f" >}}.
 
 ```
 (finite? 3)            \ev  \schtrue
@@ -784,10 +784,10 @@ Otherwise it returns \schfalse{}.
 \begin{entry}{
 \proto{infinite?}{ \vr{z}}{inexact library procedure}}
 
-The ``infinite?`` procedure returns \schtrue{} on the real numbers
+The ``infinite?`` procedure returns {{< tt "#t" >}} on the real numbers
 ``+inf.0`` and ``-inf.0``, and on complex
 numbers if their real or imaginary parts or both are infinite.
-Otherwise it returns \schfalse{}.
+Otherwise it returns {{< tt "#f" >}}.
 
 ```
 (infinite? 3)            \ev  \schfalse
@@ -800,9 +800,9 @@ Otherwise it returns \schfalse{}.
 \begin{entry}{
 \proto{nan?}{ \vr{z}}{inexact library procedure}}
 
-The ``nan?`` procedure returns \schtrue{} on ``+nan.0``, and on complex
+The ``nan?`` procedure returns {{< tt "#t" >}} on ``+nan.0``, and on complex
 numbers if their real or imaginary parts or both are ``+nan.0``.
-Otherwise it returns \schfalse{}.
+Otherwise it returns {{< tt "#f" >}}.
 
 ```
 (nan? +nan.0)          \ev  \schtrue
@@ -820,11 +820,11 @@ Otherwise it returns \schfalse{}.
 \proto{<=}{ \vri{x} \vrii{x} \vriii{x} \dotsfoo}{procedure}
 \proto{>=}{ \vri{x} \vrii{x} \vriii{x} \dotsfoo}{procedure}}
 
-These procedures return \schtrue{} if their arguments are (respectively):
+These procedures return {{< tt "#t" >}} if their arguments are (respectively):
 equal, monotonically increasing, monotonically decreasing,
 monotonically non-decreasing, or monotonically non-increasing,
-and \schfalse{} otherwise.
-If any of the arguments are ``+nan.0``, all the predicates return \schfalse{}.
+and {{< tt "#f" >}} otherwise.
+If any of the arguments are ``+nan.0``, all the predicates return {{< tt "#f" >}}.
 They do not distinguish between inexact zero and inexact negative zero.
 
 These predicates are required to be transitive.
@@ -860,7 +860,7 @@ When in doubt, consult a numerical analyst.
 \proto{even?}{ \vr{n}}{procedure}}
 
 These numerical predicates test a number for a particular property,
-returning \schtrue{} or \schfalse.  See note above.
+returning {{< tt "#t" >}} or \schfalse.  See note above.
 
 \end{entry}
 
@@ -1399,7 +1399,7 @@ if an explicit radix prefix is present in \vr{string} (e.g. {\tt "#o177"}).  If 
 is not supplied, then the default radix is 10.  If \vr{string} is not
 a syntactically valid notation for a number, or would result in a
 number that the implementation cannot represent, then ``string->number``
-returns \schfalse{}.
+returns {{< tt "#f" >}}.
 An error is never signaled due to the content of \vr{string}.
 
 ```
@@ -1412,23 +1412,23 @@ An error is never signaled due to the content of \vr{string}.
 The domain of ``string->number`` may be restricted by implementations
 in the following ways.
 If all numbers supported by an implementation are real, then
-``string->number`` is permitted to return \schfalse{} whenever
+``string->number`` is permitted to return {{< tt "#f" >}} whenever
 \vr{string} uses the polar or rectangular notations for complex
 numbers.  If all numbers are integers, then
-``string->number`` may return \schfalse{} whenever
+``string->number`` may return {{< tt "#f" >}} whenever
 the fractional notation is used.  If all numbers are exact, then
-``string->number`` may return \schfalse{} whenever
+``string->number`` may return {{< tt "#f" >}} whenever
 an exponent marker or explicit exactness prefix is used.
 If all inexact
 numbers are integers, then
-``string->number`` may return \schfalse{} whenever
+``string->number`` may return {{< tt "#f" >}} whenever
 a decimal point is used.
 
 The rules used by a particular implementation for ``string->number`` must
 also be applied to ``read`` and to the routine that reads programs, in
 order to maintain consistency between internal numeric processing, I/O,
 and the processing of programs.
-As a consequence, the {{< rnrs 5 >}} permission to return \schfalse{} when
+As a consequence, the {{< rnrs 5 >}} permission to return {{< tt "#f" >}} when
 \var{string} has an explicit radix prefix has been withdrawn.
 
 
@@ -1438,7 +1438,7 @@ As a consequence, the {{< rnrs 5 >}} permission to return \schfalse{} when
 {{< label "booleansection" >}}
 
 The standard boolean objects for true and false are written as
-\schtrue{} and \schfalse.\sharpindex{t}\sharpindex{f}
+{{< tt "#t" >}} and \schfalse.\sharpindex{t}\sharpindex{f}
 Alternatively, they can be written \sharptrue~and \sharpfalse,
 respectively.  What really
 matters, though, are the objects that the Scheme conditional expressions
@@ -1448,14 +1448,14 @@ true or false.  The phrase "a true value"
 conditional expressions, and the phrase "a false value" (or
 "false") means any object treated as false by the conditional expressions.
 
-Of all the Scheme values, only \schfalse{}
+Of all the Scheme values, only {{< tt "#f" >}}
 counts as false in conditional expressions.
 All other Scheme values, including \schtrue,
 count as true.
 
 *Note:&nbsp;*
 Unlike some other dialects of Lisp,
-Scheme distinguishes \schfalse{} and the empty list
+Scheme distinguishes {{< tt "#f" >}} and the empty list
 from each other and from the symbol \ide{nil}.
 
 
@@ -1472,8 +1472,8 @@ in programs.
 \begin{entry}{
 \proto{not}{ obj}{procedure}}
 
-The ``not`` procedure returns \schtrue{} if \var{obj} is false, and returns
-\schfalse{} otherwise.
+The ``not`` procedure returns {{< tt "#t" >}} if \var{obj} is false, and returns
+{{< tt "#f" >}} otherwise.
 
 ```
 (not \schtrue)   \ev  \schfalse
@@ -1491,8 +1491,8 @@ The ``not`` procedure returns \schtrue{} if \var{obj} is false, and returns
 \begin{entry}{
 \proto{boolean?}{ obj}{procedure}}
 
-The ``boolean?`` predicate returns \schtrue{} if \var{obj} is either \schtrue{} or
-\schfalse{} and returns \schfalse{} otherwise.
+The ``boolean?`` predicate returns {{< tt "#t" >}} if \var{obj} is either {{< tt "#t" >}} or
+{{< tt "#f" >}} and returns {{< tt "#f" >}} otherwise.
 
 ```
 (boolean? \schfalse)  \ev  \schtrue
@@ -1505,8 +1505,8 @@ The ``boolean?`` predicate returns \schtrue{} if \var{obj} is either \schtrue{} 
 \begin{entry}{
 \proto{boolean=?}{ \vari{boolean} \varii{boolean} \variii{boolean} \dotsfoo}{procedure}}
 
-Returns \schtrue{} if all the arguments are booleans and all
-are \schtrue{} or all are \schfalse{}.
+Returns {{< tt "#t" >}} if all the arguments are booleans and all
+are {{< tt "#t" >}} or all are {{< tt "#f" >}}.
 
 \end{entry}
 
@@ -1618,7 +1618,7 @@ parse Scheme programs.  See section~\ref{externalreps}.
 \begin{entry}{
 \proto{pair?}{ obj}{procedure}}
 
-The ``pair?`` predicate returns \schtrue{} if \var{obj} is a pair, and otherwise
+The ``pair?`` predicate returns {{< tt "#t" >}} if \var{obj} is a pair, and otherwise
 returns \schfalse.
 
 ```
@@ -1748,7 +1748,7 @@ Arbitrary compositions up to four deep are provided.
 \begin{entry}{
 \proto{null?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is the empty list,
+Returns {{< tt "#t" >}} if \var{obj} is the empty list,
 otherwise returns \schfalse.
 
 \end{entry}
@@ -1756,7 +1756,7 @@ otherwise returns \schfalse.
 \begin{entry}{
 \proto{list?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is a list.  Otherwise, it returns \schfalse{}.
+Returns {{< tt "#t" >}} if \var{obj} is a list.  Otherwise, it returns {{< tt "#f" >}}.
 By definition, all lists have finite length and are terminated by
 the empty list.
 
@@ -1915,7 +1915,7 @@ These procedures return the first sublist of \var{list} whose car is
 \var{obj}, where the sublists of \var{list} are the non-empty lists
 returned by {\tt (list-tail \var{list} \var{k})} for \var{k} less
 than the length of \var{list}.  If
-\var{obj} does not occur in \var{list}, then \schfalse{} (not the empty list) is
+\var{obj} does not occur in \var{list}, then {{< tt "#f" >}} (not the empty list) is
 returned.  The ``memq`` procedure uses ``eq?`` to compare \var{obj} with the elements of
 \var{list}, while ``memv`` uses ``eqv?`` and
 ``member`` uses \var{compare}, if given, and ``equal?`` otherwise.
@@ -1947,7 +1947,7 @@ returned.  The ``memq`` procedure uses ``eq?`` to compare \var{obj} with the ele
 pairs.}
 These procedures find the first pair in \var{alist} whose car field is \var{obj},
 and returns that pair.  If no pair in \var{alist} has \var{obj} as its
-car, then \schfalse{} (not the empty list) is returned.  The ``assq`` procedure uses
+car, then {{< tt "#f" >}} (not the empty list) is returned.  The ``assq`` procedure uses
 ``eq?`` to compare \var{obj} with the car fields of the pairs in \var{alist},
 while ``assv`` uses ``eqv?`` and ``assoc`` uses \var{compare} if given
 and ``equal?`` otherwise.
@@ -1974,7 +1974,7 @@ and ``equal?`` otherwise.
 Although they are often used as predicates,
 ``memq``, ``memv``, ``member``, ``assq``, ``assv``, and ``assoc`` do not
 have question marks in their names because they return
-potentially useful values rather than just \schtrue{} or \schfalse{}.
+potentially useful values rather than just {{< tt "#t" >}} or {{< tt "#f" >}}.
 \end{rationale}
 \end{entry}
 
@@ -2029,7 +2029,7 @@ implementation-dependent extensions.
 \begin{entry}{
 \proto{symbol?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is a symbol, otherwise returns \schfalse.
+Returns {{< tt "#t" >}} if \var{obj} is a symbol, otherwise returns \schfalse.
 
 ```
 (symbol? 'foo)          \ev  \schtrue
@@ -2044,7 +2044,7 @@ Returns \schtrue{} if \var{obj} is a symbol, otherwise returns \schfalse.
 \begin{entry}{
 \proto{symbol=?}{ \vari{symbol} \varii{symbol} \variii{symbol} \dotsfoo}{procedure}}
 
-Returns \schtrue{} if all the arguments are symbols and all have the same
+Returns {{< tt "#t" >}} if all the arguments are symbols and all have the same
 names in the sense of ``string=?``.
 
 *Note:&nbsp;*
@@ -2168,7 +2168,7 @@ insensitive") embedded in their names.
 \begin{entry}{
 \proto{char?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is a character, otherwise returns \schfalse.
+Returns {{< tt "#t" >}} if \var{obj} is a character, otherwise returns \schfalse.
 
 \end{entry}
 
@@ -2182,7 +2182,7 @@ Returns \schtrue{} if \var{obj} is a character, otherwise returns \schfalse.
 
 {{< label "characterequality" >}}
 
-These procedures return \schtrue{} if
+These procedures return {{< tt "#t" >}} if
 the results of passing their arguments to ``char\coerce{``integer}
 are respectively
 equal, monotonically increasing, monotonically decreasing,
@@ -2217,13 +2217,13 @@ applied to their arguments before they were compared.
 \proto{char-upper-case?}{ letter}{char library procedure}
 \proto{char-lower-case?}{ letter}{char library procedure}}
 
-These procedures return \schtrue{} if their arguments are alphabetic,
+These procedures return {{< tt "#t" >}} if their arguments are alphabetic,
 numeric, whitespace, upper case, or lower case characters, respectively,
 otherwise they return \schfalse.
 
-Specifically, they must return \schtrue{} when applied to characters with
+Specifically, they must return {{< tt "#t" >}} when applied to characters with
 the Unicode properties Alphabetic, Numeric_Digit, White_Space, Uppercase, and
-Lowercase respectively, and \schfalse{} when applied to any other Unicode
+Lowercase respectively, and {{< tt "#f" >}} when applied to any other Unicode
 characters.  Note that many Unicode characters are alphabetic but neither
 upper nor lower case.
 
@@ -2234,8 +2234,8 @@ upper nor lower case.
 \proto{digit-value}{ char}{char library procedure}}
 
 This procedure returns the numeric value (0 to 9) of its argument
-if it is a numeric digit (that is, if ``char-numeric?`` returns \schtrue{}),
-or \schfalse{} on any other character.
+if it is a numeric digit (that is, if ``char-numeric?`` returns {{< tt "#t" >}}),
+or {{< tt "#f" >}} on any other character.
 
 ```
 (digit-value #\3) \ev 3
@@ -2376,7 +2376,7 @@ to attempt to read one.
 \begin{entry}{
 \proto{string?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is a string, otherwise returns \schfalse.
+Returns {{< tt "#t" >}} if \var{obj} is a string, otherwise returns \schfalse.
 \end{entry}
 
 
@@ -2438,7 +2438,7 @@ There is no requirement for this procedure to execute in constant time.
 \begin{entry}{
 \proto{string=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}}
 
-Returns \schtrue{} if all the strings are the same length and contain
+Returns {{< tt "#t" >}} if all the strings are the same length and contain
 exactly the same characters in the same positions, otherwise returns
 \schfalse.
 
@@ -2447,7 +2447,7 @@ exactly the same characters in the same positions, otherwise returns
 \begin{entry}{
 \proto{string-ci=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}}
 
-Returns \schtrue{} if, after case-folding, all the strings are the same
+Returns {{< tt "#t" >}} if, after case-folding, all the strings are the same
 length and contain the same characters in the same positions, otherwise
 returns \schfalse.  Specifically, these procedures behave as if
 ``string-foldcase`` were applied to their arguments before comparing them.
@@ -2465,7 +2465,7 @@ returns \schfalse.  Specifically, these procedures behave as if
 \proto{string>=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}
 \proto{string-ci>=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}}
 
-These procedures return \schtrue{} if their arguments are (respectively):
+These procedures return {{< tt "#t" >}} if their arguments are (respectively):
 monotonically increasing, monotonically decreasing,
 monotonically non-decreasing, or monotonically non-increasing.
 
@@ -2637,7 +2637,7 @@ Vector constants are self-evaluating, so they do not need to be quoted in progra
 \begin{entry}{
 \proto{vector?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is a vector; otherwise returns \schfalse.
+Returns {{< tt "#t" >}} if \var{obj} is a vector; otherwise returns \schfalse.
 \end{entry}
 
 
@@ -2859,8 +2859,8 @@ Bytevector constants are self-evaluating, so they do not need to be quoted in pr
 \begin{entry}{
 \proto{bytevector?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is a bytevector.
-Otherwise, \schfalse{} is returned.
+Returns {{< tt "#t" >}} if \var{obj} is a bytevector.
+Otherwise, {{< tt "#f" >}} is returned.
 \end{entry}
 
 \begin{entry}{
@@ -3016,7 +3016,7 @@ The ``procedure?`` predicate is also described here.
 \begin{entry}{
 \proto{procedure?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is a procedure, otherwise returns \schfalse.
+Returns {{< tt "#t" >}} if \var{obj} is a procedure, otherwise returns \schfalse.
 
 ```
 (procedure? car)            \ev  \schtrue
@@ -3571,7 +3571,7 @@ Raises an exception as if by calling
 ``raise`` on a newly allocated implementation-defined object which encapsulates
 the information provided by \var{message},
 as well as any \var{obj}s, known as the \defining{irritants}.
-The procedure ``error-object?`` must return \schtrue{} on such objects.
+The procedure ``error-object?`` must return {{< tt "#t" >}} on such objects.
 
 ```
 (define (null-list? l)
@@ -3588,7 +3588,7 @@ The procedure ``error-object?`` must return \schtrue{} on such objects.
 \begin{entry}{
 \proto{error-object?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is an object created by ``error``
+Returns {{< tt "#t" >}} if \var{obj} is an object created by ``error``
 or one of an implementation-defined set of objects.  Otherwise, it returns
 \schfalse.
 The objects used to signal errors, including those which satisfy the
@@ -3615,7 +3615,7 @@ Returns a list of the irritants encapsulated by \var{error-object}.
 \proto{read-error?}{ obj}{procedure}
 \proto{file-error?}{ obj}{procedure}}
 
-Error type predicates.  Returns \schtrue{} if \var{obj} is an
+Error type predicates.  Returns {{< tt "#t" >}} if \var{obj} is an
 object raised by the ``read`` procedure or by the inability to open
 an input or output port on a file, respectively.  Otherwise, it
 returns \schfalse.
@@ -3791,7 +3791,7 @@ to ``call-with-port``.
 \proto{binary-port?}{ obj}{procedure}
 \proto{port?}{ obj}{procedure}}
 
-These procedures return \schtrue{} if \var{obj} is an input port, output port,
+These procedures return {{< tt "#t" >}} if \var{obj} is an input port, output port,
 textual port, binary port, or any
 kind of port, respectively.  Otherwise they return \schfalse.
 
@@ -3802,8 +3802,8 @@ kind of port, respectively.  Otherwise they return \schfalse.
 \proto{input-port-open?}{ port}{procedure}
 \proto{output-port-open?}{ port}{procedure}}
 
-Returns \schtrue{} if \var{port} is still open and capable of
-performing input or output, respectively, and \schfalse{} otherwise.
+Returns {{< tt "#t" >}} if \var{port} is still open and capable of
+performing input or output, respectively, and {{< tt "#f" >}} otherwise.
 
 
 \end{entry}
@@ -4051,7 +4051,7 @@ Implementations may also recognize other end of line characters or sequences.
 \begin{entry}{
 \proto{eof-object?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is an end-of-file object, otherwise returns
+Returns {{< tt "#t" >}} if \var{obj} is an end-of-file object, otherwise returns
 \schfalse.  The precise set of end-of-file objects will vary among
 implementations, but in any case no end-of-file object will ever be an object
 that can be read in using ``read``.
@@ -4070,8 +4070,8 @@ Returns an end-of-file object, not necessarily unique.
 \proto{char-ready?}{}{procedure}
 \rproto{char-ready?}{ port}{procedure}}
 
-Returns \schtrue{} if a character is ready on the textual input \var{port} and
-returns \schfalse{} otherwise.  If ``char-ready`` returns \schtrue{} then
+Returns {{< tt "#t" >}} if a character is ready on the textual input \var{port} and
+returns {{< tt "#f" >}} otherwise.  If ``char-ready`` returns {{< tt "#t" >}} then
 the next ``read-char`` operation on the given \var{port} is guaranteed
 not to hang.  If the \var{port} is at end of file then ``char-ready?``\
 returns \schtrue.
@@ -4081,7 +4081,7 @@ The ``char-ready?`` procedure exists to make it possible for a program to
 accept characters from interactive ports without getting stuck waiting for
 input.  Any input editors associated with such ports must ensure that
 characters whose existence has been asserted by ``char-ready?`` cannot
-be removed from the input.  If ``char-ready?`` were to return \schfalse{} at end of
+be removed from the input.  If ``char-ready?`` were to return {{< tt "#f" >}} at end of
 file, a port at end of file would be indistinguishable from an interactive
 port that has no ready characters.
 \end{rationale}
@@ -4127,9 +4127,9 @@ byte.  If no more bytes are available, an end-of-file object is returned.
 \proto{u8-ready?}{}{procedure}
 \rproto{u8-ready?}{ port}{procedure}}
 
-Returns \schtrue{} if a byte is ready on the binary input \var{port}
-and returns \schfalse{} otherwise.  If ``u8-ready?`` returns
-\schtrue{} then the next ``read-u8`` operation on the given
+Returns {{< tt "#t" >}} if a byte is ready on the binary input \var{port}
+and returns {{< tt "#f" >}} otherwise.  If ``u8-ready?`` returns
+{{< tt "#t" >}} then the next ``read-u8`` operation on the given
 \var{port} is guaranteed not to hang.  If the \var{port} is at end of
 file then ``u8-ready?`` returns \schtrue.
 
@@ -4357,8 +4357,8 @@ implementations.
 
 \domain{It is an error if \var{filename} is not a string.}
 The ``file-exists?`` procedure returns
-\schtrue{} if the named file exists at the time the procedure is called,
-and \schfalse{} otherwise.
+{{< tt "#t" >}} if the named file exists at the time the procedure is called,
+and {{< tt "#f" >}} otherwise.
 
 \end{entry}
 
@@ -4387,9 +4387,9 @@ implementation-dependent.  It is an error to mutate any of these strings.
 
 Runs all outstanding dynamic-wind \var{after} procedures, terminates the
 running program, and communicates an exit value to the operating system.
-If no argument is supplied, or if \var{obj} is \schtrue{}, the {\cf
+If no argument is supplied, or if \var{obj} is {{< tt "#t" >}}, the {\cf
 exit} procedure should communicate to the operating system that the
-program exited normally.  If \var{obj} is \schfalse{}, the ``exit``
+program exited normally.  If \var{obj} is {{< tt "#f" >}}, the ``exit``
 procedure should communicate to the operating system that the program
 exited abnormally.  Otherwise, ``exit`` should translate \var{obj} into
 an appropriate exit value for the operating system, if possible.
@@ -4433,7 +4433,7 @@ can be passed to ``eval``: see section~\ref{environments}.)
 Both the name and value of an environment variable are strings.
 The procedure ``get-environment-variable`` returns the value
 of the environment variable \var{name},
-or \schfalse{} if the named
+or {{< tt "#f" >}} if the named
 environment variable is not found.  It may
 use locale information to encode the name and decode the value
 of the environment variable.  It is an error if \\

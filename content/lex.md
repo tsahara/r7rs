@@ -198,7 +198,7 @@ are reserved for possible future extensions to the language.
 \item[\sharpsign] The number sign is used for a variety of purposes depending on
 the character that immediately follows it:
 
-\item[\schtrue{} \schfalse{}]
+\item[{{< tt "#t" >}} {{< tt "#f" >}}]
 These are the boolean constants (section~\ref{booleansection}),
 along with the alternatives \sharpfoo{true} and \sharpfoo{false}.
 

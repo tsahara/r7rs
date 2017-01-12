@@ -43,7 +43,7 @@ related predicates) is a lexicographical extension of character comparison
 as exponent markers is no longer required.
 
 - Implementations of ``string\coerce{``number} are no longer permitted
-to return \schfalse{} when the argument contains an explicit radix prefix,
+to return {{< tt "#f" >}} when the argument contains an explicit radix prefix,
 and must be compatible with ``read`` and the syntax of numbers in programs.
 
 - The procedures ``transcript-on`` and ``transcript-off`` have been removed.
@@ -189,7 +189,7 @@ and the character and string comparison
 predicates are now required to support more than two arguments.
 
 - The forms \sharptrue{} and \sharpfalse{} are now supported
-as well as \schtrue{} and \schfalse{}.
+as well as {{< tt "#t" >}} and {{< tt "#f" >}}.
 
 - The procedures ``make-list``, ``list-copy``, ``list-set!``,
 ``string-map``, ``string-for-each``, ``string->vector``,

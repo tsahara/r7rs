@@ -368,8 +368,8 @@ means to identify the record type for use by further language extensions.
   unspecified.  It is an error for a field name to appear in
   \hyper{constructor} but not as a \hyper{field name}.
 
-- \hyper{pred} is bound to a predicate that returns \schtrue{} when given a
-  value returned by the procedure bound to  \hyper{constructor name} and \schfalse{} for
+- \hyper{pred} is bound to a predicate that returns {{< tt "#t" >}} when given a
+  value returned by the procedure bound to  \hyper{constructor name} and {{< tt "#f" >}} for
   everything else.
 
 - Each \hyper{accessor name} is bound to a procedure that takes a record of

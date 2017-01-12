@@ -366,7 +366,7 @@ called on the value of the \hyper{test} and the values returned by this
 procedure are returned by the ``cond`` expression.
 
 If all \hyper{test}s evaluate
-to \schfalse{}, and there is no else clause, then the result of
+to {{< tt "#f" >}}, and there is no else clause, then the result of
 the conditional expression is unspecified; if there is an else
 clause, then its \hyper{expression}s are evaluated in order, and the values of
 the last one are returned.
@@ -380,7 +380,7 @@ the last one are returned.
       (else 'equal))            \ev  equal
 
 (cond ((assv 'b '((a 1) (b 2))) => cadr)
-      (else \schfalse{}))         \ev  2
+      (else {{< tt "#f" >}}))         \ev  2
 ```
 
 
@@ -455,11 +455,11 @@ procedure are returned by the ``case`` expression.
 
 \semantics
 The \hyper{test} expressions are evaluated from left to right, and if
-any expression evaluates to \schfalse{} (see
-section~\ref{booleansection}), then \schfalse{} is returned.  Any remaining
+any expression evaluates to {{< tt "#f" >}} (see
+section~\ref{booleansection}), then {{< tt "#f" >}} is returned.  Any remaining
 expressions are not evaluated.  If all the expressions evaluate to
 true values, the values of the last expression are returned.  If there
-are no expressions, then \schtrue{} is returned.
+are no expressions, then {{< tt "#t" >}} is returned.
 
 ```
 (and (= 2 2) (> 2 1))           \ev  \schtrue
@@ -478,8 +478,8 @@ are no expressions, then \schtrue{} is returned.
 The \hyper{test} expressions are evaluated from left to right, and the value of the
 first expression that evaluates to a true value (see
 section~\ref{booleansection}) is returned.  Any remaining expressions
-are not evaluated.  If all expressions evaluate to \schfalse{}
-or if there are no expressions, then \schfalse{} is returned.
+are not evaluated.  If all expressions evaluate to {{< tt "#f" >}}
+or if there are no expressions, then {{< tt "#f" >}} is returned.
 
 ```
 (or (= 2 2) (> 2 1))            \ev  \schtrue
@@ -517,7 +517,7 @@ expression is unspecified.
 The \hyper{test} is an expression.
 
 \semantics
-The test is evaluated, and if it evaluates to \schfalse{},
+The test is evaluated, and if it evaluates to {{< tt "#f" >}},
 the expressions are evaluated in order.  The result of the ``unless``
 expression is unspecified.
 
@@ -1109,7 +1109,7 @@ return the object.
 
 - It may be the case that there is no means by which a promise can be
 operationally distinguished from its forced value.  That is, expressions
-like the following may evaluate to either \schtrue{} or to \schfalse{},
+like the following may evaluate to either {{< tt "#t" >}} or to {{< tt "#f" >}},
 depending on the implementation:
 
 ```
@@ -1135,7 +1135,7 @@ arguments, like ``list``, must not force them.
 \proto{promise?} { \var{obj}}{lazy library procedure}}
 
 The ``promise?`` procedure returns
-\schtrue{} if its argument is a promise, and \schfalse{} otherwise.  Note
+{{< tt "#t" >}} if its argument is a promise, and {{< tt "#f" >}} otherwise.  Note
 that promises are not necessarily disjoint from other Scheme types such
 as procedures.
 
@@ -1267,7 +1267,7 @@ to \hyper{variable} and, within the scope of
 that binding, evaluates the clauses as if they were the clauses of a
 ``cond`` expression. That implicit ``cond`` expression is evaluated with the
 continuation and dynamic environment of the ``guard`` expression. If every
-\hyper{cond clause}'s \hyper{test} evaluates to \schfalse{} and there
+\hyper{cond clause}'s \hyper{test} evaluates to {{< tt "#f" >}} and there
 is no else clause, then
 ``raise-continuable`` is invoked on the raised object within the dynamic
 environment of the original call to ``raise``

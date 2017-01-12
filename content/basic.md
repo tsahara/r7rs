@@ -83,10 +83,10 @@ and all record types.
 Although there is a separate boolean type,
 any Scheme value can be used as a boolean value for the purpose of a
 conditional test.  As explained in section~\ref{booleansection}, all
-values count as true in such a test except for \schfalse{}.
+values count as true in such a test except for {{< tt "#f" >}}.
 This report uses the word "true" to refer to any
-Scheme value except \schfalse{}, and the word "false" to refer to
-\schfalse{}.
+Scheme value except {{< tt "#f" >}}, and the word "false" to refer to
+{{< tt "#f" >}}.
 
 ## 3.3. External representations
 {{< label "externalreps" >}}

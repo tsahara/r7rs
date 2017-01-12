@@ -133,7 +133,7 @@ report, programmers can signal their own errors and handle signaled errors.
 The phrase "an error that satisfies _predicate_ is signaled" means that an error is
 signaled as above.  Furthermore, if the object that is signaled is
 passed to the specified predicate (such as ``file-error?`` or
-``read-error?``), the predicate returns \schtrue{}.
+``read-error?``), the predicate returns {{< tt "#t" >}}.
 
 If such wording does not appear in the discussion of
 an error, then implementations are not required to detect or report the
@@ -247,7 +247,7 @@ conventions also imply type restrictions:
 $$
 \begin{tabular}{ll}
 \vr{alist}&association list (list of pairs)\\
-\vr{boolean}&boolean value (\schtrue{} or \schfalse{})\\
+\vr{boolean}&boolean value ({{< tt "#t" >}} or {{< tt "#f" >}})\\
 \vr{byte}&exact integer $0 \leq byte < 256$\\
 \vr{bytevector}&bytevector\\
 \vr{char}&character\\
