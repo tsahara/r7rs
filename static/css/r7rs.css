@@ -21,6 +21,10 @@ code {
 	font-size: 85%;
 }
 
+span.italic {
+    font-style: italic;
+}
+
 span.tt {
     font-family: 'menlo', sans-serif;
     font-size: 80%;
