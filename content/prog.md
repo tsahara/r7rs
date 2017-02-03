@@ -19,14 +19,14 @@ Expressions are described in chapter 4.
 Definitions are either variable definitions, syntax definitions, or
 record-type definitions, all of which are explained in this chapter.
 They are valid in some, but not all, contexts where expressions
-are allowed, specifically at the outermost level of a \hyper{program}
-and at the beginning of a \hyper{body}.
+are allowed, specifically at the outermost level of a {{< hyper "program" >}}
+and at the beginning of a {{< hyper "body" >}}.
 
 
 At the outermost level of a program, {\tt(begin \hyperi{expression or definition} \dotsfoo)} is
 equivalent to the sequence of expressions and definitions
 in the \ide{begin}.
-Similarly, in a \hyper{body}, {\tt(begin \hyperi{definition} \dotsfoo)} is equivalent
+Similarly, in a {{< hyper "body" >}}, {\tt(begin \hyperi{definition} \dotsfoo)} is equivalent
 to the sequence \hyperi{definition} \dotsfoo.
 Macros can expand into such ``begin`` forms.
 For the formal definition, see~\ref{sequencing}.
@@ -54,49 +54,49 @@ mapping from the name of a library to its location in the file system.
 
 An import declaration takes the following form:
 ```
-(import \hyper{import-set} \dotsfoo)
+(import {{< hyper "import-set" >}} \dotsfoo)
 ```
 
 An import declaration provides a way to import identifiers
-exported by a library.  Each \hyper{import set} names a set of bindings
+exported by a library.  Each {{< hyper "import set" >}} names a set of bindings
 from a library and possibly specifies local names for the
 imported bindings. It takes one of the following forms:
 
 
-- {\tt\hyper{library name}}
-- {\tt(only \hyper{import set} \hyper{identifier} \dotsfoo)}
-- {\tt(except \hyper{import set} \hyper{identifier} \dotsfoo)}
-- {\tt(prefix \hyper{import set} \hyper{identifier})}
-- {\tt(rename \hyper{import set}\\
+- {\tt{{< hyper "library name" >}}}
+- {\tt(only {{< hyper "import set" >}} {{< hyper "identifier" >}} \dotsfoo)}
+- {\tt(except {{< hyper "import set" >}} {{< hyper "identifier" >}} \dotsfoo)}
+- {\tt(prefix {{< hyper "import set" >}} {{< hyper "identifier" >}})}
+- {\tt(rename {{< hyper "import set" >}}\\
 {\obeyspaces
 \hspace*{4em}(\hyperi{identifier} \hyperii{identifier}) \dotsfoo)}}
 
 
 In the first form, all of the identifiers in the named library's export
 clauses are imported with the same names (or the exported names if
-exported with \ide{rename}).  The additional \hyper{import set}
+exported with \ide{rename}).  The additional {{< hyper "import set" >}}
 forms modify this set as follows:
 
 
 
 - \ide{only} produces a subset of the given
-  \hyper{import set} including only the listed identifiers (after any
+  {{< hyper "import set" >}} including only the listed identifiers (after any
   renaming).  It is an error if any of the listed identifiers are
   not found in the original set.
 
 - \ide{except} produces a subset of the given
-  \hyper{import set}, excluding the listed identifiers (after any
+  {{< hyper "import set" >}}, excluding the listed identifiers (after any
   renaming). It is an error if any of the listed identifiers are not
   found in the original set.
 
-- \ide{rename} modifies the given \hyper{import set},
+- \ide{rename} modifies the given {{< hyper "import set" >}},
   replacing each instance of \hyperi{identifier} with
   \hyperii{identifier}. It is an error if any of the listed
   \hyperi{identifier}s are not found in the original set.
 
 - \ide{prefix} automatically renames all identifiers in
-  the given \hyper{import set}, prefixing each with the specified
-  \hyper{identifier}.
+  the given {{< hyper "import set" >}}, prefixing each with the specified
+  {{< hyper "identifier" >}}.
 
 
 
@@ -117,26 +117,26 @@ takes one of the following forms:\mainschindex{define}
 
 
 
-\item{\tt(define \hyper{variable} \hyper{expression})}
+\item{\tt(define {{< hyper "variable" >}} {{< hyper "expression" >}})}
 
-\item{\tt(define (\hyper{variable} \hyper{formals}) \hyper{body})}
+\item{\tt(define ({{< hyper "variable" >}} {{< hyper "formals" >}}) {{< hyper "body" >}})}
 
-\hyper{Formals} are either a
+{{< hyper "Formals" >}} are either a
 sequence of zero or more variables, or a sequence of one or more
 variables followed by a space-delimited period and another variable (as
 in a lambda expression).  This form is equivalent to
 ```
-(define \hyper{variable}
-  (lambda (\hyper{formals}) \hyper{body}))\rm.
+(define {{< hyper "variable" >}}
+  (lambda ({{< hyper "formals" >}}) {{< hyper "body" >}}))\rm.
 ```
 
-\item{\tt(define (\hyper{variable} . \hyper{formal}) \hyper{body})}
+\item{\tt(define ({{< hyper "variable" >}} . {{< hyper "formal" >}}) {{< hyper "body" >}})}
 
-\hyper{Formal} is a single
+{{< hyper "Formal" >}} is a single
 variable.  This form is equivalent to
 ```
-(define \hyper{variable}
-  (lambda \hyper{formal} \hyper{body}))\rm.
+(define {{< hyper "variable" >}}
+  (lambda {{< hyper "formal" >}} {{< hyper "body" >}}))\rm.
 ```
 
 
@@ -145,17 +145,17 @@ variable.  This form is equivalent to
 
 At the outermost level of a program, a definition
 ```
-(define \hyper{variable} \hyper{expression})
+(define {{< hyper "variable" >}} {{< hyper "expression" >}})
 ```
 has essentially the same effect as the assignment expression
 ```
-(\ide{set!} \hyper{variable} \hyper{expression})
+(\ide{set!} {{< hyper "variable" >}} {{< hyper "expression" >}})
 ```
-if \hyper{variable} is bound to a non-syntax value.  However, if
-\hyper{variable} is not bound,
+if {{< hyper "variable" >}} is bound to a non-syntax value.  However, if
+{{< hyper "variable" >}} is not bound,
 or is a syntactic keyword,
 then the definition will bind
-\hyper{variable} to a new location before performing the assignment,
+{{< hyper "variable" >}} to a new location before performing the assignment,
 whereas it would be an error to perform a ``set!`` on an
 unbound variable.
 
@@ -171,15 +171,15 @@ unbound variable.
 {{< label "internaldefines" >}}
 
 Definitions can occur at the
-beginning of a \hyper{body} (that is, the body of a \ide{lambda},
+beginning of a {{< hyper "body" >}} (that is, the body of a \ide{lambda},
 \ide{let}, \ide{let*}, \ide{letrec}, \ide{letrec*},
 \ide{let-values}, \ide{let*-values}, \ide{let-syntax}, \ide{letrec-syntax},
 \ide{parameterize}, \ide{guard}, or \ide{case-lambda}).  Note that
 such a body might not be apparent until after expansion of other syntax.
 Such definitions are known as _internal definitions_ as opposed to the global definitions described above.
 The variables defined by internal definitions are local to the
-\hyper{body}.  That is, \hyper{variable} is bound rather than assigned,
-and the region of the binding is the entire \hyper{body}.  For example,
+{{< hyper "body" >}}.  That is, {{< hyper "variable" >}} is bound rather than assigned,
+and the region of the binding is the entire {{< hyper "body" >}}.  For example,
 
 ```
 (let ((x 5))
@@ -188,7 +188,7 @@ and the region of the binding is the entire \hyper{body}.  For example,
   (foo (+ x 3)))                \ev  45
 ```
 
-An expanded \hyper{body} containing internal definitions
+An expanded {{< hyper "body" >}} containing internal definitions
 can always be
 converted into a completely equivalent ``letrec*`` expression.  For
 example, the ``let`` expression in the above example is equivalent
@@ -202,13 +202,13 @@ to
 ```
 
 Just as for the equivalent ``letrec*`` expression, it is an error if it is not
-possible to evaluate each \hyper{expression} of every internal
-definition in a \hyper{body} without assigning or referring to
-the value of the corresponding \hyper{variable} or the \hyper{variable}
-of any of the definitions that follow it in \hyper{body}.
+possible to evaluate each {{< hyper "expression" >}} of every internal
+definition in a {{< hyper "body" >}} without assigning or referring to
+the value of the corresponding {{< hyper "variable" >}} or the {{< hyper "variable" >}}
+of any of the definitions that follow it in {{< hyper "body" >}}.
 
 It is an error to define the same identifier more than once in the
-same \hyper{body}.
+same {{< hyper "body" >}}.
 
 Wherever an internal definition can occur,
 {\tt(begin \hyperi{definition} \dotsfoo)}
@@ -223,13 +223,13 @@ expression returning multiple values.
 It is allowed wherever ``define`` is allowed.
 
 \begin{entry}{
-\proto{define-values}{ \hyper{formals} \hyper{expression}}{\exprtype}}\nobreak
+\proto{define-values}{ {{< hyper "formals" >}} {{< hyper "expression" >}}}{syntax}}\nobreak
 
-It is an error if a variable appears more than once in the set of \hyper{formals}.
+It is an error if a variable appears more than once in the set of {{< hyper "formals" >}}.
 
 \semantics
-\hyper{Expression} is evaluated, and the \hyper{formals} are bound
-to the return values in the same way that the \hyper{formals} in a
+{{< hyper "Expression" >}} is evaluated, and the {{< hyper "formals" >}} are bound
+to the return values in the same way that the {{< hyper "formals" >}} in a
 ``lambda`` expression are matched to the arguments in a procedure
 call.
 
@@ -249,19 +249,19 @@ call.
 
 Syntax definitions have this form:\mainschindex{define-syntax}
 
-{\tt(define-syntax \hyper{keyword} \hyper{transformer spec})}
+{\tt(define-syntax {{< hyper "keyword" >}} {{< hyper "transformer spec" >}})}
 
-\hyper{Keyword} is an identifier, and
-the \hyper{transformer spec} is an instance of \ide{syntax-rules}.
+{{< hyper "Keyword" >}} is an identifier, and
+the {{< hyper "transformer spec" >}} is an instance of \ide{syntax-rules}.
 Like variable definitions, syntax definitions can appear at the outermost level or
 nested within a \ide{body}.
 
 If the ``define-syntax`` occurs at the outermost level, then the global
 syntactic environment is extended by binding the
-\hyper{keyword} to the specified transformer, but previous expansions
-of any global binding for \hyper{keyword} remain unchanged.
+{{< hyper "keyword" >}} to the specified transformer, but previous expansions
+of any global binding for {{< hyper "keyword" >}} remain unchanged.
 Otherwise, it is an \defining{internal syntax definition}, and is local to the
-\hyper{body} in which it is defined.
+{{< hyper "body" >}} in which it is defined.
 Any use of a syntax keyword before its corresponding definition is an error.
 In particular, a use that precedes an inner definition will not apply an outer
 definition.
@@ -321,22 +321,22 @@ mutators are defined for each record type.
 
 \begin{entry}{
 \mainschindex{define-record-type}
-\pproto{(define-record-type \hyper{name}}{syntax}
-\hspace*{4em}{\tt \hyper{constructor} \hyper{pred} \hyper{field} \dotsfoo})}
+\pproto{(define-record-type {{< hyper "name" >}}}{syntax}
+\hspace*{4em}{\tt {{< hyper "constructor" >}} {{< hyper "pred" >}} {{< hyper "field" >}} \dotsfoo})}
 
 \syntax
-\hyper{name} and \hyper{pred} are identifiers.
-The \hyper{constructor} is of the form
+{{< hyper "name" >}} and {{< hyper "pred" >}} are identifiers.
+The {{< hyper "constructor" >}} is of the form
 ```
-(\hyper{constructor name} \hyper{field name} \dotsfoo)
+({{< hyper "constructor name" >}} {{< hyper "field name" >}} \dotsfoo)
 ```
-and each \hyper{field} is either of the form
+and each {{< hyper "field" >}} is either of the form
 ```
-(\hyper{field name} \hyper{accessor name})
+({{< hyper "field name" >}} {{< hyper "accessor name" >}})
 ```
 or of the form
 ```
-(\hyper{field name} \hyper{accessor name} \hyper{modifier name})
+({{< hyper "field name" >}} {{< hyper "accessor name" >}} {{< hyper "modifier name" >}})
 ```
 
 It is an error for the same identifier to occur more than once as a
@@ -354,31 +354,31 @@ definitions:
 
 
 
-- \hyper{name} is bound to a representation of the record type itself.
+- {{< hyper "name" >}} is bound to a representation of the record type itself.
 This may be a run-time object or a purely syntactic representation.
 The representation is not utilized in this report, but it serves as a
 means to identify the record type for use by further language extensions.
 
-- \hyper{constructor name} is bound to a procedure that takes as
-  many arguments as there are \hyper{field name}s in the
-  \texttt{(\hyper{constructor name} \dotsfoo)} subexpression and returns a
-  new record of type \hyper{name}.  Fields whose names are listed with
-  \hyper{constructor name} have the corresponding argument as their
+- {{< hyper "constructor name" >}} is bound to a procedure that takes as
+  many arguments as there are {{< hyper "field name" >}}s in the
+  \texttt{({{< hyper "constructor name" >}} \dotsfoo)} subexpression and returns a
+  new record of type {{< hyper "name" >}}.  Fields whose names are listed with
+  {{< hyper "constructor name" >}} have the corresponding argument as their
   initial value.  The initial values of all other fields are
   unspecified.  It is an error for a field name to appear in
-  \hyper{constructor} but not as a \hyper{field name}.
+  {{< hyper "constructor" >}} but not as a {{< hyper "field name" >}}.
 
-- \hyper{pred} is bound to a predicate that returns {{< tt "#t" >}} when given a
-  value returned by the procedure bound to  \hyper{constructor name} and {{< tt "#f" >}} for
+- {{< hyper "pred" >}} is bound to a predicate that returns {{< tt "#t" >}} when given a
+  value returned by the procedure bound to  {{< hyper "constructor name" >}} and {{< tt "#f" >}} for
   everything else.
 
-- Each \hyper{accessor name} is bound to a procedure that takes a record of
-  type \hyper{name} and returns the current value of the corresponding
+- Each {{< hyper "accessor name" >}} is bound to a procedure that takes a record of
+  type {{< hyper "name" >}} and returns the current value of the corresponding
   field.  It is an error to pass an accessor a value which is not a
   record of the appropriate type.
 
-- Each \hyper{modifier name} is bound to a procedure that takes a record of
-  type \hyper{name} and a value which becomes the new value of the
+- Each {{< hyper "modifier name" >}} is bound to a procedure that takes a record of
+  type {{< hyper "name" >}} and a value which becomes the new value of the
   corresponding field; an unspecified value is returned.  It is an
   error to pass a modifier a first argument which is not a record of
   the appropriate type.
@@ -426,11 +426,11 @@ A library definition takes the following form:
 \mainschindex{define-library}
 
 ```
-(define-library \hyper{library name}
-  \hyper{library declaration} \dotsfoo)
+(define-library {{< hyper "library name" >}}
+  {{< hyper "library declaration" >}} \dotsfoo)
 ```
 
-\hyper{library name} is a list whose members are identifiers and exact non-negative integers.  It is used to
+{{< hyper "library name" >}} is a list whose members are identifiers and exact non-negative integers.  It is used to
 identify the library uniquely when importing from other programs or
 libraries.
 Libraries whose first identifier is ``scheme`` are reserved for use by this
@@ -442,15 +442,15 @@ contain any of the characters ``| \backwhack{`` ? * < " : > + [ ] /}
 or control characters after escapes are expanded.
 
 {{< label "librarydeclarations" >}}
-A \hyper{library declaration} is any of:
+A {{< hyper "library declaration" >}} is any of:
 
 
 
-\item{\tt(export \hyper{export spec} \dotsfoo)}
+\item{\tt(export {{< hyper "export spec" >}} \dotsfoo)}
 
-\item{\tt(import \hyper{import set} \dotsfoo)}
+\item{\tt(import {{< hyper "import set" >}} \dotsfoo)}
 
-\item{\tt(begin \hyper{command or definition} \dotsfoo)}
+\item{\tt(begin {{< hyper "command or definition" >}} \dotsfoo)}
 
 \item{\tt(include \hyperi{filename} \hyperii{filename} \dotsfoo)}
 
@@ -464,14 +464,14 @@ A \hyper{library declaration} is any of:
 
 An \ide{export} declaration specifies a list of identifiers which
 can be made visible to other libraries or programs.
-An \hyper{export spec} takes one of the following forms:
+An {{< hyper "export spec" >}} takes one of the following forms:
 
 
-\item{\hyper{identifier}}
+\item{{{< hyper "identifier" >}}}
 \item{\tt{(rename \hyperi{identifier} \hyperii{identifier})}}
 
 
-In an \hyper{export spec}, an \hyper{identifier} names a single
+In an {{< hyper "export spec" >}}, an {{< hyper "identifier" >}} names a single
 binding defined within or imported into the library, where the
 external name for the export is the same as the name of the binding
 within the library. A \ide{rename} spec exports the binding

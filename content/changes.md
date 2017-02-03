@@ -199,7 +199,7 @@ as well as {{< tt "#t" >}} and {{< tt "#f" >}}.
 have been added to round out the sequence operations.
 
 - Some string and vector procedures support processing of part of a string or vector using
-optional \var{start} and \var{end} arguments.
+optional _start_ and _end_ arguments.
 
 - Some list procedures are now defined on circular lists.
 

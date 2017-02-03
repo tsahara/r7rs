@@ -27,7 +27,7 @@ with the ``delay``, ``delay-force``, and ``parameterize`` expression types.
 ### 4.1.1. Variable references
 
 \begin{entry}{
-\pproto{\hyper{variable}}{\exprtype}}
+\pproto{{{< hyper "variable" >}}}{syntax}}
 
 An expression consisting of a variable
 (section~\ref{variablesection}) is a variable reference.  The value of
@@ -45,12 +45,12 @@ x   \ev  28
 {{< label "literalsection" >}}
 
 \begin{entry}{
-\proto{quote}{ \hyper{datum}}{\exprtype}
-\pproto{\singlequote\hyper{datum}}{\exprtype}
-\pproto{\hyper{constant}}{\exprtype}}
+\proto{quote}{ {{< hyper "datum" >}}}{syntax}
+\pproto{\singlequote{{< hyper "datum" >}}}{syntax}
+\pproto{{{< hyper "constant" >}}}{syntax}}
 
-``(quote \hyper{datum``)} evaluates to \hyper{datum}.\mainschindex{'}
-\hyper{Datum}
+``(quote {{< hyper "datum``)" >}} evaluates to {{< hyper "datum" >}}.\mainschindex{'}
+{{< hyper "Datum" >}}
 can be any external representation of a Scheme object (see
 section~\ref{externalreps}).  This notation is used to include literal
 constants in Scheme code.
@@ -61,8 +61,8 @@ constants in Scheme code.
 (quote (+ 1 2))               \ev  (+ 1 2)
 ```
 
-``(quote \hyper{datum``)} can be abbreviated as
-\singlequote\hyper{datum}.  The two notations are equivalent in all
+``(quote {{< hyper "datum``)" >}} can be abbreviated as
+\singlequote{{< hyper "datum" >}}.  The two notations are equivalent in all
 respects.
 
 ```
@@ -102,7 +102,7 @@ As noted in section~\ref{storagemodel}, it is an error to attempt to alter a con
 ### 4.1.3. Procedure calls
 
 \begin{entry}{
-\pproto{(\hyper{operator} \hyperi{operand} \dotsfoo)}{\exprtype}}
+\pproto{({{< hyper "operator" >}} \hyperi{operand} \dotsfoo)}{syntax}}
 
 A procedure call is written by enclosing in parentheses an
 expression for the procedure to be called followed by expressions for the arguments to be
@@ -152,11 +152,11 @@ The order of evaluation may be chosen differently for each procedure call.
 {{< label "lamba" >}}
 
 \begin{entry}{
-\proto{lambda}{ \hyper{formals} \hyper{body}}{\exprtype}}
+\proto{lambda}{ {{< hyper "formals" >}} {{< hyper "body" >}}}{syntax}}
 
 \syntax
-\hyper{Formals} is a formal arguments list as described below,
-and \hyper{body} is a sequence of zero or more definitions
+{{< hyper "Formals" >}} is a formal arguments list as described below,
+and {{< hyper "body" >}} is a sequence of zero or more definitions
 followed by one or more expressions.
 
 \semantics
@@ -190,7 +190,7 @@ the results of the procedure call.
 (add4 6)                        \ev  10
 ```
 
-\hyper{Formals} have one of the following forms:
+{{< hyper "Formals" >}} have one of the following forms:
 
 
 - {\tt(\hyperi{variable} \dotsfoo)}:
@@ -198,15 +198,15 @@ The procedure takes a fixed number of arguments; when the procedure is
 called, the arguments will be stored in fresh locations
 that are bound to the corresponding variables.
 
-- \hyper{variable}:
+- {{< hyper "variable" >}}:
 The procedure takes any number of arguments; when the procedure is
 called, the sequence of actual arguments is converted into a newly
 allocated list, and the list is stored in a fresh location
 that is bound to
-\hyper{variable}.
+{{< hyper "variable" >}}.
 
-- {\tt(\hyperi{variable} \dotsfoo{} \hyper{variable$_{n}$} {\bf.}\
-\hyper{variable$_{n+1}$})}:
+- {\tt(\hyperi{variable} \dotsfoo{} {{< hyper "variable$_{n" >}}$} {\bf.}\
+{{< hyper "variable$_{n+1" >}}$})}:
 If a space-delimited period precedes the last variable, then
 the procedure takes $n$ or more arguments, where $n$ is the
 number of formal arguments before the period (it is an error if there is not
@@ -217,8 +217,8 @@ list of the actual arguments left over after all the other actual
 arguments have been matched up against the other formal arguments.
 
 
-It is an error for a \hyper{variable} to appear more than once in
-\hyper{formals}.
+It is an error for a {{< hyper "variable" >}} to appear more than once in
+{{< hyper "formals" >}}.
 
 ```
 ((lambda x x) 3 4 5 6)          \ev  (3 4 5 6)
@@ -237,20 +237,20 @@ with a storage location, in order to make \ide{eqv?} and
 ### 4.1.5. Conditionals
 
 \begin{entry}{
-\proto{if}{ \hyper{test} \hyper{consequent} \hyper{alternate}}{\exprtype}
-\rproto{if}{ \hyper{test} \hyper{consequent}}{\exprtype}}  %\/ if hyper = italic
+\proto{if}{ {{< hyper "test" >}} {{< hyper "consequent" >}} {{< hyper "alternate" >}}}{syntax}
+\rproto{if}{ {{< hyper "test" >}} {{< hyper "consequent" >}}}{syntax}}  %\/ if hyper = italic
 
 \syntax
-\hyper{Test}, \hyper{consequent}, and \hyper{alternate} are
+{{< hyper "Test" >}}, {{< hyper "consequent" >}}, and {{< hyper "alternate" >}} are
 expressions.
 
 \semantics
 An ``if`` expression is evaluated as follows: first,
-\hyper{test} is evaluated.  If it yields a true value (see
-section~\ref{booleansection}), then \hyper{consequent} is evaluated and
-its values are returned.  Otherwise \hyper{alternate} is evaluated and its
-values are returned.  If \hyper{test} yields a false value and no
-\hyper{alternate} is specified, then the result of the expression is
+{{< hyper "test" >}} is evaluated.  If it yields a true value (see
+section~\ref{booleansection}), then {{< hyper "consequent" >}} is evaluated and
+its values are returned.  Otherwise {{< hyper "alternate" >}} is evaluated and its
+values are returned.  If {{< hyper "test" >}} yields a false value and no
+{{< hyper "alternate" >}} is specified, then the result of the expression is
 unspecified.
 
 ```
@@ -268,11 +268,11 @@ unspecified.
 {{< label "assignment" >}}
 
 \begin{entry}{
-\proto{set!}{ \hyper{variable} \hyper{expression}}{\exprtype}}
+\proto{set!}{ {{< hyper "variable" >}} {{< hyper "expression" >}}}{syntax}}
 
 \semantics
-\hyper{Expression} is evaluated, and the resulting value is stored in
-the location to which \hyper{variable} is bound.  It is an error if \hyper{variable} is not
+{{< hyper "Expression" >}} is evaluated, and the resulting value is stored in
+the location to which {{< hyper "variable" >}} is bound.  It is an error if {{< hyper "variable" >}} is not
 bound either in some region enclosing the ``set!`` expression
 or else globally.
 The result of the ``set!`` expression is
@@ -290,8 +290,8 @@ unspecified.
 ### 4.1.7. Inclusion
 {{< label "inclusion" >}}
 \begin{entry}{
-\proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}
-\rproto{include-ci}{ \hyperi{string} \hyperii{string} \dotsfoo}{\exprtype}}
+\proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{syntax}
+\rproto{include-ci}{ \hyperi{string} \hyperii{string} \dotsfoo}{syntax}}
 
 \semantics
 Both \ide{include} and
@@ -326,20 +326,20 @@ into the primitive constructs described in the previous section.
 ### 4.2.1. Conditionals
 
 \begin{entry}{
-\proto{cond}{ \hyperi{clause} \hyperii{clause} \dotsfoo}{\exprtype}
+\proto{cond}{ \hyperi{clause} \hyperii{clause} \dotsfoo}{syntax}
 \pproto{else}{\auxiliarytype}
 \pproto{=>}{\auxiliarytype}}
 
 \syntax
-\hyper{Clauses} take one of two forms, either
+{{< hyper "Clauses" >}} take one of two forms, either
 ```
-(\hyper{test} \hyperi{expression} \dotsfoo)
+({{< hyper "test" >}} \hyperi{expression} \dotsfoo)
 ```
-where \hyper{test} is any expression, or
+where {{< hyper "test" >}} is any expression, or
 ```
-(\hyper{test} => \hyper{expression})
+({{< hyper "test" >}} => {{< hyper "expression" >}})
 ```
-The last \hyper{clause} can be
+The last {{< hyper "clause" >}} can be
 an "else clause," which has the form
 ```
 (else \hyperi{expression} \hyperii{expression} \dotsfoo)\rm.
@@ -348,27 +348,27 @@ an "else clause," which has the form
 \mainschindex{=>}
 
 \semantics
-A ``cond`` expression is evaluated by evaluating the \hyper{test}
-expressions of successive \hyper{clause}s in order until one of them
+A ``cond`` expression is evaluated by evaluating the {{< hyper "test" >}}
+expressions of successive {{< hyper "clause" >}}s in order until one of them
 evaluates to a true value (see
-section~\ref{booleansection}).  When a \hyper{test} evaluates to a true
-value, the remaining \hyper{expression}s in its \hyper{clause} are
-evaluated in order, and the results of the last \hyper{expression} in the
-\hyper{clause} are returned as the results of the entire ``cond``
+section~\ref{booleansection}).  When a {{< hyper "test" >}} evaluates to a true
+value, the remaining {{< hyper "expression" >}}s in its {{< hyper "clause" >}} are
+evaluated in order, and the results of the last {{< hyper "expression" >}} in the
+{{< hyper "clause" >}} are returned as the results of the entire ``cond``
 expression.
 
-If the selected \hyper{clause} contains only the
-\hyper{test} and no \hyper{expression}s, then the value of the
-\hyper{test} is returned as the result.  If the selected \hyper{clause} uses the
-\ide{=>} alternate form, then the \hyper{expression} is evaluated.
+If the selected {{< hyper "clause" >}} contains only the
+{{< hyper "test" >}} and no {{< hyper "expression" >}}s, then the value of the
+{{< hyper "test" >}} is returned as the result.  If the selected {{< hyper "clause" >}} uses the
+\ide{=>} alternate form, then the {{< hyper "expression" >}} is evaluated.
 It is an error if its value is not a procedure that accepts one argument.  This procedure is then
-called on the value of the \hyper{test} and the values returned by this
+called on the value of the {{< hyper "test" >}} and the values returned by this
 procedure are returned by the ``cond`` expression.
 
-If all \hyper{test}s evaluate
+If all {{< hyper "test" >}}s evaluate
 to {{< tt "#f" >}}, and there is no else clause, then the result of
 the conditional expression is unspecified; if there is an else
-clause, then its \hyper{expression}s are evaluated in order, and the values of
+clause, then its {{< hyper "expression" >}}s are evaluated in order, and the values of
 the last one are returned.
 
 ```
@@ -388,50 +388,50 @@ the last one are returned.
 
 
 \begin{entry}{
-\proto{case}{ \hyper{key} \hyperi{clause} \hyperii{clause} \dotsfoo}{\exprtype}}
+\proto{case}{ {{< hyper "key" >}} \hyperi{clause} \hyperii{clause} \dotsfoo}{syntax}}
 
 \syntax
-\hyper{Key} can be any expression.  Each \hyper{clause} has
+{{< hyper "Key" >}} can be any expression.  Each {{< hyper "clause" >}} has
 the form
 ```
 ((\hyperi{datum} \dotsfoo) \hyperi{expression} \hyperii{expression} \dotsfoo)\rm,
 ```
-where each \hyper{datum} is an external representation of some object.
-It is an error if any of the \hyper{datum}s are the same anywhere in the expression.
-Alternatively, a \hyper{clause} can be of the form
+where each {{< hyper "datum" >}} is an external representation of some object.
+It is an error if any of the {{< hyper "datum" >}}s are the same anywhere in the expression.
+Alternatively, a {{< hyper "clause" >}} can be of the form
 ```
-((\hyperi{datum} \dotsfoo) => \hyper{expression})
+((\hyperi{datum} \dotsfoo) => {{< hyper "expression" >}})
 ```
-The last \hyper{clause} can be an "else clause," which has one of the forms
+The last {{< hyper "clause" >}} can be an "else clause," which has one of the forms
 ```
 (else \hyperi{expression} \hyperii{expression} \dotsfoo)
 ```
 or
 ```
-(else => \hyper{expression})\rm.
+(else => {{< hyper "expression" >}})\rm.
 ```
 \schindex{else}
 
 \semantics
-A ``case`` expression is evaluated as follows.  \hyper{Key} is
-evaluated and its result is compared against each \hyper{datum}.  If the
-result of evaluating \hyper{key} is the same (in the sense of
-``eqv?``; see section~\ref{eqv?}) to a \hyper{datum}, then the
-expressions in the corresponding \hyper{clause} are evaluated in order
-and the results of the last expression in the \hyper{clause} are
+A ``case`` expression is evaluated as follows.  {{< hyper "Key" >}} is
+evaluated and its result is compared against each {{< hyper "datum" >}}.  If the
+result of evaluating {{< hyper "key" >}} is the same (in the sense of
+``eqv?``; see section~\ref{eqv?}) to a {{< hyper "datum" >}}, then the
+expressions in the corresponding {{< hyper "clause" >}} are evaluated in order
+and the results of the last expression in the {{< hyper "clause" >}} are
 returned as the results of the ``case`` expression.
 
 If the result of
-evaluating \hyper{key} is different from every \hyper{datum}, then if
+evaluating {{< hyper "key" >}} is different from every {{< hyper "datum" >}}, then if
 there is an else clause, its expressions are evaluated and the
 results of the last are the results of the ``case`` expression;
 otherwise the result of the ``case`` expression is unspecified.
 
-If the selected \hyper{clause} or else clause uses the
-\ide{=>} alternate form, then the \hyper{expression} is evaluated.
+If the selected {{< hyper "clause" >}} or else clause uses the
+\ide{=>} alternate form, then the {{< hyper "expression" >}} is evaluated.
 It is an error if its value is not a procedure accepting one argument.
 This procedure is then
-called on the value of the \hyper{key} and the values returned by this
+called on the value of the {{< hyper "key" >}} and the values returned by this
 procedure are returned by the ``case`` expression.
 
 ```
@@ -451,10 +451,10 @@ procedure are returned by the ``case`` expression.
 
 
 \begin{entry}{
-\proto{and}{ \hyperi{test} \dotsfoo}{\exprtype}}
+\proto{and}{ \hyperi{test} \dotsfoo}{syntax}}
 
 \semantics
-The \hyper{test} expressions are evaluated from left to right, and if
+The {{< hyper "test" >}} expressions are evaluated from left to right, and if
 any expression evaluates to {{< tt "#f" >}} (see
 section~\ref{booleansection}), then {{< tt "#f" >}} is returned.  Any remaining
 expressions are not evaluated.  If all the expressions evaluate to
@@ -472,10 +472,10 @@ are no expressions, then {{< tt "#t" >}} is returned.
 
 
 \begin{entry}{
-\proto{or}{ \hyperi{test} \dotsfoo}{\exprtype}}
+\proto{or}{ \hyperi{test} \dotsfoo}{syntax}}
 
 \semantics
-The \hyper{test} expressions are evaluated from left to right, and the value of the
+The {{< hyper "test" >}} expressions are evaluated from left to right, and the value of the
 first expression that evaluates to a true value (see
 section~\ref{booleansection}) is returned.  Any remaining expressions
 are not evaluated.  If all expressions evaluate to {{< tt "#f" >}}
@@ -492,10 +492,10 @@ or if there are no expressions, then {{< tt "#f" >}} is returned.
 \end{entry}
 
 \begin{entry}{
-\proto{when}{ \hyper{test} \hyperi{expression} \hyperii{expression} \dotsfoo}{\exprtype}}
+\proto{when}{ {{< hyper "test" >}} \hyperi{expression} \hyperii{expression} \dotsfoo}{syntax}}
 
 \syntax
-The \hyper{test} is an expression.
+The {{< hyper "test" >}} is an expression.
 
 \semantics
 The test is evaluated, and if it evaluates to a true value,
@@ -511,10 +511,10 @@ expression is unspecified.
 \end{entry}
 
 \begin{entry}{
-\proto{unless}{ \hyper{test} \hyperi{expression} \hyperii{expression} \dotsfoo}{\exprtype}}
+\proto{unless}{ {{< hyper "test" >}} \hyperi{expression} \hyperii{expression} \dotsfoo}{syntax}}
 
 \syntax
-The \hyper{test} is an expression.
+The {{< hyper "test" >}} is an expression.
 
 \semantics
 The test is evaluated, and if it evaluates to {{< tt "#f" >}},
@@ -530,48 +530,48 @@ expression is unspecified.
 \end{entry}
 
 \begin{entry}{
-\proto{cond-expand}{ \hyperi{ce-clause} \hyperii{ce-clause} \dotsfoo}{\exprtype}}
+\proto{cond-expand}{ \hyperi{ce-clause} \hyperii{ce-clause} \dotsfoo}{syntax}}
 
 \syntax
 The \ide{cond-expand} expression type
 provides a way to statically
 expand different expressions depending on the
 implementation.  A
-\hyper{ce-clause} takes the following form:
+{{< hyper "ce-clause" >}} takes the following form:
 
-{\tt(\hyper{feature requirement} \hyper{expression} \dotsfoo)}
+{\tt({{< hyper "feature requirement" >}} {{< hyper "expression" >}} \dotsfoo)}
 
 The last clause can be an "else clause," which has the form
 
-{\tt(else \hyper{expression} \dotsfoo)}
+{\tt(else {{< hyper "expression" >}} \dotsfoo)}
 
-A \hyper{feature requirement} takes one of the following forms:
+A {{< hyper "feature requirement" >}} takes one of the following forms:
 
 
-- {\tt\hyper{feature identifier}}
-- {\tt(library \hyper{library name})}
-- {\tt(and \hyper{feature requirement} \dotsfoo)}
-- {\tt(or \hyper{feature requirement} \dotsfoo)}
-- {\tt(not \hyper{feature requirement})}
+- {\tt{{< hyper "feature identifier" >}}}
+- {\tt(library {{< hyper "library name" >}})}
+- {\tt(and {{< hyper "feature requirement" >}} \dotsfoo)}
+- {\tt(or {{< hyper "feature requirement" >}} \dotsfoo)}
+- {\tt(not {{< hyper "feature requirement" >}})}
 
 
 \semantics
 Each implementation maintains a list of feature identifiers which are
 present, as well as a list of libraries which can be imported.  The
-value of a \hyper{feature requirement} is determined by replacing
-each \hyper{feature identifier} and {\tt(library \hyper{library name})}
+value of a {{< hyper "feature requirement" >}} is determined by replacing
+each {{< hyper "feature identifier" >}} and {\tt(library {{< hyper "library name" >}})}
 on the implementation's lists with \schtrue, and all other feature
 identifiers and library names with \schfalse, then evaluating the
 resulting expression as a Scheme boolean expression under the normal
 interpretation of ``and``, ``or``, and ``not``.
 
 A \ide{cond-expand} is then expanded by evaluating the
-\hyper{feature requirement}s of successive \hyper{ce-clause}s
+{{< hyper "feature requirement" >}}s of successive {{< hyper "ce-clause" >}}s
 in order until one of them returns \schtrue.  When a true clause is
-found, the corresponding \hyper{expression}s are expanded to a
+found, the corresponding {{< hyper "expression" >}}s are expanded to a
 ``begin``, and the remaining clauses are ignored.
-If none of the \hyper{feature requirement}s evaluate to \schtrue, then
-if there is an else clause, its \hyper{expression}s are
+If none of the {{< hyper "feature requirement" >}}s evaluate to \schtrue, then
+if there is an else clause, its {{< hyper "expression" >}}s are
 included.  Otherwise, the behavior of the \ide{cond-expand} is unspecified.
 Unlike ``cond``, ``cond-expand`` does not depend on the value
 of any variables.
@@ -601,25 +601,25 @@ respectively, but are designed to handle multiple-valued expressions, binding
 different identifiers to the returned values.
 
 \begin{entry}{
-\proto{let}{ \hyper{bindings} \hyper{body}}{\exprtype}}
+\proto{let}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 
 \syntax
-\hyper{Bindings} has the form
+{{< hyper "Bindings" >}} has the form
 ```
 ((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
 ```
-where each \hyper{init} is an expression, and \hyper{body} is a
+where each {{< hyper "init" >}} is an expression, and {{< hyper "body" >}} is a
 sequence of zero or more definitions followed by a
 sequence of one or more expressions as described in section~\ref{lambda}.  It is
-an error for a \hyper{variable} to appear more than once in the list of variables
+an error for a {{< hyper "variable" >}} to appear more than once in the list of variables
 being bound.
 
 \semantics
-The \hyper{init}s are evaluated in the current environment (in some
-unspecified order), the \hyper{variable}s are bound to fresh locations
-holding the results, the \hyper{body} is evaluated in the extended
-environment, and the values of the last expression of \hyper{body}
-are returned.  Each binding of a \hyper{variable} has \hyper{body} as its
+The {{< hyper "init" >}}s are evaluated in the current environment (in some
+unspecified order), the {{< hyper "variable" >}}s are bound to fresh locations
+holding the results, the {{< hyper "body" >}} is evaluated in the extended
+environment, and the values of the last expression of {{< hyper "body" >}}
+are returned.  Each binding of a {{< hyper "variable" >}} has {{< hyper "body" >}} as its
 region.
 
 ```
@@ -638,25 +638,25 @@ See also "named ``let``," section \ref{namedlet}.
 
 
 \begin{entry}{
-\proto{let*}{ \hyper{bindings} \hyper{body}}{\exprtype}}\nobreak
+\proto{let*}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}\nobreak
 
 \nobreak
 \syntax
-\hyper{Bindings} has the form
+{{< hyper "Bindings" >}} has the form
 ```
 ((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
 ```
-and \hyper{body} is a sequence of
+and {{< hyper "body" >}} is a sequence of
 zero or more definitions followed by
 one or more expressions as described in section~\ref{lambda}.
 
 \semantics
 The ``let*`` binding construct is similar to ``let``, but the bindings are performed
 sequentially from left to right, and the region of a binding indicated
-by {\cf(\hyper{variable} \hyper{init})} is that part of the ``let*``
+by {\cf({{< hyper "variable" >}} {{< hyper "init" >}})} is that part of the ``let*``
 expression to the right of the binding.  Thus the second binding is done
 in an environment in which the first binding is visible, and so on.
-The \hyper{variable}s need not be distinct.
+The {{< hyper "variable" >}}s need not be distinct.
 
 ```
 (let ((x 2) (y 3))
@@ -669,25 +669,25 @@ The \hyper{variable}s need not be distinct.
 
 
 \begin{entry}{
-\proto{letrec}{ \hyper{bindings} \hyper{body}}{\exprtype}}
+\proto{letrec}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 
 \syntax
-\hyper{Bindings} has the form
+{{< hyper "Bindings" >}} has the form
 ```
 ((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
 ```
-and \hyper{body} is a sequence of
+and {{< hyper "body" >}} is a sequence of
 zero or more definitions followed by
-one or more expressions as described in section~\ref{lambda}. It is an error for a \hyper{variable} to appear more
+one or more expressions as described in section~\ref{lambda}. It is an error for a {{< hyper "variable" >}} to appear more
 than once in the list of variables being bound.
 
 \semantics
-The \hyper{variable}s are bound to fresh locations holding unspecified
-values, the \hyper{init}s are evaluated in the resulting environment (in
-some unspecified order), each \hyper{variable} is assigned to the result
-of the corresponding \hyper{init}, the \hyper{body} is evaluated in the
+The {{< hyper "variable" >}}s are bound to fresh locations holding unspecified
+values, the {{< hyper "init" >}}s are evaluated in the resulting environment (in
+some unspecified order), each {{< hyper "variable" >}} is assigned to the result
+of the corresponding {{< hyper "init" >}}, the {{< hyper "body" >}} is evaluated in the
 resulting environment, and the values of the last expression in
-\hyper{body} are returned.  Each binding of a \hyper{variable} has the
+{{< hyper "body" >}} are returned.  Each binding of a {{< hyper "variable" >}} has the
 entire ``letrec`` expression as its region, making it possible to
 define mutually recursive procedures.
 
@@ -707,49 +707,49 @@ define mutually recursive procedures.
 ```
 
 One restriction on ``letrec`` is very important: if it is not possible
-to evaluate each \hyper{init} without assigning or referring to the value of any
-\hyper{variable}, it is an error.  The
+to evaluate each {{< hyper "init" >}} without assigning or referring to the value of any
+{{< hyper "variable" >}}, it is an error.  The
 restriction is necessary because
 ``letrec`` is defined in terms of a procedure
-call where a ``lambda`` expression binds the \hyper{variable}s to the values
-of the \hyper{init}s.
-In the most common uses of ``letrec``, all the \hyper{init}s are
+call where a ``lambda`` expression binds the {{< hyper "variable" >}}s to the values
+of the {{< hyper "init" >}}s.
+In the most common uses of ``letrec``, all the {{< hyper "init" >}}s are
 \lambdaexp{}s and the restriction is satisfied automatically.
 
 \end{entry}
 
 
 \begin{entry}{
-\proto{letrec*}{ \hyper{bindings} \hyper{body}}{\exprtype}}
+\proto{letrec*}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 {{< label "letrecstar" >}}
 
 \syntax
-\hyper{Bindings} has the form
+{{< hyper "Bindings" >}} has the form
 ```
 ((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
 ```
-and \hyper{body} is a sequence of
+and {{< hyper "body" >}} is a sequence of
 zero or more definitions followed by
-one or more expressions as described in section~\ref{lambda}. It is an error for a \hyper{variable} to appear more
+one or more expressions as described in section~\ref{lambda}. It is an error for a {{< hyper "variable" >}} to appear more
 than once in the list of variables being bound.
 
 \semantics
-The \hyper{variable}s are bound to fresh locations,
-each \hyper{variable} is assigned in left-to-right order to the
-result of evaluating the corresponding \hyper{init}, the \hyper{body} is
+The {{< hyper "variable" >}}s are bound to fresh locations,
+each {{< hyper "variable" >}} is assigned in left-to-right order to the
+result of evaluating the corresponding {{< hyper "init" >}}, the {{< hyper "body" >}} is
 evaluated in the resulting environment, and the values of the last
-expression in \hyper{body} are returned.
+expression in {{< hyper "body" >}} are returned.
 Despite the left-to-right evaluation and assignment order, each binding of
-a \hyper{variable} has the entire ``letrec*`` expression as its
+a {{< hyper "variable" >}} has the entire ``letrec*`` expression as its
 region, making it possible to define mutually recursive
 procedures.
 
-If it is not possible to evaluate each \hyper{init} without assigning or
-referring to the value of the corresponding \hyper{variable} or the
-\hyper{variable} of any of the bindings that follow it in
-\hyper{bindings}, it is an error.
+If it is not possible to evaluate each {{< hyper "init" >}} without assigning or
+referring to the value of the corresponding {{< hyper "variable" >}} or the
+{{< hyper "variable" >}} of any of the bindings that follow it in
+{{< hyper "bindings" >}}, it is an error.
 Another restriction is that it is an error to invoke the continuation
-of an \hyper{init} more than once.
+of an {{< hyper "init" >}} more than once.
 
 ```
 (letrec* ((p
@@ -767,33 +767,33 @@ of an \hyper{init} more than once.
 ```
 
 \begin{entry}{
-\proto{let-values}{ \hyper{mv binding spec} \hyper{body}}{\exprtype}}
+\proto{let-values}{ {{< hyper "mv binding spec" >}} {{< hyper "body" >}}}{syntax}}
 
 \syntax
-\hyper{Mv binding spec} has the form
+{{< hyper "Mv binding spec" >}} has the form
 ```
 ((\hyperi{formals} \hyperi{init}) \dotsfoo)\rm,
 ```
 
-where each \hyper{init} is an expression, and \hyper{body} is
+where each {{< hyper "init" >}} is an expression, and {{< hyper "body" >}} is
 zero or more definitions followed by a sequence of one or
 more expressions as described in section~\ref{lambda}.  It is an error for a variable to appear more than
-once in the set of \hyper{formals}.
+once in the set of {{< hyper "formals" >}}.
 
 \semantics
-The \hyper{init}s are evaluated in the current environment (in some
+The {{< hyper "init" >}}s are evaluated in the current environment (in some
 unspecified order) as if by invoking ``call-with-values``, and the
-variables occurring in the \hyper{formals} are bound to fresh locations
-holding the values returned by the \hyper{init}s, where the
-\hyper{formals} are matched to the return values in the same way that
-the \hyper{formals} in a ``lambda`` expression are matched to the
-arguments in a procedure call.  Then, the \hyper{body} is evaluated in
+variables occurring in the {{< hyper "formals" >}} are bound to fresh locations
+holding the values returned by the {{< hyper "init" >}}s, where the
+{{< hyper "formals" >}} are matched to the return values in the same way that
+the {{< hyper "formals" >}} in a ``lambda`` expression are matched to the
+arguments in a procedure call.  Then, the {{< hyper "body" >}} is evaluated in
 the extended environment, and the values of the last expression of
-\hyper{body} are returned.  Each binding of a \hyper{variable} has
-\hyper{body} as its region.
+{{< hyper "body" >}} are returned.  Each binding of a {{< hyper "variable" >}} has
+{{< hyper "body" >}} as its region.
 
-It is an error if the \hyper{formals} do not match the number of
-values returned by the corresponding \hyper{init}.
+It is an error if the {{< hyper "formals" >}} do not match the number of
+values returned by the corresponding {{< hyper "init" >}}.
 
 ```
 (let-values (((root rem) (exact-integer-sqrt 32)))
@@ -804,24 +804,24 @@ values returned by the corresponding \hyper{init}.
 
 
 \begin{entry}{
-\proto{let*-values}{ \hyper{mv binding spec} \hyper{body}}{\exprtype}}\nobreak
+\proto{let*-values}{ {{< hyper "mv binding spec" >}} {{< hyper "body" >}}}{syntax}}\nobreak
 
 \nobreak
 \syntax
-\hyper{Mv binding spec} has the form
+{{< hyper "Mv binding spec" >}} has the form
 ```
-((\hyper{formals} \hyper{init}) \dotsfoo)\rm,
+(({{< hyper "formals" >}} {{< hyper "init" >}}) \dotsfoo)\rm,
 ```
-and \hyper{body} is a sequence of zero or more
-definitions followed by one or more expressions as described in section~\ref{lambda}.  In each \hyper{formals},
+and {{< hyper "body" >}} is a sequence of zero or more
+definitions followed by one or more expressions as described in section~\ref{lambda}.  In each {{< hyper "formals" >}},
 it is an error if any variable appears more than once.
 
 \semantics
 The ``let*-values`` construct is similar to ``let-values``, but the
-\hyper{init}s are evaluated and bindings created sequentially from
-left to right, with the region of the bindings of each \hyper{formals}
-including the \hyper{init}s to its right as well as \hyper{body}.  Thus the
-second \hyper{init} is evaluated in an environment in which the first
+{{< hyper "init" >}}s are evaluated and bindings created sequentially from
+left to right, with the region of the bindings of each {{< hyper "formals" >}}
+including the {{< hyper "init" >}}s to its right as well as {{< hyper "body" >}}.  Thus the
+second {{< hyper "init" >}} is evaluated in an environment in which the first
 set of bindings is visible and initialized, and so on.
 
 ```
@@ -843,10 +843,10 @@ Both of Scheme's sequencing constructs are named ``begin``, but the two
 have slightly different forms and uses:
 
 \begin{entry}{
-\proto{begin}{ \hyper{expression or definition} \dotsfoo}{\exprtype}}
+\proto{begin}{ {{< hyper "expression or definition" >}} \dotsfoo}{syntax}}
 
-This form of ``begin`` can appear as part of a \hyper{body}, or at the
-outermost level of a \hyper{program}, or at the REPL, or directly nested
+This form of ``begin`` can appear as part of a {{< hyper "body" >}}, or at the
+outermost level of a {{< hyper "program" >}}, or at the REPL, or directly nested
 in a ``begin`` that is itself of this form.
 It causes the contained expressions and definitions to be evaluated
 exactly as if the enclosing ``begin`` construct were not present.
@@ -861,11 +861,11 @@ splice them into the context in which they are expanded.
 \end{entry}
 
 \begin{entry}{
-\rproto{begin}{ \hyperi{expression} \hyperii{expression} \dotsfoo}{\exprtype}}
+\rproto{begin}{ \hyperi{expression} \hyperii{expression} \dotsfoo}{syntax}}
 
 This form of ``begin`` can be used as an ordinary expression.
-The \hyper{expression}s are evaluated sequentially from left to right,
-and the values of the last \hyper{expression} are returned. This
+The {{< hyper "expression" >}}s are evaluated sequentially from left to right,
+and the values of the last {{< hyper "expression" >}} are returned. This
 expression type is used to sequence side effects such as assignments
 or input and output.
 
@@ -889,49 +889,49 @@ see section~\ref{librarydeclarations}.
 ### 4.2.4. Iteration
 
 \noindent
-\pproto{(do ((\hyperi{variable} \hyperi{init} \hyperi{step})}{\exprtype}
+\pproto{(do ((\hyperi{variable} \hyperi{init} \hyperi{step})}{syntax}
 \mainschindex{do}{\tt\obeyspaces
      \dotsfoo)\\
-    (\hyper{test} \hyper{expression} \dotsfoo)\\
-  \hyper{command} \dotsfoo)}
+    ({{< hyper "test" >}} {{< hyper "expression" >}} \dotsfoo)\\
+  {{< hyper "command" >}} \dotsfoo)}
 
 \syntax
-All of \hyper{init}, \hyper{step}, \hyper{test}, and \hyper{command}
+All of {{< hyper "init" >}}, {{< hyper "step" >}}, {{< hyper "test" >}}, and {{< hyper "command" >}}
 are expressions.
 
 \semantics
 A ``do`` expression is an iteration construct.  It specifies a set of variables to
 be bound, how they are to be initialized at the start, and how they are
 to be updated on each iteration.  When a termination condition is met,
-the loop exits after evaluating the \hyper{expression}s.
+the loop exits after evaluating the {{< hyper "expression" >}}s.
 
 A ``do`` expression is evaluated as follows:
-The \hyper{init} expressions are evaluated (in some unspecified order),
-the \hyper{variable}s are bound to fresh locations, the results of the
-\hyper{init} expressions are stored in the bindings of the
-\hyper{variable}s, and then the iteration phase begins.
+The {{< hyper "init" >}} expressions are evaluated (in some unspecified order),
+the {{< hyper "variable" >}}s are bound to fresh locations, the results of the
+{{< hyper "init" >}} expressions are stored in the bindings of the
+{{< hyper "variable" >}}s, and then the iteration phase begins.
 
-Each iteration begins by evaluating \hyper{test}; if the result is
-false (see section~\ref{booleansection}), then the \hyper{command}
-expressions are evaluated in order for effect, the \hyper{step}
+Each iteration begins by evaluating {{< hyper "test" >}}; if the result is
+false (see section~\ref{booleansection}), then the {{< hyper "command" >}}
+expressions are evaluated in order for effect, the {{< hyper "step" >}}
 expressions are evaluated in some unspecified order, the
-\hyper{variable}s are bound to fresh locations, the results of the
-\hyper{step}s are stored in the bindings of the
-\hyper{variable}s, and the next iteration begins.
+{{< hyper "variable" >}}s are bound to fresh locations, the results of the
+{{< hyper "step" >}}s are stored in the bindings of the
+{{< hyper "variable" >}}s, and the next iteration begins.
 
-If \hyper{test} evaluates to a true value, then the
-\hyper{expression}s are evaluated from left to right and the values of
-the last \hyper{expression} are returned.  If no \hyper{expression}s
+If {{< hyper "test" >}} evaluates to a true value, then the
+{{< hyper "expression" >}}s are evaluated from left to right and the values of
+the last {{< hyper "expression" >}} are returned.  If no {{< hyper "expression" >}}s
 are present, then the value of the ``do`` expression is unspecified.
 
-The region of the binding of a \hyper{variable}
-consists of the entire ``do`` expression except for the \hyper{init}s.
-It is an error for a \hyper{variable} to appear more than once in the
+The region of the binding of a {{< hyper "variable" >}}
+consists of the entire ``do`` expression except for the {{< hyper "init" >}}s.
+It is an error for a {{< hyper "variable" >}} to appear more than once in the
 list of ``do`` variables.
 
-A \hyper{step} can be omitted, in which case the effect is the
-same as if {\cf(\hyper{variable} \hyper{init} \hyper{variable})} had
-been written instead of {\cf(\hyper{variable} \hyper{init})}.
+A {{< hyper "step" >}} can be omitted, in which case the effect is the
+same as if {\cf({{< hyper "variable" >}} {{< hyper "init" >}} {{< hyper "variable" >}})} had
+been written instead of {\cf({{< hyper "variable" >}} {{< hyper "init" >}})}.
 
 ```
 (do ((vec (make-vector 5))
@@ -948,7 +948,7 @@ been written instead of {\cf(\hyper{variable} \hyper{init})}.
 
 
 \begin{entry}{
-\rproto{let}{ \hyper{variable} \hyper{bindings} \hyper{body}}{\exprtype}}
+\rproto{let}{ {{< hyper "variable" >}} {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 
 {{< label "namedlet" >}}
 \semantics
@@ -956,10 +956,10 @@ been written instead of {\cf(\hyper{variable} \hyper{init})}.
 a more general looping construct than ``do`` and can also be used to express
 recursion.
 It has the same syntax and semantics as ordinary ``let``
-except that \hyper{variable} is bound within \hyper{body} to a procedure
+except that {{< hyper "variable" >}} is bound within {{< hyper "body" >}} to a procedure
 whose formal arguments are the bound variables and whose body is
-\hyper{body}.  Thus the execution of \hyper{body} can be repeated by
-invoking the procedure named by \hyper{variable}.
+{{< hyper "body" >}}.  Thus the execution of {{< hyper "body" >}} can be repeated by
+invoking the procedure named by {{< hyper "variable" >}}.
 
 ```
 (let loop ((numbers '(3 -2 1 6 -5))
@@ -983,36 +983,36 @@ invoking the procedure named by \hyper{variable}.
 ### 4.2.5. Delayed evaluation
 
 \begin{entry}{
-\proto{delay}{ \hyper{expression}}{lazy library syntax}}
+\proto{delay}{ {{< hyper "expression" >}}}{lazy library syntax}}
 
 
 
 \semantics
 The ``delay`` construct is used together with the procedure \ide{force} to
 implement \defining{lazy evaluation} or \defining{call by need}.
-{\tt(delay~\hyper{expression})} returns an object called a
+{\tt(delay~{{< hyper "expression" >}})} returns an object called a
 \defining{promise} which at some point in the future can be asked (by
 the ``force`` procedure) to evaluate
-\hyper{expression}, and deliver the resulting value.
+{{< hyper "expression" >}}, and deliver the resulting value.
 
-The effect of \hyper{expression} returning multiple values
+The effect of {{< hyper "expression" >}} returning multiple values
 is unspecified.
 
 \end{entry}
 
 \begin{entry}{
-\proto{delay-force}{ \hyper{expression}}{lazy library syntax}}
+\proto{delay-force}{ {{< hyper "expression" >}}}{lazy library syntax}}
 
 
 
 \semantics
-The expression ``(delay-force \var{expression``)} is conceptually similar to
-``(delay (force \var{expression``))},
+The expression ``(delay-force _expression``)_ is conceptually similar to
+``(delay (force _expression``))_,
 with the difference that forcing the result
 of ``delay-force`` will in effect result in a tail call to
-``(force \var{expression``)},
+``(force _expression``)_,
 while forcing the result of
-``(delay (force \var{expression``))}
+``(delay (force _expression``))_
 might not.  Thus
 iterative lazy algorithms that might result in a long series of chains of
 ``delay`` and ``force``
@@ -1024,7 +1024,7 @@ unbounded space during evaluation.
 \begin{entry}{
 \proto{force}{ promise}{lazy library procedure}}
 
-The ``force`` procedure forces the value of a \var{promise} created
+The ``force`` procedure forces the value of a _promise_ created
 by \ide{delay}, \ide{delay-force}, or \ide{make-promise}.
 If no value has been computed for the promise, then a value is
 computed and returned.  The value of the promise must be cached (or
@@ -1033,7 +1033,7 @@ computed value is returned.
 Consequently, a delayed expression is evaluated using the parameter
 values and exception handler of the call to ``force`` which first
 requested its value.
-If \var{promise} is not a promise, it may be returned unchanged.
+If _promise_ is not a promise, it may be returned unchanged.
 
 ```
 (force (delay (+ 1 2)))   \ev  3
@@ -1132,7 +1132,7 @@ arguments, like ``list``, must not force them.
 \end{entry}
 
 \begin{entry}{
-\proto{promise?} { \var{obj}}{lazy library procedure}}
+\proto{promise?} { _obj_}{lazy library procedure}}
 
 The ``promise?`` procedure returns
 {{< tt "#t" >}} if its argument is a promise, and {{< tt "#f" >}} otherwise.  Note
@@ -1142,12 +1142,12 @@ as procedures.
 \end{entry}
 
 \begin{entry}{
-\proto{make-promise} { \var{obj}}{lazy library procedure}}
+\proto{make-promise} { _obj_}{lazy library procedure}}
 
 The ``make-promise`` procedure returns a promise which, when forced, will return
-\var{obj}.  It is similar to ``delay``, but does not delay
+_obj_.  It is similar to ``delay``, but does not delay
 its argument: it is a procedure rather than syntax.
-If \var{obj} is already a promise, it is returned.
+If _obj_ is already a promise, it is returned.
 
 \end{entry}
 
@@ -1173,8 +1173,8 @@ Returns a newly allocated parameter object,
 which is a procedure that accepts zero arguments and
 returns the value associated with the parameter object.
 Initially, this value is the value of
-``(\var{converter`` \var{init})}, or of \var{init}
-if the conversion procedure \var{converter} is not specified.
+``(_converter`` \var{init_)}, or of _init_
+if the conversion procedure _converter_ is not specified.
 The associated value can be temporarily changed
 using ``parameterize``, which is described below.
 
@@ -1185,39 +1185,39 @@ implementation-dependent.
 \begin{entry}{
 \pproto{(parameterize ((\hyperi{param} \hyperi{value}) \dotsfoo)}{syntax}
 {\tt\obeyspaces
-\hspace*{1em}\hyper{body})}}
+\hspace*{1em}{{< hyper "body" >}})}}
 \mainschindex{parameterize}
 
 \syntax
 Both \hyperi{param} and \hyperi{value} are expressions.
 
-\domain{It is an error if the value of any \hyper{param} expression is not a parameter object.}
+\domain{It is an error if the value of any {{< hyper "param" >}} expression is not a parameter object.}
 \semantics
 A ``parameterize`` expression is used to change the values returned by
 specified parameter objects during the evaluation of the body.
 
-The \hyper{param} and \hyper{value} expressions
-are evaluated in an unspecified order.  The \hyper{body} is
+The {{< hyper "param" >}} and {{< hyper "value" >}} expressions
+are evaluated in an unspecified order.  The {{< hyper "body" >}} is
 evaluated in a dynamic environment in which calls to the
 parameters return the results of passing the corresponding values
 to the conversion procedure specified when the parameters were created.
 Then the previous values of the parameters are restored without passing
 them to the conversion procedure.
 The results of the last
-expression in the \hyper{body} are returned as the results of the entire
+expression in the {{< hyper "body" >}} are returned as the results of the entire
 ``parameterize`` expression.
 
 *Note:&nbsp;*
 If the conversion procedure is not idempotent, the results of
 ``(parameterize ((x (x))) ...)``,
-which appears to bind the parameter \var{x} to its current value,
+which appears to bind the parameter _x_ to its current value,
 might not be what the user expects.
 
 
 If an implementation supports multiple threads of execution, then
 ``parameterize`` must not change the associated values of any parameters
 in any thread other than the current thread and threads created
-inside \hyper{body}.
+inside {{< hyper "body" >}}.
 
 Parameter objects can be used to specify configurable settings for a
 computation without the need to pass the value to every
@@ -1250,24 +1250,24 @@ procedure in the call chain explicitly.
 ### 4.2.7. Exception handling
 
 \begin{entry}{
-\pproto{(guard (\hyper{variable}}{\exprtype}
+\pproto{(guard ({{< hyper "variable" >}}}{syntax}
 {\tt\obeyspaces
 \hspace*{4em}\hyperi{cond clause} \hyperii{cond clause} \dotsfoo)\\
-\hspace*{2em}\hyper{body})}\\
+\hspace*{2em}{{< hyper "body" >}})}\\
 }
 \mainschindex{guard}
 
 \syntax
-Each \hyper{cond clause} is as in the specification of ``cond``.
+Each {{< hyper "cond clause" >}} is as in the specification of ``cond``.
 
 \semantics
-The \hyper{body} is evaluated with an exception
+The {{< hyper "body" >}} is evaluated with an exception
 handler that binds the raised object (see \ide{raise} in section~\ref{exceptionsection})
-to \hyper{variable} and, within the scope of
+to {{< hyper "variable" >}} and, within the scope of
 that binding, evaluates the clauses as if they were the clauses of a
 ``cond`` expression. That implicit ``cond`` expression is evaluated with the
 continuation and dynamic environment of the ``guard`` expression. If every
-\hyper{cond clause}'s \hyper{test} evaluates to {{< tt "#f" >}} and there
+{{< hyper "cond clause" >}}'s {{< hyper "test" >}} evaluates to {{< tt "#f" >}} and there
 is no else clause, then
 ``raise-continuable`` is invoked on the raised object within the dynamic
 environment of the original call to ``raise``
@@ -1298,8 +1298,8 @@ exceptions.
 {{< label "quasiquotesection" >}}
 
 \begin{entry}{
-\proto{quasiquote}{ \hyper{qq template}}{\exprtype} \nopagebreak
-\pproto{\backquote\hyper{qq template}}{\exprtype}
+\proto{quasiquote}{ {{< hyper "qq template" >}}}{syntax} \nopagebreak
+\pproto{\backquote{{< hyper "qq template" >}}}{syntax}
 \pproto{unquote}{\auxiliarytype}
 \pproto{\comma}{\auxiliarytype}
 \pproto{unquote-splicing}{\auxiliarytype}
@@ -1308,18 +1308,18 @@ exceptions.
 "Quasiquote" expressions are useful
 for constructing a list or vector structure when some but not all of the
 desired structure is known in advance.  If no
-commas appear within the \hyper{qq template}, the result of
+commas appear within the {{< hyper "qq template" >}}, the result of
 evaluating
-\backquote\hyper{qq template} is equivalent to the result of evaluating
-\singlequote\hyper{qq template}.  If a comma\mainschindex{,} appears within the
-\hyper{qq template}, however, the expression following the comma is
+\backquote{{< hyper "qq template" >}} is equivalent to the result of evaluating
+\singlequote{{< hyper "qq template" >}}.  If a comma\mainschindex{,} appears within the
+{{< hyper "qq template" >}}, however, the expression following the comma is
 evaluated ("unquoted") and its result is inserted into the structure
 instead of the comma and the expression.  If a comma appears followed
 without intervening whitespace by a commercial at-sign (\atsign),\mainschindex{,@} then it is an error if the following
 expression does not evaluate to a list; the opening and closing parentheses
 of the list are then "stripped away" and the elements of the list are
 inserted in place of the comma at-sign expression sequence.  A comma
-at-sign normally appears only within a list or vector \hyper{qq template}.
+at-sign normally appears only within a list or vector {{< hyper "qq template" >}}.
 
 *Note:&nbsp;*
 In order to unquote an identifier beginning with ``@``, it is necessary
@@ -1383,11 +1383,11 @@ However, it is not equivalent to this expression:
 ```
 
 The two notations
- \backquote\hyper{qq template} and {\tt (quasiquote \hyper{qq template})}
+ \backquote{{< hyper "qq template" >}} and {\tt (quasiquote {{< hyper "qq template" >}})}
  are identical in all respects.
- {\cf,\hyper{expression}} is identical to ``(unquote \hyper{expression``)},
+ {\cf,{{< hyper "expression" >}}} is identical to ``(unquote {{< hyper "expression``)" >}},
  and
- {\cf,@\hyper{expression}} is identical to ``(unquote-splicing \hyper{expression``)}.
+ {\cf,@{{< hyper "expression" >}}} is identical to ``(unquote-splicing {{< hyper "expression``)" >}}.
 The \ide{write} procedure may output either format.
 \mainschindex{`}
 
@@ -1401,7 +1401,7 @@ The \ide{write} procedure may output either format.
 
 
 It is an error if any of the identifiers ``quasiquote``, ``unquote``,
-or ``unquote-splicing`` appear in positions within a \hyper{qq template}
+or ``unquote-splicing`` appear in positions within a {{< hyper "qq template" >}}
 otherwise than as described above.
 
 \end{entry}
@@ -1409,28 +1409,28 @@ otherwise than as described above.
 ### 4.2.9. Case-lambda
 {{< label "caselambdasection" >}}
 \begin{entry}{
-\proto{case-lambda}{ \hyper{clause} \dotsfoo}{case-lambda library syntax}}
+\proto{case-lambda}{ {{< hyper "clause" >}} \dotsfoo}{case-lambda library syntax}}
 
 \syntax
-Each \hyper{clause} is of the form
-(\hyper{formals} \hyper{body}),
-where \hyper{formals} and \hyper{body} have the same syntax
+Each {{< hyper "clause" >}} is of the form
+({{< hyper "formals" >}} {{< hyper "body" >}}),
+where {{< hyper "formals" >}} and {{< hyper "body" >}} have the same syntax
 as in a \lambdaexp.
 
 \semantics
 A ``case-lambda`` expression evaluates to a procedure that accepts
 a variable number of arguments and is lexically scoped in the same
 manner as a procedure resulting from a \lambdaexp. When the procedure
-is called, the first \hyper{clause} for which the arguments agree
-with \hyper{formals} is selected, where agreement is specified as for
-the \hyper{formals} of a \lambdaexp. The variables of \hyper{formals} are
+is called, the first {{< hyper "clause" >}} for which the arguments agree
+with {{< hyper "formals" >}} is selected, where agreement is specified as for
+the {{< hyper "formals" >}} of a \lambdaexp. The variables of {{< hyper "formals" >}} are
 bound to fresh locations, the values of the arguments are stored in those
-locations, the \hyper{body} is evaluated in the extended environment,
-and the results of \hyper{body} are returned as the results of the
+locations, the {{< hyper "body" >}} is evaluated in the extended environment,
+and the results of {{< hyper "body" >}} are returned as the results of the
 procedure call.
 
 It is an error for the arguments not to agree with
-the \hyper{formals} of any \hyper{clause}.
+the {{< hyper "formals" >}} of any {{< hyper "clause" >}}.
 
 ```
 (define range
@@ -1453,13 +1453,13 @@ Scheme programs can define and use new derived expression types,
  called _macros_.
 Program-defined expression types have the syntax
 ```
-(\hyper{keyword} {\hyper{datum}} ...)
+({{< hyper "keyword" >}} {{{< hyper "datum" >}}} ...)
 ```
-where \hyper{keyword} is an identifier that uniquely determines the
+where {{< hyper "keyword" >}} is an identifier that uniquely determines the
 expression type.  This identifier is called the _syntactic
 keyword_, or simply {\em
 keyword}, of the macro.  The
-number of the \hyper{datum}s, and their syntax, depends on the
+number of the {{< hyper "datum" >}}s, and their syntax, depends on the
 expression type.
 
 Each instance of a macro is called a _use_
@@ -1516,26 +1516,26 @@ bound globally or locally with ``define-syntax``;
 see section~\ref{define-syntax}.
 
 \begin{entry}{
-\proto{let-syntax}{ \hyper{bindings} \hyper{body}}{\exprtype}}
+\proto{let-syntax}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 
 \syntax
-\hyper{Bindings} has the form
+{{< hyper "Bindings" >}} has the form
 ```
-((\hyper{keyword} \hyper{transformer spec}) \dotsfoo)
+(({{< hyper "keyword" >}} {{< hyper "transformer spec" >}}) \dotsfoo)
 ```
-Each \hyper{keyword} is an identifier,
-each \hyper{transformer spec} is an instance of ``syntax-rules``, and
-\hyper{body} is a sequence of one or more definitions followed
+Each {{< hyper "keyword" >}} is an identifier,
+each {{< hyper "transformer spec" >}} is an instance of ``syntax-rules``, and
+{{< hyper "body" >}} is a sequence of one or more definitions followed
 by one or more expressions.  It is an error
-for a \hyper{keyword} to appear more than once in the list of keywords
+for a {{< hyper "keyword" >}} to appear more than once in the list of keywords
 being bound.
 
 \semantics
-The \hyper{body} is expanded in the syntactic environment
+The {{< hyper "body" >}} is expanded in the syntactic environment
 obtained by extending the syntactic environment of the
 ``let-syntax`` expression with macros whose keywords are
-the \hyper{keyword}s, bound to the specified transformers.
-Each binding of a \hyper{keyword} has \hyper{body} as its region.
+the {{< hyper "keyword" >}}s, bound to the specified transformers.
+Each binding of a {{< hyper "keyword" >}} has {{< hyper "body" >}} as its region.
 
 ```
 (let-syntax ((given-that (syntax-rules ()
@@ -1556,18 +1556,18 @@ Each binding of a \hyper{keyword} has \hyper{body} as its region.
 \end{entry}
 
 \begin{entry}{
-\proto{letrec-syntax}{ \hyper{bindings} \hyper{body}}{\exprtype}}
+\proto{letrec-syntax}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 
 \syntax
 Same as for ``let-syntax``.
 
 \semantics
- The \hyper{body} is expanded in the syntactic environment obtained by
+ The {{< hyper "body" >}} is expanded in the syntactic environment obtained by
 extending the syntactic environment of the ``letrec-syntax``
 expression with macros whose keywords are the
-\hyper{keyword}s, bound to the specified transformers.
-Each binding of a \hyper{keyword} has the \hyper{transformer spec}s
-as well as the \hyper{body} within its region,
+{{< hyper "keyword" >}}s, bound to the specified transformers.
+Each binding of a {{< hyper "keyword" >}} has the {{< hyper "transformer spec" >}}s
+as well as the {{< hyper "body" >}} within its region,
 so the transformers can
 transcribe expressions into uses of the macros
 introduced by the ``letrec-syntax`` expression.
@@ -1598,52 +1598,52 @@ introduced by the ``letrec-syntax`` expression.
 ### 4.3.2. Pattern language
 {{< label "patternlanguage" >}}
 
-A \hyper{transformer spec} has one of the following forms:
+A {{< hyper "transformer spec" >}} has one of the following forms:
 
 \begin{entry}{
-\pproto{(syntax-rules (\hyper{literal} \dotsfoo)}{\exprtype}
+\pproto{(syntax-rules ({{< hyper "literal" >}} \dotsfoo)}{syntax}
 {\tt\obeyspaces
-\hspace*{1em}\hyper{syntax rule} \dotsfoo)\\
+\hspace*{1em}{{< hyper "syntax rule" >}} \dotsfoo)\\
 }
-\pproto{(syntax-rules \hyper{ellipsis} (\hyper{literal} \dotsfoo)}{\exprtype}
+\pproto{(syntax-rules {{< hyper "ellipsis" >}} ({{< hyper "literal" >}} \dotsfoo)}{syntax}
 {\tt\obeyspaces
-\hspace*{1em}\hyper{syntax rule} \dotsfoo)}\\
+\hspace*{1em}{{< hyper "syntax rule" >}} \dotsfoo)}\\
 \pproto{_}{\auxiliarytype}
 \pproto{\dotsfoo}{\auxiliarytype}}
 \mainschindex{_}
 
 \syntax
-It is an error if any of the \hyper{literal}s, or the \hyper{ellipsis} in the second form,
+It is an error if any of the {{< hyper "literal" >}}s, or the {{< hyper "ellipsis" >}} in the second form,
 is not an identifier.
 It is also an error if
-\hyper{syntax rule} is not of the form
+{{< hyper "syntax rule" >}} is not of the form
 ```
-(\hyper{pattern} \hyper{template})
+({{< hyper "pattern" >}} {{< hyper "template" >}})
 ```
-The \hyper{pattern} in a \hyper{syntax rule} is a list \hyper{pattern}
+The {{< hyper "pattern" >}} in a {{< hyper "syntax rule" >}} is a list {{< hyper "pattern" >}}
 whose first element is an identifier.
 
-A \hyper{pattern} is either an identifier, a constant, or one of the
+A {{< hyper "pattern" >}} is either an identifier, a constant, or one of the
 following
 ```
-(\hyper{pattern} \ldots)
-(\hyper{pattern} \hyper{pattern} \ldots . \hyper{pattern})
-(\hyper{pattern} \ldots \hyper{pattern} \hyper{ellipsis} \hyper{pattern} \ldots)
-(\hyper{pattern} \ldots \hyper{pattern} \hyper{ellipsis} \hyper{pattern} \ldots
-  . \hyper{pattern})
-#(\hyper{pattern} \ldots)
-#(\hyper{pattern} \ldots \hyper{pattern} \hyper{ellipsis} \hyper{pattern} \ldots)
+({{< hyper "pattern" >}} \ldots)
+({{< hyper "pattern" >}} {{< hyper "pattern" >}} \ldots . {{< hyper "pattern" >}})
+({{< hyper "pattern" >}} \ldots {{< hyper "pattern" >}} {{< hyper "ellipsis" >}} {{< hyper "pattern" >}} \ldots)
+({{< hyper "pattern" >}} \ldots {{< hyper "pattern" >}} {{< hyper "ellipsis" >}} {{< hyper "pattern" >}} \ldots
+  . {{< hyper "pattern" >}})
+#({{< hyper "pattern" >}} \ldots)
+#({{< hyper "pattern" >}} \ldots {{< hyper "pattern" >}} {{< hyper "ellipsis" >}} {{< hyper "pattern" >}} \ldots)
 ```
-and a \hyper{template} is either an identifier, a constant, or one of the following
+and a {{< hyper "template" >}} is either an identifier, a constant, or one of the following
 ```
-(\hyper{element} \ldots)
-(\hyper{element} \hyper{element} \ldots . \hyper{template})
-(\hyper{ellipsis} \hyper{template})
-#(\hyper{element} \ldots)
+({{< hyper "element" >}} \ldots)
+({{< hyper "element" >}} {{< hyper "element" >}} \ldots . {{< hyper "template" >}})
+({{< hyper "ellipsis" >}} {{< hyper "template" >}})
+#({{< hyper "element" >}} \ldots)
 ```
-where an \hyper{element} is a \hyper{template} optionally
-followed by an \hyper{ellipsis}.
-An \hyper{ellipsis} is the identifier specified in the second form
+where an {{< hyper "element" >}} is a {{< hyper "template" >}} optionally
+followed by an {{< hyper "ellipsis" >}}.
+An {{< hyper "ellipsis" >}} is the identifier specified in the second form
 of ``syntax-rules``, or the default identifier ``...``
 (three consecutive periods) otherwise.\schindex{...}
 
@@ -1651,32 +1651,32 @@ of ``syntax-rules``, or the default identifier ``...``
 transformer by specifying a sequence of hygienic rewrite rules.  A use
 of a macro whose keyword is associated with a transformer specified by
 ``syntax-rules`` is matched against the patterns contained in the
-\hyper{syntax rule}s, beginning with the leftmost \hyper{syntax rule}.
+{{< hyper "syntax rule" >}}s, beginning with the leftmost {{< hyper "syntax rule" >}}.
 When a match is found, the macro use is transcribed hygienically
 according to the template.
 
-An identifier appearing within a \hyper{pattern} can be an underscore
-(``_``), a literal identifier listed in the list of \hyper{literal}s,
-or the \hyper{ellipsis}.
-All other identifiers appearing within a \hyper{pattern} are
+An identifier appearing within a {{< hyper "pattern" >}} can be an underscore
+(``_``), a literal identifier listed in the list of {{< hyper "literal" >}}s,
+or the {{< hyper "ellipsis" >}}.
+All other identifiers appearing within a {{< hyper "pattern" >}} are
 _pattern variables_.
 
 The keyword at the beginning of the pattern in a
-\hyper{syntax rule} is not involved in the matching and
+{{< hyper "syntax rule" >}} is not involved in the matching and
 is considered neither a pattern variable nor a literal identifier.
 
 Pattern variables match arbitrary input elements and
 are used to refer to elements of the input in the template.
 It is an error for the same pattern variable to appear more than once in a
-\hyper{pattern}.
+{{< hyper "pattern" >}}.
 
 Underscores also match arbitrary input elements but are not pattern variables
 and so cannot be used to refer to those elements.  If an underscore appears
-in the \hyper{literal}s list, then that takes precedence and
-underscores in the \hyper{pattern} match as literals.
-Multiple underscores can appear in a \hyper{pattern}.
+in the {{< hyper "literal" >}}s list, then that takes precedence and
+underscores in the {{< hyper "pattern" >}} match as literals.
+Multiple underscores can appear in a {{< hyper "pattern" >}}.
 
-Identifiers that appear in \texttt{(\hyper{literal} \dotsfoo)} are
+Identifiers that appear in \texttt{({{< hyper "literal" >}} \dotsfoo)} are
 interpreted as literal
 identifiers to be matched against corresponding elements of the input.
 An element in the input matches a literal identifier if and only if it is an
@@ -1684,8 +1684,8 @@ identifier and either both its occurrence in the macro expression and its
 occurrence in the macro definition have the same lexical binding, or
 the two identifiers are the same and both have no lexical binding.
 
-A subpattern followed by \hyper{ellipsis} can match zero or more elements of
-the input, unless \hyper{ellipsis} appears in the \hyper{literal}s, in which
+A subpattern followed by {{< hyper "ellipsis" >}} can match zero or more elements of
+the input, unless {{< hyper "ellipsis" >}} appears in the {{< hyper "literal" >}}s, in which
 case it is matched as a literal.
 
 More formally, an input expression $E$ matches a pattern $P$ if and only if:
@@ -1744,12 +1744,12 @@ It is an error to use a macro keyword, within the scope of its
 binding, in an expression that does not match any of the patterns.
 
 When a macro use is transcribed according to the template of the
-matching \hyper{syntax rule}, pattern variables that occur in the
+matching {{< hyper "syntax rule" >}}, pattern variables that occur in the
 template are replaced by the elements they match in the input.
 Pattern variables that occur in subpatterns followed by one or more
 instances of the identifier
-\hyper{ellipsis} are allowed only in subtemplates that are
-followed by as many instances of \hyper{ellipsis}.
+{{< hyper "ellipsis" >}} are allowed only in subtemplates that are
+followed by as many instances of {{< hyper "ellipsis" >}}.
 They are replaced in the
 output by all of the elements they match in the input, distributed as
 indicated.  It is an error if the output cannot be built up as
@@ -1760,7 +1760,7 @@ specified.
 
 Identifiers that appear in the template but are not pattern variables
 or the identifier
-\hyper{ellipsis} are inserted into the output as literal identifiers.  If a
+{{< hyper "ellipsis" >}} are inserted into the output as literal identifiers.  If a
 literal identifier is inserted as a free identifier then it refers to the
 binding of that identifier within whose scope the instance of
 ``syntax-rules`` appears.
@@ -1768,13 +1768,13 @@ If a literal identifier is inserted as a bound identifier then it is
 in effect renamed to prevent inadvertent captures of free identifiers.
 
 A template of the form
-``(\hyper{ellipsis`` \hyper{template})} is identical to \hyper{template},
+``({{< hyper "ellipsis`` \hyper{template" >}})} is identical to {{< hyper "template" >}},
 except that
 ellipses within the template have no special meaning.
-That is, any ellipses contained within \hyper{template} are
+That is, any ellipses contained within {{< hyper "template" >}} are
 treated as ordinary identifiers.
-In particular, the template ``(\hyper{ellipsis`` \hyper{ellipsis})} produces
-a single \hyper{ellipsis}.
+In particular, the template ``({{< hyper "ellipsis`` \hyper{ellipsis" >}})} produces
+a single {{< hyper "ellipsis" >}}.
 This allows syntactic abstractions to expand into code containing
 ellipses.
 
@@ -1826,15 +1826,15 @@ which would result in an invalid procedure call.
 
 
 \begin{entry}{
-\pproto{(syntax-error \hyper{message} \hyper{args} \dotsfoo)}{\exprtype}}
+\pproto{(syntax-error {{< hyper "message" >}} {{< hyper "args" >}} \dotsfoo)}{syntax}}
 \mainschindex{syntax-error}
 
 ``syntax-error`` behaves similarly to ``error`` (\ref{exceptionsection}) except that implementations
 with an expansion pass separate from evaluation should signal an error
 as soon as ``syntax-error`` is expanded.  This can be used as
-a ``syntax-rules`` \hyper{template} for a \hyper{pattern} that is
+a ``syntax-rules`` {{< hyper "template" >}} for a {{< hyper "pattern" >}} that is
 an invalid use of the macro, which can provide more descriptive error
-messages.  \hyper{message} is a string literal, and \hyper{args}
+messages.  {{< hyper "message" >}} is a string literal, and {{< hyper "args" >}}
 arbitrary expressions providing additional information.
 Applications cannot count on being able to catch syntax errors with
 exception handlers or guards.

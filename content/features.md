@@ -30,6 +30,6 @@ provide the corresponding feature.
 \feature{i386, x86-64, ppc, sparc, jvm, clr, llvm, ...}{CPU architecture flags.}
 \feature{ilp32, lp64, ilp64, ...}{C memory model flags.}
 \feature{big-endian, little-endian}{Byte order flags.}
-\feature{\hyper{name}}{The name of this implementation.}
-\feature{\hyper{name-version}}{The name and version of this
+\feature{{{< hyper "name" >}}}{The name of this implementation.}
+\feature{{{< hyper "name-version" >}}}{The name and version of this
   implementation.}

@@ -629,11 +629,11 @@ implementations may accept numerical constants
 written with an exponent marker that indicates the
 desired precision of the \tupe{inexact}
 representation.  If so, the letter ``s``, ``f``,
-``d``, or ``l``, meaning \var{short}, \var{single},
-\var{double}, or \var{long} precision, respectively,
+``d``, or ``l``, meaning _short_, _single_,
+_double_, or _long_ precision, respectively,
 can be used in place of ``e``.
 The default precision has at least as much precision
-as \var{double}, but
+as _double_, but
 implementations may allow this default to be set by the user.
 
 ```
@@ -655,14 +655,14 @@ between different NaNs.
 
 There are two notations provided for non-real complex numbers:
 the \defining{rectangular notation}
-\var{a}``+``\var{b}``i``,
-where \var{a} is the real part and \var{b} is the imaginary part;
+_a_``+``_b_``i``,
+where _a_ is the real part and _b_ is the imaginary part;
 and the \defining{polar notation}
-\var{r}``@``$\theta$,
-where \var{r} is the magnitude and $\theta$ is the phase (angle) in radians.
+_r_``@``$\theta$,
+where _r_ is the magnitude and $\theta$ is the phase (angle) in radians.
 These are related by the equation
 $a+b\mathrm{i} = r \cos\theta + (r \sin\theta) \mathrm{i}$.
-All of \var{a}, \var{b}, \var{r}, and $\theta$ are real numbers.
+All of _a_, _b_, _r_, and $\theta$ are real numbers.
 
 
 ### 6.2.6. Numerical operations
@@ -957,9 +957,9 @@ $\vri{n} = \vrii{n} \vr{n_q} + \vr{n_r}$.  For each of the
 division operators, there are three procedures defined as follows:
 
 ```
-(\hyper{operator}/ \vri{n} \vrii{n})             \ev \vr{n_q} \vr{n_r}
-(\hyper{operator}-quotient \vri{n} \vrii{n})     \ev \vr{n_q}
-(\hyper{operator}-remainder \vri{n} \vrii{n})    \ev \vr{n_r}
+({{< hyper "operator" >}}/ \vri{n} \vrii{n})             \ev \vr{n_q} \vr{n_r}
+({{< hyper "operator" >}}-quotient \vri{n} \vrii{n})     \ev \vr{n_q}
+({{< hyper "operator" >}}-remainder \vri{n} \vrii{n})    \ev \vr{n_r}
 ```
 
 The remainder \vr{n_r} is determined by the choice of integer
@@ -974,8 +974,8 @@ operators uses a different choice of \vr{n_q}:
 For any of the operators, and for integers \vri{n} and \vrii{n}
 with \vrii{n} not equal to 0,
 ```
-     (= \vri{n} (+ (* \vrii{n} (\hyper{operator}-quotient \vri{n} \vrii{n}))
-           (\hyper{operator}-remainder \vri{n} \vrii{n})))
+     (= \vri{n} (+ (* \vrii{n} ({{< hyper "operator" >}}-quotient \vri{n} \vrii{n}))
+           ({{< hyper "operator" >}}-remainder \vri{n} \vrii{n})))
                                  \ev  \schtrue
 ```
 provided all numbers involved in that computation are exact.
@@ -1155,7 +1155,7 @@ However, ``(log 0.0)`` returns ``-inf.0``
 (and ``(log -0.0)`` returns ``-inf.0+$\pi$i``) if the
 implementation supports infinities (and ``-0.0``).
 
-The range of \texttt{(``atan`` \var{y} \var{x})} is as in the
+The range of \texttt{(``atan`` _y_ _x_)} is as in the
 following table. The asterisk (*) indicates that the entry applies to
 implementations that distinguish minus zero.
 
@@ -1197,7 +1197,7 @@ result from a real argument.
 \proto{square}{ \vr{z}}{procedure}}
 
 Returns the square of \vr{z}.
-This is equivalent to \texttt{(``*`` \var{z} \var{z})}.
+This is equivalent to \texttt{(``*`` _z_ _z_)}.
 ```
 (square 42)      \ev 1764
 (square 2.0)     \ev 4.0
@@ -1232,7 +1232,7 @@ part.
 \proto{exact-integer-sqrt}{ k}{procedure}}
 
 Returns two non-negative exact integers $s$ and $r$ where
-$\var{k} = s^2 + r$ and $\var{k} < (s+1)^2$.
+$_k_ = s^2 + r$ and $_k_ < (s+1)^2$.
 
 ```
 (exact-integer-sqrt 4) \ev 2 0
@@ -1429,7 +1429,7 @@ also be applied to ``read`` and to the routine that reads programs, in
 order to maintain consistency between internal numeric processing, I/O,
 and the processing of programs.
 As a consequence, the {{< rnrs 5 >}} permission to return {{< tt "#f" >}} when
-\var{string} has an explicit radix prefix has been withdrawn.
+_string_ has an explicit radix prefix has been withdrawn.
 
 
 \end{entry}
@@ -1472,7 +1472,7 @@ in programs.
 \begin{entry}{
 \proto{not}{ obj}{procedure}}
 
-The ``not`` procedure returns {{< tt "#t" >}} if \var{obj} is false, and returns
+The ``not`` procedure returns {{< tt "#t" >}} if _obj_ is false, and returns
 {{< tt "#f" >}} otherwise.
 
 ```
@@ -1491,7 +1491,7 @@ The ``not`` procedure returns {{< tt "#t" >}} if \var{obj} is false, and returns
 \begin{entry}{
 \proto{boolean?}{ obj}{procedure}}
 
-The ``boolean?`` predicate returns {{< tt "#t" >}} if \var{obj} is either {{< tt "#t" >}} or
+The ``boolean?`` predicate returns {{< tt "#t" >}} if _obj_ is either {{< tt "#t" >}} or
 {{< tt "#f" >}} and returns {{< tt "#f" >}} otherwise.
 
 ```
@@ -1523,12 +1523,12 @@ The car and cdr fields are accessed by the procedures ``car`` and
 Pairs are used primarily to represent lists.  A \defining{list} can
 be defined recursively as either the empty list or a pair whose
 cdr is a list.  More precisely, the set of lists is defined as the smallest
-set \var{X} such that
+set _X_ such that
 
 
-- The empty list is in \var{X}.
-- If \var{list} is in \var{X}, then any pair whose cdr field contains
-      \var{list} is also in \var{X}.
+- The empty list is in _X_.
+- If _list_ is in _X_, then any pair whose cdr field contains
+      _list_ is also in _X_.
 
 
 The objects in the car fields of successive pairs of a list are the
@@ -1602,12 +1602,12 @@ y                       \ev  (a . 4)
 ```
 
 Within literal expressions and representations of objects read by the
-\ide{read} procedure, the forms \singlequote\hyper{datum}\schindex{'},
-\backquote\hyper{datum}, {\tt,}\hyper{datum}\schindex{,}, and
-{\tt,@}\hyper{datum} denote two-ele\-ment lists whose first elements are
+\ide{read} procedure, the forms \singlequote{{< hyper "datum" >}}\schindex{'},
+\backquote{{< hyper "datum" >}}, {\tt,}{{< hyper "datum" >}}\schindex{,}, and
+{\tt,@}{{< hyper "datum" >}} denote two-ele\-ment lists whose first elements are
 the symbols \ide{quote}, \ide{quasiquote}, \hbox{\ide{unquote}}, and
 \ide{unquote-splicing}, respectively.  The second element in each case
-is \hyper{datum}.  This convention is supported so that arbitrary Scheme
+is {{< hyper "datum" >}}.  This convention is supported so that arbitrary Scheme
 programs can be represented as lists.
 That is, according to Scheme's grammar, every
 \meta{expression} is also a \meta{datum} (see section~\ref{datum}).
@@ -1618,7 +1618,7 @@ parse Scheme programs.  See section~\ref{externalreps}.
 \begin{entry}{
 \proto{pair?}{ obj}{procedure}}
 
-The ``pair?`` predicate returns {{< tt "#t" >}} if \var{obj} is a pair, and otherwise
+The ``pair?`` predicate returns {{< tt "#t" >}} if _obj_ is a pair, and otherwise
 returns \schfalse.
 
 ```
@@ -1650,7 +1650,7 @@ Returns a newly allocated pair whose car is \vari{obj} and whose cdr is
 \begin{entry}{
 \proto{car}{ pair}{procedure}}
 
-Returns the contents of the car field of \var{pair}.  Note that it is an
+Returns the contents of the car field of _pair_.  Note that it is an
 error to take the car of the empty list.
 
 ```
@@ -1666,7 +1666,7 @@ error to take the car of the empty list.
 \begin{entry}{
 \proto{cdr}{ pair}{procedure}}
 
-Returns the contents of the cdr field of \var{pair}.
+Returns the contents of the cdr field of _pair_.
 Note that it is an error to take the cdr of the empty list.
 
 ```
@@ -1681,7 +1681,7 @@ Note that it is an error to take the cdr of the empty list.
 \begin{entry}{
 \proto{set-car!}{ pair obj}{procedure}}
 
-Stores \var{obj} in the car field of \var{pair}.
+Stores _obj_ in the car field of _pair_.
 ```
 (define (f) (list 'not-a-constant-list))
 (define (g) '(constant-list))
@@ -1695,10 +1695,10 @@ Stores \var{obj} in the car field of \var{pair}.
 \begin{entry}{
 \proto{set-cdr!}{ pair obj}{procedure}}
 
-Stores \var{obj} in the cdr field of \var{pair}.
+Stores _obj_ in the cdr field of _pair_.
 \end{entry}
 
-\setbox0\hbox{\tt(cadr \var{pair})}
+\setbox0\hbox{\tt(cadr _pair_)}
 \setbox1\hbox{procedure}
 
 
@@ -1748,7 +1748,7 @@ Arbitrary compositions up to four deep are provided.
 \begin{entry}{
 \proto{null?}{ obj}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{obj} is the empty list,
+Returns {{< tt "#t" >}} if _obj_ is the empty list,
 otherwise returns \schfalse.
 
 \end{entry}
@@ -1756,7 +1756,7 @@ otherwise returns \schfalse.
 \begin{entry}{
 \proto{list?}{ obj}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{obj} is a list.  Otherwise, it returns {{< tt "#f" >}}.
+Returns {{< tt "#t" >}} if _obj_ is a list.  Otherwise, it returns {{< tt "#f" >}}.
 By definition, all lists have finite length and are terminated by
 the empty list.
 
@@ -1776,8 +1776,8 @@ the empty list.
 \proto{make-list}{ k}{procedure}
 \rproto{make-list}{ k fill}{procedure}}
 
-Returns a newly allocated list of \var{k} elements.  If a second
-argument is given, then each element is initialized to \var{fill}.
+Returns a newly allocated list of _k_ elements.  If a second
+argument is given, then each element is initialized to _fill_.
 Otherwise the initial contents of each element is unspecified.
 
 ```
@@ -1789,7 +1789,7 @@ Otherwise the initial contents of each element is unspecified.
 
 
 \begin{entry}{
-\proto{list}{ \var{obj} \dotsfoo}{procedure}}
+\proto{list}{ _obj_ \dotsfoo}{procedure}}
 
 Returns a newly allocated list of its arguments.
 
@@ -1803,7 +1803,7 @@ Returns a newly allocated list of its arguments.
 \begin{entry}{
 \proto{length}{ list}{procedure}}
 
-Returns the length of \var{list}.
+Returns the length of _list_.
 
 ```
 (length '(a b c))               \ev  3
@@ -1819,8 +1819,8 @@ Returns the length of \var{list}.
 \proto{append}{ list \dotsfoo}{procedure}}
 
 \domain{The last argument, if there is one, can be of any type.}
-Returns a list consisting of the elements of the first \var{list}
-followed by the elements of the other \var{list}s.
+Returns a list consisting of the elements of the first _list_
+followed by the elements of the other _list_s.
 If there are no arguments, the empty list is returned.
 If there is exactly one argument, it is returned.
 Otherwise the resulting list is always newly allocated, except that it shares
@@ -1845,7 +1845,7 @@ proper list.
 \begin{entry}{
 \proto{reverse}{ list}{procedure}}
 
-Returns a newly allocated list consisting of the elements of \var{list}
+Returns a newly allocated list consisting of the elements of _list_
 in reverse order.
 
 ```
@@ -1858,8 +1858,8 @@ in reverse order.
 \begin{entry}{
 \proto{list-tail}{ list \vr{k}}{procedure}}
 
-\domain{It is an error if \var{list} has fewer than \vr{k} elements.}
-Returns the sublist of \var{list} obtained by omitting the first \vr{k}
+\domain{It is an error if _list_ has fewer than \vr{k} elements.}
+Returns the sublist of _list_ obtained by omitting the first \vr{k}
 elements.
 The ``list-tail`` procedure could be defined by
 
@@ -1876,10 +1876,10 @@ The ``list-tail`` procedure could be defined by
 \begin{entry}{
 \proto{list-ref}{ list \vr{k}}{procedure}}
 
-\domain{The \var{list} argument can be circular, but
-it is an error if \var{list} has fewer than \vr{k} elements.}
-Returns the \vr{k}th element of \var{list}.  (This is the same
-as the car of {\tt(list-tail \var{list} \vr{k})}.)
+\domain{The _list_ argument can be circular, but
+it is an error if _list_ has fewer than \vr{k} elements.}
+Returns the \vr{k}th element of _list_.  (This is the same
+as the car of {\tt(list-tail _list_ \vr{k})}.)
 
 ```
 (list-ref '(a b c d) 2)                 \ev  c
@@ -1891,8 +1891,8 @@ as the car of {\tt(list-tail \var{list} \vr{k})}.)
 \begin{entry}{
 \proto{list-set!}{ list k obj}{procedure}}
 
-\domain{It is an error if \vr{k} is not a valid index of \var{list}.}
-The ``list-set!`` procedure stores \var{obj} in element \vr{k} of \var{list}.
+\domain{It is an error if \vr{k} is not a valid index of _list_.}
+The ``list-set!`` procedure stores _obj_ in element \vr{k} of _list_.
 ```
 (let ((ls (list 'one 'two 'five!)))
   (list-set! ls 2 'three)
@@ -1911,14 +1911,14 @@ The ``list-set!`` procedure stores \var{obj} in element \vr{k} of \var{list}.
 \proto{member}{ obj list}{procedure}
 \rproto{member}{ obj list compare}{procedure}}
 
-These procedures return the first sublist of \var{list} whose car is
-\var{obj}, where the sublists of \var{list} are the non-empty lists
-returned by {\tt (list-tail \var{list} \var{k})} for \var{k} less
-than the length of \var{list}.  If
-\var{obj} does not occur in \var{list}, then {{< tt "#f" >}} (not the empty list) is
-returned.  The ``memq`` procedure uses ``eq?`` to compare \var{obj} with the elements of
-\var{list}, while ``memv`` uses ``eqv?`` and
-``member`` uses \var{compare}, if given, and ``equal?`` otherwise.
+These procedures return the first sublist of _list_ whose car is
+_obj_, where the sublists of _list_ are the non-empty lists
+returned by {\tt (list-tail _list_ _k_)} for _k_ less
+than the length of _list_.  If
+_obj_ does not occur in _list_, then {{< tt "#f" >}} (not the empty list) is
+returned.  The ``memq`` procedure uses ``eq?`` to compare _obj_ with the elements of
+_list_, while ``memv`` uses ``eqv?`` and
+``member`` uses _compare_, if given, and ``equal?`` otherwise.
 
 ```
 (memq 'a '(a b c))              \ev  (a b c)
@@ -1943,13 +1943,13 @@ returned.  The ``memq`` procedure uses ``eq?`` to compare \var{obj} with the ele
 \proto{assoc}{ obj alist}{procedure}
 \rproto{assoc}{ obj alist compare}{procedure}}
 
-\domain{It is an error if \var{alist} (for "association list") is not a list of
+\domain{It is an error if _alist_ (for "association list") is not a list of
 pairs.}
-These procedures find the first pair in \var{alist} whose car field is \var{obj},
-and returns that pair.  If no pair in \var{alist} has \var{obj} as its
+These procedures find the first pair in _alist_ whose car field is _obj_,
+and returns that pair.  If no pair in _alist_ has _obj_ as its
 car, then {{< tt "#f" >}} (not the empty list) is returned.  The ``assq`` procedure uses
-``eq?`` to compare \var{obj} with the car fields of the pairs in \var{alist},
-while ``assv`` uses ``eqv?`` and ``assoc`` uses \var{compare} if given
+``eq?`` to compare _obj_ with the car fields of the pairs in _alist_,
+while ``assv`` uses ``eqv?`` and ``assoc`` uses _compare_ if given
 and ``equal?`` otherwise.
 
 ```
@@ -1981,13 +1981,13 @@ potentially useful values rather than just {{< tt "#t" >}} or {{< tt "#f" >}}.
 \begin{entry}{
 \proto{list-copy}{ obj}{procedure}}
 
-Returns a newly allocated copy of the given \var{obj} if it is a list.
+Returns a newly allocated copy of the given _obj_ if it is a list.
 Only the pairs themselves are copied; the cars of the result are
-the same (in the sense of ``eqv?``) as the cars of \var{list}.
-If \var{obj} is an improper list, so is the result, and the final
+the same (in the sense of ``eqv?``) as the cars of _list_.
+If _obj_ is an improper list, so is the result, and the final
 cdrs are the same in the sense of ``eqv?``.
-An \var{obj} which is not a list is returned unchanged.
-It is an error if \var{obj} is a circular list.
+An _obj_ which is not a list is returned unchanged.
+It is an error if _obj_ is a circular list.
 
 ```
 (define a '(1 8 2 8)) ; a may be immutable
@@ -2029,7 +2029,7 @@ implementation-dependent extensions.
 \begin{entry}{
 \proto{symbol?}{ obj}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{obj} is a symbol, otherwise returns \schfalse.
+Returns {{< tt "#t" >}} if _obj_ is a symbol, otherwise returns \schfalse.
 
 ```
 (symbol? 'foo)          \ev  \schtrue
@@ -2057,7 +2057,7 @@ are uninterned symbols.
 \begin{entry}{
 \proto{symbol->string}{ symbol}{procedure}}
 
-Returns the name of \var{symbol} as a string, but without adding escapes.
+Returns the name of _symbol_ as a string, but without adding escapes.
 It is an error
 to apply mutation procedures like \ide{string-set!} to strings returned
 by this procedure.
@@ -2076,7 +2076,7 @@ by this procedure.
 \begin{entry}{
 \proto{string->symbol}{ string}{procedure}}
 
-Returns the symbol whose name is \var{string}.  This procedure can
+Returns the symbol whose name is _string_.  This procedure can
 create symbols with names containing special characters that would
 require escaping when written, but does not interpret escapes in its input.
 
@@ -2107,8 +2107,8 @@ and may also support non-Unicode characters as well.
 Except as otherwise specified, the result of applying any of the
 following procedures to a non-Unicode character is implementation-dependent.
 
-Characters are written using the notation \sharpsign\backwhack\hyper{character}
-or \sharpsign\backwhack\hyper{character name} or
+Characters are written using the notation \sharpsign\backwhack{{< hyper "character" >}}
+or \sharpsign\backwhack{{< hyper "character name" >}} or
 \sharpsign\backwhack{}x\meta{hex scalar value}.
 
 The following character names must be supported
@@ -2143,12 +2143,12 @@ $$
 \end{tabular}
 $$
 
-Case is significant in \sharpsign\backwhack\hyper{character}, and in
+Case is significant in \sharpsign\backwhack{{< hyper "character" >}}, and in
 \sharpsign\backwhack{\rm$\langle$character name$\rangle$},
 but not in {\cf\sharpsign\backwhack{}x}\meta{hex scalar value}.
-If \hyper{character} in
-\sharpsign\backwhack\hyper{character} is alphabetic, then any character
-immediately following \hyper{character} cannot be one that can appear in an identifier.
+If {{< hyper "character" >}} in
+\sharpsign\backwhack{{< hyper "character" >}} is alphabetic, then any character
+immediately following {{< hyper "character" >}} cannot be one that can appear in an identifier.
 This rule resolves the ambiguous case where, for
 example, the sequence of characters "{\tt\sharpsign\backwhack space}"
 could be taken to be either a representation of the space character or a
@@ -2168,7 +2168,7 @@ insensitive") embedded in their names.
 \begin{entry}{
 \proto{char?}{ obj}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{obj} is a character, otherwise returns \schfalse.
+Returns {{< tt "#t" >}} if _obj_ is a character, otherwise returns \schfalse.
 
 \end{entry}
 
@@ -2316,8 +2316,8 @@ themselves.  Escape sequences always start with a backslash (\backwhack{}):
 \item{\cf\backwhack{}}\verb|"| : double quote, U+0022
 \item{\cf\backwhack{}\backwhack{}} : backslash, U+005C
 \item{\cf\backwhack{}|} : vertical line, U+007C
-\item{\cf\backwhack{}\arbno{\hyper{intraline whitespace}}\hyper{line ending}
-      \arbno{\hyper{intraline whitespace}}} : nothing
+\item{\cf\backwhack{}\arbno{{{< hyper "intraline whitespace" >}}}{{< hyper "line ending" >}}
+      \arbno{{{< hyper "intraline whitespace" >}}}} : nothing
 \item{\cf\backwhack{}x\meta{hex scalar value};} : specified character (note the
   terminating semi-colon).
 
@@ -2327,7 +2327,7 @@ after a backslash.
 
 Except for a line ending, any character outside of an escape
 sequence stands for itself in the string literal.  A line ending which
-is preceded by {\cf\backwhack{}\hyper{intraline whitespace}} expands
+is preceded by {\cf\backwhack{}{{< hyper "intraline whitespace" >}}} expands
 to nothing (along with any trailing intraline whitespace), and can be
 used to indent strings for improved legibility. Any other line ending
 has the same effect as inserting a {\cf\backwhack{}n} character into
@@ -2376,7 +2376,7 @@ to attempt to read one.
 \begin{entry}{
 \proto{string?}{ obj}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{obj} is a string, otherwise returns \schfalse.
+Returns {{< tt "#t" >}} if _obj_ is a string, otherwise returns \schfalse.
 \end{entry}
 
 
@@ -2385,8 +2385,8 @@ Returns {{< tt "#t" >}} if \var{obj} is a string, otherwise returns \schfalse.
 \rproto{make-string}{ \vr{k} char}{procedure}}
 
 The ``make-string`` procedure returns a newly allocated string of
-length \vr{k}.  If \var{char} is given, then all the characters of the string
-are initialized to \var{char}, otherwise the contents of the
+length \vr{k}.  If _char_ is given, then all the characters of the string
+are initialized to _char_, otherwise the contents of the
 string are unspecified.
 
 \end{entry}
@@ -2402,15 +2402,15 @@ It is analogous to ``list``.
 \begin{entry}{
 \proto{string-length}{ string}{procedure}}
 
-Returns the number of characters in the given \var{string}.
+Returns the number of characters in the given _string_.
 \end{entry}
 
 
 \begin{entry}{
 \proto{string-ref}{ string \vr{k}}{procedure}}
 
-\domain{It is an error if \vr{k} is not a valid index of \var{string}.}
-The ``string-ref`` procedure returns character \vr{k} of \var{string} using zero-origin indexing.
+\domain{It is an error if \vr{k} is not a valid index of _string_.}
+The ``string-ref`` procedure returns character \vr{k} of _string_ using zero-origin indexing.
 \end{entry}
 There is no requirement for this procedure to execute in constant time.
 
@@ -2418,8 +2418,8 @@ There is no requirement for this procedure to execute in constant time.
 \begin{entry}{
 \proto{string-set!}{ string k char}{procedure}}
 
-\domain{It is an error if \vr{k} is not a valid index of \var{string}.}
-The ``string-set!`` procedure stores \var{char} in element \vr{k} of \var{string}.
+\domain{It is an error if \vr{k} is not a valid index of _string_.}
+The ``string-set!`` procedure stores _char_ in element \vr{k} of _string_.
 There is no requirement for this procedure to execute in constant time.
 
 ```
@@ -2520,8 +2520,8 @@ choose to change $\Sigma$ to $\sigma$ in all cases.
 \proto{substring}{ string start end}{procedure}}
 
 The ``substring`` procedure returns a newly allocated string formed from the characters of
-\var{string} beginning with index \var{start} and ending with index
-\var{end}.
+_string_ beginning with index _start_ and ending with index
+_end_.
 This is equivalent to calling ``string-copy`` with the same arguments,
 but is provided for backward compatibility and
 stylistic flexibility.
@@ -2529,7 +2529,7 @@ stylistic flexibility.
 
 
 \begin{entry}{
-\proto{string-append}{ \var{string} \dotsfoo}{procedure}}
+\proto{string-append}{ _string_ \dotsfoo}{procedure}}
 
 Returns a newly allocated string whose characters are the concatenation of the
 characters in the given strings.
@@ -2543,12 +2543,12 @@ characters in the given strings.
 \rproto{string->list}{ string start end}{procedure}
 \proto{list->string}{ list}{procedure}}
 
-\domain{It is an error if any element of \var{list} is not a character.}
+\domain{It is an error if any element of _list_ is not a character.}
 The ``string\coerce{``list} procedure returns a newly allocated list of the
-characters of \var{string} between \var{start} and \var{end}.
+characters of _string_ between _start_ and _end_.
 ``list\coerce{``string}
 returns a newly allocated string formed from the elements in the list
-\var{list}.
+_list_.
 In both procedures, order is preserved.
 ``string\coerce{``list}
 and ``list\coerce{``string} are
@@ -2562,8 +2562,8 @@ inverses so far as ``equal?`` is concerned.
 \rproto{string-copy}{ string start}{procedure}
 \rproto{string-copy}{ string start end}{procedure}}
 
-Returns a newly allocated copy of the part of the given \var{string}
-between \var{start} and \var{end}.
+Returns a newly allocated copy of the part of the given _string_
+between _start_ and _end_.
 
 \end{entry}
 
@@ -2573,11 +2573,11 @@ between \var{start} and \var{end}.
 \rproto{string-copy!}{ to at from start}{procedure}
 \rproto{string-copy!}{ to at from start end}{procedure}}
 
-\domain{It is an error if \var{at} is less than zero or greater than the length of \var{to}.
-It is also an error if ``(- (string-length \var{to``) \var{at})}
-is less than ``(- \var{end`` \var{start})}.}
-Copies the characters of string \var{from} between \var{start} and \var{end}
-to string \var{to}, starting at \var{at}.  The order in which characters are
+\domain{It is an error if _at_ is less than zero or greater than the length of _to_.
+It is also an error if ``(- (string-length _to``) \var{at_)}
+is less than ``(- _end`` \var{start_)}.}
+Copies the characters of string _from_ between _start_ and _end_
+to string _to_, starting at _at_.  The order in which characters are
 copied is unspecified, except that if the source and destination overlap,
 copying takes place as if the source is first copied into a temporary
 string and then into the destination.  This can be achieved without
@@ -2599,11 +2599,11 @@ b \ev "a12de"
 \rproto{string-fill!}{ string fill start}{procedure}
 \rproto{string-fill!}{ string fill start end}{procedure}}
 
-\domain{It is an error if \var{fill} is not a character.}
+\domain{It is an error if _fill_ is not a character.}
 
-The ``string-fill!`` procedure stores \var{fill}
-in the elements of \var{string}
-between \var{start} and \var{end}.
+The ``string-fill!`` procedure stores _fill_
+in the elements of _string_
+between _start_ and _end_.
 
 \end{entry}
 
@@ -2623,7 +2623,7 @@ vector are the exact non-negative integers less than the length of the
 vector.  The first element in a vector is indexed by zero, and the last
 element is indexed by one less than the length of the vector.
 
-Vectors are written using the notation {\tt#(\var{obj} \dotsfoo)}.
+Vectors are written using the notation {\tt#(_obj_ \dotsfoo)}.
 For example, a vector of length 3 containing the number zero in element
 0, the list {\cf(2 2 2 2)} in element 1, and the string ``"Anna"`` in
 element 2 can be written as follows:
@@ -2637,7 +2637,7 @@ Vector constants are self-evaluating, so they do not need to be quoted in progra
 \begin{entry}{
 \proto{vector?}{ obj}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{obj} is a vector; otherwise returns \schfalse.
+Returns {{< tt "#t" >}} if _obj_ is a vector; otherwise returns \schfalse.
 \end{entry}
 
 
@@ -2645,8 +2645,8 @@ Returns {{< tt "#t" >}} if \var{obj} is a vector; otherwise returns \schfalse.
 \proto{make-vector}{ k}{procedure}
 \rproto{make-vector}{ k fill}{procedure}}
 
-Returns a newly allocated vector of \var{k} elements.  If a second
-argument is given, then each element is initialized to \var{fill}.
+Returns a newly allocated vector of _k_ elements.  If a second
+argument is given, then each element is initialized to _fill_.
 Otherwise the initial contents of each element is unspecified.
 
 \end{entry}
@@ -2667,16 +2667,16 @@ arguments.  It is analogous to ``list``.
 \begin{entry}{
 \proto{vector-length}{ vector}{procedure}}
 
-Returns the number of elements in \var{vector} as an exact integer.
+Returns the number of elements in _vector_ as an exact integer.
 \end{entry}
 
 
 \begin{entry}{
 \proto{vector-ref}{ vector k}{procedure}}
 
-\domain{It is an error if \vr{k} is not a valid index of \var{vector}.}
+\domain{It is an error if \vr{k} is not a valid index of _vector_.}
 The ``vector-ref`` procedure returns the contents of element \vr{k} of
-\var{vector}.
+_vector_.
 
 ```
 (vector-ref '#(1 1 2 3 5 8 13 21)
@@ -2691,8 +2691,8 @@ The ``vector-ref`` procedure returns the contents of element \vr{k} of
 \begin{entry}{
 \proto{vector-set!}{ vector k obj}{procedure}}
 
-\domain{It is an error if \vr{k} is not a valid index of \var{vector}.}
-The ``vector-set!`` procedure stores \var{obj} in element \vr{k} of \var{vector}.
+\domain{It is an error if \vr{k} is not a valid index of _vector_.}
+The ``vector-set!`` procedure stores _obj_ in element \vr{k} of _vector_.
 
 ```
 (let ((vec (vector 0 '(2 2 2 2) "Anna")))
@@ -2711,9 +2711,9 @@ The ``vector-set!`` procedure stores \var{obj} in element \vr{k} of \var{vector}
 \proto{list->vector}{ list}{procedure}}
 
 The ``vector->list`` procedure returns a newly allocated list of the objects contained
-in the elements of \var{vector} between \var{start} and \var{end}.
+in the elements of _vector_ between _start_ and _end_.
 The ``list->vector`` procedure returns a newly
-created vector initialized to the elements of the list \var{list}.
+created vector initialized to the elements of the list _list_.
 
 In both procedures, order is preserved.
 
@@ -2733,14 +2733,14 @@ In both procedures, order is preserved.
 \rproto{string->vector}{ string start end}{procedure}}
 {{< label "vectortostring" >}}
 
-\domain{It is an error if any element of \var{vector} between \var{start}
-and \var{end} is not a character.}
+\domain{It is an error if any element of _vector_ between _start_
+and _end_ is not a character.}
 The ``vector->string`` procedure returns a newly allocated string of the objects contained
-in the elements of \var{vector}
-between \var{start} and \var{end}.
+in the elements of _vector_
+between _start_ and _end_.
 The ``string->vector`` procedure returns a newly
-created vector initialized to the elements of the string \var{string}
-between \var{start} and \var{end}.
+created vector initialized to the elements of the string _string_
+between _start_ and _end_.
 
 In both procedures, order is preserved.
 
@@ -2757,8 +2757,8 @@ In both procedures, order is preserved.
 \rproto{vector-copy}{ vector start}{procedure}
 \rproto{vector-copy}{ vector start end}{procedure}}
 
-Returns a newly allocated copy of the elements of the given \var{vector}
-between \var{start} and \var{end}.
+Returns a newly allocated copy of the elements of the given _vector_
+between _start_ and _end_.
 The elements of the new vector are the same (in the sense of
 ``eqv?``) as the elements of the old.
 
@@ -2779,11 +2779,11 @@ c \ev #(8 2)
 \rproto{vector-copy!}{ to at from start}{procedure}
 \rproto{vector-copy!}{ to at from start end}{procedure}}
 
-\domain{It is an error if \var{at} is less than zero or greater than the length of \var{to}.
-It is also an error if ``(- (vector-length \var{to``) \var{at})}
-is less than ``(- \var{end`` \var{start})}.}
-Copies the elements of vector \var{from} between \var{start} and \var{end}
-to vector \var{to}, starting at \var{at}.  The order in which elements are
+\domain{It is an error if _at_ is less than zero or greater than the length of _to_.
+It is also an error if ``(- (vector-length _to``) \var{at_)}
+is less than ``(- _end`` \var{start_)}.}
+Copies the elements of vector _from_ between _start_ and _end_
+to vector _to_, starting at _at_.  The order in which elements are
 copied is unspecified, except that if the source and destination overlap,
 copying takes place as if the source is first copied into a temporary
 vector and then into the destination.  This can be achieved without
@@ -2800,7 +2800,7 @@ b \ev #(10 1 2 40 50)
 \end{entry}
 
 \begin{entry}{
-\proto{vector-append}{ \var{vector} \dotsfoo}{procedure}}
+\proto{vector-append}{ _vector_ \dotsfoo}{procedure}}
 
 Returns a newly allocated vector whose elements are the concatenation
 of the elements of the given vectors.
@@ -2816,9 +2816,9 @@ of the elements of the given vectors.
 \rproto{vector-fill!}{ vector fill start}{procedure}
 \rproto{vector-fill!}{ vector fill start end}{procedure}}
 
-The ``vector-fill!`` procedure stores \var{fill}
-in the elements of \var{vector}
-between \var{start} and \var{end}.
+The ``vector-fill!`` procedure stores _fill_
+in the elements of _vector_
+between _start_ and _end_.
 
 ```
 (define a (vector 1 2 3 4 5))
@@ -2844,7 +2844,7 @@ the bytevector is created.  The _valid indexes_ of
 a bytevector are the exact non-negative integers less than the length of the
 bytevector, starting at index zero as with vectors.
 
-Bytevectors are written using the notation {\tt#u8(\var{byte} \dotsfoo)}.
+Bytevectors are written using the notation {\tt#u8(_byte_ \dotsfoo)}.
 For example, a bytevector of length 3 containing the byte 0 in element
 0, the byte 10 in element 1, and the byte 5 in
 element 2 can be written as follows:
@@ -2859,7 +2859,7 @@ Bytevector constants are self-evaluating, so they do not need to be quoted in pr
 \begin{entry}{
 \proto{bytevector?}{ obj}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{obj} is a bytevector.
+Returns {{< tt "#t" >}} if _obj_ is a bytevector.
 Otherwise, {{< tt "#f" >}} is returned.
 \end{entry}
 
@@ -2868,8 +2868,8 @@ Otherwise, {{< tt "#f" >}} is returned.
 \rproto{make-bytevector}{ k byte}{procedure}}
 
 The ``make-bytevector`` procedure returns a newly allocated bytevector of
-length \vr{k}.  If \var{byte} is given, then all elements of the bytevector
-are initialized to \var{byte}, otherwise the contents of each
+length \vr{k}.  If _byte_ is given, then all elements of the bytevector
+are initialized to _byte_, otherwise the contents of each
 element are unspecified.
 
 ```
@@ -2879,7 +2879,7 @@ element are unspecified.
 \end{entry}
 
 \begin{entry}{
-\proto{bytevector}{ \var{byte} \dotsfoo}{procedure}}
+\proto{bytevector}{ _byte_ \dotsfoo}{procedure}}
 
 Returns a newly allocated bytevector containing its arguments.
 
@@ -2892,14 +2892,14 @@ Returns a newly allocated bytevector containing its arguments.
 \begin{entry}{
 \proto{bytevector-length}{ bytevector}{procedure}}
 
-Returns the length of \var{bytevector} in bytes as an exact integer.
+Returns the length of _bytevector_ in bytes as an exact integer.
 \end{entry}
 
 \begin{entry}{
 \proto{bytevector-u8-ref}{ bytevector k}{procedure}}
 
-\domain{It is an error if \vr{k} is not a valid index of \var{bytevector}.}
-Returns the \var{k}th byte of \var{bytevector}.
+\domain{It is an error if \vr{k} is not a valid index of _bytevector_.}
+Returns the _k_th byte of _bytevector_.
 
 ```
 (bytevector-u8-ref '#u8(1 1 2 3 5 8 13 21)
@@ -2910,8 +2910,8 @@ Returns the \var{k}th byte of \var{bytevector}.
 \begin{entry}{
 \proto{bytevector-u8-set!}{ bytevector k byte}{procedure}}
 
-\domain{It is an error if \vr{k} is not a valid index of \var{bytevector}.}
-Stores \var{byte} as the \var{k}th byte of \var{bytevector}.
+\domain{It is an error if \vr{k} is not a valid index of _bytevector_.}
+Stores _byte_ as the _k_th byte of _bytevector_.
 
 ```
 (let ((bv (bytevector 1 2 3 4)))
@@ -2925,8 +2925,8 @@ Stores \var{byte} as the \var{k}th byte of \var{bytevector}.
 \rproto{bytevector-copy}{ bytevector start}{procedure}
 \rproto{bytevector-copy}{ bytevector start end}{procedure}}
 
-Returns a newly allocated bytevector containing the bytes in \var{bytevector}
-between \var{start} and \var{end}.
+Returns a newly allocated bytevector containing the bytes in _bytevector_
+between _start_ and _end_.
 
 ```
 (define a #u8(1 2 3 4 5))
@@ -2940,11 +2940,11 @@ between \var{start} and \var{end}.
 \rproto{bytevector-copy!}{ to at from start}{procedure}
 \rproto{bytevector-copy!}{ to at from start end}{procedure}}
 
-\domain{It is an error if \var{at} is less than zero or greater than the length of \var{to}.
-It is also an error if ``(- (bytevector-length \var{to``) \var{at})}
-is less than ``(- \var{end`` \var{start})}.}
-Copies the bytes of bytevector \var{from} between \var{start} and \var{end}
-to bytevector \var{to}, starting at \var{at}.  The order in which bytes are
+\domain{It is an error if _at_ is less than zero or greater than the length of _to_.
+It is also an error if ``(- (bytevector-length _to``) \var{at_)}
+is less than ``(- _end`` \var{start_)}.}
+Copies the bytes of bytevector _from_ between _start_ and _end_
+to bytevector _to_, starting at _at_.  The order in which bytes are
 copied is unspecified, except that if the source and destination overlap,
 copying takes place as if the source is first copied into a temporary
 bytevector and then into the destination.  This can be achieved without
@@ -2966,7 +2966,7 @@ contrary to other such procedures in Scheme.
 \end{entry}
 
 \begin{entry}{
-\proto{bytevector-append}{ \var{bytevector} \dotsfoo}{procedure}}
+\proto{bytevector-append}{ _bytevector_ \dotsfoo}{procedure}}
 
 Returns a newly allocated bytevector whose elements are the concatenation
 of the elements in the given bytevectors.
@@ -2986,14 +2986,14 @@ of the elements in the given bytevectors.
 \rproto{string->utf8}{ string start} {procedure}
 \rproto{string->utf8}{ string start end} {procedure}}
 
-\domain{It is an error for \var{bytevector} to contain invalid UTF-8 byte sequences.}
+\domain{It is an error for _bytevector_ to contain invalid UTF-8 byte sequences.}
 These procedures translate between strings and bytevectors
 that encode those strings using the UTF-8 encoding.
 The ``utf8\coerce{``string} procedure decodes the bytes of
-a bytevector between \var{start} and \var{end}
+a bytevector between _start_ and _end_
 and returns the corresponding string;
 the ``string\coerce{``utf8} procedure encodes the characters of a
-string between \var{start} and \var{end}
+string between _start_ and _end_
 and returns the corresponding bytevector.
 
 ```
@@ -3016,7 +3016,7 @@ The ``procedure?`` predicate is also described here.
 \begin{entry}{
 \proto{procedure?}{ obj}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{obj} is a procedure, otherwise returns \schfalse.
+Returns {{< tt "#t" >}} if _obj_ is a procedure, otherwise returns \schfalse.
 
 ```
 (procedure? car)            \ev  \schtrue
@@ -3035,8 +3035,8 @@ Returns {{< tt "#t" >}} if \var{obj} is a procedure, otherwise returns \schfalse
 \begin{entry}{
 \proto{apply}{ proc \vari{arg} $\ldots$ args}{procedure}}
 
-The ``apply`` procedure calls \var{proc} with the elements of the list
-{\cf(append (list \vari{arg} \dotsfoo) \var{args})} as the actual
+The ``apply`` procedure calls _proc_ with the elements of the list
+{\cf(append (list \vari{arg} \dotsfoo) _args_)} as the actual
 arguments.
 
 ```
@@ -3055,17 +3055,17 @@ arguments.
 \begin{entry}{
 \proto{map}{ proc \vari{list} \varii{list} \dotsfoo}{procedure}}
 
-\domain{It is an error if \var{proc} does not
+\domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it list}s
 and return a single value.}
-The ``map`` procedure applies \var{proc} element-wise to the elements of the
-\var{list}s and returns a list of the results, in order.
-If more than one \var{list} is given and not all lists have the same length,
+The ``map`` procedure applies _proc_ element-wise to the elements of the
+_list_s and returns a list of the results, in order.
+If more than one _list_ is given and not all lists have the same length,
 ``map`` terminates when the shortest list runs out.
-The \var{list}s can be circular, but it is an error if all of them are circular.
-It is an error for \var{proc} to mutate any of the lists.
-The dynamic order in which \var{proc} is applied to the elements of the
-\var{list}s is unspecified.  If multiple returns occur from ``map``,
+The _list_s can be circular, but it is an error if all of them are circular.
+It is an error for _proc_ to mutate any of the lists.
+The dynamic order in which _proc_ is applied to the elements of the
+_list_s is unspecified.  If multiple returns occur from ``map``,
 the values returned by earlier returns are not mutated.
 
 ```
@@ -3080,7 +3080,7 @@ the values returned by earlier returns are not mutated.
   (map (lambda (ignored)
          (set! count (+ count 1))
          count)
-       '(a b)))                 \ev  (1 2) \var{or} (2 1)
+       '(a b)))                 \ev  (1 2) _or_ (2 1)
 ```
 
 \end{entry}
@@ -3089,15 +3089,15 @@ the values returned by earlier returns are not mutated.
 \proto{string-map}{ proc \vari{string} \varii{string} \dotsfoo}{procedure}}
 {{< label "stringmap" >}}
 
-\domain{It is an error if \var{proc} does not
+\domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it string}s
 and return a single character.}
-The ``string-map`` procedure applies \var{proc} element-wise to the elements of the
-\var{string}s and returns a string of the results, in order.
-If more than one \var{string} is given and not all strings have the same length,
+The ``string-map`` procedure applies _proc_ element-wise to the elements of the
+_string_s and returns a string of the results, in order.
+If more than one _string_ is given and not all strings have the same length,
 ``string-map`` terminates when the shortest string runs out.
-The dynamic order in which \var{proc} is applied to the elements of the
-\var{string}s is unspecified.
+The dynamic order in which _proc_ is applied to the elements of the
+_string_s is unspecified.
 If multiple returns occur from ``string-map``,
 the values returned by earlier returns are not mutated.
 
@@ -3122,15 +3122,15 @@ the values returned by earlier returns are not mutated.
 \begin{entry}{
 \proto{vector-map}{ proc \vari{vector} \varii{vector} \dotsfoo}{procedure}}
 
-\domain{It is an error if \var{proc} does not
+\domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it vector}s
 and return a single value.}
-The ``vector-map`` procedure applies \var{proc} element-wise to the elements of the
-\var{vector}s and returns a vector of the results, in order.
-If more than one \var{vector} is given and not all vectors have the same length,
+The ``vector-map`` procedure applies _proc_ element-wise to the elements of the
+_vector_s and returns a vector of the results, in order.
+If more than one _vector_ is given and not all vectors have the same length,
 ``vector-map`` terminates when the shortest vector runs out.
-The dynamic order in which \var{proc} is applied to the elements of the
-\var{vector}s is unspecified.
+The dynamic order in which _proc_ is applied to the elements of the
+_vector_s is unspecified.
 If multiple returns occur from ``vector-map``,
 the values returned by earlier returns are not mutated.
 
@@ -3147,7 +3147,7 @@ the values returned by earlier returns are not mutated.
    (lambda (ignored)
      (set! count (+ count 1))
      count)
-   '#(a b)))                     \ev  #(1 2) \var{or} #(2 1)
+   '#(a b)))                     \ev  #(1 2) _or_ #(2 1)
 ```
 
 \end{entry}
@@ -3156,18 +3156,18 @@ the values returned by earlier returns are not mutated.
 \begin{entry}{
 \proto{for-each}{ proc \vari{list} \varii{list} \dotsfoo}{procedure}}
 
-\domain{It is an error if \var{proc} does not
+\domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it list}s.}
 The arguments to ``for-each`` are like the arguments to ``map``, but
-``for-each`` calls \var{proc} for its side effects rather than for its
-values.  Unlike ``map``, ``for-each`` is guaranteed to call \var{proc} on
-the elements of the \var{list}s in order from the first element(s) to the
+``for-each`` calls _proc_ for its side effects rather than for its
+values.  Unlike ``map``, ``for-each`` is guaranteed to call _proc_ on
+the elements of the _list_s in order from the first element(s) to the
 last, and the value returned by ``for-each`` is unspecified.
-If more than one \var{list} is given and not all lists have the same length,
+If more than one _list_ is given and not all lists have the same length,
 ``for-each`` terminates when the shortest list runs out.
-The \var{list}s can be circular, but it is an error if all of them are circular.
+The _list_s can be circular, but it is an error if all of them are circular.
 
-It is an error for \var{proc} to mutate any of the lists.
+It is an error for _proc_ to mutate any of the lists.
 
 ```
 (let ((v (make-vector 5)))
@@ -3182,17 +3182,17 @@ It is an error for \var{proc} to mutate any of the lists.
 \begin{entry}{
 \proto{string-for-each}{ proc \vari{string} \varii{string} \dotsfoo}{procedure}}
 
-\domain{It is an error if \var{proc} does not
+\domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it string}s.}
 The arguments to ``string-for-each`` are like the arguments to {\cf
-string-map}, but ``string-for-each`` calls \var{proc} for its side
+string-map}, but ``string-for-each`` calls _proc_ for its side
 effects rather than for its values.  Unlike ``string-map``, {\cf
-string-for-each} is guaranteed to call \var{proc} on the elements of
-the \var{list}s in order from the first element(s) to the last, and the
+string-for-each} is guaranteed to call _proc_ on the elements of
+the _list_s in order from the first element(s) to the last, and the
 value returned by ``string-for-each`` is unspecified.
-If more than one \var{string} is given and not all strings have the same length,
+If more than one _string_ is given and not all strings have the same length,
 ``string-for-each`` terminates when the shortest string runs out.
-It is an error for \var{proc} to mutate any of the strings.
+It is an error for _proc_ to mutate any of the strings.
 
 ```
 (let ((v '()))
@@ -3207,17 +3207,17 @@ It is an error for \var{proc} to mutate any of the strings.
 \begin{entry}{
 \proto{vector-for-each}{ proc \vari{vector} \varii{vector} \dotsfoo}{procedure}}
 
-\domain{It is an error if \var{proc} does not
+\domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it vector}s.}
 The arguments to ``vector-for-each`` are like the arguments to {\cf
-vector-map}, but ``vector-for-each`` calls \var{proc} for its side
+vector-map}, but ``vector-for-each`` calls _proc_ for its side
 effects rather than for its values.  Unlike ``vector-map``, {\cf
-vector-for-each} is guaranteed to call \var{proc} on the elements of
-the \var{vector}s in order from the first element(s) to the last, and
+vector-for-each} is guaranteed to call _proc_ on the elements of
+the _vector_s in order from the first element(s) to the last, and
 the value returned by ``vector-for-each`` is unspecified.
-If more than one \var{vector} is given and not all vectors have the same length,
+If more than one _vector_ is given and not all vectors have the same length,
 ``vector-for-each`` terminates when the shortest vector runs out.
-It is an error for \var{proc} to mutate any of the vectors.
+It is an error for _proc_ to mutate any of the vectors.
 
 ```
 (let ((v (make-list 5)))
@@ -3234,18 +3234,18 @@ It is an error for \var{proc} to mutate any of the vectors.
 \proto{call-with-current-continuation}{ proc}{procedure}
 \proto{call/cc}{ proc}{procedure}}
 
-{{< label "continuations" >}} \domain{It is an error if \var{proc} does not accept one
+{{< label "continuations" >}} \domain{It is an error if _proc_ does not accept one
 argument.}
 The procedure ``call-with-current-continuation`` (or its
 equivalent abbreviation ``call/cc``) packages
 the current continuation (see the rationale below) as an "escape
 procedure" and passes it as an argument to
-\var{proc}.
+_proc_.
 The escape procedure is a Scheme procedure that, if it is
 later called, will abandon whatever continuation is in effect at that later
 time and will instead use the continuation that was in effect
 when the escape procedure was created.  Calling the escape procedure
-will cause the invocation of \var{before} and \var{after} thunks installed using
+will cause the invocation of _before_ and _after_ thunks installed using
 \ide{dynamic-wind}.
 
 The escape procedure accepts the same number of arguments as the continuation to
@@ -3266,7 +3266,7 @@ The effect of passing no values or more than one value to continuations
 that were not created in one of these ways is unspecified.
 
 
-The escape procedure that is passed to \var{proc} has
+The escape procedure that is passed to _proc_ has
 unlimited extent just like any other procedure in Scheme.  It can be stored
 in variables or data structures and can be called as many times as desired.
 However, like the ``raise`` and ``error`` procedures, it never
@@ -3377,10 +3377,10 @@ The {\tt values} procedure might be defined as follows:
 \begin{entry}{
 \proto{call-with-values}{ producer consumer}{procedure}}
 
-Calls its \var{producer} argument with no arguments and
+Calls its _producer_ argument with no arguments and
 a continuation that, when passed some values, calls the
-\var{consumer} procedure with those values as arguments.
-The continuation for the call to \var{consumer} is the
+_consumer_ procedure with those values as arguments.
+The continuation for the call to _consumer_ is the
 continuation of the call to {\tt call-with-values}.
 
 ```
@@ -3396,16 +3396,16 @@ continuation of the call to {\tt call-with-values}.
 \begin{entry}{
 \proto{dynamic-wind}{ before thunk after}{procedure}}
 
-Calls \var{thunk} without arguments, returning the result(s) of this call.
-\var{Before} and \var{after} are called, also without arguments, as required
+Calls _thunk_ without arguments, returning the result(s) of this call.
+_Before_ and _after_ are called, also without arguments, as required
 by the following rules.  Note that, in the absence of calls to continuations
 captured using \ide{call-with-current-continuation}, the three arguments are
-called once each, in order.  \var{Before} is called whenever execution
-enters the dynamic extent of the call to \var{thunk} and \var{after} is called
+called once each, in order.  _Before_ is called whenever execution
+enters the dynamic extent of the call to _thunk_ and _after_ is called
 whenever it exits that dynamic extent.  The dynamic extent of a procedure
 call is the period between when the call is initiated and when it
 returns.
-The \var{before} and \var{after} thunks are called in the same dynamic
+The _before_ and _after_ thunks are called in the same dynamic
 environment as the call to ``dynamic-wind``.
 In Scheme, because of ``call-with-current-continuation``, the
 dynamic extent of a call is not always a single, connected time period.
@@ -3426,24 +3426,24 @@ dynamic extent.
 
 
 If a second call to ``dynamic-wind`` occurs within the dynamic extent of the
-call to \var{thunk} and then a continuation is invoked in such a way that the
-\var{after}s from these two invocations of ``dynamic-wind`` are both to be
-called, then the \var{after} associated with the second (inner) call to
+call to _thunk_ and then a continuation is invoked in such a way that the
+_after_s from these two invocations of ``dynamic-wind`` are both to be
+called, then the _after_ associated with the second (inner) call to
 ``dynamic-wind`` is called first.
 
 If a second call to ``dynamic-wind`` occurs within the dynamic extent of the
-call to \var{thunk} and then a continuation is invoked in such a way that the
-\var{before}s from these two invocations of ``dynamic-wind`` are both to be
-called, then the \var{before} associated with the first (outer) call to
+call to _thunk_ and then a continuation is invoked in such a way that the
+_before_s from these two invocations of ``dynamic-wind`` are both to be
+called, then the _before_ associated with the first (outer) call to
 ``dynamic-wind`` is called first.
 
-If invoking a continuation requires calling the \var{before} from one call
-to ``dynamic-wind`` and the \var{after} from another, then the \var{after}
+If invoking a continuation requires calling the _before_ from one call
+to ``dynamic-wind`` and the _after_ from another, then the _after_
 is called first.
 
 
 The effect of using a captured continuation to enter or exit the dynamic
-extent of a call to \var{before} or \var{after} is unspecified.
+extent of a call to _before_ or _after_ is unspecified.
 
 ```
 (let ((path '())
@@ -3486,14 +3486,14 @@ accepting one argument can serve as an exception handler and any
 object can be used to represent an exception.
 
 \begin{entry}{
-\proto{with-exception-handler}{ \var{handler} \var{thunk}}{procedure}}
+\proto{with-exception-handler}{ _handler_ _thunk_}{procedure}}
 
-\domain{It is an error if \var{handler} does not accept one argument.
-It is also an error if \var{thunk} does not accept zero arguments.}
+\domain{It is an error if _handler_ does not accept one argument.
+It is also an error if _thunk_ does not accept zero arguments.}
 The ``with-exception-handler`` procedure returns the results of invoking
-\var{thunk}.  \var{Handler} is installed as the current
+_thunk_.  _Handler_ is installed as the current
 exception handler
-in the dynamic environment used for the invocation of \var{thunk}.
+in the dynamic environment used for the invocation of _thunk_.
 
 ```
 (call-with-current-continuation
@@ -3521,23 +3521,23 @@ After printing, the second example then raises another exception.
 \end{entry}
 
 \begin{entry}{
-\proto{raise}{ \var{obj}}{procedure}}
+\proto{raise}{ _obj_}{procedure}}
 
 Raises an exception by invoking the current exception
-handler on \var{obj}. The handler is called with the same
+handler on _obj_. The handler is called with the same
 dynamic environment as that of the call to ``raise``, except that
 the current exception handler is the one that was in place when the
 handler being called was installed.  If the handler returns, a secondary
 exception is raised in the same dynamic environment as the handler.
-The relationship between \var{obj} and the object raised by
+The relationship between _obj_ and the object raised by
 the secondary exception is unspecified.
 \end{entry}
 
 \begin{entry}{
-\proto{raise-continuable}{ \var{obj}}{procedure}}
+\proto{raise-continuable}{ _obj_}{procedure}}
 
 Raises an exception by invoking the current
-exception handler on \var{obj}. The handler is called with
+exception handler on _obj_. The handler is called with
 the same dynamic environment as the call to
 ``raise-continuable``, except that: (1) the current
 exception handler is the one that was in place when the handler being
@@ -3564,13 +3564,13 @@ the call to ``raise-continuable``.
 ```
 
 \begin{entry}{
-\proto{error}{ \var{message} \var{obj} $\ldots$}{procedure}}
+\proto{error}{ _message_ _obj_ $\ldots$}{procedure}}
 
-\domain{\var{Message} should be a string.}
+\domain{_Message_ should be a string.}
 Raises an exception as if by calling
 ``raise`` on a newly allocated implementation-defined object which encapsulates
-the information provided by \var{message},
-as well as any \var{obj}s, known as the \defining{irritants}.
+the information provided by _message_,
+as well as any _obj_s, known as the \defining{irritants}.
 The procedure ``error-object?`` must return {{< tt "#t" >}} on such objects.
 
 ```
@@ -3588,7 +3588,7 @@ The procedure ``error-object?`` must return {{< tt "#t" >}} on such objects.
 \begin{entry}{
 \proto{error-object?}{ obj}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{obj} is an object created by ``error``
+Returns {{< tt "#t" >}} if _obj_ is an object created by ``error``
 or one of an implementation-defined set of objects.  Otherwise, it returns
 \schfalse.
 The objects used to signal errors, including those which satisfy the
@@ -3600,14 +3600,14 @@ satisfy ``error-object?``.
 \begin{entry}{
 \proto{error-object-message}{ error-object}{procedure}}
 
-Returns the message encapsulated by \var{error-object}.
+Returns the message encapsulated by _error-object_.
 
 \end{entry}
 
 \begin{entry}{
 \proto{error-object-irritants}{ error-object}{procedure}}
 
-Returns a list of the irritants encapsulated by \var{error-object}.
+Returns a list of the irritants encapsulated by _error-object_.
 
 \end{entry}
 
@@ -3615,7 +3615,7 @@ Returns a list of the irritants encapsulated by \var{error-object}.
 \proto{read-error?}{ obj}{procedure}
 \proto{file-error?}{ obj}{procedure}}
 
-Error type predicates.  Returns {{< tt "#t" >}} if \var{obj} is an
+Error type predicates.  Returns {{< tt "#t" >}} if _obj_ is an
 object raised by the ``read`` procedure or by the inability to open
 an input or output port on a file, respectively.  Otherwise, it
 returns \schfalse.
@@ -3630,7 +3630,7 @@ returns \schfalse.
 {{< label "environments" >}}
 
 This procedure returns a specifier for the environment that results by
-starting with an empty environment and then importing each \var{list},
+starting with an empty environment and then importing each _list_,
 considered as an import set, into it.  (See section~\ref{libraries} for
 a description of import sets.)  The bindings of the environment
 represented by the specifier are immutable, as is the environment itself.
@@ -3640,16 +3640,16 @@ represented by the specifier are immutable, as is the environment itself.
 \begin{entry}{
 \proto{scheme-report-environment}{ version}{r5rs library procedure}}
 
-If \var{version} is equal to ``5``,
+If _version_ is equal to ``5``,
 corresponding to {{< rnrs 5 >}},
 ``scheme-report-environment`` returns a specifier for an
 environment that contains only the bindings
 defined in the {{< rnrs 5 >}} library.
-Implementations must support this value of \var{version}.
+Implementations must support this value of _version_.
 
-Implementations may also support other values of \var{version}, in which
+Implementations may also support other values of _version_, in which
 case they return a specifier for an environment containing bindings corresponding to the specified version of the report.
-If \var{version}
+If _version_
 is neither ``5`` nor another value supported by
 the implementation, an error is signaled.
 
@@ -3664,17 +3664,17 @@ it contains may be immutable.
 \begin{entry}{
 \proto{null-environment}{ version}{r5rs library procedure}}
 
-If \var{version} is equal to ``5``,
+If _version_ is equal to ``5``,
 corresponding to {{< rnrs 5 >}},
 the ``null-environment`` procedure returns
 a specifier for an environment that contains only the
 bindings for all syntactic keywords
 defined in the {{< rnrs 5 >}} library.
-Implementations must support this value of \var{version}.
+Implementations must support this value of _version_.
 
-Implementations may also support other values of \var{version}, in which
+Implementations may also support other values of _version_, in which
 case they return a specifier for an environment containing appropriate bindings corresponding to the specified version of the report.
-If \var{version}
+If _version_
 is neither ``5`` nor another value supported by
 the implementation, an error is signaled.
 
@@ -3699,7 +3699,7 @@ expressions entered by the user into a REPL.
 \begin{entry}{
 \proto{eval}{ expr-or-def environment-specifier}{eval library procedure}}
 
-If \var{expr-or-def} is an expression, it is evaluated in the
+If _expr-or-def_ is an expression, it is evaluated in the
 specified environment and its values are returned.
 If it is a definition, the specified identifier(s) are defined in the specified
 environment, provided the environment is not immutable.
@@ -3752,12 +3752,12 @@ system on which the Scheme program is running.
 \begin{entry}{
 \proto{call-with-port}{ port proc}{procedure}}
 
-\domain{It is an error if \var{proc} does not accept one argument.}
+\domain{It is an error if _proc_ does not accept one argument.}
 The ``call-with-port``
-procedure calls \var{proc} with \var{port} as an argument.
-If \var{proc} returns,
+procedure calls _proc_ with _port_ as an argument.
+If _proc_ returns,
 then the port is closed automatically and the values yielded by the
-\var{proc} are returned.  If \var{proc} does not return, then
+_proc_ are returned.  If _proc_ does not return, then
 the port must not be closed automatically unless it is possible to
 prove that the port will never again be used for a read or write
 operation.
@@ -3776,11 +3776,11 @@ both ``call-with-current-continuation`` and ``call-with-port``.
 \proto{call-with-input-file}{ string proc}{file library procedure}
 \proto{call-with-output-file}{ string proc}{file library procedure}}
 
-\domain{It is an error if \var{proc} does not accept one argument.}
+\domain{It is an error if _proc_ does not accept one argument.}
 These procedures obtain a
 textual port obtained by opening the named file for input or output
 as if by ``open-input-file`` or ``open-output-file``.
-The port and \var{proc} are then passed to a procedure equivalent
+The port and _proc_ are then passed to a procedure equivalent
 to ``call-with-port``.
 \end{entry}
 
@@ -3791,7 +3791,7 @@ to ``call-with-port``.
 \proto{binary-port?}{ obj}{procedure}
 \proto{port?}{ obj}{procedure}}
 
-These procedures return {{< tt "#t" >}} if \var{obj} is an input port, output port,
+These procedures return {{< tt "#t" >}} if _obj_ is an input port, output port,
 textual port, binary port, or any
 kind of port, respectively.  Otherwise they return \schfalse.
 
@@ -3802,7 +3802,7 @@ kind of port, respectively.  Otherwise they return \schfalse.
 \proto{input-port-open?}{ port}{procedure}
 \proto{output-port-open?}{ port}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{port} is still open and capable of
+Returns {{< tt "#t" >}} if _port_ is still open and capable of
 performing input or output, respectively, and {{< tt "#f" >}} otherwise.
 
 
@@ -3831,11 +3831,11 @@ The file is opened for input or output
 as if by ``open-input-file`` or ``open-output-file``,
 and the new port is made to be the value returned by
 ``current-input-port`` or ``current-output-port``
-(as used by {\tt (read)}, {\tt (write \var{obj})}, and so forth).
-The \var{thunk} is then called with no arguments.  When the \var{thunk} returns,
+(as used by {\tt (read)}, {\tt (write _obj_)}, and so forth).
+The _thunk_ is then called with no arguments.  When the _thunk_ returns,
 the port is closed and the previous default is restored.
-It is an error if \var{thunk} does not accept zero arguments.
-Both procedures return the values yielded by \var{thunk}.
+It is an error if _thunk_ does not accept zero arguments.
+Both procedures return the values yielded by _thunk_.
 If an escape procedure
 is used to escape from the continuation of these procedures, they
 behave exactly as if the current input or output port had been bound
@@ -3849,7 +3849,7 @@ dynamically with ``parameterize``.
 \proto{open-input-file}{ string}{file library procedure}
 \proto{open-binary-input-file}{ string}{file library procedure}}
 
-Takes a \var{string} for an existing file and returns a textual
+Takes a _string_ for an existing file and returns a textual
 input port or binary input port that is capable of delivering data from the
 file.  If the file does not exist or cannot be opened, an error that satisfies ``file-error?`` is signaled.
 
@@ -3860,7 +3860,7 @@ file.  If the file does not exist or cannot be opened, an error that satisfies `
 \proto{open-output-file}{ string}{file library procedure}
 \proto{open-binary-output-file}{ string}{file library procedure}}
 
-Takes a \var{string} naming an output file to be created and returns a
+Takes a _string_ naming an output file to be created and returns a
 textual output port or binary output port that is capable of writing
 data to a new file by that name.
 
@@ -3877,7 +3877,7 @@ an error that satisfies ``file-error?`` is signaled.
 \proto{close-input-port}{ port}{procedure}
 \proto{close-output-port}{ port}{procedure}}
 
-Closes the resource associated with \var{port}, rendering the \var{port}
+Closes the resource associated with _port_, rendering the _port_
 incapable of delivering or accepting data.
 It is an error
 to apply the last two procedures to a port which is not an input
@@ -3912,7 +3912,7 @@ retrieval by ``get-output-string``.
 \begin{entry}{
 \proto{get-output-string}{ port}{procedure}}
 
-\domain{It is an error if \var{port} was not created with
+\domain{It is an error if _port_ was not created with
 ``open-output-string``.}
 Returns a string consisting of the
 characters that have been output to the port so far in the order they
@@ -3952,7 +3952,7 @@ retrieval by ``get-output-bytevector``.
 \begin{entry}{
 \proto{get-output-bytevector}{ port}{procedure}}
 
-\domain{It is an error if \var{port} was not created with
+\domain{It is an error if _port_ was not created with
 ``open-output-bytevector``.}  Returns a bytevector consisting
 of the bytes that have been output to the port so far in the
 order they were output.
@@ -3962,7 +3962,7 @@ order they were output.
 ### 6.13.2. Input
 {{< label "inputsection" >}}
 
-If \var{port} is omitted from any input procedure, it defaults to the
+If _port_ is omitted from any input procedure, it defaults to the
 value returned by ``(current-input-port)``.
 It is an error to attempt an input operation on a closed port.
 
@@ -3978,8 +3978,8 @@ The ``read`` procedure converts external representations of Scheme objects into 
 objects themselves.  That is, it is a parser for the non-terminal
 \meta{datum} (see sections~\ref{datum} and
 \ref{listsection}).  It returns the next
-object parsable from the given textual input \var{port}, updating
-\var{port} to point to
+object parsable from the given textual input _port_, updating
+_port_ to point to
 the first character past the end of the external representation of the object.
 
 Implementations may support extended syntax to represent record types or
@@ -3999,9 +3999,9 @@ an error that satisfies ``read-error?`` is signaled.
 \proto{read-char}{}{procedure}
 \rproto{read-char}{ port}{procedure}}
 
-Returns the next character available from the textual input \var{port},
+Returns the next character available from the textual input _port_,
 updating
-the \var{port} to point to the following character.  If no more characters
+the _port_ to point to the following character.  If no more characters
 are available, an end-of-file object is returned.
 
 \end{entry}
@@ -4011,16 +4011,16 @@ are available, an end-of-file object is returned.
 \proto{peek-char}{}{procedure}
 \rproto{peek-char}{ port}{procedure}}
 
-Returns the next character available from the textual input \var{port},
+Returns the next character available from the textual input _port_,
 but _without_ updating
-the \var{port} to point to the following character.  If no more characters
+the _port_ to point to the following character.  If no more characters
 are available, an end-of-file object is returned.
 
 *Note:&nbsp;*
 The value returned by a call to ``peek-char`` is the same as the
 value that would have been returned by a call to ``read-char`` with the
-same \var{port}.  The only difference is that the very next call to
-``read-char`` or ``peek-char`` on that \var{port} will return the
+same _port_.  The only difference is that the very next call to
+``read-char`` or ``peek-char`` on that _port_ will return the
 value returned by the preceding call to ``peek-char``.  In particular, a call
 to ``peek-char`` on an interactive port will hang waiting for input
 whenever a call to ``read-char`` would have hung.
@@ -4033,7 +4033,7 @@ whenever a call to ``read-char`` would have hung.
 \rproto{read-line}{ port}{procedure}}
 
 Returns the next line of text available from the textual input
-\var{port}, updating the \var{port} to point to the following character.
+_port_, updating the _port_ to point to the following character.
 If an end of line is read, a string containing all of the text up to
 (but not including) the end of line is returned, and the port is updated
 to point just past the end of line. If an end of file is encountered
@@ -4051,7 +4051,7 @@ Implementations may also recognize other end of line characters or sequences.
 \begin{entry}{
 \proto{eof-object?}{ obj}{procedure}}
 
-Returns {{< tt "#t" >}} if \var{obj} is an end-of-file object, otherwise returns
+Returns {{< tt "#t" >}} if _obj_ is an end-of-file object, otherwise returns
 \schfalse.  The precise set of end-of-file objects will vary among
 implementations, but in any case no end-of-file object will ever be an object
 that can be read in using ``read``.
@@ -4070,10 +4070,10 @@ Returns an end-of-file object, not necessarily unique.
 \proto{char-ready?}{}{procedure}
 \rproto{char-ready?}{ port}{procedure}}
 
-Returns {{< tt "#t" >}} if a character is ready on the textual input \var{port} and
+Returns {{< tt "#t" >}} if a character is ready on the textual input _port_ and
 returns {{< tt "#f" >}} otherwise.  If ``char-ready`` returns {{< tt "#t" >}} then
-the next ``read-char`` operation on the given \var{port} is guaranteed
-not to hang.  If the \var{port} is at end of file then ``char-ready?``\
+the next ``read-char`` operation on the given _port_ is guaranteed
+not to hang.  If the _port_ is at end of file then ``char-ready?``\
 returns \schtrue.
 
 \begin{rationale}
@@ -4092,9 +4092,9 @@ port that has no ready characters.
 \rproto{read-string}{ k port}{procedure}}
 {{< label "readstring" >}}
 
-Reads the next \var{k} characters, or as many as are available before the end of file,
+Reads the next _k_ characters, or as many as are available before the end of file,
 from the textual
-input \var{port} into a newly allocated string in left-to-right order
+input _port_ into a newly allocated string in left-to-right order
 and returns the string.
 If no characters are available before the end of file,
 an end-of-file object is returned.
@@ -4106,8 +4106,8 @@ an end-of-file object is returned.
 \proto{read-u8}{}{procedure}
 \rproto{read-u8}{ port}{procedure}}
 
-Returns the next byte available from the binary input \var{port},
-updating the \var{port} to point to the following byte.
+Returns the next byte available from the binary input _port_,
+updating the _port_ to point to the following byte.
 If no more bytes are
 available, an end-of-file object is returned.
 
@@ -4117,8 +4117,8 @@ available, an end-of-file object is returned.
 \proto{peek-u8}{}{procedure}
 \rproto{peek-u8}{ port}{procedure}}
 
-Returns the next byte available from the binary input \var{port},
-but _without_ updating the \var{port} to point to the following
+Returns the next byte available from the binary input _port_,
+but _without_ updating the _port_ to point to the following
 byte.  If no more bytes are available, an end-of-file object is returned.
 
 \end{entry}
@@ -4127,10 +4127,10 @@ byte.  If no more bytes are available, an end-of-file object is returned.
 \proto{u8-ready?}{}{procedure}
 \rproto{u8-ready?}{ port}{procedure}}
 
-Returns {{< tt "#t" >}} if a byte is ready on the binary input \var{port}
+Returns {{< tt "#t" >}} if a byte is ready on the binary input _port_
 and returns {{< tt "#f" >}} otherwise.  If ``u8-ready?`` returns
 {{< tt "#t" >}} then the next ``read-u8`` operation on the given
-\var{port} is guaranteed not to hang.  If the \var{port} is at end of
+_port_ is guaranteed not to hang.  If the _port_ is at end of
 file then ``u8-ready?`` returns \schtrue.
 
 \end{entry}
@@ -4139,9 +4139,9 @@ file then ``u8-ready?`` returns \schtrue.
 \proto{read-bytevector}{ k}{procedure}
 \rproto{read-bytevector}{ k port}{procedure}}
 
-Reads the next \var{k} bytes, or as many as are available before the end of file,
+Reads the next _k_ bytes, or as many as are available before the end of file,
 from the binary
-input \var{port} into a newly allocated bytevector in left-to-right order
+input _port_ into a newly allocated bytevector in left-to-right order
 and returns the bytevector.
 If no bytes are available before the end of file,
 an end-of-file object is returned.
@@ -4157,10 +4157,10 @@ an end-of-file object is returned.
 Reads the next $end - start$ bytes, or as many as are available
 before the end of file,
 from the binary
-input \var{port} into \var{bytevector} in left-to-right order
-beginning at the \var{start} position.  If \var{end} is not supplied,
-reads until the end of \var{bytevector} has been reached.  If
-\var{start} is not supplied, reads beginning at position 0.
+input _port_ into _bytevector_ in left-to-right order
+beginning at the _start_ position.  If _end_ is not supplied,
+reads until the end of _bytevector_ has been reached.  If
+_start_ is not supplied, reads beginning at position 0.
 Returns the number of bytes read.
 If no bytes are available, an end-of-file object is returned.
 
@@ -4170,7 +4170,7 @@ If no bytes are available, an end-of-file object is returned.
 ### 6.13.3. Output
 {{< label "outputsection" >}}
 
-If \var{port} is omitted from any output procedure, it defaults to the
+If _port_ is omitted from any output procedure, it defaults to the
 value returned by ``(current-output-port)``.
 It is an error to attempt an output operation on a closed port.
 
@@ -4181,15 +4181,15 @@ It is an error to attempt an output operation on a closed port.
 \proto{write}{ obj}{write library procedure}
 \rproto{write}{ obj port}{write library procedure}}
 
-Writes a representation of \var{obj} to the given textual output
-\var{port}.  Strings
+Writes a representation of _obj_ to the given textual output
+_port_.  Strings
 that appear in the written representation are enclosed in quotation marks, and
 within those strings backslash and quotation mark characters are
 escaped by backslashes.  Symbols that contain non-ASCII characters
 are escaped with vertical lines.
 Character objects are written using the ``#\backwhack`` notation.
 
-If \var{obj} contains cycles which would cause an infinite loop using
+If _obj_ contains cycles which would cause an infinite loop using
 the normal written representation, then at least the objects that form
 part of the cycle must be represented using datum labels as described
 in section~\ref{labelsection}.  Datum labels must not be used if there
@@ -4218,7 +4218,7 @@ and vectors that appear more than once in the output.
 
 The ``write-simple`` procedure is the same as ``write``, except that shared structure is
 never represented using datum labels.  This can cause ``write-simple`` not to
-terminate if \var{obj} contains circular structure.
+terminate if _obj_ contains circular structure.
 
 \end{entry}
 
@@ -4227,7 +4227,7 @@ terminate if \var{obj} contains circular structure.
 \proto{display}{ obj}{write library procedure}
 \rproto{display}{ obj port}{write library procedure}}
 
-Writes a representation of \var{obj} to the given textual output \var{port}.
+Writes a representation of _obj_ to the given textual output _port_.
 Strings that appear in the written representation are output as if by
 ``write-string`` instead of by ``write``.
 Symbols are not escaped.  Character
@@ -4257,7 +4257,7 @@ human-readable output.
 \proto{newline}{}{procedure}
 \rproto{newline}{ port}{procedure}}
 
-Writes an end of line to textual output \var{port}.  Exactly how this
+Writes an end of line to textual output _port_.  Exactly how this
 is done differs
 from one operating system to another.  Returns an unspecified value.
 
@@ -4268,8 +4268,8 @@ from one operating system to another.  Returns an unspecified value.
 \proto{write-char}{ char}{procedure}
 \rproto{write-char}{ char port}{procedure}}
 
-Writes the character \var{char} (not an external representation of the
-character) to the given textual output \var{port} and returns an unspecified
+Writes the character _char_ (not an external representation of the
+character) to the given textual output _port_ and returns an unspecified
 value.
 
 \end{entry}
@@ -4280,10 +4280,10 @@ value.
 \rproto{write-string}{ string port start}{procedure}
 \rproto{write-string}{ string port start end}{procedure}}
 
-Writes the characters of \var{string}
-from \var{start} to \var{end}
+Writes the characters of _string_
+from _start_ to _end_
 in left-to-right order to the
-textual output \var{port}.
+textual output _port_.
 
 \end{entry}
 
@@ -4291,8 +4291,8 @@ textual output \var{port}.
 \proto{write-u8}{ byte}{procedure}
 \rproto{write-u8}{ byte port}{procedure}}
 
-Writes the \var{byte} to
-the given binary output \var{port} and returns an unspecified value.
+Writes the _byte_ to
+the given binary output _port_ and returns an unspecified value.
 
 \end{entry}
 
@@ -4302,10 +4302,10 @@ the given binary output \var{port} and returns an unspecified value.
 \rproto{write-bytevector}{ bytevector port start}{procedure}
 \rproto{write-bytevector}{ bytevector port start end}{procedure}}
 
-Writes the bytes of \var{bytevector}
-from \var{start} to \var{end}
+Writes the bytes of _bytevector_
+from _start_ to _end_
 in left-to-right order to the
-binary output \var{port}.
+binary output _port_.
 
 \end{entry}
 
@@ -4330,13 +4330,13 @@ deserve description here.
 \proto{load}{ filename}{load library procedure}
 \rproto{load}{ filename environment-specifier}{load library procedure}}
 
-\domain{It is an error if \var{filename} is not a string.}
+\domain{It is an error if _filename_ is not a string.}
 An implementation-dependent operation is used to transform
-\var{filename} into the name of an existing file
+_filename_ into the name of an existing file
 containing Scheme source code.  The ``load`` procedure reads
 expressions and definitions from the file and evaluates them
-sequentially in the environment specified by \var{environment-specifier}.
-If \var{environment-specifier} is omitted, ``(interaction-environment)``
+sequentially in the environment specified by _environment-specifier_.
+If _environment-specifier_ is omitted, ``(interaction-environment)``
 is assumed.
 
 It is unspecified whether the results of the expressions
@@ -4355,7 +4355,7 @@ implementations.
 \begin{entry}{
 \proto{file-exists?}{ filename}{file library procedure}}
 
-\domain{It is an error if \var{filename} is not a string.}
+\domain{It is an error if _filename_ is not a string.}
 The ``file-exists?`` procedure returns
 {{< tt "#t" >}} if the named file exists at the time the procedure is called,
 and {{< tt "#f" >}} otherwise.
@@ -4365,7 +4365,7 @@ and {{< tt "#f" >}} otherwise.
 \begin{entry}{
 \proto{delete-file}{ filename}{file library procedure}}
 
-\domain{It is an error if \var{filename} is not a string.}
+\domain{It is an error if _filename_ is not a string.}
 The ``delete-file`` procedure deletes the
 named file if it exists and can be deleted, and returns an unspecified
 value.  If the file does not exist or cannot be deleted, an error
@@ -4385,13 +4385,13 @@ implementation-dependent.  It is an error to mutate any of these strings.
 \proto{exit}{}{process-context library procedure}
 \rproto{exit}{ obj}{process-context library procedure}}
 
-Runs all outstanding dynamic-wind \var{after} procedures, terminates the
+Runs all outstanding dynamic-wind _after_ procedures, terminates the
 running program, and communicates an exit value to the operating system.
-If no argument is supplied, or if \var{obj} is {{< tt "#t" >}}, the {\cf
+If no argument is supplied, or if _obj_ is {{< tt "#t" >}}, the {\cf
 exit} procedure should communicate to the operating system that the
-program exited normally.  If \var{obj} is {{< tt "#f" >}}, the ``exit``
+program exited normally.  If _obj_ is {{< tt "#f" >}}, the ``exit``
 procedure should communicate to the operating system that the program
-exited abnormally.  Otherwise, ``exit`` should translate \var{obj} into
+exited abnormally.  Otherwise, ``exit`` should translate _obj_ into
 an appropriate exit value for the operating system, if possible.
 
 The ``exit`` procedure
@@ -4409,7 +4409,7 @@ operating system's exit procedure.
 \rproto{emergency-exit}{ obj}{process-context library procedure}}
 
 Terminates the program without running any
-outstanding dynamic-wind \var{after} procedures
+outstanding dynamic-wind _after_ procedures
 and communicates an exit value to the operating system
 in the same manner as ``exit``.
 
@@ -4432,7 +4432,7 @@ Many operating systems provide each running process with an
 can be passed to ``eval``: see section~\ref{environments}.)
 Both the name and value of an environment variable are strings.
 The procedure ``get-environment-variable`` returns the value
-of the environment variable \var{name},
+of the environment variable _name_,
 or {{< tt "#f" >}} if the named
 environment variable is not found.  It may
 use locale information to encode the name and decode the value

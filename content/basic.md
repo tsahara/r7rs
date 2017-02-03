@@ -238,7 +238,7 @@ expression.
 
 
 - The last expression within the body of a lambda expression,
-  shown as \hyper{tail expression} below, occurs in a tail context.
+  shown as {{< hyper "tail expression" >}} below, occurs in a tail context.
   The same is true of all the bodies of ``case-lambda`` expressions.
 \begin{grammar}
 (l\=ambda \meta{formals}

@@ -559,10 +559,10 @@ $\Ksem$ would complicate the semantics without being very interesting.
 If \P{} is a program in which all variables are defined before being
 referenced or assigned, then the meaning of \P{} is
 $$\Esem\sembrack{\hbox{\texttt{((lambda (\arbno{\I}) \P')
-\hyper{undefined} \dotsfoo)}}}$$
+{{< hyper "undefined" >}} \dotsfoo)}}}$$
 where \arbno{\I} is the sequence of variables defined in \P, $\P'$
 is the sequence of expressions obtained by replacing every definition
-in \P{} by an assignment, \hyper{undefined} is an expression that evaluates
+in \P{} by an assignment, {{< hyper "undefined" >}} is an expression that evaluates
 to \fun{undefined}, and
 $\Esem$ is the semantic function that assigns meaning to expressions.
 
@@ -1581,13 +1581,13 @@ Here is a possible implementation of ``delay``, ``force`` and {\cf
   delay-force}.  We define the expression
 
 ```
-(delay-force \hyper{expression})
+(delay-force {{< hyper "expression" >}})
 ```
 
 to have the same meaning as the procedure call
 
 ```
-(make-promise {{< tt "#f" >}} (lambda () \hyper{expression}))
+(make-promise {{< tt "#f" >}} (lambda () {{< hyper "expression" >}}))
 ```
 
 as follows
@@ -1602,13 +1602,13 @@ as follows
 and we define the expression
 
 ```
-(delay \hyper{expression})
+(delay {{< hyper "expression" >}})
 ```
 
 to have the same meaning as:
 
 ```
-(delay-force (make-promise {{< tt "#t" >}} \hyper{expression}))
+(delay-force (make-promise {{< tt "#t" >}} {{< hyper "expression" >}}))
 ```
 
 as follows

@@ -188,49 +188,49 @@ language feature or a group of related features, where a feature is
 either a syntactic construct or a procedure.  An entry begins with one
 or more header lines of the form
 
-\noindent\pproto{\var{template}}{\var{category}}\unpenalty
+\noindent\pproto{_template_}{_category_}\unpenalty
 
 for identifiers in the base library, or
 
-\noindent\pproto{\var{template}}{\var{name} library \var{category}}\unpenalty
+\noindent\pproto{_template_}{_name_ library _category_}\unpenalty
 
-where \var{name} is the short name of a library
+where _name_ is the short name of a library
 as defined in Appendix A.
 
-If \var{category} is "\exprtype," the entry describes an expression
+If _category_ is "syntax," the entry describes an expression
 type, and the template gives the syntax of the expression type.
 Components of expressions are designated by syntactic variables, which
-are written using angle brackets, for example \hyper{expression} and
-\hyper{variable}.  Syntactic variables are intended to denote segments of
-program text; for example, \hyper{expression} stands for any string of
+are written using angle brackets, for example {{< hyper "expression" >}} and
+{{< hyper "variable" >}}.  Syntactic variables are intended to denote segments of
+program text; for example, {{< hyper "expression" >}} stands for any string of
 characters which is a syntactically valid expression.  The notation
 \begin{tabbing}
 \qquad \hyperi{thing} $\ldots$
 \end{tabbing}
-indicates zero or more occurrences of a \hyper{thing}, and
+indicates zero or more occurrences of a {{< hyper "thing" >}}, and
 \begin{tabbing}
 \qquad \hyperi{thing} \hyperii{thing} $\ldots$
 \end{tabbing}
-indicates one or more occurrences of a \hyper{thing}.
+indicates one or more occurrences of a {{< hyper "thing" >}}.
 
-If \var{category} is "auxiliary syntax," then the entry describes a
+If _category_ is "auxiliary syntax," then the entry describes a
 syntax binding that occurs only as part of specific surrounding
 expressions. Any use as an independent syntactic construct or
 variable is an error.
 
-If \var{category} is "procedure," then the entry describes a procedure, and
+If _category_ is "procedure," then the entry describes a procedure, and
 the header line gives a template for a call to the procedure.  Argument
-names in the template are \var{italicized}.  Thus the header line
+names in the template are _italicized_.  Thus the header line
 
-\noindent\pproto{(vector-ref \var{vector} \var{k})}{procedure}\unpenalty
+\noindent\pproto{(vector-ref _vector_ _k_)}{procedure}\unpenalty
 
 indicates that the procedure bound to the {\tt vector-ref} variable takes
-two arguments, a vector \var{vector} and an exact non-negative integer
-\var{k} (see below).  The header lines
+two arguments, a vector _vector_ and an exact non-negative integer
+_k_ (see below).  The header lines
 
 \noindent
-\pproto{(make-vector \var{k})}{procedure}
-\pproto{(make-vector \var{k} \var{fill})}{procedure}\unpenalty
+\pproto{(make-vector _k_)}{procedure}
+\pproto{(make-vector _k_ _fill_)}{procedure}\unpenalty
 
 indicate that the {\tt make-vector} procedure must be defined to take
 either one or two arguments.
@@ -256,7 +256,7 @@ $$
 \vr{letter}&alphabetic character\\
 \foo{list}&list (see section~\ref{listsection})\\
 \foo{n}&integer\\
-\var{obj}&any object\\
+_obj_&any object\\
 \vr{pair}&pair\\
 \vr{port}&port\\
 \vr{proc}&procedure\\
@@ -277,21 +277,21 @@ vectors, and bytevectors.  Their use implies the following:
 
 
 
-\item{It is an error if \var{start} is greater than \var{end}.}
+\item{It is an error if _start_ is greater than _end_.}
 
-\item{It is an error if \var{end} is greater than the length of the
+\item{It is an error if _end_ is greater than the length of the
 string, vector, or bytevector.}
 
-\item{If \var{start} is omitted, it is assumed to be zero.}
+\item{If _start_ is omitted, it is assumed to be zero.}
 
-\item{If \var{end} is omitted, it assumed to be the length of the string,
+\item{If _end_ is omitted, it assumed to be the length of the string,
 vector, or bytevector.}
 
-\item{The index \var{start} is always inclusive and the index \var{end} is always
+\item{The index _start_ is always inclusive and the index _end_ is always
 exclusive.  As an example, consider a string.  If
-\var{start} and \var{end} are the same, an empty
-substring is referred to, and if \var{start} is zero and \var{end} is
-the length of \var{string}, then the entire string is referred to.}
+_start_ and _end_ are the same, an empty
+substring is referred to, and if _start_ is zero and _end_ is
+the length of _string_, then the entire string is referred to.}
 
 
 
