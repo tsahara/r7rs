@@ -2574,8 +2574,8 @@ between _start_ and _end_.
 \rproto{string-copy!}{ to at from start end}{procedure}}
 
 \domain{It is an error if _at_ is less than zero or greater than the length of _to_.
-It is also an error if ``(- (string-length _to``) \var{at_)}
-is less than ``(- _end`` \var{start_)}.}
+It is also an error if ``(- (string-length _to``) _at_)_
+is less than ``(- _end`` _start_)_.}
 Copies the characters of string _from_ between _start_ and _end_
 to string _to_, starting at _at_.  The order in which characters are
 copied is unspecified, except that if the source and destination overlap,
@@ -2780,8 +2780,8 @@ c \ev #(8 2)
 \rproto{vector-copy!}{ to at from start end}{procedure}}
 
 \domain{It is an error if _at_ is less than zero or greater than the length of _to_.
-It is also an error if ``(- (vector-length _to``) \var{at_)}
-is less than ``(- _end`` \var{start_)}.}
+It is also an error if ``(- (vector-length _to``) _at_)_
+is less than ``(- _end`` _start_)_.}
 Copies the elements of vector _from_ between _start_ and _end_
 to vector _to_, starting at _at_.  The order in which elements are
 copied is unspecified, except that if the source and destination overlap,
@@ -2941,8 +2941,8 @@ between _start_ and _end_.
 \rproto{bytevector-copy!}{ to at from start end}{procedure}}
 
 \domain{It is an error if _at_ is less than zero or greater than the length of _to_.
-It is also an error if ``(- (bytevector-length _to``) \var{at_)}
-is less than ``(- _end`` \var{start_)}.}
+It is also an error if ``(- (bytevector-length _to``) _at_)_
+is less than ``(- _end`` _start_)_.}
 Copies the bytes of bytevector _from_ between _start_ and _end_
 to bytevector _to_, starting at _at_.  The order in which bytes are
 copied is unspecified, except that if the source and destination overlap,

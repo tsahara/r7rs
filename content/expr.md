@@ -1173,7 +1173,7 @@ Returns a newly allocated parameter object,
 which is a procedure that accepts zero arguments and
 returns the value associated with the parameter object.
 Initially, this value is the value of
-``(_converter`` \var{init_)}, or of _init_
+``(_converter`` _init_)_, or of _init_
 if the conversion procedure _converter_ is not specified.
 The associated value can be temporarily changed
 using ``parameterize``, which is described below.
@@ -1768,12 +1768,12 @@ If a literal identifier is inserted as a bound identifier then it is
 in effect renamed to prevent inadvertent captures of free identifiers.
 
 A template of the form
-``({{< hyper "ellipsis`` \hyper{template" >}})} is identical to {{< hyper "template" >}},
+``({{< hyper "ellipsis`` {{< hyper "template" >" >}}})} is identical to {{< hyper "template" >}},
 except that
 ellipses within the template have no special meaning.
 That is, any ellipses contained within {{< hyper "template" >}} are
 treated as ordinary identifiers.
-In particular, the template ``({{< hyper "ellipsis`` \hyper{ellipsis" >}})} produces
+In particular, the template ``({{< hyper "ellipsis`` {{< hyper "ellipsis" >" >}}})} produces
 a single {{< hyper "ellipsis" >}}.
 This allows syntactic abstractions to expand into code containing
 ellipses.
