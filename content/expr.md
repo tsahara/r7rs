@@ -7,8 +7,8 @@ chapter = 4
 # 4. Expressions
 {{< label "expressionchapter" >}}
 
-\newcommand{\syntax}{_Syntax: _}
-\newcommand{\semantics}{_Semantics: _}
+\newcommand{_Syntax:_}{_Syntax: _}
+\newcommand{_Semantics:_}{_Semantics: _}
 
 Expression types are categorized as _primitive_ or _derived_.
 Primitive expression types include variables and procedure calls.
@@ -154,12 +154,12 @@ The order of evaluation may be chosen differently for each procedure call.
 \begin{entry}{
 \proto{lambda}{ {{< hyper "formals" >}} {{< hyper "body" >}}}{syntax}}
 
-\syntax
+_Syntax:_
 {{< hyper "Formals" >}} is a formal arguments list as described below,
 and {{< hyper "body" >}} is a sequence of zero or more definitions
 followed by one or more expressions.
 
-\semantics
+_Semantics:_
 A \lambdaexp{} evaluates to a procedure.  The environment in
 effect when the \lambdaexp{} was evaluated is remembered as part of the
 procedure.  When the procedure is later called with some actual
@@ -240,11 +240,11 @@ with a storage location, in order to make \ide{eqv?} and
 \proto{if}{ {{< hyper "test" >}} {{< hyper "consequent" >}} {{< hyper "alternate" >}}}{syntax}
 \rproto{if}{ {{< hyper "test" >}} {{< hyper "consequent" >}}}{syntax}}  %\/ if hyper = italic
 
-\syntax
+_Syntax:_
 {{< hyper "Test" >}}, {{< hyper "consequent" >}}, and {{< hyper "alternate" >}} are
 expressions.
 
-\semantics
+_Semantics:_
 An ``if`` expression is evaluated as follows: first,
 {{< hyper "test" >}} is evaluated.  If it yields a true value (see
 section~\ref{booleansection}), then {{< hyper "consequent" >}} is evaluated and
@@ -270,7 +270,7 @@ unspecified.
 \begin{entry}{
 \proto{set!}{ {{< hyper "variable" >}} {{< hyper "expression" >}}}{syntax}}
 
-\semantics
+_Semantics:_
 {{< hyper "Expression" >}} is evaluated, and the resulting value is stored in
 the location to which {{< hyper "variable" >}} is bound.  It is an error if {{< hyper "variable" >}} is not
 bound either in some region enclosing the ``set!`` expression
@@ -293,7 +293,7 @@ unspecified.
 \proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{syntax}
 \rproto{include-ci}{ \hyperi{string} \hyperii{string} \dotsfoo}{syntax}}
 
-\semantics
+_Semantics:_
 Both \ide{include} and
 \ide{include-ci} take one or more filenames expressed as string literals,
 apply an implementation-specific algorithm to find corresponding files,
@@ -330,7 +330,7 @@ into the primitive constructs described in the previous section.
 \pproto{else}{\auxiliarytype}
 \pproto{=>}{\auxiliarytype}}
 
-\syntax
+_Syntax:_
 {{< hyper "Clauses" >}} take one of two forms, either
 ```
 ({{< hyper "test" >}} \hyperi{expression} \dotsfoo)
@@ -347,7 +347,7 @@ an "else clause," which has the form
 \mainschindex{else}
 \mainschindex{=>}
 
-\semantics
+_Semantics:_
 A ``cond`` expression is evaluated by evaluating the {{< hyper "test" >}}
 expressions of successive {{< hyper "clause" >}}s in order until one of them
 evaluates to a true value (see
@@ -390,7 +390,7 @@ the last one are returned.
 \begin{entry}{
 \proto{case}{ {{< hyper "key" >}} \hyperi{clause} \hyperii{clause} \dotsfoo}{syntax}}
 
-\syntax
+_Syntax:_
 {{< hyper "Key" >}} can be any expression.  Each {{< hyper "clause" >}} has
 the form
 ```
@@ -412,7 +412,7 @@ or
 ```
 \schindex{else}
 
-\semantics
+_Semantics:_
 A ``case`` expression is evaluated as follows.  {{< hyper "Key" >}} is
 evaluated and its result is compared against each {{< hyper "datum" >}}.  If the
 result of evaluating {{< hyper "key" >}} is the same (in the sense of
@@ -453,7 +453,7 @@ procedure are returned by the ``case`` expression.
 \begin{entry}{
 \proto{and}{ \hyperi{test} \dotsfoo}{syntax}}
 
-\semantics
+_Semantics:_
 The {{< hyper "test" >}} expressions are evaluated from left to right, and if
 any expression evaluates to {{< tt "#f" >}} (see
 section~\ref{booleansection}), then {{< tt "#f" >}} is returned.  Any remaining
@@ -474,7 +474,7 @@ are no expressions, then {{< tt "#t" >}} is returned.
 \begin{entry}{
 \proto{or}{ \hyperi{test} \dotsfoo}{syntax}}
 
-\semantics
+_Semantics:_
 The {{< hyper "test" >}} expressions are evaluated from left to right, and the value of the
 first expression that evaluates to a true value (see
 section~\ref{booleansection}) is returned.  Any remaining expressions
@@ -494,10 +494,10 @@ or if there are no expressions, then {{< tt "#f" >}} is returned.
 \begin{entry}{
 \proto{when}{ {{< hyper "test" >}} \hyperi{expression} \hyperii{expression} \dotsfoo}{syntax}}
 
-\syntax
+_Syntax:_
 The {{< hyper "test" >}} is an expression.
 
-\semantics
+_Semantics:_
 The test is evaluated, and if it evaluates to a true value,
 the expressions are evaluated in order.  The result of the ``when``
 expression is unspecified.
@@ -513,10 +513,10 @@ expression is unspecified.
 \begin{entry}{
 \proto{unless}{ {{< hyper "test" >}} \hyperi{expression} \hyperii{expression} \dotsfoo}{syntax}}
 
-\syntax
+_Syntax:_
 The {{< hyper "test" >}} is an expression.
 
-\semantics
+_Semantics:_
 The test is evaluated, and if it evaluates to {{< tt "#f" >}},
 the expressions are evaluated in order.  The result of the ``unless``
 expression is unspecified.
@@ -532,7 +532,7 @@ expression is unspecified.
 \begin{entry}{
 \proto{cond-expand}{ \hyperi{ce-clause} \hyperii{ce-clause} \dotsfoo}{syntax}}
 
-\syntax
+_Syntax:_
 The \ide{cond-expand} expression type
 provides a way to statically
 expand different expressions depending on the
@@ -555,7 +555,7 @@ A {{< hyper "feature requirement" >}} takes one of the following forms:
 - {\tt(not {{< hyper "feature requirement" >}})}
 
 
-\semantics
+_Semantics:_
 Each implementation maintains a list of feature identifiers which are
 present, as well as a list of libraries which can be imported.  The
 value of a {{< hyper "feature requirement" >}} is determined by replacing
@@ -603,7 +603,7 @@ different identifiers to the returned values.
 \begin{entry}{
 \proto{let}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 
-\syntax
+_Syntax:_
 {{< hyper "Bindings" >}} has the form
 ```
 ((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
@@ -614,7 +614,7 @@ sequence of one or more expressions as described in section~\ref{lambda}.  It is
 an error for a {{< hyper "variable" >}} to appear more than once in the list of variables
 being bound.
 
-\semantics
+_Semantics:_
 The {{< hyper "init" >}}s are evaluated in the current environment (in some
 unspecified order), the {{< hyper "variable" >}}s are bound to fresh locations
 holding the results, the {{< hyper "body" >}} is evaluated in the extended
@@ -641,7 +641,7 @@ See also "named ``let``," section \ref{namedlet}.
 \proto{let*}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}\nobreak
 
 \nobreak
-\syntax
+_Syntax:_
 {{< hyper "Bindings" >}} has the form
 ```
 ((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
@@ -650,7 +650,7 @@ and {{< hyper "body" >}} is a sequence of
 zero or more definitions followed by
 one or more expressions as described in section~\ref{lambda}.
 
-\semantics
+_Semantics:_
 The ``let*`` binding construct is similar to ``let``, but the bindings are performed
 sequentially from left to right, and the region of a binding indicated
 by {\cf({{< hyper "variable" >}} {{< hyper "init" >}})} is that part of the ``let*``
@@ -671,7 +671,7 @@ The {{< hyper "variable" >}}s need not be distinct.
 \begin{entry}{
 \proto{letrec}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 
-\syntax
+_Syntax:_
 {{< hyper "Bindings" >}} has the form
 ```
 ((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
@@ -681,7 +681,7 @@ zero or more definitions followed by
 one or more expressions as described in section~\ref{lambda}. It is an error for a {{< hyper "variable" >}} to appear more
 than once in the list of variables being bound.
 
-\semantics
+_Semantics:_
 The {{< hyper "variable" >}}s are bound to fresh locations holding unspecified
 values, the {{< hyper "init" >}}s are evaluated in the resulting environment (in
 some unspecified order), each {{< hyper "variable" >}} is assigned to the result
@@ -723,7 +723,7 @@ In the most common uses of ``letrec``, all the {{< hyper "init" >}}s are
 \proto{letrec*}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 {{< label "letrecstar" >}}
 
-\syntax
+_Syntax:_
 {{< hyper "Bindings" >}} has the form
 ```
 ((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
@@ -733,7 +733,7 @@ zero or more definitions followed by
 one or more expressions as described in section~\ref{lambda}. It is an error for a {{< hyper "variable" >}} to appear more
 than once in the list of variables being bound.
 
-\semantics
+_Semantics:_
 The {{< hyper "variable" >}}s are bound to fresh locations,
 each {{< hyper "variable" >}} is assigned in left-to-right order to the
 result of evaluating the corresponding {{< hyper "init" >}}, the {{< hyper "body" >}} is
@@ -769,7 +769,7 @@ of an {{< hyper "init" >}} more than once.
 \begin{entry}{
 \proto{let-values}{ {{< hyper "mv binding spec" >}} {{< hyper "body" >}}}{syntax}}
 
-\syntax
+_Syntax:_
 {{< hyper "Mv binding spec" >}} has the form
 ```
 ((\hyperi{formals} \hyperi{init}) \dotsfoo)\rm,
@@ -780,7 +780,7 @@ zero or more definitions followed by a sequence of one or
 more expressions as described in section~\ref{lambda}.  It is an error for a variable to appear more than
 once in the set of {{< hyper "formals" >}}.
 
-\semantics
+_Semantics:_
 The {{< hyper "init" >}}s are evaluated in the current environment (in some
 unspecified order) as if by invoking ``call-with-values``, and the
 variables occurring in the {{< hyper "formals" >}} are bound to fresh locations
@@ -807,7 +807,7 @@ values returned by the corresponding {{< hyper "init" >}}.
 \proto{let*-values}{ {{< hyper "mv binding spec" >}} {{< hyper "body" >}}}{syntax}}\nobreak
 
 \nobreak
-\syntax
+_Syntax:_
 {{< hyper "Mv binding spec" >}} has the form
 ```
 (({{< hyper "formals" >}} {{< hyper "init" >}}) \dotsfoo)\rm,
@@ -816,7 +816,7 @@ and {{< hyper "body" >}} is a sequence of zero or more
 definitions followed by one or more expressions as described in section~\ref{lambda}.  In each {{< hyper "formals" >}},
 it is an error if any variable appears more than once.
 
-\semantics
+_Semantics:_
 The ``let*-values`` construct is similar to ``let-values``, but the
 {{< hyper "init" >}}s are evaluated and bindings created sequentially from
 left to right, with the region of the bindings of each {{< hyper "formals" >}}
@@ -895,11 +895,11 @@ see section~\ref{librarydeclarations}.
     ({{< hyper "test" >}} {{< hyper "expression" >}} \dotsfoo)\\
   {{< hyper "command" >}} \dotsfoo)}
 
-\syntax
+_Syntax:_
 All of {{< hyper "init" >}}, {{< hyper "step" >}}, {{< hyper "test" >}}, and {{< hyper "command" >}}
 are expressions.
 
-\semantics
+_Semantics:_
 A ``do`` expression is an iteration construct.  It specifies a set of variables to
 be bound, how they are to be initialized at the start, and how they are
 to be updated on each iteration.  When a termination condition is met,
@@ -951,7 +951,7 @@ been written instead of {\cf({{< hyper "variable" >}} {{< hyper "init" >}})}.
 \rproto{let}{ {{< hyper "variable" >}} {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 
 {{< label "namedlet" >}}
-\semantics
+_Semantics:_
 "Named ``let``" is a variant on the syntax of \ide{let} which provides
 a more general looping construct than ``do`` and can also be used to express
 recursion.
@@ -987,7 +987,7 @@ invoking the procedure named by {{< hyper "variable" >}}.
 
 
 
-\semantics
+_Semantics:_
 The ``delay`` construct is used together with the procedure \ide{force} to
 implement \defining{lazy evaluation} or \defining{call by need}.
 {\tt(delay~{{< hyper "expression" >}})} returns an object called a
@@ -1005,7 +1005,7 @@ is unspecified.
 
 
 
-\semantics
+_Semantics:_
 The expression ``(delay-force _expression``)_ is conceptually similar to
 ``(delay (force _expression``))_,
 with the difference that forcing the result
@@ -1188,11 +1188,11 @@ implementation-dependent.
 \hspace*{1em}{{< hyper "body" >}})}}
 \mainschindex{parameterize}
 
-\syntax
+_Syntax:_
 Both \hyperi{param} and \hyperi{value} are expressions.
 
 \domain{It is an error if the value of any {{< hyper "param" >}} expression is not a parameter object.}
-\semantics
+_Semantics:_
 A ``parameterize`` expression is used to change the values returned by
 specified parameter objects during the evaluation of the body.
 
@@ -1257,10 +1257,10 @@ procedure in the call chain explicitly.
 }
 \mainschindex{guard}
 
-\syntax
+_Syntax:_
 Each {{< hyper "cond clause" >}} is as in the specification of ``cond``.
 
-\semantics
+_Semantics:_
 The {{< hyper "body" >}} is evaluated with an exception
 handler that binds the raised object (see \ide{raise} in section~\ref{exceptionsection})
 to {{< hyper "variable" >}} and, within the scope of
@@ -1411,13 +1411,13 @@ otherwise than as described above.
 \begin{entry}{
 \proto{case-lambda}{ {{< hyper "clause" >}} \dotsfoo}{case-lambda library syntax}}
 
-\syntax
+_Syntax:_
 Each {{< hyper "clause" >}} is of the form
 ({{< hyper "formals" >}} {{< hyper "body" >}}),
 where {{< hyper "formals" >}} and {{< hyper "body" >}} have the same syntax
 as in a \lambdaexp.
 
-\semantics
+_Semantics:_
 A ``case-lambda`` expression evaluates to a procedure that accepts
 a variable number of arguments and is lexically scoped in the same
 manner as a procedure resulting from a \lambdaexp. When the procedure
@@ -1518,7 +1518,7 @@ see section~\ref{define-syntax}.
 \begin{entry}{
 \proto{let-syntax}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 
-\syntax
+_Syntax:_
 {{< hyper "Bindings" >}} has the form
 ```
 (({{< hyper "keyword" >}} {{< hyper "transformer spec" >}}) \dotsfoo)
@@ -1530,7 +1530,7 @@ by one or more expressions.  It is an error
 for a {{< hyper "keyword" >}} to appear more than once in the list of keywords
 being bound.
 
-\semantics
+_Semantics:_
 The {{< hyper "body" >}} is expanded in the syntactic environment
 obtained by extending the syntactic environment of the
 ``let-syntax`` expression with macros whose keywords are
@@ -1558,10 +1558,10 @@ Each binding of a {{< hyper "keyword" >}} has {{< hyper "body" >}} as its region
 \begin{entry}{
 \proto{letrec-syntax}{ {{< hyper "bindings" >}} {{< hyper "body" >}}}{syntax}}
 
-\syntax
+_Syntax:_
 Same as for ``let-syntax``.
 
-\semantics
+_Semantics:_
  The {{< hyper "body" >}} is expanded in the syntactic environment obtained by
 extending the syntactic environment of the ``letrec-syntax``
 expression with macros whose keywords are the
@@ -1612,7 +1612,7 @@ A {{< hyper "transformer spec" >}} has one of the following forms:
 \pproto{\dotsfoo}{\auxiliarytype}}
 \mainschindex{_}
 
-\syntax
+_Syntax:_
 It is an error if any of the {{< hyper "literal" >}}s, or the {{< hyper "ellipsis" >}} in the second form,
 is not an identifier.
 It is also an error if
@@ -1647,7 +1647,7 @@ An {{< hyper "ellipsis" >}} is the identifier specified in the second form
 of ``syntax-rules``, or the default identifier ``...``
 (three consecutive periods) otherwise.\schindex{...}
 
-\semantics An instance of ``syntax-rules`` produces a new macro
+_Semantics:_ An instance of ``syntax-rules`` produces a new macro
 transformer by specifying a sequence of hygienic rewrite rules.  A use
 of a macro whose keyword is associated with a transformer specified by
 ``syntax-rules`` is matched against the patterns contained in the

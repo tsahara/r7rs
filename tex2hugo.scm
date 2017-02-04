@@ -51,6 +51,8 @@
 		       #/\\rsevenrs/          "{{< rnrs 7 >}}"
 		       #/\\schfalse{}/        "{{< tt \"#f\" >}}"
 		       #/\\schtrue{}/         "{{< tt \"#t\" >}}"
+		       #/\\semantics/         "_Semantics:_"
+		       #/\\syntax/            "_Syntax:_"
 		       #/\\var{(.*?)}/        "_\\1_"
 
 		       #/%+\n/ "\n"

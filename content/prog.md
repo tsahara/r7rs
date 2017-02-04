@@ -227,7 +227,7 @@ It is allowed wherever ``define`` is allowed.
 
 It is an error if a variable appears more than once in the set of {{< hyper "formals" >}}.
 
-\semantics
+_Semantics:_
 {{< hyper "Expression" >}} is evaluated, and the {{< hyper "formals" >}} are bound
 to the return values in the same way that the {{< hyper "formals" >}} in a
 ``lambda`` expression are matched to the arguments in a procedure
@@ -324,7 +324,7 @@ mutators are defined for each record type.
 \pproto{(define-record-type {{< hyper "name" >}}}{syntax}
 \hspace*{4em}{\tt {{< hyper "constructor" >}} {{< hyper "pred" >}} {{< hyper "field" >}} \dotsfoo})}
 
-\syntax
+_Syntax:_
 {{< hyper "name" >}} and {{< hyper "pred" >}} are identifiers.
 The {{< hyper "constructor" >}} is of the form
 ```
