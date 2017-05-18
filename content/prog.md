@@ -22,11 +22,11 @@ are allowed, specifically at the outermost level of a {{< hyper "program" >}}
 and at the beginning of a {{< hyper "body" >}}.
 
 
-At the outermost level of a program, {\tt(begin \hyperi{expression or definition} \dotsfoo)} is
+At the outermost level of a program, {\tt(begin \hyperi{expression or definition} ...)} is
 equivalent to the sequence of expressions and definitions
 in the \ide{begin}.
-Similarly, in a {{< hyper "body" >}}, {\tt(begin \hyperi{definition} \dotsfoo)} is equivalent
-to the sequence \hyperi{definition} \dotsfoo.
+Similarly, in a {{< hyper "body" >}}, {\tt(begin \hyperi{definition} ...)} is equivalent
+to the sequence \hyperi{definition} ....
 Macros can expand into such ``begin`` forms.
 For the formal definition, see~\ref{sequencing}.
 
@@ -53,7 +53,7 @@ mapping from the name of a library to its location in the file system.
 
 An import declaration takes the following form:
 ```
-(import {{< hyper "import-set" >}} \dotsfoo)
+(import {{< hyper "import-set" >}} ...)
 ```
 
 An import declaration provides a way to import identifiers
@@ -63,12 +63,12 @@ imported bindings. It takes one of the following forms:
 
 
 - {\tt{{< hyper "library name" >}}}
-- {\tt(only {{< hyper "import set" >}} {{< hyper "identifier" >}} \dotsfoo)}
-- {\tt(except {{< hyper "import set" >}} {{< hyper "identifier" >}} \dotsfoo)}
+- {\tt(only {{< hyper "import set" >}} {{< hyper "identifier" >}} ...)}
+- {\tt(except {{< hyper "import set" >}} {{< hyper "identifier" >}} ...)}
 - {\tt(prefix {{< hyper "import set" >}} {{< hyper "identifier" >}})}
 - {\tt(rename {{< hyper "import set" >}}\\
 {\obeyspaces
-\hspace*{4em}(\hyperi{identifier} \hyperii{identifier}) \dotsfoo)}}
+\hspace*{4em}(\hyperi{identifier} \hyperii{identifier}) ...)}}
 
 
 In the first form, all of the identifiers in the named library's export
@@ -210,7 +210,7 @@ It is an error to define the same identifier more than once in the
 same {{< hyper "body" >}}.
 
 Wherever an internal definition can occur,
-{\tt(begin \hyperi{definition} \dotsfoo)}
+{\tt(begin \hyperi{definition} ...)}
 is equivalent to the sequence of definitions
 that form the body of the \ide{begin}.
 
@@ -321,13 +321,13 @@ mutators are defined for each record type.
 \begin{entry}{
 \mainschindex{define-record-type}
 \pproto{(define-record-type {{< hyper "name" >}}}{syntax}
-\hspace*{4em}{\tt {{< hyper "constructor" >}} {{< hyper "pred" >}} {{< hyper "field" >}} \dotsfoo})}
+\hspace*{4em}{\tt {{< hyper "constructor" >}} {{< hyper "pred" >}} {{< hyper "field" >}} ...})}
 
 _Syntax:_
 {{< hyper "name" >}} and {{< hyper "pred" >}} are identifiers.
 The {{< hyper "constructor" >}} is of the form
 ```
-({{< hyper "constructor name" >}} {{< hyper "field name" >}} \dotsfoo)
+({{< hyper "constructor name" >}} {{< hyper "field name" >}} ...)
 ```
 and each {{< hyper "field" >}} is either of the form
 ```
@@ -360,7 +360,7 @@ means to identify the record type for use by further language extensions.
 
 - {{< hyper "constructor name" >}} is bound to a procedure that takes as
   many arguments as there are {{< hyper "field name" >}}s in the
-  \texttt{({{< hyper "constructor name" >}} \dotsfoo)} subexpression and returns a
+  \texttt{({{< hyper "constructor name" >}} ...)} subexpression and returns a
   new record of type {{< hyper "name" >}}.  Fields whose names are listed with
   {{< hyper "constructor name" >}} have the corresponding argument as their
   initial value.  The initial values of all other fields are
@@ -426,7 +426,7 @@ A library definition takes the following form:
 
 ```
 (define-library {{< hyper "library name" >}}
-  {{< hyper "library declaration" >}} \dotsfoo)
+  {{< hyper "library declaration" >}} ...)
 ```
 
 {{< hyper "library name" >}} is a list whose members are identifiers and exact non-negative integers.  It is used to
@@ -445,19 +445,19 @@ A {{< hyper "library declaration" >}} is any of:
 
 
 
-\item{\tt(export {{< hyper "export spec" >}} \dotsfoo)}
+\item{\tt(export {{< hyper "export spec" >}} ...)}
 
-\item{\tt(import {{< hyper "import set" >}} \dotsfoo)}
+\item{\tt(import {{< hyper "import set" >}} ...)}
 
-\item{\tt(begin {{< hyper "command or definition" >}} \dotsfoo)}
+\item{\tt(begin {{< hyper "command or definition" >}} ...)}
 
-\item{\tt(include \hyperi{filename} \hyperii{filename} \dotsfoo)}
+\item{\tt(include \hyperi{filename} \hyperii{filename} ...)}
 
-\item{\tt(include-ci \hyperi{filename} \hyperii{filename} \dotsfoo)}
+\item{\tt(include-ci \hyperi{filename} \hyperii{filename} ...)}
 
-\item{\tt(include-library-declarations \hyperi{filename} \hyperii{filename} \dotsfoo)}
+\item{\tt(include-library-declarations \hyperi{filename} \hyperii{filename} ...)}
 
-\item{\tt(cond-expand \hyperi{ce-clause} \hyperii{ce-clause} \dotsfoo)}
+\item{\tt(cond-expand \hyperi{ce-clause} \hyperii{ce-clause} ...)}
 
 
 

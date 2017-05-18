@@ -813,11 +813,11 @@ Otherwise it returns {{< tt "#f" >}}.
 
 
 \begin{entry}{
-\proto{=}{ \vri{z} \vrii{z} \vriii{z} \dotsfoo}{procedure}
-\proto{<}{ \vri{x} \vrii{x} \vriii{x} \dotsfoo}{procedure}
-\proto{>}{ \vri{x} \vrii{x} \vriii{x} \dotsfoo}{procedure}
-\proto{<=}{ \vri{x} \vrii{x} \vriii{x} \dotsfoo}{procedure}
-\proto{>=}{ \vri{x} \vrii{x} \vriii{x} \dotsfoo}{procedure}}
+\proto{=}{ \vri{z} \vrii{z} \vriii{z} ...}{procedure}
+\proto{<}{ \vri{x} \vrii{x} \vriii{x} ...}{procedure}
+\proto{>}{ \vri{x} \vrii{x} \vriii{x} ...}{procedure}
+\proto{<=}{ \vri{x} \vrii{x} \vriii{x} ...}{procedure}
+\proto{>=}{ \vri{x} \vrii{x} \vriii{x} ...}{procedure}}
 
 These procedures return {{< tt "#t" >}} if their arguments are (respectively):
 equal, monotonically increasing, monotonically decreasing,
@@ -864,8 +864,8 @@ returning {{< tt "#t" >}} or \schfalse.  See note above.
 \end{entry}
 
 \begin{entry}{
-\proto{max}{ \vri{x} \vrii{x} \dotsfoo}{procedure}
-\proto{min}{ \vri{x} \vrii{x} \dotsfoo}{procedure}}
+\proto{max}{ \vri{x} \vrii{x} ...}{procedure}
+\proto{min}{ \vri{x} \vrii{x} ...}{procedure}}
 
 These procedures return the maximum or minimum of their arguments.
 
@@ -888,8 +888,8 @@ restriction.
 
 
 \begin{entry}{
-\proto{+}{ \vri{z} \dotsfoo}{procedure}
-\proto{*}{ \vri{z} \dotsfoo}{procedure}}
+\proto{+}{ \vri{z} ...}{procedure}
+\proto{*}{ \vri{z} ...}{procedure}}
 
 These procedures return the sum or product of their arguments.
 
@@ -906,9 +906,9 @@ These procedures return the sum or product of their arguments.
 
 \begin{entry}{
 \proto{-}{ \vr{z}}{procedure}
-\rproto{-}{ \vri{z} \vrii{z} \dotsfoo}{procedure}
+\rproto{-}{ \vri{z} \vrii{z} ...}{procedure}
 \proto{/}{ \vr{z}}{procedure}
-\rproto{/}{ \vri{z} \vrii{z} \dotsfoo}{procedure}}
+\rproto{/}{ \vri{z} \vrii{z} ...}{procedure}}
 
 With two or more arguments, these procedures return the difference or
 quotient of their arguments, associating to the left.  With one argument,
@@ -1012,8 +1012,8 @@ versions of this report.
 \end{entry}
 
 \begin{entry}{
-\proto{gcd}{ \vri{n} \dotsfoo}{procedure}
-\proto{lcm}{ \vri{n} \dotsfoo}{procedure}}
+\proto{gcd}{ \vri{n} ...}{procedure}
+\proto{lcm}{ \vri{n} ...}{procedure}}
 
 These procedures return the greatest common divisor or least common
 multiple of their arguments.  The result is always non-negative.
@@ -1502,7 +1502,7 @@ The ``boolean?`` predicate returns {{< tt "#t" >}} if _obj_ is either {{< tt "#t
 \end{entry}
 
 \begin{entry}{
-\proto{boolean=?}{ \vari{boolean} \varii{boolean} \variii{boolean} \dotsfoo}{procedure}}
+\proto{boolean=?}{ \vari{boolean} \varii{boolean} \variii{boolean} ...}{procedure}}
 
 Returns {{< tt "#t" >}} if all the arguments are booleans and all
 are {{< tt "#t" >}} or all are {{< tt "#f" >}}.
@@ -1788,7 +1788,7 @@ Otherwise the initial contents of each element is unspecified.
 
 
 \begin{entry}{
-\proto{list}{ _obj_ \dotsfoo}{procedure}}
+\proto{list}{ _obj_ ...}{procedure}}
 
 Returns a newly allocated list of its arguments.
 
@@ -1815,7 +1815,7 @@ Returns the length of _list_.
 
 
 \begin{entry}{
-\proto{append}{ list \dotsfoo}{procedure}}
+\proto{append}{ list ...}{procedure}}
 
 \domain{The last argument, if there is one, can be of any type.}
 Returns a list consisting of the elements of the first _list_
@@ -2041,7 +2041,7 @@ Returns {{< tt "#t" >}} if _obj_ is a symbol, otherwise returns \schfalse.
 \end{entry}
 
 \begin{entry}{
-\proto{symbol=?}{ \vari{symbol} \varii{symbol} \variii{symbol} \dotsfoo}{procedure}}
+\proto{symbol=?}{ \vari{symbol} \varii{symbol} \variii{symbol} ...}{procedure}}
 
 Returns {{< tt "#t" >}} if all the arguments are symbols and all have the same
 names in the sense of ``string=?``.
@@ -2173,11 +2173,11 @@ Returns {{< tt "#t" >}} if _obj_ is a character, otherwise returns \schfalse.
 
 
 \begin{entry}{
-\proto{char=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}
-\proto{char<?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}
-\proto{char>?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}
-\proto{char<=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}
-\proto{char>=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{procedure}}
+\proto{char=?}{ \vri{char} \vrii{char} \vriii{char} ...}{procedure}
+\proto{char<?}{ \vri{char} \vrii{char} \vriii{char} ...}{procedure}
+\proto{char>?}{ \vri{char} \vrii{char} \vriii{char} ...}{procedure}
+\proto{char<=?}{ \vri{char} \vrii{char} \vriii{char} ...}{procedure}
+\proto{char>=?}{ \vri{char} \vrii{char} \vriii{char} ...}{procedure}}
 
 {{< label "characterequality" >}}
 
@@ -2193,11 +2193,11 @@ These predicates are required to be transitive.
 
 
 \begin{entry}{
-\proto{char-ci=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{char library procedure}
-\proto{char-ci<?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{char library procedure}
-\proto{char-ci>?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{char library procedure}
-\proto{char-ci<=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{char library procedure}
-\proto{char-ci>=?}{ \vri{char} \vrii{char} \vriii{char} \dotsfoo}{char library procedure}}
+\proto{char-ci=?}{ \vri{char} \vrii{char} \vriii{char} ...}{char library procedure}
+\proto{char-ci<?}{ \vri{char} \vrii{char} \vriii{char} ...}{char library procedure}
+\proto{char-ci>?}{ \vri{char} \vrii{char} \vriii{char} ...}{char library procedure}
+\proto{char-ci<=?}{ \vri{char} \vrii{char} \vriii{char} ...}{char library procedure}
+\proto{char-ci>=?}{ \vri{char} \vrii{char} \vriii{char} ...}{char library procedure}}
 
 These procedures are similar to ``char=?`` et cetera, but they treat
 upper case and lower case letters as the same.  For example, {\cf
@@ -2391,7 +2391,7 @@ string are unspecified.
 \end{entry}
 
 \begin{entry}{
-\proto{string}{ char \dotsfoo}{procedure}}
+\proto{string}{ char ...}{procedure}}
 
 Returns a newly allocated string composed of the arguments.
 It is analogous to ``list``.
@@ -2435,7 +2435,7 @@ There is no requirement for this procedure to execute in constant time.
 
 
 \begin{entry}{
-\proto{string=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}}
+\proto{string=?}{ \vri{string} \vrii{string} \vriii{string} ...}{procedure}}
 
 Returns {{< tt "#t" >}} if all the strings are the same length and contain
 exactly the same characters in the same positions, otherwise returns
@@ -2444,7 +2444,7 @@ exactly the same characters in the same positions, otherwise returns
 \end{entry}
 
 \begin{entry}{
-\proto{string-ci=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}}
+\proto{string-ci=?}{ \vri{string} \vrii{string} \vriii{string} ...}{char library procedure}}
 
 Returns {{< tt "#t" >}} if, after case-folding, all the strings are the same
 length and contain the same characters in the same positions, otherwise
@@ -2455,14 +2455,14 @@ returns \schfalse.  Specifically, these procedures behave as if
 
 
 \begin{entry}{
-\proto{string<?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}
-\proto{string-ci<?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}
-\proto{string>?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}
-\proto{string-ci>?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}
-\proto{string<=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}
-\proto{string-ci<=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}
-\proto{string>=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{procedure}
-\proto{string-ci>=?}{ \vri{string} \vrii{string} \vriii{string} \dotsfoo}{char library procedure}}
+\proto{string<?}{ \vri{string} \vrii{string} \vriii{string} ...}{procedure}
+\proto{string-ci<?}{ \vri{string} \vrii{string} \vriii{string} ...}{char library procedure}
+\proto{string>?}{ \vri{string} \vrii{string} \vriii{string} ...}{procedure}
+\proto{string-ci>?}{ \vri{string} \vrii{string} \vriii{string} ...}{char library procedure}
+\proto{string<=?}{ \vri{string} \vrii{string} \vriii{string} ...}{procedure}
+\proto{string-ci<=?}{ \vri{string} \vrii{string} \vriii{string} ...}{char library procedure}
+\proto{string>=?}{ \vri{string} \vrii{string} \vriii{string} ...}{procedure}
+\proto{string-ci>=?}{ \vri{string} \vrii{string} \vriii{string} ...}{char library procedure}}
 
 These procedures return {{< tt "#t" >}} if their arguments are (respectively):
 monotonically increasing, monotonically decreasing,
@@ -2528,7 +2528,7 @@ stylistic flexibility.
 
 
 \begin{entry}{
-\proto{string-append}{ _string_ \dotsfoo}{procedure}}
+\proto{string-append}{ _string_ ...}{procedure}}
 
 Returns a newly allocated string whose characters are the concatenation of the
 characters in the given strings.
@@ -2622,7 +2622,7 @@ vector are the exact non-negative integers less than the length of the
 vector.  The first element in a vector is indexed by zero, and the last
 element is indexed by one less than the length of the vector.
 
-Vectors are written using the notation {\tt#(_obj_ \dotsfoo)}.
+Vectors are written using the notation {\tt#(_obj_ ...)}.
 For example, a vector of length 3 containing the number zero in element
 0, the list {\cf(2 2 2 2)} in element 1, and the string ``"Anna"`` in
 element 2 can be written as follows:
@@ -2652,7 +2652,7 @@ Otherwise the initial contents of each element is unspecified.
 
 
 \begin{entry}{
-\proto{vector}{ obj \dotsfoo}{procedure}}
+\proto{vector}{ obj ...}{procedure}}
 
 Returns a newly allocated vector whose elements contain the given
 arguments.  It is analogous to ``list``.
@@ -2799,7 +2799,7 @@ b \ev #(10 1 2 40 50)
 \end{entry}
 
 \begin{entry}{
-\proto{vector-append}{ _vector_ \dotsfoo}{procedure}}
+\proto{vector-append}{ _vector_ ...}{procedure}}
 
 Returns a newly allocated vector whose elements are the concatenation
 of the elements of the given vectors.
@@ -2843,7 +2843,7 @@ the bytevector is created.  The _valid indexes_ of
 a bytevector are the exact non-negative integers less than the length of the
 bytevector, starting at index zero as with vectors.
 
-Bytevectors are written using the notation {\tt#u8(_byte_ \dotsfoo)}.
+Bytevectors are written using the notation {\tt#u8(_byte_ ...)}.
 For example, a bytevector of length 3 containing the byte 0 in element
 0, the byte 10 in element 1, and the byte 5 in
 element 2 can be written as follows:
@@ -2878,7 +2878,7 @@ element are unspecified.
 \end{entry}
 
 \begin{entry}{
-\proto{bytevector}{ _byte_ \dotsfoo}{procedure}}
+\proto{bytevector}{ _byte_ ...}{procedure}}
 
 Returns a newly allocated bytevector containing its arguments.
 
@@ -2965,7 +2965,7 @@ contrary to other such procedures in Scheme.
 \end{entry}
 
 \begin{entry}{
-\proto{bytevector-append}{ _bytevector_ \dotsfoo}{procedure}}
+\proto{bytevector-append}{ _bytevector_ ...}{procedure}}
 
 Returns a newly allocated bytevector whose elements are the concatenation
 of the elements in the given bytevectors.
@@ -3035,7 +3035,7 @@ Returns {{< tt "#t" >}} if _obj_ is a procedure, otherwise returns \schfalse.
 \proto{apply}{ proc \vari{arg} $\ldots$ args}{procedure}}
 
 The ``apply`` procedure calls _proc_ with the elements of the list
-{\cf(append (list \vari{arg} \dotsfoo) _args_)} as the actual
+{\cf(append (list \vari{arg} ...) _args_)} as the actual
 arguments.
 
 ```
@@ -3052,7 +3052,7 @@ arguments.
 
 
 \begin{entry}{
-\proto{map}{ proc \vari{list} \varii{list} \dotsfoo}{procedure}}
+\proto{map}{ proc \vari{list} \varii{list} ...}{procedure}}
 
 \domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it list}s
@@ -3085,7 +3085,7 @@ the values returned by earlier returns are not mutated.
 \end{entry}
 
 \begin{entry}{
-\proto{string-map}{ proc \vari{string} \varii{string} \dotsfoo}{procedure}}
+\proto{string-map}{ proc \vari{string} \varii{string} ...}{procedure}}
 {{< label "stringmap" >}}
 
 \domain{It is an error if _proc_ does not
@@ -3119,7 +3119,7 @@ the values returned by earlier returns are not mutated.
 \end{entry}
 
 \begin{entry}{
-\proto{vector-map}{ proc \vari{vector} \varii{vector} \dotsfoo}{procedure}}
+\proto{vector-map}{ proc \vari{vector} \varii{vector} ...}{procedure}}
 
 \domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it vector}s
@@ -3153,7 +3153,7 @@ the values returned by earlier returns are not mutated.
 
 
 \begin{entry}{
-\proto{for-each}{ proc \vari{list} \varii{list} \dotsfoo}{procedure}}
+\proto{for-each}{ proc \vari{list} \varii{list} ...}{procedure}}
 
 \domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it list}s.}
@@ -3179,7 +3179,7 @@ It is an error for _proc_ to mutate any of the lists.
 \end{entry}
 
 \begin{entry}{
-\proto{string-for-each}{ proc \vari{string} \varii{string} \dotsfoo}{procedure}}
+\proto{string-for-each}{ proc \vari{string} \varii{string} ...}{procedure}}
 
 \domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it string}s.}
@@ -3204,7 +3204,7 @@ It is an error for _proc_ to mutate any of the strings.
 \end{entry}
 
 \begin{entry}{
-\proto{vector-for-each}{ proc \vari{vector} \varii{vector} \dotsfoo}{procedure}}
+\proto{vector-for-each}{ proc \vari{vector} \varii{vector} ...}{procedure}}
 
 \domain{It is an error if _proc_ does not
 accept as many arguments as there are {\it vector}s.}
@@ -3625,7 +3625,7 @@ returns \schfalse.
 ## 6.12. Environments and evaluation
 
 \begin{entry}{
-\proto{environment}{ \vri{list} \dotsfoo}{eval library procedure}}
+\proto{environment}{ \vri{list} ...}{eval library procedure}}
 {{< label "environments" >}}
 
 This procedure returns a specifier for the environment that results by

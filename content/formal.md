@@ -558,7 +558,7 @@ $\Ksem$ would complicate the semantics without being very interesting.
 If \P{} is a program in which all variables are defined before being
 referenced or assigned, then the meaning of \P{} is
 $$\Esem\sembrack{\hbox{\texttt{((lambda (\arbno{\I}) \P')
-{{< hyper "undefined" >}} \dotsfoo)}}}$$
+{{< hyper "undefined" >}} ...)}}}$$
 where \arbno{\I} is the sequence of variables defined in \P, $\P'$
 is the sequence of expressions obtained by replacing every definition
 in \P{} by an assignment, {{< hyper "undefined" >}} is an expression that evaluates

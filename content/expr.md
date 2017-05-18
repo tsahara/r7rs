@@ -101,7 +101,7 @@ As noted in section~\ref{storagemodel}, it is an error to attempt to alter a con
 ### 4.1.3. Procedure calls
 
 \begin{entry}{
-\pproto{({{< hyper "operator" >}} \hyperi{operand} \dotsfoo)}{syntax}}
+\pproto{({{< hyper "operator" >}} \hyperi{operand} ...)}{syntax}}
 
 A procedure call is written by enclosing in parentheses an
 expression for the procedure to be called followed by expressions for the arguments to be
@@ -192,7 +192,7 @@ the results of the procedure call.
 {{< hyper "Formals" >}} have one of the following forms:
 
 
-- {\tt(\hyperi{variable} \dotsfoo)}:
+- {\tt(\hyperi{variable} ...)}:
 The procedure takes a fixed number of arguments; when the procedure is
 called, the arguments will be stored in fresh locations
 that are bound to the corresponding variables.
@@ -204,7 +204,7 @@ allocated list, and the list is stored in a fresh location
 that is bound to
 {{< hyper "variable" >}}.
 
-- {\tt(\hyperi{variable} \dotsfoo{} {{< hyper "variable$_{n" >}}$} {\bf.}\
+- {\tt(\hyperi{variable} ...{} {{< hyper "variable$_{n" >}}$} {\bf.}\
 {{< hyper "variable$_{n+1" >}}$})}:
 If a space-delimited period precedes the last variable, then
 the procedure takes $n$ or more arguments, where $n$ is the
@@ -289,8 +289,8 @@ unspecified.
 ### 4.1.7. Inclusion
 {{< label "inclusion" >}}
 \begin{entry}{
-\proto{include}{ \hyperi{string} \hyperii{string} \dotsfoo}{syntax}
-\rproto{include-ci}{ \hyperi{string} \hyperii{string} \dotsfoo}{syntax}}
+\proto{include}{ \hyperi{string} \hyperii{string} ...}{syntax}
+\rproto{include-ci}{ \hyperi{string} \hyperii{string} ...}{syntax}}
 
 _Semantics:_
 Both \ide{include} and
@@ -325,14 +325,14 @@ into the primitive constructs described in the previous section.
 ### 4.2.1. Conditionals
 
 \begin{entry}{
-\proto{cond}{ \hyperi{clause} \hyperii{clause} \dotsfoo}{syntax}
+\proto{cond}{ \hyperi{clause} \hyperii{clause} ...}{syntax}
 \pproto{else}{\auxiliarytype}
 \pproto{=>}{\auxiliarytype}}
 
 _Syntax:_
 {{< hyper "Clauses" >}} take one of two forms, either
 ```
-({{< hyper "test" >}} \hyperi{expression} \dotsfoo)
+({{< hyper "test" >}} \hyperi{expression} ...)
 ```
 where {{< hyper "test" >}} is any expression, or
 ```
@@ -341,7 +341,7 @@ where {{< hyper "test" >}} is any expression, or
 The last {{< hyper "clause" >}} can be
 an "else clause," which has the form
 ```
-(else \hyperi{expression} \hyperii{expression} \dotsfoo)\rm.
+(else \hyperi{expression} \hyperii{expression} ...)\rm.
 ```
 \mainschindex{else}
 \mainschindex{=>}
@@ -387,23 +387,23 @@ the last one are returned.
 
 
 \begin{entry}{
-\proto{case}{ {{< hyper "key" >}} \hyperi{clause} \hyperii{clause} \dotsfoo}{syntax}}
+\proto{case}{ {{< hyper "key" >}} \hyperi{clause} \hyperii{clause} ...}{syntax}}
 
 _Syntax:_
 {{< hyper "Key" >}} can be any expression.  Each {{< hyper "clause" >}} has
 the form
 ```
-((\hyperi{datum} \dotsfoo) \hyperi{expression} \hyperii{expression} \dotsfoo)\rm,
+((\hyperi{datum} ...) \hyperi{expression} \hyperii{expression} ...)\rm,
 ```
 where each {{< hyper "datum" >}} is an external representation of some object.
 It is an error if any of the {{< hyper "datum" >}}s are the same anywhere in the expression.
 Alternatively, a {{< hyper "clause" >}} can be of the form
 ```
-((\hyperi{datum} \dotsfoo) => {{< hyper "expression" >}})
+((\hyperi{datum} ...) => {{< hyper "expression" >}})
 ```
 The last {{< hyper "clause" >}} can be an "else clause," which has one of the forms
 ```
-(else \hyperi{expression} \hyperii{expression} \dotsfoo)
+(else \hyperi{expression} \hyperii{expression} ...)
 ```
 or
 ```
@@ -450,7 +450,7 @@ procedure are returned by the ``case`` expression.
 
 
 \begin{entry}{
-\proto{and}{ \hyperi{test} \dotsfoo}{syntax}}
+\proto{and}{ \hyperi{test} ...}{syntax}}
 
 _Semantics:_
 The {{< hyper "test" >}} expressions are evaluated from left to right, and if
@@ -471,7 +471,7 @@ are no expressions, then {{< tt "#t" >}} is returned.
 
 
 \begin{entry}{
-\proto{or}{ \hyperi{test} \dotsfoo}{syntax}}
+\proto{or}{ \hyperi{test} ...}{syntax}}
 
 _Semantics:_
 The {{< hyper "test" >}} expressions are evaluated from left to right, and the value of the
@@ -491,7 +491,7 @@ or if there are no expressions, then {{< tt "#f" >}} is returned.
 \end{entry}
 
 \begin{entry}{
-\proto{when}{ {{< hyper "test" >}} \hyperi{expression} \hyperii{expression} \dotsfoo}{syntax}}
+\proto{when}{ {{< hyper "test" >}} \hyperi{expression} \hyperii{expression} ...}{syntax}}
 
 _Syntax:_
 The {{< hyper "test" >}} is an expression.
@@ -510,7 +510,7 @@ expression is unspecified.
 \end{entry}
 
 \begin{entry}{
-\proto{unless}{ {{< hyper "test" >}} \hyperi{expression} \hyperii{expression} \dotsfoo}{syntax}}
+\proto{unless}{ {{< hyper "test" >}} \hyperi{expression} \hyperii{expression} ...}{syntax}}
 
 _Syntax:_
 The {{< hyper "test" >}} is an expression.
@@ -529,7 +529,7 @@ expression is unspecified.
 \end{entry}
 
 \begin{entry}{
-\proto{cond-expand}{ \hyperi{ce-clause} \hyperii{ce-clause} \dotsfoo}{syntax}}
+\proto{cond-expand}{ \hyperi{ce-clause} \hyperii{ce-clause} ...}{syntax}}
 
 _Syntax:_
 The \ide{cond-expand} expression type
@@ -538,19 +538,19 @@ expand different expressions depending on the
 implementation.  A
 {{< hyper "ce-clause" >}} takes the following form:
 
-{\tt({{< hyper "feature requirement" >}} {{< hyper "expression" >}} \dotsfoo)}
+{\tt({{< hyper "feature requirement" >}} {{< hyper "expression" >}} ...)}
 
 The last clause can be an "else clause," which has the form
 
-{\tt(else {{< hyper "expression" >}} \dotsfoo)}
+{\tt(else {{< hyper "expression" >}} ...)}
 
 A {{< hyper "feature requirement" >}} takes one of the following forms:
 
 
 - {\tt{{< hyper "feature identifier" >}}}
 - {\tt(library {{< hyper "library name" >}})}
-- {\tt(and {{< hyper "feature requirement" >}} \dotsfoo)}
-- {\tt(or {{< hyper "feature requirement" >}} \dotsfoo)}
+- {\tt(and {{< hyper "feature requirement" >}} ...)}
+- {\tt(or {{< hyper "feature requirement" >}} ...)}
 - {\tt(not {{< hyper "feature requirement" >}})}
 
 
@@ -605,7 +605,7 @@ different identifiers to the returned values.
 _Syntax:_
 {{< hyper "Bindings" >}} has the form
 ```
-((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
+((\hyperi{variable} \hyperi{init}) ...)\rm,
 ```
 where each {{< hyper "init" >}} is an expression, and {{< hyper "body" >}} is a
 sequence of zero or more definitions followed by a
@@ -643,7 +643,7 @@ See also "named ``let``," section \ref{namedlet}.
 _Syntax:_
 {{< hyper "Bindings" >}} has the form
 ```
-((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
+((\hyperi{variable} \hyperi{init}) ...)\rm,
 ```
 and {{< hyper "body" >}} is a sequence of
 zero or more definitions followed by
@@ -673,7 +673,7 @@ The {{< hyper "variable" >}}s need not be distinct.
 _Syntax:_
 {{< hyper "Bindings" >}} has the form
 ```
-((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
+((\hyperi{variable} \hyperi{init}) ...)\rm,
 ```
 and {{< hyper "body" >}} is a sequence of
 zero or more definitions followed by
@@ -725,7 +725,7 @@ In the most common uses of ``letrec``, all the {{< hyper "init" >}}s are
 _Syntax:_
 {{< hyper "Bindings" >}} has the form
 ```
-((\hyperi{variable} \hyperi{init}) \dotsfoo)\rm,
+((\hyperi{variable} \hyperi{init}) ...)\rm,
 ```
 and {{< hyper "body" >}} is a sequence of
 zero or more definitions followed by
@@ -771,7 +771,7 @@ of an {{< hyper "init" >}} more than once.
 _Syntax:_
 {{< hyper "Mv binding spec" >}} has the form
 ```
-((\hyperi{formals} \hyperi{init}) \dotsfoo)\rm,
+((\hyperi{formals} \hyperi{init}) ...)\rm,
 ```
 
 where each {{< hyper "init" >}} is an expression, and {{< hyper "body" >}} is
@@ -809,7 +809,7 @@ values returned by the corresponding {{< hyper "init" >}}.
 _Syntax:_
 {{< hyper "Mv binding spec" >}} has the form
 ```
-(({{< hyper "formals" >}} {{< hyper "init" >}}) \dotsfoo)\rm,
+(({{< hyper "formals" >}} {{< hyper "init" >}}) ...)\rm,
 ```
 and {{< hyper "body" >}} is a sequence of zero or more
 definitions followed by one or more expressions as described in section~\ref{lambda}.  In each {{< hyper "formals" >}},
@@ -842,7 +842,7 @@ Both of Scheme's sequencing constructs are named ``begin``, but the two
 have slightly different forms and uses:
 
 \begin{entry}{
-\proto{begin}{ {{< hyper "expression or definition" >}} \dotsfoo}{syntax}}
+\proto{begin}{ {{< hyper "expression or definition" >}} ...}{syntax}}
 
 This form of ``begin`` can appear as part of a {{< hyper "body" >}}, or at the
 outermost level of a {{< hyper "program" >}}, or at the REPL, or directly nested
@@ -860,7 +860,7 @@ splice them into the context in which they are expanded.
 \end{entry}
 
 \begin{entry}{
-\rproto{begin}{ \hyperi{expression} \hyperii{expression} \dotsfoo}{syntax}}
+\rproto{begin}{ \hyperi{expression} \hyperii{expression} ...}{syntax}}
 
 This form of ``begin`` can be used as an ordinary expression.
 The {{< hyper "expression" >}}s are evaluated sequentially from left to right,
@@ -890,9 +890,9 @@ see section~\ref{librarydeclarations}.
 \noindent
 \pproto{(do ((\hyperi{variable} \hyperi{init} \hyperi{step})}{syntax}
 \mainschindex{do}{\tt\obeyspaces
-     \dotsfoo)\\
-    ({{< hyper "test" >}} {{< hyper "expression" >}} \dotsfoo)\\
-  {{< hyper "command" >}} \dotsfoo)}
+     ...)\\
+    ({{< hyper "test" >}} {{< hyper "expression" >}} ...)\\
+  {{< hyper "command" >}} ...)}
 
 _Syntax:_
 All of {{< hyper "init" >}}, {{< hyper "step" >}}, {{< hyper "test" >}}, and {{< hyper "command" >}}
@@ -1182,7 +1182,7 @@ implementation-dependent.
 \end{entry}
 
 \begin{entry}{
-\pproto{(parameterize ((\hyperi{param} \hyperi{value}) \dotsfoo)}{syntax}
+\pproto{(parameterize ((\hyperi{param} \hyperi{value}) ...)}{syntax}
 {\tt\obeyspaces
 \hspace*{1em}{{< hyper "body" >}})}}
 \mainschindex{parameterize}
@@ -1251,7 +1251,7 @@ procedure in the call chain explicitly.
 \begin{entry}{
 \pproto{(guard ({{< hyper "variable" >}}}{syntax}
 {\tt\obeyspaces
-\hspace*{4em}\hyperi{cond clause} \hyperii{cond clause} \dotsfoo)\\
+\hspace*{4em}\hyperi{cond clause} \hyperii{cond clause} ...)\\
 \hspace*{2em}{{< hyper "body" >}})}\\
 }
 \mainschindex{guard}
@@ -1408,7 +1408,7 @@ otherwise than as described above.
 ### 4.2.9. Case-lambda
 {{< label "caselambdasection" >}}
 \begin{entry}{
-\proto{case-lambda}{ {{< hyper "clause" >}} \dotsfoo}{case-lambda library syntax}}
+\proto{case-lambda}{ {{< hyper "clause" >}} ...}{case-lambda library syntax}}
 
 _Syntax:_
 Each {{< hyper "clause" >}} is of the form
@@ -1520,7 +1520,7 @@ see section~\ref{define-syntax}.
 _Syntax:_
 {{< hyper "Bindings" >}} has the form
 ```
-(({{< hyper "keyword" >}} {{< hyper "transformer spec" >}}) \dotsfoo)
+(({{< hyper "keyword" >}} {{< hyper "transformer spec" >}}) ...)
 ```
 Each {{< hyper "keyword" >}} is an identifier,
 each {{< hyper "transformer spec" >}} is an instance of ``syntax-rules``, and
@@ -1600,15 +1600,15 @@ introduced by the ``letrec-syntax`` expression.
 A {{< hyper "transformer spec" >}} has one of the following forms:
 
 \begin{entry}{
-\pproto{(syntax-rules ({{< hyper "literal" >}} \dotsfoo)}{syntax}
+\pproto{(syntax-rules ({{< hyper "literal" >}} ...)}{syntax}
 {\tt\obeyspaces
-\hspace*{1em}{{< hyper "syntax rule" >}} \dotsfoo)\\
+\hspace*{1em}{{< hyper "syntax rule" >}} ...)\\
 }
-\pproto{(syntax-rules {{< hyper "ellipsis" >}} ({{< hyper "literal" >}} \dotsfoo)}{syntax}
+\pproto{(syntax-rules {{< hyper "ellipsis" >}} ({{< hyper "literal" >}} ...)}{syntax}
 {\tt\obeyspaces
-\hspace*{1em}{{< hyper "syntax rule" >}} \dotsfoo)}\\
+\hspace*{1em}{{< hyper "syntax rule" >}} ...)}\\
 \pproto{_}{\auxiliarytype}
-\pproto{\dotsfoo}{\auxiliarytype}}
+\pproto{...}{\auxiliarytype}}
 \mainschindex{_}
 
 _Syntax:_
@@ -1675,7 +1675,7 @@ in the {{< hyper "literal" >}}s list, then that takes precedence and
 underscores in the {{< hyper "pattern" >}} match as literals.
 Multiple underscores can appear in a {{< hyper "pattern" >}}.
 
-Identifiers that appear in \texttt{({{< hyper "literal" >}} \dotsfoo)} are
+Identifiers that appear in \texttt{({{< hyper "literal" >}} ...)} are
 interpreted as literal
 identifiers to be matched against corresponding elements of the input.
 An element in the input matches a literal identifier if and only if it is an
@@ -1708,7 +1708,7 @@ More formally, an input expression $E$ matches a pattern $P$ if and only if:
       respectively, and whose $n$th tail matches $P_{n+1}$; or
 
 - $P$ is of the form
-      ``($P_1$ $\dots$ $P_k$ $P_e$ \meta{ellipsis`` $P_{m+1}$ \dotsfoo{} $P_n$)}
+      ``($P_1$ $\dots$ $P_k$ $P_e$ \meta{ellipsis`` $P_{m+1}$ ...{} $P_n$)}
       where $E$ is
       a proper list of $n$ elements, the first $k$ of which match
       $P_1$ through $P_k$, respectively,
@@ -1716,7 +1716,7 @@ More formally, an input expression $E$ matches a pattern $P$ if and only if:
       whose remaining $n-m$ elements match $P_{m+1}$ through $P_n$; or
 
 - $P$ is of the form
-      ``($P_1$ $\dots$ $P_k$ $P_{e``$ \meta{ellipsis} $P_{m+1}$ \dotsfoo{} $P_n$ . $P_x$)}
+      ``($P_1$ $\dots$ $P_k$ $P_{e``$ \meta{ellipsis} $P_{m+1}$ ...{} $P_n$ . $P_x$)}
       where $E$ is
       a list or improper list of $n$ elements, the first $k$ of which match
       $P_1$ through $P_k$,
@@ -1729,7 +1729,7 @@ More formally, an input expression $E$ matches a pattern $P$ if and only if:
       of $n$ elements that match $P_1$ through $P_n$; or
 
 - $P$ is of the form
-      ``#($P_1$ $\dots$ $P_k$ $P_{e``$ \meta{ellipsis} $P_{m+1}$ \dotsfoo $P_n$)}
+      ``#($P_1$ $\dots$ $P_k$ $P_{e``$ \meta{ellipsis} $P_{m+1}$ ... $P_n$)}
       where $E$ is a vector of $n$
       elements the first $k$ of which match $P_1$ through $P_k$,
       whose next $m-k$ elements each match $P_e$,
@@ -1825,7 +1825,7 @@ which would result in an invalid procedure call.
 
 
 \begin{entry}{
-\pproto{(syntax-error {{< hyper "message" >}} {{< hyper "args" >}} \dotsfoo)}{syntax}}
+\pproto{(syntax-error {{< hyper "message" >}} {{< hyper "args" >}} ...)}{syntax}}
 \mainschindex{syntax-error}
 
 ``syntax-error`` behaves similarly to ``error`` (\ref{exceptionsection}) except that implementations
