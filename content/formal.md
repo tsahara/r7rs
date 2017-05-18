@@ -1,8 +1,7 @@
 +++
 weight = 61
-title = "Formal syntax and semantics"
+title = "7 Formal syntax and semantics"
 menu = "main"
-chapter = 7
 +++
 # 7. Formal syntax and semantics
 {{< label "formalchapter" >}}

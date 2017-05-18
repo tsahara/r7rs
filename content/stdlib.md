@@ -1,6 +1,6 @@
 +++
 weight = 73
-title = "Standard Libraries"
+title = "A Standard Libraries"
 menu = "main"
 +++
 # Appendix A. Standard Libraries

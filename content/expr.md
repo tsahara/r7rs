@@ -1,8 +1,7 @@
 +++
 weight = 12
-title = "Expressions"
+title = "4 Expressions"
 menu = "main"
-chapter = 4
 +++
 # 4. Expressions
 {{< label "expressionchapter" >}}

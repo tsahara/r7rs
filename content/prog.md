@@ -1,8 +1,7 @@
 +++
 weight = 25
-title = "Program structure"
+title = "5 Program structure"
 menu = "main"
-chapter = 5
 +++
 # 5. Program structure
 {{< label "programchapter" >}}

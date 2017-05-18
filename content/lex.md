@@ -1,8 +1,7 @@
 +++
 weight = 7
-title = "Lexical conventions"
+title = "2 Lexical conventions"
 menu = "main"
-chapter = 2
 +++
 % Lexical structure
 

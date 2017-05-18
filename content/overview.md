@@ -1,8 +1,7 @@
 +++
 weight = 5
-title = "Overview of Scheme"
+title = "1 Overview of Scheme"
 menu = "main"
-chapter = 1
 +++
 # 1. Overview of Scheme
 

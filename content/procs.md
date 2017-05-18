@@ -1,8 +1,7 @@
 +++
 weight = 30
-title = "Standard procedures"
+title = "6 Standard procedures"
 menu = "main"
-chapter = 6
 +++
 % Initial environment
 

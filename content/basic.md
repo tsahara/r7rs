@@ -1,8 +1,7 @@
 +++
 weight = 9
-title = "Basic concepts"
+title = "3 Basic concepts"
 menu = "main"
-chapter = 3
 +++
 # 3. Basic concepts
 {{< label "basicchapter" >}}
