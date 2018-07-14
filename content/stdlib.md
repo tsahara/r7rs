@@ -6,9 +6,6 @@ menu = "main"
 # Appendix A. Standard Libraries
 {{< label "stdlibraries" >}}
 
-%% Note, this is used to generate stdmod.tex.  The bindings could be
-%% extracted automatically from the document, but this lets us choose
-%% the ordering and optionally format manually where needed.
 
 This section lists the exports provided by the standard libraries.  The
 libraries are factored so as to separate features which might not be

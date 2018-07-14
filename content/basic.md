@@ -37,7 +37,6 @@ variable binding constructs are ``let``, ``let*``, ``letrec``,
 and ``do`` expressions (see sections~\ref{lambda}, \ref{letrec}, and
 \ref{do}).
 
-%Note: internal definitions not mentioned here.
 
 Scheme is a language with
 block structure.  To each place where an identifier is bound in a program
@@ -171,10 +170,6 @@ It is an
 error to attempt to store a new value into a location that is denoted by an
 immutable object.
 
-%% If an implementation makes it impossible for any program to alter an
-%% immutable object, it may treat the object as a value (similar to a
-%% number, boolean, symbol, or the empty list) rather than as a container
-%% for immutable locations.
 
 
 These locations are to be understood as conceptual, not physical.

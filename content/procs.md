@@ -3,9 +3,7 @@ weight = 30
 title = "6 Standard procedures"
 menu = "main"
 +++
-% Initial environment
 
-%\vfill\eject
 # 6. Standard procedures
 {{< label "initialenv" >}}
 {{< label "builtinchapter" >}}
@@ -292,8 +290,6 @@ as ordered trees, and {{< tt "#f" >}} otherwise.  It returns the same as
 ports, procedures, and the empty list.  If two objects are ``eqv?``,
 they must be ``equal?`` as well.  In all other cases, ``equal?``
 may return either {{< tt "#t" >}} or {{< tt "#f" >}}.
-%% Note that records are ``equal?`` if their record types are the same
-%% and their correspondingly named fields are ``equal?``.
 
 Even if its arguments are
 circular data structures, ``equal?`` must always terminate.
@@ -573,11 +569,6 @@ implementation can prove that the result would be the same if the NaN
 were replaced by any rational number.  Dividing zero by zero results in
 NaN unless both zeros are exact.
 
-%% IEEE 754 specifies multiple NaN values.  Scheme generally does
-%% not care if there is a single value (bit pattern) for NaN,
-%% or if there are multiple values: if there are multiple NaN
-%% values, or just one, they are all equivalent in terms of Scheme
-%% computation.
 
 Negative zero is an inexact real value written ``-0.0`` and is distinct
 (in the sense of ``eqv?``) from ``0.0``.  A Scheme implementation
@@ -1202,14 +1193,6 @@ This is equivalent to \texttt{(``*`` _z_ _z_)}.
 (square 2.0)     \ev 4.0
 ```
 
-%% Removing this since it's inaccurate and not reflective of the
-%% real rationale most members listed.  We need a proper rationale
-%% document to go into detail.
-%% \begin{rationale}
-%% Taking the square of a large integer is more efficient than
-%% multiplying arbitrary integers, and floating-point processors often
-%% have a primitive square operator.
-%% \end{rationale}
 
 \end{entry}
 
@@ -3327,36 +3310,12 @@ The ``call-with-current-continuation`` procedure allows Scheme programmers to do
 that by creating a procedure that acts just like the current
 continuation.
 
-% Most programming languages incorporate one or more special-purpose
-% escape constructs with names like {\tt exit}, \hbox{``return``}, or
-% even {\tt goto}.  In 1965, however, Peter Landin {{< cite "Landin65" >}}
-% invented a general purpose escape operator called the J-operator.  John
-% Reynolds {{< cite "Reynolds72" >}} described a simpler but equally powerful
-% construct in 1972.  The ``catch`` syntax described by Sussman
-% and Steele in the 1975 report on Scheme is exactly the same as
-% Reynolds's construct, though its name came from a less general construct
-% in MacLisp.  Several Scheme implementers noticed that the full power of
-% \ide{catch} could be provided by a procedure instead of by a
-% special syntactic construct, and the name
-% ``call-with-current-continuation`` was coined in 1982.  This name is
-% descriptive, but opinions differ on the merits of such a long name, and
-% some people prefer the name \ide{call/cc} instead.
 
 \end{rationale}
 
-%% *Note:&nbsp;*
-%% The ``call/cc`` procedure is capable of capturing continuations
-%% originating outside of Scheme when Scheme is embedded in some host
-%% language. It is not always practical or even meaningful to restore
-%% these continuations.
 
 
 
-%% *Note:&nbsp;*
-%% The interactions of \callcc{} with ``dynamic-wind`` are defined by
-%% the formal semantics, but are hard to understand in complex cases.  In
-%% addition, in some implementations \callcc{} consumes an amount of
-%% memory that depends on the number of active continuations.
 
 \end{entry}
 
@@ -3618,7 +3577,6 @@ Error type predicates.  Returns {{< tt "#t" >}} if _obj_ is an
 object raised by the ``read`` procedure or by the inability to open
 an input or output port on a file, respectively.  Otherwise, it
 returns \schfalse.
-% Not required to be an error object.
 
 \end{entry}
 
@@ -3965,7 +3923,7 @@ If _port_ is omitted from any input procedure, it defaults to the
 value returned by ``(current-input-port)``.
 It is an error to attempt an input operation on a closed port.
 
-\noindent \hbox{ }  %???
+\noindent \hbox{ }
 \vspace{-5ex}
 
 

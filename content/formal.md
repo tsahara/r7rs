@@ -101,7 +101,6 @@ but a \meta{delimiter} or the end of file.
 {{< label "extendedalphas" >}}
 {{< label "identifiersyntax" >}}
 
-% This is a kludge, but \multicolumn doesn't work in tabbing environments.
 \setbox0\hbox{\cf\meta{identifier} \goesto{} $\langle$}
 
 Note that ``+i``, ``-i`` and \meta{infnan} below are exceptions to the
@@ -130,7 +129,6 @@ identifiers.
  \> \| \meta{explicit sign} \meta{sign subsequent} \arbno{\meta{subsequent}}
  \> \| \meta{explicit sign} . \meta{dot subsequent} \arbno{\meta{subsequent}}
  \> \| . \meta{dot subsequent} \arbno{\meta{subsequent}}
- %\| 1+ \| -1+
 \meta{dot subsequent} \: \meta{sign subsequent} \| .
 \meta{sign subsequent} \: \meta{initial} \| \meta{explicit sign} \| @
 \meta{symbol element} \:
@@ -474,7 +472,6 @@ un\-quo\-ta\-tion $D$} takes precedence.
 \> \| (or \arbno{\meta{feature requirement}})
 \> \| (not \meta{feature requirement})
 \end{grammar}
-%\vfill\eject
 ## 7.2. Formal semantics
 {{< label "formalsemanticssection" >}}
 
@@ -565,10 +562,6 @@ in \P{} by an assignment, {{< hyper "undefined" >}} is an expression that evalua
 to \fun{undefined}, and
 $\Esem$ is the semantic function that assigns meaning to expressions.
 
-%The semantics in this section was translated by machine from an
-%executable version of the semantics written in Scheme itself.
-%[This was once true, but then I modified the semantics without
-%going back to the executable version.  -- Will]
 
 
 ### 7.2.1. Abstract syntax
@@ -590,7 +583,7 @@ $\Esem$ is the semantic function that assigns meaning to expressions.
 \C & \elem & \Com{} $=$ \Exp & commands
 \end{tabular}
 
-\setbox0=\hbox{\texttt{\Exp \goesto{}}}  %\tt for spacing
+\setbox0=\hbox{\texttt{\Exp \goesto{}}}
 \setbox1=\hbox to 1\wd0{\hfil \|}
 \begin{grammar}
 \Exp{} \goesto{} \K{} \| \I{} \| (\E$_0$ \arbno{\E})
@@ -620,7 +613,6 @@ $\phi$     & \elem & \FUN &=& $\LOC\times(\arbno{\EXP} \to \DP \to \EC \to \CC)$
                                        & procedure values \\
 $\epsilon$ & \elem & \EXP &=& \makebox[0pt][l]{$\SYM+\CHR+\NUM+\PAI+\VEC+\STR+\MSC+\FUN$}\\
            &       &      & &          & expressed values \\
-%          &       & \STV &=& \EXP     & stored values \\
 $\sigma$   & \elem & \STO &=& $\LOC\to(\STV\times\TRU)$ & stores \\
 $\rho$     & \elem & \ENV &=& $\Ide\to\LOC$  & environments \\
 $\theta$   & \elem & \CC  &=& $\STO\to\ANS$  & command conts \\
@@ -786,7 +778,7 @@ be used in place of {\it unspecified}.
    \Csem\sembrack{\arbno{\C}}\rho\omega\theta)
 \end{semfun}
 
-\egroup  % end smallish
+\egroup
 
 ### 7.2.4. Auxiliary functions
 
@@ -888,7 +880,6 @@ be used in place of {\it unspecified}.
 \fun{truish}        :  \EXP \to \TRU$\\$
 \fun{truish} =
   \lambda\epsilon\:.\:
-%    (\epsilon = \fun{false}\vee\epsilon = \fun{null})\rightarrow
      \epsilon = \fun{false}\rightarrow
           \fun{false},
           \fun{true}
@@ -1013,12 +1004,12 @@ be used in place of {\it unspecified}.
 \end{semfun}
 
 \begin{semfun}
-\fun{cdr}          :  \arbno{\EXP} \to \DP \to \EC \to \CC %$\\$
+\fun{cdr}          :  \arbno{\EXP} \to \DP \to \EC \to \CC
 \hbox{\qquad [similar to \fun{car}]}
 \end{semfun}
 
 \begin{semfun}
-\fun{cdr-internal} :  \EXP \to \EC \to \CC %$\\$
+\fun{cdr-internal} :  \EXP \to \EC \to \CC
 \hbox{\qquad [similar to \fun{car-internal}]}
 \end{semfun}
 
@@ -1068,26 +1059,8 @@ be used in place of {\it unspecified}.
     \>  \>   \>$(\epsilon_2\:\vert\:\PAI))$\\
     \>  \>$\kappa,$\\
     \>$(\epsilon_1\:\elem\:\VEC\wedge\epsilon_2\:\elem\:\VEC)\rightarrow
-%\fun{send}\,
-%       $\=$((#(\epsilon_1\:\vert\:\VEC)=#(\epsilon_2\:\vert\:\VEC)
-%         \wedge\hbox{\rm Y}(\lambda\fun{loop}\:.\:\lambda\fun{v1}\fun{v2}\:.\:
-%       $\=$#\fun{v1}=0\rightarrow\fun{true},$\\
-%    \>  \>  \>$(\fun{v1}\elt 1) = (\fun{v2}\elt 1)\rightarrow
-%       \fun{loop}(\fun{v1}\drop 1)(\fun{v2}\drop 1),$\\
-%    \>  \>  \>$\go{1}\fun{false})(\epsilon_1\:\vert\:\VEC)(\epsilon_2\:\vert\:\VEC))
-%          \rightarrow\fun{true},$\\
-%    \>  \>$\go{1}\fun{false})\kappa
 \ldots,$\\
     \>$(\epsilon_1\:\elem\:\STR\wedge\epsilon_2\:\elem\:\STR)\rightarrow
-%\fun{send}\,
-%       $\=$((#(\epsilon_1\:\vert\:\STR)=#(\epsilon_2\:\vert\:\STR)\wedge
-%    \hbox{\rm Y}(\lambda\fun{loop}\:.\:\lambda\fun{v1}\fun{v2}\:.\:
-%       $\=$#\fun{v1}=0\rightarrow\fun{true},$\\
-%    \>  \>  \>$(\fun{v1}\elt 1) = (\fun{v2}\elt 1)\rightarrow
-%     \fun{loop}(\fun{v1}\drop 1)(\fun{v2}\drop 1),$\\
-%    \>  \>  \>$\go{1}\fun{false})(\epsilon_1\:\vert\:\STR)(\epsilon_2\:\vert\:\STR))
-%      \rightarrow\fun{true},$\\
-%    \>  \>$\go{1}\fun{false})\kappa
 \ldots,$\\
     \>$(\epsilon_1\:\elem\:\FUN\wedge\epsilon_2\:\elem\:\FUN)\rightarrow$\\
     \>$\go{1}\fun{send}\,
@@ -1244,7 +1217,7 @@ be used in place of {\it unspecified}.
 (\lambda\arbno{\epsilon}\:.\:\fun{applicate}\:\epsilon_2\:\arbno{\epsilon}\omega))
 \end{semfun}
 
-\egroup  % end smallish
+\egroup
 
 \egroup
 ## 7.3. Derived expression types

@@ -4,7 +4,7 @@ title = "Example"
 menu = "main"
 +++
 
-\extrapart{Example} % -*- Mode: Lisp; Package: SCHEME; Syntax: Common-lisp -*-
+\extrapart{Example}
 
 \nobreak
 The procedure ``integrate-system`` integrates the system

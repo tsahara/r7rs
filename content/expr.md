@@ -237,7 +237,7 @@ with a storage location, in order to make \ide{eqv?} and
 
 \begin{entry}{
 \proto{if}{ {{< hyper "test" >}} {{< hyper "consequent" >}} {{< hyper "alternate" >}}}{syntax}
-\rproto{if}{ {{< hyper "test" >}} {{< hyper "consequent" >}}}{syntax}}  %\/ if hyper = italic
+\rproto{if}{ {{< hyper "test" >}} {{< hyper "consequent" >}}}{syntax}}
 
 _Syntax:_
 {{< hyper "Test" >}}, {{< hyper "consequent" >}}, and {{< hyper "alternate" >}} are
@@ -1754,8 +1754,6 @@ output by all of the elements they match in the input, distributed as
 indicated.  It is an error if the output cannot be built up as
 specified.
 
-%%% This description of output construction is very vague.  It should
-%%% probably be formalized, but that is not easy...
 
 Identifiers that appear in the template but are not pattern variables
 or the identifier

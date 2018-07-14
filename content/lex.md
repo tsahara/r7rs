@@ -3,9 +3,7 @@ weight = 7
 title = "2 Lexical conventions"
 menu = "main"
 +++
-% Lexical structure
 
-%%\vfill\eject
 # 2. Lexical conventions
 
 This section gives an informal account of some of the lexical
@@ -188,7 +186,6 @@ Backslash is used in the syntax for character constants
 constants (section~\ref{stringsection}) and identifiers
 (section~\ref{extendedalphas}).
 
-% A box used because \verb is not allowed in command arguments.
 \setbox0\hbox{\tt \verb"[" \verb"]" \verb"{" \verb"}"}
 \item[\copy0]
 Left and right square and curly brackets (braces)
